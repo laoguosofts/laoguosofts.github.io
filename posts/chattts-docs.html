@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>ChatTTS 踩过的五个坑——从显存爆掉到音色丢失，全记录 · 老郭软件铺</title>
+  
+<meta name="description" content="ChatTTS 上手很快，跑起来也简单，但真要稳定用起来，几个藏在背后的坑会让你怀疑人生。这篇是我踩完之后攒的避坑笔记。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/chattts-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ChatTTS 踩过的五个坑——从显存爆掉到音色丢失，全记录">
+<meta property="og:description" content="ChatTTS 上手很快，跑起来也简单，但真要稳定用起来，几个藏在背后的坑会让你怀疑人生。这篇是我踩完之后攒的避坑笔记。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/chattts-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/chattts-docs/chattts-features.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/chattts-docs/chattts-features.webp">
+
+<meta name="twitter:title" content="ChatTTS 踩过的五个坑——从显存爆掉到音色丢失，全记录">
+<meta name="twitter:description" content="ChatTTS 上手很快，跑起来也简单，但真要稳定用起来，几个藏在背后的坑会让你怀疑人生。这篇是我踩完之后攒的避坑笔记。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "ChatTTS \u4e0a\u624b\u5f88\u5feb\uff0c\u8dd1\u8d77\u6765\u4e5f\u7b80\u5355\uff0c\u4f46\u771f\u8981\u7a33\u5b9a\u7528\u8d77\u6765\uff0c\u51e0\u4e2a\u85cf\u5728\u80cc\u540e\u7684\u5751\u4f1a\u8ba9\u4f60\u6000\u7591\u4eba\u751f\u3002\u8fd9\u7bc7\u662f\u6211\u8e29\u5b8c\u4e4b\u540e\u6512\u7684\u907f\u5751\u7b14\u8bb0\u3002", "headline": "ChatTTS \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\u2014\u2014\u4ece\u663e\u5b58\u7206\u6389\u5230\u97f3\u8272\u4e22\u5931\uff0c\u5168\u8bb0\u5f55", "image": ["https://laoguosofts.github.io/images/chattts-docs/chattts-features.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/chattts-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/chattts-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "ChatTTS \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\u2014\u2014\u4ece\u663e\u5b58\u7206\u6389\u5230\u97f3\u8272\u4e22\u5931\uff0c\u5168\u8bb0\u5f55", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">ChatTTS 踩过的五个坑——从显存爆掉到音色丢失，全记录</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">ChatTTS 踩过的五个坑——从显存爆掉到音色丢失，全记录</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">ChatTTS 上手很快，跑起来也简单，但真要稳定用起来，几个藏在背后的坑会让你怀疑人生。这篇是我踩完之后攒的避坑笔记。</p>
+  </header>
+  <div class="prose serif">
+<p>第一次从<a href="https://chattts.usea.quest" target="_blank" rel="noopener">ChatTTS官网</a>拿到安装包，<a href="https://chattts.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a>页直接有现成的打包版本，装完依赖、加载模型、敲一行 <code>chat.infer(&quot;你好，世界&quot;)</code>，音箱里就出来声音了。当时觉得这东西也太省心了吧。</p>
+<p>然后我就开始用它做正事：批量合成一批角色台词、给短视频配音、把自己写的文章读成语音……坑就是在这个时候一个个冒出来的。有的是半夜跑脚本突然炸显存，有的是保存好的音色第二天起来变了调，还有一次朋友问我能不能帮他克隆个明星声音，我张口就说能，翻了半小时<a href="https://chattts-docs.pages.dev/" target="_blank" rel="noopener">ChatTTS文档</a>才发现根本不行。</p>
+<p>ChatTTS 看着简单，其实有几个地方容易翻船。下面按我踩坑的时间顺序说。</p>
+<h2>坑一：跑着跑着 GPU 突然炸了</h2>
+<p><strong>症状</strong>：脚本跑了半小时，中间突然抛异常——<code>RuntimeError: CUDA out of memory. Tried to allocate ...</code>。第一次遇到时我以为要重装 CUDA，甚至还重新装了一遍显卡驱动，问题没解决。</p>
+<p><strong>原因</strong>：ChatTTS 的模型权重本身不大（FP32 下约 1.2 GB），但中间缓存会随着生成长度和批量数线性增长。我当时把二十多段台词一次性扔给 <code>chat.infer()</code>，批量推理确实快，但显存占用直接翻倍了。而且当时浏览器还开着几个视频页，后台还有个训练脚本没关，几处加起来就爆了。</p>
+<p><strong>解法</strong>：最直接的是把批量大小从 10 降到 1 或 2。批量推理不一定总比逐条快——除非你一次性处理几十段以上，不然逐条跑更稳。另外长文本建议拆成 200~300 字的片段逐段合成，显存占用会小很多。</p>
+<p>清理显存的话，<code>torch.cuda.empty_cache()</code> 能释放 PyTorch 占的缓存，但浏览器、IDE、其他 Python 进程占的显存它管不着。真遇到显存紧张，<strong>重启 Python 进程比 empty_cache() 更彻底</strong>——这个经验记一下。</p>
+<p>实在跑不动就 CPU 降级：<code>chat.load(compile=False, device=&#x27;cpu&#x27;)</code>，速度慢 5~10 倍，但一定能跑通。我在没有显卡的笔记本上就是这么干的，虽然慢，但功能完整。</p>
+<h2>坑二：保存好的音色第二天起来变了调</h2>
+<p><strong>症状</strong>：前一天我在调一个角色的音色，采样了十来个，终于挑到一个满意的，存成了 JSON 文件。第二天跑脚本加载这个文件，出来的声音跟昨天完全不一样——不是完全变了个人，是音色特征对不上，听起来像两个说话人。</p>
+<p><strong>原因</strong>：说话人嵌入字符串是序列化的 JSON，本身没问题，但 ChatTTS 升级到新版本后，嵌入格式可能有差异。我前一天还是 0.2.2，第二天顺手 <code>pip install -U ChatTTS</code> 升到了 0.2.3，嵌入格式变了旧字符串就不兼容了。</p>
+<p><strong>解法</strong>：两个办法。一是<strong>别随便升级</strong>——如果手上有正在用的音色，先把版本锁死（<code>pip install ChatTTS==0.2.2</code>），确认新版本兼容再更。二是如果真不兼容了，重新采样即可，损失也不大，反正几百字节的字符串存起来没成本。</p>
+<p>顺便说一句，说话人嵌入跨设备是可以复用的——我在台式机上采样保存的 JSON，拷到笔记本上加载没问题，不同 GPU、不同操作系统都行。嵌入本身就是一个确定的向量，跟在哪个进程里采样的没关系。</p>
+<h2>坑三：以为能克隆声音，结果不行</h2>
+<p><strong>症状</strong>：一个朋友想让 ChatTTS 克隆某个电台主播的声音，他说听说 ChatTTS 支持"多说话人"。我没仔细想就说应该可以。然后他拿了主播的一段录音来，发现根本没地方把音频文件喂给模型。</p>
+<p><strong>原因</strong>：ChatTTS 的"多说话人"是从训练集中采样——<code>sample_random_speaker()</code> 返回的都是模型在训练时见过的说话人，不是让你上传一段录音来克隆。这个设计决定写在文档里，但太容易被忽略。</p>
+<p><strong>解法</strong>：如果需要声音克隆，得换其他项目——OpenVoice、so-vits-svc 都是专门干这个的。ChatTTS 定位是通用 TTS，不是克隆工具，别混为一谈。</p>
+<h2>坑四：批量推理反而更慢</h2>
+<p><strong>症状</strong>：我写了个批量处理脚本，把 50 段台词一次性扔给 <code>chat.infer()</code>，以为效率翻倍，结果总耗时比逐条跑还长。</p>
+<p><strong>原因</strong>：批量推理的优势在于共享模型加载开销——但模型加载只占整个流程不到 5%的时间，主要耗时是生成本身。批量越大，中间缓存越多，显存压力越大，反而可能触发显存分页，速度骤降。我之前一次处理 20 段时就遇到了这个情况，显存不够导致 GPU 在做内存交换。</p>
+<p><strong>解法</strong>：批量大小控制在 5 以内比较合适。如果是长文本分段处理，逐段跑就好，没必要强行批量。</p>
+<h2>坑五：合成出来带杂音，以为是模型坏了</h2>
+<p><strong>症状</strong>：第一次用的时候，合成出来的语音背景有沙沙的杂音，我以为下到了坏模型，重新下了两遍权重文件。</p>
+<p><strong>原因</strong>：官方有意在开源的 4 万小时模型里加了轻微背景杂音，用来做反滥用设计——防止有人拿开源模型做违法事情。10 万小时的主模型杂音更少但没有公开权重。所以你听到杂音不是模型坏了，是官方故意这样做的。</p>
+<p><strong>解法</strong>：如果杂音能接受就忍忍。实在在意的话，要么等主模型开源，要么后期用降噪工具处理一下。</p>
+<h2>防坑清单</h2>
+<p>写完了五个坑，列个速查表，下次开工前扫一眼：</p>
+<ul><li>显存紧张？先减批量大小和文本长度，实在不行 CPU 降级</li><li>升级前先锁版本，手上有在用的音色别乱更</li><li>批量推理控在 5 条以内，不是越多越快</li><li>杂音是官方故意的，不是模型坏了</li><li>需要声音克隆请换工具，ChatTTS 不做这个</li></ul>
+<p>知道这些坑之后，这软件其实相当省心。</p>
+<p>上面提到的这些排查思路和用法细节，开源仓库里都有完整文档维护，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/ChatTTS" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/ChatTTS" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/ChatTTS" target="_blank" rel="noopener">GitCode</a> 三个地方都能访问到，方便不同网络环境的人查阅。</p>
+<p><img src="../images/chattts-docs/chattts-features.webp" alt="ChatTTS 功能概览" loading="lazy"></p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/amethyst-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">手机玩 Java 版 Minecraft？Amethyst 启动器完全指南</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/notrack-ai.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">把&#34;不追踪&#34;写进产品基因——notrack.ai 的完整能力版图盘点</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

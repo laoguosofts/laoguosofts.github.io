@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了 · 老郭软件铺</title>
+  
+<meta name="description" content="朋友的技术博客想做个安卓客户端分发，我试过好几种壳工具都嫌重，最后捡了个 FusionApp，靠着拼组件和几行 Lua 就把 APK 打出来了——本文聊聊那两个夜晚我都折腾了些什么。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/fusionapp-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了">
+<meta property="og:description" content="朋友的技术博客想做个安卓客户端分发，我试过好几种壳工具都嫌重，最后捡了个 FusionApp，靠着拼组件和几行 Lua 就把 APK 打出来了——本文聊聊那两个夜晚我都折腾了些什么。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/fusionapp-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/fusionapp-docs/config-overview.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/fusionapp-docs/config-overview.jpg">
+
+<meta name="twitter:title" content="一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了">
+<meta name="twitter:description" content="朋友的技术博客想做个安卓客户端分发，我试过好几种壳工具都嫌重，最后捡了个 FusionApp，靠着拼组件和几行 Lua 就把 APK 打出来了——本文聊聊那两个夜晚我都折腾了些什么。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u670b\u53cb\u7684\u6280\u672f\u535a\u5ba2\u60f3\u505a\u4e2a\u5b89\u5353\u5ba2\u6237\u7aef\u5206\u53d1\uff0c\u6211\u8bd5\u8fc7\u597d\u51e0\u79cd\u58f3\u5de5\u5177\u90fd\u5acc\u91cd\uff0c\u6700\u540e\u6361\u4e86\u4e2a FusionApp\uff0c\u9760\u7740\u62fc\u7ec4\u4ef6\u548c\u51e0\u884c Lua \u5c31\u628a APK \u6253\u51fa\u6765\u4e86\u2014\u2014\u672c\u6587\u804a\u804a\u90a3\u4e24\u4e2a\u591c\u665a\u6211\u90fd\u6298\u817e\u4e86\u4e9b\u4ec0\u4e48\u3002", "headline": "\u4e00\u4e2a\u72ec\u7acb\u535a\u5ba2\u7684\u5b89\u5353 App\uff0c\u6211\u7528 FusionApp \u5728\u4e24\u4e2a\u591c\u665a\u641e\u5b9a\u4e86", "image": ["https://laoguosofts.github.io/images/fusionapp-docs/config-overview.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/fusionapp-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/fusionapp-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e00\u4e2a\u72ec\u7acb\u535a\u5ba2\u7684\u5b89\u5353 App\uff0c\u6211\u7528 FusionApp \u5728\u4e24\u4e2a\u591c\u665a\u641e\u5b9a\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">朋友的技术博客想做个安卓客户端分发，我试过好几种壳工具都嫌重，最后捡了个 FusionApp，靠着拼组件和几行 Lua 就把 APK 打出来了——本文聊聊那两个夜晚我都折腾了些什么。</p>
+  </header>
+  <div class="prose serif">
+<p>周五晚上十点，朋友在微信上戳我：「能不能帮我给博客整个安卓 App？」</p>
+<p>他那博客是自己搭的 Hugo 站，每天两三篇技术短文，读者微信群里总有人问「有没有客户端可以装手机上」，他自己不会写 Java，外包报价起步两万，就想到我这个折腾党。我本来想随便找个 WebView 壳工具应付一下——以前也这么干过，套个壳，加个启动图，打个包就完事。但这回他提了几个正经需求：侧边栏要挂各个栏目入口、顶栏要有站内搜索、点文章里的外链要在应用内用浏览器控件打开、还要能调出来一个设置页面让用户切换夜间模式。</p>
+<p>我翻出以前收藏的几个壳工具挨个试，要么不支持侧滑栏，要么搜索栏是死的不能挂回调，要么收费版才能改 WebView 的默认行为。折腾到十二点，我搜了一圈，搜到 <a href="https://fusionapp.fewf.ren" target="_blank" rel="noopener">fusionapp官网</a>。</p>
+<h2>拼积木一样搭界面：组件列表里挑挑拣拣</h2>
+<p>打开项目，第一眼看到的是组件编辑器——左边一栏是组件列表，有侧滑栏、顶栏、底部 Tab、悬浮按钮、WebView 控件、对话框模板，每个都能拖到右侧预览区。这玩意儿我之前在不少可视化搭建工具里见过，但 FusionApp 不一样：它不是让你画一个静态的 App 外观，而是每个组件都自带回调钩子，可以用 Lua 脚本挂事件。</p>
+<p>我先把他博客的主页链接填进了 WebView 控件的初始网址，预览区立刻跑起来了，就是个浏览器窗口。然后拖了一个侧滑栏组件上去——样本里提到的 drawer-list 那种，列表项目可以挂事件跳网址，子页面还能承载独立的第二界面。我把博客的四个栏目（教程、随笔、工具、归档）分别做成侧滑列表项，每个的点击事件直接跳对应的栏目路由。侧滑栏就这么成了，没有写一行 Java。</p>
+<p><img src="../images/fusionapp-docs/config-overview.jpg" alt="项目配置总览，左侧组件列表、中间预览区、右侧属性面板一目了然" loading="lazy"></p>
+<p>然后是顶栏搜索。样本里说 FusionApp 的顶栏搜索有专门的 UI 事件回调函数——名字、参数、写法都给了模板。我照着模板写了两行 Lua：用户在搜索框输入关键词点确认，把他博客的站内搜索链接拼一下，然后把 WebView 导航过去。以前用其他壳工具，想让搜索栏真的有用，要么买付费版要么硬改源码，这下两行脚本解决了。</p>
+<h2>把 APK 打出来的那一刻我愣了一下</h2>
+<p>界面拼完了，脚本也挂好了，我点了一下工具栏里的「构建 APK」按钮。进度条跑完，弹出一个文件保存对话框——54KB 的安装包落在桌面上。我愣了一下，因为以前用另一个壳工具打出来的 APK 动辄四五十 MB，这个只有 54KB？仔细看才发现 FusionApp 把 WebView 引擎内嵌得很精简，没有多余资源。顺手去 <a href="https://fusionapp.fewf.ren/download.html" target="_blank" rel="noopener">下载</a> 页看了一眼，还有好几个预制的模板项目能直接改。</p>
+<p>装到手机上跑了一遍：侧滑栏能拉出来、点栏目能跳转、顶栏搜东西确实能跳到搜索结果页、点文章里的外链也在应用内用浏览器控件打开了。唯一卡了一下的是夜间模式切换——样本里 FAQ 那页提到有些改动不生效，后来去 <a href="https://fusionapp-docs.pages.dev/" target="_blank" rel="noopener">fusionapp文档</a> 翻了 WebView API 那页才找到：要用 setNightMode 方法，不能直接改 CSS 变量。改了一行脚本，重启应用，切换就生效了。</p>
+<p><img src="../images/fusionapp-docs/build-apk.png" alt="一键构建 APK，进度条跑完就拿到安装包" loading="lazy"></p>
+<h2>周末复盘：这种工具的价值在哪</h2>
+<p>两个夜晚，总共不到五个小时，一个不会写 Java 的人，靠拼组件和几行 Lua 脚本就把一个独立博客的安卓客户端做出来了。朋友拿到 APK 直接传到了自己的网盘分享，当天微信群里就有三十多个人装了。</p>
+<p>我在想，FusionApp 这种工具真正厉害的地方不是「把网站套成 App」——这件事早就有几十种工具能做了。它厉害的是把每个组件的细节都开放出来让你用脚本调：侧滑栏的列表项能挂事件、顶栏搜索能接回调、WebView 控件能调前进后退和页内查找。这些细节，其他壳工具要么做不到，要么藏在付费版里。对于像我朋友这样的独立开发者、小站长、甚至只是想给自己的网站做个移动端入口的人来说，这种「能改细节」比「一键生成」值钱多了。</p>
+<p>后来我又把他的应用加了个启动图和夜间模式的快捷切换按钮，总共又写了十来行 Lua。整个开发过程我甚至没打开过 Android Studio——就 FusionApp 自己的编辑器，预览区实时跑，改完脚本保存立刻能看效果。这可能就是低代码工具该有的样子：简单的事情让你能拖拖拽拽搞定，复杂的细节又留了脚本接口让你能往下挖。</p>
+<p>如果你也有个网站想做个安卓客户端分发，或者想给自己的某个小工具加一层手机端的壳，FusionApp 值得试一试。它的文档写得很细，每个组件的属性、每个回调的参数、WebView 能用的 API 都列全了，踩坑的时候翻一翻基本能找到答案。我在写那篇夜间模式切换的时候卡了五分钟，翻了 WebView API 的那一节，直接就找到了 setNightMode 的用法。资料在三个仓库都能拿到，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/fusionapp" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/fusionapp" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/fusionapp" target="_blank" rel="noopener">GitCode</a> 上都有完整的文档目录，按你的网络环境选一个就好。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/fpa-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">FPA 免 Root 改包：快问快答，8 个问题说清怎么玩</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/exping.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了 exping 三年才发现，它藏着好几个官方不说的功能</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

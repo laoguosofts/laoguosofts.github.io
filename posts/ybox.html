@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>果园老板的监控自救：从蓝灯一直闪到手机看实况 · 老郭软件铺</title>
+  
+<meta name="description" content="老陈在山里装了四台4G摄像机盯果园，配网卡了三天、远程看卡成PPT，翻遍ybox文档才把问题一个个拆开——这篇讲他踩过的坑和真正管用的解法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ybox.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="果园老板的监控自救：从蓝灯一直闪到手机看实况">
+<meta property="og:description" content="老陈在山里装了四台4G摄像机盯果园，配网卡了三天、远程看卡成PPT，翻遍ybox文档才把问题一个个拆开——这篇讲他踩过的坑和真正管用的解法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ybox.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ybox/connect-options.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ybox/connect-options.jpg">
+
+<meta name="twitter:title" content="果园老板的监控自救：从蓝灯一直闪到手机看实况">
+<meta name="twitter:description" content="老陈在山里装了四台4G摄像机盯果园，配网卡了三天、远程看卡成PPT，翻遍ybox文档才把问题一个个拆开——这篇讲他踩过的坑和真正管用的解法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8001\u9648\u5728\u5c71\u91cc\u88c5\u4e86\u56db\u53f04G\u6444\u50cf\u673a\u76ef\u679c\u56ed\uff0c\u914d\u7f51\u5361\u4e86\u4e09\u5929\u3001\u8fdc\u7a0b\u770b\u5361\u6210PPT\uff0c\u7ffb\u904dybox\u6587\u6863\u624d\u628a\u95ee\u9898\u4e00\u4e2a\u4e2a\u62c6\u5f00\u2014\u2014\u8fd9\u7bc7\u8bb2\u4ed6\u8e29\u8fc7\u7684\u5751\u548c\u771f\u6b63\u7ba1\u7528\u7684\u89e3\u6cd5\u3002", "headline": "\u679c\u56ed\u8001\u677f\u7684\u76d1\u63a7\u81ea\u6551\uff1a\u4ece\u84dd\u706f\u4e00\u76f4\u95ea\u5230\u624b\u673a\u770b\u5b9e\u51b5", "image": ["https://laoguosofts.github.io/images/ybox/connect-options.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ybox.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ybox.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u679c\u56ed\u8001\u677f\u7684\u76d1\u63a7\u81ea\u6551\uff1a\u4ece\u84dd\u706f\u4e00\u76f4\u95ea\u5230\u624b\u673a\u770b\u5b9e\u51b5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">果园老板的监控自救：从蓝灯一直闪到手机看实况</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">果园老板的监控自救：从蓝灯一直闪到手机看实况</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">老陈在山里装了四台4G摄像机盯果园，配网卡了三天、远程看卡成PPT，翻遍ybox文档才把问题一个个拆开——这篇讲他踩过的坑和真正管用的解法。</p>
+  </header>
+  <div class="prose serif">
+<p>老陈的果园在半山腰，离最近的村庄三公里，拉宽带是不可能的。去年年底他在农资店老板推荐下，咬牙花了两千多装了四台太阳能板+4G的低功耗摄像机，想着开春后能在手机上盯着有没有人偷果子。</p>
+<p>结果设备拿到手的那三天，他差点把摄像机砸了。</p>
+<h2>蓝灯一直闪，App就是搜不到</h2>
+<p>包装上明明白白写着"用ybox客户端配对"，老陈在手机应用商店搜了ybox下来，注册时填了自己常年用的Hotmail邮箱，点发送验证邮件——五分钟没动静，重发还是没。他翻了翻垃圾邮件，什么都没有。折腾了半小时，算了，换QQ邮箱，这次秒收。后来才知道，<a href="https://ybox.fewz.tech" target="_blank" rel="noopener">ybox官网</a>的<a href="https://ybox.fewz.tech/download.html" target="_blank" rel="noopener">下载</a>上其实特意提醒过，国际邮箱域对验证类信件限制严，Hotmail和Outlook概率最高，QQ和163才是首选。</p>
+<p>邮箱搞定了，真正的噩梦才刚开始。</p>
+<p>四台摄像机按说明书先插SIM卡、再开机。老陈蹲在果树底下等，蓝灯快闪、慢闪、快闪、慢闪——他数着秒，等了足足三分钟，蓝灯还是没常亮。App里开了蓝牙扫设备，列表空空如也。</p>
+<p>他打电话问农资店老板，老板说你那地方信号本来就弱，再等等。老陈又等了五分钟，蓝灯终于稳住了不闪了。这次点开ybox选了"安装4G设备"分支，蓝牙一扫，设备MAC地址立刻弹出来了。点选中、绑定成功——蓝灯还是常亮，但这次App设备列表里实打实出现了四台机器的小图标。</p>
+<p>后来老陈才在<a href="https://ybox.pages.dev/" target="_blank" rel="noopener">ybox文档</a>里看到，蓝灯状态有三档：刚开机时快速闪烁是搜信号，慢速闪烁是搜到信号还没连上基站，<strong>常亮才是配网就绪的标志</strong>。蓝灯还在闪就开App搜设备，大概率搜不到。农村信号弱的地方，等30到60秒都算正常——他之前就是太急了，蓝灯还在慢闪就打开App，当然扫不到。</p>
+<p><img src="../images/ybox/connect-options.jpg" alt="蓝灯状态决定了什么时候该开App" loading="lazy"></p>
+<h2>HD画面卡成PPT，切到SD就好了</h2>
+<p>设备都绑上了，老陈美滋滋点开实时预览——画面确实清晰，果园尽头的果子都能看清。但看了不到一分钟，画面开始卡住，三秒一跳，最后直接黑屏。老陈以为摄像机坏了，重启设备、重装App、换SIM卡，折腾了一圈还是卡。</p>
+<p>翻ybox文档时看到一段：ybox支持1080P的HD和720P的SD两档预览，HD带宽要2到4Mbps，SD只要0.5到1.5Mbps。4G信号不稳定的地方，HD模式很容易带宽跟不上。老陈赶紧在预览界面右下角找到画质图标，切到SD——画面确实糊了点，但流畅得很，再也不卡了。</p>
+<p>文档里还有一张对照表，老陈现在背得滚瓜烂熟：家里WiFi覆盖想看清细节用HD，手机蜂窝远程看用SD，4G摄像机信号两格以下用SD，只需要确认"有没有人在动"用SD，长时间挂着预览也用SD。他说反正TF卡本地录像默认是HD分辨率，预览切SD不影响录像画质，真要抓拍小偷再临时切HD就行。</p>
+<h2>不是什么监控都能连ybox</h2>
+<p>老陈后来在另一个果园再装设备时，拿错了客户端——那个客户端叫UBox，外观和ybox几乎一模一样。扫码添加设备那一步，ybox（不对，是UBox）扫了半天识别不了，提示"设备不支持"。他翻了ybox文档才搞清楚，ybox是UBIA品牌生态的专属客户端，不是市面上任何监控摄像机都能用的。包装盒或机身上写用ybox客户端的才能配对成功，装成UBox就卡住。</p>
+<p>ybox能连的设备分五类：太阳能WiFi摄像机、4G无线电池摄像机、WiFi可视门铃、中继套装、全景摄像机。老陈手里的四台是4G款，走的是"安装4G设备"分支——和WiFi款的扫码+WiFi密码流程完全不同。他后来在果园里装了一台太阳能WiFi摄像机补盲区，第一次选了4G分支，死活配不上，换WiFi分支两分钟搞定。</p>
+<h2>三个月后：手机里四个小图标，果园里一片安静</h2>
+<p>现在老陈每天早上起床第一件事，是点开ybox看一眼四台摄像机的实时画面——SD模式，不卡不费流量。遇到想看清的，临时切HD抓张图就切回去。TF卡每周自动循环录像，他偶尔翻一下有没有异常。</p>
+<p>他说现在最庆幸的有两件事：一是当时没把那四台摄像机砸了，而是耐着性子翻了ybox文档；二是注册邮箱果断换了QQ邮箱，没在Hotmail上死磕。这两件事放在当时都是不起眼的小决定，但现在想想，要是其中一件没做对，这两千多块可能真就打了水漂。</p>
+<p>ybox客户端本身不复杂，但它是专属生态的东西，很多细节——蓝灯什么时候该亮、邮箱选哪种、分辨率什么时候该切——都有它自己的逻辑，不是通用监控APP那一套逻辑套上去就行的。老陈说他后来把那些踩过的坑都在文档里做了标注，万一朋友再来问，他能直接说个明白。</p>
+<p>这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ybox" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ybox" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ybox" target="_blank" rel="noopener">GitCode</a>三个仓库都能拿到，维护得很及时，遇到新问题随时去翻就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/beautybox-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">绿盒子 beautybox 到底值不值得花时间？一笔账给你算清楚</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/kawaks-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

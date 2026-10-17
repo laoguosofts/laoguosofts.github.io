@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>免 Root 改 SIM 国家码：Nrfr 从零上手实操 · 老郭软件铺</title>
+  
+<meta name="description" content="一份带步骤的实战教程，从电脑端快速启动工具到 Shizuku 授权、双卡配置与还原，覆盖最常见的应用地区限制场景与新手卡点。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/nrfr.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="免 Root 改 SIM 国家码：Nrfr 从零上手实操">
+<meta property="og:description" content="一份带步骤的实战教程，从电脑端快速启动工具到 Shizuku 授权、双卡配置与还原，覆盖最常见的应用地区限制场景与新手卡点。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/nrfr.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/nrfr/shizuku-authorize.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/nrfr/shizuku-authorize.jpg">
+
+<meta name="twitter:title" content="免 Root 改 SIM 国家码：Nrfr 从零上手实操">
+<meta name="twitter:description" content="一份带步骤的实战教程，从电脑端快速启动工具到 Shizuku 授权、双卡配置与还原，覆盖最常见的应用地区限制场景与新手卡点。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u4efd\u5e26\u6b65\u9aa4\u7684\u5b9e\u6218\u6559\u7a0b\uff0c\u4ece\u7535\u8111\u7aef\u5feb\u901f\u542f\u52a8\u5de5\u5177\u5230 Shizuku \u6388\u6743\u3001\u53cc\u5361\u914d\u7f6e\u4e0e\u8fd8\u539f\uff0c\u8986\u76d6\u6700\u5e38\u89c1\u7684\u5e94\u7528\u5730\u533a\u9650\u5236\u573a\u666f\u4e0e\u65b0\u624b\u5361\u70b9\u3002", "headline": "\u514d Root \u6539 SIM \u56fd\u5bb6\u7801\uff1aNrfr \u4ece\u96f6\u4e0a\u624b\u5b9e\u64cd", "image": ["https://laoguosofts.github.io/images/nrfr/shizuku-authorize.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/nrfr.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/nrfr.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u514d Root \u6539 SIM \u56fd\u5bb6\u7801\uff1aNrfr \u4ece\u96f6\u4e0a\u624b\u5b9e\u64cd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">免 Root 改 SIM 国家码：Nrfr 从零上手实操</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">免 Root 改 SIM 国家码：Nrfr 从零上手实操</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一份带步骤的实战教程，从电脑端快速启动工具到 Shizuku 授权、双卡配置与还原，覆盖最常见的应用地区限制场景与新手卡点。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇，你能在一台安卓手机上从零跑通 Nrfr 整条链路——从电脑端工具自动装齐 Shizuku 和 Nrfr，到选卡、改国家码、让应用识别到新地区，最后还原系统干净离场。</p>
+<h2>准备工作：两样东西确认好</h2>
+<p>动手之前花三分钟确认前置条件齐了，能省后面一半的排查时间。</p>
+<p><strong>第一样，一台安卓手机。</strong> Nrfr 依赖 Shizuku 服务运行，不需要 Root，但要求系统里能正常启动 Shizuku。厂商定制系统之间兼容性有差异——教程里会在对应步骤提醒你哪些机型更可能遇上坎。</p>
+<p><strong>第二样，一台 Windows 电脑加一根数据线。</strong> 推荐用 <a href="https://nrfr.xnyx.quest" target="_blank" rel="noopener">Nrfr官网</a> 上的快速启动工具走电脑端流水线——它把「装 Shizuku、装 Nrfr、引导启用」三件事一次做完，省得你手动传 APK 挨个安装。从<a href="https://nrfr.xnyx.quest/download.html" target="_blank" rel="noopener">Nrfr下载</a>拿这份压缩包就行，版本号跟上 Release 页，目前 v1.0.3 大小约 19.2 MB。</p>
+<p>准备好这两样，手机上先打开开发者选项：进入设置 → 关于手机 → 连点「版本号」七次，返回主设置就能看到开发者选项入口。进去后，USB 调试、USB 安装、USB 调试（安全设置）——这三项按顺序打开。如果提示未知来源应用安装，一律允许。</p>
+<h2>分步实操：按顺序点，每步看清楚预期结果</h2>
+<h3>第一步：数据线连上，让电脑认出手机</h3>
+<p>用数据线把手机接到电脑上，手机屏幕会弹出「允许 USB 调试吗」的对话框，勾上「始终允许」然后点允许。这步预期效果是：电脑设备管理器里能看到一台安卓设备，手机通知栏显示「USB 调试已连接」。</p>
+<h3>第二步：运行快速启动工具，等它装 Shizuku 和 Nrfr</h3>
+<p>解压刚才下载的快速启动工具压缩包，双击 exe 运行。工具启动后会自动扫一遍已连接的设备——你的手机应该出现在列表里。确认设备名无误，点开始。</p>
+<p>接下来工具会依次做三件事：自动把 Shizuku APK 装到手机、在手机上引导你完成 Shizuku 的授权、接着装 Nrfr。整个过程你主要盯着手机屏幕，Shizuku 授权那一步需要手动确认权限。</p>
+<p><img src="../images/nrfr/shizuku-authorize.jpg" alt="Shizuku 授权界面" loading="lazy"></p>
+<p>全部完成的标志：手机桌面上同时出现 Shizuku 和 Nrfr 的图标，Shizuku 状态栏显示服务运行中。</p>
+<h3>第三步：打开 Nrfr，选卡、设国家码</h3>
+<p>点开 Nrfr，首先看到的是本机 SIM 卡列表——双卡机型这里会列两张卡，分别配置别偷懒跳过。选中要改的那张卡，进入国家码设置界面。</p>
+<p>国家码怎么选？<strong>按目标应用实际支持的地区来</strong>。比如 Samsung Health 在部分地区只能用美、日、韩，那你就把码改成对应国家。选码原则和运营商对应关系在 <a href="https://nrfr.pages.dev/" target="_blank" rel="noopener">Nrfr文档</a> 里有整理。运营商选项跟着选，保存生效。预期效果是：Nrfr 界面显示修改已生效，系统设置里运营商信息应该能看到新的国家码呈现。</p>
+<p><img src="../images/nrfr/main-interface.jpg" alt="Nrfr 主界面" loading="lazy"></p>
+<h3>第四步：重开目标应用，验证是否通过检测</h3>
+<p>改完国家码不能热切换目标应用，<strong>必须彻底关闭后重新打开</strong>。以 Samsung Health 为例：首次启动会走一遍 SIM 归属地检测流程，之前卡住或报错的地方，这次应该能顺利过。如果应用自身缓存了上次失败的状态，进入应用信息里清一次数据再进。</p>
+<p>双卡用户注意两张卡都要改——有些应用会读第一张 SIM，有些会读全部，保守做法是两张都设成同一目标地区。</p>
+<h2>新手最容易卡的三个地方</h2>
+<h3>卡点一：工具检测不到设备，报 ADB 连接失败</h3>
+<p>绝大多数时候是数据线问题。先确认插的是传输线不是充电线——便宜的充电线电脑根本不认设备。换一根线、换一个 USB 口，如果还是不行，检查一下手机 USB 模式是不是选了「文件传输（MTP）」，不是的话切过去。v1.0.2 版本曾专门修复过 ADB 服务端的兼容性问题，旧版检测不到设备时优先升级到 v1.0.3。</p>
+<h3>卡点二：Shizuku 明明运行了，Nrfr 保存后没效果</h3>
+<p>这一步的排查顺序别乱：先在 Nrfr 里点一次「检查 Shizuku 连接」，确认服务状态正常；再看系统设置里国家码有没有真的变——如果系统层面都没变，就是机型限制了。部分厂商定制系统对运营商配置的写入加了额外限制，改码写入被系统拒绝。这种情况下反复保存没意义，升级 Nrfr 到最新版再试一次，新版可能已修复对应机型的 API 兼容性问题。</p>
+<h3>卡点三：改了码应用还是不认地区</h3>
+<p>应用的地区判断不只 SIM 卡这一层。换卡/拔卡后行为会变，说明问题在 SIM 层；换卡无效但换账号注册地就变，那是账号地区；换网络环境才变，那是 IP 层。先做这个「换卡试验」定位问题在哪层，别在错误的方向上耗时间。定位清楚是 SIM 层后，再回到 Nrfr 重新确认国家码有没有选对、保存有没有成功。</p>
+<h2>用完记得还原</h2>
+<p>Nrfr 改码是<strong>系统级</strong>的——改完之后不只是你要修的那一个应用，所有按 SIM 归属地判断地区的应用都会看到新地区。用完目标场景就还原，别留着改码状态让其他应用跟着受影响。Nrfr 里有还原入口，一键恢复到改之前的干净状态。</p>
+<p>进阶玩法：改码之外，Shizuku 底座本身还能干不少事——它不只是 Nrfr 的权限来源，项目文档里还列了几种配合其他工具的用法，有兴趣可以顺着 Shizuku 的文档继续挖。这份资料维护在三个开源仓库里，主力放在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/Nrfr" target="_blank" rel="noopener">GitHub</a>，国内用户访问不稳时 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/Nrfr" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/Nrfr" target="_blank" rel="noopener">GitCode</a> 的镜像可以直接用。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/yuni-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Yuni 踩坑实录：装得上玩不转的那几件事</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/countdownapp-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Countdown App 新手五分钟上手——从零到玩明白这款&#34;死亡倒计时&#34;整蛊神器</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AIDE 深度盘点：把 Android 开发台搬进手机，它到底能扛多少活？ · 老郭软件铺</title>
+  
+<meta name="description" content="AIDE 是一款把 Android IDE 完整搬到手机上的开发工具——代码补全、界面设计、Git 版本控制、即时构建一条龙。这篇盘点从能力域到短板，帮你看清它的边界到底在哪。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/aide-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AIDE 深度盘点：把 Android 开发台搬进手机，它到底能扛多少活？">
+<meta property="og:description" content="AIDE 是一款把 Android IDE 完整搬到手机上的开发工具——代码补全、界面设计、Git 版本控制、即时构建一条龙。这篇盘点从能力域到短板，帮你看清它的边界到底在哪。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/aide-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/aide-zh-docs/studio-project.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/aide-zh-docs/studio-project.png">
+
+<meta name="twitter:title" content="AIDE 深度盘点：把 Android 开发台搬进手机，它到底能扛多少活？">
+<meta name="twitter:description" content="AIDE 是一款把 Android IDE 完整搬到手机上的开发工具——代码补全、界面设计、Git 版本控制、即时构建一条龙。这篇盘点从能力域到短板，帮你看清它的边界到底在哪。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "AIDE \u662f\u4e00\u6b3e\u628a Android IDE \u5b8c\u6574\u642c\u5230\u624b\u673a\u4e0a\u7684\u5f00\u53d1\u5de5\u5177\u2014\u2014\u4ee3\u7801\u8865\u5168\u3001\u754c\u9762\u8bbe\u8ba1\u3001Git \u7248\u672c\u63a7\u5236\u3001\u5373\u65f6\u6784\u5efa\u4e00\u6761\u9f99\u3002\u8fd9\u7bc7\u76d8\u70b9\u4ece\u80fd\u529b\u57df\u5230\u77ed\u677f\uff0c\u5e2e\u4f60\u770b\u6e05\u5b83\u7684\u8fb9\u754c\u5230\u5e95\u5728\u54ea\u3002", "headline": "AIDE \u6df1\u5ea6\u76d8\u70b9\uff1a\u628a Android \u5f00\u53d1\u53f0\u642c\u8fdb\u624b\u673a\uff0c\u5b83\u5230\u5e95\u80fd\u625b\u591a\u5c11\u6d3b\uff1f", "image": ["https://laoguosofts.github.io/images/aide-zh-docs/studio-project.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/aide-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/aide-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "AIDE \u6df1\u5ea6\u76d8\u70b9\uff1a\u628a Android \u5f00\u53d1\u53f0\u642c\u8fdb\u624b\u673a\uff0c\u5b83\u5230\u5e95\u80fd\u625b\u591a\u5c11\u6d3b\uff1f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">AIDE 深度盘点：把 Android 开发台搬进手机，它到底能扛多少活？</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">AIDE 深度盘点：把 Android 开发台搬进手机，它到底能扛多少活？</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">AIDE 是一款把 Android IDE 完整搬到手机上的开发工具——代码补全、界面设计、Git 版本控制、即时构建一条龙。这篇盘点从能力域到短板，帮你看清它的边界到底在哪。</p>
+  </header>
+  <div class="prose serif">
+<p>在电脑上写 Android 应用已经是一件够折腾的事了：Gradle 构建、模拟器、Android Studio 那套又厚又重的生态。AIDE 干了一件反直觉的事——把整个 Android 开发台直接塞进手机里。不是"轻量编辑器"那种阉割版，而是真的能写、能编、能跑、能调的完整 IDE。从<a href="https://aide.fewz.tech" target="_blank" rel="noopener">AIDE官网</a>能看到，超过两百万的下载量背后，是一群把手机当开发机的人，还是只是新鲜两天就放下的玩具？这篇盘点把它的能力面完整铺开给你看。</p>
+<h2>能力域一：项目入口——四条路进来，总有一条顺</h2>
+<p>AIDE 最务实的一点，是不强迫你从零开始。它提供了四种把项目带进手机的方式，覆盖了绝大多数人的工作习惯。</p>
+<p>最直接的是 SD 卡复制——USB 数据线一连，把电脑上的 Eclipse 项目文件夹往里一拷，AIDE 扫一眼目录结构里的 <code>.project</code> 文件，直接弹开项目。这条路对老 Android 开发者特别友好，因为 Eclipse 项目它是完整兼容的，打开即用，没有迁移成本。</p>
+<p>如果你的项目早就推到 GitHub 或其他 Git 平台了，Git 克隆才是推荐路径。在 AIDE 内置的文件浏览器里找个目录，选克隆远程仓库，填 URL 和文件夹名——私有仓库配好 SSH 密钥就能拉。这意味着你在任何一台有网络的设备上都能接棒写代码，不必把项目拷来拷去。</p>
+<p>还有 Dropbox 同步这条路。把电脑上的项目文件夹扔进 Dropbox，AIDE 登录后就能自动保持双向同步——你在手机上改的每一行代码，电脑那边立刻能看到，反过来也一样。适合习惯了云盘工作流的人。</p>
+<p>最后一种叫自动识别——无论你用哪种方式把文件落到手机上，AIDE 都会主动扫：看见 <code>build.gradle</code> 就问你要不要当 Android Studio 项目打开，看见 Java 目录结构就提议当作 Java Console 项目，看见 <code>.git</code> 目录就挂上版本控制菜单。不用你手动指定项目类型，它自己会看。</p>
+<p>不过 Android Studio 项目在这里有个明确的天花板：基础项目结构能识别、Java/Kotlin 源码能编辑，但完整 Gradle 构建系统不支持。复杂的 flavor、build types、自定义脚本都解析不了，依赖管理也得手动来。如果你的项目深度绑定了 Gradle，要么导出成 Eclipse 格式，要么把核心代码单独拎出来在 AIDE 里开发。</p>
+<p><img src="../images/aide-zh-docs/studio-project.png" alt="自动识别 Android Studio 项目" loading="lazy"></p>
+<h2>能力域二：版本控制——Git 全链路在手机上</h2>
+<p>写代码不做版本控制等于裸奔。AIDE 把 Git 完整搬进了手机，从看状态、看 diff 到 commit、discard 一条都不缺。</p>
+<p>Git 提交的对话框设计得很清晰：文件列表勾选你想包含的变更，每个文件都能点开看 diff——绿色是新增，红色是删除，提交前扫一眼能帮你确认有没有把不该加的东西塞进来。commit message 它不替你写，但会推荐你按"做了什么 + 为什么做"的格式来，比只写个 <code>update</code> 强得多。discard 按钮能把选中的文件恢复到上一次 commit 的状态——这功能好用但手滑要小心，改坏了想回滚的是整个文件而不是某个片段。</p>
+<p><img src="../images/aide-zh-docs/git-commit.png" alt="Git 提交对话框" loading="lazy"></p>
+<p>不过 Git 这块有个关键限制：<strong>commit 功能是 Premium Key 锁着的</strong>。免费版能看状态、看 diff、甚至能创建本地仓库，但就是不能 commit。这意味着免费用户没有版本历史——写坏了回不去，Run 成功了也存不住快照。Premium Key 9.99 美元，Git 重度用户几乎是必须买的。</p>
+<p>提交粒度它不替你把关，但<a href="https://aide-zh-docs.pages.dev/" target="_blank" rel="noopener">AIDE文档</a>里推荐的做法很值得参考：完成一个功能后提交、修完一个 bug 后提交、每次 Run 成功后提交。反过来的反例也列了——写两行就 commit 太碎、不相关的改动塞一个 commit 以后定位问题要骂娘。</p>
+<h2>能力域三：交互式教程——边写边拿星星</h2>
+<p>这是 AIDE 最面向新手的一块，也是跟市面上其他手机编辑器差异最大的功能。普通教程是"你跟着写，对不对自己判断"，AIDE 的内置教程是"系统在你写代码的过程中实时检查，写对了自动通过，写错了立刻给提示"。</p>
+<p>教程分两类：Android Apps 走 Activity、布局、Intent、菜单这条入门路径，Java Programming 练变量、循环、方法、类这些语法基础。每个教程分成多个步骤，左边任务说明加提示，中间是预先填好部分代码让你补全的编辑器，右边是运行和检查按钮。你每写一行，教程系统就在背后跑检查——类型错了提示"这里应该写 <code>int</code> 而不是 <code>String</code>"，格式对了直接跳到下一步。</p>
+<p>完成每个教程还能拿星星。首页会显示你的星星数量，作为学习进度的可视化指标。这听起来有点像游戏化学习，但对完全没接触过编程的人来说，完成一个步骤立刻通过的正向反馈，比对着书苦啃要友好太多。文档里给新手排了一条建议路径：先刷 Java Programming 打基础，再从 Hello World 教程开始碰 Android UI，一路到菜单和对话框——按这个顺序走，不用自己瞎猜。</p>
+<p>教程内容深度是入门级够用的那种，真要深入还得找外部资源。但先用它把基础打牢，遇到覆盖不到的内容再去查外部资料，是个不错的组合。</p>
+<h2>能力域四：构建与运行——终极形态是 Root + Premium</h2>
+<p>在普通手机上，装好 AIDE 之后，Run 一下的流程是：构建 → 系统弹出安装对话框等你点确认 → 弹出"安装完成"等你点"打开" → 应用启动。安装包从<a href="https://aide.fewz.tech/download.html" target="_blank" rel="noopener">官方下载</a>拿就行，两次弹窗加上用户交互，一次开发循环大约十秒。</p>
+<p>但如果你同时满足三个条件——设备已 Root、Premium Key 已安装、AIDE 拿到了 Root 授权——Run 的流程会变成：构建完成 → 静默安装（无 UI）→ 自动启动。零弹窗，零手动确认，一次循环压缩到五秒左右。这是 AIDE 开发体验的终极形态。</p>
+<p><img src="../images/aide-zh-docs/hello-world-app.png" alt="Hello World 应用运行" loading="lazy"></p>
+<p>静默安装本质上是 AIDE 通过 Root 权限执行了 <code>su -c pm install</code> 命令，跳过了系统安装界面。第一次 Run 时 Superuser 管理应用会弹授权请求，选"允许"并勾上"总是允许"以后就不再弹窗了。除了静默安装，Root 设备还能访问 <code>/data/data/</code> 下其他应用的数据、绕过 Android 分区存储限制获得完整文件浏览器权限，部分底层操作速度也能上来一些。</p>
+<p>当然 Root 有风险——部分厂商保修失效、系统安全防线降低、某些银行和支付类应用可能跑不起来、OTA 更新可能失败。这些跟 AIDE 本身没关系，但属于常识必须提。如果你只是日常开发，不 Root 也能用，两次弹窗是可控的。</p>
+<h2>短板也要说</h2>
+<p>盘点到这里，AIDE 的能力面已经铺开了。但几个明确的短板不能回避。</p>
+<p>最扎眼的是 Premium 锁的范围。Git commit 锁了，静默安装锁了，Root 相关的高级功能也锁了。免费版能做的事情其实不算少——编辑、构建、运行、看 diff——但真要长期用、做正经项目，Premium Key 几乎绕不开。这是 AIDE 的商业模式决定的，没有免费午餐。</p>
+<p>Android Studio 项目的支持深度是第二个硬伤。只识别基础结构、不支持完整 Gradle 构建系统，意味着用了 flavor、多模块、复杂依赖的项目基本别想直接搬过来。这不是 AIDE 不想做，是 Gradle 本身就不是为移动端设计的，强行兼容的成本极高。</p>
+<p>还有一个隐性短板：键盘和屏幕。手机屏幕再大也不过七寸，虚拟键盘再顺手也不是实体键。写代码这件事，屏幕空间和输入效率是硬约束。AIDE 把 IDE 搬过来了，但物理限制它搬不过来。</p>
+<h2>什么样的人该用它</h2>
+<p>三类人最能吃 AIDE 的价值。</p>
+<p>第一类是<strong>出门在外的开发者</strong>。比如在咖啡馆、地铁上、任何只有手机没有电脑的场景——Git 克隆拉下来、改几行、commit、推回去，整个流程在手机上就能闭环。不用等回电脑、不用开远程桌面，掏出手机就能干活。对习惯了碎片化开发的人来说，AIDE 是真正能用上的生产力工具。</p>
+<p>第二类是<strong>想在移动设备上学编程的新手</strong>。交互式教程的实时检查和星星系统，比对着书或视频自己瞎试效率高太多。Java 基础打牢以后直接过渡到 Android 应用，学习路径在一个 App 里就能走完。不需要配环境、不需要装模拟器，打开 AIDE 就能开始。</p>
+<p>第三类是<strong>Root 设备上的折腾党</strong>。Root + Premium 的静默安装体验加上文件浏览器不受限制的权限，把手机当成真正的开发机来用。构建运行循环五秒一次，效率不比电脑差多少——前提是你愿意为这个体验付出 Root 的风险和 Premium 的费用。</p>
+<p>反过来说，如果你大部分时间都在电脑上开发、项目深度依赖 Gradle 和 Android Studio 的完整生态、或者只是偶尔想改几行代码——AIDE 可能只是个锦上添花的补充，而非必需品。</p>
+<p>这套中文资料同时维护了三份远端——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/AIDE" target="_blank" rel="noopener">GitHub</a> 主仓库、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/AIDE" target="_blank" rel="noopener">Gitee</a> 国内镜像、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/AIDE" target="_blank" rel="noopener">GitCode</a> 同步副本，不同网络环境下都能顺畅取阅和贡献。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/medisafe.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">吃了十年药换了六款提醒器，最终留了 Medisafe</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/kadokado.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">KadoKado 到底值不值得掏钱：一份冷静的付费决策账本</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

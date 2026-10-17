@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AuvFun 用了大半年才发现的 5 个隐藏开关——数据源切换只是冰山一角 · 老郭软件铺</title>
+  
+<meta name="description" content="每天打开 AuvFun 追新番、缓存离线，一直以为它就是个流畅的播放器。直到某天播放器卡了、清晰度死活切不上 4K、内部存储又顶不住了，才一个个挖出那些藏得真深的冷门功能。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/auvfun.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AuvFun 用了大半年才发现的 5 个隐藏开关——数据源切换只是冰山一角">
+<meta property="og:description" content="每天打开 AuvFun 追新番、缓存离线，一直以为它就是个流畅的播放器。直到某天播放器卡了、清晰度死活切不上 4K、内部存储又顶不住了，才一个个挖出那些藏得真深的冷门功能。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/auvfun.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/auvfun/player.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/auvfun/player.png">
+
+<meta name="twitter:title" content="AuvFun 用了大半年才发现的 5 个隐藏开关——数据源切换只是冰山一角">
+<meta name="twitter:description" content="每天打开 AuvFun 追新番、缓存离线，一直以为它就是个流畅的播放器。直到某天播放器卡了、清晰度死活切不上 4K、内部存储又顶不住了，才一个个挖出那些藏得真深的冷门功能。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5929\u6253\u5f00 AuvFun \u8ffd\u65b0\u756a\u3001\u7f13\u5b58\u79bb\u7ebf\uff0c\u4e00\u76f4\u4ee5\u4e3a\u5b83\u5c31\u662f\u4e2a\u6d41\u7545\u7684\u64ad\u653e\u5668\u3002\u76f4\u5230\u67d0\u5929\u64ad\u653e\u5668\u5361\u4e86\u3001\u6e05\u6670\u5ea6\u6b7b\u6d3b\u5207\u4e0d\u4e0a 4K\u3001\u5185\u90e8\u5b58\u50a8\u53c8\u9876\u4e0d\u4f4f\u4e86\uff0c\u624d\u4e00\u4e2a\u4e2a\u6316\u51fa\u90a3\u4e9b\u85cf\u5f97\u771f\u6df1\u7684\u51b7\u95e8\u529f\u80fd\u3002", "headline": "AuvFun \u7528\u4e86\u5927\u534a\u5e74\u624d\u53d1\u73b0\u7684 5 \u4e2a\u9690\u85cf\u5f00\u5173\u2014\u2014\u6570\u636e\u6e90\u5207\u6362\u53ea\u662f\u51b0\u5c71\u4e00\u89d2", "image": ["https://laoguosofts.github.io/images/auvfun/player.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/auvfun.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/auvfun.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "AuvFun \u7528\u4e86\u5927\u534a\u5e74\u624d\u53d1\u73b0\u7684 5 \u4e2a\u9690\u85cf\u5f00\u5173\u2014\u2014\u6570\u636e\u6e90\u5207\u6362\u53ea\u662f\u51b0\u5c71\u4e00\u89d2", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">AuvFun 用了大半年才发现的 5 个隐藏开关——数据源切换只是冰山一角</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">AuvFun 用了大半年才发现的 5 个隐藏开关——数据源切换只是冰山一角</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每天打开 AuvFun 追新番、缓存离线，一直以为它就是个流畅的播放器。直到某天播放器卡了、清晰度死活切不上 4K、内部存储又顶不住了，才一个个挖出那些藏得真深的冷门功能。</p>
+  </header>
+  <div class="prose serif">
+<h2>引子</h2>
+<p>说出来你可能不信，我从<a href="https://auvfun.ggcd.uno" target="_blank" rel="noopener">AuvFun官网</a>拿过来用，追番大半年了，一直把它当成一个"能播能缓存"的播放器——排期表每天早上扫一眼就关，分类频道只点热门那几个，设置页更是几乎没翻过。直到上个月遇到三个糟心事：4K 清晰度死活切不上、128GB 的内部存储见底、某周忙忘了追更，补番时才惊觉排期表还能翻上周的记录。</p>
+<p>那之后我就把 AuvFun 从首页到设置页翻了个底朝天，挖出了好几个官方都不怎么宣传的隐藏开关。今天把五个最有用的整理出来——不是那种"调个亮度"的边角料，是真能解决实际痛点的功能。</p>
+<h2>数据源切换：别以为清晰度是固定的</h2>
+<p>这是我踩过最久的坑。之前在播放器里调清晰度，发现只有 720P 和 1080P 两个档位，以为这部番就是没 4K 源，凑合看了半个月。结果某天切到另一部番，4K 按钮居然亮了——同一部 APP，怎么换番就有 4K 了？</p>
+<p>后来才反应过来，不是番剧的问题，是<strong>数据源</strong>的问题。后来去<a href="https://auvfun.pages.dev/" target="_blank" rel="noopener">AuvFun文档</a>翻了一下才弄明白，AuvFun 每部番背后接了好几条播放源，不同源的清晰度档位完全不一样。我之前一直在用默认源，那个源刚好不提供 4K 档。</p>
+<p>藏在哪？就在播放器界面。仔细看右上角或者屏幕中央弹出的控制条，有个不太起眼的小图标，可能标着"源"或者一个网络节点的样子。点一下就会弹出当前可用的数据源列表，挨个试，总能找到一个带 4K 的。切换时会短暂缓冲一下，之后画质立刻上来。</p>
+<p>这个功能对画质党太重要了——很多人以为 AuvFun 没有某部番的 4K，其实只是没切到对的源而已。不过也别抱太高预期，有些老番和剧场版确实所有源都只有 1080P，不是没找对，是片源本身就没原生 4K。</p>
+<p><img src="../images/auvfun/player.png" alt="播放器里藏着的数据源切换按钮" loading="lazy"></p>
+<h2>把缓存搬到 SD 卡：内部存储救星</h2>
+<p>这个功能藏得最深，入口在 <strong>我的 → 设置 → 存储设置 → 缓存路径</strong>。AuvFun 默认把所有下载的番剧缓存都塞在手机内部存储里，一部 4K 番剧缓存下来要 3~5GB，追几部番存储就报警了。</p>
+<p>把缓存路径切到 SD 卡，空间问题立刻解决。不过切换之前要确认几个前提：手机得有实体 SD 卡槽（iPhone 用户直接跳过这条）、Android 版本 6.0 以上、AuvFun 版本 2.0 以上——还没装的话可以从<a href="https://auvfun.ggcd.uno/download.html" target="_blank" rel="noopener">AuvFun下载</a>拿最新版。旧版本可能不支持这个功能。</p>
+<p>切换的时候注意，部分版本会自动把已经下载的缓存番剧迁移到新路径，部分版本需要手动重新下载。观看记录、收藏夹、金币和设置这些东西不受影响，它们存在应用数据区，跟缓存目录是分开的。</p>
+<p>还有一个容易踩的坑：Android 10 之后的分区存储机制，不允许应用直接在 SD 卡根目录读写。AuvFun 会在 SD 卡的专属目录里放数据，路径大概是 <code>Android/data/com.auvfun/</code>——<strong>别用文件管理器手动删这个目录里的东西</strong>，删错了缓存番剧就读不出来了。</p>
+<h2>排期表能翻历史：补番神器</h2>
+<p>排期表大家都用——每天早上扫一眼今天有什么番更新。但你知道它还能翻上周的排期吗？</p>
+<p>我是上个月发现的。那周出差忙忘了追更，回来想补番，打开排期表下意识往右滑——居然滑到了上一周的记录。之前一直以为排期表只展示当天和未来几天的，没想到历史也留着。</p>
+<p>入口很隐蔽：排期表界面顶部有几个日期 tab，点着往左滑就能翻。支持看过去一周的更新记录，每一条都标着番剧名称、更新时间和集数。错过了哪部番，点一下直接跳转到播放页面补追，比在搜索引擎里搜快多了。</p>
+<p>不是所有版本都有这个功能——老版本可能只显示当天排期。如果你发现自己的 AuvFun 没这个入口，去应用设置里看看有没有更新。</p>
+<p><img src="../images/auvfun/schedule.png" alt="排期表界面" loading="lazy"></p>
+<h2>分类频道的二级筛选：找番效率翻三倍</h2>
+<p>AuvFun 的分类频道按题材分了热血战斗、恋爱青春、悬疑推理、国漫专区、4K 专区、经典老番、治愈日常这些大类，大家应该都用过。但进了分类之后还要再按地区、年份、状态、排序去筛选，这层大多数人直接忽略了。</p>
+<p>举个例子：想看 2010 年以后的国产悬疑番，直接进「国漫专区」，然后选二级筛选——地区选中国、年份选 2010 年以后、排序按热度。刷出来的列表比从全部国漫里翻效率高太多。想补老番？进「经典老番」后按年份排序，从上古的 EVA 一路刷到近年的作品。</p>
+<p>还有一个好用的筛选：状态选「已完结」。连载中的番总想着还有下一集，容易追一半就忘了。先把已完结的看完再追新番，追番节奏会舒服很多。</p>
+<h2>排期表一键标记想看：别手动去收藏夹搜</h2>
+<p>看到想看的新番，你是不是习惯退出排期表、去番剧详情页点收藏？其实排期表界面里直接点一下番剧条目，就会自动加入收藏夹。</p>
+<p>标记之后，这部番更新时会自动推送提醒给你。比进详情页操作快了至少两步——追番讲究的就是效率，多一步都嫌麻烦。</p>
+<h2>最后说一个别踩的坑</h2>
+<p>把缓存切到 SD 卡之前，最好确认一下你的 SD 卡等级。SD 卡的读写速度比手机内部存储慢得多，特别是批量下载多部番剧的时候，写入速度可能卡得感人。我之前用了一张便宜的 Class 10 SD 卡，同时下载三集 4K 番剧，速度跌到每秒 1MB 以下，等得想骂街。</p>
+<p>如果常批量下载，至少要买 UHS-I U3 级别的 SD 卡，写入速度才能跟上。内部存储够的话还是优先用内部存储，速度和稳定性都更好——SD 卡毕竟是可插拔的，用久了有可能松动或损坏，存在里面的缓存番剧跟着遭殃。</p>
+<h2>把它用透</h2>
+<p>AuvFun 这类 APP，大家通常只用它最表面的播放功能，隐藏在设置页和播放器深处的开关很少有人会去翻。数据源切换解决了"为什么我没有 4K"的长期困扰，SD 卡迁移让我的内部存储从飘红回到了健康线，历史排期表帮我补完了出差落下的三部番。</p>
+<p>不是每个隐藏功能都对所有人有用——如果你不用 SD 卡，那存储路径切换就是个废功能；如果你从不补老番，历史排期也可以忽略。但数据源切换和排期表一键收藏，我觉得是每个追番党都值得挖出来的实用开关。毕竟，把手上的工具用透了，比换一个新工具更划算。这套整理过的功能说明也在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/AuvFun" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/AuvFun" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/AuvFun" target="_blank" rel="noopener">GitCode</a>上各存了一份，谁知道哪天会不会因为不可抗原因突然消失呢。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/google-keep-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Google Keep 用了三年才发现的五个坑，每一个都差点让我丢数据</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/snackvideo.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">SnackVideo 深度对比：快手系出海短视频到底适合谁</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

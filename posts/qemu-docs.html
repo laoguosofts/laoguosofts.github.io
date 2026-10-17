@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>QEMU 版本进化史：从 TCG 翻译器到三平台硬件加速生态 · 老郭软件铺</title>
+  
+<meta name="description" content="QEMU 用二十多年迭代把自己从一个跨架构模拟器变成了覆盖 Linux/macOS/Windows 三平台的虚拟化基础设施，这条演进路线藏着开源项目如何找到&#34;第二曲线&#34;的经典样本。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/qemu-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QEMU 版本进化史：从 TCG 翻译器到三平台硬件加速生态">
+<meta property="og:description" content="QEMU 用二十多年迭代把自己从一个跨架构模拟器变成了覆盖 Linux/macOS/Windows 三平台的虚拟化基础设施，这条演进路线藏着开源项目如何找到&#34;第二曲线&#34;的经典样本。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/qemu-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="QEMU 版本进化史：从 TCG 翻译器到三平台硬件加速生态">
+<meta name="twitter:description" content="QEMU 用二十多年迭代把自己从一个跨架构模拟器变成了覆盖 Linux/macOS/Windows 三平台的虚拟化基础设施，这条演进路线藏着开源项目如何找到&#34;第二曲线&#34;的经典样本。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "QEMU \u7528\u4e8c\u5341\u591a\u5e74\u8fed\u4ee3\u628a\u81ea\u5df1\u4ece\u4e00\u4e2a\u8de8\u67b6\u6784\u6a21\u62df\u5668\u53d8\u6210\u4e86\u8986\u76d6 Linux/macOS/Windows \u4e09\u5e73\u53f0\u7684\u865a\u62df\u5316\u57fa\u7840\u8bbe\u65bd\uff0c\u8fd9\u6761\u6f14\u8fdb\u8def\u7ebf\u85cf\u7740\u5f00\u6e90\u9879\u76ee\u5982\u4f55\u627e\u5230\"\u7b2c\u4e8c\u66f2\u7ebf\"\u7684\u7ecf\u5178\u6837\u672c\u3002", "headline": "QEMU \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece TCG \u7ffb\u8bd1\u5668\u5230\u4e09\u5e73\u53f0\u786c\u4ef6\u52a0\u901f\u751f\u6001", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/qemu-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/qemu-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "QEMU \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece TCG \u7ffb\u8bd1\u5668\u5230\u4e09\u5e73\u53f0\u786c\u4ef6\u52a0\u901f\u751f\u6001", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">QEMU 版本进化史：从 TCG 翻译器到三平台硬件加速生态</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">QEMU 版本进化史：从 TCG 翻译器到三平台硬件加速生态</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">QEMU 用二十多年迭代把自己从一个跨架构模拟器变成了覆盖 Linux/macOS/Windows 三平台的虚拟化基础设施，这条演进路线藏着开源项目如何找到&#34;第二曲线&#34;的经典样本。</p>
+  </header>
+  <div class="prose serif">
+<p>我现在正用 QEMU 在 x86_64 的笔记本上跑一个 ARM64 的 Ubuntu 24.04 虚拟机，编译一个 C++ 项目。性能不算惊艳——大概是物理 ARM64 机器的 80%——但这件事本身就值得停下来想一想：十年前你敢在一台普通 PC 上流畅模拟另一套架构的整个操作系统吗？更别说它还能反过来，在同一台机器上用接近原生的速度跑 x86 虚拟机，而且三个操作系统平台通吃。</p>
+<p>这就是 QEMU 当前的状态——它的<a href="https://qemu.ggcd.online" target="_blank" rel="noopener">官网</a>上写得很清楚：一个同时扮演"跨架构模拟器"和"硬件加速器"双重角色的开源项目，全球绝大多数云服务商的虚拟化底层都绕不开它。但走到这一步，它并不是一开始就想清楚了的。</p>
+<h2>来路：一个翻译器怎么变成基础设施</h2>
+<p>QEMU 诞生于 2003 年，作者是 Fabrice Bellard——就是那个写了 FFmpeg 的人。最初的定位非常朴素：一个轻量级的跨架构模拟器，用 TCG（Tiny Code Generator）把一种架构的指令逐条翻译成另一种架构能执行的指令。比如你在 x86 上跑 ARM 程序，TCG 就把每条 ARM 指令翻译成 x86 指令，动态生成、即时执行。</p>
+<p>这个设计让 QEMU 立刻拥有了一个商业虚拟化软件根本做不到的能力——<strong>真正的跨架构</strong>。VMware、VirtualBox、Hyper-V 都只能在架构相同的时候加速，跨架构就只能降级到纯软件模拟，慢到不能用。但 QEMU 不一样，TCG 从第一天就是为"架构 A 模拟架构 B"设计的。你可以在 x86 上跑 ARM、PPC、SPARC、MIPS……甚至反过来在 ARM 上跑 x86。这种灵活性让 QEMU 在嵌入式开发、逆向工程、跨架构编译这些小众领域迅速站稳了脚跟。</p>
+<p>但纯 TCG 模式有一个致命问题：性能。每条指令都要翻译一次（虽然有缓存），计算密集型工作负载下性能只能到物理机的 5%~10%。能用来跑个轻量系统试试，但真要干活就不行。</p>
+<p>转折点在 2007 年。那一年 KVM（Kernel-based Virtual Machine）合并进了 Linux 主线内核。KVM 本身不是模拟器——它是 Linux 内核提供的一个硬件虚拟化接口，把 Linux 内核变成了一个虚拟机监控器。但 KVM 不做设备模拟、不做指令翻译，它需要一个用户态程序来配合。QEMU 恰好就是那个最合适的搭档。</p>
+<p>QEMU 和 KVM 结合之后，角色发生了根本性变化。它不再需要自己翻译 CPU 指令了——当宿主机和虚拟机架构相同时，QEMU 可以通过 <code>/dev/kvm</code> 设备文件把 CPU 指令直接丢给硬件执行，自己只负责设备模拟和状态协调。这就是 KVM 模式下性能接近原生的根本原因：Guest 的普通算术指令、内存访问指令完全不经过 QEMU，直接跑在物理核心上。只有涉及 I/O 和特权操作时才需要 QEMU 介入。KVM 加速器的调优参数、设备配置和权限验证细节，在<a href="https://qemu-docs.pages.dev/" target="_blank" rel="noopener">qemu文档</a>里都有详细说明。</p>
+<p>这个变化让 QEMU 从一个"能用的模拟器"变成了"好用的虚拟机管理程序"。但团队没有停在这里。接下来十年里，他们一直在啃另一块硬骨头：<strong>半虚拟化设备</strong>。</p>
+<p>纯模拟设备（比如传统的 RTL8139 网卡、Cirrus VGA 显卡）性能很差，因为 Guest OS 要通过 I/O 端口和 MMIO 寄存器跟模拟设备通信，每次中断都要 VMEXIT。解决方案是 VirtIO——一套半虚拟化设备标准。Guest OS 安装 VirtIO 驱动后，和 QEMU 之间通过共享内存队列通信，避免了大部分 VMEXIT。VirtIO 系列从网卡（virtio-net）开始，逐步扩展到磁盘（virtio-blk）、显卡（virtio-gpu）、串口（virtio-serial）、输入设备（virtio-tablet）……到今天几乎覆盖了所有常见设备类型。这套标准后来被 OASIS 国际组织标准化，云原生领域的 Firecracker、Cloud Hypervisor 都直接复用 VirtIO 设备。</p>
+<h2>三平台加速的补全</h2>
+<p>KVM 搞定了 Linux，但 QEMU 的用户不止 Linux 开发者。macOS 上有大量 iOS/macOS 开发者需要跨架构测试，Windows 上也有不少人需要跑 Linux 虚拟机，三个平台的安装包从<a href="https://qemu.ggcd.online/download.html" target="_blank" rel="noopener">官方下载</a>拿就行。</p>
+<p>macOS 的硬件虚拟化框架叫 Hypervisor.framework（HVF），从 2017 年开始 QEMU 集成了 HVF 加速支持。Apple Silicon 推出后，HVF 的性能表现甚至超过了 KVM 在某些场景下的表现——因为 Apple Silicon 的虚拟化扩展设计得更干净，VMEXIT 延迟更低。现在在 Apple Silicon Mac 上用 QEMU 跑 ARM64 Linux，性能几乎和物理机没区别。</p>
+<p>Windows 的路稍微曲折一点。先是 Intel 的 HAXM 驱动，但 Intel 后来停止维护了。QEMU 转向 Windows 官方的 WHPX（Windows Hypervisor Platform），这是 Windows 1803 版本之后提供的硬件虚拟化接口。WHPX 的生态比 KVM 弱一些——嵌套虚拟化、某些 CPU 特性透传还不如 KVM 成熟，但基本够用了。</p>
+<p>到这一步，QEMU 完成了 Linux（KVM）、macOS（HVF）、Windows（WHPX）三平台的硬件加速覆盖。加上 TCG 跨架构模拟始终在线，QEMU 成了唯一能在三个主流操作系统上、同时支持"同架构加速"和"跨架构模拟"的开源虚拟化工具。</p>
+<h2>从迭代节奏看团队的优先级</h2>
+<p>写完这些版本节点，回头看 QEMU 二十多年的迭代节奏，有两个非常清晰的规律。</p>
+<p><strong>一直在死磕的：硬件加速适配和 VirtIO 设备生态</strong>。几乎每个大版本更新都能看到新的硬件加速特性（更细粒度的 CPU 特性透传、嵌套虚拟化、大页内存支持）和新的 VirtIO 设备（最近几个版本在补 virtio-snd 声卡、virtio-iommu、virtio-mem 动态内存）。这两块直接决定性能上限，是 QEMU 的核心竞争力。</p>
+<p><strong>一直不怎么管的：上层 GUI 和企业级管理</strong>。QEMU 自己只提供命令行和一个最基础的 GTK/Cocoa 窗口。图形化管理界面 virt-manager 是 Red Hat 的另一个项目（依赖 libvirt），企业级的热迁移、集群管理、计费系统都是 libvirt 或 OpenStack 层面的事。QEMU 团队把自己的边界划得很清楚：我只做模拟器和设备管理，上层的事交给别人。</p>
+<p>这个边界感很值得玩味。很多开源项目容易被用户需求拉着走，今天加个 GUI、明天加个集群管理，最后把自己做成一个四不像。QEMU 始终守住了底层基础设施的定位——<strong>不管上层怎么变，我保证指令翻译和设备模拟这两件事做好</strong>。这个定位让它在云原生时代反而成了香饽饽：Firecracker、Cloud Hypervisor、Google 的 gVisor……各种轻量级虚拟化方案底层都在用 QEMU 的设备模型或 VirtIO 标准。</p>
+<h2>预判：下一步大概率的走向</h2>
+<p>从这二十多年的迭代规律推，我觉得 QEMU 接下来的走向大概有三条线。</p>
+<p>第一，<strong>ARM64 加速会继续深化</strong>。Apple Silicon 的成功让整个行业都在往 ARM64 迁移，QEMU 在 ARM64 上的 HVF 加速已经很快了，但跨架构模拟（x86 → ARM64）的 TCG 性能还有很大提升空间。ARM64 的 SVE/SVE2 指令集透传、嵌套虚拟化在 ARM 上的完善，都是可以预见的方向。</p>
+<p>第二，<strong>VirtIO 设备会继续扩展</strong>。virtio-snd 声卡、virtio-iommu、virtio-mem 动态内存这些还在补全的设备会逐步稳定下来。随着 VirtIO 被更多轻量级虚拟化方案采用，QEMU 作为 VirtIO 设备的"官方参考实现"，会持续投入。</p>
+<p>第三，<strong>跨架构模拟的性能天花板会被继续往上推</strong>。TCG 的多线程翻译（<code>thread=multi</code> 参数）已经让跨架构模拟性能提升了一大截，但距离"同架构加速"还有数量级的差距。会不会引入类似 Rosetta 2 的二进制翻译加速技术？这是我最期待的方向，但官方没提过，纯猜测。</p>
+<p>写了这么多，回头看看开头那个场景：x86 笔记本跑 ARM64 Ubuntu、性能能到物理机的 80%。这件事之所以能实现，本质上是 QEMU 二十多年迭代的一个缩影——从一个简单的翻译器，逐步长出硬件加速的翅膀，再把 VirtIO 生态搭起来，最后在三个平台上都站稳了脚跟。这条路不是一开始就设计好的，是每一步都把当下的事做到极致，自然长出了下一条路。</p>
+<p>如果你也想试试看，装起来就是几条命令的事。真正让它发挥威力的地方在那些深度用法里——调 KVM 加速器参数、配 VirtIO 设备、用 <code>qemu-img</code> 管理 qcow2 磁盘、甚至用 virgl 在虚拟机里跑 3D 图形加速。</p>
+<p>这套资料在 GitHub、Gitee、GitCode 三个仓库都能拿到，分别方便不同网络环境的人访问：<a href="https://github.com/alipymanbu/APK/tree/main/APP/qemu" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/qemu" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/qemu" target="_blank" rel="noopener">GitCode</a>。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/gspace-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Gspace 快问快答——安卓手机跑谷歌服务到底靠不靠谱</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/feedly-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Feedly 到底值不值得装？九个问题给你答案</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

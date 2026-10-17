@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>GKD 新手入门：一个能帮你自动跳过开屏广告的小工具 · 老郭软件铺</title>
+  
+<meta name="description" content="第一次接触 GKD 不知道从哪下手？这篇带你从零装到跑通，五分钟搞定自动跳过广告，连写规则的门槛都帮你铺平了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/gkd-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GKD 新手入门：一个能帮你自动跳过开屏广告的小工具">
+<meta property="og:description" content="第一次接触 GKD 不知道从哪下手？这篇带你从零装到跑通，五分钟搞定自动跳过广告，连写规则的门槛都帮你铺平了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/gkd-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/gkd-zh-docs/auth-step-3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/gkd-zh-docs/auth-step-3.png">
+
+<meta name="twitter:title" content="GKD 新手入门：一个能帮你自动跳过开屏广告的小工具">
+<meta name="twitter:description" content="第一次接触 GKD 不知道从哪下手？这篇带你从零装到跑通，五分钟搞定自动跳过广告，连写规则的门槛都帮你铺平了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u63a5\u89e6 GKD \u4e0d\u77e5\u9053\u4ece\u54ea\u4e0b\u624b\uff1f\u8fd9\u7bc7\u5e26\u4f60\u4ece\u96f6\u88c5\u5230\u8dd1\u901a\uff0c\u4e94\u5206\u949f\u641e\u5b9a\u81ea\u52a8\u8df3\u8fc7\u5e7f\u544a\uff0c\u8fde\u5199\u89c4\u5219\u7684\u95e8\u69db\u90fd\u5e2e\u4f60\u94fa\u5e73\u4e86\u3002", "headline": "GKD \u65b0\u624b\u5165\u95e8\uff1a\u4e00\u4e2a\u80fd\u5e2e\u4f60\u81ea\u52a8\u8df3\u8fc7\u5f00\u5c4f\u5e7f\u544a\u7684\u5c0f\u5de5\u5177", "image": ["https://laoguosofts.github.io/images/gkd-zh-docs/auth-step-3.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/gkd-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/gkd-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "GKD \u65b0\u624b\u5165\u95e8\uff1a\u4e00\u4e2a\u80fd\u5e2e\u4f60\u81ea\u52a8\u8df3\u8fc7\u5f00\u5c4f\u5e7f\u544a\u7684\u5c0f\u5de5\u5177", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">GKD 新手入门：一个能帮你自动跳过开屏广告的小工具</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">GKD 新手入门：一个能帮你自动跳过开屏广告的小工具</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次接触 GKD 不知道从哪下手？这篇带你从零装到跑通，五分钟搞定自动跳过广告，连写规则的门槛都帮你铺平了。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从完全不懂 GKD 到用起来，不需要任何 Android 逆向或脚本基础。</p>
+<h2>它到底是干嘛的？一个生活化类比就明白</h2>
+<p>想象一下：你每天打开抖音、点外卖、玩个小游戏，几乎每个 app 启动的那三五秒里，都会弹出一张广告图片，右下角藏着一个小小的「跳过」按钮——你得手动点一下才能进主界面。一天下来，这几十次「等 → 点」的动作虽然单次不费事儿，但日积月累就是纯纯的重复劳动。</p>
+<p>GKD 就是帮你把这件事自动化的工具。它在后台盯着你的屏幕，一旦检测到某个界面结构符合你预设的「跳过广告」条件，就自动替你点一下那个按钮。不用 ROOT，不用改系统设置，靠的是 Android 自带的无障碍权限——说白了就是让 GKD 获得「观察界面 + 模拟点击」的能力，然后按你给的规则干活。</p>
+<p>它能做的远不止跳过开屏广告。只要你能描述「什么样的界面该执行什么样的操作」，它就可以套用规则。社区里有人用它自动关闭游戏的弹窗、有人帮购物 app 点「领券」、甚至有人让它在特定界面自动截屏。但对绝大多数新手来说，核心需求还是那个——<strong>跳过开屏广告</strong>。</p>
+<h2>五分钟上手：从装到跑通的最短路径</h2>
+<h3>第一步：下载并安装</h3>
+<p>先去 GKD 的<a href="https://gkd.boop.uno/download.html" target="_blank" rel="noopener">下载</a>把安装包拿到手，装完打开应用。第一次启动它会弹出无障碍权限的授权引导，跟着走就行。</p>
+<h3>第二步：给它无障碍权限（关键一步）</h3>
+<p>这是 GKD 干活的前提。引导流程大概这样：</p>
+<ol><li>GKD 内部弹出一个提示卡片，告诉你接下来要跳转到系统的无障碍设置页</li><li>点「前往设置」，系统会打开「无障碍」页面，在服务列表里找到 GKD，点进去打开开关</li><li>系统会弹一个标准的无障碍授权弹窗，确认授予权限</li></ol>
+<p>整个过程不用纠结，GKD 的引导做的很清晰，每一步都有说明。授权完成后，回到 GKD 主页，你会看到状态栏里多了一条常驻通知——这说明服务已经跑起来了。</p>
+<p><img src="../images/gkd-zh-docs/auth-step-3.png" alt="授权无障碍权限的其中一步" loading="lazy"></p>
+<h3>第三步：导入一个订阅（开始享受）</h3>
+<p>GKD 自己不带规则，规则是通过「订阅」分发的——就是一份 JSON 格式的规则列表，社区里有人维护、有人分享。你可以去 GKD 的<a href="https://gkd.boop.uno" target="_blank" rel="noopener">官网</a>找一份最新的订阅链接，复制后在 GKD 里添加即可。</p>
+<p>导入之后，订阅页会显示一堆规则分类（开屏广告、弹窗广告、通知横幅等等），你不用全开，挑「开屏广告」这一类先开了就行。然后随便打开几个平时广告多的 app，比如抖音、淘宝，观察一下——启动广告的右下角那个「跳过」按钮，是不是自动被点掉了？</p>
+<p>到这里你已经完成了 GKD 的最短路径上手。总共不超过五分钟。</p>
+<h2>上手后先玩这三个功能</h2>
+<p>跑通基本跳过之后，别急着去写自己的规则——先把 GKD 自带的几个好用的功能摸清楚。</p>
+<h3>功能一：通知栏的四个快捷磁贴</h3>
+<p>下拉状态栏，在快捷开关面板里你会发现 GKD 声明了四个磁贴。它们让「开个应用找设置」变成了「下拉一点」的事。</p>
+<p>四个分别是：开关无障碍服务的总闸、开关调试用的 HTTP 服务、开关悬浮窗、以及一键抓取当前界面快照。最实用的是第一个和第四个——无障碍服务偶尔会被系统杀掉，下拉点亮就能重启；而快照磁贴是你后面写规则时最趁手的调试工具。</p>
+<h3>功能二：抓取快照，看看 GKD 眼中的界面长什么样</h3>
+<p>你可能好奇 GKD 是怎么「看见」屏幕上有什么的。答案就是快照功能——它能把当前界面的无障碍节点结构完整抓下来，存成一份可以审查的文件。</p>
+<p>GKD 提供了五种抓快照的方式：悬浮窗点一下、下拉状态栏的磁贴、甚至可以绑到截屏手势上。最顺手的是悬浮窗：在 GKD 的高级设置里打开悬浮窗服务，屏幕上会出现一个可拖动的小按钮，想抓哪个界面就在那个界面上点一下。抓到的快照可以上传到电脑端的审查工具里查看节点层级。</p>
+<p><img src="../images/gkd-zh-docs/ui-app-rule-group.png" alt="GKD 规则分组界面" loading="lazy"></p>
+<h3>功能三：调整规则的匹配参数（进阶但不吓人）</h3>
+<p>如果社区的订阅在某个 app 上跳不过去，你可能想自己写一条规则。这时候你需要知道 GKD 的规则引擎是怎么找界面元素的，<a href="https://gkd-zh-docs.pages.dev/" target="_blank" rel="noopener">gkd文档</a>里把这套逻辑讲得很细。</p>
+<p>核心叫「选择器」——就是一段描述界面结构的表达式。GKD 内部用的是从右往左匹配的逻辑：<code>FrameLayout &gt; TextView</code> 不是先找父容器再找子文本，而是先找所有 TextView，再验证它们的父容器是不是 FrameLayout。写规则时把最具区分度的条件放最右边，引擎第一步就缩小范围，跑得也最快。</p>
+<p>此外，GKD 对满足特定格式的正则做了自动优化——用简单的字符串匹配代替正则引擎，又快又稳。如果你只是想做「忽略大小写的开头/包含/结尾」判断，直接按官方给的格式写就行，不用自己发明复杂正则。</p>
+<h2>小白最常问的三个疑问</h2>
+<h3>Q1：GKD 耗电吗？</h3>
+<p>这是官方 FAQ 里回答过的问题，结论很明确：<strong>GKD 默认不耗电</strong>。耗电的来源是两个东西：你启用了多少条规则，以及当前 app 界面有多少无障碍节点在刷新。</p>
+<p>排查方法也很简单：如果耗电榜里 GKD 常驻前列，先检查你是不是订阅规则全开了——包括根本用不到的类别，甚至同时开着几份内容重复的订阅。把订阅精简到一两个活跃的、分类只留核心需求，耗电马上降下来。</p>
+<p>另外，像抖音这类节点数量极多、事件刷新频率高的 app，GKD 在里面做匹配工作量天然大。你可以考虑在这些 app 上先关掉不必要的规则组。</p>
+<h3>Q2：无障碍权限经常掉怎么办？</h3>
+<p>Android 系统出于安全考虑，有时候会杀掉后台服务，导致无障碍权限被系统自动关闭。GKD 提供了两种授权模式来应对：普通模式下你需要重新去系统设置手动开启；高级授权模式下 GKD 能自行拉起服务，掉了自动恢复。</p>
+<p>不管哪种模式，通知栏那个 GKD 快捷磁贴都是你最顺手的手动干预入口——下拉一点就重启，不用再进应用。</p>
+<h3>Q3：自己写规则难度大吗？</h3>
+<p>取决于你想达到什么程度。跳过开屏广告这种场景，你只需要描述「屏幕上出现某个 id 的按钮 → 点击它」，非常直白。GKD 的规则编辑器里也有实时预览和错误提示，不会让你瞎猜。</p>
+<p>如果要写复杂规则，建议先从审查工具入手：抓一份目标界面的快照，在电脑端的审查工具里看节点树，然后照着节点属性写选择器。官方文档里有完整的语法参考和调优指南，比你想的要清晰。</p>
+<hr>
+<p>GKD 背后的社区维护着大量订阅规则，对新手来说够用好几年。如果哪天你发现某个 app 的广告没被跳过了，别急着怪 GKD——大概率是那个 app 改了界面结构，社区的订阅更新还没跟上，手动刷新一下订阅就能解决。想更深一步搞自己的规则了，去翻一下 GKD 的文档，里面从选择器语法到规则参数讲的非常细，进阶空间大着呢。</p>
+<p>这份内容我顺手同步到了 <a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/gkd" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/gkd" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/gkd" target="_blank" rel="noopener">GitCode</a> 三个仓库，不管你在哪个平台上方便访问，选一个顺手的就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/flamingo-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">换手机丢了三年听歌记录后，我终于找到了不丢数据的播放器</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/downloader-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我用 Downloader 踩过的五个坑，第一个就让我以为系统废了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>安卓新机到手半小时搞定预装清理——Thor + Shizuku 工作流全记录 · 老郭软件铺</title>
+  
+<meta name="description" content="每年换两三台安卓测试机，以前清预装要逐个翻设置页，现在一条 Thor + Shizuku + Tasker 的流程链，半小时搞定冻结、开机恢复和定期巡检。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/thor-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓新机到手半小时搞定预装清理——Thor + Shizuku 工作流全记录">
+<meta property="og:description" content="每年换两三台安卓测试机，以前清预装要逐个翻设置页，现在一条 Thor + Shizuku + Tasker 的流程链，半小时搞定冻结、开机恢复和定期巡检。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/thor-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/thor-docs/settings-page.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/thor-docs/settings-page.jpg">
+
+<meta name="twitter:title" content="安卓新机到手半小时搞定预装清理——Thor + Shizuku 工作流全记录">
+<meta name="twitter:description" content="每年换两三台安卓测试机，以前清预装要逐个翻设置页，现在一条 Thor + Shizuku + Tasker 的流程链，半小时搞定冻结、开机恢复和定期巡检。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5e74\u6362\u4e24\u4e09\u53f0\u5b89\u5353\u6d4b\u8bd5\u673a\uff0c\u4ee5\u524d\u6e05\u9884\u88c5\u8981\u9010\u4e2a\u7ffb\u8bbe\u7f6e\u9875\uff0c\u73b0\u5728\u4e00\u6761 Thor + Shizuku + Tasker \u7684\u6d41\u7a0b\u94fe\uff0c\u534a\u5c0f\u65f6\u641e\u5b9a\u51bb\u7ed3\u3001\u5f00\u673a\u6062\u590d\u548c\u5b9a\u671f\u5de1\u68c0\u3002", "headline": "\u5b89\u5353\u65b0\u673a\u5230\u624b\u534a\u5c0f\u65f6\u641e\u5b9a\u9884\u88c5\u6e05\u7406\u2014\u2014Thor + Shizuku \u5de5\u4f5c\u6d41\u5168\u8bb0\u5f55", "image": ["https://laoguosofts.github.io/images/thor-docs/settings-page.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/thor-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/thor-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "\u5b89\u5353\u65b0\u673a\u5230\u624b\u534a\u5c0f\u65f6\u641e\u5b9a\u9884\u88c5\u6e05\u7406\u2014\u2014Thor + Shizuku \u5de5\u4f5c\u6d41\u5168\u8bb0\u5f55", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">安卓新机到手半小时搞定预装清理——Thor + Shizuku 工作流全记录</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">安卓新机到手半小时搞定预装清理——Thor + Shizuku 工作流全记录</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每年换两三台安卓测试机，以前清预装要逐个翻设置页，现在一条 Thor + Shizuku + Tasker 的流程链，半小时搞定冻结、开机恢复和定期巡检。</p>
+  </header>
+  <div class="prose serif">
+<p>我每年手上会过两三台安卓测试机，品牌从小米到 OPPO 到三星都有，每次开箱第一件事永远是清预装——电商、支付、新闻推送那堆系统级应用，留着占内存还弹通知，禁用又得一部一部来。以前的流程是：开发者选项开 USB 调试 → 电脑插线 → adb shell pm disable-user 敲一遍包名清单 → 重启验证，中间 adb 断连重试过无数次，包名打错一个就得翻日志排查，一台新机从头清完少说一小时。</p>
+<p>后来我换成 Thor——它的<a href="https://thor.ggcd.uno" target="_blank" rel="noopener">官网</a>主打免 Root 的系统应用冻结，配合 Shizuku 走无线权限，再用 Tasker 把开机自动恢复和每周巡检补上，整条链跑通后新机到手半小时就能干干净净用起来。这套流程我已经在十几台机器上复现过，今天把每个衔接点拆开讲清楚。</p>
+<h2>旧流程卡在哪</h2>
+<p>先说清楚为什么以前那套 adb 命令行方式不行。核心痛点有三个：</p>
+<p><strong>一是物理连接依赖。</strong> 每台新机第一次都得找 USB 线、等驱动、确认 adb devices 能识别，跨品牌 ROM 的驱动兼容性还不一样，三星 Kies 有时候会抢端口。</p>
+<p><strong>二是包名维护成本。</strong> 我存了一份各品牌预装包名的 Markdown 清单，但 MIUI 大版本更新后包名会变，ColorOS 还会在系统应用里塞第三方服务框架，手动维护是无底洞。</p>
+<p><strong>三是没有巡检机制。</strong> adb 跑一次就完了，重启或者 OTA 升级后部分禁用会被还原，没有定期检查就会悄悄漏回来几个应用。</p>
+<h2>新流程：三段式拼接</h2>
+<p>Thor 插进来之后整个流程变成三段——权限初始化 → 批量冻结 → 自动维护，每一段和上下游工具的衔接点我都标出来。</p>
+<h3>第一段：权限初始化（10 分钟，一次性）</h3>
+<p>Thor 装起来很简单——<a href="https://thor.ggcd.uno/download.html" target="_blank" rel="noopener">下载</a>页直接拿 APK，装完打开就能进设置页。它的免 Root 模式依赖 Shizuku，我现在只用无线调试配对这一种方式，USB ADB 那套只在 ROM 厂商隐藏无线调试时才拿出来。具体走法：</p>
+<ol><li>开发者选项开无线调试 → 拿配对码和 IP:端口</li><li>Shizuku 里输入配对码 → 点启动 → 授权 ADB 调试</li><li>Thor 设置页切到 Shizuku 权限模式 → 自动检测连接成功</li></ol>
+<p>这一段的衔接点在第三步：Thor 设成 Shizuku 之后，后面所有冻结/解冻/批量操作都不再需要电脑，手机本地就能完成。我第一次配完之后就再也没插过 USB 线。</p>
+<p>无线调试配对的坑主要在 ROM 差异上——小米 MIUI 部分版本把无线调试藏在「开发者选项」二级菜单最底部，OPPO ColorOS 有时候配对超时需要反复刷新配对码。<a href="https://thor-docs.pages.dev/" target="_blank" rel="noopener">Thor文档</a>里专门列了各品牌的已知问题和替代方案，踩过一次坑之后后面都是直线。</p>
+<p><img src="../images/thor-docs/settings-page.jpg" alt="Thor 设置页面" loading="lazy"></p>
+<h3>第二段：批量冻结（15 分钟/台）</h3>
+<p>权限通了之后就进入 Thor 应用列表页——这是整条链的核心工作台。我现在的操作顺序是：</p>
+<ol><li>打开 Thor → 应用列表标签</li><li>点右上角菜单 → 高级筛选 → 选「系统应用」</li><li>用搜索框逐个定位清单里的包名（Thor 支持应用名和包名混合模糊搜索，比翻设置页快太多）</li><li>长按卡片进入多选模式 → 全选标记的应用 → 点底部「冻结」按钮</li></ol>
+<p>这一段和旧流程相比，<strong>少了两次手动复制粘贴包名</strong>，也<strong>不用维护那份 Markdown 清单</strong>——Thor 会自动扫出所有系统应用，我只需要逐个点选要禁的。多选模式下可以一口气冻掉十几个应用，不用一个个确认弹窗。</p>
+<p>冻结完之后我会切到 Thor 的冻结标签页做一次巡检——这个页面专门展示已禁用应用，顶部有 All/Active/Frozen/Suspended 四态过滤器，默认进的就是 Frozen 视图。如果某个应用显示在 Suspended 而不是 Frozen，说明这个设备的 Shizuku 权限只能做到暂停，Thor 会自动标出来，我单独记一下以后换 Root 权限补。</p>
+<p><img src="../images/thor-docs/freeze-page.jpg" alt="Thor 冻结页面" loading="lazy"></p>
+<h3>第三段：自动维护（零耗时长期运行）</h3>
+<p>这一段靠 Tasker 补，Thor 本身不带自动任务调度，但它的冻结能力可以被外部脚本调用。我在 Tasker 里配了两个定时任务：</p>
+<ul><li><strong>开机 Shizuku 自动恢复</strong>：Shizuku 重启后不会自动启动，Tasker 监听开机完成事件 → 延迟 30 秒（等系统稳定）→ 用 secure settings 插件触发无线调试配对自动重连 → 拉起 Shizuku 服务</li><li><strong>每周巡检</strong>：周日晚 23:00，Tasker 启动 Thor → 调用 Shizuku 权限检查冻结状态 → 如果发现被还原的应用（OTA 升级偶发），自动重新冻结 → 写一条本地日志</li></ul>
+<p>这两个任务的衔接点在于：Tasker 不直接调 Thor 的冻结 API（Thor 暂时没开放），而是靠 Shizuku 守护进程持续在线来保证权限可用，冻结动作还是我手动触发，但巡检和权限恢复自动化了。</p>
+<h2>实操里最容易断链的两个环节</h2>
+<h3>断链一：Shizuku 无线调试配对过期</h3>
+<p>配对码有时效性，部分 ROM 会在 WiFi 切换后重置无线调试端口。我踩过好几次这个坑，总结了一个判断逻辑：如果 Thor 设置页突然显示「Shizuku 未连接」，先看 Shizuku 应用本身的状态——如果是「配对已断开」，就得重新走一遍配对码流程。Tasker 的开机恢复只能处理已配对状态的重连，配对断开了还是得手动来一次。</p>
+<h3>断链二：OTA 升级还原禁用</h3>
+<p>安卓厂商的系统更新有时候会强行还原被禁用的预装应用，我在 MIUI 和 One UI 上都碰到过。Thor 的冻结标签页能快速发现异常——如果某天打开 Frozen 列表发现之前冻的应用消失了，那就是 OTA 干的，直接回到第二段批量冻结重跑一次。每周巡检的 Tasker 任务能在 24 小时内发现这种情况，不会漏太久。</p>
+<h2>效果和边界</h2>
+<p>效果说可数的：现在清一台新机预装从一小时压到半小时以内，<strong>少了约 20 次 USB 插拔和 adb 命令敲写</strong>。每周巡检自动跑，不用我记得。Shizuku 无线配对之后整台手机除了 OTA 升级场景不再需要接电脑。</p>
+<p>但这套流程也有边界：<strong>Shizuku 只支持 Android 11 以上</strong>，老机器只能走 Root 或 adb 命令行；<strong>部分厂商 ROM 确实找不到无线调试入口</strong>（早期 HarmonyOS、一些小众品牌），只能退回 USB 方案；Thor 目前没有导出冻结清单的功能，如果换手机时想把冻结配置迁移过去，还得手动抄一遍应用名。</p>
+<h2>仓库资料同步</h2>
+<p>Thor 的 APK 和配套资料在三个代码仓库同步维护，<a href="https://github.com/alipymanbu/APK/tree/main/APP/Thor" target="_blank" rel="noopener">GitHub</a> 是主版本，<a href="https://gitee.com/manbu1103/APK/tree/main/APP/Thor" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/Thor" target="_blank" rel="noopener">GitCode</a> 做国内镜像，遇到某个仓库访问慢的时候换一个就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/foscam.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">家用摄像头我前后换了五个牌子，Foscam 有两点至今没被追上</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/mineradio-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Mineradio 快问快答：粒子音乐播放器到底值不值得装</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

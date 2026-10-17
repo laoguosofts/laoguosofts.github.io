@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>地铁里人声被盖没了？我用 Walk Play 把耳塞调活了 · 老郭软件铺</title>
+  
+<meta name="description" content="从安卓换到 iPhone 之后 DSP 调音 APP 集体失效，地铁播客人声被盖得死死的。朋友说试试 Walk Play——iOS 上没有完整 APP 但网页版能调，花了一下午折腾转接头、找对 2 kHz 那个点、选好滤波器，通勤听感彻底翻盘。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/walkplay.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="地铁里人声被盖没了？我用 Walk Play 把耳塞调活了">
+<meta property="og:description" content="从安卓换到 iPhone 之后 DSP 调音 APP 集体失效，地铁播客人声被盖得死死的。朋友说试试 Walk Play——iOS 上没有完整 APP 但网页版能调，花了一下午折腾转接头、找对 2 kHz 那个点、选好滤波器，通勤听感彻底翻盘。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/walkplay.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/walkplay/eq-panel.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/walkplay/eq-panel.png">
+
+<meta name="twitter:title" content="地铁里人声被盖没了？我用 Walk Play 把耳塞调活了">
+<meta name="twitter:description" content="从安卓换到 iPhone 之后 DSP 调音 APP 集体失效，地铁播客人声被盖得死死的。朋友说试试 Walk Play——iOS 上没有完整 APP 但网页版能调，花了一下午折腾转接头、找对 2 kHz 那个点、选好滤波器，通勤听感彻底翻盘。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u5b89\u5353\u6362\u5230 iPhone \u4e4b\u540e DSP \u8c03\u97f3 APP \u96c6\u4f53\u5931\u6548\uff0c\u5730\u94c1\u64ad\u5ba2\u4eba\u58f0\u88ab\u76d6\u5f97\u6b7b\u6b7b\u7684\u3002\u670b\u53cb\u8bf4\u8bd5\u8bd5 Walk Play\u2014\u2014iOS \u4e0a\u6ca1\u6709\u5b8c\u6574 APP \u4f46\u7f51\u9875\u7248\u80fd\u8c03\uff0c\u82b1\u4e86\u4e00\u4e0b\u5348\u6298\u817e\u8f6c\u63a5\u5934\u3001\u627e\u5bf9 2 kHz \u90a3\u4e2a\u70b9\u3001\u9009\u597d\u6ee4\u6ce2\u5668\uff0c\u901a\u52e4\u542c\u611f\u5f7b\u5e95\u7ffb\u76d8\u3002", "headline": "\u5730\u94c1\u91cc\u4eba\u58f0\u88ab\u76d6\u6ca1\u4e86\uff1f\u6211\u7528 Walk Play \u628a\u8033\u585e\u8c03\u6d3b\u4e86", "image": ["https://laoguosofts.github.io/images/walkplay/eq-panel.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/walkplay.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/walkplay.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u5730\u94c1\u91cc\u4eba\u58f0\u88ab\u76d6\u6ca1\u4e86\uff1f\u6211\u7528 Walk Play \u628a\u8033\u585e\u8c03\u6d3b\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">地铁里人声被盖没了？我用 Walk Play 把耳塞调活了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">地铁里人声被盖没了？我用 Walk Play 把耳塞调活了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从安卓换到 iPhone 之后 DSP 调音 APP 集体失效，地铁播客人声被盖得死死的。朋友说试试 Walk Play——iOS 上没有完整 APP 但网页版能调，花了一下午折腾转接头、找对 2 kHz 那个点、选好滤波器，通勤听感彻底翻盘。</p>
+  </header>
+  <div class="prose serif">
+<p>周一早高峰，八通线车厢里嗡嗡的——空调风机、车轮摩擦、车厢广播轮番轰炸，我把手机音量拧到顶，播客主播的声音还是像隔了一层棉絮。</p>
+<p>这不是耳机的问题。上个月刚入手的 EPZ 塞子本身素质不差，动圈加平板的组合在安静环境下细节丰富得很。但地铁不一样——低频噪音把人声的核心频段盖得死死的，播客里的对话听上去像两个在远处喊话的人。更糟的是，我之前在安卓上用了大半年的 DSP 调音 APP，换了 iPhone 之后彻底废了——iOS 不允许 APP 直接访问 USB DSP 芯片，那条调音路被系统层堵得严严实实。</p>
+<p>"你试试 Walk Play？" 晚上和朋友吃饭吐槽的时候，他夹了口菜随口说，"虽然 iOS 上没有完整 APP，但网页版能调，调音能力一点不打折。我 iPad 上一直用网页版，PEQ、预设、写芯片全都好使。"</p>
+<p>网页调音？我第一反应是——这能靠谱吗？网页里调 EQ，跟 APP 里调有什么区别？而且我之前连 Walk Play 是什么都不知道，听名字像个播放器或者在线音乐站。朋友说这是腾腾高科做的 DSP 调音工具，专门给 USB-C 耳机、带 DSP 的小尾巴做参数调节的，安卓有完整 APP，iOS 因为系统限制只能走网页通道。</p>
+<p>回家躺床上搜了一下 <a href="https://walkplay.usea.quest" target="_blank" rel="noopener">walkplay官网</a>，果然 APP Store 里的同名应用是个节拍器——不是一回事。得去 <a href="https://walkplay.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a> 拿到正确的工具才行。</p>
+<h3>坑一：普通 Lightning 转接头没用</h3>
+<p>周末上午我翻出上次旅游剩下的 Lightning 转 USB-C 线，直接把塞子插到 iPhone 上，然后 Safari 打开调音台页面。页面加载出来了，但点 USB 授权的时候死活弹不出那个权限框——连 Safari 的弹窗都没出来。</p>
+<p>翻了翻 <a href="https://walkplay.pages.dev/" target="_blank" rel="noopener">walkplay文档</a> 才明白：iOS 上普通的 Lightning 转 USB-C 线<strong>没有 OTG 能力</strong>。必须用 Apple 官方的「Lightning 转 USB 3 相机转接器」才行——那个转接头的 USB-A 口才是真 OTG，能给外接设备供电和通信。</p>
+<p>还好 Apple 官网现在能买到，第二天送到之后一试，插上去 Safari 立刻弹出「允许此网站访问 USB 设备？」，点允许，设备列表里赫然出现了我的 EPZ 塞子——配对成功了。</p>
+<h3>坑二：人声凹陷到底在哪频段</h3>
+<p>调音台界面比我想象的要专业——PEQ 多段调节、滤波器模式切换、预设保存，功能跟之前安卓 APP 里的几乎一样。我先选了一个 V 型预设插上，地铁那段重播了一下，低频是起来了但人声还是被压着——预设本身可能对地铁环境优化不够。</p>
+<p>翻 walkplay 文档才发现，人声凹陷的修复关键在 <strong>1-3 kHz 这个频段</strong>——男声带基频 100-150 Hz、女声带 150-250 Hz，但真正的清晰度、咬字、共鸣感全在 1-3 kHz。很多入耳式耳机出厂调音会在 2 kHz 附近做衰减（为了压齿音），结果就是人声被乐器盖过去，听上去像歌手在远处唱。</p>
+<p>调音台里新建一个频段，Frequency 设到 2000 Hz，Q = 1.0，Gain 从 0 开始慢慢往正值拉——每次 +1 dB，边拉边听地铁那段播客。+2 dB 的时候人声有轻微抬升，+3 dB 的时候主播的声音明显从背景里"站出来"了，连他喝水的声音都能听见。+4 dB 的时候人声开始有点刺耳，+5 dB 以上就有鼻音了。</p>
+<p><strong>+3 dB 是那个甜点。</strong> Q 值保持 1.0 不动，因为 1.0 的带宽覆盖范围刚好，不会太窄也不会太宽。切到旁通开关对比了一下——旁通状态下又回到那个模糊的人声，切回来立刻清晰了。</p>
+<p><img src="../images/walkplay/eq-panel.png" alt="2 kHz 频段调整界面" loading="lazy"></p>
+<h3>坑三：先选滤波器还是先调 EQ</h3>
+<p>调完 EQ 我心满意足地准备保存，顺手切了一下滤波器模式——默认是 FAST-LL（快速瞬态、低延迟），我想试试 SLOW-PC 看会不会更柔和一点。</p>
+<p>一切坏了。EQ 曲线明明没变，但整体听感像换了副耳机——FAST-LL 下的那个清晰人声，切到 SLOW-PC 之后又变得有点散了。我慌了几秒，以为自己误改了 EQ 参数，反复检查几遍才确认曲线确实没变。</p>
+<p>翻 walkplay 文档的滤波器章节才搞明白：<strong>滤波器决定瞬态响应和相位特性</strong>，EQ 决定频率响应——两者叠加但互不影响。相同的 EQ 设置，在 FAST-LL 下是干净直接的瞬态，在 SLOW-PC 下是柔和松弛的质感，在 NOS 下甚至是暖软的模拟感。文档里还特别强调：<strong>选一个滤波器后用它生活一整天再评价</strong>，不要一边调 EQ 一边换滤波器——两个变量同时改你永远不知道哪个起了作用。</p>
+<p>我老老实实把滤波器切回 FAST-LL（对 FPS 游戏也合适），然后<strong>在这个滤波器上从头再调了一遍 EQ</strong>。这是 walkplay 文档给的正确顺序：先确定主力滤波器，再在那个滤波器上调 EQ——反过来的话换完滤波器你得重新调一遍。</p>
+<p>五种滤波器我最终选定了 SLOW-PC 作为通勤主力——它是最接近监听级的质感，平滑而不糊，融合而不闷，久听不累。FPS 游戏的时候切 FAST-PC（快速瞬态加上相位补偿，定位更准），深夜听爵士的时候切 NOS（不过采样，暖软的模拟感特别舒服）。三个场景三套滤波器，分别存了预设。</p>
+<p><img src="../images/walkplay/preset-list.png" alt="预设列表" loading="lazy"></p>
+<h3>预设命名：别再用"预设1"了</h3>
+<p>保存预设的时候我差点犯了个老毛病——想直接存成"新预设"。好在 walkplay 文档里有一整节讲预设命名规范，看完我立刻改了：<code>通勤地铁 低频耐听 TP35Pro+Supermix4</code>、<code>FPS 游戏 脚步声清晰 FAST-PC</code>、<code>深夜爵士 温暖松弛 SLOW-PC</code>。</p>
+<p>文档里说的对：好的命名让你切预设的时候<strong>零思考成本</strong>。三个月后再打开预设列表，看到"预设1"你绝对想不起那是什么，但看到"通勤地铁 低频耐听"立刻就知道该不该切。多耳机的时候尤其重要——每只耳机的 EQ 曲线不一样，命名里带上耳机型号，一眼就能分辨哪个预设是给哪只耳机调的。</p>
+<p>我还给预设加了 emoji 标记——🎮 开头的是游戏预设，🚇 开头的是通勤预设，🌙 开头的是深夜预设。APP 里预设列表看起来整齐多了，找起来秒切。</p>
+<h3>周一早上的地铁</h3>
+<p>周末调完 EQ 存好预设，周一早高峰再次坐上八通线。</p>
+<p>同样的车厢，同样的嗡嗡噪音。但这次，主播的声音清清楚楚地从背景里浮出来——他讲到自己前阵子去上海出差，跟一个出租车司机聊天聊到深夜，那个司机说自己年轻时也写过诗。我第一次听清了他说话时的呼吸停顿，连背景里轻轻响起的一段大提琴都没被地铁噪音盖过。</p>
+<p>走到公司楼下的时候，播客刚播完一期。我摸出手机看了一眼 Walk Play 的调音台界面——2 kHz +3 dB，Q = 1.0，滤波器 SLOW-PC。</p>
+<p>原来不是耳机的问题，也不是地铁的问题。是我之前没找对那个 2 kHz 的点，没选对那个 SLOW-PC 的滤波器。Walk Play 这套工具把 EPZ 塞子真正的潜力挖出来了——安卓上的调音 APP 有它的方便，但 iOS 上的网页版功能一点没缩水，只是需要你多花十分钟折腾转接头而已。</p>
+<p>以后换什么设备都不怕调音工具了。毕竟这套 DSP 调音的资料，我在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/walkplay" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/walkplay" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/walkplay" target="_blank" rel="noopener">GitCode</a> 上都留了副本，国内国外访问都方便。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/our-school-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">孩子换了新学校，Our School 家长端从零上手指南</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/mediainfo-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">MediaInfo 到底值不值得掏钱——一份免费软件的&#34;付费决策账本&#34;</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

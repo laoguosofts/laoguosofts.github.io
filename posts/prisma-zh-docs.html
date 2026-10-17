@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Prisma 两周，我终于把写 SQL 的坏毛病戒掉了 · 老郭软件铺</title>
+  
+<meta name="description" content="从 Sequelize 和原生 SQL 切到 Prisma 的第一手体验——声明式 Schema 是真香，但迁移那条路真的得想清楚再上。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/prisma-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Prisma 两周，我终于把写 SQL 的坏毛病戒掉了">
+<meta property="og:description" content="从 Sequelize 和原生 SQL 切到 Prisma 的第一手体验——声明式 Schema 是真香，但迁移那条路真的得想清楚再上。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/prisma-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/prisma-zh-docs/01_320x569.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/prisma-zh-docs/01_320x569.jpg">
+
+<meta name="twitter:title" content="用 Prisma 两周，我终于把写 SQL 的坏毛病戒掉了">
+<meta name="twitter:description" content="从 Sequelize 和原生 SQL 切到 Prisma 的第一手体验——声明式 Schema 是真香，但迁移那条路真的得想清楚再上。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece Sequelize \u548c\u539f\u751f SQL \u5207\u5230 Prisma \u7684\u7b2c\u4e00\u624b\u4f53\u9a8c\u2014\u2014\u58f0\u660e\u5f0f Schema \u662f\u771f\u9999\uff0c\u4f46\u8fc1\u79fb\u90a3\u6761\u8def\u771f\u7684\u5f97\u60f3\u6e05\u695a\u518d\u4e0a\u3002", "headline": "\u7528 Prisma \u4e24\u5468\uff0c\u6211\u7ec8\u4e8e\u628a\u5199 SQL \u7684\u574f\u6bdb\u75c5\u6212\u6389\u4e86", "image": ["https://laoguosofts.github.io/images/prisma-zh-docs/01_320x569.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/prisma-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/prisma-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Prisma \u4e24\u5468\uff0c\u6211\u7ec8\u4e8e\u628a\u5199 SQL \u7684\u574f\u6bdb\u75c5\u6212\u6389\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">用 Prisma 两周，我终于把写 SQL 的坏毛病戒掉了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">用 Prisma 两周，我终于把写 SQL 的坏毛病戒掉了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从 Sequelize 和原生 SQL 切到 Prisma 的第一手体验——声明式 Schema 是真香，但迁移那条路真的得想清楚再上。</p>
+  </header>
+  <div class="prose serif">
+<p>上个月接了个小项目，后端用 Node 加 PostgreSQL，之前我一直手撸 SQL 或者套个 Sequelize，写查询的时候总觉得别扭——SQL 字符串里拼参数怕注入，Sequelize 那套链式调用又感觉在跟 ORM 斗智斗勇。朋友强推我试试 Prisma——它的<a href="https://prisma.fewf.ren" target="_blank" rel="noopener">官网</a>上介绍这是个为 TypeScript 而生的 ORM 工具——说「你会写类型，就会用 Prisma」。抱着半信半疑的心态装了，没想到两周下来真的回不去了。</p>
+<h2>第一眼：Schema 是真的香</h2>
+<p>安装倒没什么特别的——<a href="https://prisma.fewf.ren/download.html" target="_blank" rel="noopener">Prisma下载</a>页上也有详细步骤参考——<code>npm install prisma @prisma/client</code>，然后跑 <code>npx prisma init</code> 就生成了 <code>prisma/schema.prisma</code> 和 <code>.env</code>。真正让我眼前一亮的是第一次写 Schema 的感觉——之前用 Sequelize 写 model 要在 JavaScript 对象里定义字段，类型、默认值、关系全塞在对象字面量里，写久了眼花缭乱。Prisma 用的是一套声明式语言，字段类型、属性、关系都一目了然：</p>
+<pre><code class="language-prisma">model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  posts     Post[]
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}</code></pre>
+<p>这种写法的好处是——TypeScript 类型推断直接给你。<code>role</code> 字段是 enum，TypeScript 会自动推成 <code>&#x27;USER&#x27; | &#x27;ADMIN&#x27; | &#x27;MODERATOR&#x27;</code>，拼写错误编译期就炸了。之前用 Sequelize 写查询条件的时候经常把字段名拼错，运行时才报错，现在编辑器直接红线划出来。说实话，光是这个类型安全就值了切换成本。</p>
+<h2>迁移那条路：别纠结，选一种走到黑</h2>
+<p>踩的第一个坑是迁移。Prisma 给了两条路：<code>migrate dev</code> 和 <code>db push</code>。前者会生成 SQL 迁移文件存进 Git，每次改 Schema 都留历史记录；后者直接把 Schema 同步到数据库，不留痕。我一开始图方便，原型阶段全用 <code>db push</code>，快速迭代确实爽，改一下 Schema 推一下就行，不用操心迁移文件名起什么。</p>
+<p>但项目要进测试环境的时候傻了——<code>prisma migrate deploy</code> 找不到任何迁移文件，<code>db push</code> 在生产环境是明确禁止的（文档里说会静默执行破坏性变更，比如删列改类型都不提示）。最后只能重置了一次测试库，跑了 <code>migrate dev</code> 正式起步。这个教训挺实在的：原型阶段用 <code>db push</code> 没问题，但只要你觉得这个项目能活过两周，尽早切到 <code>migrate dev</code>。</p>
+<p>用了 <code>migrate dev</code> 之后发现它有个很贴心的功能——破坏性变更检测。比如我把一个 <code>age Int</code> 改成了 <code>age String</code>，它会弹窗警告说这个变更会丢数据，问我要不要继续。之前用原生 SQL 直接跑 <code>ALTER TABLE users ALTER COLUMN age TYPE varchar</code>，万一有脏数据直接报错崩库，现在至少有个预警。</p>
+<h2>原始 SQL：兜底方案用着真香，但别养成依赖</h2>
+<p>Prisma Client 的查询 API 覆盖了绝大多数场景，<code>findMany</code>、<code>create</code>、<code>update</code>、关系嵌套查询都好用。但有一天要做个报表，按用户按月聚合排名，要用 <code>ROW_NUMBER() OVER PARTITION BY</code> 窗口函数——Prisma Client 不支持窗口函数，直接回退到了 <code>$queryRaw</code>。</p>
+<p>一开始还担心 SQL 注入，结果 Prisma 用模板字符串做参数绑定：</p>
+<pre><code class="language-typescript">const rankings = await prisma.$queryRaw`
+  SELECT
+    user_id,
+    DATE_TRUNC(&#x27;month&#x27;, created_at) as month,
+    ROW_NUMBER() OVER (PARTITION BY DATE_TRUNC(&#x27;month&#x27;, created_at) ORDER BY total DESC) as rank
+  FROM user_stats
+`</code></pre>
+<p>模板字符串里的变量 Prisma 会自动处理绑定，不用自己拼 <code>?</code> 占位符或者写 <code>$1, $2</code>。唯一要注意的是别用 <code>$queryRawUnsafe</code>，<a href="https://prisma-zh-docs.pages.dev/" target="_blank" rel="noopener">Prisma文档</a>说这个接口存在就是给那种 100% 确定输入安全的场景用的，平时根本不该碰。</p>
+<p>不过有个小遗憾：<code>$queryRaw</code> 返回的是原始行对象，没有类型推断也没有关系处理，复杂查询写起来还是挺费劲的。能用 Prisma Client 就尽量用，把 raw 当成真正的兜底，别反过来养成依赖。</p>
+<h2>枚举和 JSON 字段：灵活又安全</h2>
+<p>Schema 里的 enum 声明也比之前舒服。比如定义个用户角色，Prisma 会自动在 PostgreSQL 里创建原生枚举类型，字段直接映射，TypeScript 那边也同步拿到字面量联合类型。我之前用 Sequelize 是在 model 里写 <code>enum: [&#x27;USER&#x27;, &#x27;ADMIN&#x27;]</code>，数据库里存的是字符串，没有原生约束，全靠应用层校验。</p>
+<p>JSON 字段这个功能我倒是用得比较克制。Prisma 的 <code>Json</code> 类型可以直接存对象，客户端里读出来就是正常的 JavaScript 对象，不用 <code>JSON.parse</code>。但我只在两种场景用它：用户偏好设置和审计日志。之前有项目把整个动态表单的数据塞 JSON 字段里，后来要按表单里的某个字段筛选就惨了，MySQL 的 JSON 查询体验比 PostgreSQL 差远了。能结构化就结构化，JSON 只是补位的。</p>
+<p><img src="../images/prisma-zh-docs/01_320x569.jpg" alt="Schema 文件写起来很舒服" loading="lazy"></p>
+<h2>谁适合用 Prisma？</h2>
+<p>如果你用 TypeScript、用关系型数据库（PostgreSQL、MySQL、SQLite 都行），那 Prisma 值得试。它最吸引我的点是「声明式 + 类型安全」——Schema 就是真相源，改了 Schema 跑一下 <code>prisma generate</code> 客户端自动更新，编辑器里自动补全查询方法和字段名，这体验比手写 SQL 或者跟 ORM 斗智斗勇强太多了。</p>
+<p>但有几点要想清楚再上：SQLite 不支持 JSON 字段和枚举原生映射，MongoDB 用 Prisma 的话迁移功能是阉割版（没有真正的 schema 迁移）；如果你团队里有人对 Prisma 不熟悉，第一次上手会觉得 Schema Language 有点陌生，但也就两三天的事；还有迁移那条路别纠结，选 <code>migrate dev</code> 就坚持到底，原型阶段图省事用 <code>db push</code> 也行，但记得提前切，别等生产环境炸了再收拾。</p>
+<p>说实话两周下来我还没碰到让我想换回原生 SQL 的场景。之前总觉得「手写 SQL 才是真本事」，现在觉得能让我少写点样板代码、少出点低级错的工具都是好工具。Prisma 没那么神，但在它擅长的领域——声明式 Schema 建模 + 类型安全查询 + 版本化迁移——真的做得很扎实。怕有些同学访问 GitHub 不方便，这套 Prisma 的资料我在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Prisma" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Prisma" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Prisma" target="_blank" rel="noopener">GitCode</a>上都各存了一份。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/clue-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Clue 地图社交的迭代八年：从一张彩虹地图到真人认证的社区壁垒</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/gofun-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">考研那年，我靠一辆共享电动车熬过了每个周六的早高峰</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Reqable 里藏得最深的 5 个功能——我翻了半天才发现 · 老郭软件铺</title>
+  
+<meta name="description" content="以为 Reqable 就是个抓包工具？其实它的 Python 脚本拦截、跨函数共享、cURL 粘贴直导入这些藏得真深，大多数人装了半年都没碰过。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/reqable-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reqable 里藏得最深的 5 个功能——我翻了半天才发现">
+<meta property="og:description" content="以为 Reqable 就是个抓包工具？其实它的 Python 脚本拦截、跨函数共享、cURL 粘贴直导入这些藏得真深，大多数人装了半年都没碰过。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/reqable-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/reqable-docs/script-console.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/reqable-docs/script-console.png">
+
+<meta name="twitter:title" content="Reqable 里藏得最深的 5 个功能——我翻了半天才发现">
+<meta name="twitter:description" content="以为 Reqable 就是个抓包工具？其实它的 Python 脚本拦截、跨函数共享、cURL 粘贴直导入这些藏得真深，大多数人装了半年都没碰过。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u4e3a Reqable \u5c31\u662f\u4e2a\u6293\u5305\u5de5\u5177\uff1f\u5176\u5b9e\u5b83\u7684 Python \u811a\u672c\u62e6\u622a\u3001\u8de8\u51fd\u6570\u5171\u4eab\u3001cURL \u7c98\u8d34\u76f4\u5bfc\u5165\u8fd9\u4e9b\u85cf\u5f97\u771f\u6df1\uff0c\u5927\u591a\u6570\u4eba\u88c5\u4e86\u534a\u5e74\u90fd\u6ca1\u78b0\u8fc7\u3002", "headline": "Reqable \u91cc\u85cf\u5f97\u6700\u6df1\u7684 5 \u4e2a\u529f\u80fd\u2014\u2014\u6211\u7ffb\u4e86\u534a\u5929\u624d\u53d1\u73b0", "image": ["https://laoguosofts.github.io/images/reqable-docs/script-console.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/reqable-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/reqable-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "Reqable \u91cc\u85cf\u5f97\u6700\u6df1\u7684 5 \u4e2a\u529f\u80fd\u2014\u2014\u6211\u7ffb\u4e86\u534a\u5929\u624d\u53d1\u73b0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">Reqable 里藏得最深的 5 个功能——我翻了半天才发现</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">Reqable 里藏得最深的 5 个功能——我翻了半天才发现</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以为 Reqable 就是个抓包工具？其实它的 Python 脚本拦截、跨函数共享、cURL 粘贴直导入这些藏得真深，大多数人装了半年都没碰过。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 Reqable 就是个抓 HTTPS 流量的代理工具？它的<a href="https://reqable.boop.uno" target="_blank" rel="noopener">官网</a>上也是这么定位的。打开界面看看，列表、详情、重发、对比——这些谁都能上手。但我翻了快一周才发现，它藏着好几处冷门到官方文档都没给显眼位置的功能，每一个都是"知道了就离不开"的那种。</p>
+<h2>Python 脚本里返回 None = 直接拦请求</h2>
+<p>第一个就让我惊了——Reqable 的脚本不是只能改数据，<strong>还能当动态开关</strong>。</p>
+<p>大家都知道它的脚本用 Python3 写，两个入口函数：<code>onRequest</code> 在请求发出前，<code>onResponse</code> 在响应回来前。文档说返回值是修改后的对象，但没说<strong>返回 None 等于中断</strong>——整个请求直接被掐掉，客户端收不到任何响应。</p>
+<p>藏在哪里？就在脚本 API 的入门说明里，一行带过："让 <code>onRequest</code> 返回 <code>None</code>，该请求即被拦截不再发出。" 没有加粗，没有示例。</p>
+<p>什么场景真有用？比如你在调一个接口，某个条件触发时不想让它打出去——测试环境的计费接口、上传图片的接口、或者单纯就是想过滤掉一堆无关的心跳请求。写个两行脚本：</p>
+<pre><code class="language-python">def onRequest(context, request):
+    if request.url.startswith(&#x27;https://api.example.com/heartbeat&#x27;):
+        return None
+    return request</code></pre>
+<p>比写重写规则还干脆。什么人可以无视？只做调试不做过滤的同学，这个功能暂时用不上。</p>
+<p><img src="../images/reqable-docs/script-console.png" alt="脚本控制台是找这些小秘密的好地方" loading="lazy"></p>
+<h2>onRequest 和 onResponse 跑在两个进程里——别踩这个坑</h2>
+<p>脚本的第二个隐藏点不是功能，是<strong>官方藏起来的坑</strong>。</p>
+<p>你以为 <code>onRequest</code> 和 <code>onResponse</code> 是同一个脚本文件里的两个函数，能共享外部变量？我一开始也这么想，在 <code>onRequest</code> 里写了个全局变量存 token，到 <code>onResponse</code> 里读——结果永远是初始值。</p>
+<p>查了半天才发现：<strong>这两个函数分别运行在不同的进程中</strong>。后来翻<a href="https://reqable-docs.pages.dev/" target="_blank" rel="noopener">reqable文档</a>才找到，官方用一句话提了，但没说为什么要这样设计、怎么绕过。</p>
+<p>绕过的方法倒是藏得有道理——用 <code>context.shared</code> 这个字典来传数据：</p>
+<pre><code class="language-python">def onRequest(context, request):
+    context.shared = &#x27;foobar&#x27;
+    return request
+
+def onResponse(context, response):
+    print(context.shared)  # 输出 foobar
+    return response</code></pre>
+<p>这个坑踩过一次就忘不了，但没踩过的人写脚本大概率会懵。提醒一下：<code>shared</code> 只在同一次请求-响应链路里有效，下一条请求会是空的。</p>
+<h2>cURL 命令直接粘贴进 URL 输入框——自动识别</h2>
+<p>这个藏得太巧了。装好 Reqable 之后（没装的话从<a href="https://reqable.boop.uno/download.html" target="_blank" rel="noopener">下载</a>拿一份），大家都知道它能从调试列表一键复制 cURL，也能通过菜单导入 cURL 命令。但<strong>直接把 cURL 命令糊进 API 编辑页的 URL 输入框</strong>——它会自动识别并拆解——这个快捷入口，我翻了菜单才在"更多操作"里看到导入，没发现粘贴直导。</p>
+<p>什么场景省事？同事在聊天里甩你一条 cURL，或者从日志里复制一段，你不用点任何按钮，直接 Ctrl+V 进 URL 框，请求方法、头部、请求体、cookie 自动填好，改参数就行。</p>
+<p>连带注释的 cURL 都能识别——近期版本还增强了容错，支持 <code>//</code> 和 <code>#</code> 注释，自动忽略 <code>-o</code> 输出参数。这个小细节官方写在 cURL 转换页面的末尾，不注意就滑过去了。</p>
+<p><img src="../images/reqable-docs/rewrite-quickbar.png" alt="重写规则的快速栏藏在工具栏里，点一下就能抓当前请求的上下文" loading="lazy"></p>
+<h2>重写规则有个快速栏——从当前请求一键建规则</h2>
+<p>说到重写，大家都知道右键列表项能快速创建重写规则。但工具栏上有个<strong>重写快速栏</strong>，能直接抓当前选中请求的域名、路径、头部字段当模板——省得你从规则管理页重新写匹配条件。</p>
+<p>入口藏在顶部工具栏的一个小图标，鼠标悬停才显示名称。点一下，选中请求的 URL 路径自动填进规则的匹配模式，改改字段值就能生效。对比从规则管理页新建要快好几个步骤。</p>
+<p>提醒一个坑：规则从上往下匹配，顺序在规则列表里调整。如果新写的规则在老规则下面，可能被先命中的旧规则吃掉。官方文档提了但没强调，调试的时候发现"为什么我写的规则没生效"，先去检查规则顺序。</p>
+<h2>多标签 + 新窗口：调试列表和 API 测试并排干</h2>
+<p>最后一个不是功能，是<strong>工作流技巧</strong>——但大多数人抓完包就看一眼关了，根本没发现 Reqable 能开多窗口。</p>
+<p>同一条请求的详情面板按 <code>Control + N</code> 开新窗口，这样你可以一边盯着调试列表的实时流量，一边在新窗口里看某条请求的完整响应体，不用反复切标签。API 测试面板也能和抓包列表并排——在侧边栏切 API 测试分组，写请求的同时流量列表在旁边实时滚动，发完请求马上就能看到流量进来。</p>
+<p>这个设计在界面上完全没有引导——新用户根本不知道能这么用。但用了之后就回不去了，尤其是调接口的时候，请求发出去、流量抓到、详情看到——三个动作在同一屏完成。</p>
+<h2>一个容易踩的小提醒</h2>
+<p>说个副作用：如果同时开了重写规则、断点和脚本，三者会按什么顺序执行？官方没明说，但实测下来——重写规则先跑，然后是断点，最后是脚本。别同时叠太多层，调试起来会很痛。规则的 URL 匹配模式尽量写窄一点，误伤无关流量是 Reqable 用户最常见的问题。</p>
+<p>把 Reqable 用透的感觉就是：你以为它只是个抓包的，但其实它能写脚本能当代理能做 API 测试能对比流量能导入 cURL——每翻一次就发现一个新角落。上面这五个，是我花了一周才摸清楚的。相关的功能说明和示例，在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/Reqable" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/Reqable" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/Reqable" target="_blank" rel="noopener">GitCode</a>三个仓库都有备份，哪个方便看哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/me-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">深夜里装了这款语音 App，一周后我想说点实在的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/emochi.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">emochi 翻了底朝天：那些藏在菜单里没人点过的设置</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

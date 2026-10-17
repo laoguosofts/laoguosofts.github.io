@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>VIVAGO 是什么？一篇快问快答把 AI 视频创作平台讲透 · 老郭软件铺</title>
+  
+<meta name="description" content="整理一份关于 VIVAGO 的快问快答——从它能做什么、怎么上手、模板有多少、Agent CLI 怎么用，到角色一致性控制和老照片动效，每个问题直接给结论。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/vivago.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VIVAGO 是什么？一篇快问快答把 AI 视频创作平台讲透">
+<meta property="og:description" content="整理一份关于 VIVAGO 的快问快答——从它能做什么、怎么上手、模板有多少、Agent CLI 怎么用，到角色一致性控制和老照片动效，每个问题直接给结论。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/vivago.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/vivago/video-gen-panel-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/vivago/video-gen-panel-1.jpg">
+
+<meta name="twitter:title" content="VIVAGO 是什么？一篇快问快答把 AI 视频创作平台讲透">
+<meta name="twitter:description" content="整理一份关于 VIVAGO 的快问快答——从它能做什么、怎么上手、模板有多少、Agent CLI 怎么用，到角色一致性控制和老照片动效，每个问题直接给结论。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6574\u7406\u4e00\u4efd\u5173\u4e8e VIVAGO \u7684\u5feb\u95ee\u5feb\u7b54\u2014\u2014\u4ece\u5b83\u80fd\u505a\u4ec0\u4e48\u3001\u600e\u4e48\u4e0a\u624b\u3001\u6a21\u677f\u6709\u591a\u5c11\u3001Agent CLI \u600e\u4e48\u7528\uff0c\u5230\u89d2\u8272\u4e00\u81f4\u6027\u63a7\u5236\u548c\u8001\u7167\u7247\u52a8\u6548\uff0c\u6bcf\u4e2a\u95ee\u9898\u76f4\u63a5\u7ed9\u7ed3\u8bba\u3002", "headline": "VIVAGO \u662f\u4ec0\u4e48\uff1f\u4e00\u7bc7\u5feb\u95ee\u5feb\u7b54\u628a AI \u89c6\u9891\u521b\u4f5c\u5e73\u53f0\u8bb2\u900f", "image": ["https://laoguosofts.github.io/images/vivago/video-gen-panel-1.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/vivago.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/vivago.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "VIVAGO \u662f\u4ec0\u4e48\uff1f\u4e00\u7bc7\u5feb\u95ee\u5feb\u7b54\u628a AI \u89c6\u9891\u521b\u4f5c\u5e73\u53f0\u8bb2\u900f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">VIVAGO 是什么？一篇快问快答把 AI 视频创作平台讲透</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">VIVAGO 是什么？一篇快问快答把 AI 视频创作平台讲透</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">整理一份关于 VIVAGO 的快问快答——从它能做什么、怎么上手、模板有多少、Agent CLI 怎么用，到角色一致性控制和老照片动效，每个问题直接给结论。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一篇关于 VIVAGO 的快问快答，把这个 AI 视频创作平台最常被问到的几个问题一次说清。</p>
+<h3>VIVAGO 到底是什么？一句话能说清吗？</h3>
+<p>它的<a href="https://vivago.yoan.quest" target="_blank" rel="noopener">官网</a>上有完整的功能展示和用户案例——这是一个以 AI 视频创作为核心的在线平台，把文生视频、模板快速出片、图像生成和一个叫 R1 的智能体串在一起，面向自媒体创作者、品牌营销和普通用户。它不是单一的"AI 画画"或"AI 做视频"工具，而是把创作流程——从灵感输入到最终成片——都包了进去。</p>
+<p>平台的特色在于模板墙和 R1 Agent 的组合：模板给不想写 prompt 的用户一条快速出片通道，R1 则给愿意跟 AI 对话、要更定制化结果的用户留了多轮创作空间。两者之间还有大量中间形态，比如图生图参考图控制、Lip Sync 口型同步、老照片动效这些单点能力，可以独立用也可以串进流程里。</p>
+<p><img src="../images/vivago/video-gen-panel-1.jpg" alt="VIVAGO 的视频生成面板" loading="lazy"></p>
+<h3>谁在什么场景下会用到它？</h3>
+<p>自媒体和短视频创作者是最大群体。宠物跳舞、老照片恢复成动效、二次元四宫格分镜——这些模板类效果在短视频平台有明确的流量逻辑，VIVAGO 把门槛降到了点几下的程度。品牌营销也在用，尤其是需要快速生产风格统一的系列物料、或者要把静态素材变成动态片段的场景。另外有一批用户把它当图像生成工具用，参考图控制角色一致性这一条，对做虚拟角色设定、品牌形象不同场景展示的人来说是刚需。</p>
+<h3>怎么开始用？注册和登录有哪几种方式？</h3>
+<p>想试的话先从<a href="https://vivago.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包或直接用 Web 端。三种登录方式：邮箱验证码、Google 账号、Discord 账号。最稳的是邮箱验证码——不依赖第三方，适合长期只用一个平台的用户。Google 账号适合 Web 端和移动端都在用同一 Google 账户的人，Discord 主要面向国际用户。</p>
+<p>这里有个容易踩的坑：三种方式登录后的账户是<strong>相互独立</strong>的。同一个邮箱的 Google 登录和邮箱验证码登录会被识别为两个不同账户，平台侧目前没有一键迁移。选好一种方式就坚持用，别来回切换。</p>
+<p>登录后每日自动发放 100 credits，跨端互通，Web、移动端和 CLI 都用同一套积分体系。</p>
+<h3>模板墙有多少模板？更新快吗？</h3>
+<p>目前 300+ 模板，官方标注是每周更新热门效果。大致可以归到六类：宠物萌宠类（跳舞模板、夸张表情动效）、老照片回忆类（照片恢复加动效）、二次元动漫类（Quadrant 四宫格分镜、夸张表情动效）、Lip Sync 口型同步类（AI Podcast 视频、数字人播报）、特效风格化类（星织主题、赛博朋克、梦幻光效）、人物类（自拍照动效、换装预览）。</p>
+<p>模板由官方维护更新，用户不能自建。好处是出片质量有保证、不需要自己调参数；坏处是如果有非常具体的定制需求，模板可能覆盖不到，这时候就得转向 R1 Agent 或者图像生成能力自己拼。</p>
+<p><img src="../images/vivago/viral-templates.jpg" alt="模板墙里的热门效果" loading="lazy"></p>
+<h3>图像生成里的参考图到底能控制什么？</h3>
+<p>两件事：<strong>角色一致性</strong>和<strong>风格迁移</strong>。纯文生图每次生成的角色外观会飘——"穿风衣的女人"第一次金发第二次黑发，做系列内容就废了。参考图通过 feature matching 算法提取面部五官比例、发型轮廓、服装款式颜色这些特征点，锁定住，后续生成就按这个来。风格迁移同理，上传一张水彩画或动漫截图当参考，模型就把目标内容生成为那个画风。</p>
+<p>平台支持同时上传多张参考图（正脸 + 侧脸 + 全身），角色还原度更高。最佳实践是参考图要清晰、光线均匀，提示词里仍然要写清楚"变化方向"——参考图是引导不是复制，模型在不同场景下会有自由度。过度依赖模糊图会干扰特征提取，反而不如不用。</p>
+<h3>R1 智能体是什么？和直接用模板有什么区别？</h3>
+<p>R1 是 vivago 的对话式创作 Agent。模板是"选现成的 → 填参数 → 出片"，R1 是"跟 AI 聊你想要什么 → 多轮调整 → 逐步逼近目标"。适合的是模板覆盖不到、或者你对结果有明确但难以用模板参数表达的预期的场景。</p>
+<p>两者不冲突。很多用户先用模板快速出第一版，再用 R1 做局部调整或风格变体；也有人跳过模板直接跟 R1 从头聊起。积分消耗上模板更省，R1 多轮对话会消耗更多 credits。</p>
+<h3>vivago-agent-cli 怎么接入？适合什么场景？</h3>
+<p>这是 R1 开放的命令行接口，用来把 R1 的视频创作能力<strong>嵌入到更复杂的自动化工作流</strong>里。典型场景包括：先用另一个 Agent 自动选题、调研、写脚本，再调用 R1 生成视频；批量处理结构化输入（CSV 里一行一个视频任务）；在自己的 Agent 工作流里加一个"一键视频化"节点。</p>
+<p>CLI 是 shell 可调用的命令行工具，外部通用 Agent（比如 AutoGPT、LangChain 自定义 Agent）把它注册成工具就能直接用。输出是标准的 stdout 或视频文件路径，方便下游继续处理。积分消耗和直接用 R1 相同。目前 CLI 的生态集成说明在<a href="https://vivago.pages.dev/" target="_blank" rel="noopener">VIVAGO文档</a>里还比较早期，命令格式和认证方式可能会变。</p>
+<h3>有没有常见的坑？先说三个最容易犯的</h3>
+<p><strong>账户切换坑</strong>：三种登录方式相互独立，同一个邮箱用 Google 登和用验证码登是两个账户，资产不互通。选定一种就别换。</p>
+<p><strong>验证码收不到</strong>：先查垃圾箱，等几分钟再发一次。有时效性，过期就得重发。</p>
+<p><strong>参考图过度依赖</strong>：模糊、过度滤镜、光线不均的图会干扰特征提取。宁可少传一张清晰的，也别堆一堆糊的。</p>
+<h3>值不值得长期用？还是只适合临时玩一下？</h3>
+<p>如果你的创作频率稳定——比如每周都要出几条短视频、或者在做系列化的视觉物料——值得长期用。模板墙的更新节奏保证了你不会因为效果过时被淘汰，R1 和 CLI 给了往上走的空间。如果只是偶尔玩一下宠物跳舞，可能几十分钟就能把大部分模板试完，剩下的就看你有没有动力去挖更深的能力了。</p>
+<p>最后一句：VIVAGO 把 AI 视频创作的门槛压到了"点几下"，但真正能出什么片取决于你会不会把模板、参考图、R1 串起来用——它给的是工具箱，不是开箱即用的成品。三处都有完整的资料——<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/VIVAGO" target="_blank" rel="noopener">GitHub</a> 原版更新最快，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/VIVAGO" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/VIVAGO" target="_blank" rel="noopener">GitCode</a> 是国内同步，访问更稳。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/ktown4u.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从零用 ktown4u 买第一张专辑：注册、下单、物流全流程</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/anich.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了大半年 anich，说说它从新鲜到离不开的那些瞬间</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

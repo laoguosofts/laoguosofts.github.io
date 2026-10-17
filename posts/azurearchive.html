@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AzureArchive 实战：从零搭一段蔚蓝档案剧情 · 老郭软件铺</title>
+  
+<meta name="description" content="AzureArchive 是蔚蓝档案官方剧情编辑器，用节点连线方式创作对话、角色、场景与分支。这篇教程带你从新建项目开始，一步步把一段带角色和选项的剧情跑通，覆盖栏位摆放、环境切换、分支设置和鉴赏预览的完整流程。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/azurearchive.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AzureArchive 实战：从零搭一段蔚蓝档案剧情">
+<meta property="og:description" content="AzureArchive 是蔚蓝档案官方剧情编辑器，用节点连线方式创作对话、角色、场景与分支。这篇教程带你从新建项目开始，一步步把一段带角色和选项的剧情跑通，覆盖栏位摆放、环境切换、分支设置和鉴赏预览的完整流程。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/azurearchive.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/azurearchive/editor-overview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/azurearchive/editor-overview.webp">
+
+<meta name="twitter:title" content="AzureArchive 实战：从零搭一段蔚蓝档案剧情">
+<meta name="twitter:description" content="AzureArchive 是蔚蓝档案官方剧情编辑器，用节点连线方式创作对话、角色、场景与分支。这篇教程带你从新建项目开始，一步步把一段带角色和选项的剧情跑通，覆盖栏位摆放、环境切换、分支设置和鉴赏预览的完整流程。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "AzureArchive \u662f\u851a\u84dd\u6863\u6848\u5b98\u65b9\u5267\u60c5\u7f16\u8f91\u5668\uff0c\u7528\u8282\u70b9\u8fde\u7ebf\u65b9\u5f0f\u521b\u4f5c\u5bf9\u8bdd\u3001\u89d2\u8272\u3001\u573a\u666f\u4e0e\u5206\u652f\u3002\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u65b0\u5efa\u9879\u76ee\u5f00\u59cb\uff0c\u4e00\u6b65\u6b65\u628a\u4e00\u6bb5\u5e26\u89d2\u8272\u548c\u9009\u9879\u7684\u5267\u60c5\u8dd1\u901a\uff0c\u8986\u76d6\u680f\u4f4d\u6446\u653e\u3001\u73af\u5883\u5207\u6362\u3001\u5206\u652f\u8bbe\u7f6e\u548c\u9274\u8d4f\u9884\u89c8\u7684\u5b8c\u6574\u6d41\u7a0b\u3002", "headline": "AzureArchive \u5b9e\u6218\uff1a\u4ece\u96f6\u642d\u4e00\u6bb5\u851a\u84dd\u6863\u6848\u5267\u60c5", "image": ["https://laoguosofts.github.io/images/azurearchive/editor-overview.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/azurearchive.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/azurearchive.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "AzureArchive \u5b9e\u6218\uff1a\u4ece\u96f6\u642d\u4e00\u6bb5\u851a\u84dd\u6863\u6848\u5267\u60c5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">AzureArchive 实战：从零搭一段蔚蓝档案剧情</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">AzureArchive 实战：从零搭一段蔚蓝档案剧情</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">AzureArchive 是蔚蓝档案官方剧情编辑器，用节点连线方式创作对话、角色、场景与分支。这篇教程带你从新建项目开始，一步步把一段带角色和选项的剧情跑通，覆盖栏位摆放、环境切换、分支设置和鉴赏预览的完整流程。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你就能从零开始用 AzureArchive 搭出一段带角色对话、场景切换和选项分支的蔚蓝档案剧情，并且能在鉴赏模式里把它跑通。整个过程不写一行代码，全在可视化编辑器里完成。</p>
+<h2>准备：先搞清楚 AzureArchive 是什么</h2>
+<p><a href="https://azurearchive.boop.uno" target="_blank" rel="noopener">AzureArchive官网</a>是蔚蓝档案的剧情创作工具——它不是游戏本体，而是一个让玩家自己搭剧情的编辑器。官方把它做成了"节点工厂 + 连线"的结构：左边拖节点、中间连线、右边填内容，最后一键鉴赏。</p>
+<p>编辑器的界面很清爽：左侧是节点工厂，中间是节点画布，右侧是检查器面板。新建项目后系统会自动给你一个 Entry 节点，这就是整个剧情的起点。</p>
+<p><img src="../images/azurearchive/editor-overview.webp" alt="编辑器概览" loading="lazy"></p>
+<h2>第一步：新建项目，拿到 Entry 节点</h2>
+<p>打开 AzureArchive，点「新建项目」。系统会弹出项目设置对话框，填个名字就行，其他默认。确认后你会看到画布中央出现一个 Entry 节点——这是剧情的起点，<strong>删不掉也只能有一个</strong>，别纠结它为什么不能复制，这是设计。</p>
+<h2>第二步：拖出 Script 节点，写第一段对话</h2>
+<p>节点工厂里有四种核心节点，你现在只需要 Script——它是承载对话、角色、环境变化的主节点。按住 Script 节点拖进画布，放在 Entry 节点旁边。</p>
+<p>接下来要把 Entry 连到 Script。每个节点的左侧叫入端、右侧叫出端。从 Entry 的出端按住拖线，落到 Script 的入端上——一条连线就成了。现在 Entry → Script 这条主链已经通了。</p>
+<p><img src="../images/azurearchive/hello-drag-node.webp" alt="从节点工厂拖出脚本节点" loading="lazy"></p>
+<p>点一下 Script 节点，右侧检查器就出现了。先切到脚本标签，这里是写对话的地方。蔚蓝档案的对话格式是：先写发言者名字，换两行写正文。比如让白子说话：</p>
+<pre><code>白子
+今天天气真好呢，老师。</code></pre>
+<p>写完别急，点检查器底部的 ▶ 按钮预览一下，文字应该能正常显示。</p>
+<h2>第三步：摆角色立绘，选栏位</h2>
+<p>对话写完了，光有文字不够——画面上得有白子站着。</p>
+<p>AzureArchive 有 5 个实际栏位 + 1 个虚拟栏位。实际栏位就是屏幕上的角色立绘位置：#1 左侧、#2 中偏左、#3 正中央（C 位）、#4 中偏右、#5 右侧。虚拟栏位 #0 专门放对话头像，不用管它。</p>
+<p>现在白子说话，C 位最显眼，选 #3 栏位。在检查器底栏找到栏位选择器，点编号 3，右边属性面板就切到这个栏位了。</p>
+<p>点「选择角色」按钮打开角色选择器。搜索白子——支持简繁中日韩泰六种语言，直接打「白子」或者「Shiroko」「シロコ」都行。搜出来点选，关闭选择器。</p>
+<p>再点一次 ▶ 预览，白子的立绘应该出现在屏幕正中央了。</p>
+<p><img src="../images/azurearchive/hello-slot-select.webp" alt="选择中间栏位给主角" loading="lazy"></p>
+<h2>第四步：换背景和 BGM，让场景活起来</h2>
+<p>现在画面上有白子在说话，但背景还是默认的。切到检查器的 Environment（环境）选项卡，这里有三个设置项：Background（背景图）、BGM、Transition（过渡效果）。</p>
+<p>背景从资源包里的 BG 列表选。安装包从<a href="https://azurearchive.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿，装完之后原版资源包也已经内置好了。滚动找到办公室场景 BG_MainOffice，点一下，再点 ▶ 预览——画面上应该已经换成办公室了。</p>
+<p>BGM 的逻辑一样：从音乐列表挑一首配得上当前场景的。注意一个细节——每个 Script 节点<strong>独立设置 BGM</strong>，两个相邻脚本如果设同一个 BGM，音乐就不会被切断，能实现场景不变但对话切换的效果。想静音的话 BGM 选 None 就行。</p>
+<p>过渡效果决定了从上一个脚本切到当前脚本时画面怎么变。默认是硬切，如果你希望场景转换更柔和，可以选淡入淡出。剧情高潮处想用特效过渡也可以，不过先把基础跑通再说。</p>
+<p><img src="../images/azurearchive/hello-bg-set.webp" alt="把背景切成办公室" loading="lazy"></p>
+<h2>第五步：加一个选项分支，让老师做选择</h2>
+<p>前面几步的剧情是线性的——白子说一段，读者被动接收。但蔚蓝档案的互动感来自<strong>老师的选项</strong>。这就需要 Selection 节点了。</p>
+<p>拖一个 Selection 节点到画布，放在白子的 Script 后面。然后拖两个 End 节点，分别放在 Selection 的两侧。</p>
+<p>关键点来了：<strong>Selection 节点本身没有内置选项</strong>，它的选项数完全取决于你给它连了多少条出端连线。所以先别急着编辑选项文字——先连线。</p>
+<p>从 Selection 的出端分别拖线到两个 End 的入端。连好之后再点 Selection，右侧检查器里就会出现两个选项的文字编辑框。分别写上「当然要去！」和「再等一下吧」这种自然的话——千万别写「选项 A」「选项 B」，鉴赏的时候体验极差。</p>
+<p>现在节点图应该长这样：Entry → Script（白子说话）→ Selection → 出端1 → End → 出端2 → End。两个 End 可以分别标记成「未完待续」和「结局」。Selection 分支还支持嵌套和多出口汇合，想玩复杂结构可以去<a href="https://azurearchive.pages.dev/" target="_blank" rel="noopener">AzureArchive文档</a>翻一下完整的参数说明。</p>
+<p><img src="../images/azurearchive/hello-selection-node.webp" alt="Selection 节点连好出端后才能编辑选项" loading="lazy"></p>
+<h2>第六步：鉴赏模式跑通全流程</h2>
+<p>剧情搭完了，点顶部工具栏的鉴赏按钮，进入鉴赏模式。你应该能看到：办公室背景 + 白子立绘 + 对话文字。白子说完话后，屏幕底部会弹出两个选项按钮——点哪个就走哪条分支。</p>
+<h2>常见卡点：三个新手最容易翻车的地方</h2>
+<h3>卡点 1：Entry 节点删不掉</h3>
+<p>这是正常的，别慌。Entry 是剧情起点，每个项目有且只能有一个，这是硬规则。如果你觉得 Entry 占地方，把它连到一个 Script 就行，画布上节点多了自然就不显眼了。</p>
+<h3>卡点 2：Selection 节点拖出来后没有选项文字</h3>
+<p>也是正常的。Selection 的选项数 = 出端连线数——<strong>没连线就没选项</strong>。先至少连两条出端到不同的 Script 或 End 节点，回头再点 Selection 编辑选项文字。</p>
+<h3>卡点 3：角色搜不到</h3>
+<p>AzureArchive 的角色搜索支持六种语言，但别名和非官方译名可能搜不到。比如你搜「芹香」找不到「茜香」，得用官方译名或原名。优先用中文官方名或日语原名，别用玩家圈的昵称。</p>
+<h2>进阶一句话</h2>
+<p>基础流程跑通之后，可以试试在 Selection 后面连另一个 Selection 做嵌套分支、用额外指令做角色动画（#zmc 可以平移缩放角色）、或者把两个分支的出端汇到同一个 Script 上做剧情汇合——AzureArchive 不限制这种连接，自由程度很高。</p>
+<p>这套 AzureArchive 的官方资料也同步放在了三个仓库：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/AzureArchive" target="_blank" rel="noopener">GitHub</a>是主源，国内访问可以直接去<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/AzureArchive" target="_blank" rel="noopener">Gitee</a>拿，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/AzureArchive" target="_blank" rel="noopener">GitCode</a>那边也有一份，选哪个顺手就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/stationhead.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">BTS 新专辑首发夜，我在 Stationhead 跟两万 ARMY 同步听了一整夜</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/ottohub.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">从鬼畜视频站到多媒体社区：OTTOhub 这一路是怎么长成的</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

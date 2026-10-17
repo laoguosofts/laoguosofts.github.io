@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 T2S 嵌进通勤音频流水线——我是怎么每周省出两小时的 · 老郭软件铺</title>
+  
+<meta name="description" content="以前要拆 PDF、复制粘贴、再用电脑端工具合成，现在一条手机链从文档到 MP3 全自动。分享三个容易断链的环节和踩过的坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/t2s-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 T2S 嵌进通勤音频流水线——我是怎么每周省出两小时的">
+<meta property="og:description" content="以前要拆 PDF、复制粘贴、再用电脑端工具合成，现在一条手机链从文档到 MP3 全自动。分享三个容易断链的环节和踩过的坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/t2s-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/t2s-docs/main-interface.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/t2s-docs/main-interface.png">
+
+<meta name="twitter:title" content="把 T2S 嵌进通勤音频流水线——我是怎么每周省出两小时的">
+<meta name="twitter:description" content="以前要拆 PDF、复制粘贴、再用电脑端工具合成，现在一条手机链从文档到 MP3 全自动。分享三个容易断链的环节和踩过的坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u8981\u62c6 PDF\u3001\u590d\u5236\u7c98\u8d34\u3001\u518d\u7528\u7535\u8111\u7aef\u5de5\u5177\u5408\u6210\uff0c\u73b0\u5728\u4e00\u6761\u624b\u673a\u94fe\u4ece\u6587\u6863\u5230 MP3 \u5168\u81ea\u52a8\u3002\u5206\u4eab\u4e09\u4e2a\u5bb9\u6613\u65ad\u94fe\u7684\u73af\u8282\u548c\u8e29\u8fc7\u7684\u5751\u3002", "headline": "\u628a T2S \u5d4c\u8fdb\u901a\u52e4\u97f3\u9891\u6d41\u6c34\u7ebf\u2014\u2014\u6211\u662f\u600e\u4e48\u6bcf\u5468\u7701\u51fa\u4e24\u5c0f\u65f6\u7684", "image": ["https://laoguosofts.github.io/images/t2s-docs/main-interface.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/t2s-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/t2s-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u628a T2S \u5d4c\u8fdb\u901a\u52e4\u97f3\u9891\u6d41\u6c34\u7ebf\u2014\u2014\u6211\u662f\u600e\u4e48\u6bcf\u5468\u7701\u51fa\u4e24\u5c0f\u65f6\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">把 T2S 嵌进通勤音频流水线——我是怎么每周省出两小时的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">把 T2S 嵌进通勤音频流水线——我是怎么每周省出两小时的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前要拆 PDF、复制粘贴、再用电脑端工具合成，现在一条手机链从文档到 MP3 全自动。分享三个容易断链的环节和踩过的坑。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要做一件事：把技术文档和行业报告转成有声音频，通勤路上听。</p>
+<p>以前这条链路要跑三步。先把 PDF 拆成章节，因为电脑端那个 TTS 工具吃不下超过三万字的文件；然后逐段复制粘贴到在线合成工具，选引擎、调语速；最后把生成的片段拼回去，存到手机里。中间格式丢失、标点乱入是常态，一条下来最少一个半小时，多的时候要两小时。</p>
+<p>现在我把 T2S 插进了流程，整条链从"坐在电脑前"变成了"手机上点两下"。不是说 T2S 的音色比电脑端工具好——坦白讲，Google 引擎的中文朗读还是比不了专业配音——而是这条链终于跑通了，不需要我盯着了。</p>
+<h2>旧流程卡在哪</h2>
+<p>复盘一下旧流程的死穴：<strong>每一步都需要我在场</strong>。</p>
+<p>拆 PDF 得手动调分页，工具自动拆的话刚好卡在公式或代码块中间；在线合成那个环节，我得等它处理完当前段，确认没报错再贴下一段；最后拼接还要自己命名排序。三步都是阻塞式的，我离开座位就停了。</p>
+<p>更麻烦的是格式——技术文档里的代码块、表格、脚注，复制到在线工具里经常被吞，生成的音频里会冒出"井号井号"或者直接跳过一段。我得把这些手动清理一遍才能放心合成。</p>
+<p>所以我一直在找一个能"把文件丢进去就不用管"的方案。试过手机上的其他 App，要么只能读 TXT，要么导出功能藏得深，引擎选择也少。直到碰 <a href="https://t2s.fewf.click" target="_blank" rel="noopener">T2S官网</a> 才感觉链路对上了。</p>
+<h2>新流程：手机端一条链</h2>
+<p>现在我的流程是这样的，从拿到文档到听到音频全程在手机上完成。第一步当然是先装好 App——安装包从<a href="https://t2s.fewf.click/download.html" target="_blank" rel="noopener">T2S下载</a>拿，后面就是一条手机链跑通：</p>
+<p><strong>上游</strong>：文档来源不固定——有时是微信群里转发的 PDF，有时是邮箱里的 Markdown 附件，有时是收藏夹里的网页。统一接到本地的方式就是"用 T2S 打开"。它支持直接打开 PDF、ePub、TXT，还有内置浏览器可以朗读网页，所以上游不管什么格式都能接住。</p>
+<p><strong>T2S 环节</strong>：打开文件后，我只做三个设置。第一个是选引擎——默认的 Google 语音服务中文音色其实够用，但我会切到 MultiTTS 试试有没有更自然的；第二个是调分段规则，技术报告长句多，Sentence 模式下偶尔会断句太急，我会把句间停顿时间拉长一点；第三个是选语速，通勤路上想多过一遍就设 1.2x，放松听就 1.0x。然后点导出，MP3 格式，320kbps。</p>
+<p><img src="../images/t2s-docs/main-interface.png" alt="T2S 主界面" loading="lazy"></p>
+<p>导出的音频默认落在 <code>Music/T2S/</code> 目录，文件名就是文档标题。这一步我不会等它完成——十万字的电子书要跑十多分钟，我点完导出就锁屏放一边。</p>
+<p><strong>下游</strong>：导出完成后，手机上装的自动同步脚本会把新 MP3 推到云盘。车载播放器的离线目录和云盘是联动的，下次上车自动就有了。没有自动脚本也没关系，手动用系统文件管理器拖到车载的蓝牙文件夹就行，省了以前拼接排序那一步。</p>
+<p>整个链路里，我在场的时间加起来不超过两分钟。剩下的时间要么在通勤路上已经听了前半段，要么在电脑上开新任务。</p>
+<h2>最容易断链的两个环节</h2>
+<p>这条链不是一直顺的，有两个地方我踩过坑，每次都让流程卡住。解决了之后就稳定了。</p>
+<h3>后台朗读被厂商 ROM 杀掉</h3>
+<p>第一次导出 PDF 我以为 App 崩了——点完导出锁屏，半小时后回来发现进度停在 30%，App 还活着但语音引擎没响应。查了<a href="https://t2s-docs.pages.dev/" target="_blank" rel="noopener">T2S文档</a>才知道，小米、华为、OPPO、三星这些厂商的定制 ROM 比原生 Android 激进得多，锁屏几十分钟后就把后台进程清了。</p>
+<p>解决的方法是三层放行，前两层做了基本就稳了。</p>
+<p>第一层是电池优化白名单——把 T2S 和 Google 语音服务都加进去。这个一定要<strong>两个都加</strong>，很多人只给 T2S 放了行，忘了它依赖的语音引擎也要后台跑。通用路径是系统设置 → 应用管理 → 找到 App → 电池 → 设为"无限制"。MIUI 里叫"省电策略 → 应用无限制"，EMUI 里是"启动管理 → 允许自启动 + 允许后台活动"，OPPO 在"应用冻结管理 → 白名单"里。</p>
+<p>第二层是自启动和关联启动。这个我一开始没在意，直到有一次重启手机后 T2S 起不来才发现——EMUI 默认把关联启动关了，T2S 启动时拉不动 Google 语音服务。在应用启动管理里把两个 App 都设成允许自启动，T2S 设成允许关联启动就行。</p>
+<p>第三层是朗读过程中按最近任务键给 T2S 卡片加锁。这个是最保险的，被锁定的任务不会被系统一键清理关掉。锁屏前顺手划一下的事。</p>
+<p>设完之后我做了次压力测试：打开一篇十万字的 PDF，点导出就锁屏，翻过来放着。半小时后回来进度走完了，导出的 MP3 文件完整。</p>
+<h3>Google TTS 版本过旧</h3>
+<p>还有一次导出时报了个 "Speech engine is not responding"，弹窗之后 T2S 短暂无响应。查了发现是 Google 语音服务版本太旧了——旧版本不仅有兼容性崩溃的问题，语音包下载也会卡住，直接影响朗读引擎的状态。</p>
+<p>官方文档的态度很明确："This issue has been resolved in the new version of Google speech service, please use latest version"。所以解决方法就是保持更新。</p>
+<p>最省心的方式是在 Google Play 里打开 Google 语音服务的自动更新。路径是：Google Play → 搜索 "Speech Services by Google" → 进入应用详情 → 点右上角三个点 → 勾选"启用自动更新"。勾上之后系统会在 Wi-Fi 下自动下载安装。</p>
+<p>如果设备访问不了 Google Play（国行常见的情况），就得手动检查版本号。系统设置 → 应用管理 → 找到 "Speech Services by Google" → 看版本号，格式是 <code>YYYY.MM.DD.XXXXXX</code>。对比 Play 上的最新版本，差太多就卸载更新重装，或者找第三方渠道装 APK。</p>
+<p>我现在在 Google Play 里开了自动更新，每次 Play 通知有可用更新我都扫一眼列表里有没有 Google 语音服务——它经常被藏在一堆 App 更新里。</p>
+<h2>效果与边界</h2>
+<p>算一笔账：以前一条完整链路（从拿到文档到能听）平均 1.5 小时，现在两分钟在场时间 + 手机后台跑的时间。后台跑的时间我在做别的事，所以相当于每周省出了差不多两小时。</p>
+<p>但这条链也不是万能的。有两个场景我还是会回到电脑端工具：</p>
+<p>一个是读代码注释和诗歌。代码里的 <code>#</code>、<code>//</code>、括号这些符号，T2S 默认的 Sentence 模式读出来会很奇怪，需要换成 Line 模式或者自定义分段规则。而分段规则的导入导出功能虽然 v13.0 就支持了，但不同引擎对同一规则的执行效果差异很大——Google 引擎的断句确实比 MultiTTS 自然，但 MultiTTS 的中文音色选项更多。这个取舍我还在试。</p>
+<p>另一个是需要精细编辑音频的时候。T2S 的导出功能是"整段朗读一遍然后编码"，不能中途暂停或裁剪，所以如果我只想听文档里的某个特定章节，还得先手动定位文本范围。有声书那种从头到尾的长内容没问题，但技术文档偶尔只想听摘要部分，就有点浪费时间。</p>
+<p>另外有个版本问题要提一下——v0.12.22 之前的 MP3 编码器有稳定性 bug，导出的文件偶尔会损坏。现在更新版本已经修了，但如果遇到导出报错或者 MP3 打不开，先检查一下 App 版本是不是在 v0.12.22 以上。</p>
+<h2>现在的日常</h2>
+<p>我现在的习惯是每天早上到公司，把微信群里转的 PDF、邮箱里的报告、收藏夹里想读的网页，统一用 T2S 打开点导出。后台跑着，我开电脑干活。午休或下班通勤的时候，音频已经同步到车载播放器了。</p>
+<p>这条链跑了两个月，只断过两次——一次是上面说的厂商 ROM 杀后台，一次是 Google 语音服务版本旧。两次解决之后就稳定了。</p>
+<p>如果你也有类似的"碎片化阅读 → 通勤听"的需求，不妨试试这条手机端链路。它的音色和专业有声书比不了，但胜在把中间环节砍掉了，不需要你在场盯着。</p>
+<p>这套工具的资料我同步放在三个仓库里，方便不同网络环境下查阅——<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/T2S" target="_blank" rel="noopener">GitHub</a>主仓库是日常维护的版本，<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/T2S" target="_blank" rel="noopener">Gitee</a>适合国内网络访问，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/T2S" target="_blank" rel="noopener">GitCode</a>做了额外备份。不管哪个源都能拿到完整的设置指南和参数表。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/wonderpen.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">WonderPen 到底值不值得掏钱？一个用了半年的付费用户给你算明白</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/sam-helper-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我看着 Sam Helper 一路迭代：一个三星系统增强工具的进化史</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

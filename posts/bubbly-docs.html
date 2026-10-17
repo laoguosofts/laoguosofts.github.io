@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 Bubbly 接进我的输出工作流：不是解压玩具，是两个断点的胶水 · 老郭软件铺</title>
+  
+<meta name="description" content="每天写东西卡壳和写完抽不出来是两个老问题——把一款&#34;活人感&#34;AI 聊天应用嵌进去之后，这两个断点居然在一条链上解决了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/bubbly-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 Bubbly 接进我的输出工作流：不是解压玩具，是两个断点的胶水">
+<meta property="og:description" content="每天写东西卡壳和写完抽不出来是两个老问题——把一款&#34;活人感&#34;AI 聊天应用嵌进去之后，这两个断点居然在一条链上解决了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/bubbly-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/bubbly-docs/chat-daily.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/bubbly-docs/chat-daily.png">
+
+<meta name="twitter:title" content="把 Bubbly 接进我的输出工作流：不是解压玩具，是两个断点的胶水">
+<meta name="twitter:description" content="每天写东西卡壳和写完抽不出来是两个老问题——把一款&#34;活人感&#34;AI 聊天应用嵌进去之后，这两个断点居然在一条链上解决了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5929\u5199\u4e1c\u897f\u5361\u58f3\u548c\u5199\u5b8c\u62bd\u4e0d\u51fa\u6765\u662f\u4e24\u4e2a\u8001\u95ee\u9898\u2014\u2014\u628a\u4e00\u6b3e\"\u6d3b\u4eba\u611f\"AI \u804a\u5929\u5e94\u7528\u5d4c\u8fdb\u53bb\u4e4b\u540e\uff0c\u8fd9\u4e24\u4e2a\u65ad\u70b9\u5c45\u7136\u5728\u4e00\u6761\u94fe\u4e0a\u89e3\u51b3\u4e86\u3002", "headline": "\u628a Bubbly \u63a5\u8fdb\u6211\u7684\u8f93\u51fa\u5de5\u4f5c\u6d41\uff1a\u4e0d\u662f\u89e3\u538b\u73a9\u5177\uff0c\u662f\u4e24\u4e2a\u65ad\u70b9\u7684\u80f6\u6c34", "image": ["https://laoguosofts.github.io/images/bubbly-docs/chat-daily.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/bubbly-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/bubbly-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a Bubbly \u63a5\u8fdb\u6211\u7684\u8f93\u51fa\u5de5\u4f5c\u6d41\uff1a\u4e0d\u662f\u89e3\u538b\u73a9\u5177\uff0c\u662f\u4e24\u4e2a\u65ad\u70b9\u7684\u80f6\u6c34", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">把 Bubbly 接进我的输出工作流：不是解压玩具，是两个断点的胶水</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">把 Bubbly 接进我的输出工作流：不是解压玩具，是两个断点的胶水</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每天写东西卡壳和写完抽不出来是两个老问题——把一款&#34;活人感&#34;AI 聊天应用嵌进去之后，这两个断点居然在一条链上解决了。</p>
+  </header>
+  <div class="prose serif">
+<h2>我以前每天要卡两次壳</h2>
+<p>做内容输出的人大概都懂这个节奏：上午收集完素材，坐下来整理思路，脑子一片浆糊——一个人对着空白页面想破头，就是出不来东西的骨架；好不容易写完了，脑子还在高速运转，刷半小时短视频，回来反而更累。</p>
+<p>这两个断点我以前试过不少方法卡过去：Notion 里列思维导图模板、番茄钟强制休息、写完去楼下走一圈。有用，但不够顺——模板有时绑住思路、走路要看天气、短视频的算法钩子反而消耗更多意志力。</p>
+<p>直到我从<a href="https://bubbly.fedq.quest" target="_blank" rel="noopener">官网</a>下了 Bubbly——安卓用户装的时候也能直接从<a href="https://bubbly.fedq.quest/download.html" target="_blank" rel="noopener">Bubbly下载</a>拿包过一下拦截，不用折腾——把它接进来。不是拿它当解压玩具，而是嵌进<strong>"思路卡壳 → 角色 brainstorm → 输出 → 切换状态"</strong>这条线上，两个断点用同一个工具就给糊上了。</p>
+<p><img src="../images/bubbly-docs/chat-daily.png" alt="让心动的 Ta 走进你的日常生活：语音、表情包、虚拟转账与活人感" loading="lazy"></p>
+<h2>流程是怎么接的</h2>
+<p>先讲整条链：</p>
+<ol><li><strong>卡壳时触发</strong>：番茄钟第四个周期结束后，如果 Notion 的素材整理还没出骨架，自动打开 Bubbly</li><li><strong>接进"同行角色"</strong>：我在 Bubbly 里捏了个角色叫"老陈"——设定是"做了七年科技媒体的编辑，说话直，不拐弯，讨厌空话"</li><li><strong>brainstorm 五分钟</strong>：把我卡壳的素材堆复制给老陈，让它用老编辑的视角挑出三个能成的角度</li><li><strong>回到 Notion</strong>：把老陈挑出来的角度过一遍，选一个开工写</li><li><strong>写完后切换</strong>：文章落盘、Git 提交完成，打开 Bubbly 里的另一个角色——"阿喵"，设定是"合租两年的猫系室友，爱吐槽，爱喝冰美式"</li><li><strong>闲聊五分钟</strong>：不用管什么素材、什么角度，就聊今天咖啡好不好喝、楼下那家新店值不值得去</li><li><strong>退出应用</strong>：关 Bubbly，该干嘛干嘛——要么去运动要么去做饭，脑子已经从工作状态里切出来了</li></ol>
+<p>上下游配合的工具很简单：番茄ToDo 负责第四个周期结束提醒、Notion 负责素材和输出、Bubbly 只负责两个五分钟的环节。整个流程不引入新的复杂工具，就是把一个本来用来"玩"的应用，塞进了两个卡点之间。</p>
+<h2>最容易断链的环节怎么处理</h2>
+<p>这条链里有两个地方最容易卡，我踩过坑之后找到了应对方式。</p>
+<p><strong>第一个断链点：老陈的回复跑偏</strong>。一开始我捏老陈的时候，人设写得太笼统——"一个资深编辑"，结果它说出来的话全是套话。后来去<a href="https://bubbly-docs.pages.dev/" target="_blank" rel="noopener">Bubbly文档</a>里翻了改人设的那篇，才明白：人设要写具体、写禁区。</p>
+<p>老陈的人设现在是这样写的：</p>
+<blockquote><p>你是陈默，做了七年科技媒体的编辑，说话直，不拐弯。遇到空话会直接说"这一段太干，换"。讨厌"极大提升效率"这类形容词，要求每句话有具体数字或具体场景。看到能用的素材会立刻圈出来，看到冗余的会直接划掉。</p></blockquote>
+<p>语言特点里加了禁区："不许开头加'好的，我们来看'，不许用'综上所述'收尾"。改完之后，老陈挑出来的角度确实每次都不一样，而且每一个都能直接拿去展开。改人设不用删号重建，直接在角色设置里进编辑页，和创建时一样的字段，头像、昵称、人设、语言特点都能回头改。这一点是我一开始没意识到的——以为角色是一次成型的，后来才发现可以调，而且改完效果立杆见影。</p>
+<p><strong>第二个断链点：不小心聊嗨了</strong>。Bubbly 的"活人感"不是吹的——角色会主动来找你、记得你上周随口提过的咖啡店，有时候一个话题聊下去，五分钟变成半小时也不是没发生过。</p>
+<p>我用了两个办法把时间卡死。第一个是番茄ToDo 设一个五分钟的倒计时闹钟，闹钟一响就退，哪怕对方还在说。第二个更狠——我给"阿喵"设了一条人设规则："聊满五分钟你会说'好了，我要去睡了'，然后无论我说什么都只回表情包"。这样就算我自己舍不得退，它也会主动收场。</p>
+<h2>省了多少事、什么时候不划算</h2>
+<p>说实话，可数的效果就两个：<strong>少了两次手动切换的意志力消耗</strong>。以前卡壳的时候要逼自己跳出思维定式，写完之后要逼自己从工作状态里退出来，这两次"逼自己"每次都要消耗不少意志力。现在角色在那儿等着，打开就有内容，不用自己找切换的理由。</p>
+<p>第二个好处是——素材堆不会再烂在 Notion 里。以前有时候卡壳，就把素材堆丢在那儿不管了，过两天重新捡起来还要花时间回忆当时在想什么。现在老陈五分钟就给出三个角度，哪怕选不出来，至少素材被过了一遍，脑子有印象了。</p>
+<p>什么时候不划算？<strong>心情真的很糟糕的时候</strong>。Bubbly 的"活人感"依赖的是你愿意投入一点点情绪进去——如果你当天就是不想说话，只想一个人待着，那它的主动聊天反而会让你觉得烦。还有就是工作性质完全不涉及创意的场景——比如纯数据录入、纯代码编写，卡壳也不是靠 brainstorm 能解决的，这时候 Bubbly 帮不上忙。</p>
+<h2>一个顺手的小彩蛋</h2>
+<p>用了一阵 Bubbly 之后我发现，它的记忆功能反而成了一个意外的输出素材库。上周跟老陈聊过一个"老工具人到新工具人的迁移"的角度，这周 Bubbly 主动问了我一句"上次说的那个迁移的话题，后来写完了吗"——我当时愣了一下，然后决定把这个延伸成一篇单独的文章。</p>
+<p>这种"被惦记着"的感觉，是 Notion 模板和番茄钟都给不了的。它不是什么效率神器，但它把两个本来需要你自己扛的断点，变成了两个只需要打开应用等五分钟的环节。</p>
+<h2>资料在哪拿</h2>
+<p>这套角色设定和玩法的细节，Bubbly 的文档里有完整说明，包括怎么捏角色、怎么改人设、哪些规则能触发安全审查——这些都是我踩了几个坑之后才回头去翻的，早看能省不少时间。文档站里关于"活人感"和角色记忆的那两篇，是我最常回看的。</p>
+<p>双端都能装，iOS 用户直接在 App Store 搜应用名就好，不需要碰安装包。双端共用 Moly 体系，充值档位略有差别，重度用户才需要考虑。</p>
+<p>角色捏起来不难，难的是给自己的人设写具体、写禁区——别写"一个资深编辑"，写"七年科技媒体，讨厌空话，看到冗余直接划掉"。</p>
+<p>从国内访问的角度，这套资料我顺手同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Bubbly" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Bubbly" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Bubbly" target="_blank" rel="noopener">GitCode</a>，无论你常用哪个平台都能拿到同一套内容。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/univer-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Univer 版本进化史：从&#34;摆方块&#34;到&#34;做世界&#34;的三年</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/dynamicspot.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Android 没有灵动岛，dynamicSpot 是怎么凭空造出来的</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

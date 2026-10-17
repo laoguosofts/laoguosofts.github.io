@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把起床做成一条闭环——我用 PushClock 串起了晨练、工作和打卡 · 老郭软件铺</title>
+  
+<meta name="description" content="以前闹钟响了按掉再躺，迟到是家常便饭。现在我把 PushClock 嵌进了一套从设闹钟到 Wake Squad 打卡的完整流程里，省了手动复制连续天数的麻烦，也让晨练不再是&#34;想起来才做&#34;的事。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pushclock.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把起床做成一条闭环——我用 PushClock 串起了晨练、工作和打卡">
+<meta property="og:description" content="以前闹钟响了按掉再躺，迟到是家常便饭。现在我把 PushClock 嵌进了一套从设闹钟到 Wake Squad 打卡的完整流程里，省了手动复制连续天数的麻烦，也让晨练不再是&#34;想起来才做&#34;的事。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pushclock.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pushclock/alarm-goes-off.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pushclock/alarm-goes-off.webp">
+
+<meta name="twitter:title" content="把起床做成一条闭环——我用 PushClock 串起了晨练、工作和打卡">
+<meta name="twitter:description" content="以前闹钟响了按掉再躺，迟到是家常便饭。现在我把 PushClock 嵌进了一套从设闹钟到 Wake Squad 打卡的完整流程里，省了手动复制连续天数的麻烦，也让晨练不再是&#34;想起来才做&#34;的事。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u95f9\u949f\u54cd\u4e86\u6309\u6389\u518d\u8eba\uff0c\u8fdf\u5230\u662f\u5bb6\u5e38\u4fbf\u996d\u3002\u73b0\u5728\u6211\u628a PushClock \u5d4c\u8fdb\u4e86\u4e00\u5957\u4ece\u8bbe\u95f9\u949f\u5230 Wake Squad \u6253\u5361\u7684\u5b8c\u6574\u6d41\u7a0b\u91cc\uff0c\u7701\u4e86\u624b\u52a8\u590d\u5236\u8fde\u7eed\u5929\u6570\u7684\u9ebb\u70e6\uff0c\u4e5f\u8ba9\u6668\u7ec3\u4e0d\u518d\u662f\"\u60f3\u8d77\u6765\u624d\u505a\"\u7684\u4e8b\u3002", "headline": "\u628a\u8d77\u5e8a\u505a\u6210\u4e00\u6761\u95ed\u73af\u2014\u2014\u6211\u7528 PushClock \u4e32\u8d77\u4e86\u6668\u7ec3\u3001\u5de5\u4f5c\u548c\u6253\u5361", "image": ["https://laoguosofts.github.io/images/pushclock/alarm-goes-off.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pushclock.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pushclock.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a\u8d77\u5e8a\u505a\u6210\u4e00\u6761\u95ed\u73af\u2014\u2014\u6211\u7528 PushClock \u4e32\u8d77\u4e86\u6668\u7ec3\u3001\u5de5\u4f5c\u548c\u6253\u5361", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">把起床做成一条闭环——我用 PushClock 串起了晨练、工作和打卡</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">把起床做成一条闭环——我用 PushClock 串起了晨练、工作和打卡</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前闹钟响了按掉再躺，迟到是家常便饭。现在我把 PushClock 嵌进了一套从设闹钟到 Wake Squad 打卡的完整流程里，省了手动复制连续天数的麻烦，也让晨练不再是&#34;想起来才做&#34;的事。</p>
+  </header>
+  <div class="prose serif">
+<h2>我每周要做的事，以前要三步</h2>
+<p>说起来挺简单——我每天早上要在 7:00 前起床，做 20 个深蹲，然后打开电脑写东西。听起来不难，但坚持下来的人都懂：<strong>起床这件事，最大的敌人不是没动力，是那五秒钟的模糊决策</strong>。</p>
+<p>旧流程是这样的：睡前用系统闹钟设 7:00，闹钟响了，我在半睡状态下摸到手机，按掉贪睡或直接关掉，翻个身继续躺。等真正起来的时候可能已经 8:30 了，深蹲没做，工作推迟，还要在脑子里补一句"明天一定"。</p>
+<p>更烦的是打卡这件事。我有几个朋友想一起早起互相监督，以前是各自在群里发一句"起了"，没人知道你是不是起床了半小时才发的。群里还总有人漏发，聊着聊着就断了，到月底也没个统计。</p>
+<p>还有个习惯追踪的笔记本，每周日晚上要手动把周一到周五的连续天数抄进去，有时候记混了、有时候忘了写，那本东西到现在也只写了三页。</p>
+<p>总结一下以前的起床链条：闹钟——睡觉——迟到——手动补记录——大概率中途放弃。四步里有三步靠意志力撑着，能坚持三周就算不错了。</p>
+<h2>把 PushClock 插进流程的哪一环</h2>
+<p>我是怎么把它嵌进去的？<a href="https://pushclock.yoan.quest" target="_blank" rel="noopener">pushclock官网</a>上把这套机制讲得很清楚，核心就一句话：<strong>在"设闹钟"的同时把"必须完成的任务"绑上去，不让半睡的大脑有退路</strong>。</p>
+<p>整条新流程是这样的：</p>
+<p><strong>第一步，睡前设闹钟时同时选任务。</strong> 这一步是在意识清醒的时候完成的——我知道明天要做什么任务。安装包从<a href="https://pushclock.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿，PushClock 让我在设闹钟的时候就把任务选好。现在我固定用"20 个深蹲"，难度调到最低，先保证能完成再说。闹钟设好，PushClock 还可以开个随机铃声模式，从自然声、机械声里各选几个，每次闹钟响随机挑一个。</p>
+<p><strong>第二步，闹钟响起，没别的选择。</strong> 屏幕上只有两行字："完成 20 个深蹲才能停闹钟"。没有贪睡按钮、没有"稍后再响"。默认音量比系统闹钟大，还带振动。我试过把闹钟藏在枕头底下，结果振动把我整个人都震醒了，还是得爬起来面对摄像头。</p>
+<p><img src="../images/pushclock/alarm-goes-off.webp" alt="闹钟响起时的画面" loading="lazy"></p>
+<p><strong>第三步，完成任务，闹钟自动停。</strong> PushClock 用设备端的 ML 模型追踪深蹲动作姿势——不是挥挥手就能混过去，蹲下去再站起来才算一个。完成 20 个，闹钟才会停，Streaks 自动+1，历史记录里记上今天的时间。</p>
+<p><strong>第四步，Wake Squad 里自动打卡。</strong> 我注册了 PushClock 账号，拉了五个朋友进一个 Wake Squad 群组，用邀请链接加的，不对外公开。群组里只显示"完成/未完成"和任务类型标签，不显示具体几点起的、深蹲做了多少——隐私没暴露，但群里一眼就能看见今天谁掉队了。连续天数大家都在涨，你断了会特别显眼。</p>
+<p><strong>第五步，连续天数自动同步。</strong> 以前每周日晚上手动抄的习惯追踪，现在 PushClock 的本地 Streaks 自动记，换手机也不会丢。虽然我还没找到能直接导入 Notion 的快捷方式，但至少省了每周日那半小时的手动抄写。</p>
+<h2>流程里最容易断链的两个环节</h2>
+<p>这套流程跑了三周，中间确实出了点小问题。讲两个最容易断的环节：</p>
+<p><strong>第一个环节：深蹲计数不准。</strong> 刚开始几天 PushClock 漏数，我明明做了 20 个它只认了 17 个，急得我在被窝里又多蹲了几个。后来才发现是摄像头角度的问题——我躺在床上的时候摄像头只能拍到上半身，蹲下去的时候手臂挡住了画面。解决办法很简单：闹钟响了之后先把手机放在床头支架上，角度调低点对着自己的全身，再开始做动作。</p>
+<p><strong>第二个环节：冬天或雨天的任务替代。</strong> 深蹲还好，不用出门。但有时候我想换个任务试试，比如摸摸草。冬天早上零下十几度，走到阳台拍天空照片过得了关——PushClock 的户外任务只要画面里有天空区域就算，不用真的下楼摸草。下雨天换室内任务，比如整理床铺、找物品拍照，灵活切换就行。PushClock 免费版能用基础的拍照任务，进阶的自定义物品需要 Pro 订阅，但我到现在还没用到那些功能——想了解完整任务列表和参数配置的话，<a href="https://pushclock.pages.dev/" target="_blank" rel="noopener">pushclock文档</a>里列得很全。</p>
+<p><img src="../images/pushclock/complete-mission.webp" alt="完成任务后的画面" loading="lazy"></p>
+<h2>效果和边界</h2>
+<p>跑了三周，说几个具体的变化，不是空话：</p>
+<ul><li>以前按掉闹钟再躺的次数：每周大约 3~4 次。现在：0 次。因为没地方按——只能完成任务。</li><li>手动抄写连续天数的时间：每周 30 分钟。现在：0 分钟。PushClock 自动记，Wake Squad 群里也能看。</li><li>晨练完成率：以前大约 50%，靠意志力。现在 95%——偶尔实在太累会推迟半小时，但不会取消。</li></ul>
+<p>但这套流程也有边界，什么时候不划算？</p>
+<p>如果你完全不喜欢社交，Wake Squad 可以关掉，PushClock 的核心闹钟功能不需要账号也能用，数据只存在本地。如果你的作息本身就很规律，可能不需要这么重的工具——一个普通闹钟加一点自我管理就够了。还有人跟我说他可以把俯卧撑次数调到 5 个，做完直接躺回去，还是没解决根问题。这时候 PushClock 也救不了你，得自己想清楚为什么要早起。</p>
+<p>对我来说最关键的一点是：<strong>我不再在半睡状态下做决定了</strong>。设闹钟的时候就已经把任务绑好了，闹钟响的时候只有一条路能走——爬起来。这条路本身就是最好的醒神程序，比咖啡还管用。源文件我做了三份备份，<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/pushclock" target="_blank" rel="noopener">GitHub</a>是主仓，国内访问的话 <a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/pushclock" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/pushclock" target="_blank" rel="noopener">GitCode</a> 上也同步了完整的项目目录。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/toptop-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">TopTop 避坑指南：房间里那些看着简单但容易翻车的细节</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/dododex.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">dododex 深度盘点：把 ARK 驯服这件事拆得通透的辅助神器</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

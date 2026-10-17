@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>TronClass 从一堂课到一整个学期：我见过它慢慢长出来的那些功能 · 老郭软件铺</title>
+  
+<meta name="description" content="从课堂签到的小改动到成绩自动对接教务系统，TronClass 几年迭代的重心始终围绕同一件事——让学校的教学生态跑得更顺。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/tronclass.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TronClass 从一堂课到一整个学期：我见过它慢慢长出来的那些功能">
+<meta property="og:description" content="从课堂签到的小改动到成绩自动对接教务系统，TronClass 几年迭代的重心始终围绕同一件事——让学校的教学生态跑得更顺。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/tronclass.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/tronclass/global-mobile-01.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/tronclass/global-mobile-01.png">
+
+<meta name="twitter:title" content="TronClass 从一堂课到一整个学期：我见过它慢慢长出来的那些功能">
+<meta name="twitter:description" content="从课堂签到的小改动到成绩自动对接教务系统，TronClass 几年迭代的重心始终围绕同一件事——让学校的教学生态跑得更顺。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u8bfe\u5802\u7b7e\u5230\u7684\u5c0f\u6539\u52a8\u5230\u6210\u7ee9\u81ea\u52a8\u5bf9\u63a5\u6559\u52a1\u7cfb\u7edf\uff0cTronClass \u51e0\u5e74\u8fed\u4ee3\u7684\u91cd\u5fc3\u59cb\u7ec8\u56f4\u7ed5\u540c\u4e00\u4ef6\u4e8b\u2014\u2014\u8ba9\u5b66\u6821\u7684\u6559\u5b66\u751f\u6001\u8dd1\u5f97\u66f4\u987a\u3002", "headline": "TronClass \u4ece\u4e00\u5802\u8bfe\u5230\u4e00\u6574\u4e2a\u5b66\u671f\uff1a\u6211\u89c1\u8fc7\u5b83\u6162\u6162\u957f\u51fa\u6765\u7684\u90a3\u4e9b\u529f\u80fd", "image": ["https://laoguosofts.github.io/images/tronclass/global-mobile-01.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/tronclass.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/tronclass.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "TronClass \u4ece\u4e00\u5802\u8bfe\u5230\u4e00\u6574\u4e2a\u5b66\u671f\uff1a\u6211\u89c1\u8fc7\u5b83\u6162\u6162\u957f\u51fa\u6765\u7684\u90a3\u4e9b\u529f\u80fd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">TronClass 从一堂课到一整个学期：我见过它慢慢长出来的那些功能</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">TronClass 从一堂课到一整个学期：我见过它慢慢长出来的那些功能</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从课堂签到的小改动到成绩自动对接教务系统，TronClass 几年迭代的重心始终围绕同一件事——让学校的教学生态跑得更顺。</p>
+  </header>
+  <div class="prose serif">
+<h2>它现在是什么样</h2>
+<p>去年我从 TronClass 的<a href="https://tronclass.qhah.skin" target="_blank" rel="noopener">官网</a>帮朋友把一门选修课搬上它的时候，我只记得登录页面做得挺干净，没什么多余按钮。今年再看，已经不是当年那个只放课件的在线教室了——移动端点开课程工具，一排快捷入口能滑出半屏：点名、选人、抢答、投票、随堂测，再往下是作业批改、成绩发布、学情分析，全链路从课前到课后。</p>
+<p>朋友说最让他省心的是成绩公布那一下。以前学期末改完卷，得手动算比例、导出 Excel、发给教务处。现在平台里定好各项权重，批改完的分数自动归集，点一下就能定时公布，成绩单直接走校内对接链路同步过去。这个场景我印象最深——软件的每一次升级，其实都是在帮某个人少做点无聊的重复劳动。</p>
+<h2>它从哪起步</h2>
+<p>样本文档没有讲太早的版本历史，但从账户体系的分层能看出一个清晰的起点：最开始应该就是给单体教师用的个人版，5 门课、每课 100 人，直接去<a href="https://tronclass.qhah.skin/download.html" target="_blank" rel="noopener">下载</a>就能上手，够用但也够用的边界很明确。那时候的定位大概就是"把课件搬到线上"的轻量工具，没想着接教务系统、没想着校级数据看板。</p>
+<p>转折点大概是在它长出平台账户这条线的时候——学校开始整体采购，需要的不再是一间虚拟教室，而是一整套教学生态。从个人账户到平台账户的能力跳跃，是我能看到的最硬的分水岭：教务对接、全校数据看板 InSight、AI 教与学应用、独立部署选项，这些模块都是平台账户专属，个人版始终停留在那个轻量的起点。</p>
+<h2>几个关键功能什么时候长出来的</h2>
+<p>点名这件事我盯得比较久。最早只有二维码签到，后来加了数字点名——老师报一串数字，学生输进去才算到，防代签比扫码靠谱。再后来有了雷达点名，走到教室范围自动识别。三种方式现在还在，说明不是简单迭代替换，而是并行覆盖不同场景：固定教室用二维码、大班额阶梯教室用数字、频繁快速点名用雷达。</p>
+<p><img src="../images/tronclass/global-mobile-01.png" alt="移动端的点名与互动入口" loading="lazy"></p>
+<p>真正让我觉得它想清楚了课堂互动的，是 2025 年 3 月那个更新：签到不再是独立考勤工具，变成了课堂互动的准入闸门。发起签到之后，没签到的学生不会被接下来的随机选人抽中。这个改动看起来小，但把两个本来割裂的模块串起来了——考勤数据第一次实质性地影响了课堂活动的节奏。</p>
+<p>成绩管理这条线也在持续变厚。我后来翻<a href="https://tronclass.pages.dev/" target="_blank" rel="noopener">tronclass文档</a>的时候注意到，能看到的能力已经覆盖到：单项成绩的三种公布控制（不公布、交卷即公布、定时公布）、答案和成绩分离公布、总成绩独立于单项的时间锁、成绩比例自动统计、调整后自动重算。期末那套动作序列——确认批改、复核比例、个别微调、设公布时间、导出成绩单——平台全链路能接住。</p>
+<p>账户体系本身也在演化。个人版始终是那个定位，没往里塞新东西；平台版在它之上一层层叠模块，包括 AIR 系列的 AI 教与学应用、学情画像和学习分析、教务资料无缝对接。两条线并行扩展，谁也不抢谁的位置。</p>
+<h2>从迭代节奏看到它一直在死磕什么</h2>
+<p>把这些改动串起来，能看到它的优先级非常集中：<strong>让校内教学流程的每个环节都在平台内闭环</strong>。点名从单点功能变成互动的入口闸门，成绩从录入发布变成自动归集对接，账户从个人工具变成机构级教学生态——所有大功能的方向是一致的，不是散点开花。</p>
+<p>反过来，有些东西它好像故意一直没碰。比如跨校协作、面向 C 端的公开课程市集、或者给学生的独立学习路径推荐——这些在同类产品里常见的扩展方向，我没在样本文档里看到任何痕迹。它似乎很清楚自己的边界在哪，不想做不属于自己的事。</p>
+<p>另一个观察：个人版功能几年没动，而平台版持续长出新模块。说明产品重心早就从个体教师转向了机构采购，这也是在线教学平台从工具走向生态的必经之路——个体用户是流量入口，但付费主体永远是学校。</p>
+<h2>照这个路线，下一步大概率会去哪</h2>
+<p>从它一直在死磕校内闭环的逻辑推，接下来最值得期待的方向应该是<strong>学情数据和教学动作的进一步联动</strong>。现在出勤数据已经影响了课堂选人，成绩数据已经对接了教务，那学情画像能不能反过来给教学策略提建议——比如某门课的作业完成率持续下降，系统能不能自动触发提醒、或者在选人环节优先点到那些沉默的学生？</p>
+<p>InSight 数据看板已经有了校级统计能力，如果下一步能从"看数据"走到"数据驱动动作"，就是一次量级不同的升级。当然，这是从它的迭代规律推的，不是官方口径。</p>
+<p>还有一个很实际的可能：独立部署的选项会不会下放到更多层级？现在只有平台账户支持，个人版教师想自己搭个私有环境根本碰不到。如果学校采购的节奏放缓、个人用户的需求被重新重视，这条线可能会松动。</p>
+<p>毕竟，它走了这么多年，一直在做一件事：让教室里发生的一切，在线上有个对应的位置。这件事远没做完。我整理的这套参考资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/TronClass" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/TronClass" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/TronClass" target="_blank" rel="noopener">GitCode</a> 三个仓库都同步放了，方便不同网络环境的朋友直接取用。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/netshort-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">NetShort深度拆解：从竖屏架构到付费模型，它凭什么让短剧上瘾？</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/smtown-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了一年多 SMTOWN APP，说点真正的老用户感受</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

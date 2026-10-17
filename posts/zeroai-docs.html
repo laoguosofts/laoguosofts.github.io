@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>ZeroAI 版本进化史：从 0.1.x 系列看一款安卓智能体的成长节奏 · 老郭软件铺</title>
+  
+<meta name="description" content="ZeroAI 目前停在 0.1.7，这个版本号本身就很有意思——它不像已经定型的产品，倒像一套在快速试错的脚手架。我翻了一圈它的功能清单，想从已有的东西反推它走过的路。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/zeroai-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZeroAI 版本进化史：从 0.1.x 系列看一款安卓智能体的成长节奏">
+<meta property="og:description" content="ZeroAI 目前停在 0.1.7，这个版本号本身就很有意思——它不像已经定型的产品，倒像一套在快速试错的脚手架。我翻了一圈它的功能清单，想从已有的东西反推它走过的路。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/zeroai-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/zeroai-docs/cover-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/zeroai-docs/cover-1.jpg">
+
+<meta name="twitter:title" content="ZeroAI 版本进化史：从 0.1.x 系列看一款安卓智能体的成长节奏">
+<meta name="twitter:description" content="ZeroAI 目前停在 0.1.7，这个版本号本身就很有意思——它不像已经定型的产品，倒像一套在快速试错的脚手架。我翻了一圈它的功能清单，想从已有的东西反推它走过的路。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "ZeroAI \u76ee\u524d\u505c\u5728 0.1.7\uff0c\u8fd9\u4e2a\u7248\u672c\u53f7\u672c\u8eab\u5c31\u5f88\u6709\u610f\u601d\u2014\u2014\u5b83\u4e0d\u50cf\u5df2\u7ecf\u5b9a\u578b\u7684\u4ea7\u54c1\uff0c\u5012\u50cf\u4e00\u5957\u5728\u5feb\u901f\u8bd5\u9519\u7684\u811a\u624b\u67b6\u3002\u6211\u7ffb\u4e86\u4e00\u5708\u5b83\u7684\u529f\u80fd\u6e05\u5355\uff0c\u60f3\u4ece\u5df2\u6709\u7684\u4e1c\u897f\u53cd\u63a8\u5b83\u8d70\u8fc7\u7684\u8def\u3002", "headline": "ZeroAI \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece 0.1.x \u7cfb\u5217\u770b\u4e00\u6b3e\u5b89\u5353\u667a\u80fd\u4f53\u7684\u6210\u957f\u8282\u594f", "image": ["https://laoguosofts.github.io/images/zeroai-docs/cover-1.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/zeroai-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/zeroai-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "ZeroAI \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece 0.1.x \u7cfb\u5217\u770b\u4e00\u6b3e\u5b89\u5353\u667a\u80fd\u4f53\u7684\u6210\u957f\u8282\u594f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">ZeroAI 版本进化史：从 0.1.x 系列看一款安卓智能体的成长节奏</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">ZeroAI 版本进化史：从 0.1.x 系列看一款安卓智能体的成长节奏</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">ZeroAI 目前停在 0.1.7，这个版本号本身就很有意思——它不像已经定型的产品，倒像一套在快速试错的脚手架。我翻了一圈它的功能清单，想从已有的东西反推它走过的路。</p>
+  </header>
+  <div class="prose serif">
+<h2>现状：0.1.7 这一版到底是什么样</h2>
+<p>现在的 ZeroAI，我对它的印象是「功能模块已经铺开，但每个模块都还在打磨」。去它的<a href="https://zeroai.wrwq.fun" target="_blank" rel="noopener">官网</a>上看，版本号 0.1.7 不算高，安装包却有 78MB——这个体积在安卓应用里不算小，说明核心依赖（Rust 编译的智能体引擎、Compose UI、沙箱脚本引擎）都已经打包进去了，不是什么轻量壳子。</p>
+<p>具体看功能，它已经有了 Cron 式定时任务、Discord 和 Telegram 双通道接入、24 项细粒度安全开关这三块。有意思的是，它不需要 Root 权限——作为安卓应用跑前台服务保持常驻，通过 Android 标准 API 接入各种通道。这点很重要，因为很多同类方案要么要 Root 要么走 Termux + ADB 的弯路，ZeroAI 直接把这些复杂性打包进 APK 了。</p>
+<p><img src="../images/zeroai-docs/cover-1.jpg" alt="ZeroAI 应用封面" loading="lazy"></p>
+<h2>来路：样本文档没提的部分恰恰说明……</h2>
+<p>样本文档里没有任何早期版本的变更日志，README 也是面向当前版本的使用指南。这本身就是一个信号——项目还处在「功能快速迭代，来不及好好归档历史」的阶段。版本号从 0.1.0 跳到 0.1.7，中间至少有七个小版本，但每个版本具体加了什么，外部几乎查不到。</p>
+<p>不过从现有功能的组合关系，还是能反推迭代顺序的。最先落地的应该是<strong>安全模型</strong>——24 项能力开关默认只开最基础的几项（时间、随机数、数学、只读文件），其他全关。这种「保守起手」的设计，说明团队对智能体的安全边界是有警惕的，不是先堆功能再补安全。</p>
+<p>然后是<strong>多通道接入</strong>。Telegram 和 Discord 两套都做了，而且还写了对比表——Telegram 适合个人、Discord 适合开发者社群。这说明他们不是只押注一个通道，而是想让智能体变成一个「哪里都能对话」的存在。</p>
+<p>最后是<strong>Cron 定时任务</strong>。这个功能的前提是守护进程常驻——关掉守护进程，定时任务就不触发了。把定时任务放在后期做，说明守护进程这块底层能力先跑稳了，才往上叠定时触发的逻辑。</p>
+<h2>规律：从迭代节奏看团队的优先级</h2>
+<p>三件事的先后顺序（安全 → 通道 → 定时），暴露了团队的优先级。</p>
+<p><strong>他们一直在死磕的是「让智能体真正能用」，而不是「让智能体看起来很炫」。</strong> 24 项开关、不需要 Root、守护进程常驻——这些都是解决「能不能稳定跑、会不会出安全问题」的基础问题，而不是做什么炫酷的 AI 对话效果。</p>
+<p>有一件事他们<strong>一直没碰</strong>：<a href="https://zeroai-docs.pages.dev/" target="_blank" rel="noopener">ZeroAI文档</a>里提到了 Rhai 沙箱脚本引擎，但没有任何一篇样本讲具体怎么写 Rhai 脚本。这说明脚本扩展能力可能在规划中，但还没到要对外暴露文档的阶段。还有，Discord 接入写了语音频道不支持，这条也是实话——能做什么、不能做什么，他们不硬吹。</p>
+<p>另一个观察：<a href="https://zeroai.wrwq.fun/download.html" target="_blank" rel="noopener">ZeroAI下载</a>拿到的安装包基础信息里标注的系统要求有矛盾——七匣子写安卓 5.2 以上，仓库 README 写 Android 9。文档里专门解释了为什么应该以 Android 9 为准（前台服务模型、手势导航 API、64 位覆盖率），还补了一句「如果系统版本低于 Android 9，大概率无法正常运行」。这种主动拆解矛盾、给用户明确建议的做法，在同类产品里不多见，说明他们对用户踩坑这件事是上心的。</p>
+<p><img src="../images/zeroai-docs/feature-automation.jpg" alt="自动化与决策" loading="lazy"></p>
+<h2>预判：照这个路线，下一步大概率走向哪里</h2>
+<p>我得先声明：这不是官方路线图，只是从已有的迭代规律推的。</p>
+<p>首先，<strong>Rhai 脚本扩展的文档会补上</strong>。24 项安全开关里专门留了「运行 Rhai 脚本」「Rust 原生扩展调用」「动态加载第三方库」这些选项，但外部几乎找不到使用示例。当基础功能稳定后，开放脚本能力是自然的下一步。</p>
+<p>其次，<strong>通道接入还会继续扩</strong>。现在有 Telegram 和 Discord，下一个大概率是国内用户更常用的通道——可能是企业微信、飞书，或者什么轻量的 Webhook 方案。多通道覆盖是他们一直在做的事。</p>
+<p>最后，<strong>守护进程的可靠性会被继续加固</strong>。Cron 定时任务的稳定性完全依赖守护进程常驻，安卓系统对前台服务有限制，这块如果不持续优化，定时任务就容易翻车。0.1.x 系列里肯定藏着好几次「守护进程被杀 → 定时任务静默失败」的修复。</p>
+<p>0.1.7 这个版本号其实还暗示了一点：离 0.2.0 可能不远了。等功能模块再补齐一轮，他们就该考虑一个正式的次版本号了。到时候会不会有完整的变更日志、会不会调整包体积、会不会开放更多脚本示例——这几个点值得盯着看。</p>
+<hr>
+<p>这套资料在三个仓库都能拿到：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ZeroAI" target="_blank" rel="noopener">GitHub</a>上的仓库是主力维护，<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ZeroAI" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ZeroAI" target="_blank" rel="noopener">GitCode</a>做国内镜像和备份，方便不同网络环境的人查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/linkup-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">LinkUp 是什么？从零开始带你用这款位置共享守护应用</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/voloco.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Voloco 避坑指南：我踩过的五个翻车站，看完省你半瓶口水</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

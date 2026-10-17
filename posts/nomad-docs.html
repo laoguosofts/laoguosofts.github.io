@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法 · 老郭软件铺</title>
+  
+<meta name="description" content="从笔刷高级参数到命令行激活，从免费试用救急到导出前预查——Nomad 里藏得最深的几个开关，90% 的人打开设置面板扫一眼就划走了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/nomad-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法">
+<meta property="og:description" content="从笔刷高级参数到命令行激活，从免费试用救急到导出前预查——Nomad 里藏得最深的几个开关，90% 的人打开设置面板扫一眼就划走了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/nomad-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/nomad-docs/tools-menu.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/nomad-docs/tools-menu.webp">
+
+<meta name="twitter:title" content="翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法">
+<meta name="twitter:description" content="从笔刷高级参数到命令行激活，从免费试用救急到导出前预查——Nomad 里藏得最深的几个开关，90% 的人打开设置面板扫一眼就划走了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u7b14\u5237\u9ad8\u7ea7\u53c2\u6570\u5230\u547d\u4ee4\u884c\u6fc0\u6d3b\uff0c\u4ece\u514d\u8d39\u8bd5\u7528\u6551\u6025\u5230\u5bfc\u51fa\u524d\u9884\u67e5\u2014\u2014Nomad \u91cc\u85cf\u5f97\u6700\u6df1\u7684\u51e0\u4e2a\u5f00\u5173\uff0c90% \u7684\u4eba\u6253\u5f00\u8bbe\u7f6e\u9762\u677f\u626b\u4e00\u773c\u5c31\u5212\u8d70\u4e86\u3002", "headline": "\u7ffb\u4e86\u534a\u5e74 Nomad \u8bbe\u7f6e\u9762\u677f\uff0c\u6316\u51fa\u8fd9 5 \u4e2a\u6ca1\u4eba\u6559\u4f60\u7684\u9690\u85cf\u73a9\u6cd5", "image": ["https://laoguosofts.github.io/images/nomad-docs/tools-menu.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/nomad-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/nomad-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "\u7ffb\u4e86\u534a\u5e74 Nomad \u8bbe\u7f6e\u9762\u677f\uff0c\u6316\u51fa\u8fd9 5 \u4e2a\u6ca1\u4eba\u6559\u4f60\u7684\u9690\u85cf\u73a9\u6cd5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从笔刷高级参数到命令行激活，从免费试用救急到导出前预查——Nomad 里藏得最深的几个开关，90% 的人打开设置面板扫一眼就划走了。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 Nomad 就是 iPad 上捏泥巴的那几个笔刷？先去<a href="https://nomad.laze.skin" target="_blank" rel="noopener">官网</a>翻翻设置面板再说话——我翻了半年，把每一个菜单项都抠了一遍，发现这个软件藏得是真深——有些功能官方教程只提一句，有些甚至连文档都没正经讲。</p>
+<h2>移动笔刷里那两个被忽略的小勾</h2>
+<p>Move 和 Drag 两支形变笔刷，大多数人上手就会用，但打开 Move 的参数面板，底部那两个勾几乎没人碰过。</p>
+<p><strong>Same-side vertex only</strong>，勾上之后，笔刷只会拉扯那些朝向和移动方向一致的顶点。什么意思？比如你在脸前面拉颧骨，笔刷覆盖面可能穿过去抓到后脑勺的顶点——不勾的话，后脑勺会跟着一起被扯歪；勾上，只有正面那些"看见"你在拉的顶点才会动，背面纹丝不动。这个开关对调整五官位置特别有用，尤其是脸已经有了初步轮廓不想乱扯的时候。</p>
+<p>另一个是 <strong>Radius (Background)</strong>——背景半径。默认值挺小，意思是笔刷离模型边缘多远还能"抓"到顶点。调轮廓剪影的时候，比如给动物拉尾巴根、给人物扩肩膀，把这个值调大一倍，你会发现隔着背景空白也能稳稳抓住边缘顶点，不用把笔刷精准贴在轮廓线上反复蹭。</p>
+<p><img src="../images/nomad-docs/tools-menu.webp" alt="笔刷高级设置面板" loading="lazy"></p>
+<p>这两个开关放在一个不太起眼的位置——笔刷面板的下半部分，默认都是关的，需要主动点进去改。我第一次发现的时候是在做一条龙尾，勾上 Same-side 之后正面拉长的鳞片不会把肚皮一起扯烂，瞬间香了。</p>
+<h2>拖拽笔刷 + 动态拓扑：拉长一切的组合拳</h2>
+<p>Drag 笔刷的核心差异就一条：选择区域在笔划过程中持续更新。Move 是落笔瞬间锁定顶点集，Drag 是按住不放一路拖，笔尖滑过的地方不断有新顶点加入选择。</p>
+<p>但单独用 Drag 拉长会有个问题：原始网格面数有限，拉到一定程度顶点之间间距变大，再刻细节就刻不动了——笔刷想刻的折痕比两个顶点的间距还窄，自然刻不进去。</p>
+<p>官方和社区教程公认的组合是 Drag 配合 <strong>动态拓扑</strong>。打开动态拓扑之后，笔划经过的地方会实时自动插入新顶点，拉长区域的面密度保持恒定。这对做龙尾、触手、盘起的绳索、动物长角这类需要连续形变还要保持细节的结构来说，直接省去了反复重拓扑的麻烦。</p>
+<p>动态拓扑的开关在拓扑菜单里，默认关闭——我见过不少雕塑作品要么尾巴拉得太细面数崩了，要么中途停下来重拓扑打断手感，全是因为没开这个。</p>
+<p><img src="../images/nomad-docs/topology-dyntopo.webp" alt="动态拓扑与多重分辨率切换" loading="lazy"></p>
+<h2>命令行激活：机房批量部署的隐藏姿势</h2>
+<p>桌面版激活码大多数人都是打开界面输入的，但 Nomad 还提供了一套完全不打开界面的命令行参数：<code>--activate</code> / <code>--deactivate</code> / <code>--license-status</code>。</p>
+<p>这玩意儿主要是给机房批量部署用的——想象一个计算机教室三十台电脑，一台台开界面输激活码要半小时，写个批处理跑一遍就搞定。还有个细节：可以传入存钥匙的文件路径，避免钥匙直接出现在 shell 历史记录里——对 IT 管理员来说，这个小设计比表面上看起来实用得多。</p>
+<p>另外，激活机制里有个很多人不知道的规则：<strong>一台电脑 = 一个机器 ID，一把钥匙绑定两个机器 ID</strong>。重装系统或者换主板会改变机器 ID，等于占了一个新名额。所以抹机之前一定要先在官方门户里释放旧名额——我见过有人重装三次系统才想起来，两个名额都用完了还得写邮件找客服。</p>
+<p>还有个冷知识：移动版商店里买的授权，和桌面版是两套独立体系——移动钥匙解不了桌面，桌面钥匙也解不了移动版。买之前得想清楚主战场在哪边。</p>
+<h2>免费试用模式的隐藏救急功能</h2>
+<p>桌面版从<a href="https://nomad.laze.skin/download.html" target="_blank" rel="noopener">官方下载</a>后走免费试用模式默认不给完整功能，但有一个例外：<strong>移动设备打不开的大项目，可以用桌面版免费试用模式导入导出救急</strong>。</p>
+<p>什么意思？iPad 上一个 500 万面的项目，打开直接闪退或者卡成 PPT，怎么办？把 NOM 文件传到电脑，用桌面版试用模式打开——虽然没法激活完整功能，但导入导出是开放的。你可以把它导出成 glTF 或者 OBJ，然后回 iPad 用减面工具重拓扑之后再导入回来，等于在免费模式里完成了一次"跨设备降面"。</p>
+<p>这个用法官方只在崩溃排查那一节提了一句，我也是后来去<a href="https://nomad-docs.pages.dev/" target="_blank" rel="noopener">Nomad文档</a>翻了一下才找到原文，属于那种"知道的人知道，不知道的人永远不知道"的类型。我上周帮朋友救了个 iPad 上打不开的 480 万面雕塑，就是这么干的——全程没激活、没花钱，导出 glB 回 iPad 重拓扑到 120 万面之后，流畅得像新模型。</p>
+<h2>导出前那个被忽略的实时计数器</h2>
+<p>导出菜单里每个格式选项的图标旁边，都有一个数字实时显示"将要导出的对象数"。大多数人点导出就直接选格式点确认，从来没注意过那个小数字。</p>
+<p>想象一下：你辛苦雕塑了一个二十个物体的场景，其中五个图层被隐藏了没导出——点"全部"是二十个，点"仅可见"是十五个，点"仅选中"可能只有三个。那个数字就在图标旁边，导出前扫一眼就能确认范围对不对，比导出完才发现漏了东西重导一遍要省事儿得多。</p>
+<p>另外，导出时的"范围"下拉框还有个小细节：它的记忆是临时的——关掉导出菜单再打开，会自动回到"全部"。所以每次导出前都得重新选，别以为上次选了"仅可见"这次就还保持着。</p>
+<p>导出支持七种格式，每种格式对顶点颜色、四边面、图层、纹理的支持程度不一样——比如 STL 不支持四边面也不支持纹理，glTF 是目前最完整的跨软件格式，官方生态的 PBR 支持最稳。选错格式导出完再进 Blender 发现贴图丢了，那可真是返工到哭。</p>
+<p><img src="../images/nomad-docs/files-export.webp" alt="文件导出菜单：格式与参数对照" loading="lazy"></p>
+<h2>哪些坑别踩</h2>
+<p>聊完隐藏功能说几个容易踩的坑。</p>
+<p>首先，<strong>动态拓扑开着的时候别做精细纹理雕刻</strong>——动态拓扑会频繁插入新顶点，纹理 UV 会跟着变形。正确顺序是：大形阶段开动态拓扑自由拉伸 → 确定整体形态之后关掉它 → 再雕刻细节和上纹理。</p>
+<p>然后，<strong>命令行激活一定要用 <code>--license-status</code> 先确认状态再抹机</strong>——我自己去年就栽过：重装 Windows 之前忘了释放名额，导致一个钥匙的两个名额被一台机器占死，最后写邮件给官方客服才解决，等了整整三天。</p>
+<p>最后，<strong>移动版和桌面版的授权真的不通用</strong>——别听某些帖子说"买移动版送桌面"，那是老黄历了。现在两套授权体系完全独立，买之前得想清楚主要在哪边工作。</p>
+<hr>
+<p>Nomad 这个软件最有意思的地方就在于：它的界面看起来很简洁，但把每一个角落都抠一遍，总能翻出点新东西。上面这五个算是我这半年里最实用的发现——不是什么"隐藏彩蛋"那种噱头，是真能省时间、救急、或者让作品上一个档次的设置。</p>
+<p>把一个软件用透，往往不是靠花多少时间堆教程，而是停下来多看看那些默认不勾的小选项。</p>
+<p>这套资料我同时维护了三份镜像，开源仓库分别在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Nomad" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Nomad" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Nomad" target="_blank" rel="noopener">GitCode</a>——国内访问偶尔卡的话换个镜像站就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/persist-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/arcsite-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Arcsite 上手三天：在客户现场就能把活干完的建筑测量工具</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

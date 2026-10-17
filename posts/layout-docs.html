@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>每周三组九宫格从半小时缩到五分钟，我是怎么把 Layout 嵌进内容生产流的 · 老郭软件铺</title>
+  
+<meta name="description" content="作为一个每周要产出三组对比图和场景拼图的测评博主，我把 Layout 插进了从选图到发稿的整条流水线，砍掉了两个小时手动操作。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/layout-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每周三组九宫格从半小时缩到五分钟，我是怎么把 Layout 嵌进内容生产流的">
+<meta property="og:description" content="作为一个每周要产出三组对比图和场景拼图的测评博主，我把 Layout 插进了从选图到发稿的整条流水线，砍掉了两个小时手动操作。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/layout-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/layout-docs/gesture-edit-3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/layout-docs/gesture-edit-3.png">
+
+<meta name="twitter:title" content="每周三组九宫格从半小时缩到五分钟，我是怎么把 Layout 嵌进内容生产流的">
+<meta name="twitter:description" content="作为一个每周要产出三组对比图和场景拼图的测评博主，我把 Layout 插进了从选图到发稿的整条流水线，砍掉了两个小时手动操作。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4f5c\u4e3a\u4e00\u4e2a\u6bcf\u5468\u8981\u4ea7\u51fa\u4e09\u7ec4\u5bf9\u6bd4\u56fe\u548c\u573a\u666f\u62fc\u56fe\u7684\u6d4b\u8bc4\u535a\u4e3b\uff0c\u6211\u628a Layout \u63d2\u8fdb\u4e86\u4ece\u9009\u56fe\u5230\u53d1\u7a3f\u7684\u6574\u6761\u6d41\u6c34\u7ebf\uff0c\u780d\u6389\u4e86\u4e24\u4e2a\u5c0f\u65f6\u624b\u52a8\u64cd\u4f5c\u3002", "headline": "\u6bcf\u5468\u4e09\u7ec4\u4e5d\u5bab\u683c\u4ece\u534a\u5c0f\u65f6\u7f29\u5230\u4e94\u5206\u949f\uff0c\u6211\u662f\u600e\u4e48\u628a Layout \u5d4c\u8fdb\u5185\u5bb9\u751f\u4ea7\u6d41\u7684", "image": ["https://laoguosofts.github.io/images/layout-docs/gesture-edit-3.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/layout-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/layout-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "\u6bcf\u5468\u4e09\u7ec4\u4e5d\u5bab\u683c\u4ece\u534a\u5c0f\u65f6\u7f29\u5230\u4e94\u5206\u949f\uff0c\u6211\u662f\u600e\u4e48\u628a Layout \u5d4c\u8fdb\u5185\u5bb9\u751f\u4ea7\u6d41\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">每周三组九宫格从半小时缩到五分钟，我是怎么把 Layout 嵌进内容生产流的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">每周三组九宫格从半小时缩到五分钟，我是怎么把 Layout 嵌进内容生产流的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">作为一个每周要产出三组对比图和场景拼图的测评博主，我把 Layout 插进了从选图到发稿的整条流水线，砍掉了两个小时手动操作。</p>
+  </header>
+  <div class="prose serif">
+<h2>旧流程的卡点</h2>
+<p>我做测评类内容，每周固定要出三组图：一组是产品参数对比四宫格，一组是同场景多机位九宫格，还有一组是日常花絮六宫格。以前这套流程是这样走的：</p>
+<p>从手机相册里挑好四张或九张图，用数据线传到电脑，打开 Photoshop 建一个 2x2 或 3x3 的画布，把图片一张张拖进去，手动调整每格的裁剪位置，对齐边缘，导出 PNG，再用微信文件传输助手发回手机，打开小红书编辑器插图。</p>
+<p>听起来每一步都不难，但叠在一起就很磨人：传图等十几秒，建画布记不住之前的尺寸要翻历史记录，拖图进去时每张都要手动裁掉多余部分，对齐边缘靠眼睛瞄不准还要拉参考线，最后发回手机又是一轮等待。三组图跑完，保守估计半小时，赶上图片多或者要调整构图的情况，一小时也正常。</p>
+<p>更烦的是这条链路对网络环境有要求——地铁上想临时赶个图发朋友圈，没电脑就卡壳。试过几个手机端的拼图替代，要么有水印挡画面，要么强制登录才能导出，要么广告弹窗挡住编辑界面，没一个能顺顺当当走完流程。</p>
+<h2>把 Layout 插进流程的哪一环</h2>
+<p><a href="https://layout.gerw.hair" target="_blank" rel="noopener">Layout官网</a>解决的就是中间那段"排版 + 裁剪 + 导出"。我把整条流程拆成四段：选图 → 排版裁剪 → 存稿 → 分发。Layout 完美卡进第二段，而且因为它本身完全离线、不登录、无水印，前后衔接几乎没有摩擦。</p>
+<p>具体流程现在是这样：</p>
+<p><strong>第一段，选图</strong>：出门拍摄用手机原生相机，拍完直接在相册里标记好要拼的几张。这一步不变，因为相册的体验已经够好，换工具反而多一层操作。</p>
+<p><strong>第二段，排版裁剪</strong>：打开从 <a href="https://layout.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a> 来的 Layout，直接点开始，从相册里勾选刚才标记好的图。Layout 会自动给我出几个版式——2x2、3x3、L 型、T 型这些，点一下就能换。选好版式后进编辑界面，这里就是 Layout 的核心了：双指捏合缩放某一格的取景范围，单指拖动调整照片在格子里的位置，轻点格子可以替换、镜像或翻转，长按格子之间的分隔条还能调比例。这套手势我练了大概两三次就熟了，现在调一张图的取景位置基本就是两三秒的事。</p>
+<p><img src="../images/layout-docs/gesture-edit-3.png" alt="用手势编辑调整照片在格子里的取景范围" loading="lazy"></p>
+<p><strong>第三段，存稿</strong>：右上角点保存，Layout 直接把拼好的图写进手机相册，没有任何确认弹窗，也不弹"要不要分享到 Instagram"的引导条。保存完我切回微信文件传输助手，把图拖到电脑上做后续的文案配图。这一步的衔接关键是 Layout 不生成独立文件也不强制打开分享面板——它就像相册自带的一个编辑功能，改完直接落盘，我想怎么处理这张图都可以。</p>
+<p><strong>第四段，分发</strong>：电脑端拿到图后，小红书、公众号、微博各发一份，版式和裁剪都已经在手机上调好了，这边只需要拖进去排位置。</p>
+<p><img src="../images/layout-docs/layout-options-2.png" alt="Layout 首页的版式选择界面" loading="lazy"></p>
+<h2>容易断链的两个环节</h2>
+<p>流程跑了大概两个月，最容易出问题的地方有两个，我踩过坑之后总结了固定处理方式。</p>
+<p>第一个断链点是"分隔条先调还是后调"。我最开始的习惯是先把每张照片的取景都调好，再去拉分隔条改格子比例。但分隔条一动，格子大小变了，之前对准的取景就偏了，得重新调一遍。解决方法很简单：<strong>先调分隔条定好格子大小，再去缩放取景</strong>。Layout 的分隔条拖动是实时预览的，拉的时候就能看到比例效果，定好之后每张格子的尺寸就固定了，这时候再去调单格取景，调完就是最终效果不会再变。这个顺序我现在已经形成肌肉记忆，不再翻了。</p>
+<p>第二个断链点是"放大倍数的边界"。Layout 支持的缩放范围大概是 0.5x 到 3x，我有时候想把一张合影里的某个人放大填满一个格子，放到 2.8x 左右手机屏幕预览看起来还行，但导出到电脑上一看就糊了。成图被我放大到电脑屏幕那么大时，细节完全没法看。后来我给自己定了一条规则：<strong>缩放不超过 2x</strong>，超过的话宁愿换一张原图分辨率更高的照片拼，或者接受这个人在格子里小一点。翻了下 <a href="https://layout-docs.pages.dev/" target="_blank" rel="noopener">Layout文档</a>，虽然没明确写画质阈值，但实测 2x 以内导出的图片质量和原图几乎没区别，2x 往上边缘就开始发虚。</p>
+<p>还有一个小细节值得提一下：Layout 的所有编辑操作都不会改原图。镜像、翻转、双指缩放这些都是在 Layout 内部渲染出来的视觉效果，最终保存时合成进成图，但相册里的原始照片是什么样还是什么样。这意味着如果我对 Layout 拼出来的效果不满意，删掉成图重新选一张原图再拼就行，不会因为刚才试错而破坏素材库。这点在流程里很重要——我不用在 Layout 里反复撤回重做，大不了退出重开。</p>
+<h2>省了多少事，什么时候不划算</h2>
+<p>用了这套流程之后，三组图的制作时间从半小时缩到了五分钟左右。具体说：少了数据线传图那一轮等待（手机端直接存相册），少了 Photoshop 里手动裁每张图的操作（Layout 自动填满格子，我只需要对准重点），少了导出格式的纠结（Layout 直接出 JPG，不用选 PNG 还是 JPG、不用调压缩率）。</p>
+<p>地铁上、等人的时候就能完成排版裁剪，回到家直接在电脑上做分发，整个过程不再被"有没有电脑"绑死。这是我最大的感受——以前做内容生产的瓶颈是"必须坐下来打开电脑"，现在瓶颈变成了"手机里有没有拍够图"。</p>
+<p>当然这套流程也有不划算的时候。如果你只需要拼一张图、而且对版式没有特殊要求，Layout 不是最快的——系统相册自带的拼图功能可能更方便，毕竟少了打开另一个 App 的一步。另外，Layout 的版式是固定池里选的，不能自定义格子的数量和位置，如果需要一个完全定制化的异形版式（比如中间一个大图周围六个小图，或者不规则的多边形拼接），Layout 就做不到了，还是得回到 PS。</p>
+<p>但对我这种"每周固定几组常规对比图、版式需求稳定"的场景，Layout 是把中间那段最磨人的重复劳动干掉了。选图、排版、存稿、分发四段里，只有第二段是纯粹的工具操作，而 Layout 把这段压缩到了极致——点开、选图、调手势、保存，四步，没有注册、没有广告、没有水印挡画面。</p>
+<p>我自己的经验是：如果你发现自己每周都在做类似的拼图操作、而且流程里有一段"打开一个重型工具做很简单的事"，不妨看看能不能用一个专注的小工具替换掉那段。Layout 就是这样一个替代品——它不做任何额外的事，就做拼图这一件，而且做得足够干净、足够快。完全离线也能用，不想用了直接卸载不留痕迹。源码和打包脚本分别放在了 <a href="https://github.com/alipymanbu/APK/tree/main/APP/Layout" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/Layout" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/Layout" target="_blank" rel="noopener">GitCode</a> 上，国内访问的话 Gitee 和 GitCode 速度会更快一些。这样的工具嵌进工作流里，不会成为新的负担，反而让整条链更短更顺。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/powerdirector.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">威力导演藏得最深的 4 个狠活，老用户都未必碰过</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/myacg-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用 myacg 搭一条内容消费流水线：从发现到归档全在一个 App</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

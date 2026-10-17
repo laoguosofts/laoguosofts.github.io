@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Gator 清理踩过的七个坑，知道这些之后省太多事 · 老郭软件铺</title>
+  
+<meta name="description" content="Gator 作为一个多合一的 Android 清理工具，看着简单好用，但实际跑下来有几个容易踩的坑。本文从权限、定时器到清理验证，把常见翻车点逐个说清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/gator-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gator 清理踩过的七个坑，知道这些之后省太多事">
+<meta property="og:description" content="Gator 作为一个多合一的 Android 清理工具，看着简单好用，但实际跑下来有几个容易踩的坑。本文从权限、定时器到清理验证，把常见翻车点逐个说清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/gator-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/gator-docs/shot-settings.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/gator-docs/shot-settings.jpg">
+
+<meta name="twitter:title" content="Gator 清理踩过的七个坑，知道这些之后省太多事">
+<meta name="twitter:description" content="Gator 作为一个多合一的 Android 清理工具，看着简单好用，但实际跑下来有几个容易踩的坑。本文从权限、定时器到清理验证，把常见翻车点逐个说清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Gator \u4f5c\u4e3a\u4e00\u4e2a\u591a\u5408\u4e00\u7684 Android \u6e05\u7406\u5de5\u5177\uff0c\u770b\u7740\u7b80\u5355\u597d\u7528\uff0c\u4f46\u5b9e\u9645\u8dd1\u4e0b\u6765\u6709\u51e0\u4e2a\u5bb9\u6613\u8e29\u7684\u5751\u3002\u672c\u6587\u4ece\u6743\u9650\u3001\u5b9a\u65f6\u5668\u5230\u6e05\u7406\u9a8c\u8bc1\uff0c\u628a\u5e38\u89c1\u7ffb\u8f66\u70b9\u9010\u4e2a\u8bf4\u6e05\u695a\u3002", "headline": "Gator \u6e05\u7406\u8e29\u8fc7\u7684\u4e03\u4e2a\u5751\uff0c\u77e5\u9053\u8fd9\u4e9b\u4e4b\u540e\u7701\u592a\u591a\u4e8b", "image": ["https://laoguosofts.github.io/images/gator-docs/shot-settings.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/gator-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/gator-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "Gator \u6e05\u7406\u8e29\u8fc7\u7684\u4e03\u4e2a\u5751\uff0c\u77e5\u9053\u8fd9\u4e9b\u4e4b\u540e\u7701\u592a\u591a\u4e8b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">Gator 清理踩过的七个坑，知道这些之后省太多事</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">Gator 清理踩过的七个坑，知道这些之后省太多事</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Gator 作为一个多合一的 Android 清理工具，看着简单好用，但实际跑下来有几个容易踩的坑。本文从权限、定时器到清理验证，把常见翻车点逐个说清楚。</p>
+  </header>
+  <div class="prose serif">
+<p><a href="https://gator.ggcd.uno" target="_blank" rel="noopener">Gator官网</a> 上这款多合一清理工具大家都装过——空间不够了拉出来扫一把，缓存清了残留也清了，看起来一切都好。但我用了大半年才发现，它背后藏着好几个让你"以为清干净了其实没清"的坑。第一次遇到的时候我以为要重装 App，后来翻了 <a href="https://gator-docs.pages.dev/" target="_blank" rel="noopener">Gator文档</a> 才弄明白到底是怎么回事。</p>
+<h2>坑一：Scheduler 定时清理自动跳过了缓存</h2>
+<p>Scheduler 面板里设的好好的，每天凌晨 3 点全量清理，结果一周后发现缓存一点没动。跑去看日志才发现，缓存那项每次都被跳过。原因很简单——缓存清理需要无障碍服务代执行，这是 Android 的硬限制，Google Play 版本的清理工具都绕不开。没开无障碍的话，Scheduler 会默默跳过缓存清理，但残留、日志、浏览器历史这三类照样自动清。这个坑隐蔽就隐蔽在 Scheduler 不会弹窗警告，跑了就是跑了，只是缓存那项没做。</p>
+<p>解法：要么手动跑 System Cleaner 清缓存，要么花五分钟把无障碍服务开了。设置里搜"无障碍"，找到 Gator 打开就行。</p>
+<p><img src="../images/gator-docs/shot-settings.jpg" alt="Scheduler 需要无障碍服务才能清缓存" loading="lazy"></p>
+<h2>坑二：清理完空间没变大——三种原因别搞混</h2>
+<p>这个坑我踩的最频繁。扫出 500MB 垃圾，点清理，然后打开系统设置看存储——数字纹丝不动。第一反应是 App 坏了要重装，其实有三种完全不同的原因。</p>
+<p>第一种是清理执行中断了。Android 在清理大文件或敏感区域时会弹权限确认框，这时候如果你锁屏了、跳页面了、或者被其他 App 弹窗盖住没及时处理，清理动作可能只完成了一半。验证方法很简单——清理完重跑一次 System Cleaner，如果上次的条目还在，就是中断了。解法也直接，重新跑一次，这次别锁屏别切 App。</p>
+<p>第二种是 Android 存储统计本身有延迟。系统设置里的存储页面不是实时更新的，同步周期可能是几分钟甚至更长。我习惯清完等个十分钟再去看，这时候数字肯定变了。</p>
+<p>第三种是缓存类垃圾本身不大。System Cleaner 里标了"200MB 缓存"，实际可能分散在几十个应用里，每个应用清个几 MB，加起来确实释放了空间但视觉上不明显。这时候用 Storage Analyzer 看同一应用的占用变化最靠谱，数字会实实在在地变小。</p>
+<h2>坑三：root 设备才能看到临时 root 数据清理项</h2>
+<p>System Cleaner 里有个"临时 root 数据"的勾选项，没 root 的设备上这一项完全不出现。我第一次在一台老设备上找了半天没找到，以为是 App 版本问题，反复从<a href="https://gator.ggcd.uno/download.html" target="_blank" rel="noopener">下载</a>页卸了又装了两次，结果还是没有。后来才明白这不是什么 bug——临时 root 数据是 Magisk、SuperSU 这类 root 工具运行时产生的中间产物，没 root 过的设备根本不会有这些文件，自然也就不会显示清理项。</p>
+<p>判断自己有没有 root，可以看 System Cleaner 卡片下有没有"临时 root 数据"的选项。有就是 root 了，没有就是没 root，一眼的事，别跟我一样瞎折腾。</p>
+<h2>坑四：电池优化会收回定时器的唤醒权限</h2>
+<p>设好的 Scheduler 用了两周后突然不触发了，检查时间设置没问题、清理范围也没改，就是不跑。查了半天才发现是 Android 的省电策略干的好事。系统会定期检查后台 App 的活跃程度，如果判断 Gator"不活跃"就会收回它的后台唤醒权限。对于一个清理工具来说，"不活跃"几乎是必然的——谁会天天手动打开清理？</p>
+<p>解法是去系统设置里把 Gator 加到电池优化白名单里。这样省电策略就不会动它的定时器权限了。这个坑的可怕之处是它没任何预警，定时器从某一天开始就静默不工作了，你可能过好几周才发现。</p>
+<p><img src="../images/gator-docs/shot-perm.jpg" alt="电池优化白名单是 Scheduler 持续工作的保障" loading="lazy"></p>
+<h2>坑五：Storage Analyzer 只看不管，别指望它直接清理</h2>
+<p>Storage Analyzer 按文件类型和应用分别列出占用情况，数字很直观——微信加缓存 3GB、某个游戏数据包 6GB。但它只是展示，点进去没有任何清理按钮。我第一次用的时候以为这就是清理面板，对着数字看了半天没找到入口，还以为是功能没开放。</p>
+<p>正确的姿势是用 Analyzer 先扫一遍，记下前三大空间大户，然后切到 Dashboard 找对应工具处理：缓存大头用 System Cleaner 或 Cache Cleaner，重复文件用 Duplicate Finder，不常用应用用 App Manager 卸载。Analyzer 是盘点工具不是清理工具，别在那死等。</p>
+<h2>坑六：Magisk 模块清理 root 数据后需要重启</h2>
+<p>清完临时 root 数据后，某个 Magisk 模块突然不工作了。以为是模块坏了要重装，到 Magisk 管理器里一看，模块还在只是没激活。原来清理临时 root 数据的时候，可能碰巧清到了那个模块安装留下的未完成脚本片段。解法非常简单——到 Magisk 管理器里点一下"重新启动"，模块就自动恢复了，完全不需要重装。</p>
+<p>这个坑的教训是：清理 root 数据之前，先确认所有 root 相关操作都已经正常结束。如果刚装了一个 Magisk 模块还没重启，先重启再清理，避免清到半截的安装脚本。</p>
+<h2>坑七：验证清理效果别只看系统设置页</h2>
+<p>上面说过系统设置页的存储数字有延迟，但很多人还是忍不住盯着那个数字看。正确的验证应该分三步：重跑 System Cleaner 看列表是不是变短或空了，用 Storage Analyzer 扫一遍看之前的大头是不是缩小了，最后等五分钟再看系统设置页的总空间数字。三步都过了才是真的清干净了，只盯第一步或最后一步都可能误判。</p>
+<p><img src="../images/gator-docs/shot-clean.jpg" alt="清理完成后的验证流程" loading="lazy"></p>
+<h2>防坑清单</h2>
+<ul><li><strong>Scheduler 设完后立刻检查无障碍服务</strong>——缓存清不掉不报错，容易被忽略。</li><li><strong>别盯着系统设置页数字判断清理结果</strong>——先重跑 System Cleaner，再等几分钟。</li><li><strong>root 数据清理前先重启一次</strong>——确认 root 操作都结束了再清，避免影响模块。</li><li><strong>电池优化白名单一定要加</strong>——Scheduler 静默失效的头号原因。</li><li><strong>Storage Analyzer 是盘点工具不是清理工具</strong>——看完数字切到对应模块动手。</li></ul>
+<h2>一点收尾</h2>
+<p>Gator 的清理能力本身没话说，踩过这些坑之后反而觉得它设计得挺克制——很多"没反应"其实是 Android 系统的限制，Gator 只是没办法绕过而已。知道这些坑之后，这软件其实相当省心，设好定时器加好白名单，基本就能一直用下去。</p>
+<p>这套整理资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/Gator" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/Gator" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/Gator" target="_blank" rel="noopener">GitCode</a> 三个仓库都同步了文档目录，方便不同网络环境的朋友随时查阅和下载，国内访问选 Gitee 或 GitCode 会更顺畅一些。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/qoder-cn.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用了 Qoder CN 半年才发现的五个冷门技巧，省 Credits 又提效率</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/rotation-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">屏幕方向控制工具横评：Rotation 为什么值得单独拎出来讲</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

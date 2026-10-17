@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我用 Downloader 踩过的五个坑，第一个就让我以为系统废了 · 老郭软件铺</title>
+  
+<meta name="description" content="Downloader 装 Fire TV 应用看着简单，实则藏着权限列表空白、Vega OS 不支持侧载、下载卡连接、版本对不上老教程这些坑。每个坑的症状、根因和紧急解法，都是我踩过以后才摸清楚的。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/downloader-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我用 Downloader 踩过的五个坑，第一个就让我以为系统废了">
+<meta property="og:description" content="Downloader 装 Fire TV 应用看着简单，实则藏着权限列表空白、Vega OS 不支持侧载、下载卡连接、版本对不上老教程这些坑。每个坑的症状、根因和紧急解法，都是我踩过以后才摸清楚的。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/downloader-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/downloader-docs/home-tv.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/downloader-docs/home-tv.png">
+
+<meta name="twitter:title" content="我用 Downloader 踩过的五个坑，第一个就让我以为系统废了">
+<meta name="twitter:description" content="Downloader 装 Fire TV 应用看着简单，实则藏着权限列表空白、Vega OS 不支持侧载、下载卡连接、版本对不上老教程这些坑。每个坑的症状、根因和紧急解法，都是我踩过以后才摸清楚的。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Downloader \u88c5 Fire TV \u5e94\u7528\u770b\u7740\u7b80\u5355\uff0c\u5b9e\u5219\u85cf\u7740\u6743\u9650\u5217\u8868\u7a7a\u767d\u3001Vega OS \u4e0d\u652f\u6301\u4fa7\u8f7d\u3001\u4e0b\u8f7d\u5361\u8fde\u63a5\u3001\u7248\u672c\u5bf9\u4e0d\u4e0a\u8001\u6559\u7a0b\u8fd9\u4e9b\u5751\u3002\u6bcf\u4e2a\u5751\u7684\u75c7\u72b6\u3001\u6839\u56e0\u548c\u7d27\u6025\u89e3\u6cd5\uff0c\u90fd\u662f\u6211\u8e29\u8fc7\u4ee5\u540e\u624d\u6478\u6e05\u695a\u7684\u3002", "headline": "\u6211\u7528 Downloader \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\uff0c\u7b2c\u4e00\u4e2a\u5c31\u8ba9\u6211\u4ee5\u4e3a\u7cfb\u7edf\u5e9f\u4e86", "image": ["https://laoguosofts.github.io/images/downloader-docs/home-tv.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/downloader-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/downloader-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u6211\u7528 Downloader \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\uff0c\u7b2c\u4e00\u4e2a\u5c31\u8ba9\u6211\u4ee5\u4e3a\u7cfb\u7edf\u5e9f\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">我用 Downloader 踩过的五个坑，第一个就让我以为系统废了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">我用 Downloader 踩过的五个坑，第一个就让我以为系统废了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Downloader 装 Fire TV 应用看着简单，实则藏着权限列表空白、Vega OS 不支持侧载、下载卡连接、版本对不上老教程这些坑。每个坑的症状、根因和紧急解法，都是我踩过以后才摸清楚的。</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次装<a href="https://downloader.ggcd.online" target="_blank" rel="noopener">Downloader官网</a>是给爸妈家的 Fire TV 棒侧载视频应用——以为就是从<a href="https://downloader.ggcd.online/download.html" target="_blank" rel="noopener">官方下载</a>下个 APK 输个地址的事，结果前前后后折腾了快一个小时才跑通。说实话，这个软件看着极简，其实踩坑点不少，而且很多坑和软件本身无关，是亚马逊那边的系统在暗地里给你使绊子。写下来给后来人参考，能省点时间。</p>
+<p><img src="../images/downloader-docs/home-tv.png" alt="v2 首页：输地址的地方就在正中间" loading="lazy"></p>
+<h2>坑一：安装未知应用列表整个空了，以为被亚马逊封杀了</h2>
+<p><strong>症状</strong>：2026 年 8 月那次系统更新之后，我打开 Fire TV 的「安装未知应用」设置页，发现之前已经授权的应用一个都不显示了，包括 Downloader 自己。侧载了两三年的老设备，突然什么也装不了。</p>
+<p><strong>原因</strong>：一开始我也慌了——论坛上当时盛传亚马逊终于要封侧载政策了，甚至有人说要刷机才能救。后来才知道是那次设置组件更新里带了一个无意的缺陷，属于 bug 不是政策转向。更恶心的是修复是静默推送的，系统版本号可能根本不变，你肉眼看不出来有没有被修。</p>
+<p><strong>解法</strong>：四步排查，从简单到复杂。先在「我的 Fire TV → 关于」里手动检查更新，把能装的都装掉；然后回设置页看看列表恢复没有；还不行就重启设备；再不行就彻底断电拔电源等三十秒再插回去——软重启清不掉的设置缓存，断电能清干净。我当时是断电之后才恢复的，差点就去 adb 命令强授权了。</p>
+<h2>坑二：新买的 Fire TV 棒里根本搜不到 Downloader</h2>
+<p><strong>症状</strong>：朋友让我帮他新装一台 Fire TV Stick，应用商店里直接搜 Downloader，连个影子都没有。我以为是商店地区的问题，换了美区账号还是搜不到。</p>
+<p><strong>原因</strong>：这不是商店的问题，是他买到的那台出厂跑的根本不是 Fire OS——是亚马逊 2026 年开始推的 Vega OS，一个自研的 Linux 系统，没有安卓运行时，设计上就不支持侧载。商店里搜不到这个应用是正常现象，不是下架了。</p>
+<p><strong>解法</strong>：先看系统版本号，「设置 → 我的 Fire TV → 关于」里读软件版本：数字开头是 1 的就是 Vega OS，数字 7 或 8 开头才是 Fire OS。另外型号名带 SELECT、或者带 HD 还标称 Wi-Fi 6 的，基本都是 Vega OS。亚马逊商品页并不总标注系统类型，下单前最好去评论区翻一翻，或者直接按版本号逻辑对照。已经买到 Vega OS 的就别折腾了，这条路走不通，换 Fire OS 设备或者普通安卓电视盒子才行。</p>
+<h2>坑三：下载进度卡在「连接中」半小时不动</h2>
+<p><strong>症状</strong>：输入直链按前往之后，进度弹窗出来了但一直停在「连接中」，既不报错也不走进度。</p>
+<p><strong>原因</strong>：这个坑我遇到过两次，一次是 Fire TV 棒插在电视 USB 口供电，电压不够导致网络模块时不时掉链子；另一次是目标站点有反爬机制，直接拦了 Downloader 的请求。第一种情况很隐蔽，因为平时看流媒体没问题，只有下载这种持续连接的场景才暴露。</p>
+<p><strong>解法</strong>：先排查供电——Fire TV 棒尽量用原装电源适配器插墙插，别蹭电视 USB 口。换了电源还卡的话，大概率是站点那边的问题：换个下载源试试，或者先用内置浏览器在 Downloader 里手动访问一下目标链接，看浏览器里能不能打开。浏览器能开但下载卡，说明链接本身没问题，换个时段或者换手机热点试试。</p>
+<h2>坑四：老教程里的界面和你看到的完全不一样</h2>
+<p><strong>症状</strong>：网上搜教程，出来的截图都是双输入框、五个常驻标签页，而我打开 Downloader 只有一个居中的地址栏，菜单也全藏起来了，按教程点半天找不到对应的按钮。</p>
+<p><strong>原因</strong>：Downloader 在 2026 年 3 月出了 v2.0 大版本重构，界面语言从「工具箱」彻底转向「浏览器」。之前 v1.x 那套双输入框、固定标签页的界面全部废弃了。但网上大量教程还停留在老版本，搜出来十有八九是过期的。</p>
+<p><strong>解法</strong>：先在侧边菜单的帮助区看自己的版本号。v1.x 和 v2.x 的界面逻辑完全不同——v2 是单地址栏居中、浏览区更大、还有数字键盘支持。别硬套老教程的操作路径，按<a href="https://downloader-docs.pages.dev/" target="_blank" rel="noopener">Downloader文档</a>来。另外 2024 年 v1.5.0 还加了手机平板支持，触摸界面和电视端也不一样，别混为一谈。</p>
+<h2>坑五：下载完的文件找不到，或者卸载时提示残留</h2>
+<p><strong>症状</strong>：明明下载完成弹过窗了，回到文件面板里却找不到刚才的 APK；或者卸载重装之后，文件目录里还留着一堆旧文件。</p>
+<p><strong>原因</strong>：Downloader 的存储路径在几次版本更新里变过。v1.4.4 之前用的是应用私有目录，v1.4.4 迁到了 <code>Download/Downloader</code>，v1.4.5 又做了全设备目录统一，v1.5.0 之后干脆把目录固定死不让改了。老用户可能同时存在多个旧目录，卸载不彻底就会残留。</p>
+<p><strong>解法</strong>：记住一个原则——所有文件都在 <code>Download/Downloader</code> 这个文件夹里，这是 v1.4.5 之后统一的，不管你用哪个版本都按这个路径找。文件面板就是这个目录的直接视图，面板里没有就是真的没下载成功，别去翻其他路径。装完应用就删安装包，电视盒子存储金贵，留着全是垃圾。</p>
+<p><img src="../images/downloader-docs/unknown-sources-new.jpg" alt="权限设置页：确认&quot;安装未知应用&quot;列表没空白" loading="lazy"></p>
+<h2>防坑速查清单</h2>
+<ul><li><strong>系统更新后必查权限</strong>：每次 Fire TV 大版本更新，先去「安装未知应用」看一眼列表还在不在，三十秒的事，别等侧载挂了才反应过来。</li><li><strong>下单前查版本号</strong>：买新 Fire TV 设备前，确认型号不是 SELECT 系列、不是 Vega OS，版本号 7/8 开头才是能侧载的 Fire OS。</li><li><strong>供电用原装适配器</strong>：Fire TV 棒别插电视 USB 口供电，下载场景对电压稳定性要求比看视频高。</li><li><strong>看版本号再找教程</strong>：v1.x 和 v2.x 界面差十万八千里，先确认自己跑的是哪版再搜对应的说明。</li><li><strong>装完即删</strong>：APK 安装完就删，别攒，电视盒子空间比你想象的小。</li></ul>
+<p>知道这些坑之后，Downloader 其实相当省心——它就是个干净利落的下载工具加浏览器，不搞花活。但架不住外面变量太多，亚马逊那边随手更个系统、出个新硬件，都能把侧载链路搞断。踩过一遍记住这些，后面用起来就顺了。这套侧载相关的资料我顺手备份了多份，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/Downloader" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/Downloader" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/Downloader" target="_blank" rel="noopener">GitCode</a> 都有存，国内访问选 Gitee 或 GitCode 更快。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/gkd-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">GKD 新手入门：一个能帮你自动跳过开屏广告的小工具</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/live2dviewerex.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Live2DViewerEX 原理解析：从模型渲染到跨平台壁纸的设计取舍</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

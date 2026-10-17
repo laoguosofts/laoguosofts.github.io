@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我把 Talki 嵌进角色开发流水线之后，每周省出了两天 · 老郭软件铺</title>
+  
+<meta name="description" content="一个独立创作者分享：以前做一个 AI 角色卡要在三个工具之间来回切换，测试、反馈、上架各是一套流程。用 Talki 串成一条链之后，这些事全部在一个 App 里闭环，效率提升的幅度超出预期。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/talki-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我把 Talki 嵌进角色开发流水线之后，每周省出了两天">
+<meta property="og:description" content="一个独立创作者分享：以前做一个 AI 角色卡要在三个工具之间来回切换，测试、反馈、上架各是一套流程。用 Talki 串成一条链之后，这些事全部在一个 App 里闭环，效率提升的幅度超出预期。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/talki-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/talki-zh-docs/chat-interface.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/talki-zh-docs/chat-interface.png">
+
+<meta name="twitter:title" content="我把 Talki 嵌进角色开发流水线之后，每周省出了两天">
+<meta name="twitter:description" content="一个独立创作者分享：以前做一个 AI 角色卡要在三个工具之间来回切换，测试、反馈、上架各是一套流程。用 Talki 串成一条链之后，这些事全部在一个 App 里闭环，效率提升的幅度超出预期。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u4e2a\u72ec\u7acb\u521b\u4f5c\u8005\u5206\u4eab\uff1a\u4ee5\u524d\u505a\u4e00\u4e2a AI \u89d2\u8272\u5361\u8981\u5728\u4e09\u4e2a\u5de5\u5177\u4e4b\u95f4\u6765\u56de\u5207\u6362\uff0c\u6d4b\u8bd5\u3001\u53cd\u9988\u3001\u4e0a\u67b6\u5404\u662f\u4e00\u5957\u6d41\u7a0b\u3002\u7528 Talki \u4e32\u6210\u4e00\u6761\u94fe\u4e4b\u540e\uff0c\u8fd9\u4e9b\u4e8b\u5168\u90e8\u5728\u4e00\u4e2a App \u91cc\u95ed\u73af\uff0c\u6548\u7387\u63d0\u5347\u7684\u5e45\u5ea6\u8d85\u51fa\u9884\u671f\u3002", "headline": "\u6211\u628a Talki \u5d4c\u8fdb\u89d2\u8272\u5f00\u53d1\u6d41\u6c34\u7ebf\u4e4b\u540e\uff0c\u6bcf\u5468\u7701\u51fa\u4e86\u4e24\u5929", "image": ["https://laoguosofts.github.io/images/talki-zh-docs/chat-interface.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/talki-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/talki-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u628a Talki \u5d4c\u8fdb\u89d2\u8272\u5f00\u53d1\u6d41\u6c34\u7ebf\u4e4b\u540e\uff0c\u6bcf\u5468\u7701\u51fa\u4e86\u4e24\u5929", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">我把 Talki 嵌进角色开发流水线之后，每周省出了两天</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">我把 Talki 嵌进角色开发流水线之后，每周省出了两天</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一个独立创作者分享：以前做一个 AI 角色卡要在三个工具之间来回切换，测试、反馈、上架各是一套流程。用 Talki 串成一条链之后，这些事全部在一个 App 里闭环，效率提升的幅度超出预期。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要给自己构思的 AI 角色跑一轮「原型 → 测试 → 反馈 → 迭代 → 上架」的完整循环。这套流程我断断续续打磨了将近一年，其中最折腾的一段时间要在三个不同的工具之间来回切换，每做一个角色都像跑马拉松。</p>
+<p>现在这条链只需要一个入口：<a href="https://talki.rggd.pw" target="_blank" rel="noopener">Talki官网</a>。</p>
+<h2>旧流程为什么痛苦</h2>
+<p>先说以前我是怎么干的：第一步用本地的 prompt 编辑器把角色设定写出来——名字、人设、开场白、禁止事项，写好之后复制粘贴到一个 API 调试工具里跑对话测试。测试的时候自己扮演用户，挨个把预设的几条常见问题问一遍，看回复是否符合预期，哪些地方人设走偏了。</p>
+<p>测试完一轮，把对话日志复制到 Excel 里整理成反馈清单，标注哪条回复需要改、应该怎么改。然后回到 prompt 编辑器修改设定，再复制回 API 工具重新测。这个循环通常要跑三到四轮，每轮至少半小时。</p>
+<p>等觉得设定没问题了，才去找一个平台正式发布——发布之后就没那么好改了，因为已经有用户在用。用户的反馈散落在各种评论区和私信里，收集起来又要花大半天手动整理。</p>
+<p>这套流程的断点太多了。复制粘贴是最伤的——光是"角色设定文本"这一份东西，我每周至少要在五个不同的地方粘来粘去。API 工具里测出来回复正常，不等于用户用的时候也正常——因为 API 调试界面和真实用户的聊天界面、消息气泡、输入方式全都不一样，用户看到的感觉和我自己测的完全是两回事。</p>
+<h2>新流程：Talki 在哪一步插进来</h2>
+<p>我现在把 Talki 当成整条流水线的中枢——原型、测试、真实用户反馈、迭代调整、最终上架，全部在这个 App 里闭环。</p>
+<p>具体是这样接的：</p>
+<p>第一步还是写角色设定，但写完之后我不再复制到任何其他工具，直接在 Talki 的创作者面板里创建角色。创建的时候把人设文本、开场白、头像填进去，提交审核。审核过了之后，这个角色就已经"活"在 Talki 的聊天环境里了——我自己用的就是和普通用户一模一样的界面，没有任何模拟或沙箱。</p>
+<p>第二步是测试和反馈，这一步以前要跨两个工具，现在全部在 Talki 里完成。自己先跑几轮对话，看回复是否符合人设，然后把角色的分享链接发到微信小群里，请三五位朋友当第一批测试用户。他们直接在 Talki 里和角色对话，对话日志我全部能看到——不是 Excel 里整理过的摘要，是真实的、完整的聊天记录。</p>
+<p>第三步是迭代。根据测试用户的反馈回到创作者面板修改角色设定，重新提交审核。审核过了之后新设定直接生效，之前的对话历史不丢失，老用户进来会看到更新后的回复逻辑。</p>
+<p>最后一步是上架到创作者商店。角色在线跑了一两周之后，互动数据积累起来了，代币余额也够了（靠每日签到和之前的上架收入），就提交上架。上架后可以在创作者面板里实时看到点赞数、浏览量、销量和代币收入，这些数据本身就是下一轮迭代的输入。</p>
+<h2>流程里容易断链的两个环节</h2>
+<p>说几个我实际踩过的坑，这些是把 Talki 接进流程之后最容易卡住的地方。</p>
+<p>第一个是语音模式的权限问题。Talki 支持语音输入和语音合成，安装包从<a href="https://talki.rggd.pw/download.html" target="_blank" rel="noopener">下载</a>获取后，第一次用语音的时候系统会弹出权限请求——如果测试用户不小心点了"拒绝"，之后每次用语音都没反应。这个不是什么大问题，但发生频率挺高，我后来在角色的开场白里加了一句引导："如果你觉得打字累，可以试试长按麦克风直接说话"，相当于是提前提醒用户开启麦克风权限。Talki 的语音转文字对普通话支持不错，方言和快速说话识别率会下降，但对大多数测试场景来说够用了——至少比让用户自己在微信里打字反馈要快得多。</p>
+<p><img src="../images/talki-zh-docs/chat-interface.png" alt="Talki 的对话界面" loading="lazy"></p>
+<p>第二个是上架门槛。Talki 创作者商店的上架不是你想上就能上的，有三个条件：角色已经在线上通过审核、有一定量的互动数据、代币余额达到门槛。具体的门槛数字和代币获取策略可以去<a href="https://talki-zh-docs.pages.dev/" target="_blank" rel="noopener">Talki文档</a>查，我最开始的时候以为代币要花真钱买，其实每日签到慢慢攒就能攒够——连续签到七天还有额外奖励。互动数据也不用太焦虑，角色在线上跑一两周自然会有的，Talki 的用户量足够让新角色获得基础曝光。这两个门槛本质上是过滤掉那些做了角色就想立刻变现的创作者，让真正用心打磨的角色有机会被看到。</p>
+<h2>效果和边界</h2>
+<p>这条新流程我跑了大概三个月，数据比较直观：以前做一个角色从构思到上架，平均要 3 天，现在平均 1 天。少了两次手动把角色设定复制到不同工具的操作，少了一次手动把反馈整理到 Excel 的环节，也少了"在 API 工具里测好的设定到了真实平台就跑样"这种最让人沮丧的返工。</p>
+<p>还有一个意外收获：代币收益可以反哺创作成本。我上架的几个角色每月能带来一点代币收入，这些代币可以用来给新角色"充值"加速审核，或者在商店里给喜欢的其他创作者点个赞。这个正向循环是以前用纯工具链的时候完全没有的。</p>
+<p>当然这条流程也有边界。Talki 毕竟是一个聊天产品，不是专业的角色卡设计工具——如果你需要非常精细地控制回复概率、设定多模态输入输出，Talki 的创作者面板可能不够用。另外角色一旦上架创作者商店，核心设定就不能频繁修改了，因为已经有用户花钱买过了。我一般的做法是上架前在 Talki 里至少跑够两周的真实用户对话，确认没有硬伤之后再提交上架，这样上架后的迭代主要集中在回复细节和人设微调上，不动核心。</p>
+<h2>一条收尾</h2>
+<p>Talki 把我这条角色开发流水线里原本需要跨三四个工具的断点全部接上了——从原型到上架，从自己测试到收集真实用户反馈，全部在一个 App 里完成。效率提升的数字是可量化的：以前 3 天一个角色，现在 1 天。更重要的是那种"不用在工具之间反复切"的流畅感，让我把更多精力放在角色本身的打磨上，而不是流程上。</p>
+<p>我把这套角色开发流程用到的资料同步到了三个仓库里，方便不同网络环境的朋友查看和参考——GitHub 上有最完整的版本（<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Talki" target="_blank" rel="noopener">GitHub</a>），国内访问不通的话可以去 Gitee（<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Talki" target="_blank" rel="noopener">Gitee</a>）或 GitCode（<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Talki" target="_blank" rel="noopener">GitCode</a>）找同名目录。创作者商店的上架指南、以及一些我自己整理的设定模板，都能在里面找到。不管你是刚入门想做第一个角色，还是已经有经验想优化自己的流水线，这些资料应该都能帮上忙。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/grayjay.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用 Grayjay 看视频的四个暗坑，踩过才知道</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/rhythm-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Rhythm 上手几天，终于找到能同时听音乐和有声书的播放器</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

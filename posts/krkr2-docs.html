@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了吉里吉里2 三年才发现的五个隐藏技能 · 老郭软件铺</title>
+  
+<meta name="description" content="大多数人拿 krkr2 只会写剧情脚本，但它还藏着图层自定义、变量互通、引擎自检等不少私货，翻完文档才惊觉之前一直在用它的最表层。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/krkr2-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了吉里吉里2 三年才发现的五个隐藏技能">
+<meta property="og:description" content="大多数人拿 krkr2 只会写剧情脚本，但它还藏着图层自定义、变量互通、引擎自检等不少私货，翻完文档才惊觉之前一直在用它的最表层。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/krkr2-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="用了吉里吉里2 三年才发现的五个隐藏技能">
+<meta name="twitter:description" content="大多数人拿 krkr2 只会写剧情脚本，但它还藏着图层自定义、变量互通、引擎自检等不少私货，翻完文档才惊觉之前一直在用它的最表层。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5927\u591a\u6570\u4eba\u62ff krkr2 \u53ea\u4f1a\u5199\u5267\u60c5\u811a\u672c\uff0c\u4f46\u5b83\u8fd8\u85cf\u7740\u56fe\u5c42\u81ea\u5b9a\u4e49\u3001\u53d8\u91cf\u4e92\u901a\u3001\u5f15\u64ce\u81ea\u68c0\u7b49\u4e0d\u5c11\u79c1\u8d27\uff0c\u7ffb\u5b8c\u6587\u6863\u624d\u60ca\u89c9\u4e4b\u524d\u4e00\u76f4\u5728\u7528\u5b83\u7684\u6700\u8868\u5c42\u3002", "headline": "\u7528\u4e86\u5409\u91cc\u5409\u91cc2 \u4e09\u5e74\u624d\u53d1\u73b0\u7684\u4e94\u4e2a\u9690\u85cf\u6280\u80fd", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/krkr2-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/krkr2-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86\u5409\u91cc\u5409\u91cc2 \u4e09\u5e74\u624d\u53d1\u73b0\u7684\u4e94\u4e2a\u9690\u85cf\u6280\u80fd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">用了吉里吉里2 三年才发现的五个隐藏技能</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">用了吉里吉里2 三年才发现的五个隐藏技能</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">大多数人拿 krkr2 只会写剧情脚本，但它还藏着图层自定义、变量互通、引擎自检等不少私货，翻完文档才惊觉之前一直在用它的最表层。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为吉里吉里2 就是个写 Galgame 剧情的剧本工具？它的<a href="https://krkr2.gerw.hair" target="_blank" rel="noopener">官网</a>明着就是主打剧本工具定位的，把 scenario 文件一行行填对话、加几个 <code>[bg]</code> <code>[chara]</code> 标签就能跑——我最开始也是这么想的。直到某天翻到从<a href="https://krkr2.gerw.hair/download.html" target="_blank" rel="noopener">下载</a>拿到的 SDK 里自带的 TJS2 源码和图层系统文档，才拍大腿：合着之前三年一直在用它的最表层，底下还藏着一堆官方几乎不宣传、但用起来能省好几百行脚本的玩意儿。</p>
+<p>今天就把这些我挖出来的私货端出来，五个隐藏技能，从"在哪找"到"怎么开"讲清楚。</p>
+<h2>一、图层编号不是摆设——自定义图层玩出花</h2>
+<p>新手时期的认知里，图层就是：Layer 0 放背景、Layer 1~3 放立绘、UI 和文字层自动搞定。直到我发现通用的 <code>image</code> 标签可以在任意编号创建新图层，而且编号越大越靠上——这个规则一开，画面层级瞬间自由了。</p>
+<p>藏得真深，连 KAG 标签速查里都没重点提。用法超简单：</p>
+<pre><code>[image storage=&quot;img/flower.tlg&quot; layer=10 x=500 y=300 time=300]</code></pre>
+<p>这里的 <code>layer=10</code> 是你自己随便编的号，只要不和已用的冲突。我现在用它做什么？给对话框加装饰边框（layer 9 压在 UI 层上面）、做天气粒子叠加层（layer 5）、甚至在过场动画里插一张过渡插画。关键是还能直接操作图层对象做动画：</p>
+<pre><code>[tjs]
+Layer.get(10).moveTo(200, 400, 800);</code></pre>
+<p>立绘从左滑入那一下，就是这么来的——用 TJS2 的 <code>Layer.get()</code> 拿到图层实例，调 <code>moveTo</code> 做平滑移动。官方文档里提过一句"图层有编号"，但没说编号可以乱编，更没说 TJS2 能直接改图层属性。这就是传说中的"看了等于没看"。</p>
+<p><strong>什么人用得上</strong>：想做复杂画面效果的开发者；<strong>什么人可以无视</strong>：只会写纯剧情对话的同学可以先跳过。</p>
+<h2>二、KAG 变量和 TJS2 全局变量是双向互通的</h2>
+<p>这个我最开始完全没意识到，直到在<a href="https://krkr2-docs.pages.dev/" target="_blank" rel="noopener">文档</a>里看到一句不起眼的注脚。</p>
+<p>吉里吉里2 有两套东西：KAG 标签写在 scenario 里，TJS2 是底层脚本。我之前以为它们各管各的，KAG 用 <code>[set variable=&quot;xxx&quot;]</code> 存变量，TJS2 在独立 <code>.tjs</code> 文件里写类——两套变量系统互不相干。</p>
+<p>但真相是：只要是<strong>全局变量</strong>，两边直接互读互写，连导入都不用。</p>
+<pre><code>; KAG 里先设一个全局变量
+[set variable=&quot;playerName&quot; value=&quot;阿良良木&quot;]
+
+; 嵌在 scenario 里的 TJS2 代码块直接用
+[tjs]
+Layer.current.message = &quot;欢迎你，&quot; + playerName;</code></pre>
+<p>反过来也一样——TJS2 里 <code>global coin = 100;</code>，KAG 那边 <code>[eval exp=&quot;coin&quot;]</code> 就能把值打出来。</p>
+<p>这个互通功能藏得极其恶劣，因为文档里分章节讲 KAG 和 TJS2，互通只在一个"进阶提示"的角落里提了一下。但它的价值是：你可以用 TJS2 做复杂的数值计算、数组操作，算完把结果塞回 KAG 变量继续跑剧情——不用在 KAG 里硬写循环，KAG 根本没真正的循环标签。</p>
+<p><strong>什么人用得上</strong>：需要做数值、状态管理的游戏逻辑；<strong>什么人可以无视</strong>：纯视觉小说类项目确实用不上，但谁没个做小游戏的时候呢？</p>
+<h2>三、<code>[system]</code> 标签——引擎状态的隐藏查询口</h2>
+<p>我一直以为 KAG 标签就是些控制画面、音频、流程的玩意儿，直到某次为了兼容性问题翻到了 <code>[system]</code> 标签。这个标签是个<strong>万能查询器</strong>，能拿到引擎的实时状态：版本号、窗口尺寸、当前场景、存档路径……</p>
+<p>最实用的场景是做兼容性判断：</p>
+<pre><code>[tjs]
+var version = System.version;
+if (version &lt; 230) {
+    Layer.current.message = &quot;本项目需要 krkr2.30 以上版本&quot;;
+}</code></pre>
+<p>还有 <code>System.windowWidth</code> / <code>System.windowHeight</code>，用来做响应式布局。官方文档里提了一句 <code>[system]</code> 可以"查询引擎状态"，但没说有哪些可查的属性——要翻 KAG 的 TJS2 源码才能列全。这大概就是"隐藏功能"的定义：能用，但文档几乎等于没写。</p>
+<h2>四、动画效果的组合技——闪黑切换场景</h2>
+<p>场景切换，新手的做法是：先淡入淡出背景。老玩家会用一个经典组合：闪黑 + 换背景 + 闪回来。</p>
+<pre><code>[effect flash color=black time=500]
+[bg storage=&quot;bg/new_scene.tlg&quot; time=0]
+[effect flash color=black time=500 reverse=true]</code></pre>
+<p>第一行闪黑 500ms，第二行在黑屏瞬间无缝切背景（<code>time=0</code> 没有过渡），第三行从黑里淡回来（<code>reverse=true</code> 是反方向淡出）。这个操作文档里作为"闪黑闪白"的示例一笔带过，但没人说这就是行业标准的场景切换套路——我是在扒别人源码的时候才学会的。</p>
+<p>加上 <code>[effect shake time=500 intensity=5]</code> 做震屏、<code>[effect flash color=white time=200]</code> 做受击闪白——这几个 <code>effect</code> 标签的组合，能顶得上好几百帧手绘动画。</p>
+<h2>五、控制器模式——实时执行 TJS2 语句的调试利器</h2>
+<p>最后说一个调试向的隐藏入口。SDK 里有个开发调试界面 DLL 叫 <code>krdevui.dll</code>，它的功能远不止报错弹窗——启动时选择打开"控制器"，就能在运行时<strong>实时执行 TJS2 语句</strong>。</p>
+<p>你可以边跑项目边改变量、调图层属性、测试表达式，不用每次改完脚本重新加载。对于数值平衡的调参阶段，这个功能能省掉"改文件→重启→找位置→看效果"的无限循环。</p>
+<p>但注意一个坑：分发你的项目给玩家时，<strong>别把 krdevui.dll 带上</strong>——带上了等于给了玩家一个能在运行时随便改东西的后门。SDK 自带的 Releaser 打包工具会自动处理这个，但手动拷贝的时候别漏。</p>
+<h2>哪个坑别踩</h2>
+<p>说几个我踩过的，省得你重蹈覆辙。</p>
+<p><strong>第一，同时活跃图层别超过 15 个</strong>。样本里提了一句"可能影响低端机性能"，我实际测下来——12 个以上在老安卓机器上就开始掉帧。图层多的时候定期 <code>image clear</code> 清不用的，别图省事一股脑堆上去。</p>
+<p><strong>第二，大图要预加载</strong>。超过 1920x1080 的背景图，每次切换都是卡顿。解决办法是在 startup.tjs 里提前 <code>Image.load(&quot;bg/school.tlg&quot;, true)</code>，第二个 <code>true</code> 是预加载到内存。</p>
+<p><strong>第三，别用中文路径</strong>。这个在安装说明里写了，但值得再提一次——某些老插件的路径解析硬编码了 ASCII，中文路径会静默失败，报错信息还是"找不到文件"，排查起来浪费生命。</p>
+<h2>收尾</h2>
+<p>吉里吉里2 这类老牌引擎的魅力就在这里了——二十年的迭代，底层藏着一堆好用到飞起、但没人整理成中文文档的东西。它的"表层"是剧本工具，"里层"是一套完整的游戏框架。把图层、TJS2、控制器这些东西用透，其实就是在用它最核心的设计。</p>
+<p>这套资料我分别同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/krkr2" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/krkr2" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/krkr2" target="_blank" rel="noopener">GitCode</a> 三个仓库，国内访问走 Gitee/GitCode 更顺畅，主仓库有什么问题也不怕断档。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/marvisapp.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">装它到现在快半年了，说说 marvisapp 从 AI 助手到 AI 管家的真实体验</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/ai-max.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Ai Max 版本进化史：从&#34;AI聊天壳&#34;到&#34;短视频变现工具链&#34;这一路</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

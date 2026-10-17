@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Stable Diffusion 出第一张能看的图——从零到上手的四步实战 · 老郭软件铺</title>
+  
+<meta name="description" content="教程式带跑：准备环境、写对描述词、调准参数旋钮、把好图保存下来。四个步骤解决新手最常踩的坑，看完就能独立出图。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/stablediffusion-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Stable Diffusion 出第一张能看的图——从零到上手的四步实战">
+<meta property="og:description" content="教程式带跑：准备环境、写对描述词、调准参数旋钮、把好图保存下来。四个步骤解决新手最常踩的坑，看完就能独立出图。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/stablediffusion-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/stablediffusion-docs/screens-create.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/stablediffusion-docs/screens-create.jpg">
+
+<meta name="twitter:title" content="用 Stable Diffusion 出第一张能看的图——从零到上手的四步实战">
+<meta name="twitter:description" content="教程式带跑：准备环境、写对描述词、调准参数旋钮、把好图保存下来。四个步骤解决新手最常踩的坑，看完就能独立出图。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6559\u7a0b\u5f0f\u5e26\u8dd1\uff1a\u51c6\u5907\u73af\u5883\u3001\u5199\u5bf9\u63cf\u8ff0\u8bcd\u3001\u8c03\u51c6\u53c2\u6570\u65cb\u94ae\u3001\u628a\u597d\u56fe\u4fdd\u5b58\u4e0b\u6765\u3002\u56db\u4e2a\u6b65\u9aa4\u89e3\u51b3\u65b0\u624b\u6700\u5e38\u8e29\u7684\u5751\uff0c\u770b\u5b8c\u5c31\u80fd\u72ec\u7acb\u51fa\u56fe\u3002", "headline": "\u7528 Stable Diffusion \u51fa\u7b2c\u4e00\u5f20\u80fd\u770b\u7684\u56fe\u2014\u2014\u4ece\u96f6\u5230\u4e0a\u624b\u7684\u56db\u6b65\u5b9e\u6218", "image": ["https://laoguosofts.github.io/images/stablediffusion-docs/screens-create.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/stablediffusion-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/stablediffusion-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Stable Diffusion \u51fa\u7b2c\u4e00\u5f20\u80fd\u770b\u7684\u56fe\u2014\u2014\u4ece\u96f6\u5230\u4e0a\u624b\u7684\u56db\u6b65\u5b9e\u6218", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">用 Stable Diffusion 出第一张能看的图——从零到上手的四步实战</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">用 Stable Diffusion 出第一张能看的图——从零到上手的四步实战</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">教程式带跑：准备环境、写对描述词、调准参数旋钮、把好图保存下来。四个步骤解决新手最常踩的坑，看完就能独立出图。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇教程带你用 Stable Diffusion 从零出一张像样的图。四步走完，你能独立完成：描述词从空到有、参数不乱跳、好图存进相册——而不是看了一堆概念还是写不出第一句提示词。</p>
+<h2>准备：你只需要一部手机（或一台电脑浏览器）</h2>
+<p>Stable Diffusion 本质是扩散模型，但你不用懂"从噪声到画"的物理过程。网页版的定位就是把所有本地部署的麻烦事（GPU、Python环境、模型下载）都藏起来，你只管在创作页填东西就行。</p>
+<p>前置条件很简单：能上网、有一台手机或电脑。不需要翻墙、不需要安装任何东西（手机端可以从<a href="https://stablediffusion.fedq.quest/download.html" target="_blank" rel="noopener">下载</a>获取 APP 版本，电脑端直接从<a href="https://stablediffusion.fedq.quest" target="_blank" rel="noopener">官网</a>用浏览器访问）。应用走的是云端计算——你点生成，服务端帮你跑完，把图回传过来。这也意味着高峰期会有排队，属正常现象。</p>
+<p><img src="../images/stablediffusion-docs/screens-create.jpg" alt="创作页界面" loading="lazy"></p>
+<h2>第一步：打开创作页，先别着急填东西</h2>
+<p>进入应用后你会看到创作页，中间最大的输入框就是描述词区域。这里注意一件事：<strong>不要先想着"写满"</strong>。新手最常见的错误是一上来堆几十个词，结果模型抓不住重点，出图变成一团乱。</p>
+<p>建议的起步顺序是：先想清楚"画面里必须有什么"——比如你要一张古风人物图，核心就是「a person in traditional Chinese clothing」。用英文写效果通常更好，但中文也能用，看你习惯。等核心元素定了，再往外围加风格、光线、镜头感的修饰词。</p>
+<p>这里有个很多人忽略的小技巧：创作页里会有一个"随机种子"或类似的参数，它决定每次出图的"随机性起点"。固定种子 + 调整描述词，可以做同场景的微调迭代；不固定的话，每次都是全新的随机起点，适合探索。</p>
+<h2>第二步：描述词不止"要什么"，还要想"不要什么"</h2>
+<p>描述词告诉模型要画什么，负面提示词的思路是告诉它别画什么。电脑端 WebUI 有独立的负面框，手机端虽然没有单独的输入框，但你可以用正面描述替代否定词——比如写"干净的画面，清晰细节"，而不是"不要模糊"。扩散模型对否定词的理解很差，写"无水印"反而可能画出水印。</p>
+<p>社区多年沉淀了一组通用负面词，可以直接照搬当参考：lowres、bad anatomy、bad hands、missing fingers、extra digit、cropped、worst quality、blurry、text、error——几乎涵盖了 AI 出图最常见的瑕疵类型。虽然手机端不能直接填，但理解这套"划禁区"的思路，有助于你在正面描述里主动避开问题。</p>
+<p>这里再提一个新手容易踩的认知坑：<strong>调参不如改词</strong>。很多人出图不理想就去乱拉参数滑块，其实描述词的质量对结果的影响远大于参数的小修小补。把描述写具体、写到位，比微调几个旋钮靠谱得多。</p>
+<h2>第三步：两个关键旋钮要认识</h2>
+<p>创作页的参数面板里，你主要需要认识两个东西：</p>
+<p>第一个是出图尺寸。默认值通常是 512×512 或 1024×1024，发社交平台够用。想做壁纸或印刷就不够了，但放大不是直接把宽高拉两倍——那只会得到一张模糊放大图。正确的放大是让模型在过程中补充新细节，这个在<a href="https://stablediffusion-docs.pages.dev/" target="_blank" rel="noopener">stablediffusion文档</a>里有完整的讲法。</p>
+<p>第二个是"听话程度"——业内叫 CFG 引导系数。值越低模型越自由发挥，值越高越严格贴着你的描述走。经验区间：6~8 是平衡区（大部分日常出图用这个范围），1~5 适合抽象探索，9 以上是强约束（慎用，容易线条粗粝甚至畸变）。手机端虽然不直接暴露这个值，但风格模板背后各有一套参数，如果你发现出图总是不听描述，先回头强化描述本身，而不是纠结模板。</p>
+<p>参数区里还有步数、采样器等选项——新手阶段全部保持默认就行。这些是给进阶调优用的，改了未必变好，反而可能让生成变慢。</p>
+<h2>第四步：好图出了，存下来比什么都重要</h2>
+<p>生成的图片默认存在应用的作品流或详情页里。想长期使用一定要手动保存到相册：点开目标图进入详情页，找到保存/下载图标，首次会申请存储权限，允许即可。保存后到相册核对一下，有些相册应用会按来源建子目录，别在原目录里找不到就以为没存上。</p>
+<p>走应用内的保存按钮，不要截图——截图会叠加状态栏和缩放损失，清晰度明显下降。</p>
+<p>还有一个很多人忽略的好习惯：<strong>图和描述词一起归档</strong>。AI 出图最大的浪费是"出了好图但忘了怎么出的"。建议按项目建相册文件夹或用备忘录建立「图片 ↔ 描述词」的对照：图片文件名或备注里带上种子和日期编号，描述词全文贴在对应条目里。日后想做同风格变体，直接翻档案而不是凭记忆重写。应用内的历史记录可能随版本更新或缓存清理消失——好图务必保存到相册，别只留在应用里。</p>
+<p><img src="../images/stablediffusion-docs/screens-detail.jpg" alt="作品详情页" loading="lazy"></p>
+<h2>新手最容易翻车的三个点</h2>
+<p><strong>第一个坑：负面词写了"不要模糊"，结果反而更模糊。</strong> 记住扩散模型对否定词不敏感，用正面描述替代，比如写"sharp focus、clear details"而不是"no blur"。</p>
+<p><strong>第二个坑：一出图不理想就猛调高 CFG。</strong> CFG 超过 12 很容易让画面过饱和、线条粗糙，甚至出现畸变。平衡区 6~8 够用，先改描述词再考虑调 CFG。</p>
+<p><strong>第三个坑：生成完就关应用。</strong> 作品流和历史记录存在应用内部，清缓存或更新版本可能丢。养成出好图就立刻保存的习惯，不要等"整理的时候再说"。</p>
+<h2>往下还能玩什么</h2>
+<p>四步走完你已经能稳定出图了。进阶方向有几条：放大功能让好图变大（手机端不支持，但可以把描述词和参数带到电脑端 WebUI 里做高分辨率修复）；LoRA 模型让你快速套用特定风格；ControlNet 可以精确控制构图和姿态。这些都是在基础出图能力之上的扩展，先把四步练熟再碰。</p>
+<p>关于这套工具的更多细节和完整参考资料，我把它同步到了三个仓库，方便你按自己的习惯查阅——<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/stablediffusion" target="_blank" rel="noopener">GitHub</a>上有完整的文档结构，<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/stablediffusion" target="_blank" rel="noopener">Gitee</a>对国内访问更友好，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/stablediffusion" target="_blank" rel="noopener">GitCode</a>是另一份备份。无论你习惯哪个平台，搜 stablediffusion 的目录就能找到所有内容。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/garmin-connect-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">半马后垮了两周：我靠 Garmin Connect 从瞎练回到正轨</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/3dmgame.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">3DM游戏APP从零到上手：装起来、登进去、攻略和视频都能刷</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

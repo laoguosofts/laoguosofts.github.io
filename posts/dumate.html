@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>DuMate 版本进化史：从 MVP 到 v1.0.38，百度的桌面 AI 智能体走了一条什么路 · 老郭软件铺</title>
+  
+<meta name="description" content="DuMate（搭子）作为百度推出的桌面级 AI 智能体，从 MVP 到如今的 v1.0.38，其迭代节奏反映了团队在技能生态、安全沙箱与定价策略上的清晰取舍。本文从版本节点回溯它的成长逻辑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/dumate.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DuMate 版本进化史：从 MVP 到 v1.0.38，百度的桌面 AI 智能体走了一条什么路">
+<meta property="og:description" content="DuMate（搭子）作为百度推出的桌面级 AI 智能体，从 MVP 到如今的 v1.0.38，其迭代节奏反映了团队在技能生态、安全沙箱与定价策略上的清晰取舍。本文从版本节点回溯它的成长逻辑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/dumate.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/dumate/sandbox-security.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/dumate/sandbox-security.jpg">
+
+<meta name="twitter:title" content="DuMate 版本进化史：从 MVP 到 v1.0.38，百度的桌面 AI 智能体走了一条什么路">
+<meta name="twitter:description" content="DuMate（搭子）作为百度推出的桌面级 AI 智能体，从 MVP 到如今的 v1.0.38，其迭代节奏反映了团队在技能生态、安全沙箱与定价策略上的清晰取舍。本文从版本节点回溯它的成长逻辑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "DuMate\uff08\u642d\u5b50\uff09\u4f5c\u4e3a\u767e\u5ea6\u63a8\u51fa\u7684\u684c\u9762\u7ea7 AI \u667a\u80fd\u4f53\uff0c\u4ece MVP \u5230\u5982\u4eca\u7684 v1.0.38\uff0c\u5176\u8fed\u4ee3\u8282\u594f\u53cd\u6620\u4e86\u56e2\u961f\u5728\u6280\u80fd\u751f\u6001\u3001\u5b89\u5168\u6c99\u7bb1\u4e0e\u5b9a\u4ef7\u7b56\u7565\u4e0a\u7684\u6e05\u6670\u53d6\u820d\u3002\u672c\u6587\u4ece\u7248\u672c\u8282\u70b9\u56de\u6eaf\u5b83\u7684\u6210\u957f\u903b\u8f91\u3002", "headline": "DuMate \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece MVP \u5230 v1.0.38\uff0c\u767e\u5ea6\u7684\u684c\u9762 AI \u667a\u80fd\u4f53\u8d70\u4e86\u4e00\u6761\u4ec0\u4e48\u8def", "image": ["https://laoguosofts.github.io/images/dumate/sandbox-security.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/dumate.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/dumate.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "DuMate \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece MVP \u5230 v1.0.38\uff0c\u767e\u5ea6\u7684\u684c\u9762 AI \u667a\u80fd\u4f53\u8d70\u4e86\u4e00\u6761\u4ec0\u4e48\u8def", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">DuMate 版本进化史：从 MVP 到 v1.0.38，百度的桌面 AI 智能体走了一条什么路</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">DuMate 版本进化史：从 MVP 到 v1.0.38，百度的桌面 AI 智能体走了一条什么路</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">DuMate（搭子）作为百度推出的桌面级 AI 智能体，从 MVP 到如今的 v1.0.38，其迭代节奏反映了团队在技能生态、安全沙箱与定价策略上的清晰取舍。本文从版本节点回溯它的成长逻辑。</p>
+  </header>
+  <div class="prose serif">
+<p>现在打开 DuMate，你看到的是一个能跨应用、跨文件干活的桌面 AI 智能体——从<a href="https://dumate.ggcd.online" target="_blank" rel="noopener">官网</a>到实际体验，它帮你整理文件夹、分析 Excel、自动处理邮件，甚至能通过技能广场装上第三方扩展。免费版给你每天 1000 积分，全功能可用，只是高峰时段可能要排队。这套完整的产品形态不是一蹴而就的，从 MVP 到当前的 v1.0.38，DuMate 走过了一条相当克制的迭代路。</p>
+<h2>现状：最新版它是什么样</h2>
+<p>v1.0.38 的 DuMate 已经站在了两项国际权威 Agent 评测榜单的顶端——PinchBench 和 DeepResearch Bench。这两个评测分别对应真实工作场景的任务执行能力和复杂研究任务的信息整理能力，能同时登顶，说明它不只是"能对话"的 AI，而是真正"能干活"的智能体。</p>
+<p>它的核心能力围绕三大支柱展开：文件智能管理、多源数据分析、办公操作自动化。每个支柱背后不是单一的功能按钮，而是一整套内置技能的组合调度。安全设计上采用本地沙箱隔离运行，数据全程不外流，这一点在它的整个迭代过程中没有动摇过。</p>
+<p>免费版的策略是当前版本最值得关注的设计——想要体验直接从<a href="https://dumate.ggcd.online/download.html" target="_blank" rel="noopener">官方下载</a>渠道获取，永久免费、全功能可用、每日 1000 积分。这不是一个"阉割版"，只是用额度而不是用功能边界来区分付费与免费。积分消耗也是透明的，每个任务执行完会告诉你花了多少，还能按日、周、月汇总账单。这种定价方式在同类产品中并不算常见，后面会回到它在迭代中的位置。</p>
+<p><img src="../images/dumate/sandbox-security.jpg" alt="本地安全沙箱设计" loading="lazy"></p>
+<h2>来路：它从哪起步，关键转折点在哪</h2>
+<p>翻了<a href="https://dumate.pages.dev/" target="_blank" rel="noopener">DuMate文档</a>，没看到 DuMate 的早期 MVP 版本细节——没有初版的功能清单，没有 v1.0.0 到 v1.0.14 之间的变更日志。这本身就是一个有意思的观察：百度对外的公开文档选择了"从相对成熟的版本开始记录"，而不是完整铺开每一步。这可能说明 MVP 阶段的核心框架搭得比较快，大的功能方向没有反复摇摆。</p>
+<p>文档里最早能锚定的版本节点是 <strong>v1.0.15（2026 年 4 月 1 日）</strong>——这是 DuMate 正式开启计费的版本。在 AI 产品的生命周期里，这通常是一个微妙的时间点：太早收费会吓跑种子用户，太晚收费又可能陷入"永远免费"的困境。DuMate 的做法很聪明：开启计费的同时推出永久免费的个人体验版，全功能可用只是用积分额度来约束使用频率。</p>
+<p>v1.0.15 之后，DuMate 的迭代重心明显转向了技能生态建设。</p>
+<p><strong>v1.0.16</strong>，技能广场上线。这是一个精选第三方技能的集散地——标签筛选、一键安装、评分评论，让用户不用写代码就能扩展 DuMate 的能力边界。从法律合同审查到小红书笔记生成，从 SQL 查询优化到旅行行程规划，技能广场覆盖了行业、效率、开发者、生活四大类场景。</p>
+<p>但技能广场上线后并没有停在那里，接下来几个版本在持续打磨它的体验细节：</p>
+<ul><li><strong>v1.0.21</strong>，积分标识优化——让用户能快速筛选出哪些 Skill 会消耗积分</li><li><strong>v1.0.22</strong>，版本提醒新增——已安装的 Skill 有更新时主动通知</li><li><strong>v1.0.27</strong>，标签筛选增强——按场景、行业、功能标签快速定位</li></ul>
+<p>这四次迭代（v1.0.16 到 v1.0.27）全部围绕技能广场展开，持续了至少十几个版本号。这种"深挖一个功能而不是同时铺很多点"的节奏，和很多 AI 产品"大而全"的快速扩张策略不同——DuMate 在生态基础设施上花了不少时间。</p>
+<p><strong>v1.0.38</strong>，技能组合功能上线。这是一个面向团队场景的重大更新——把关联的多个 Skill 打包成一个整体，一次安装就是一整套能力。比如"数据分析组合"可以包含 Excel 处理、数据清洗、图表生成、PPT 生成四个 Skill，一个"运营新人技能包"就能让新员工快速获得全套工具。这步棋把之前积累的单个 Skill 生态串成了适合团队分发的体系。</p>
+<h2>规律：从迭代节奏看团队在死磕什么</h2>
+<p>把这些版本节点串起来，能看到几个清晰的规律。</p>
+<p>首先，<strong>技能生态是一条持续的主线</strong>。从 v1.0.16 技能广场上线，到 v1.0.38 技能组合，中间跨越了二十多个版本号。团队没有因为要做别的事就把生态建设放一放，而是把广场的基础体验——筛选、标识、提醒——一个个打磨到位，然后才迈出"组合打包"这一步。这种"先把路修通再跑重车"的节奏，说明团队对生态的重视程度高于单一功能的短期曝光。</p>
+<p>其次，<strong>安全底线没有动摇</strong>。本地沙箱隔离、数据不外流、授权级别可配置——这些设计从介绍文档到邮件处理的安全章节，贯穿了所有能力说明。样本文档里没有出现过"某版本放宽了安全限制"或"为了速度牺牲了隔离"的记录，这在 AI 产品中并不常见。很多产品在早期会用云端加速换取速度，后期再补本地能力，DuMate 是一开始就把本地安全作为核心卖点。</p>
+<p>第三，<strong>定价策略相当克制</strong>。免费版不限制功能、只用积分额度约束、积分账单透明——这套设计在 v1.0.15 一次性推出后，后续版本没有看到大的调整。它不像一些产品那样频繁变动定价策略来测试用户底线，而是给了用户一个明确的"门槛在哪里"的信号。</p>
+<p>反过来看，什么东西在迭代中没有被反复折腾？比如跨端渠道接入——文档里提到了飞书、钉钉、携程、GitHub 的连接器，也提到了硬件分身（小度智能音箱），但没有给出具体的版本号。这可能说明对外渠道的对接更多是"能力展示"而非迭代重点，团队的精力主要还是花在桌面端的核心能力和生态建设上。</p>
+<h2>预判：照这个路线，下一步大概率怎么走</h2>
+<p>从迭代规律推——这里明确说这是"从版本节奏推的，不是官方口径"。</p>
+<p>v1.0.38 的技能组合是面向团队分发的第一步，但团队场景远不止"打包 Skill"这一件事。组合的版本集中管理、团队内的权限分级（哪些 Skill 可以用、哪些不能用）、组合的协作编辑——这些能力在当前文档里都没有提到。如果团队保持"生态基础设施要打磨到位"的节奏，下一步大概率会在技能组合的团队协作维度上继续深化。</p>
+<p>另一个可能的方向是硬件分身的落地。扩展角色里提到了"物理设备作为搭子的分身入口"（比如小度智能音箱），但样本文档里没有给出具体进展。如果技能生态在桌面端稳定下来，硬件入口可能成为下一条扩展线。</p>
+<p>最后一点，免费版的积分额度是每天 1000，这个数字在 v1.0.15 推出后一直没有变。如果 DuMate 的用户量继续增长、运营成本上升，免费版的额度会不会调整——这是用户侧最敏感的信号，但从当前的迭代节奏看，团队倾向于给用户稳定预期，不太会轻易动它。这套版本脉络的梳理也整理了一份参考资料，在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/DuMate" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/DuMate" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/DuMate" target="_blank" rel="noopener">GitCode</a>三个仓库的文档目录里都能找到。</p>
+<p><img src="../images/dumate/agent-evolution.png" alt="DuMate 进化脉络" loading="lazy"></p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/nethersx2-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">手机上玩 PS2 经典，从零开始 NetherSX2 上手全指南</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/mojitest.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">MOJiTEST 5分钟上手：从装APP到开启第一个背词计划</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

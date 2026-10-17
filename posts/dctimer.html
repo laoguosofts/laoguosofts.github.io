@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清 · 老郭软件铺</title>
+  
+<meta name="description" content="整理了一份关于 DCTimer 的快问快答，覆盖计时原理、滚动平均统计、手动补录、XCross 求解器以及数据迁移等常见疑问。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/dctimer.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清">
+<meta property="og:description" content="整理了一份关于 DCTimer 的快问快答，覆盖计时原理、滚动平均统计、手动补录、XCross 求解器以及数据迁移等常见疑问。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/dctimer.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/dctimer/main-timer-running.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/dctimer/main-timer-running.jpg">
+
+<meta name="twitter:title" content="DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清">
+<meta name="twitter:description" content="整理了一份关于 DCTimer 的快问快答，覆盖计时原理、滚动平均统计、手动补录、XCross 求解器以及数据迁移等常见疑问。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6574\u7406\u4e86\u4e00\u4efd\u5173\u4e8e DCTimer \u7684\u5feb\u95ee\u5feb\u7b54\uff0c\u8986\u76d6\u8ba1\u65f6\u539f\u7406\u3001\u6eda\u52a8\u5e73\u5747\u7edf\u8ba1\u3001\u624b\u52a8\u8865\u5f55\u3001XCross \u6c42\u89e3\u5668\u4ee5\u53ca\u6570\u636e\u8fc1\u79fb\u7b49\u5e38\u89c1\u7591\u95ee\u3002", "headline": "DCTimer \u901f\u62e7\u8ba1\u65f6\u5668\u5feb\u95ee\u5feb\u7b54\uff1a\u8ba1\u65f6\u3001\u7edf\u8ba1\u3001\u6570\u636e\u8fc1\u79fb\u4e00\u6b21\u8bf4\u6e05", "image": ["https://laoguosofts.github.io/images/dctimer/main-timer-running.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/dctimer.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/dctimer.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "DCTimer \u901f\u62e7\u8ba1\u65f6\u5668\u5feb\u95ee\u5feb\u7b54\uff1a\u8ba1\u65f6\u3001\u7edf\u8ba1\u3001\u6570\u636e\u8fc1\u79fb\u4e00\u6b21\u8bf4\u6e05", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">整理了一份关于 DCTimer 的快问快答，覆盖计时原理、滚动平均统计、手动补录、XCross 求解器以及数据迁移等常见疑问。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一份关于 DCTimer 的快问快答，都是速拧玩家最常碰到的问题，直接给答案。</p>
+<h3>DCTimer 到底是什么？</h3>
+<p>一句话：这是一款专为魔方速拧设计的手机端计时器，Android 和 iOS 都有。和网页上随便搜得到的计时器不一样，DCTimer 是长期维护的专业工具——你可以去<a href="https://dctimer.kook.yoga" target="_blank" rel="noopener">dctimer官网</a>看一眼完整功能列表，它不止计时，还内置了打乱公式生成、滚动平均统计、求解器以及完整的成绩数据库管理。核心定位就是把你从一把速拧到长期训练数据，全流程攥在手里。</p>
+<h3>谁需要装这个？普通玩家还是职业选手？</h3>
+<p>都用。普通玩家刚入坑时，用网页计时器凑合一阵就会发现不够用——没有分组、没有统计、换浏览器数据就丢了。DCTimer 解决的就是这些痛点：分组管理不同阶段的训练、实时显示 ao5 反映手感波动、数据本地存 SQLite 不怕丢。职业选手训练也用，因为它的计时精度和 WCA 规则对齐，统计维度够全，而且 Stackmat 硬件计时器能直接连。简单说，认真拧魔方的都值得装，三分钟热度的网页工具够用。</p>
+<h3>怎么装？有几个平台？</h3>
+<p>Android 直接从 Google Play 装，如果在国内访问不了 Play，直接从<a href="https://dctimer.kook.yoga/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包就行。iOS 在 App Store 搜就能下。两端数据格式是通的——Android 导出的 SQLite 文件 iOS 能读，反过来也行，这一点跨平台迁移时很关键。</p>
+<h3>计时怎么用？和网页计时器有啥不一样？</h3>
+<p>主界面就是一个大大的数字显示区，双手按住屏幕空白处进入待机状态（数字变绿），松手就开始计时，再次按住停止。这个交互和多数速拧计时器一致，但 DCTimer 在细节上做了不少优化：待机状态自动生成下一把的打乱公式显示在上方，不需要你额外去点按钮；计时过程中会检测你的按压手势，防止误触提前停表；分组之间切页也不用返回主界面，侧边栏直接切换。另外它支持和 Stackmat 硬件计时器联动——如果你参加线下比赛，接上 Stackmat 就可以用硬件触发计时，比纯触控更准。</p>
+<p><img src="../images/dctimer/main-timer-running.jpg" alt="正在计时中的 DCTimer 主界面" loading="lazy"></p>
+<h3>统计面板里的 ao5、ao12 到底怎么算的？</h3>
+<p>这是速拧圈子里最核心的稳定度指标。<strong>ao 就是"去尾平均"</strong>——取最近 N 次成绩，去掉一个最好和一个最差，剩下的算平均。数量规则是统计数量的 5% 向上取整作为去尾量：5 次取 5% = 0.25 向上取整 = 1，所以 ao5 去 1 好 1 差剩 3 个；ao12 去 1 好 1 差剩 10 个；ao50 去 2 好 2 差剩 46 个；ao100 去 5 好 5 差剩 90 个。DCTimer 主界面实时显示当前分组的 ao5 和 ao12，长周期的 ao50、ao100 要进统计详情页看。如果最近几把里有 DNF（未完成），这些成绩自动排除在有效集之外，不会拉低平均。为什么用去尾？因为单把波动大——可能一把超神、一把手抖，去尾平均过滤掉极端值才是你真实的稳定水平。比赛中每轮看 ao5 最直观，长期训练跟踪 ao50 能看状态趋势。</p>
+<h3>手动输入成绩是啥场景用的？</h3>
+<p>三种情况最常见：一是把旧设备或者网页计时器上的历史成绩迁移过来，直接填时间值比一把一把重新拧一遍省事；二是用 Stackmat 计了时但 DCTimer 没连上硬件，事后手动补录；三是盲拧这类特殊项目，计时流程和正常速拧不同，需要事后录入。操作上找到手动输入入口，填入时间就行，格式和全局时间格式设置一致（通常是 <code>SS.sss</code> 或 <code>HH:MM:SS.sss</code>）。注意两点：手动输入的成绩不会自动附带打乱公式，需要自己补；如果要批量导入大量历史数据，建议直接用数据库导出/导入功能操作 SQLite 文件，比一条条填高效得多。</p>
+<h3>它自带求解器？XCross 是什么来头？</h3>
+<p>DCTimer 内置了几个实用求解器，其中 XCross 求解器是进阶玩家最常用的。XCross 全称 Extended Cross，比标准 Cross 更进一步：做底面十字的同时，顺便把第一组 F2L 的棱块和角块也归位。这样 Cross 完成时已经有一组 F2L 就位，F2L 阶段就只剩三组了，整体步数更少。相比普通 Cross 求解器只解底面四条棱归位，XCross 求解器的输出序列更长（因为包含了额外的棱角归位），但整体仍然经过优化。详细的求解器使用说明和 Cross/XCross 学习路线，去<a href="https://dctimer.pages.dev/" target="_blank" rel="noopener">dctimer文档</a>翻一下就有。学习门槛提醒一句：XCross 不是初学者碰的，等你 Cross 熟练稳定、F2L 四组能快速识别之后再考虑，否则容易贪快反而拖慢节奏。</p>
+<h3>数据安全吗？换手机怎么迁移？</h3>
+<p>DCTimer 的成绩全部存在本地 SQLite 数据库里，不上传云端。迁移方式很直接：Android 从侧边栏菜单进导出，iOS 通过 iTunes 文件共享导出 sqlite 文件；新手机上导入这个文件就行。但有个关键注意点——导入是<strong>直接覆盖</strong>模式，不是合并。如果两边都有训练记录不想丢，分别导出后用 SQLite 工具手动合并。另外旧版本的纯文本数据库已经不兼容新版了，0.9+ 版本之间可以互导，老用户升级前最好先确认格式。还有一个细节：导入完成后建议关掉 DCTimer 再重新打开，让应用重新加载数据库，不然有时会显示旧数据。</p>
+<p><img src="../images/dctimer/sidebar-menu.jpg" alt="侧边栏菜单，分组管理和数据导出入口都在这里" loading="lazy"></p>
+<h3>和 Cube Timer、CSTimer 比咋样？</h3>
+<p>三者都是速拧圈常用的工具，各有侧重。Cube Timer 偏简洁，计时功能到位但统计和数据管理较弱，适合日常随手拧两把。CSTimer 功能最全，统计维度和参数配置都比 DCTimer 更丰富，但界面相对复杂，上手需要适应一阵。DCTimer 走的是平衡路线——核心计时和统计够用，界面干净，跨平台数据迁移方便，内置求解器覆盖了大部分玩家的需求，又不像 CSTimer 那样堆砌参数。如果你的需求就是"靠谱计时 + 分组统计 + 数据不丢 + 偶尔查个解法"，DCTimer 是性价比最高的选择。</p>
+<p>最后一句：认真拧魔方的话装一个，把网页计时器换掉。关于 DCTimer 的资料在三个仓库都能找到，<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/dctimer" target="_blank" rel="noopener">GitHub</a> 是主仓库方便查阅完整内容，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/dctimer" target="_blank" rel="noopener">Gitee</a> 国内访问更顺畅，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/dctimer" target="_blank" rel="noopener">GitCode</a> 作为额外备份也同步了一份。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/emoke.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/reminder-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Reminder 用了四个月，当初被&#34;四模块打通&#34;吸引，现在来说说哪些真能用起来了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

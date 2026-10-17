@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 iPhone 从&#34;解锁—开App&#34;变成&#34;锁屏一眼&#34;：Widgetsmith 嵌进晨间启动流的实操 · 老郭软件铺</title>
+  
+<meta name="description" content="我用 Widgetsmith 把早上出门前的三件事——查天气、看日程、启动播客——压到锁屏上。这篇讲具体怎么把小组件串进 Shortcuts 和提醒事项，哪里容易断链。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/widgetsmith-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 iPhone 从&#34;解锁—开App&#34;变成&#34;锁屏一眼&#34;：Widgetsmith 嵌进晨间启动流的实操">
+<meta property="og:description" content="我用 Widgetsmith 把早上出门前的三件事——查天气、看日程、启动播客——压到锁屏上。这篇讲具体怎么把小组件串进 Shortcuts 和提醒事项，哪里容易断链。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/widgetsmith-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/widgetsmith-docs/weather-widget.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/widgetsmith-docs/weather-widget.png">
+
+<meta name="twitter:title" content="把 iPhone 从&#34;解锁—开App&#34;变成&#34;锁屏一眼&#34;：Widgetsmith 嵌进晨间启动流的实操">
+<meta name="twitter:description" content="我用 Widgetsmith 把早上出门前的三件事——查天气、看日程、启动播客——压到锁屏上。这篇讲具体怎么把小组件串进 Shortcuts 和提醒事项，哪里容易断链。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6211\u7528 Widgetsmith \u628a\u65e9\u4e0a\u51fa\u95e8\u524d\u7684\u4e09\u4ef6\u4e8b\u2014\u2014\u67e5\u5929\u6c14\u3001\u770b\u65e5\u7a0b\u3001\u542f\u52a8\u64ad\u5ba2\u2014\u2014\u538b\u5230\u9501\u5c4f\u4e0a\u3002\u8fd9\u7bc7\u8bb2\u5177\u4f53\u600e\u4e48\u628a\u5c0f\u7ec4\u4ef6\u4e32\u8fdb Shortcuts \u548c\u63d0\u9192\u4e8b\u9879\uff0c\u54ea\u91cc\u5bb9\u6613\u65ad\u94fe\u3002", "headline": "\u628a iPhone \u4ece\"\u89e3\u9501\u2014\u5f00App\"\u53d8\u6210\"\u9501\u5c4f\u4e00\u773c\"\uff1aWidgetsmith \u5d4c\u8fdb\u6668\u95f4\u542f\u52a8\u6d41\u7684\u5b9e\u64cd", "image": ["https://laoguosofts.github.io/images/widgetsmith-docs/weather-widget.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/widgetsmith-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/widgetsmith-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u628a iPhone \u4ece\"\u89e3\u9501\u2014\u5f00App\"\u53d8\u6210\"\u9501\u5c4f\u4e00\u773c\"\uff1aWidgetsmith \u5d4c\u8fdb\u6668\u95f4\u542f\u52a8\u6d41\u7684\u5b9e\u64cd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">把 iPhone 从&#34;解锁—开App&#34;变成&#34;锁屏一眼&#34;：Widgetsmith 嵌进晨间启动流的实操</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">把 iPhone 从&#34;解锁—开App&#34;变成&#34;锁屏一眼&#34;：Widgetsmith 嵌进晨间启动流的实操</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">我用 Widgetsmith 把早上出门前的三件事——查天气、看日程、启动播客——压到锁屏上。这篇讲具体怎么把小组件串进 Shortcuts 和提醒事项，哪里容易断链。</p>
+  </header>
+  <div class="prose serif">
+<h2>旧流程：每天早上重复六次"点—退—点"</h2>
+<p>我每周一到周五早上有个固定节奏：起床洗漱完，摸出 iPhone 完成三件事——<strong>查今天要不要带伞</strong>、<strong>看日历上有几个日程要赴</strong>、<strong>启动通勤路上要听的播客</strong>。</p>
+<p>在 Widgetsmith 之前，这套流程是这样的：</p>
+<p>解锁屏幕 → 找天气 App → 点开看降水概率 → 退出 → 找日历 App → 点开看今日日程 → 退出 → 找播客 App → 点开 → 进订阅列表 → 点最新一期 → 播放。</p>
+<p>算下来至少六次 App 切换，解锁后还要在主屏上翻找图标。不算每次打开 App 的加载时间，光切换本身就是一套动作。如果赶地铁的时候发现忘了看天气该不该带伞，那就是出门了再折回来。</p>
+<h2>新流程：Widgetsmith 卡在锁屏和桌面的衔接点</h2>
+<p>把 <a href="https://widgetsmith.gerw.hair" target="_blank" rel="noopener">Widgetsmith官网</a> 的小组件嵌进这套流程之后，逻辑变成了：<strong>锁屏点亮一眼看完，桌面 Action 一键触发</strong>。具体分工：</p>
+<ul><li><strong>锁屏上放两个 Small 小组件</strong>：一个是 Premium 解锁的天气（降水概率 + 湿度 + 风速），另一个是日历（今日前三条日程）。免费版从<a href="https://widgetsmith.gerw.hair/download.html" target="_blank" rel="noopener">Widgetsmith下载</a>拿，虽然没有天气但照片、日历、倒计时都能用。锁屏小组件不用解锁就能看到，iOS 16 之后锁屏支持小组件，Widgetsmith 的深色主题在锁屏黑色背景上字最清楚。</li><li><strong>桌面主屏顶部放一个 Medium 尺寸</strong>：用 Timed Widget 做定时切换——早上 7:00~9:30 显示倒计时（距离出门还有几分钟），9:30 之后自动切成照片（选了一张我旅行时拍的湖光山色），晚上 21:00 又切回月相和自定义文字（一句晚安语）。</li><li><strong>桌面底部放三个 Action 按钮</strong>：一键启动通勤播客的 Shortcuts、一键发早安消息给家人、一键打开公司的飞书日历。Action 是 Widgetsmith 最容易被忽略的功能——2023 年 v5 版本跟着 iOS 17 交互式小组件一起增强的，核心是<strong>把任意 Shortcuts 快捷指令变成桌面上的一个可点按钮</strong>。</li></ul>
+<p>Widgetsmith 和整个工作流的衔接点不在 App 内部，而在 iOS 系统层面：Widgetsmith 能读取 Apple 自带的日历、提醒事项、Apple Music 数据，Action 又能反向触发 Shortcuts。这就形成了一个闭环——你在 Widgetsmith 里建的小组件和 Action，一头连着系统数据源，一头连着你自己的 Shortcuts 自动化，中间不需要任何第三方中转。</p>
+<p><img src="../images/widgetsmith-docs/weather-widget.png" alt="锁屏天气小组件" loading="lazy"></p>
+<h2>实操细节：两个最容易断链的环节</h2>
+<p>这套流程跑了两个月，有两个地方我一开始踩了坑，后来才摸稳。</p>
+<h3>权限容易漏开，小组件就会空着</h3>
+<p>Widgetsmith 读取系统数据不是自动的，每类数据第一次用都会弹权限请求。我第一次建提醒事项小组件的时候忘了开权限，结果桌面那块始终显示"无数据"，以为是小组件本身坏了。后来才找到：<strong>设置 → 滑到 Widgetsmith → 点 Reminders → 开关打开</strong>。Apple Music 的权限同理，在同一个页面往下翻。</p>
+<p>权限开完之后，如果小组件还是不刷新，一个有效的排查方法是：删掉桌面的小组件 → 回 Widgetsmith App 里编辑一次 → 重新拖回桌面。这是因为 iOS 小组件的刷新由系统策略控制，手动编辑一次相当于强制触发了一次刷新。</p>
+<h3>Timed Widget 的时区坑</h3>
+<p>Timed Widget 是 Widgetsmith 的定时调度功能——你可以让同一个小组件在不同时间段展示不同内容。比如我设早上 7:00 到 9:30 显示倒计时，9:30 之后切成照片。</p>
+<p>第一次设定时我按北京时间写了 "7:00 - 9:30"，结果它提前两个小时切了。后来去翻了<a href="https://widgetsmith-docs.pages.dev/" target="_blank" rel="noopener">Widgetsmith文档</a>的 FAQ 才知道：Widgetsmith 的 Timed Widget 默认读取的是系统时区，但如果你在某个环节改过系统时间或者开了"自动设置时间"之后又手动改过时区偏移，就会出问题。解决方法很简单——进 iOS 设置确认一次当前时区是对的，然后删掉 Widgetsmith 里的 Timed 配置重新建一次，别复制粘贴旧的时间片。</p>
+<p><img src="../images/widgetsmith-docs/clock-widget.png" alt="桌面定时切换的倒计时小组件" loading="lazy"></p>
+<h2>效果：具体省了什么</h2>
+<p>数字说话：以前每天早上六次 App 切换，现在锁屏点亮就能看完天气和日程（0 次切换），播客启动从"解锁 → 找 App → 点订阅 → 点播放"四步变成"解锁 → 点桌面 Action"两步。<strong>少了两次手动复制</strong>——以前还要看一眼天气再记要不要带伞，现在锁屏上的降水概率 80% 以上我就直接把伞挂在门后，不用动脑。</p>
+<p>这套流程的边界也得说清楚：</p>
+<ul><li><strong>iPad 上不太好用</strong>：iPadOS 的锁屏小组件和 iPhone 不完全对齐，而且 iPad 本身就放在桌上当工作站用，"锁屏一眼"这个逻辑不成立。</li><li><strong>Premium 订阅才看得到天气</strong>：免费版的 Widgetsmith 没有天气数据，这是 Premium 最核心的付费理由。$1.99/月或 $19.99/年，年付更划算。如果你的晨间流程不需要看天气，免费版的照片+日历+倒计时就够用。</li><li><strong>Apple 后台刷新策略有时候会延迟</strong>：iOS 系统对小组件的刷新频率有节流，极端情况下（比如长时间没亮屏），小组件里的天气或日历数据可能停留在上一次更新的状态。解决办法很简单——亮屏下拉一下桌面触发手动刷新。</li></ul>
+<p>如果你的晨间流程和我类似，想把"解锁—开 App"的序列压到锁屏上，Widgetsmith 是目前 iOS 上做这件事成本最低的工具。它不提供自己的数据源，只做一层漂亮的展示和交互跳板，真正的自动化能力来自 iOS 系统和 Shortcuts 快捷指令——这也是我喜欢它的地方：不造轮子，把苹果已有的东西串起来。</p>
+<p>Widgetsmith 的整套资料我同步维护在三个地方，海外走 <a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Widgetsmith" target="_blank" rel="noopener">GitHub</a>，国内访问推荐 <a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Widgetsmith" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Widgetsmith" target="_blank" rel="noopener">GitCode</a>，随时可以翻文档确认参数或导入图标包。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/sekai-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">团建前一天才想起要破冰，我用 Sekai 半小时救了场</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/noyacg.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">NoyAcg 全能力盘点：一款开源漫画阅读器能把漫迷的事做到什么程度</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

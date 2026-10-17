@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Tasker 上手记：用了三天，我把手机里一半的重复操作都删了 · 老郭软件铺</title>
+  
+<meta name="description" content="一直听说 Tasker 是安卓自动化之王，终于下决心装了。从申请权限到写第一个 Profile，踩了不少坑，但跑通的那一刻真的香。这篇讲点真实体验，不说空话。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/tasker-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tasker 上手记：用了三天，我把手机里一半的重复操作都删了">
+<meta property="og:description" content="一直听说 Tasker 是安卓自动化之王，终于下决心装了。从申请权限到写第一个 Profile，踩了不少坑，但跑通的那一刻真的香。这篇讲点真实体验，不说空话。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/tasker-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/tasker-docs/first-launch-choice.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/tasker-docs/first-launch-choice.jpg">
+
+<meta name="twitter:title" content="Tasker 上手记：用了三天，我把手机里一半的重复操作都删了">
+<meta name="twitter:description" content="一直听说 Tasker 是安卓自动化之王，终于下决心装了。从申请权限到写第一个 Profile，踩了不少坑，但跑通的那一刻真的香。这篇讲点真实体验，不说空话。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u76f4\u542c\u8bf4 Tasker \u662f\u5b89\u5353\u81ea\u52a8\u5316\u4e4b\u738b\uff0c\u7ec8\u4e8e\u4e0b\u51b3\u5fc3\u88c5\u4e86\u3002\u4ece\u7533\u8bf7\u6743\u9650\u5230\u5199\u7b2c\u4e00\u4e2a Profile\uff0c\u8e29\u4e86\u4e0d\u5c11\u5751\uff0c\u4f46\u8dd1\u901a\u7684\u90a3\u4e00\u523b\u771f\u7684\u9999\u3002\u8fd9\u7bc7\u8bb2\u70b9\u771f\u5b9e\u4f53\u9a8c\uff0c\u4e0d\u8bf4\u7a7a\u8bdd\u3002", "headline": "Tasker \u4e0a\u624b\u8bb0\uff1a\u7528\u4e86\u4e09\u5929\uff0c\u6211\u628a\u624b\u673a\u91cc\u4e00\u534a\u7684\u91cd\u590d\u64cd\u4f5c\u90fd\u5220\u4e86", "image": ["https://laoguosofts.github.io/images/tasker-docs/first-launch-choice.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/tasker-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/tasker-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Tasker \u4e0a\u624b\u8bb0\uff1a\u7528\u4e86\u4e09\u5929\uff0c\u6211\u628a\u624b\u673a\u91cc\u4e00\u534a\u7684\u91cd\u590d\u64cd\u4f5c\u90fd\u5220\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Tasker 上手记：用了三天，我把手机里一半的重复操作都删了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Tasker 上手记：用了三天，我把手机里一半的重复操作都删了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一直听说 Tasker 是安卓自动化之王，终于下决心装了。从申请权限到写第一个 Profile，踩了不少坑，但跑通的那一刻真的香。这篇讲点真实体验，不说空话。</p>
+  </header>
+  <div class="prose serif">
+<h2>为什么我会装它</h2>
+<p>说实话，我对"自动化工具"一直有点抵触——总觉得花两小时配置，省下来的操作时间还不够回本。直到上周我坐在车上，又一次手动切车载模式、开蓝牙、关 Wi-Fi、调屏幕常亮，一套动作下来，手机还卡了两秒。</p>
+<p>这已经是我每天通勤重复三次的事情了。</p>
+<p>Tasker 我早就听过，朋友说它是安卓上最强的自动化引擎，没有之一。后来我特意去<a href="https://tasker.fewa.skin" target="_blank" rel="noopener">官网</a>扫了一眼简介，确实名不虚传。但每次搜教程，前五分钟都是"先申请 ADB 权限""再给无障碍权限""然后设置电池白名单"——光这些准备工作就把我劝退了。</p>
+<p>这次我抱着"大不了删了"的心态从<a href="https://tasker.fewa.skin/download.html" target="_blank" rel="noopener">tasker下载</a>拿了安装包装了它。</p>
+<p><img src="../images/tasker-docs/first-launch-choice.jpg" alt="第一次启动就给了三个选择，我老老实实点了标准模式" loading="lazy"></p>
+<h2>初印象：界面有点吓人，但逻辑清晰</h2>
+<p>打开之后第一反应是"这玩意儿怎么这么像开发者工具"。主界面按 Profile、Task、Scene 三个标签页组织，每个 Profile 下面挂着触发条件和执行任务，一眼看过去全是图标和英文术语。</p>
+<p>不过静下心来读，逻辑其实很直白：<strong>Profile 是一条"如果……那么……"的规则</strong>，左边写"什么情况触发"（Context），右边写"触发了之后做什么"（Task）。Context 可以叠加，Task 可以链式调用，就这么简单。</p>
+<p>难点不在逻辑，在权限。Tasker 几乎要把所有系统权限都要一遍——无障碍、通知访问、位置、电池优化白名单、自启动……我光在系统设置里跳来跳去就花了十分钟。它的权限检查页会把缺的权限一项项列出来，点一下直接跳系统设置，这个设计还行，但就是跑权限这件事本身挺劝退的。</p>
+<p><img src="../images/tasker-docs/permission-check.jpg" alt="权限检查页，一项项勾过去才发现安卓对自动化工具的限制有多少" loading="lazy"></p>
+<h2>第一个跑通的 Profile：夜间模式自动切换</h2>
+<p>我给自己设的第一个目标很简单：晚上十点自动调暗屏幕、开勿扰、关 Wi-Fi，早上七点自动恢复。</p>
+<p>用时间上下文设的。Tasker 的时间上下文分两种形态——精确时刻和时间窗口。我要的是后者：22:00 到次日 07:00。设置跨午夜窗口的时候我还担心会不会识别错，结果它默认就是"开始时间晚于结束时间 = 到次日结束"，这点挺聪明，不用手动算。</p>
+<p>Enter Task 里我加了三个动作：先关自动亮度、把手动亮度调到 15%、开勿扰。Exit Task 反过来，开自动亮度、关勿扰。</p>
+<p>跑通的那一刻我盯着手机等了五分钟，22:00 整，屏幕真的暗下来了。</p>
+<p>说实话那一刻有点小感动——我折腾了这么久，终于见到回头钱了。</p>
+<h2>踩的第一个坑：Profile 不触发</h2>
+<p>第二天早上醒来看手机，亮度没恢复。我愣了一下，Tasker 主界面右下角的开关是开着的，Profile 也在列表里，但就是没触发。</p>
+<p>按照我之前看的排查思路，先确认 Tasker 在运行——通知栏有常驻图标，没问题。然后手动跑了一下 Task，亮度能调回去，说明 Action 本身没报错。</p>
+<p>问题出在哪？后来翻了<a href="https://tasker-docs.pages.dev/" target="_blank" rel="noopener">tasker文档</a>才反应过来：我在时间窗口上叠了一个 Day Context，选了周一到周五。那天正好是周六。</p>
+<p>就这么蠢。</p>
+<p>排查这事儿 Tasker 有一套挺完整的清单，从确认运行状态、检查 Profile 是否禁用、逐个测试 Context、手动执行 Task 看报错，到看运行日志，一步步来总能找到问题。日志能看到每个 Action 的输入输出和变量值，说实话调试起来比很多 App 都方便。</p>
+<h2>车载模式：第二个真香时刻</h2>
+<p>解决了夜间模式，我开始折腾车载。朋友说 Tasker 配合蓝牙状态 Context 能自动切车载模式，我就照着搭了一个：</p>
+<p>蓝牙连上我的车载设备 → Enter Task：开 Car Mode、屏幕常亮（连了车载充电器的话）、调大媒体音量；断开 → Exit Task：关 Car Mode、恢复音量、屏幕超时改回 30 秒。</p>
+<p>Car Mode 这东西挺好用的，打开之后整个 UI 都变了——大图标、简化界面、屏蔽通知，开车的时候安全多了。而且它不像某些国产手机的车载模式是 ROM 自带的固定方案，Tasker 里你可以自己控制进入退出的时机。</p>
+<p>不过要注意一点：Kill App 这种动作在无 Root 的普通权限下只能关后台空闲的 App，别指望它能杀前台应用。大多数场景其实也不需要，用 Go Home 把用户带回桌面就够了。</p>
+<h2>插件生态：深度用户的游乐场</h2>
+<p>Tasker 本身已经够强了，但 joaoapps 那套插件才是真正的杀招。我试用了一下 Join——它能让手机和平板组成一个 Mesh 网络，互相发指令。</p>
+<p>我设了个"到家联动"：手机进家门的地理围栏，Join 发指令给平板，平板自动解锁、打开视频 App。听起来很爽，但 Join 是付费订阅模型，这点让我犹豫了——AutoNotification 和 AutoVoice 都是一次性买断，Join 却要按月收费。文档里说预算有限的话 AutoNotification + AutoLocation 两件套性价比最高，我暂时先没入订阅。</p>
+<p>不想买插件也没关系，Tasker 原生的东西已经够用了。跨设备通信可以用 Pushbullet 免费替代，分享菜单也有 Event Context 能触发。</p>
+<h2>适合谁，不适合谁</h2>
+<p>三天用下来，我的结论很明确：</p>
+<p>如果你是那种"这个操作重复三遍以上我就烦了"的人，而且不介意花一两个小时搞定初始配置——Tasker 值得装。它不是那种开箱即用的工具，但一旦跑通第一个 Profile，后面的扩展成本会越来越低。我现在已经在想要不要加个"低电量自动关 Wi-Fi + 降低亮度"的 Profile 了。</p>
+<p>如果你只想找个一键切换深色模式的小工具——别来，这不是它该干的事儿。Tasker 的学习曲线确实有点陡，设置过程中的权限跳转、英文术语、Profile 不触发的排查，任何一个环节都有可能把小白吓跑。</p>
+<p>还有，安卓 OEM 的额外限制一定要注意。小米、OPPO、华为这些系统对后台的管控比较严，自启动、后台锁定、省电模式这几项得手动过一遍，不然 Tasker 经常被杀。我用的是原生 Pixel，这些问题基本没遇到，但朋友的小米手机上确实栽过跟头。</p>
+<h2>写在最后</h2>
+<p>Tasker 的官网其实挺朴素的，下载也是走常规渠道。真正让它在自动化圈封神的，是社区沉淀下来的那堆 Profile 分享——你能找到几乎任何场景的现成配置，导入改一改就能用。</p>
+<p>我自己那两个 Profile 现在还在跑，每天晚上十点自动暗下来，早上七点亮回去。车载模式上下班自动切换，连我老婆都问我"你手机是不是变聪明了"。</p>
+<p>还没到"离不开"的程度，但已经不想删了。想深入折腾的话，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Tasker" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Tasker" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Tasker" target="_blank" rel="noopener">GitCode</a> 上都能拿到全套参考资料，随用随取。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/voicetra.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">带 VoiceTra 去东京：一个日语零分的人用它撑了 7 天</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/skydriveapp.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">SkyDriveapp 深度盘点：不止是网盘，而是一套跨设备文件工作流</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

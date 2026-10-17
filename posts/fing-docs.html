@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Fing 上手三天，终于知道谁在偷我家 Wi-Fi 的带宽 · 老郭软件铺</title>
+  
+<meta name="description" content="装 Fing 之前总觉得 Wi-Fi 慢是运营商的锅，扫完才发现设备比预想的多了一倍。分享这几天用下来最有感觉的几个功能和踩过的小坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/fing-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fing 上手三天，终于知道谁在偷我家 Wi-Fi 的带宽">
+<meta property="og:description" content="装 Fing 之前总觉得 Wi-Fi 慢是运营商的锅，扫完才发现设备比预想的多了一倍。分享这几天用下来最有感觉的几个功能和踩过的小坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/fing-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/fing-docs/app-scan-result.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/fing-docs/app-scan-result.png">
+
+<meta name="twitter:title" content="Fing 上手三天，终于知道谁在偷我家 Wi-Fi 的带宽">
+<meta name="twitter:description" content="装 Fing 之前总觉得 Wi-Fi 慢是运营商的锅，扫完才发现设备比预想的多了一倍。分享这几天用下来最有感觉的几个功能和踩过的小坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u88c5 Fing \u4e4b\u524d\u603b\u89c9\u5f97 Wi-Fi \u6162\u662f\u8fd0\u8425\u5546\u7684\u9505\uff0c\u626b\u5b8c\u624d\u53d1\u73b0\u8bbe\u5907\u6bd4\u9884\u60f3\u7684\u591a\u4e86\u4e00\u500d\u3002\u5206\u4eab\u8fd9\u51e0\u5929\u7528\u4e0b\u6765\u6700\u6709\u611f\u89c9\u7684\u51e0\u4e2a\u529f\u80fd\u548c\u8e29\u8fc7\u7684\u5c0f\u5751\u3002", "headline": "Fing \u4e0a\u624b\u4e09\u5929\uff0c\u7ec8\u4e8e\u77e5\u9053\u8c01\u5728\u5077\u6211\u5bb6 Wi-Fi \u7684\u5e26\u5bbd", "image": ["https://laoguosofts.github.io/images/fing-docs/app-scan-result.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/fing-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/fing-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Fing \u4e0a\u624b\u4e09\u5929\uff0c\u7ec8\u4e8e\u77e5\u9053\u8c01\u5728\u5077\u6211\u5bb6 Wi-Fi \u7684\u5e26\u5bbd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Fing 上手三天，终于知道谁在偷我家 Wi-Fi 的带宽</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Fing 上手三天，终于知道谁在偷我家 Wi-Fi 的带宽</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">装 Fing 之前总觉得 Wi-Fi 慢是运营商的锅，扫完才发现设备比预想的多了一倍。分享这几天用下来最有感觉的几个功能和踩过的小坑。</p>
+  </header>
+  <div class="prose serif">
+<p>说实话，我之前对"网络扫描"这类工具一直有点戒备——总觉得那是黑客才用的东西，普通人碰不着。直到上个月搬了新家，电信给的 500M 光纤测速总是在 200M 附近晃悠，报修了两次都说"线路正常"。</p>
+<p>朋友丢了个 Fing 的名字过来，说去<a href="https://fing.fewf.click" target="_blank" rel="noopener">Fing官网</a>装一个扫扫看。反正免费，抱着试试看的心态我从<a href="https://fing.fewf.click/download.html" target="_blank" rel="noopener">官方下载</a>装上了，结果第一天就扫出了一堆我根本不知道是什么的设备。</p>
+<h2>第一眼界面：扫完我家有 17 台设备</h2>
+<p>打开 App、连上家 Wi-Fi、点一下扫描按钮——整个过程不到三十秒。扫描结果出来的时候我愣了一下：屏幕上整整齐齐列了 17 台设备，每台都有名字、IP、MAC 地址，还标了"首次见"。</p>
+<p>我家平时常住的也就三口人，手机三台、电脑两台、电视一台、路由器一台，撑死了 8 台。多出来那 9 台是怎么回事？</p>
+<p>翻了一圈，倒是也不全是入侵者——有台扫地机器人是上周刚连的，Fing 识别出来标了个 Unknown；还有台华为手表是我妈昨天才到手的，第一次联网。但有三四个设备确实让我犯了嘀咕：MAC 前缀查不到认识的品牌，类型也显示 Unknown，而且持续在线但从不跟我家任何设备通信。</p>
+<p>说实话那一瞬间有点慌，但 Fing 给的信息足够让我自己排查了——点开设备详情页，能看到开放的端口、上次在线时间、甚至还有设备的厂商数据库匹配度。挨个看下来，那几个可疑的最后证实是邻居家的智能音箱，信号穿墙穿进来的，没真蹭网。但如果换一个场景，真有个陌生人连进来，我绝对能第一时间认出来。</p>
+<p><img src="../images/fing-docs/app-scan-result.png" alt="扫完设备列表的瞬间" loading="lazy"></p>
+<h2>真正好用的不是扫描，是那两个诊断工具</h2>
+<p>扫完一遍之后我就把 App 扔一边了，直到有天晚上远程办公突然卡成 PPT，才又把 Fing 掏出来。这一掏才发现——也是去<a href="https://fing-docs.pages.dev/" target="_blank" rel="noopener">Fing文档</a>翻了一下才搞清楚——最实用的功能其实不是设备发现，而是 Ping 和 Traceroute。</p>
+<p>之前网速慢我只会跑个测速，但测速只告诉我"你现在带宽多少"，不告诉我"为什么这么慢"。Ping 不一样——它能告诉你<strong>哪一段出问题了</strong>。我在设备详情页点了一下 Ping，先测路由器，响应 3ms，没问题；然后 Traceroute 到腾讯云的服务器，前几跳延迟都正常，到第七跳的时候突然飙到 300ms 以上。</p>
+<p>我把这个结果发给了运营商的客服，之前两次客服都说"线路正常"，这次直接给我派了个师傅上门查光猫——果然是光猫的光信号衰减超了阈值，换了个光模块，网速当天就回到了 480M 以上。</p>
+<p>Traceroute 对我来说最有价值的地方就是把"网络慢"这个模糊的抱怨拆解成了"你家路由器 → 你家光猫 → 运营商节点 → 出网路由 → 目标服务器"这五段，哪段慢一目了然，再也不用跟客服扯皮谁的锅。</p>
+<h2>免费版到底够不够用</h2>
+<p>这是我最纠结的一点——毕竟 Fing 的 Premium 订阅不便宜，我用免费版到底能不能解决实际问题？</p>
+<p>用了一周下来，答案是：<strong>够绝大多数日常场景了</strong>。免费版每天能扫 3 次，手动测速、Ping/Traceroute、端口扫描这些核心功能全开放，设备识别虽然是基础版算法但对家用场景来说误差不大。真正锁在 Premium 后面的东西是自动拉黑、定时断网、隐藏摄像头探测这些进阶功能。</p>
+<p>我个人的使用节奏大概是：搬新家或者换路由器的时候扫一次确认设备；网速异常的时候 Ping 一下定位问题；平时偶尔跑个测速看看运营商有没有偷偷降速。这些全在免费版的覆盖范围内。</p>
+<p>有个小提醒：免费账号一定要注册。不注册的话，设备识别算法是更基础的版本，而且跨设备数据不同步。我一开始懒得注册，后来在 Desktop 上又装了一份 Fing，发现手机上标记好的设备在电脑上全是 Unknown，才回去补了注册——用邮箱注册就行，验证一下完事，Google 或者 Apple 登录也支持。</p>
+<p><img src="../images/fing-docs/agent-device-detail.webp" alt="桌面版的设备详情视图" loading="lazy"></p>
+<h2>踩过的几个小坑</h2>
+<p>说点不好的地方。Fing App 上的 Ping 是简化版，一次只发几个包，对于间歇性抖动的问题抓不准，Desktop 版本才支持连续 Ping 和完整 Traceroute。我试过在酒店里用 App 扫网络，发现设备列表里混了不少别人的，这正常，但那个场景下我确实也没法真的去处理什么。</p>
+<p>还有就是 Premium 订阅的宣传文案有点容易让人误解——页面上到处都是"智能拦截""24 小时监控"，看起来好像很强大，但仔细看才发现需要额外买 Agent 硬件或者自己拿树莓派当看门狗，不是光买订阅就能实现的。这点我觉得他们写得有点绕。</p>
+<h2>最后说谁适合装</h2>
+<p>如果你也跟我一样，总觉得网速莫名其妙地慢、家里 Wi-Fi 连了多少设备心里没数、想知道到底是谁在占带宽——装一个，免费版就行，十五分钟就能搞清楚自己家网络的基本盘。</p>
+<p>但如果你只是想跑个测速、看看带宽够不够，那 Fing 可能有点重了，找个测速网站就够。真要用到自动拦截、隐藏摄像头探测这些 Premium 功能的，大概率已经是折腾党了，这种场景下 Fing 的价值会大很多。</p>
+<p>我现在每天睡前都会习惯性地扫一下——不是怕蹭网，是看着自己家那 8 台设备整整齐齐列在那里，有一种莫名的踏实感。如果你也想试试，整套资料同步放在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Fing" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Fing" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Fing" target="_blank" rel="noopener">GitCode</a> 三个仓库，国内访问哪个顺手用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/runway-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用了一年才发现：这款修图 App 藏着五个很少人挖到的巧劲</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/tseye.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">TSEye 深度盘点：一款能把多品牌 IPC 全部拉进同个 App 的安防管理工具</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

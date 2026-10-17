@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>OpenUtau 零基础上手：让虚拟歌手开口唱歌，其实比你想的简单 · 老郭软件铺</title>
+  
+<meta name="description" content="第一次接触 OpenUtau？完全不懂乐理也能用它做出一段像样的虚拟歌声。这篇从下载安装到第一次跑通，带你五分钟上手，再聊三个新手最值得碰的功能和三个常见坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/openutau.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenUtau 零基础上手：让虚拟歌手开口唱歌，其实比你想的简单">
+<meta property="og:description" content="第一次接触 OpenUtau？完全不懂乐理也能用它做出一段像样的虚拟歌声。这篇从下载安装到第一次跑通，带你五分钟上手，再聊三个新手最值得碰的功能和三个常见坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/openutau.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/openutau/start-screen.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/openutau/start-screen.png">
+
+<meta name="twitter:title" content="OpenUtau 零基础上手：让虚拟歌手开口唱歌，其实比你想的简单">
+<meta name="twitter:description" content="第一次接触 OpenUtau？完全不懂乐理也能用它做出一段像样的虚拟歌声。这篇从下载安装到第一次跑通，带你五分钟上手，再聊三个新手最值得碰的功能和三个常见坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u63a5\u89e6 OpenUtau\uff1f\u5b8c\u5168\u4e0d\u61c2\u4e50\u7406\u4e5f\u80fd\u7528\u5b83\u505a\u51fa\u4e00\u6bb5\u50cf\u6837\u7684\u865a\u62df\u6b4c\u58f0\u3002\u8fd9\u7bc7\u4ece\u4e0b\u8f7d\u5b89\u88c5\u5230\u7b2c\u4e00\u6b21\u8dd1\u901a\uff0c\u5e26\u4f60\u4e94\u5206\u949f\u4e0a\u624b\uff0c\u518d\u804a\u4e09\u4e2a\u65b0\u624b\u6700\u503c\u5f97\u78b0\u7684\u529f\u80fd\u548c\u4e09\u4e2a\u5e38\u89c1\u5751\u3002", "headline": "OpenUtau \u96f6\u57fa\u7840\u4e0a\u624b\uff1a\u8ba9\u865a\u62df\u6b4c\u624b\u5f00\u53e3\u5531\u6b4c\uff0c\u5176\u5b9e\u6bd4\u4f60\u60f3\u7684\u7b80\u5355", "image": ["https://laoguosofts.github.io/images/openutau/start-screen.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/openutau.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/openutau.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "OpenUtau \u96f6\u57fa\u7840\u4e0a\u624b\uff1a\u8ba9\u865a\u62df\u6b4c\u624b\u5f00\u53e3\u5531\u6b4c\uff0c\u5176\u5b9e\u6bd4\u4f60\u60f3\u7684\u7b80\u5355", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">OpenUtau 零基础上手：让虚拟歌手开口唱歌，其实比你想的简单</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">OpenUtau 零基础上手：让虚拟歌手开口唱歌，其实比你想的简单</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次接触 OpenUtau？完全不懂乐理也能用它做出一段像样的虚拟歌声。这篇从下载安装到第一次跑通，带你五分钟上手，再聊三个新手最值得碰的功能和三个常见坑。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从完全不懂到用 OpenUtau 做出第一段自己的虚拟歌声——不需要乐理基础，不需要懂什么是声库，跟着点就行。</p>
+<h2>它到底是干嘛的：一个生活化类比</h2>
+<p>想象一下，你有一个永远不会累的歌手朋友。你弹一段旋律给他听（画音符），再把歌词念给他（输入歌词），他就能立刻唱给你听。而且这个朋友音色可以换——萝莉音、御姐音、少年音，想换哪个换哪个，每个音色就是一个「声库」。</p>
+<p>OpenUtau 就是帮你和这个虚拟歌手沟通的那支话筒加指挥台。它本身不发声，但它能把你画的音符、写的歌词、选的声库，编排成一段完整的歌声让你听见。</p>
+<p><img src="../images/openutau/start-screen.png" alt="OpenUtau 启动界面" loading="lazy"></p>
+<h2>五分钟上手：从下载到第一次跑通</h2>
+<h3>第一步：拿到软件</h3>
+<p>OpenUtau 是开源免费的，直接去它的<a href="https://openutau.fedq.quest" target="_blank" rel="noopener">官网</a>看一眼就会用——从<a href="https://openutau.fedq.quest/download.html" target="_blank" rel="noopener">官方下载</a>页面拿对应系统版本就行。Windows 用户下载解压就能跑，macOS 和 Linux 也都有对应版本。如果你用的是 Arch Linux，甚至一条 AUR 命令就能装完。</p>
+<p>装完解压（Windows）或者给个可执行权限（macOS/Linux），双击启动，你会看到一整块深色界面，中间有个灰色的区域——那就是你待会儿画音符的地方，叫 Piano Roll（钢琴卷帘）。</p>
+<h3>第二步：装一个声库</h3>
+<p>声库就是那个「虚拟歌手」的嗓子。没有声库，OpenUtau 就是个空壳。网上有很多免费声库可以下载，下载完是一个文件夹，里边通常有一堆音频片段和一个 oto.ini 文件。</p>
+<p>把整个声库文件夹复制到 OpenUtau 的 Singers 目录下（Windows 在 <code>%APPDATA%\OpenUtau\Singers</code>，macOS 在 <code>~/Library/Application Support/OpenUtau/Singers</code>）。重启 OpenUtau，新建一个项目，在轨道头上就能下拉选中刚装的声库了。</p>
+<h3>第三步：画几个音符</h3>
+<p>Piano Roll 左边是钢琴键，右边是时间轴。用工具栏里的笔工具在中间区域点几下，就能画出音符——每个音符是一个小方块，高度代表音高，长度代表时值。随便画三四个，比如 C D E 三个连续的音，每个画两拍长。</p>
+<p><img src="../images/openutau/pen-tools.gif" alt="用笔画音符" loading="lazy"></p>
+<h3>第四步：填歌词</h3>
+<p>双击第一个音符，进入歌词编辑模式。输入一个音节（比如日文的「あ」或者中文的「啊」），按 TAB 键跳到下一个音符继续输入——这是 OpenUtau 最高效的歌词输入法，一行歌词连输比逐个双击快好几倍。三个音符填完三个音节，按 Enter 确认。</p>
+<h3>第五步：点播放听效果</h3>
+<p>按空格键，或者点工具栏上的播放按钮，你应该能听到一段简单的旋律被声库唱出来了。🎉 恭喜，你第一次跑通了。</p>
+<h2>上手后先玩这三个功能</h2>
+<p>跑通之后别急着往里堆东西，先花十几分钟玩透下面三个功能——它们决定了你后续用 OpenUtau 的效率天花板。</p>
+<h3>功能一：滑音标记 <code>+</code></h3>
+<p>一个音节跨多个音符演唱（比如一个长音里要拐两个弯），UTAU 老用户可能还记得要手动改 alias，很麻烦。OpenUtau 用一套极简规则解决了这个问题：只有第一个音符写实际音节，后面的音符直接写 <code>+</code>。音素器会自动把后面音符的音素续接到前一个音节上。</p>
+<p>如果是英文这种多音节语言也不怕——每个音节换音的时候写实际音节，续接的时候写 <code>+</code> 就行。甚至还有个 <code>+~</code> 标记，用来特别拉长尾音。这个小功能看起来不起眼，但用起来能省你改 alias 的半小时。</p>
+<p><img src="../images/openutau/lyric-input.gif" alt="歌词输入连输" loading="lazy"></p>
+<h3>功能二：批量编辑工具栏</h3>
+<p>Piano Roll 顶部中间有一排按钮，这就是批量编辑的入口。如果没选中音符，批量工具会应用到整个轨道；选中了部分音符，只改选中区域。</p>
+<p>里面有几个工具特别好用：Legato 能把相邻音符的重叠部分自动修平，吸附到 16 分音符网格能把散乱的音符对齐，甚至还有时间反转（Retrograde）这种做实验音效的高级玩法。歌词转换器还能批量把一种 alias 格式转换成另一种——比如换了声库之后 alias 格式不对，一个按钮全部替换。</p>
+<h3>功能三：GPU 加速（DirectML / CoreML）</h3>
+<p>如果你用的是 Windows 独显机或者 Apple Silicon Mac，这个一定要开。DiffSinger 是基于神经网络推理的，CPU 渲染一首三分钟的歌可能要十分钟到半小时，开了 GPU 加速之后能压到一到三分钟——快一个数量级。</p>
+<p>Windows 用户进 Tools → Preferences → Machine Learning，把 Machine Learning Runner 改成 DirectML，GPU 下拉里选你的独显（别选核显），然后<strong>必须完全关掉 OpenUtau 再重开</strong>——GPU 加速是启动时初始化的，运行中改了不会立刻生效。macOS 的 CoreML 也类似，而且是系统内置能力，不用额外装东西。GPU 加速的参数还能进一步调优，需要时翻一翻<a href="https://openutau.pages.dev/" target="_blank" rel="noopener">openutau文档</a>就行。</p>
+<h2>小白的三个常见疑问</h2>
+<h3>疑问一：输入日文字母后没发音？</h3>
+<p>别慌，多半是音素器没选对。音素器是个后台自动展开歌词的东西——你输入一个日文音节，它会根据声库类型自动拆成正确的音素。打开轨道头附近的音素器下拉菜单，日文 VCV 声库选 JA VCV，日文 CVVC 选 JA CVVC，英文选 EN VCCV，中文选 ZH G2P-Kanna。选对音素器是出声音的前提条件，很多新用户卡在这里。</p>
+<h3>疑问二：Linux 上装完启动就闪退？</h3>
+<p>大概率是 .NET 8 运行时没装对。OpenUtau 依赖 .NET 8 桌面运行时，但 zip 包里不包含它——你需要单独跑微软的 dotnet-install.sh 脚本装一下。装完之后在终端执行 <code>dotnet --list-runtimes</code>，确认有 8.x 版本的桌面运行时再启动。另外 Linux 上 DiffSinger 只支持 CPU 渲染，GPU 加速暂时用不了。</p>
+<h3>疑问三：核显和独显到底选哪个？</h3>
+<p>Windows 笔记本经常有两个 GPU——核显（Intel UHD）和独显（NVIDIA/AMD）。GPU 加速设置里下拉选独显才能获得最大提速。核显的 DirectML 能力有限，快不了多少。如果你的机器只有核显也不是不能跑，就是速度慢一些。</p>
+<h2>下一步去哪</h2>
+<p>OpenUtau 的玩法远不止画音符填歌词——Piano Roll 里可以调 Pitch Bend 做颤音，Vibrato 参数能控制尾音抖动，音素器菜单里还有更精细的配置。等这篇里讲的五个步骤跑熟了，翻一翻进阶教程，或者换一个声库试试不同音色，你会发现这个工具能做的事情比想象的多得多。项目的相关资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/openutau" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/openutau" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/openutau" target="_blank" rel="noopener">GitCode</a> 三个平台都有同步，国内访问走 Gitee 或 GitCode 会更快一些。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/sixfast.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Sixfast 值不值得掏钱？一个海外用户把这笔账算透了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/sensetime-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">商汤这几个藏得真深的能力，翻遍官网才挖出来</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

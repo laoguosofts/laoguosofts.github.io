@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>口袋里的六根弦——一款调音应用的迭代观察 · 老郭软件铺</title>
+  
+<meta name="description" content="从笨重的硬件调音器到点开即用的手机 App，这款应用在多乐器支持与新手友好之间走了一条怎样的路。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/udio-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="口袋里的六根弦——一款调音应用的迭代观察">
+<meta property="og:description" content="从笨重的硬件调音器到点开即用的手机 App，这款应用在多乐器支持与新手友好之间走了一条怎样的路。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/udio-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/udio-docs/appstore-icon.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/udio-docs/appstore-icon.jpg">
+
+<meta name="twitter:title" content="口袋里的六根弦——一款调音应用的迭代观察">
+<meta name="twitter:description" content="从笨重的硬件调音器到点开即用的手机 App，这款应用在多乐器支持与新手友好之间走了一条怎样的路。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u7b28\u91cd\u7684\u786c\u4ef6\u8c03\u97f3\u5668\u5230\u70b9\u5f00\u5373\u7528\u7684\u624b\u673a App\uff0c\u8fd9\u6b3e\u5e94\u7528\u5728\u591a\u4e50\u5668\u652f\u6301\u4e0e\u65b0\u624b\u53cb\u597d\u4e4b\u95f4\u8d70\u4e86\u4e00\u6761\u600e\u6837\u7684\u8def\u3002", "headline": "\u53e3\u888b\u91cc\u7684\u516d\u6839\u5f26\u2014\u2014\u4e00\u6b3e\u8c03\u97f3\u5e94\u7528\u7684\u8fed\u4ee3\u89c2\u5bdf", "image": ["https://laoguosofts.github.io/images/udio-docs/appstore-icon.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/udio-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/udio-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "\u53e3\u888b\u91cc\u7684\u516d\u6839\u5f26\u2014\u2014\u4e00\u6b3e\u8c03\u97f3\u5e94\u7528\u7684\u8fed\u4ee3\u89c2\u5bdf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">口袋里的六根弦——一款调音应用的迭代观察</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">口袋里的六根弦——一款调音应用的迭代观察</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从笨重的硬件调音器到点开即用的手机 App，这款应用在多乐器支持与新手友好之间走了一条怎样的路。</p>
+  </header>
+  <div class="prose serif">
+<h2>现在这版：点开就能调，还能切换变格调弦</h2>
+<p>Udio是一款手机调音应用，它的<a href="https://udio.gkhf.beer" target="_blank" rel="noopener">官网</a>上展示的界面和我实际用的一致——打开直接就是吉他调音界面，琴头示意图摆在那，六根弦各自的音名按钮分布在两侧，拨一根弦，指针就动。支持的乐器不止吉他：尤克里里、贝斯、小提琴都在列表里，切过去琴头布局瞬间变样，尤克里里从六弦缩成四弦，贝斯换成四根粗弦。</p>
+<p><img src="../images/udio-docs/appstore-icon.jpg" alt="应用图标" loading="lazy"></p>
+<p>真正让我觉得它和别家不一样的是变格调弦。很多人调 Drop D 调弦（把吉他六弦降一个全音到 D）得手动算频率、反复试，这款应用顶部有个调弦选择器，点一下 Drop D，六弦的参考音就自动换成 D 了。调完切回标准调音也很方便，不用担心下次打开还是半调状态。安装包从<a href="https://udio.gkhf.beer/download.html" target="_blank" rel="noopener">下载</a>拿就行，不用折腾。</p>
+<h2>来路：样本文档没提版本号这件事</h2>
+<p>我翻了一遍它的<a href="https://udio-docs.pages.dev/" target="_blank" rel="noopener">文档</a>，发现一件有意思的事——通篇没有出现任何版本号。没有「v2.0 新增贝斯支持」「v3.1 修复尤克里里八度识别」这类常见的更新日志痕迹。这不是文档没写全，更像是团队压根没在版本叙事上花力气。</p>
+<p>从能看到的功能点倒推，迭代路径大概是这样的：</p>
+<p>最早的起点应该很简单——吉他调音。六根弦，标准定弦 E-A-D-G-B-E，指针偏左偏右各代表什么，拧紧还是放松，这些是所有调音器的基本功。那时候的界面可能只有六根弦的音名按钮和一个指针，没什么多余的东西。</p>
+<p>然后加了尤克里里。这一步看起来只是从六弦变四弦，但背后有个反直觉的问题：尤克里里四弦 G 是高八度的，音高顺序不是从小到大排的。吉他是从粗到细一路变高，尤克里里第四弦却「插队」到了高音区——新手第一次调尤克里里最容易在这里懵。应用加尤克里里支持的时候，这个四弦 G 的问题肯定是重点攻关的对象，文档里专门有一页解释「四弦 G 之谜」，说明团队踩过这个坑。</p>
+<p>再然后是贝斯和小提琴。这两个乐器的难点和吉他、尤克里里不一样：贝斯低音弦频率低，手机麦克风不容易识别；小提琴没有品丝，全靠手指位置控制音高，调音时对读数精度的要求更高。文档里有「低音弦对策」这一页，说明团队确实针对贝斯的低频识别做过优化。</p>
+<p><img src="../images/udio-docs/appstore-preview-1.png" alt="App Store 预览" loading="lazy"></p>
+<h2>规律：他们一直在死磕「第一次调不翻车」</h2>
+<p>从文档的细节能看出来团队的优先级在哪——他们一直在为新手铺路。</p>
+<p>最明显的证据是「拧紧还是放松」这一页。这是所有调音器都要面对的基本问题，但这款应用的文档花了一整页来讲指针偏左偏右的方向对应，还专门解释了「为什么高了要放松容易做反」——弦偏高时人的直觉是「再紧一点音更亮」，但音高跟张力是同向的。能想到把这个误区单独拎出来讲，说明团队见过太多新手在这里拧反弦钮。</p>
+<p>调音前的三件小事也是同样的思路。环境噪音、手机距离、摆放角度——这些都是第一次接触调音的人容易忽略的细节。文档里甚至给了一个判断环境是否合格的土办法：打开调音界面不拨弦，看指针动不动。不拨弦指针也在乱动，就是环境太吵。这种「不用专业知识也能判断」的提示，是典型的新手友好设计。</p>
+<p>另一个细节是对风声的敏感。文档里专门提到应用对风声比较敏感，建议调音时关掉风扇、空调。这个提醒在别的调音器文档里不常见，说明团队收到过不少「我怎么调都不准」的反馈，最后排查出来是风噪的锅。</p>
+<p>反过来看，文档里几乎没有提到专业级功能。有没有 temperament（各种音律调法）？有没有自定义调弦保存？有没有调音历史记录？这些进阶功能在素材里完全找不到影子。不是说应用一定没有，而是文档完全没把它们当重点来写——团队的注意力显然不在专业用户那一头。</p>
+<h2>预判：照这个路线，下一步会加什么</h2>
+<p>从迭代规律推的话，有几个方向比较确定。</p>
+<p>第一个是更多乐器。目前支持的吉他、尤克里里、贝斯、小提琴都是西洋弦乐器，民乐里的古筝、琵琶、二胡其实也有不少调音需求。如果团队继续沿着「弦乐器全覆盖」的路走，民乐是下一个自然的延伸。</p>
+<p>第二个是节拍器。很多调音器应用都把节拍器做进去了——调完音顺手开节拍器练音阶，用户留在应用里的时间会更长。如果团队想提高使用频次，这是个低风险的加法。</p>
+<p>第三个可能是调音记录。比如每次调音的日期、偏差值、用的调弦类型——对练琴的人来说，能看到自己这把琴的调音变化趋势（是不是某根弦总是跑音？）其实挺有用的。但这个功能涉及到数据存储和界面设计，优先级可能在加乐器之后。</p>
+<p>当然这些都是从现有迭代节奏推的，不当官方口径传。也有可能团队下一步根本不是加功能，而是继续优化现有的识别精度——比如让低频贝斯的读数更稳，或者让尤克里里高八度 G 的识别更准。毕竟从文档的细节来看，他们更像是在做一款「能让新手第一次调音就成功」的工具，而不是一款功能堆砌的瑞士军刀。顺手提一句，关于这款应用的参考资料在 <a href="https://github.com/alipymanbu/APK/tree/main/APP/Udio" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/Udio" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/Udio" target="_blank" rel="noopener">GitCode</a> 上都有，国内用户访问后两个会更顺畅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/stargate-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Stargate 深度盘点：MC 联机的另一种打开方式</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/priority-pass.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">饿了三小时在里根机场转机，朋友甩给我一张 Priority Pass</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

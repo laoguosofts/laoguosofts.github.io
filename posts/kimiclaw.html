@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>KimiClaw 迭代观察：从本地终端到云端协作的一条暗线 · 老郭软件铺</title>
+  
+<meta name="description" content="从功能碎片还原产品演进脉络——为什么一个开源 Agent 框架会被 Kimi 生态收编，又为什么它始终不放弃本地优先这条底线。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kimiclaw.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KimiClaw 迭代观察：从本地终端到云端协作的一条暗线">
+<meta property="og:description" content="从功能碎片还原产品演进脉络——为什么一个开源 Agent 框架会被 Kimi 生态收编，又为什么它始终不放弃本地优先这条底线。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kimiclaw.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/kimiclaw/desktop-deploy-mac.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/kimiclaw/desktop-deploy-mac.png">
+
+<meta name="twitter:title" content="KimiClaw 迭代观察：从本地终端到云端协作的一条暗线">
+<meta name="twitter:description" content="从功能碎片还原产品演进脉络——为什么一个开源 Agent 框架会被 Kimi 生态收编，又为什么它始终不放弃本地优先这条底线。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u529f\u80fd\u788e\u7247\u8fd8\u539f\u4ea7\u54c1\u6f14\u8fdb\u8109\u7edc\u2014\u2014\u4e3a\u4ec0\u4e48\u4e00\u4e2a\u5f00\u6e90 Agent \u6846\u67b6\u4f1a\u88ab Kimi \u751f\u6001\u6536\u7f16\uff0c\u53c8\u4e3a\u4ec0\u4e48\u5b83\u59cb\u7ec8\u4e0d\u653e\u5f03\u672c\u5730\u4f18\u5148\u8fd9\u6761\u5e95\u7ebf\u3002", "headline": "KimiClaw \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4ece\u672c\u5730\u7ec8\u7aef\u5230\u4e91\u7aef\u534f\u4f5c\u7684\u4e00\u6761\u6697\u7ebf", "image": ["https://laoguosofts.github.io/images/kimiclaw/desktop-deploy-mac.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kimiclaw.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kimiclaw.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "KimiClaw \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4ece\u672c\u5730\u7ec8\u7aef\u5230\u4e91\u7aef\u534f\u4f5c\u7684\u4e00\u6761\u6697\u7ebf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">KimiClaw 迭代观察：从本地终端到云端协作的一条暗线</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">KimiClaw 迭代观察：从本地终端到云端协作的一条暗线</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从功能碎片还原产品演进脉络——为什么一个开源 Agent 框架会被 Kimi 生态收编，又为什么它始终不放弃本地优先这条底线。</p>
+  </header>
+  <div class="prose serif">
+<h2>现状：现在这版是什么样</h2>
+<p>我最近从<a href="https://kimiclaw.ggcd.uno" target="_blank" rel="noopener">KimiClaw官网</a>了解到它的桌面端，打开 Kimi 桌面应用的侧边栏就能看到它——点一下"部署到我的电脑"，一分多钟后，本地 OpenClaw Gateway 就在 <code>~/.openclaw/</code> 目录里跑起来了，自动配上 Kimi K2.6 模型额度，连 ClawHub 技能库都给接好了。</p>
+<p>这体验很顺，但我总觉得哪里不对。</p>
+<p>一个被 Kimi 收编的开源 Agent，为什么花这么大力气在做"本地化部署"？为什么同时存在云端版、桌面端、Android 端三条独立路径？为什么"关联已有 OpenClaw"这个功能——把你手上已经跑起来的实例接进来，而不是强制你用云端重新建一个——会被放在 kimi.com/bot 页面的显著位置？</p>
+<p>这些问题在样本文档里没有直接答案，但把几份文档的功能碎片拼起来，能看到一条挺清晰的演进暗线。</p>
+<p><img src="../images/kimiclaw/desktop-deploy-mac.png" alt="桌面端一键部署的入口界面" loading="lazy"></p>
+<h2>来路：从独立 OpenClaw 到 Kimi 生态的三次转向</h2>
+<p>样本文档没给版本号，也没给发布时间线。但功能之间的依赖关系本身就是时间轴——先有什么，后有什么，从谁取代谁，能反推出来。</p>
+<p><strong>第一阶段：纯本地 OpenClaw，开源终端工具</strong></p>
+<p>最早的 OpenClaw 应该是个纯命令行的东西。样本文档里保留了大量 <code>/</code> 开头的命令——<code>/memory</code> 查记忆、<code>/config reload</code> 重载配置、<code>/debug on</code> 开调试——这套命令体系明显是从纯终端时代带过来的遗产。</p>
+<p>那时候它就是个能本地跑的 Agent Gateway，模型自己配、技能自己装、数据全在本地。没有云端，没有 App，没有群聊协作。定位很朴素：给技术用户一个能跑在自己机器上的 AI Agent。</p>
+<p><strong>第二阶段：被 Kimi 收编，云端部署上线</strong></p>
+<p>转折点出现在 Kimi 入局之后。样本文档里"云端部署"章节讲的就是这个阶段的产物——在 kimi.com/bot 页面点"创建 Kimi Claw"，系统会在 Kimi 云端虚拟机上给你开一个，自动配好 Kimi K2.6 模型，7×24 在线。</p>
+<p>这一步让 OpenClaw 从"技术玩具"变成了"可被普通用户使用的云端服务"。代价也很明显：需要 Allegretto 会员、数据全在云端、模型额度走 Kimi 的计费体系。</p>
+<p><strong>第三阶段：本地化回归，多端并行</strong></p>
+<p>然后就有意思了——Kimi 没有把 OpenClaw 的本地路线废掉，反而同时在推三条路：</p>
+<ul><li><strong>桌面端一键部署</strong>：Kimi 桌面应用里点一下，或者直接从<a href="https://kimiclaw.ggcd.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包手动装，OpenClaw 就在本地跑起来，模型额度还是走会员，但数据归自己</li><li><strong>Android 终端</strong>：把 OpenClaw Gateway 直接装进手机，开机自启，还能自动备份记忆</li><li><strong>关联已有实例</strong>：如果你已经有本地 OpenClaw 跑着，装个插件就能接进 Kimi 网页端/群聊，记忆人设一个不丢</li></ul>
+<p>这三条加在一起，实际上是在给用户一个选择权：你要 7×24 在线？用云端版。你要数据归自己、跑在自己电脑或手机上？用本地版。你已经在别处把它养熟了？接进来就行。</p>
+<p>这个选择空间在同类产品里不多见——大多数平台要么全云端（Slack Bot、飞书机器人那种模式），要么全本地（传统开源 Agent 框架）。KimiClaw 是少数同时押两头的。</p>
+<h2>规律：从迭代节奏看团队在死磕什么</h2>
+<p>把功能按时间线排一遍，几个优先级就显出来了。</p>
+<p><strong>死磕的一：渠道接入，让 Agent 不局限在网页里</strong></p>
+<p>样本文档里有飞书接入（<code>/feishu start</code>、<code>/feishu doctor</code>）、企业微信接入（<code>/wecom doctor</code>）、还有微信相关的配置截图。群聊场景下，KimiClaw 可以被拉进 Worker 列表，和其他 Claw 协作。</p>
+<p>这套设计的信号很明确：团队不想让 KimiClaw 变成一个只能在 kimi.com 网页里用的"孤岛 Agent"。它要能出现在你日常沟通的地方——飞书群、企业微信群——在那边接收指令、执行任务。</p>
+<p><strong>死磕的二：记忆与调试，给重度用户留后门</strong></p>
+<p><code>/memory search &lt;关键词&gt;</code>、<code>/memory export</code>、<code>/logs</code>、<code>/debug on</code>——这套命令在<a href="https://kimiclaw.pages.dev/" target="_blank" rel="noopener">KimiClaw文档</a>里有完整说明，明显是给重度用户准备的。当定时任务没执行、技能报错、飞书机器人失联时，用户可以自己一步步排查，不用等客服。</p>
+<p>Android 版还暴露了 OpenClaw 工作空间：AGENTS.md（人设定义）、HEARTBEAT.md（定时任务）、IDENTITY.md（身份标识）三个核心配置文件，用户可以直接用文本编辑器改。</p>
+<p>这跟"普通用户产品"的思路不太一样——普通产品会把这些藏起来，怕用户弄坏。KimiClaw 反而主动暴露。这说明团队心里很清楚：它的核心用户里，有相当比例是愿意折腾、愿意自己调配置的人。</p>
+<p><strong>一直没太管的：早期历史的文档化</strong></p>
+<p>样本文档里最早的 OpenClaw 长什么样、第一个版本是哪天发的、Kimi 是什么时候开始合作的——这些信息完全没有。这不像是"没来得及写"，更像是团队刻意不想花精力回溯过去。他们的注意力明显在当前功能和未来路线上，对"产品史"这种东西没兴趣。</p>
+<h2>预判：照这个路线，下一步大概率是什么</h2>
+<p>以下是从迭代规律推的，不是官方口径。</p>
+<p><strong>第一，渠道接入会继续扩</strong></p>
+<p>飞书、企业微信、微信都接了，下一步大概率是钉钉、Telegram、Discord。渠道铺得越全，KimiClaw 作为"通用 Agent 平台"的定位就越稳。</p>
+<p><strong>第二，本地优先这条线会继续强化</strong></p>
+<p>Android 版的自动备份和恢复、桌面端的一键部署、关联已有实例——这几个功能串起来看，团队在给"数据归属用户"这件事下注。如果云端版和本地版的能力差距继续缩小，会有更多用户选择本地部署。</p>
+<p><strong>第三，SkillHub 技能生态会越来越重要</strong></p>
+<p>样本文档里 Android 版已经内置了 SkillHub 入口——下拉选择 Skill、一键安装。如果 ClawHub 技能库能做起来，KimiClaw 的壁垒就从"Agent 框架"变成了"Agent 平台"——用户不需要自己写技能，装上就能用。</p>
+<p>但 SkillHub 能不能做起来还不好说。技能生态需要开发者，开发者需要激励，目前文档里没看到激励机制的设计。</p>
+<h2>写在最后</h2>
+<p>我其实还没搞清楚 Kimi 为什么要做这件事——把一个开源 Agent 框架收编进来，花力气同时推云端和本地两条线，还给用户选择权。这在商业上不像是一个"最聪明"的决策。</p>
+<p>但从用户的角度看，这种"不强制、给选择"的姿态本身就是价值。样本文档里那张 Android 备份界面的截图让我印象挺深——自动备份、手动备份、恢复到任意历史状态——一个连记忆都能备份的 Agent，至少不会因为平台策略变化就让你的"数字人格"突然消失。</p>
+<p>这可能才是 KimiClaw 这条路线真正吸引人的地方：它想让你觉得，这个 Agent 是<strong>你的</strong>，不是平台的。对了，这套 OpenClaw 框架本身是开源的，我平时也会去 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/KimiClaw" target="_blank" rel="noopener">GitHub</a> 看最新的 issue 和 PR，国内网络不稳的时候就翻一下 <a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/KimiClaw" target="_blank" rel="noopener">Gitee</a>，有时候新特性的讨论在 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/KimiClaw" target="_blank" rel="noopener">GitCode</a> 上更新得更快。</p>
+<p><img src="../images/kimiclaw/android-backup.png" alt="Android 端自动备份与手动备份的操作界面" loading="lazy"></p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/carry-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Steam 饰品交易新选手 Carry 深度测评：免压求购能带来什么实际优势</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/fizzo.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Fizzo 五年迭代史：一款字节系阅读 App 的海外生长逻辑</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>那个被测试坑到想砸键盘的下午，Chai 救了我 · 老郭软件铺</title>
+  
+<meta name="description" content="写单元测试时踩过的四个大坑——Promise 静默跳过、异常断言传错参数、null 的类型陷阱、对象值比较。Chai 用一套链式断言帮我一个个填了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/chai-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="那个被测试坑到想砸键盘的下午，Chai 救了我">
+<meta property="og:description" content="写单元测试时踩过的四个大坑——Promise 静默跳过、异常断言传错参数、null 的类型陷阱、对象值比较。Chai 用一套链式断言帮我一个个填了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/chai-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="那个被测试坑到想砸键盘的下午，Chai 救了我">
+<meta name="twitter:description" content="写单元测试时踩过的四个大坑——Promise 静默跳过、异常断言传错参数、null 的类型陷阱、对象值比较。Chai 用一套链式断言帮我一个个填了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5199\u5355\u5143\u6d4b\u8bd5\u65f6\u8e29\u8fc7\u7684\u56db\u4e2a\u5927\u5751\u2014\u2014Promise \u9759\u9ed8\u8df3\u8fc7\u3001\u5f02\u5e38\u65ad\u8a00\u4f20\u9519\u53c2\u6570\u3001null \u7684\u7c7b\u578b\u9677\u9631\u3001\u5bf9\u8c61\u503c\u6bd4\u8f83\u3002Chai \u7528\u4e00\u5957\u94fe\u5f0f\u65ad\u8a00\u5e2e\u6211\u4e00\u4e2a\u4e2a\u586b\u4e86\u3002", "headline": "\u90a3\u4e2a\u88ab\u6d4b\u8bd5\u5751\u5230\u60f3\u7838\u952e\u76d8\u7684\u4e0b\u5348\uff0cChai \u6551\u4e86\u6211", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/chai-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/chai-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u90a3\u4e2a\u88ab\u6d4b\u8bd5\u5751\u5230\u60f3\u7838\u952e\u76d8\u7684\u4e0b\u5348\uff0cChai \u6551\u4e86\u6211", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">那个被测试坑到想砸键盘的下午，Chai 救了我</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">那个被测试坑到想砸键盘的下午，Chai 救了我</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">写单元测试时踩过的四个大坑——Promise 静默跳过、异常断言传错参数、null 的类型陷阱、对象值比较。Chai 用一套链式断言帮我一个个填了。</p>
+  </header>
+  <div class="prose serif">
+<h2>下午三点，CI 红了</h2>
+<p>那天下午三点整，CI 流水线的小红点亮得像警报。我盯着 Mocha 的输出翻了三页——不是"有测试失败"，是更让人抓狂的那种：<strong>所有测试都"通过"了，但我明明删掉了一个关键的校验逻辑</strong>。</p>
+<p>这不是幻觉。我在本地跑了一遍，那个返回 Promise 的函数，我把 <code>expect(validate()).to.be.rejected</code> 写成了 <code>expect(validate()).to.be.fulfilled</code>——结果 Mocha 说"全部通过"。</p>
+<p>原因很简单：我忘记写 <code>await</code> 了。Promise 还没 resolve 或 reject，测试函数就同步返回了，Mocha 以为断言完成了。<strong>测试静默跳过</strong>，这是比直接报错更可怕的 bug。</p>
+<h2>朋友甩来的那段代码</h2>
+<p>我在群里吐槽 Mocha 靠不住，一个朋友甩来一段：</p>
+<pre><code class="language-javascript">await expect(asyncOperation()).to.be.rejectedWith(ValidationError);</code></pre>
+<p>"你这个场景用 chai-as-promised 啊，原生 expect 断言 Promise 根本抓不到 reject。"</p>
+<p>我之前只知道 <a href="https://chai.fedq.ren" target="_blank" rel="noopener">Chai官网</a> 上介绍的同步断言——<code>expect(x).to.equal(42)</code> 这种最基础的。没想到它的生态里还有专门处理异步的插件，而且写法跟同步链式几乎一模一样，只是多了个 <code>await</code>。</p>
+<p>从<a href="https://chai.fedq.ren/download.html" target="_blank" rel="noopener">下载</a>拿了 chai-as-promised，装起来就一行 <code>npm install chai-as-promised --save-dev</code>，注册也简单：</p>
+<pre><code class="language-javascript">import chai from &#x27;chai&#x27;;
+import chaiAsPromised from &#x27;chai-as-promised&#x27;;
+chai.use(chaiAsPromised);</code></pre>
+<p>但注册顺序有讲究——这个插件要<strong>最先注册</strong>，因为它会对当前已注册的所有断言做 promisify 包装。先装其他插件再装它，后续注册的断言可能没被包到，<code>.eventually</code> 里行为会乱。</p>
+<h2>四个坑，一个接一个填</h2>
+<p>装好 chai-as-promised 那天，我顺手把之前三个月写的测试扫了一遍，发现了不止 Promise 一个问题。</p>
+<p><strong>第一个坑：.throw 要传函数引用，不能直接执行。</strong></p>
+<p>我写过这样的代码：</p>
+<pre><code class="language-javascript">expect(parseJSON(invalidString)).to.throw();  // ❌</code></pre>
+<p><code>parseJSON</code> 当场就抛了，断言还没来得及接管。正确写法是包一层函数——要么匿名函数要么直接传函数名：</p>
+<pre><code class="language-javascript">expect(() =&gt; parseJSON(invalidString)).to.throw();  // ✅</code></pre>
+<p>而且异步函数抛的异常在 Promise 里，<code>.throw</code> 同步调用抓不到，得回到 chai-as-promised 的 <code>.rejectedWith</code> 去。</p>
+<p><strong>第二个坑：类型判断的 null 陷阱。</strong></p>
+<p><code>typeof null</code> 在 JavaScript 里返回 <code>&#x27;object&#x27;</code>，这是几十年的历史遗留。我曾写过 <code>expect(null).to.be.an(&#x27;object&#x27;)</code>，测试居然过了？不对，Chai 对 null 做了特殊处理——它不认 <code>&#x27;object&#x27;</code>，只认 <code>&#x27;null&#x27;</code>。数组也是，<code>typeof []</code> 返回 <code>&#x27;object&#x27;</code>，但 Chai 把数组单独识别成 <code>&#x27;array&#x27;</code>，<code>expect([]).to.be.an(&#x27;object&#x27;)</code> 会失败。</p>
+<p>这些细节查 <a href="https://chai-zh-docs.pages.dev/" target="_blank" rel="noopener">Chai文档</a> 时一条一条写在显眼位置，但不亲自踩一遍永远记不住。</p>
+<p><strong>第三个坑：对象比较的引用 vs 值。</strong></p>
+<p><code>expect({ a: 1 }).to.equal({ a: 1 })</code> 会失败——因为 <code>.equal</code> 默认是严格相等 <code>===</code>，两个不同引用的对象当然不相等。要比较值，得加 <code>.deep</code>：</p>
+<pre><code class="language-javascript">expect({ a: 1 }).to.deep.equal({ a: 1 });  // ✅ 通过</code></pre>
+<p>深度相等还会在失败时给你 diff——高亮出哪个字段不一样，这比 "expected X to equal Y" 有用多了。<code>.eql</code> 是 <code>.deep.equal</code> 的简写，写起来更省事。</p>
+<p><strong>第四个坑：浮点精度。</strong></p>
+<p><code>0.1 + 0.2 !== 0.3</code> 这个经典问题，直接 <code>.equal</code> 肯定挂。Chai 提供了 <code>.closeTo</code> 做近似匹配：<code>expect(0.1 + 0.2).to.closeTo(0.3, 0.0001)</code>，第三个参数是容差。</p>
+<h2>收工</h2>
+<p>那天傍晚我把 CI 修好了，小红点变回绿色。回头看，我踩的四个坑其实都是 Chai 文档里明确写过的——我只是之前嫌长没耐心读。</p>
+<p>Chai 的价值不在于它帮你写断言，而在于它帮你<strong>用正确的方式写断言</strong>。链式语法 <code>.to.be.a(&#x27;string&#x27;)</code> 读起来像自然语言，但底下藏着一堆 JavaScript 的历史债和边缘情况——它帮你把这些都抹平了。</p>
+<p>现在每次新建测试文件，第一行先 <code>import chai from &#x27;chai&#x27;</code>，然后 <code>chai.use(chaiAsPromised)</code> 注册插件，Promise 断言必写 <code>await</code>——这三个动作已经是条件反射。那天下午被坑过的地方，再也没踩过第二次。</p>
+<p>整理这套 Chai 用法的时候，我把资料同步到了三个备份仓库——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Chai" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Chai" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Chai" target="_blank" rel="noopener">GitCode</a>，国内国外想哪个就哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/kktix.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">KKTIX 入门：不会繁体字也能玩转的台湾活动购票App</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/google-earth.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Google Earth 到底怎么用？一次把最常问的问题答完</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

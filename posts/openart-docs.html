@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 OpenArt 搭了一套角色内容流水线，一个人每周出 30 条 · 老郭软件铺</title>
+  
+<meta name="description" content="以前做角色 Vlog 和口播要手动抠图、录屏、剪分镜，现在把 OpenArt 嵌进工具链，角色库、视频生成、口型同步一条线串起来，省了大半手动环节。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/openart-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 OpenArt 搭了一套角色内容流水线，一个人每周出 30 条">
+<meta property="og:description" content="以前做角色 Vlog 和口播要手动抠图、录屏、剪分镜，现在把 OpenArt 嵌进工具链，角色库、视频生成、口型同步一条线串起来，省了大半手动环节。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/openart-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/openart-docs/models-workspace.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/openart-docs/models-workspace.png">
+
+<meta name="twitter:title" content="用 OpenArt 搭了一套角色内容流水线，一个人每周出 30 条">
+<meta name="twitter:description" content="以前做角色 Vlog 和口播要手动抠图、录屏、剪分镜，现在把 OpenArt 嵌进工具链，角色库、视频生成、口型同步一条线串起来，省了大半手动环节。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u505a\u89d2\u8272 Vlog \u548c\u53e3\u64ad\u8981\u624b\u52a8\u62a0\u56fe\u3001\u5f55\u5c4f\u3001\u526a\u5206\u955c\uff0c\u73b0\u5728\u628a OpenArt \u5d4c\u8fdb\u5de5\u5177\u94fe\uff0c\u89d2\u8272\u5e93\u3001\u89c6\u9891\u751f\u6210\u3001\u53e3\u578b\u540c\u6b65\u4e00\u6761\u7ebf\u4e32\u8d77\u6765\uff0c\u7701\u4e86\u5927\u534a\u624b\u52a8\u73af\u8282\u3002", "headline": "\u7528 OpenArt \u642d\u4e86\u4e00\u5957\u89d2\u8272\u5185\u5bb9\u6d41\u6c34\u7ebf\uff0c\u4e00\u4e2a\u4eba\u6bcf\u5468\u51fa 30 \u6761", "image": ["https://laoguosofts.github.io/images/openart-docs/models-workspace.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/openart-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/openart-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 OpenArt \u642d\u4e86\u4e00\u5957\u89d2\u8272\u5185\u5bb9\u6d41\u6c34\u7ebf\uff0c\u4e00\u4e2a\u4eba\u6bcf\u5468\u51fa 30 \u6761", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">用 OpenArt 搭了一套角色内容流水线，一个人每周出 30 条</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">用 OpenArt 搭了一套角色内容流水线，一个人每周出 30 条</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前做角色 Vlog 和口播要手动抠图、录屏、剪分镜，现在把 OpenArt 嵌进工具链，角色库、视频生成、口型同步一条线串起来，省了大半手动环节。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要出 30 条角色内容——15 条 Vlog 式的「AI 小人的一天」，15 条对着镜头讲话的口播片段。以前这条流程我拆成四步：找参考图手动抠角色、录屏生成分镜画面、单独录口播再做口型对齐、最后剪进发布模板。四步之间三次手动复制粘贴素材，口型对齐那步尤其磨人，录出来的声音和画面要么嘴型对不上，要么表情僵得像蜡像。</p>
+<p>现在我把 <a href="https://openart.ggcd.uno" target="_blank" rel="noopener">OpenArt官网</a> 插进了这条链的中间，角色库、视频生成、口型同步三件事在一个工作台里串起来了。上下游只需要接两个环节：上游用飞书多维表格存角色档案和选题池，下游直接把成片扔进剪映做字幕加封面，不需要再从不同工具导素材丢素材。</p>
+<p><img src="../images/openart-docs/models-workspace.png" alt="模型工作台与编辑画布" loading="lazy"></p>
+<h2>旧流程卡在哪</h2>
+<p>说具体点，之前最费时间的两件事：</p>
+<p><strong>角色一致性断链。</strong> 旧做法是每个视频单独找一张相似脸的参考图，生成的角色今天和明天长得不一样，观众留言问「这是换了个人吗」。我试过把同一个角色的多张图手动拼成 prompt，效果时好时坏，不稳定。</p>
+<p><strong>口播和视频分裂。</strong> 视频是一段，口播是另一段，后期得手动对齐口型。找过第三方口型工具，免费版只能处理 10 秒，长了就得切开，切完还要自己把节奏拼回来。</p>
+<p>这两个点卡死之后，整条流程的产出速度就上不去——我试过把 Vlog 和口播合起来做「角色的一天」系列，但每次都因为角色变脸或口型不对返工，一条要重跑两三轮才能发。</p>
+<h2>新流程怎么接</h2>
+<p>现在这套链是这样的：</p>
+<p><strong>角色池 → 选题表 → OpenArt 生成 → 剪映出成片 → 飞书归档。</strong> 每个环节的衔接点我都说清楚。</p>
+<h3>第一步：飞书多维表格存角色档案</h3>
+<p>我有一张表，每行一个角色：头像、角色设定、常用场景、目标风格词。这张表是整个流水线的源头——选题表里每条视频都挂一个角色 ID，点进去就能跳到对应的 OpenArt 角色档案。不写角色名，写 ID，改头像或者加新角色只改表不改 prompt。</p>
+<p>角色档案本身在 OpenArt 的角色库里维护。我从表上拿到头像路径，在 OpenArt 上传建角色，之后所有视频直接从角色库选，不再单独传图。角色一致性从「每次写 prompt 加描述」变成了「一次建档终身复用」。</p>
+<h3>第二步：选题表拆动作链</h3>
+<p>每条 Vlog 选题我在飞书表里写一条动作链——不是「悠闲的一天」这种氛围词，是「起床、刷牙、出门买咖啡、遇到朋友、回家做饭」这种动词串。拆得越细，进 OpenArt 之后分镜越可控。</p>
+<p>到 OpenArt 这边，主题描述直接填这条动作链，宽高比固定竖版（短视频平台默认 9:16），背景音乐从风格库里挑一档，视频模型按当前档位选——选哪个档位适合短视频这条，我去<a href="https://openart-docs.pages.dev/" target="_blank" rel="noopener">OpenArt文档</a>查过一次，不同档位的步数和分辨率对分镜稳定性的影响差不少。生成完先在分镜里扫一眼，哪个镜头出问题了单独重掷那个镜头，不用整条重来。</p>
+<h3>第三步：口播环节自然承接口型同步</h3>
+<p>一条 Vlog 出完之后，我从角色库里选同一个角色，写讲话内容加状态描述。状态描述要写环境和微动作——不只是说什么，还有「坐在书房里对着镜头讲话，偶尔微笑，手部小幅比划，语速中等，背景有书架和暖色台灯」这类细节。这些词直接影响表情幅度和语速，漏了之后角色容易直勾勾盯着镜头像在念稿。</p>
+<p>生成出来的口播片段和前面的 Vlog 片段角色是同一个人——因为都是从同一份角色档案调的，一致性就锁住了。两个片段合起来剪进模板，加字幕封面就能发。</p>
+<h3>第四步：成片归档回飞书</h3>
+<p>剪映出成片之后，我把文件路径和发布时间回写到飞书选题表的对应行。这样每个角色、每个选题、每条成片在一张表里全链路可查，三个月前发过什么不会再重复做。</p>
+<h2>实操里最容易断链的两个地方</h2>
+<p>上面的流程看起来顺，但有两个环节我踩过坑，单独拎出来说。</p>
+<p><strong>免费层的边界要摸清楚再扩张。</strong> 一开始我从<a href="https://openart.ggcd.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿了包注册完就直接开无限档，后来发现免费层其实能把所有功能跑一遍——基础模型能到 1024×1024，够做短视频分镜了。试完基础模型的画风、写过几组动作链 prompt、把口型同步完整跑一条，再决定上订阅才划算。我见过有人上来就开最贵档，最后发现自己只用得到免费层那点功能，亏了好几个月。</p>
+<p><strong>角色档案质量直接决定出片率。</strong> 我试过一个角色档案只用一张图建，后面所有视频都从这张图扩散，结果出片里角色有时圆脸有时方脸，稳定性差到没法用。现在的做法是：角色建好之后，先在生图环节连续出三张图确认风格和比例稳定，再把这套档案标成「可复用」。这一步花 5 分钟，但后面所有视频直接选，省的是返工的时间。</p>
+<h2>这套流程什么时候划算，什么时候不划算</h2>
+<p>说点实在的：如果每周只出两三条内容，这套流程就有点重——飞书表的维护、角色档案的质量管控，都是沉没成本。但一旦周更量到 10 条以上，前面搭的架子就开始回本：一条角色档案能跑 20 条视频，一个动作链模板能换三四个角色复用。</p>
+<p>反过来，角色 Vlog 和口播的组合只适合做「人设型」内容——比如同一个角色的健身日常、科技评测、游戏直播。如果做的是单条独立内容（比如一条产品开箱视频），角色一致性就不是刚需，用 OpenArt 的生图加视频功能单独跑反而更快。</p>
+<p>另外，我试过把像素风素材也塞进这条角色流水线，结果发现不太行——像素风需要固定调色板和网格规格，和角色 Vlog 的分镜逻辑是两套东西。像素风那条线我单独跑，用同一个角色档案当参考，批量出变体，再进游戏引擎修规格。两条链分开管不混在一起。</p>
+<p>总的来说，OpenArt 在这条流水线里的位置很明确：<strong>角色资产管理加视频生成中枢</strong>。上游接选题和角色定义，下游接剪辑和发布，中间的角色一致性、分镜生成、口型同步三件事它一个工具包就搞定了，少了两次跨工具复制素材和一次口型对齐的手动返工。</p>
+<p>这整套角色内容流水线里用到的工具和配套资料，我在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/OpenArt" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/OpenArt" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/OpenArt" target="_blank" rel="noopener">GitCode</a> 三个仓库都同步了一份——开源仓库方便社区检查脚本逻辑，国内镜像访问更快，遇到本地网络波动的时候还能从不同节点拉取。具体的角色档案模板、动作链示例、飞书表结构在资料里都有，照着拼就能搭出自己的版本。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/snkrs-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">我每周用 SNKRS 抢三双鞋的完整流程——从发售日历到门店取货不慌不忙</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/realplayer-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">RealPlayer 到底能做什么——从下载到媒体库的完整能力盘点</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的 · 老郭软件铺</title>
+  
+<meta name="description" content="从 v1.0 到如今的 v1.1.10，Emoke 走了一条和主流情绪 App 完全不同的路：不做社区、不加关注、甚至连燃烧速度记忆这个&#34;理所当然&#34;的功能都拖着——但它的核心仪式感却在一次次小版本里磨得越来越讲究。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/emoke.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的">
+<meta property="og:description" content="从 v1.0 到如今的 v1.1.10，Emoke 走了一条和主流情绪 App 完全不同的路：不做社区、不加关注、甚至连燃烧速度记忆这个&#34;理所当然&#34;的功能都拖着——但它的核心仪式感却在一次次小版本里磨得越来越讲究。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/emoke.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/emoke/screenshot-burn.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/emoke/screenshot-burn.webp">
+
+<meta name="twitter:title" content="Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的">
+<meta name="twitter:description" content="从 v1.0 到如今的 v1.1.10，Emoke 走了一条和主流情绪 App 完全不同的路：不做社区、不加关注、甚至连燃烧速度记忆这个&#34;理所当然&#34;的功能都拖着——但它的核心仪式感却在一次次小版本里磨得越来越讲究。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece v1.0 \u5230\u5982\u4eca\u7684 v1.1.10\uff0cEmoke \u8d70\u4e86\u4e00\u6761\u548c\u4e3b\u6d41\u60c5\u7eea App \u5b8c\u5168\u4e0d\u540c\u7684\u8def\uff1a\u4e0d\u505a\u793e\u533a\u3001\u4e0d\u52a0\u5173\u6ce8\u3001\u751a\u81f3\u8fde\u71c3\u70e7\u901f\u5ea6\u8bb0\u5fc6\u8fd9\u4e2a\"\u7406\u6240\u5f53\u7136\"\u7684\u529f\u80fd\u90fd\u62d6\u7740\u2014\u2014\u4f46\u5b83\u7684\u6838\u5fc3\u4eea\u5f0f\u611f\u5374\u5728\u4e00\u6b21\u6b21\u5c0f\u7248\u672c\u91cc\u78e8\u5f97\u8d8a\u6765\u8d8a\u8bb2\u7a76\u3002", "headline": "Emoke \u8fed\u4ee3\u4e00\u5e74\u534a\uff0c\u4e00\u6b3e\u60c5\u7eea\u8bb0\u5f55 App \u7684\"\u6162\u54f2\u5b66\"\u662f\u600e\u4e48\u957f\u51fa\u6765\u7684", "image": ["https://laoguosofts.github.io/images/emoke/screenshot-burn.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/emoke.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/emoke.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Emoke \u8fed\u4ee3\u4e00\u5e74\u534a\uff0c\u4e00\u6b3e\u60c5\u7eea\u8bb0\u5f55 App \u7684\"\u6162\u54f2\u5b66\"\u662f\u600e\u4e48\u957f\u51fa\u6765\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Emoke 迭代一年半，一款情绪记录 App 的&#34;慢哲学&#34;是怎么长出来的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从 v1.0 到如今的 v1.1.10，Emoke 走了一条和主流情绪 App 完全不同的路：不做社区、不加关注、甚至连燃烧速度记忆这个&#34;理所当然&#34;的功能都拖着——但它的核心仪式感却在一次次小版本里磨得越来越讲究。</p>
+  </header>
+  <div class="prose serif">
+<h2>现在这版：它已经成了一个什么东西</h2>
+<p>我打开手机看了一眼，这款<a href="https://emoke.uerg.quest" target="_blank" rel="noopener">emoke官网</a>上标注的最新版本号停在 v1.1.10，Android 那边是 5.2。界面和一年多前比变化不大——还是那张被点燃的纸卷、还是那片烟灰缸、还是选贴纸写小纸条的流程。但如果你每天都用，会发现那些细微的触感真的在变好。</p>
+<p>比如燃烧速度。现在你可以在点燃界面左右拖滑块，决定这根纸卷是 5 秒快速烧完还是 15 秒慢慢燃尽——后者刚好够跟着呼吸做三四轮深呼吸。这个调节本身不算什么惊人功能，但它暴露了 Emoke 团队一直在死磕的一件事：<strong>把"点烟"这个动作做得够像一次真实的、有重量的情绪释放</strong>。</p>
+<p><img src="../images/emoke/screenshot-burn.webp" alt="Emoke 点燃后的燃烧界面，底部有速度滑块" loading="lazy"></p>
+<p>但我得说一个争议——从 App Store 评论到现在，"燃烧速度没有记忆"这个反馈被提了不下几十次。你这根选了慢速，下一根默认又回中速。按理说这只是加一个本地偏好存储的事，不复杂，但就是没修。</p>
+<p>这不是 bug 列表里被遗漏的小项，我觉得它是理解 Emoke 迭代逻辑的关键切口。</p>
+<h2>它从哪起步，关键转折点在哪些版本</h2>
+<p>样本文档里能追溯到的最早版本是 v1.1.3，那是 2025 年 2 月 14 日——情人节，他们放了分享模式。在此之前 Emoke 是什么样？样本文档没提太多，但从"首次加社交功能"这个动作能反推，v1.0 到 v1.1.2 之间的 Emoke 是完全封闭的——你自己点烟、自己写、自己看，连和另一个用户产生一丝连接的可能都没有。</p>
+<p>v1.1.3 的分享模式本身也很反常识。它不是好友、不是关注、不是信息流推送，而是<strong>蓝牙/局域网范围内的匿名单向发送</strong>。你点燃一根纸卷后选"分享"，附近开着 Emoke 的人会收到一张带主题装饰的小卡片——但卡片上没有你的任何信息，没有昵称、没有头像、没有 ID。这和"社交"这个词的常规语义差距太大了，更像是一个"把此刻的情绪轻轻放出去，不求回音"的彩蛋。</p>
+<p>然后几个月安静地过去。v1.1.5 修了多张照片显示的 bug，v1.1.7 在 9 月 6 日一口气放了三件事：回看模式支持点击贴纸放大查看完整纸条内容、照片可以全屏缩放、分享模式的跨设备连接体验改善了（iOS 和 Android 终于能互相分享了）。v1.1.9 紧接着在 9 月 24 日加了中秋主题贴纸——这是他们第一次做节日限定皮肤。</p>
+<p><img src="../images/emoke/screenshot-home.webp" alt="Emoke 的主界面，纸卷、烟灰缸、情绪贴纸三者构成核心三角" loading="lazy"></p>
+<p>我把这些版本号和变更放在一起看，发现一个挺有意思的节奏：<strong>大版本之间的间隔不短，但每次都在"让一次记录的体验更完整"这条线上加点东西</strong>。v1.1.3 加了"能不能让别人知道"的出口；v1.1.5 和 v1.1.7 补的是"回看时能不能看清"的入口；v1.1.9 是给仪式感再披一层皮肤。没有哪个版本突然跳去加新模块、换商业模式、或者做用户增长。</p>
+<h2>从迭代节奏看团队的优先级</h2>
+<p>如果把 Emoke 的迭代史当成一家公司的决策复盘，最显眼的不是他们做了什么，而是他们<strong>一直没做什么</strong>。</p>
+<p><strong>他们死磕的是什么？</strong> 是"一次情绪记录"这件事从头到尾的每一个触感。点燃时的速度选择、回看时纸条能不能完整显示、分享卡片的主题边框——这些都是一个人安安静静使用时才会在意的细节。而且他们在"点燃即确认"这个设计原则上异常坚定：回看模式下<strong>没有编辑功能</strong>，纸条写错了、贴纸选错了、照片放错了，都只能另外点一根新纸卷。<a href="https://emoke.pages.dev/" target="_blank" rel="noopener">emoke文档</a>里的解释是"情绪是即时的，事后改来改去反而违背初衷"——我能理解，这不是技术限制，是价值观选择。</p>
+<p><strong>他们一直不管的是什么？</strong> 是社交裂变和用户增长。分享模式到今天还是那个匿名单向的样子，没有好友体系、没有评论点赞、没有排行榜、没有社区。燃烧速度记忆、贴纸编辑、多条分享同时发送——这些用户高频提的"应该有"的功能，在优先级列表里明显排在"把现有体验磨得更顺"之后。</p>
+<p>从<a href="https://emoke.uerg.quest/download.html" target="_blank" rel="noopener">emoke下载</a>拿到安装包后，还有一个点值得说：Emoke 的 Pro 会员定价。永久版 ¥28，月订阅 ¥12，权益完全一致。没有"永久版独享"的激励，没有年套餐折扣，就是直白地让用户二选一。这在情绪类 App 里相当克制——大多数同类产品会用阶梯权益把用户往更高价的档位推，Emoke 不玩这一套。</p>
+<h2>照这个路线，下一步大概率会走向哪里</h2>
+<p>我先声明，以下都是从迭代规律推的，不是官方口径。</p>
+<p>首先，<strong>现有仪式感的打磨还会继续</strong>。燃烧速度记忆这个"悬案"大概率迟早会修，但修的时候可能不是简单加个开关——团队说不定会在"默认值"上做文章，比如让"每次都重新选择"成为一种有意的提醒，或者给记忆功能加一个 Pro 开关。毕竟他们对"仪式感"这件事的执念不像能容忍一个太粗糙的实现。</p>
+<p>其次，<strong>分享模式可能会有小进化，但不会变成社交网络</strong>。跨设备连接已经改善了、主题贴纸已经加了，下一步可能是让分享卡片能保存到本地相册，或者支持更多主题皮肤。但我不觉得他们会加好友系统——匿名单向分享和"点燃即确认"的设计哲学是同一根逻辑线上的东西，很难拆。</p>
+<p>至于商业化，¥28 永久版这个定价看起来不会变。如果要加新的 Pro 权益，更可能是新增主题包、字体、或者统计维度这类和核心体验不冲突的东西，而不是把核心功能锁在付费墙后面。</p>
+<p>最后说一个不太确定的猜测：<strong>回看模式的编辑功能可能永远不会有</strong>。Emoke 团队对"情绪记录的即时性"这件事看得太重了，编辑功能一旦开了口子，整个"点燃即确认"的产品叙事就会松掉。与其妥协，不如保持克制。</p>
+<p>总之，Emoke 的迭代史给我的感受是：这不是一家赶风口的团队，他们在一件很小很具体的事上慢慢磨，磨到让用的人觉得"我懂这个产品想让我做什么"。这套资料顺手同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/emoke" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/emoke" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/emoke" target="_blank" rel="noopener">GitCode</a>三个仓库，国内访问也方便。在情绪 App 这个赛道里，这反而是最稀缺的东西。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/toolkit-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Toolkit 藏了四个冷门入口：没 root 也能刷 GSI、协议页还能辨真假</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/dctimer.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">DCTimer 速拧计时器快问快答：计时、统计、数据迁移一次说清</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

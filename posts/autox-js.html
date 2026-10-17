@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Autox.js v7 实测对比：移动自动化脚本圈里，它到底站哪一行 · 老郭软件铺</title>
+  
+<meta name="description" content="试过按键精灵、Hamibot、Auto.js 的老用户视角，拆解 Autox.js 在脚本引擎、图像识别、生态联动三个维度的差异化，以及为此付出的代价。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/autox-js.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autox.js v7 实测对比：移动自动化脚本圈里，它到底站哪一行">
+<meta property="og:description" content="试过按键精灵、Hamibot、Auto.js 的老用户视角，拆解 Autox.js 在脚本引擎、图像识别、生态联动三个维度的差异化，以及为此付出的代价。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/autox-js.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/autox-js/ide-editor.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/autox-js/ide-editor.jpg">
+
+<meta name="twitter:title" content="Autox.js v7 实测对比：移动自动化脚本圈里，它到底站哪一行">
+<meta name="twitter:description" content="试过按键精灵、Hamibot、Auto.js 的老用户视角，拆解 Autox.js 在脚本引擎、图像识别、生态联动三个维度的差异化，以及为此付出的代价。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8bd5\u8fc7\u6309\u952e\u7cbe\u7075\u3001Hamibot\u3001Auto.js \u7684\u8001\u7528\u6237\u89c6\u89d2\uff0c\u62c6\u89e3 Autox.js \u5728\u811a\u672c\u5f15\u64ce\u3001\u56fe\u50cf\u8bc6\u522b\u3001\u751f\u6001\u8054\u52a8\u4e09\u4e2a\u7ef4\u5ea6\u7684\u5dee\u5f02\u5316\uff0c\u4ee5\u53ca\u4e3a\u6b64\u4ed8\u51fa\u7684\u4ee3\u4ef7\u3002", "headline": "Autox.js v7 \u5b9e\u6d4b\u5bf9\u6bd4\uff1a\u79fb\u52a8\u81ea\u52a8\u5316\u811a\u672c\u5708\u91cc\uff0c\u5b83\u5230\u5e95\u7ad9\u54ea\u4e00\u884c", "image": ["https://laoguosofts.github.io/images/autox-js/ide-editor.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/autox-js.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/autox-js.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "Autox.js v7 \u5b9e\u6d4b\u5bf9\u6bd4\uff1a\u79fb\u52a8\u81ea\u52a8\u5316\u811a\u672c\u5708\u91cc\uff0c\u5b83\u5230\u5e95\u7ad9\u54ea\u4e00\u884c", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">Autox.js v7 实测对比：移动自动化脚本圈里，它到底站哪一行</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">Autox.js v7 实测对比：移动自动化脚本圈里，它到底站哪一行</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">试过按键精灵、Hamibot、Auto.js 的老用户视角，拆解 Autox.js 在脚本引擎、图像识别、生态联动三个维度的差异化，以及为此付出的代价。</p>
+  </header>
+  <div class="prose serif">
+<h2>移动端自动化的三个流派</h2>
+<p>写了五六年手机自动化脚本，见过的工具大致分三拨。</p>
+<p><strong>传统派</strong>以按键精灵、TouchSprite 为代表——坐标点击 + 颜色查找，录屏生成脚本，门槛极低，小白也能上手。但坐标一旦漂移、UI 一换皮肤，脚本直接报废。颜色查找比坐标稍好，但也架不住深色模式切换、系统主题换肤。</p>
+<p><strong>触发器派</strong>走的是 Tasker、MacroDroid 的路子——不写代码，全靠条件配置：时间到了、连上 Wi-Fi 了、电量满了，触发一条动作链。好用是真好用，但动作链能做的事有限，遇到复杂交互（比如游戏里要等某个动画播完再点）就没辙了。</p>
+<p><strong>脚本派</strong>是 Auto.js 带起来的那一波——用 JavaScript 写脚本，靠无障碍服务读取控件树做选择器操作。Auto.js 停更之后，Hamibot、AutoJs6、Autox.js 接过了旗。这一派的优势是灵活，能写复杂逻辑、能调库、能做工程化；缺点是上手有门槛，得懂点代码。</p>
+<p>我单独写 <a href="https://autox-js.hfdk.space" target="_blank" rel="noopener">Autox.js官网</a>，是因为它在脚本派里走出了一条有点不一样的路——v7 这次更新加的东西，让它从"又一个 Auto.js 续作"变成了一个值得拿出来对比讨论的选手。</p>
+<h2>差异化一：双引擎，终于把 Node 生态搬到了手机上</h2>
+<p>脚本派工具的脚本引擎历来是个瓶颈。Auto.js 用的是 Rhino（Mozilla 写的 Java 实现的 JS 引擎），Hamibot 也是 Rhino，AutoJs6 同样。Rhino 能用，但和现代 Node.js 生态基本隔离——你没法 <code>require()</code> 一个 npm 包，没法用 Node 的 <code>fs</code>、<code>http</code>、<code>path</code> 模块。</p>
+<p>Autox.js v7 在 Rhino 之上又叠了一层 Node.js 运行时，两个引擎通过桥接层互通。这意味着什么？</p>
+<p>你可以 <code>npm install</code> 一个包，然后在 Autox.js 脚本里直接 <code>require()</code>。想用 <code>axios</code> 发请求？装一下就能用。想用 <code>cheerio</code> 解析 HTML？同样。甚至 Node 侧可以直接调 Android 的 Java 类——这意味着你能写一段 Node 代码来操作 Android 系统 API，两边的能力池打通了。</p>
+<p><strong>别的工具能做到吗？</strong> 我没见过。Hamibot 和 AutoJs6 还是停留在纯 Rhino 的状态。Rhino 对 ES6+ 的支持一直在追，但 npm 生态那是真的碰不到。这一点让 Autox.js 的工程能力直接上了一个台阶——以前手机自动化脚本是"写点坐标点一点"，现在它真的可以是一个 Node 工程。</p>
+<p><img src="../images/autox-js/ide-editor.jpg" alt="Autox.js IDE 编辑器" loading="lazy"></p>
+<h2>差异化二：OpenCV 图像识别，从"找到没"到"找到了几个、分别在哪"</h2>
+<p>无障碍服务的控件选择器很好用，但有一个硬伤——<strong>非标准 UI 拿不到控件树</strong>。游戏画面、自定义渲染的 App、原生 Canvas，无障碍服务看过去就是一块空白。这时候只能退回到图像识别。</p>
+<p>传统派的图像识别是 <code>findImage()</code>——给一张模板图，问"屏幕上有没有这个"，有就返回坐标点。够用但很基础。</p>
+<p>Autox.js 基于 OpenCV-mobile 4.13.0 把这块做厚了。你可以 <code>findMulti()</code> 一次性找到屏幕上所有匹配的目标（比如游戏里散落的金币，一次全找出来，不用循环调多次），可以 <code>region</code> 限定搜索区域（只在上半屏幕找，既快又准），还能用 <code>ssim()</code>、<code>psnr()</code>、<code>hist()</code> 这些度量函数精确比较两帧画面的相似度——不是"有没有变化"，而是"变化了多少"。</p>
+<p>这在游戏自动化场景下差别很大。比如一个挂机脚本要判断"战斗结束了没"，传统做法是硬等一个固定时间，慢了浪费时间、快了漏打。用 Autox.js 的 <code>ssim()</code>，直接截两帧看相似度——相似度降到某个阈值以下说明画面跳了，战斗结束了。这才是真正的动态判断。</p>
+<p><strong>对比一下</strong>：Hamibot 也有 OpenCV 支持，但 API 没这么完整，没有多目标查找，相似度函数也缺。传统派的按键精灵图像识别能力更弱，连阈值调整都要翻半天文档。</p>
+<h2>差异化三：Tasker 原生联动，让脚本真的"自动"起来</h2>
+<p>脚本派工具普遍有一个尴尬：脚本写好了，谁来触发？总不能每次都手动点开跑。</p>
+<p>Autox.js 的解法是内置 Tasker 插件接口。Tasker 是 Android 上最灵活的触发器——时间触发、位置触发、Wi-Fi 连接触发、电量触发、应用切换触发，甚至短信、蓝牙设备连接都能触发。Autox.js 作为 Tasker 的 Action 插件被调用，Tasker 检测到事件就自动跑你的脚本。</p>
+<p>还有一个 <code>timers</code> 模块可以做定时任务，用起来更简单，但 <code>timers</code> 依赖 Autox.js 进程在后台存活——Android 的 Doze 模式和各家 ROM 的后台清理机制会杀它。Tasker 的定时走系统闹钟 API，可靠性高得多。</p>
+<p><strong>Tasker vs Autox.js timers 对比</strong>：前者可靠性高、触发器类型丰富、可以叠加多条件；后者简单但依赖进程存活。真要做无人值守的自动化，前者是唯一靠谱的方案。</p>
+<h2>它的取舍：好东西不是白来的</h2>
+<p>说了三个好的，说说代价。</p>
+<p><strong>上手门槛比传统派高得多</strong>。传统派装完就能用录屏功能生成脚本，拖拽几下就跑起来。Autox.js 至少要懂 JavaScript——变量、函数、选择器语法，一个都绕不过。v7 加了 Node.js 之后，虽然能力变强了，但调试链路也变长了——Rhino 侧报错还是 Node 侧报错？桥接层有没有出问题？这些坑新人踩得多。</p>
+<p><strong>Android 权限是个绕不开的坎</strong>。从<a href="https://autox-js.hfdk.space/download.html" target="_blank" rel="noopener">官方下载</a>拿到的 App 需要无障碍服务、悬浮窗权限、截屏权限，有的场景还要 Root。国内各家 ROM 对这些权限的管控比原生 Android 严得多——MIUI、ColorOS、OneUI 都有额外的权限开关，不找出来打开脚本根本跑不起来。截屏权限尤其折腾，有的机型每次都要弹窗，有的机型直接不给。v7.2.3 加了 Legacy 方式和重试机制能缓解一部分，但根上是 Android 系统的限制。</p>
+<p><strong>控件选择器仍然不稳定</strong>。无障碍服务读取的控件树高度依赖目标 App 的实现——App 开发者稍微改一下布局层级、换一个控件 id，你的脚本就会 <code>findOne()</code> 返回 null。布局分析器能帮你现场查属性、生成选择器（完整参数说明在<a href="https://autox-js.pages.dev/" target="_blank" rel="noopener">Autox.js文档</a>里），但还是治标不治本。图像识别能兜底，但又回到了传统派的坐标漂移问题。</p>
+<p><img src="../images/autox-js/main-ui.jpg" alt="主界面与脚本列表" loading="lazy"></p>
+<h2>选购结论</h2>
+<p>什么样的人选 Autox.js？</p>
+<ul><li><strong>已经在用 JavaScript、想把 Node 生态搬到手机上的人</strong>。v7 的双引擎是独一份的优势，能让你的脚本从"坐标点一点"升级成真正的工程化项目。</li><li><strong>游戏自动化、需要高级图像识别的人</strong>。OpenCV 的多目标查找、相似度度量在这类场景下比同类工具高出一个档次。</li><li><strong>需要复杂条件触发、想和 Tasker 联动的人</strong>。内置插件接口 + timers 模块 + 独立触发器，组合起来能做出相当复杂的自动化流程。</li></ul>
+<p>什么样的人选别的？</p>
+<ul><li><strong>零基础、想快速上手的人</strong>。传统派的按键精灵、TouchSprite 门槛最低，录屏就能用。</li><li><strong>只需要简单定时/条件触发、不想写代码的人</strong>。Tasker + MacroDroid 的组合更轻量。</li><li><strong>已经用惯 Hamibot/AutoJs6 且需求基本满足的人</strong>。换 Autox.js 的迁移成本不低，除非你确实需要 Node 生态或高级图像识别。</li></ul>
+<p>移动端自动化这个赛道，从来不是一款工具通吃的局面。但 Autox.js v7 这次更新把脚本派的天花板往上抬了一截——Node 生态、OpenCV、Tasker 联动，三件事放在一起，让它从一个续作变成了一个有自己特色的选手。我的判断：<strong>如果你在脚本派这一行，值得给它一次机会</strong>。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Autox.js" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Autox.js" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Autox.js" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，文档维护和国内访问的备份渠道都齐了，随便你习惯哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/feedme-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">FeedMe 翻到底才挖到的 5 个隐藏设置 — 90% 的人只用来刷 RSS</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/simple-live.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">从零搭好 Simple Live：Android 手机看四家平台直播完整走一遍</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

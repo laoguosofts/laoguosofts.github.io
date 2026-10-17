@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>暑假把旧手机给娃当学习机，我是怎么用 OwnDroid 把它锁成一台纯学习设备的 · 老郭软件铺</title>
+  
+<meta name="description" content="旧 Android 手机闲置可惜，给孩子当学习机又怕乱装 App、USB 被偷数据、管控工具被卸载。这篇讲我怎么用 Device Owner 权限一步一步把它变成真正的纯学习设备。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/owndroid-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暑假把旧手机给娃当学习机，我是怎么用 OwnDroid 把它锁成一台纯学习设备的">
+<meta property="og:description" content="旧 Android 手机闲置可惜，给孩子当学习机又怕乱装 App、USB 被偷数据、管控工具被卸载。这篇讲我怎么用 Device Owner 权限一步一步把它变成真正的纯学习设备。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/owndroid-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/owndroid-docs/owndroid-home.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/owndroid-docs/owndroid-home.webp">
+
+<meta name="twitter:title" content="暑假把旧手机给娃当学习机，我是怎么用 OwnDroid 把它锁成一台纯学习设备的">
+<meta name="twitter:description" content="旧 Android 手机闲置可惜，给孩子当学习机又怕乱装 App、USB 被偷数据、管控工具被卸载。这篇讲我怎么用 Device Owner 权限一步一步把它变成真正的纯学习设备。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u65e7 Android \u624b\u673a\u95f2\u7f6e\u53ef\u60dc\uff0c\u7ed9\u5b69\u5b50\u5f53\u5b66\u4e60\u673a\u53c8\u6015\u4e71\u88c5 App\u3001USB \u88ab\u5077\u6570\u636e\u3001\u7ba1\u63a7\u5de5\u5177\u88ab\u5378\u8f7d\u3002\u8fd9\u7bc7\u8bb2\u6211\u600e\u4e48\u7528 Device Owner \u6743\u9650\u4e00\u6b65\u4e00\u6b65\u628a\u5b83\u53d8\u6210\u771f\u6b63\u7684\u7eaf\u5b66\u4e60\u8bbe\u5907\u3002", "headline": "\u6691\u5047\u628a\u65e7\u624b\u673a\u7ed9\u5a03\u5f53\u5b66\u4e60\u673a\uff0c\u6211\u662f\u600e\u4e48\u7528 OwnDroid \u628a\u5b83\u9501\u6210\u4e00\u53f0\u7eaf\u5b66\u4e60\u8bbe\u5907\u7684", "image": ["https://laoguosofts.github.io/images/owndroid-docs/owndroid-home.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/owndroid-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/owndroid-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6691\u5047\u628a\u65e7\u624b\u673a\u7ed9\u5a03\u5f53\u5b66\u4e60\u673a\uff0c\u6211\u662f\u600e\u4e48\u7528 OwnDroid \u628a\u5b83\u9501\u6210\u4e00\u53f0\u7eaf\u5b66\u4e60\u8bbe\u5907\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">暑假把旧手机给娃当学习机，我是怎么用 OwnDroid 把它锁成一台纯学习设备的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">暑假把旧手机给娃当学习机，我是怎么用 OwnDroid 把它锁成一台纯学习设备的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">旧 Android 手机闲置可惜，给孩子当学习机又怕乱装 App、USB 被偷数据、管控工具被卸载。这篇讲我怎么用 Device Owner 权限一步一步把它变成真正的纯学习设备。</p>
+  </header>
+  <div class="prose serif">
+<p>六月底儿子考完期末，把他那台用了两年的 iPad 还我了——说是学校不让带去，要换一台能装钉钉、能上网课的"正经 Android 设备"。我翻抽屉翻出前年换下来的小米 9，刷了个纯净系统，装上网课 App、刷题 App、背单词 App，高高兴兴递给他。</p>
+<p>结果只用了三天我就后悔了。</p>
+<p>第一天他在钉钉直播间里点开了同学分享的 APK，装了一个叫"游戏助手"的东西，我下班回家发现后台在偷偷跑广告 SDK。第二天他从应用商店下了个浏览器，顺着搜索结果又装了三个小游戏，桌面上一溜图标。第三天更绝——他不知道从哪学的，把我装的家长控制 App 给卸载了，还一脸无辜地说"爸爸我没动过它自己就没了"。</p>
+<p>我在办公室抓着手机发愁的时候，旁边工位的老张凑过来问我怎么了。老张是搞企业信息化的，手里一堆 kiosk 设备，对 Android 管控这块门儿清。听完我的抱怨他笑了："你用的那是普通家长控制，跟 Device Owner 管系统级的东西比，就像拿个弹弓去打坦克。试试 OwnDroid 吧，把手机设成 Device Owner，能管的东西比你想象的多得多。"</p>
+<p>我第一次知道 Android 有个叫 Device Owner 的权限——不是普通 App 能拿到的那种权限，是系统级的"设备所有者"，可以在系统层面开关几乎所有东西。OwnDroid 就是专门把这套权限包装成了图形界面，让我这种不会写代码的人也能用——去它的<a href="https://owndroid.fewa.skin" target="_blank" rel="noopener">官网</a>扫了一眼，功能列表里 Device Owner 权限能做的事几乎都覆盖到了。</p>
+<p>先从<a href="https://owndroid.fewa.skin/download.html" target="_blank" rel="noopener">下载</a>拿 OwnDroid 安装包装到备用 Android 手机上。</p>
+<h2>激活 Device Owner：把手机"登记"成我的设备</h2>
+<p>OwnDroid 的原理其实不复杂：手机开机时通过 NFC、二维码或者 ADB 命令触发 Device Owner 设置，一旦设好，整个系统就认你是这个设备的"主人"了——以后装什么 App、卸什么 App、USB 能不能传数据、音量能不能开，全听 OwnDroid 的。</p>
+<p>激活的过程比我想象的简单。先把手机恢复出厂，开机引导到"欢迎使用"那一步时，用另一台手机扫 OwnDroid 里生成的二维码，等它自动走完设置流程，重启一次，Device Owner 就生效了。OwnDroid 图标上多了一个小盾牌，告诉我现在它已经是系统级应用了。</p>
+<p>那一刻我突然有种奇怪的感觉——这台手机不再是儿子随便折腾的玩具了，它成了一台"被托管"的设备，而托管者是我。</p>
+<h2>第一步先把漏洞补上：USB 禁用 + 阻止卸载</h2>
+<p>老张跟我说，拿到 Device Owner 权限后第一件事就是补漏洞，不然之前那堆问题换个方式还会来。</p>
+<p>我在 OwnDroid 的"系统"板块找到了"禁用 USB 信号"开关，打开它。这个开关很有意思——它不是不让手机充电，而是<strong>硬件级切断 USB 的数据信号</strong>。也就是说，插电脑上还能充电，但电脑完全读不到手机里的东西；U盘插上去也读不出来，任何通过 USB 数据通道想偷数据或者植入恶意程序的东西，一律被挡在外面。BadUSB？Rubber Ducky？这些当年在 K 上看到过的攻击手段，在这台手机上现在是物理级不可能了。</p>
+<p>然后是"阻止卸载"。之前家长控制 App 被卸载就是因为没有这个——普通 App 卸载只需长按图标拖到垃圾桶。现在不同了，我在 OwnDroid 的"应用"板块把 OwnDroid 自己、还有我装的钉钉、网课 App、背单词 App 全部勾上了"阻止卸载"。勾完之后我试了试：长按图标拖到垃圾桶，系统提示"此应用无法卸载"；进系统设置找卸载按钮，灰色的点不动；连 ADB 命令都不行——Device Owner 的 <code>setUninstallBlocked()</code> API 是在系统层拦截的，任何渠道的卸载都被挡了。</p>
+<p><img src="../images/owndroid-docs/owndroid-home.webp" alt="OwnDroid 主界面" loading="lazy"></p>
+<h2>全局静音：上课不会再响了</h2>
+<p>老张还告诉我一个场景：之前他带团队做 kiosk 项目，客户反馈最大的问题就是"设备突然响起来很尴尬"。OwnDroid 有个"全局静音"功能，和手机自带的 Do Not Disturb 完全不是一回事。</p>
+<p>Do Not Disturb 只管应用通知，按音量加就能恢复；全局静音是系统级拦截所有音频输出通道——闹钟、通话铃声、App 提示音、视频外放，全部被静音。而且关键的是，<strong>普通用户操作无效</strong>——你按音量键没用，进设置调没用，只有在 OwnDroid 里关掉开关才能恢复。</p>
+<p>我把它设成了自动规则：每天早上 8 点到下午 5 点，全局静音开启。这样儿子上课期间不管他怎么操作，手机绝对不会出一声。晚上 5 点之后自动恢复音量，他和同学语音、看视频都没问题。</p>
+<h2>远程清除存储：一键重置被他装坏的 App</h2>
+<p>第二个星期又出事了——儿子在钉钉直播间里装的那个"游戏助手"又偷偷跑起来了，而且这次它藏得更深，我找了半天才找到。老张说别急，OwnDroid 有个 <code>clearApplicationUserData()</code> API，可以<strong>不进应用、不弹确认、直接清空任何应用的所有数据</strong>。</p>
+<p>我试了一下：找到那个"游戏助手"，点"清除存储"按钮，两秒钟后它就回到了刚安装完的初始状态——所有数据被清空，后台进程被杀干净。更狠的是，这个操作<strong>只有 Device Owner 能做</strong>，App 自己完全无法阻止。我把这个功能用到了极致：每天晚上写作业时间结束后，我会远程一键清除钉钉之外所有社交和娱乐 App 的存储，第二天早上儿子拿到手机时，钉钉还在，但游戏、社交都得重新登录——足够劝退大半。</p>
+<h2>OwnDroid 自己也隐藏了</h2>
+<p>我发现 OwnDroid 图标的存在本身就是个问题——儿子时不时就会点开看看，虽然他改不了什么（Device Owner 的管控没有二次确认是关不掉的），但总觉得别扭。后来去<a href="https://owndroid-docs.pages.dev/" target="_blank" rel="noopener">OwnDroid文档</a>翻了一下，v8.3 之后新增了一个功能：OwnDroid 可以把自己从启动器隐藏。</p>
+<p>隐藏之后启动器上真的找不到它了——没有图标，搜也搜不到。但怎么恢复呢？我提前设好了 API Key，用 adb 发一个广播命令就能把图标找回来；或者系统设置里强制停止 OwnDroid 再重开，它自己就会恢复。老张说还有个更简单的办法：在 OwnDroid 激活之前先备份 API Key，隐藏了之后真忘了也不怕，发个广播就搞定。</p>
+<h2>配置导出：一台配好，全家都能用</h2>
+<p>八月底我表弟来找我，说他也想把旧手机改成学习机。我本来准备教他从头走一遍 OwnDroid 的设置流程，老张说用托管配置导出就行——v7.3 之后 OwnDroid 支持把所有配置导出成 JSON 文件。</p>
+<p>我打开 OwnDroid 的"设置 → 托管配置 → 导出"，几秒钟生成了一个 JSON，里面包含了应用分组、USB 禁用、全局静音时间表、所有 App 的阻止卸载状态、甚至 OwnDroid 自己的 API Key（导出时可以选要不要包含密钥）。表弟在自己的手机上激活 Device Owner 后，导入这个 JSON，所有配置<strong>立即生效</strong>——他的手机瞬间变成了和我这台一模一样的"学习机"。</p>
+<p>20 台 kiosk 设备批量部署就是这个思路：一台手动配好，导出 JSON，其他 19 台导入，十几分钟搞定。我现在的做法是每月导出一次当备份，万一 OwnDroid 升级或者换手机，导入就能恢复所有设置。</p>
+<h2>收尾：一台被托管的设备意味着什么</h2>
+<p>暑假结束，儿子开学了。这两个月那台小米 9 没出任何岔子——没有乱七八糟的 APK，没有管控 App 被卸载，没有上课突然响。我之前想的最多的是"怎么防着他"，现在想的更多的是"OwnDroid 到底给了我什么"。</p>
+<p>它给的不是"管孩子"的权力，而是一种"这台设备我有绝对控制权"的安全感。USB 禁用防止数据泄露，阻止卸载防止被绕过，全局静音防止干扰，托管配置让批量管理变得简单——这些都是 Device Owner 权限才能做到的事，普通家长控制 App 再怎么刷广告、再怎么吹"专业"，拿到的权限级别就不对。</p>
+<p>老张说企业客户用 OwnDroid 更多是 kiosk 和设备管理，而我这种场景算是家庭版用法。其实核心逻辑是一样的：当你需要一台设备"老老实实干一件事、别乱跑、别被人搞破坏"的时候，Device Owner 就是最靠谱的路，而 OwnDroid 是把这条路铺得最平坦的那一个。</p>
+<p>我让表弟把那台 JSON 备份也发了份给我，存在网盘里。说不定哪天这台小米 9 也老了，换一台新的，OwnDroid 导入一下就能继续用——这可能是我今年花最值的时间了。手头整理的 OwnDroid 资料和配置模板顺手备份在了<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/OwnDroid" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/OwnDroid" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/OwnDroid" target="_blank" rel="noopener">GitCode</a>三个仓库上，国内外源都能访问，免得哪天临时找不着。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/mifun-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">MiFun 用了大半年，说说那些当初没料到的事</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/chatplusai.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">ChatPlusAI 真不是开个自动回复就行——五个让我踩了一周的坑</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Tyranor 深度盘点：网页系 Galgame 引擎的全能安卓模拟器 · 老郭软件铺</title>
+  
+<meta name="description" content="Tyranor 能在一台安卓手机上同时跑 Tyrano、RPG Maker MV/MZ、VN Maker、Artemis 以及 KRKR 引擎的作品。这篇盘点从引擎兼容、游戏入库、存档管理到更新维护，逐项拆解它的能力边界与使用场景。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/tyranor-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tyranor 深度盘点：网页系 Galgame 引擎的全能安卓模拟器">
+<meta property="og:description" content="Tyranor 能在一台安卓手机上同时跑 Tyrano、RPG Maker MV/MZ、VN Maker、Artemis 以及 KRKR 引擎的作品。这篇盘点从引擎兼容、游戏入库、存档管理到更新维护，逐项拆解它的能力边界与使用场景。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/tyranor-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/tyranor-docs/home-recent-simple.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/tyranor-docs/home-recent-simple.png">
+
+<meta name="twitter:title" content="Tyranor 深度盘点：网页系 Galgame 引擎的全能安卓模拟器">
+<meta name="twitter:description" content="Tyranor 能在一台安卓手机上同时跑 Tyrano、RPG Maker MV/MZ、VN Maker、Artemis 以及 KRKR 引擎的作品。这篇盘点从引擎兼容、游戏入库、存档管理到更新维护，逐项拆解它的能力边界与使用场景。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Tyranor \u80fd\u5728\u4e00\u53f0\u5b89\u5353\u624b\u673a\u4e0a\u540c\u65f6\u8dd1 Tyrano\u3001RPG Maker MV/MZ\u3001VN Maker\u3001Artemis \u4ee5\u53ca KRKR \u5f15\u64ce\u7684\u4f5c\u54c1\u3002\u8fd9\u7bc7\u76d8\u70b9\u4ece\u5f15\u64ce\u517c\u5bb9\u3001\u6e38\u620f\u5165\u5e93\u3001\u5b58\u6863\u7ba1\u7406\u5230\u66f4\u65b0\u7ef4\u62a4\uff0c\u9010\u9879\u62c6\u89e3\u5b83\u7684\u80fd\u529b\u8fb9\u754c\u4e0e\u4f7f\u7528\u573a\u666f\u3002", "headline": "Tyranor \u6df1\u5ea6\u76d8\u70b9\uff1a\u7f51\u9875\u7cfb Galgame \u5f15\u64ce\u7684\u5168\u80fd\u5b89\u5353\u6a21\u62df\u5668", "image": ["https://laoguosofts.github.io/images/tyranor-docs/home-recent-simple.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/tyranor-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/tyranor-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Tyranor \u6df1\u5ea6\u76d8\u70b9\uff1a\u7f51\u9875\u7cfb Galgame \u5f15\u64ce\u7684\u5168\u80fd\u5b89\u5353\u6a21\u62df\u5668", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Tyranor 深度盘点：网页系 Galgame 引擎的全能安卓模拟器</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Tyranor 深度盘点：网页系 Galgame 引擎的全能安卓模拟器</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Tyranor 能在一台安卓手机上同时跑 Tyrano、RPG Maker MV/MZ、VN Maker、Artemis 以及 KRKR 引擎的作品。这篇盘点从引擎兼容、游戏入库、存档管理到更新维护，逐项拆解它的能力边界与使用场景。</p>
+  </header>
+  <div class="prose serif">
+<p>如果你玩 Galgame 这类视觉小说，PC 上那堆 TyranoScript、RPG Maker MV、KRKR 引擎的作品总有几部想搬去手机。<a href="https://tyranor.boop.uno" target="_blank" rel="noopener">tyranor官网</a> 就是冲着这个需求来的——一款把网页技术引擎和吉里吉里系引擎统一收编的安卓模拟器。别的模拟器要么只认网页系，要么只管 KRKR，Tyranor 偏要两头通吃。这篇文章把它的能力面完整铺开，让你判断这是不是你手机上该装的那一个。</p>
+<p><img src="../images/tyranor-docs/home-recent-simple.png" alt="Tyranor 主界面近期游戏页" loading="lazy"></p>
+<h2>引擎兼容面：网页系 + KRKR 双通吃</h2>
+<p>Tyranor 最强的一点，是一台手机上同时跑两套引擎。网页系这边，TyranoScript 本身就是它的主场，RPG Maker MV/MZ、VN Maker、Artemis 这些走 WebView 的引擎作品也都能直接识别运行。KRKR 那边，它内置了 KR2 通道，专门处理 .xp3 数据包型的游戏——也就是以前 Kirikiroid2 覆盖的那一大片作品。</p>
+<p>这种双引擎设计的好处很实际：你不用在手机上同时装三四个模拟器，也不用纠结某部作品到底归哪个引擎管。拿到游戏文件夹，Tyranor 自动识别形态——根目录是 index.html 就走网页通道，是 .xp3 数据包就走 KR2 通道，不用用户手动切换。从兼容广度看，Tyranor 基本覆盖了 Galgame 圈使用率最高的两大阵营。</p>
+<p><img src="../images/tyranor-docs/guide-step3-add-page.png" alt="添加游戏页的扫描入口" loading="lazy"></p>
+<h2>游戏入库：七步流程与零步自动化</h2>
+<p>把游戏从电脑搬进手机只是第一步，真正的门槛是「怎么让模拟器认出来」。先从<a href="https://tyranor.boop.uno/download.html" target="_blank" rel="noopener">下载</a>拿到安装包装好应用，Tyranor 给了一条清晰的七步流程：打开应用 → 进「添加」标签 → 点扫描按钮 → 选路径 → 在文件浏览器里定位到游戏文件夹 → 确认勾号 → 启动游戏。每一步界面上都有明确的入口，文件浏览器选层错了也会提示重选。</p>
+<p>但七步只是手动场景。更实用的是启动时自动扫描——配置好游戏根目录后，每次打开应用都会自动扫一遍新文件，新加的游戏直接出现在列表里，连七步都省了。这对一次性搬几十部游戏的场景特别省心，不用挨个手动添加。</p>
+<h2>存档管理：从路径透明到换机迁移</h2>
+<p>存档是 Galgame 玩家最在意的东西。Tyranor 的存档目录设计比较透明——默认放在手机存储的 Tyranor/savedata 下，按游戏分目录存放，就是普通文件。这个设计让备份和迁移变得非常直接：整个文件夹复制出来就行，不用等应用导出或云端同步。</p>
+<p>备份成本低到没理由省略——升级应用前两分钟复制一下 savedata，覆盖安装本身不动存档，但万一你想回退旧版本，先有备份才安全。换机迁移也是同理：旧手机复制出来，新手机装完应用放回原位，进游戏读档验证就行。KR2 通道的存档因为安卓存储权限的变化，从 v2.3.4 起加了专门的导出到 Android/data 的通道，老用户从 Kirikiroid2 迁过来的进度也能直接走文件复制。</p>
+<h2>更新维护：应用版本与游戏版本的双重节奏</h2>
+<p>模拟器类应用更新频繁，但不是每次都值得立刻升级。Tyranor 在「其他」页有内置的检查更新入口，显示当前版本号并查询新版本。升级前花两分钟备份存档是纪律，升级后要确认三件事：游戏列表还在不在（v2.3.4 起列表有缓存不会被重启清掉）、存储权限有没有被系统回收、KR2 游戏能不能正常启动（旧版在非中文系统下有闪退问题，升级正是为修这个）。</p>
+<p>游戏文件本身的版本管理也值得留意——汉化补丁、更新版游戏文件换上去之后，如果存档读不出来，多半是存档和当前游戏版本不匹配，这时候回退游戏文件版本而不是删存档。旧版本回退的代价是卸载会清掉应用私有数据，所以还是那句话：先备份再动手。升级前后的细节在<a href="https://tyranor-docs.pages.dev/" target="_blank" rel="noopener">tyranor文档</a>里也有专门的更新说明页可以对照查阅。</p>
+<h2>短板也要说</h2>
+<p>盘点不能只说优点。Tyranor 的局限有几个：一是它不认 exe 本体型的 PC 原生游戏（比如部分 Unity 作品和专有引擎作品），这种文件夹放进去扫不出来；二是 KR2 通道的部分游戏需要先解包 .xp3 才能识别，不是所有吉里吉里系作品都能直接跑；三是安卓存储权限的收紧偶尔会导致存档目录被回收，需要手动重新授权。</p>
+<p>还有一个隐性门槛：Tyranor 的识别逻辑对游戏文件夹的内部结构敏感。随意重命名文件、挪动资源目录、删「看不懂」的文件，是识别失败和运行异常的主要人为原因。解压时出现同名嵌套文件夹也要手动提一层。这些都不是 Tyranor 的 bug，但需要用户养成不改动游戏内部结构的习惯。</p>
+<h2>什么样的人该用它</h2>
+<p>三类玩家会从 Tyranor 身上得到最大价值。第一类是已经在电脑上积累了一批网页系引擎 Galgame、想搬去手机通勤玩的人——不用换引擎找对应模拟器，一个应用全收编。第二类是从 Kirikiroid2 过渡过来、手里有 KRKR 系作品进度的老玩家——文件复制就能迁存档，不用重新打。第三类是喜欢刷不同作品、游戏换得快的玩家——启动自动扫描省去了每加一部手动配置的麻烦。</p>
+<p>如果你手机上至今还没装任何 Galgame 模拟器，Tyranor 是性价比很高的起点；如果已经在用其他模拟器，但嫌切换麻烦，值得试试它能不能把你手上的作品都接过来。</p>
+<p>文档和安装包的维护同步放在了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/tyranor" target="_blank" rel="noopener">GitHub</a>，国内访问慢的话可以转去<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/tyranor" target="_blank" rel="noopener">Gitee</a>或<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/tyranor" target="_blank" rel="noopener">GitCode</a>。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/appshare-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">AppShare 里藏着你不知道的五个黑科技</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/3dmark-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">3DMark 为什么能当显卡跑分的&#34;宪法&#34;——从固定场景到合成负载的设计哲学</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

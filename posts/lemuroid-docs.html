@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Lemuroid 这几个坑我踩过，你别再走弯路 · 老郭软件铺</title>
+  
+<meta name="description" content="从画面拉伸到 BIOS 配置，从手柄配对手序到存档丢失——Lemuroid 看着简单，但新手第一次上手总会撞上几个暗坑，这里把我踩过的五个坑全摊开说清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/lemuroid-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lemuroid 这几个坑我踩过，你别再走弯路">
+<meta property="og:description" content="从画面拉伸到 BIOS 配置，从手柄配对手序到存档丢失——Lemuroid 看着简单，但新手第一次上手总会撞上几个暗坑，这里把我踩过的五个坑全摊开说清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/lemuroid-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/lemuroid-docs/library-view.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/lemuroid-docs/library-view.webp">
+
+<meta name="twitter:title" content="Lemuroid 这几个坑我踩过，你别再走弯路">
+<meta name="twitter:description" content="从画面拉伸到 BIOS 配置，从手柄配对手序到存档丢失——Lemuroid 看着简单，但新手第一次上手总会撞上几个暗坑，这里把我踩过的五个坑全摊开说清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u753b\u9762\u62c9\u4f38\u5230 BIOS \u914d\u7f6e\uff0c\u4ece\u624b\u67c4\u914d\u5bf9\u624b\u5e8f\u5230\u5b58\u6863\u4e22\u5931\u2014\u2014Lemuroid \u770b\u7740\u7b80\u5355\uff0c\u4f46\u65b0\u624b\u7b2c\u4e00\u6b21\u4e0a\u624b\u603b\u4f1a\u649e\u4e0a\u51e0\u4e2a\u6697\u5751\uff0c\u8fd9\u91cc\u628a\u6211\u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\u5168\u644a\u5f00\u8bf4\u6e05\u695a\u3002", "headline": "Lemuroid \u8fd9\u51e0\u4e2a\u5751\u6211\u8e29\u8fc7\uff0c\u4f60\u522b\u518d\u8d70\u5f2f\u8def", "image": ["https://laoguosofts.github.io/images/lemuroid-docs/library-view.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/lemuroid-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/lemuroid-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "Lemuroid \u8fd9\u51e0\u4e2a\u5751\u6211\u8e29\u8fc7\uff0c\u4f60\u522b\u518d\u8d70\u5f2f\u8def", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">Lemuroid 这几个坑我踩过，你别再走弯路</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">Lemuroid 这几个坑我踩过，你别再走弯路</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从画面拉伸到 BIOS 配置，从手柄配对手序到存档丢失——Lemuroid 看着简单，但新手第一次上手总会撞上几个暗坑，这里把我踩过的五个坑全摊开说清楚。</p>
+  </header>
+  <div class="prose serif">
+<p>半年前第一次从<a href="https://lemuroid.djnf.quest/download.html" target="_blank" rel="noopener">下载</a>页拿到 Lemuroid 安装包的时候，我以为就是个点开就能玩的模拟器。它的<a href="https://lemuroid.djnf.quest" target="_blank" rel="noopener">官网</a>界面干净，ROM 一丢进去系统就自动识别了，看着特别省心。结果真跑起来才发现——<strong>这玩意儿的坑全在默认设置没覆盖到的角落里</strong>，都是那种"不撞一下就不知道会炸，但撞一次下次就懂了"的类型。</p>
+<p>写这篇就是把我踩过的五个坑全摊开说清楚，一个一个来。</p>
+<p><img src="../images/lemuroid-docs/library-view.webp" alt="Lemuroid 库界面" loading="lazy"></p>
+<h2>坑一：画面拉满以为更爽，结果游戏变形了</h2>
+<p><strong>症状</strong>：把 GBA 横过来玩《火焰纹章》，画面填满了整个 16:9 的手机屏，看起来特别开阔——但玩起来总觉得弓箭手射出去的箭轨道不对，跳跃高度也别扭，圆变得不圆，方变得不方。</p>
+<p><strong>原因</strong>：老游戏机的原始纵横比跟现代手机根本不一样。GBA 是 3:2，NES 是 4:3，PSP 倒是 16:9 但那是横掌机。直接"全屏拉伸"等于强制把画面撑进不匹配的框里，像素几何直接被破坏。我后来才明白：<strong>变形的画面会让碰撞检测的直觉判断出错</strong>，玩格斗和平台跳跃特别明显。</p>
+<p><strong>解法</strong>：进设置 → 显示 → 画面适配，选"保持原始纵横比"。多出的黑边忍一忍，换回来的是完全正确的比例。平板或者 Android TV 上可以选"整数倍缩放"，像素不糊、黑边也比保持比例少一点，追求画质的话这个最舒服。</p>
+<h2>坑二：PSX 游戏点了没反应，原来缺了 BIOS</h2>
+<p><strong>症状</strong>：下载了《最终幻想 VII》的 ROM，双击启动——黑屏两秒直接闪退，没有任何错误提示。我以为是 ROM 坏了，换了三个版本还是一样。</p>
+<p><strong>原因</strong>：PlayStation 的模拟器<strong>必须要 BIOS 文件</strong>才能跑。不像 NES 或 GBA 模拟器可以完全软件模拟开机流程，PSX 的 BIOS 承担了开机画面、光驱驱动、内存卡接口和控制器处理这些核心功能，没有替代实现。Lemuroid 支持自动扫描 BIOS，但前提是你得放对位置、起对名字。</p>
+<p><strong>解法</strong>：BIOS 不用多准备，<strong>SCPH1001.bin 一个就够用</strong>——美区 BIOS，绝大多数 PSX 游戏兼容性最好。放到游戏目录的 BIOS/ 子文件夹里，文件名小写 scph1001.bin，设置里点一下"选择 BIOS 目录"指定到那个文件夹就行。验证方法很简单：启动游戏前如果能看到 PlayStation Logo 的开机画面，BIOS 就对了；直接闪退或颜色声音异常，那就是 BIOS 没配对。</p>
+<h2>坑三：两个手柄连上只能一个能用，配对顺序有讲究</h2>
+<p><strong>症状</strong>：周末跟朋友约好双打《魂斗罗》，两个蓝牙手柄依次跟手机配对了，进游戏之后 Port 1 的手柄正常，但 Port 2 完全没反应。我反复进控制器设置、改 Port 分配，折腾了快一个小时。</p>
+<p><strong>原因</strong>：问题出在<strong>配对顺序</strong>。两个手柄同时打开蓝牙配对很容易让 Android 的蓝牙服务混乱——它可能只注册了一个物理设备，或者把两个手柄都塞进了同一个 Port。另外，Lemuroid 默认把手柄按配对先后分给 Port 1、Port 2，如果配对时手机系统那边还没完全连上就去开模拟器，Port 分配可能会错乱。</p>
+<p><strong>解法</strong>：一个一个来。先把手柄 A 配对好、确认"已连接"，再关手柄 A，开手柄 B 配对好，最后两个都开着进模拟器。进控制器设置手动核对一下每个 Port 分到了哪个物理手柄——手柄 1 → Port 1，手柄 2 → Port 2，保存。蓝牙延迟的问题离手机近一点配对、远离 WiFi 干扰就能缓解，玩格斗游戏追求零延迟可以走 USB OTG 有线接。</p>
+<h2>坑四：PSP 游戏卡得像 PPT，原来手机扛不住</h2>
+<p><strong>症状</strong>：看到 Lemuroid 说支持 23 种系统，兴冲冲把《战神：奥林匹斯之链》塞进了游戏库。点开能识别、能进，但帧率稳定在 20 fps 左右，打斗场景直接掉到个位数，完全玩不了。</p>
+<p><strong>原因</strong>：支持不等于流畅。后来去<a href="https://lemuroid-docs.pages.dev/" target="_blank" rel="noopener">Lemuroid文档</a>翻了一下才搞清楚——PSP、NDS、3DS、N64 这些后期平台对 Android 硬件要求高，<strong>骁龙 8 系或天玑 9000 级别才能稳</strong>，入门机型能识别但帧率就是上不去。我那台骁龙 7 系的老手机跑 NES 和 GBA 毫无压力，一到 PSP 就暴露短板了。</p>
+<p><strong>解法</strong>：要么换旗舰机型跑 PSP/3DS，要么就老老实实玩前面几代——NES、SNES、GBA、MD 这些 8 位和 16 位系统对硬件没要求，骁龙 6 系都能满帧跑，ROM 资源反而更丰富。想玩 PSP 但手机不够强的话，别硬撑，先玩 GBA 版的替代作品，或者等新手机换上来再说。</p>
+<h2>坑五：存档找不到了？PSX 用的是虚拟内存卡</h2>
+<p><strong>症状</strong>：玩《超级马里奥 64》存个档，退出再打开存档还在，一切正常。但换玩《最终幻想 VII》，存完档退出去，下次打开发现存档没了——我以为是存档文件被清理器删了，还差点给手机装的清理软件差评。</p>
+<p><strong>原因</strong>：N64、GBA 这些系统的存档是独立的 <code>.sav</code> 文件，直接存在游戏同目录或者模拟器的存档目录里。但 PSX 不一样——它用的是<strong>虚拟内存卡机制</strong>，存档统一存在一个 <code>psx-memcard.mcr</code> 文件里，不是每个游戏一个 <code>.sav</code>。而且这个内存卡文件默认存在 Lemuroid 的内部存储目录，清理软件扫的时候可能会当成缓存清掉。</p>
+<p><strong>解法</strong>：先确认你的游戏到底用哪种存档机制——N64/GBA 是 <code>.sav</code>，PSX 是 <code>.mcr</code> 内存卡。清理手机缓存的时候别把模拟器的数据目录勾上。如果真丢了也别慌，快速存档槽的 <code>.sts</code> 文件是独立存的，Lemuroid 支持在游戏里一键存读档，比原生存档可靠多了。</p>
+<p><img src="../images/lemuroid-docs/features-controls.webp" alt="手柄触摸控制" loading="lazy"></p>
+<h2>防坑清单</h2>
+<p>把这五个坑浓缩成几句话，下次装起来一眼扫过去就能避开：</p>
+<ul><li><strong>画面永远选保持原始纵横比</strong>，黑边不丢像素，拉伸丢几何</li><li><strong>PSX 必须 SCPH1001.bin</strong>，放 BIOS/ 文件夹，看到开机画面才算成</li><li><strong>多手柄配对一个一个来</strong>，不要同时开，进游戏先核对 Port 分配</li><li><strong>旗舰以下别碰 PSP/3DS</strong>，前几代 8 位 16 位无压力，后期平台硬件吃紧</li><li><strong>PSX 存档是内存卡不是 .sav</strong>，别让清理软件动模拟器数据目录</li></ul>
+<p>知道这些坑之后，Lemuroid 其实相当省心——该有的内核都给你配好了，ROM 往里面一丢自动识别，界面也干净没有花里胡哨的东西。模拟器这种东西，90% 的故障都是环境和理解层面的，内核本身反而很少出问题。</p>
+<p>这套资料的开源仓库在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Lemuroid" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Lemuroid" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Lemuroid" target="_blank" rel="noopener">GitCode</a>三处都有，GitHub 为主仓库，国内访问直接 Gitee 或 GitCode 更流畅，看你平时用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/autoclicker-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">自动连点工具我换了五款，最后留下了 Auto Clicker</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/glow-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Glow 付费账本：每月花一杯咖啡钱，能换回什么？</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

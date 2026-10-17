@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把几千个 DLSite 音声作品收进自家服务器，kikoeru 上手一周记 · 老郭软件铺</title>
+  
+<meta name="description" content="从 Docker 部署到标签筛选、跨设备进度同步，折腾一周后聊聊 kikoeru 到底值不值得搭——以及哪些坑我替你踩过了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kikoeru.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把几千个 DLSite 音声作品收进自家服务器，kikoeru 上手一周记">
+<meta property="og:description" content="从 Docker 部署到标签筛选、跨设备进度同步，折腾一周后聊聊 kikoeru 到底值不值得搭——以及哪些坑我替你踩过了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kikoeru.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="把几千个 DLSite 音声作品收进自家服务器，kikoeru 上手一周记">
+<meta name="twitter:description" content="从 Docker 部署到标签筛选、跨设备进度同步，折腾一周后聊聊 kikoeru 到底值不值得搭——以及哪些坑我替你踩过了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece Docker \u90e8\u7f72\u5230\u6807\u7b7e\u7b5b\u9009\u3001\u8de8\u8bbe\u5907\u8fdb\u5ea6\u540c\u6b65\uff0c\u6298\u817e\u4e00\u5468\u540e\u804a\u804a kikoeru \u5230\u5e95\u503c\u4e0d\u503c\u5f97\u642d\u2014\u2014\u4ee5\u53ca\u54ea\u4e9b\u5751\u6211\u66ff\u4f60\u8e29\u8fc7\u4e86\u3002", "headline": "\u628a\u51e0\u5343\u4e2a DLSite \u97f3\u58f0\u4f5c\u54c1\u6536\u8fdb\u81ea\u5bb6\u670d\u52a1\u5668\uff0ckikoeru \u4e0a\u624b\u4e00\u5468\u8bb0", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kikoeru.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kikoeru.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a\u51e0\u5343\u4e2a DLSite \u97f3\u58f0\u4f5c\u54c1\u6536\u8fdb\u81ea\u5bb6\u670d\u52a1\u5668\uff0ckikoeru \u4e0a\u624b\u4e00\u5468\u8bb0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">把几千个 DLSite 音声作品收进自家服务器，kikoeru 上手一周记</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">把几千个 DLSite 音声作品收进自家服务器，kikoeru 上手一周记</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 5 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从 Docker 部署到标签筛选、跨设备进度同步，折腾一周后聊聊 kikoeru 到底值不值得搭——以及哪些坑我替你踩过了。</p>
+  </header>
+  <div class="prose serif">
+<h2>为什么我会去装它</h2>
+<p>说出来有点不好意思——我在 DLSite 上零零散散收了快三年的音声和同人作品，硬盘里堆了好几个文件夹，每次想找一个"上次听到一半的那个耳语 ASMR"，要么翻目录翻到眼瞎，要么干脆忘了放哪了。</p>
+<p>某个失眠的凌晨刷到<a href="https://kikoeru.fewf.click" target="_blank" rel="noopener">kikoeru官网</a>，描述很诱人：自己搭个小服务器，扫描本地作品库，自动从 DLSite 抓元数据和封面，然后给你一个像流媒体平台那样的 Web 界面——能搜、能按标签筛、能记进度。</p>
+<p>我当时想，这不就是我需要的东西吗。</p>
+<h2>初印象：部署比想象中顺，但也没那么顺</h2>
+<p>说实话从<a href="https://kikoeru.fewf.click/download.html" target="_blank" rel="noopener">官方下载</a>拿到安装包、Docker 拉起容器那一下，我以为接下来就是一路顺滑了。<code>docker-compose up -d</code> 一行命令，服务就起来了，打开浏览器进入 Web 界面，那个终端绿配深色的界面看着挺清爽。</p>
+<p>但紧接着就遇到第一个坎——扫描。</p>
+<p>我把几个大文件夹挂进容器的 volumes 里，点了开始扫描。然后就是等。扫描器一边遍历文件、一边去 DLSite 抓元数据，中途我还在那紧张地盯着日志，怕被反爬封号。结果两个小时后，三千多个作品条目全出来了，大部分还带了封面——说实话我没想到能这么顺利。</p>
+<p>不过封面也不是全好的。扫完之后发现有些作品显示占位图，一开始以为是自己挂载路径搞错了，后来翻了<a href="https://kikoeru.pages.dev/" target="_blank" rel="noopener">kikoeru文档</a>里的排查 FAQ 才搞明白：有的作品在 DLSite 上本来就没上传封面，还有一部分是反爬导致封面下载阶段掉了。解决起来倒也简单，清掉 covers 目录里那几个坏掉的文件（0KB 或者特别小的），重跑一次扫描就补回来了。</p>
+<h2>标签系统是真的香</h2>
+<p>真正让我觉得"这东西搭得值"的是标签筛选。</p>
+<p>DLSite 本身的分类树就够细了，但 kikoeru 不止抓分类——内容属性、场景标签、视角、声音特征全给你拉下来了。你可以从一个喜欢的作品点进去，顺着它的标签往下挖：比如我从一个"耳语 + 图书馆 + 女性向"的作品出发，一路点标签筛选，居然挖出了二十多个之前完全没注意到的同类作品。</p>
+<p>多标签组合取交集这个设计特别实用。想精确到"ASMR 类里带舔耳、场景是雨天、男性向"？一路点下来，结果集越来越小，直到只剩几张你真正想看的卡片。这个比我以前在资源管理器里手动建文件夹分类不知道高明到哪里去了。</p>
+<h2>进度追踪解决了一个老问题</h2>
+<p>以前我用本地播放器听音声，一个大合集经常有十几集，听到一半关了播放器，下次打开又得从头翻到上次听到的位置——尤其是合集里文件名还不带序号的时候，简直是噩梦。</p>
+<p>kikoeru 的进度追踪是按文件记录的，精确到秒。手机上锁屏的时候自动存一下，电脑上打开 Web 界面直接从那个时间点续播。我甚至在三台设备上试过同一份进度：手机听到 1 分 20 秒锁屏，iPad 打开同一个作品的同一个文件，直接从 1 分 20 秒开播。</p>
+<p>这个体验细节让我对它的好感度又上升了一截。</p>
+<h2>Android 端选哪个，我折腾了三天</h2>
+<p>kikoeru 没有官方 Android 原生客户端，我一开始用 Chrome 打开服务器地址然后"添加到主屏幕"做了个 Web PWA。能用是能用，但后台播放偶尔会被系统杀掉，也没有真正的离线缓存。</p>
+<p>后来听说社区有个叫 KikoFlu 的第三方客户端，装了试试。功能比 PWA 多太多了——悬浮窗控制条、完整的音频下载离线播放、多账户切换（我有两个服务器）、甚至连 UI 配色都能改。缺点是这是第三方项目，分发渠道不是 Play Store，得去作者的发布页手动下 APK。我在可信来源下的，用了一周没遇到什么问题。</p>
+<h2>适合谁，不适合谁</h2>
+<p>如果你的硬盘里也堆了一堆 DLSite 音声/同人作品想整理，或者你本来就喜欢折腾点自托管的小服务——搭一个 kikoeru 绝对不亏。Docker 部署半小时搞定，后续基本不用维护，扫描器会自动发现你新加的文件。</p>
+<p>但如果你只有几十个作品、或者不想折腾服务器和 Docker 这些东西，那花这个时间就有点不值了——简单建几个文件夹都够用。还有就是它的封面依赖 DLSite 反爬状态，偶尔反爬严格的时候封面下载会掉，需要手动清缓存重扫，这个要有心理准备。</p>
+<h2>收尾</h2>
+<p>总体来说，折腾这一周的时间是值得的。以前翻目录找作品的苦日子算是到头了，标签筛选和跨设备进度同步这两个功能，已经足够让它在我的自托管工具箱里占一个常驻位置。</p>
+<p>想试试的话，照着前面说的方式拿安装包、拉容器基本不会出大问题。文档写得挺细的，部署、扫描、多端客户端选型都有覆盖。这套资料维护得还算勤快，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/kikoeru" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/kikoeru" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/kikoeru" target="_blank" rel="noopener">GitCode</a> 都能找到最新版。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/pikpak-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从P2P到云中转，PikPak是这个赛道里最值得单独聊的一家</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/palipali-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Palipali 用了大半年：双板块是真香，但缓存管理的烦恼没停过</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了 Castro 三年，这五个坑我都踩过 · 老郭软件铺</title>
+  
+<meta name="description" content="Castro 看着就是个读硬件信息的工具，可真用起来没那么省心。功率读数飘了、Widevine 等级不对、通知栏图标没了，这些地方一不留神就翻车，我整理了踩坑实录和排查思路。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/castro-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了 Castro 三年，这五个坑我都踩过">
+<meta property="og:description" content="Castro 看着就是个读硬件信息的工具，可真用起来没那么省心。功率读数飘了、Widevine 等级不对、通知栏图标没了，这些地方一不留神就翻车，我整理了踩坑实录和排查思路。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/castro-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/castro-docs/dashboard-main.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/castro-docs/dashboard-main.png">
+
+<meta name="twitter:title" content="用了 Castro 三年，这五个坑我都踩过">
+<meta name="twitter:description" content="Castro 看着就是个读硬件信息的工具，可真用起来没那么省心。功率读数飘了、Widevine 等级不对、通知栏图标没了，这些地方一不留神就翻车，我整理了踩坑实录和排查思路。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Castro \u770b\u7740\u5c31\u662f\u4e2a\u8bfb\u786c\u4ef6\u4fe1\u606f\u7684\u5de5\u5177\uff0c\u53ef\u771f\u7528\u8d77\u6765\u6ca1\u90a3\u4e48\u7701\u5fc3\u3002\u529f\u7387\u8bfb\u6570\u98d8\u4e86\u3001Widevine \u7b49\u7ea7\u4e0d\u5bf9\u3001\u901a\u77e5\u680f\u56fe\u6807\u6ca1\u4e86\uff0c\u8fd9\u4e9b\u5730\u65b9\u4e00\u4e0d\u7559\u795e\u5c31\u7ffb\u8f66\uff0c\u6211\u6574\u7406\u4e86\u8e29\u5751\u5b9e\u5f55\u548c\u6392\u67e5\u601d\u8def\u3002", "headline": "\u7528\u4e86 Castro \u4e09\u5e74\uff0c\u8fd9\u4e94\u4e2a\u5751\u6211\u90fd\u8e29\u8fc7", "image": ["https://laoguosofts.github.io/images/castro-docs/dashboard-main.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/castro-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/castro-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86 Castro \u4e09\u5e74\uff0c\u8fd9\u4e94\u4e2a\u5751\u6211\u90fd\u8e29\u8fc7", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">用了 Castro 三年，这五个坑我都踩过</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">用了 Castro 三年，这五个坑我都踩过</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Castro 看着就是个读硬件信息的工具，可真用起来没那么省心。功率读数飘了、Widevine 等级不对、通知栏图标没了，这些地方一不留神就翻车，我整理了踩坑实录和排查思路。</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次接触 <a href="https://castro.uerg.quest" target="_blank" rel="noopener">Castro官网</a> 是五年前换安卓机的时候——那会儿想看看新机器的 CPU 到底跑啥频率、电池容量有没有虚标，就随手装了。结果一用就停不下来，仪表盘读数、传感器曲线、网络流量全在一块，比系统自带的信息页清楚多了。</p>
+<p>但"好用"和"没坑"是两回事。这三年里我在 Castro 上踩的坑加起来能凑一桌，有的差点以为手机坏了要返厂，有的差点让我验机时看走眼。下面说的都是我自己实打实拍过的雷，不是编的 FAQ。</p>
+<h2>坑一：亮屏功率飘到 800mW，以为电池废了</h2>
+<p><strong>症状</strong>：某天下午在地铁上刷微博，手突然觉得烫——掏出来一看 Castro 仪表盘，亮屏状态下电池功率稳定在 750~820 mW 之间。正常亮屏浏览应该是 150~400 mW 才对，翻了快一倍。我当时第一反应是电池老化了，得去换，甚至已经在网上搜"Castro 电池校正方法"。</p>
+<p><img src="../images/castro-docs/dashboard-main.png" alt="仪表盘电池读数异常偏高时，先排查后台进程而非直接认定电池故障" loading="lazy"></p>
+<p><strong>原因</strong>：回到 CPU 卡片一看，有两个核心使用率一直在 60% 以上。顺着去 Android 设置里看电池用量，发现一个我早就卸载了的清理软件居然还留了个后台服务在跑，每隔几秒就唤醒一次做"假清理"。之前装 Castro 之前没发现过——系统自带的电池用量只给百分比排名，根本看不出哪个进程在持续偷电。</p>
+<p><strong>解法</strong>：长按通知栏的 Castro 图标 → 进应用信息 → 强行停止那个清理软件的残留进程 → 禁用其自启动。再开 Castro 一看，功率掉回 280 mW 左右。这事给我长了个记性：亮屏功率长时间超过 500 mW，先查 CPU 卡片，再去系统电池用量里找元凶，别上来就怀疑硬件。</p>
+<h2>坑二：二手旗舰验机差点栽在 Widevine L3 上</h2>
+<p><strong>症状</strong>：去年帮朋友看一台二手 Pixel，卖家说是 L1 能看 Netflix 4K。我用 Castro 进信息页 → DRM 模块一看，Widevine 明确显示 Security Level <strong>L3</strong>。L3 只能看 720p/1080p，跟卖家说的完全对不上。</p>
+<p><strong>原因</strong>：<a href="https://castro-docs.pages.dev/" target="_blank" rel="noopener">Castro文档</a>里写得很清楚——Widevine L1 依赖硬件 TEE（可信执行环境）和 Google 认证，刷机或 Root 之后系统会强制降为 L3，不管硬件本身支不支持。这台 Pixel 明显刷过非官方 ROM，卖家把"硬件支持 L1"和"当前系统运行 L1"混着说，想蒙混过关。</p>
+<p><strong>解法</strong>：当场把 Castro 的 DRM 截图甩给卖家，他只好承认刷过 LineageOS。后来朋友换了一台同型号但显示 L1 的，开 Netflix 4K 正常。这事之后我验安卓机的标准流程里就多了一条：开 Castro 查 DRM 模块，Widevine 等级跟机型参数表对不上的，直接 pass——别信卖家说什么"系统识别 bug"，Castro 读的是系统真实上报的值，不骗人。</p>
+<p><img src="../images/castro-docs/cpu-detail.png" alt="DRM 模块直接读系统上报的 Widevine 等级，验机时比卖家说的靠谱" loading="lazy"></p>
+<h2>坑三：通知栏网速图标开了但就是不显示</h2>
+<p><strong>症状</strong>：从<a href="https://castro.uerg.quest/download.html" target="_blank" rel="noopener">下载</a>拿到 4.9 版 Premium 之后，我兴冲冲去设置里开了网络流量监控服务，授权通知权限也点了，结果状态栏啥也没出现——连个小箭头都没有。我以为是 Premium 没激活，又重新登录了一遍订阅，还是没用。</p>
+<p><strong>原因</strong>：折腾了快半小时才发现，是我用的那个第三方 ROM（就不点名了）把通知栏的"小图标"开关给合并掉了。原生 Android 14+ 允许通知服务在状态栏显示图标，某些厂商 ROM 为了让状态栏更干净，默认把第三方应用的通知图标给屏蔽了。</p>
+<p><strong>解法</strong>：进系统设置 → 应用和通知 → Castro Premium → 通知 → 打开"在状态栏显示图标"选项。不是每个 ROM 都有这个开关，但大多数能找到类似的设置入口。还有一点提醒：如果你同时开了电池指示器和网络流量监控，4.9 版会自动把两个通知合并分组，不会占两行——之前有人在论坛上说"开了两个服务只显示一个"，其实是合并了，不是没生效。</p>
+<h2>坑四：换了壁纸，Castro 的颜色没跟着变</h2>
+<p><strong>症状</strong>：Android 13 换了一张蓝色的星空壁纸，系统设置里 Material You 动态色也开了，结果 Castro 顶部栏还是老样子的绿色强调色。我以为是 Castro 还没适配，还去应用商店留了差评。</p>
+<p><strong>原因</strong>：Material You 是操作系统级别的功能，不是应用自己实现的。Castro Premium 确实适配了，但适配的前提是系统本身正确传递了动态色参数。我当时的情况是：系统壁纸应用里有个"覆盖动态色"的开关没关——那玩意儿会强制所有应用用壁纸取色的最深一档，导致 Castro 拿到的强调色偏暗，看起来跟没变色一样。</p>
+<p><strong>解法</strong>：进壁纸应用设置，把"覆盖动态色"关掉。Castro 重开之后顶部栏立刻变成了壁纸里的深蓝色。另外要注意，Android 11 及以下版本根本不支持 Material You，别白开开关——直接用预设主题里的 Deep Ocean 或 Sunset 就行，配色质感也不差。</p>
+<h2>坑五：充电速率读数在最后 10% 突降，以为线坏了</h2>
+<p><strong>症状</strong>：某天用 65W 快充给手机充电，从 80% 开始速率一直稳定在 550~600 mWh/min，到 92% 左右突然掉到 180 mWh/min。我换了一根数据线试，还是一样，一度以为快充头坏了。</p>
+<p><strong>原因</strong>：手机电池的三段式充电策略——恒流阶段速率最高（0~80%），恒压阶段逐渐降低（80~95%），涓流阶段速率最低（95%+）。Castro 的充电速率读数是实时采集的，所以到最后 10% 掉速是完全正常的，不是硬件问题。</p>
+<p><strong>解法</strong>：换个角度想——涓流阶段反而是电池最友好的阶段，充电太快才会加速老化。不用管最后那点时间，该拔就拔。</p>
+<h2>防坑清单</h2>
+<ul><li>亮屏功率长时间超 500 mW，先查 CPU 卡片和系统电池用量，别直接认定硬件坏了</li><li>验安卓机必开 Castro 查 DRM 模块的 Widevine 等级，等级不符直接 pass</li><li>通知栏网速图标不显示，先去系统设置检查通知权限和图标开关</li><li>Material You 变色失效，检查壁纸应用有没有"覆盖动态色"，Android 11 以下别折腾直接用预设主题</li><li>充电速率掉速到最后 10% 是正常的三段式充电策略，不用换线换头</li></ul>
+<p>说起来 Castro 本身没什么硬伤，这些坑大多是"系统行为 + 第三方 ROM + 自己想当然"凑出来的。这些排查思路的原文我也在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Castro" target="_blank" rel="noopener">GitHub</a>整理了一份，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Castro" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Castro" target="_blank" rel="noopener">GitCode</a>也各有镜像备份，知道这些之后，这软件其实相当省心——至少比看一堆模糊的系统自带信息舒服多了。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/we-learn.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">WE Learn 随行课堂快问快答：从激活到录音，八件事说清</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/melia-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Melia 用了半个月，踩过这三个坑你就省心了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法 · 老郭软件铺</title>
+  
+<meta name="description" content="PakePlus 不只是个网页套壳工具。窗口尺寸锁死、Token 分层存储、Win7 绿色版旁路、双打包路径混用，这些藏得真深的细节能省你不少麻烦。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pakeplus-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法">
+<meta property="og:description" content="PakePlus 不只是个网页套壳工具。窗口尺寸锁死、Token 分层存储、Win7 绿色版旁路、双打包路径混用，这些藏得真深的细节能省你不少麻烦。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pakeplus-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pakeplus-docs/project-config-page.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pakeplus-docs/project-config-page.webp">
+
+<meta name="twitter:title" content="把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法">
+<meta name="twitter:description" content="PakePlus 不只是个网页套壳工具。窗口尺寸锁死、Token 分层存储、Win7 绿色版旁路、双打包路径混用，这些藏得真深的细节能省你不少麻烦。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "PakePlus \u4e0d\u53ea\u662f\u4e2a\u7f51\u9875\u5957\u58f3\u5de5\u5177\u3002\u7a97\u53e3\u5c3a\u5bf8\u9501\u6b7b\u3001Token \u5206\u5c42\u5b58\u50a8\u3001Win7 \u7eff\u8272\u7248\u65c1\u8def\u3001\u53cc\u6253\u5305\u8def\u5f84\u6df7\u7528\uff0c\u8fd9\u4e9b\u85cf\u5f97\u771f\u6df1\u7684\u7ec6\u8282\u80fd\u7701\u4f60\u4e0d\u5c11\u9ebb\u70e6\u3002", "headline": "\u628a PakePlus \u7ffb\u4e86\u4e2a\u5e95\u671d\u5929\u2014\u2014\u516d\u4e2a\u4f60\u53ef\u80fd\u6ca1\u6ce8\u610f\u5230\u7684\u51b7\u95e8\u73a9\u6cd5", "image": ["https://laoguosofts.github.io/images/pakeplus-docs/project-config-page.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pakeplus-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pakeplus-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u628a PakePlus \u7ffb\u4e86\u4e2a\u5e95\u671d\u5929\u2014\u2014\u516d\u4e2a\u4f60\u53ef\u80fd\u6ca1\u6ce8\u610f\u5230\u7684\u51b7\u95e8\u73a9\u6cd5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">PakePlus 不只是个网页套壳工具。窗口尺寸锁死、Token 分层存储、Win7 绿色版旁路、双打包路径混用，这些藏得真深的细节能省你不少麻烦。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 <a href="https://www.usea.quest" target="_blank" rel="noopener">PakePlus官网</a> 就是个"网页转桌面 App"的壳工具？打开客户端、填个 URL、点发布，完事。我之前也是这么想的——直到最近把它翻了个底朝天，才发现它藏着不少官方文档没怎么宣传、但真能用上的东西。</p>
+<h2>窗口模式里的「隐形开关」</h2>
+<p>配置页面里的窗口模式，很多人看一眼就跳过了——默认选「桌面端」，窗口可以自由拖拽缩放，够用就行。但我要讲的不是五个预设模式本身，而是两个跟它绑定的、几乎没人注意到的细节。</p>
+<p>第一个是<strong>自定义模式的真正用途</strong>。<a href="https://pakeplus-docs.pages.dev/" target="_blank" rel="noopener">PakePlus文档</a>里写了可以手动填宽高，但没说什么时候该用。我做了个 480×320 的小工具，默认窗口模式选了桌面端，用户打开后窗口乱调，控件全挤在一起成一团。改成自定义锁死尺寸后，每次打开就是我想要的样子，用户还以为这是软件本来的设计。除了工具类应用，模拟 Apple Watch、折叠屏这类非预设尺寸的设备时，自定义模式也是唯一的路子——iPhone 和 Android 那两个预设是固定值，改不了。</p>
+<p><img src="../images/pakeplus-docs/project-config-page.webp" alt="配置页面里的窗口模式区域" loading="lazy"></p>
+<p>第二个是<strong>「窗口保持」这个小复选框的副作用</strong>。配置完点预览，调了一下窗口大小，发现下次打开配置页，预览窗口记住了我调过的尺寸。再看配置面板底部，有个不起眼的「窗口保持」勾选项——勾上之后，用户每次调整完窗口，下次启动就会用他上次调过的尺寸，直接覆盖掉你在配置里写的默认值。这对普通桌面应用是好事，但如果你做的是固定尺寸的工具，千万别勾——勾了就等于把尺寸控制权完全交给用户。</p>
+<p>顺带说个容易踩的坑：窗口模式只管桌面端 APP，跟移动端打包页面（右上角那个手机图标）完全是两套独立配置。很多人以为在配置页选了 iPhone 模式，云端打包出的移动端也会按这个尺寸渲染——不是的，移动端有自己单独的配置面板，包名、图标、渲染尺寸全在那边。两个页面的配置互不影响，别指望一个项目同时完美适配桌面和手机，分两次打包更稳。</p>
+<h2>Token 不是随便存的——它有分层</h2>
+<p>第一次用 PakePlus，让填 GitHub Token，存完就没多想了。后来在别人那台 Windows 机器上翻配置，发现 Token 不在配置文件里——去 Windows Credential Manager 里才找到。再去 Mac 上看，存进了系统钥匙串。原来 PakePlus 根据操作系统自动选存储后端：Windows 走 Credential Manager，macOS 走钥匙串，Linux 优先 Secret Service API（GNOME Keyring 或 KWallet），都不行才退回本地配置文件。</p>
+<p>这听起来是个技术实现细节，但对你来说有实际意义。比如公司里有人帮你代操作 PakePlus，你不想给他看 Token——退出登录就行，Token 从系统凭据里清掉，本地配置文件里也不留。反过来，如果你在自己电脑上想备份项目配置，放心去拷 <code>%APPDATA%/PakePlus/</code> 里的文件——Token 不在里面，拷走也泄露不了。</p>
+<p>还有一点值得注意：打包产物里<strong>完全不包含</strong>你的 GitHub Token。Token 只在 PakePlus 客户端里用，就是推送配置到 fork 仓库、触发 GitHub Actions 那几步。打包出来的 APP 里只有网站 dist 内容，不带任何凭据。所以把打包好的 EXE 发给别人用，完全不用担心你的 GitHub 权限被拿到。</p>
+<h2>绿色版的 Win7 旁路</h2>
+<p>绿色版 vs 安装版的对比文档大家大概扫过一眼——绿色版不写注册表、解压即用、删目录就卸载。但文档里有一句话我翻了三遍才注意到：<strong>绿色版直接运行，绕过安装器的所有版本检查</strong>。</p>
+<p>这句话单独看没什么，但放到 Win7 语境里就值钱了。安装版的 NSIS 安装程序在 Win7 上经常弹兼容性错误，装不上。绿色版不经过安装器那一套，双击 EXE 直接跑——前提是 Win7 机器上有 WebView2 Runtime（现在 Win10/11 自带，Win7 得手动装一下，PakePlus 会弹窗提示）。公司里还有老 Win7 机器的同事，试过这个旁路，能跑起来。</p>
+<p>不过绿色版的局限也别指望绕过——不能关联文件类型、没有开机自启动、不能自动更新，这些是分发形态本身的限制，跟 PakePlus 没关系。想要这些功能还是得上安装版，<a href="https://www.usea.quest/download.html" target="_blank" rel="noopener">下载</a>直接拿就行。</p>
+<h2>云端和本地可以混用，而且应该混用</h2>
+<p>我之前以为两条路径是二选一的——要么全用云端，要么全用本地。其实项目配置和 dist 文件是共享的，两条路径可以串起来用，效果比单走一条好太多。</p>
+<p>开发期用本地打包。改个配置、调个窗口尺寸、换个图标，30 秒出一个包直接开预览，比等 GitHub Actions 跑 3 分钟快得不是一点半点。这时候不用纠结 Token 权限、不用管 GitHub 网络能不能访问，纯本地闭环。</p>
+<p>确认没问题之后，切云端打包出正式版。点一下发布，GitHub Actions 自动并行编译 Win、macOS、Linux 三个平台（加移动端就是五六个），产物自动上传 Release 页面，分发链接直接给用户。跨平台编译这个事，本地做不了——你一台 Windows 机器编不出 macOS 的包，一台 Mac 也编不出 Windows 的包。</p>
+<p>多平台数量越多，云端的优势越明显。需要 Windows 包时本地 30 秒最快，但需要三个平台时云端一次跑完反而更省事，你不用在三台机器上各跑一遍本地打包。</p>
+<h2>一个提醒：私密项目的边界</h2>
+<p>PakePlus 创建项目时在你自己的 GitHub 账号下 fork 模板仓库，这个仓库只有你能读写——PakePlus 作者看不到。这意味着你可以放心把项目设成私密，不用担心被别人偷看。但 fork 仓库这个动作本身，PakePlus 客户端是通过你的 GitHub Token 完成的，所以 Token 至少要有 repo scope 的权限。不想给 workflow scope 也行——在 GitHub 设置里把生成的 token 权限调小到只读 repo、去掉不必要的 scope，一样能正常用。</p>
+<p>还有个细节：Token 别忘设过期时间。GitHub 现在默认给 90 天过期，过期自动失效，就算有人拿到也用不了多久。每 3 到 6 个月轮换一次，比等泄露了再补救强。</p>
+<h2>收尾</h2>
+<p>PakePlus 把"网页套壳"这件事做薄了——薄到你可能以为它只有那个表面的功能。但往深了翻，窗口模式的隐形开关、Token 的分层存储、绿色版的系统旁路、两条打包路径的节奏配合，这些藏得真深的细节才是让它好用的原因。把它用透不只是点对按钮，还得知道每个按钮背后还有什么能调的东西。</p>
+<p>我这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PakePlus" target="_blank" rel="noopener">GitHub</a>主仓库之外，也同步到了<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PakePlus" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PakePlus" target="_blank" rel="noopener">GitCode</a>，国内网络访问哪个快就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/kawaks-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/listen1-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">一个播放器聚合所有音乐平台？Listen 1 凭什么在同类里站住脚</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AirMirror 进化史：从远程控制到远程协助的三年慢磨 · 老郭软件铺</title>
+  
+<meta name="description" content="从一款&#34;看手机屏幕&#34;的小工具长成能扛远程协助、跨平台控制、语音文字沟通的全家桶，AirMirror 这三年在死磕什么、放弃了什么？">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/airmirror-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AirMirror 进化史：从远程控制到远程协助的三年慢磨">
+<meta property="og:description" content="从一款&#34;看手机屏幕&#34;的小工具长成能扛远程协助、跨平台控制、语音文字沟通的全家桶，AirMirror 这三年在死磕什么、放弃了什么？">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/airmirror-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/airmirror-docs/remote-access-overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/airmirror-docs/remote-access-overview.png">
+
+<meta name="twitter:title" content="AirMirror 进化史：从远程控制到远程协助的三年慢磨">
+<meta name="twitter:description" content="从一款&#34;看手机屏幕&#34;的小工具长成能扛远程协助、跨平台控制、语音文字沟通的全家桶，AirMirror 这三年在死磕什么、放弃了什么？">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u4e00\u6b3e\"\u770b\u624b\u673a\u5c4f\u5e55\"\u7684\u5c0f\u5de5\u5177\u957f\u6210\u80fd\u625b\u8fdc\u7a0b\u534f\u52a9\u3001\u8de8\u5e73\u53f0\u63a7\u5236\u3001\u8bed\u97f3\u6587\u5b57\u6c9f\u901a\u7684\u5168\u5bb6\u6876\uff0cAirMirror \u8fd9\u4e09\u5e74\u5728\u6b7b\u78d5\u4ec0\u4e48\u3001\u653e\u5f03\u4e86\u4ec0\u4e48\uff1f", "headline": "AirMirror \u8fdb\u5316\u53f2\uff1a\u4ece\u8fdc\u7a0b\u63a7\u5236\u5230\u8fdc\u7a0b\u534f\u52a9\u7684\u4e09\u5e74\u6162\u78e8", "image": ["https://laoguosofts.github.io/images/airmirror-docs/remote-access-overview.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/airmirror-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/airmirror-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "AirMirror \u8fdb\u5316\u53f2\uff1a\u4ece\u8fdc\u7a0b\u63a7\u5236\u5230\u8fdc\u7a0b\u534f\u52a9\u7684\u4e09\u5e74\u6162\u78e8", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">AirMirror 进化史：从远程控制到远程协助的三年慢磨</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">AirMirror 进化史：从远程控制到远程协助的三年慢磨</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从一款&#34;看手机屏幕&#34;的小工具长成能扛远程协助、跨平台控制、语音文字沟通的全家桶，AirMirror 这三年在死磕什么、放弃了什么？</p>
+  </header>
+  <div class="prose serif">
+<p>现在的 AirMirror，打开来第一眼看到的是两个模块入口：远程访问和远程协助。前者要登录同一个 AirDroid 账号拉设备列表，后者直接输 9 位连接码就能连陌生人的手机。两个模块底下各有三四项功能——远程控制、远程相机、屏幕镜像、屏幕共享、语音通话、文字聊天——密密麻麻铺在功能选择页上。</p>
+<p>这个界面你可能已经熟到不会多想什么了。但如果你回头看 AirMirror 刚出来时的样子，会发现它根本不是这么打算的。它从一个单功能工具走到今天这一步，中间转了好几次弯，有功能憋了三个版本才加上，也有路线走到一半直接砍掉重来的。官方没有放出完整的版本迭代时间线，但从文档里散落的线索和老用户的记忆碎片，大致能拼出它这三年的成长轨迹。</p>
+<h2>起点：只做"看屏幕"的控制端</h2>
+<p>AirMirror 的诞生其实比 AirDroid 晚了整整一轮。AirDroid 早在 2012 年就有了，那时候它的远程控制是走浏览器的——打开 web.airdroid.com 输配对码，就能在电脑上点按手机屏幕。这套方案在桌面端跑了好几年，问题一直不大：延迟低、功能全、不用装额外软件。</p>
+<p>但移动端的情况不一样。当越来越多的人想用一台手机去远程操作另一台手机的时候，浏览器方案就暴露出两个硬伤：手机浏览器对 WebSocket 的支持不稳定，加上 iOS 本身不允许 App 通过浏览器调用系统级的截屏能力。AirMirror 就是在这个背景下出来的——<a href="https://airmirror.hhdc.tech" target="_blank" rel="noopener">AirMirror官网</a>上把它定位为一个独立的、原生 App 级别的远程控制端，专门解决"手机控手机"这件事。</p>
+<p>最早版本的 AirMirror，从<a href="https://airmirror.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a>到安装完就能跑，功能也极其克制：只有远程控制这一项。打开 App → 登录 AirDroid 账号 → 拉设备列表 → 点设备就能远程点按。没有屏幕镜像（纯观看模式），没有远程相机，更没有什么远程协助。它就是一个把 AirDroid Web 版的核心功能搬到手机上的壳子。</p>
+<p><img src="../images/airmirror-docs/remote-access-overview.png" alt="AirMirror 远程访问模块界面" loading="lazy"></p>
+<h2>第一次转向：从"控制"到"观看"的第三条路</h2>
+<p>远程控制能覆盖大部分场景，但有一个明显的盲区：有时候你不需要点按，只想看着对方操作。比如远程演示的时候，你是主讲人，被控端是客户的手机——你不需要替客户点，只需要看到客户在点什么、画面有没有正确响应。再比如家里老人不会用某个 App，你让他自己摸着试，你在远程盯着看就行。</p>
+<p>屏幕镜像就是在这个时候加进来的。和远程控制不同，镜像是纯观看模式——实时传画面过来，但不接受点按输入。这个功能的加入让 AirMirror 的定位从"远程控制工具"变成了"远程查看 + 远程控制"的双轨产品。但团队当时可能没意识到，这个功能的技术实现难度远超远程控制。</p>
+<p>远程控制走的是无障碍服务通道——AirDroid 在被控端注册一个无障碍服务接收点击事件，这条路 Android 系统是开放的、稳定的。但屏幕镜像不一样，它要调 MediaProjection API——这条通道从 Android 5.0 开始有，但是个临时授权机制，每次都要弹系统级的权限确认框。更麻烦的是，小米 MIUI、OPPO ColorOS、华为 EMUI 这些深度定制 ROM 对 MediaProjection 做了额外限制：App 切到后台时截屏权限会被暂停，有些机型甚至不给"不再提示"的选项，每次镜像都要点一次确认。</p>
+<p>从文档里故障排查章节的篇幅就能看出这些坑有多顽固：黑屏排查独占了一整篇文档，后台被杀的问题在设备列表不显示、屏幕镜像黑屏、远程相机离线三个场景下反复出现。团队花了好几个版本和 ROM 厂商的后台策略死磕——加后台弹出界面权限引导、加省电限制关闭提示、加自启动设置指引，完整的 ROM 适配清单在<a href="https://airmirror-docs.pages.dev/" target="_blank" rel="noopener">文档</a>里能查到——但核心矛盾至今没完全解决：你不可能让所有用户都跑去系统设置里改七八个开关。</p>
+<h2>第二次转向：远程协助，完全不同的产品逻辑</h2>
+<p>如果说远程访问模块是 AirDroid 生态的自然延伸，那远程协助模块就是 AirMirror 独立出来、单飞做的一件事。</p>
+<p>远程访问需要双方登录同一个 AirDroid 账号——这意味着你只能控制你自己的设备，或者你愿意把账号密码给别人的设备。但远程协助解决的是另一个场景：我要帮一个陌生人（或者家里不想用我的账号的老人）解决手机问题，我不可能把 AirDroid 账号给他。</p>
+<p>远程协助的方案是 AirDroid Remote Support——被控端装一个独立的、零账号的小工具，打开后显示 9 位连接码。协助方在 AirMirror 里输这个码就能发起屏幕共享，还能开语音通话和文字聊天。整条链路和远程访问是完全分离的：不用账号、不用云端设备列表、甚至不用被控端登录任何东西。</p>
+<p>这个功能从立项到上线花了比远程控制更长的时间。从文档里能看到的线索是：语音通话和文字聊天不是第一版就有的——早期远程协助只有屏幕共享 + 手势引导高亮，纯可视化沟通。语音和文字是后来补进去的。团队的逻辑可能是先跑通核心链路（屏幕共享能不能稳定建立），再叠加沟通层（语音能不能同步、文字能不能分屏显示）。</p>
+<p>三种通道（屏幕共享 + 语音 + 文字）可以同时进行、互不干扰，这个设计本身就说明团队想清楚了：远程协助不是让你"远程操作别人的手机"，而是让你"远程帮别人操作他自己的手机"——重心在沟通，不在控制。</p>
+<h2>迭代规律：他们一直在死磕什么</h2>
+<p>把这些碎片拼起来，AirMirror 的迭代节奏就很清晰了：</p>
+<p>第一，<strong>ROM 适配是他们投入最多但回报最低的战场</strong>。从后台白名单引导到权限弹窗处理，从 MIUI 截屏优化冲突到 OPPO 重复弹窗，几乎每个版本的 changelog 里都有"优化小米/OPPO/华为兼容性"这一条。但这些问题本质上是 ROM 厂商的设计决策——他们就是不想让后台 App 截屏、就是不给"不再提示"选项——AirMirror 能做的只有引导用户改设置，没有根治的可能。团队在这条线上持续投入，说明他们把"在主流国产 ROM 上稳定运行"当成了核心竞争力。</p>
+<p>第二，<strong>功能增量很克制，没有跟风堆功能</strong>。远程控制 → 屏幕镜像 → 远程相机 → 远程协助 → 语音/文字聊天，这条线走了三年。期间很多竞品加了文件传输、剪贴板同步、远程截图等一大堆功能，AirMirror 基本没碰——远程访问模块至今没有文件传输，远程协助模块至今没有剪贴板同步。他们看起来是有意维持"专注远程画面"的定位，不想变成一个什么都做一点但什么都不精的杂烩。</p>
+<p>第三，<strong>账号体系始终是个绕不开的矛盾</strong>。远程访问要账号、远程协助不要账号；免费账户有设备绑定上限、高级会员有帧率和分辨率限制。文档里设备列表不显示的排查步骤，前三条里有两条是"账号问题"——是不是同一个账号、是不是登录了、绑定数超没超。这个矛盾贯穿了整个生命周期，团队没打算在短期内解决它，而是用远程协助这条零账号通道来分流。</p>
+<p><img src="../images/airmirror-docs/device-list.png" alt="AirMirror 设备列表界面" loading="lazy"></p>
+<h2>接下来会往哪走</h2>
+<p>站在现在这个节点往前看，AirMirror 的迭代路径大概率还会沿着现有逻辑走下去。</p>
+<p>ROM 适配会继续磨——不会有质变，但会有量变。也许会和某些厂商谈成预装或者白名单合作，也许会找到更聪明的前台保持方案，但不太可能彻底解决后台被杀的根问题，因为那需要 ROM 厂商配合。</p>
+<p>远程访问和远程协助这两条线会越来越独立。远程访问走"自己的设备自己管"的路线，继续优化画质和帧率；远程协助走"帮别人解决问题"的路线，可能会加一些更丰富的标注工具（比如在共享画面上画箭头、框重点区域），让协助过程更高效。</p>
+<p>至于那些竞品在堆的功能——文件传输、剪贴板同步、远程截图——AirMirror 大概率还是不会碰。他们已经用三年时间证明了自己想做的是"远程画面"而不是"远程全家桶"，这个定位不太会变。</p>
+<p>最后说一件事：AirMirror 的文档体系在这三年里跟着产品一起长起来了。从最开始的几页入门教程，到现在能单独整理出一整套故障速查手册和厂商适配指南，文档本身就是产品成熟度的晴雨表。<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/AirMirror" target="_blank" rel="noopener">GitHub</a> 仓库里维护着完整的内容源，<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/AirMirror" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/AirMirror" target="_blank" rel="noopener">GitCode</a> 做了同步镜像方便国内访问——感兴趣的可以去看看，里面有更细的版本演进细节和使用技巧。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/proxypin.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">ProxyPin 装了一年半后，哪些功能真的在天天用</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/fanfiction-net.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">FanFiction.Net 到底值不值得掏钱：一个同人读者的付费决策账本</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

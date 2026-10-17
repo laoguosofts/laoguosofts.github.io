@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>为什么Termius不做文件夹？Vaults架构背后的设计取舍 · 老郭软件铺</title>
+  
+<meta name="description" content="从传统SSH客户端用文件夹分组的惯性出发，拆解Termius Vaults为何选了加密容器这条路，以及这套设计在移动时代付出的代价与带来的收益。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/termius.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么Termius不做文件夹？Vaults架构背后的设计取舍">
+<meta property="og:description" content="从传统SSH客户端用文件夹分组的惯性出发，拆解Termius Vaults为何选了加密容器这条路，以及这套设计在移动时代付出的代价与带来的收益。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/termius.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/termius/vaults-create.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/termius/vaults-create.png">
+
+<meta name="twitter:title" content="为什么Termius不做文件夹？Vaults架构背后的设计取舍">
+<meta name="twitter:description" content="从传统SSH客户端用文件夹分组的惯性出发，拆解Termius Vaults为何选了加密容器这条路，以及这套设计在移动时代付出的代价与带来的收益。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u4f20\u7edfSSH\u5ba2\u6237\u7aef\u7528\u6587\u4ef6\u5939\u5206\u7ec4\u7684\u60ef\u6027\u51fa\u53d1\uff0c\u62c6\u89e3Termius Vaults\u4e3a\u4f55\u9009\u4e86\u52a0\u5bc6\u5bb9\u5668\u8fd9\u6761\u8def\uff0c\u4ee5\u53ca\u8fd9\u5957\u8bbe\u8ba1\u5728\u79fb\u52a8\u65f6\u4ee3\u4ed8\u51fa\u7684\u4ee3\u4ef7\u4e0e\u5e26\u6765\u7684\u6536\u76ca\u3002", "headline": "\u4e3a\u4ec0\u4e48Termius\u4e0d\u505a\u6587\u4ef6\u5939\uff1fVaults\u67b6\u6784\u80cc\u540e\u7684\u8bbe\u8ba1\u53d6\u820d", "image": ["https://laoguosofts.github.io/images/termius/vaults-create.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/termius.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/termius.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e3a\u4ec0\u4e48Termius\u4e0d\u505a\u6587\u4ef6\u5939\uff1fVaults\u67b6\u6784\u80cc\u540e\u7684\u8bbe\u8ba1\u53d6\u820d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">为什么Termius不做文件夹？Vaults架构背后的设计取舍</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">为什么Termius不做文件夹？Vaults架构背后的设计取舍</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从传统SSH客户端用文件夹分组的惯性出发，拆解Termius Vaults为何选了加密容器这条路，以及这套设计在移动时代付出的代价与带来的收益。</p>
+  </header>
+  <div class="prose serif">
+<p>我用过的SSH客户端不少了——PuTTY、Xshell、iTerm2、SecureCRT，甚至纯命令行的<code>ssh</code>加个<code>~/.ssh/config</code>。它们有一个共同的习惯：把服务器按文件夹分组。「生产环境」「测试环境」「客户A」，一层一层往下套。直观，不用学，点开就能找。</p>
+<p>但Termius偏不，你从<a href="https://termius.bpfl.quest/download.html" target="_blank" rel="noopener">官方下载</a>渠道拿到的安装包里，打开第一眼看到的就不是文件夹树，而是一排Vault标签。Personal Vault、Team Vault，再往下是你自己建的Production Vault、Staging Vault。每个Vault是独立的、带加密的、跟权限绑定的容器。</p>
+<p>这就引出一个问题：<strong>为什么？</strong> 文件夹用得好好的，为什么要另起炉灶搞一个更复杂的模型？我翻了好几篇<a href="https://termius.pages.dev/" target="_blank" rel="noopener">Termius文档</a>里的架构解析和安全模型说明，也去它的<a href="https://termius.bpfl.quest" target="_blank" rel="noopener">官网</a>看了一圈产品介绍，才慢慢琢磨出背后的逻辑——这根本不是一个"SSH客户端"，它是把远程访问这件事当成了一个<strong>需要跨设备、跨团队同步的加密资产管理问题</strong>来做的。</p>
+<h2>Vaults到底是什么：从文件夹到保险库的范式切换</h2>
+<p>先把Vaults拆开看。样本里有句话说得很准——Vaults之间<strong>完全隔离</strong>。每个Vault里装着Hosts（主机配置）、Groups（分组）、Keys（密钥对）、Credentials（凭证）、Snippets（命令片段）、Port Forwarding rules（端口转发规则）、Known Hosts（主机指纹）。这些东西在Vault A里和Vault B里互不可见。</p>
+<p>这和文件夹的本质区别在哪？文件夹是<strong>视图</strong>，Vault是<strong>边界</strong>。文件夹只是帮你把东西组织起来，但文件夹本身没有任何安全属性——你把服务器丢到「生产环境」文件夹，不代表这个文件夹有密码、有访问控制。而Vault从设计第一天起就自带两个东西：<strong>加密密码</strong>和<strong>权限列表</strong>。</p>
+<p>Vault的加密密码你创建账号时就设了，但Termius的云端<strong>永远看不到这个密码</strong>。这意味着什么？你的所有SSH密钥、服务器地址、Snippets命令，在离开你设备的那一刻就已经是密文了。云存储里躺着的只是一堆你自己加密过的blob。Termius的服务器根本没能力读它——这就是端到端加密。</p>
+<h2>三种Vault，对应三种信任边界</h2>
+<p>Termius把Vault分成了三类，这个分类本身就很说明问题：</p>
+<p><strong>Personal Vault</strong>是默认自带的，你删不掉。它就是给你自己用的——测试服务器、临时SSH隧道、还没准备好共享的密钥。Starter免费版里Personal Vault只能本地存，不同步到云端；Pro版才开启云同步。这个设计很有意思——免费版不云同步，恰恰等于免费版<strong>没有</strong>端到端加密的云通道，因为没有数据要上传。</p>
+<p><strong>Team Vault</strong>只在Team/Business版里出现，一旦你邀请了第一个队友，它自动生成。默认全员可见、完全访问。团队共用的Snippets库、开发环境服务器、共享端口转发规则都往里塞。</p>
+<p><strong>自定义Vault</strong>是手动创建的细粒度权限工具。样本里举了一个SaaS公司的例子：Production Vault只给DevOps团队，Development Vault全员可见，Staging Vault给DevOps加QA。这时候Vault就不只是"存东西的地方"，它变成了<strong>权限单元</strong>——你登录Termius后能看到哪些服务器、哪些密钥，完全取决于你在几个Vault里被授予了什么权限。</p>
+<p><img src="../images/termius/vaults-create.png" alt="Vaults 创建界面" loading="lazy"></p>
+<p>这才是为什么不用文件夹：文件夹做不了权限隔离。传统SSH客户端里，如果我要把一组服务器只开放给运维，我得手动把每个密钥文件的权限设成700、把配置文件挪到共享盘、再用文件系统权限控制谁能读——一套组合拳下来还容易出漏洞。Vault把这件事<strong>下沉到了应用层</strong>，你在UI里拖一下、勾几个成员就搞定了。</p>
+<h2>跨设备同步是一把双刃剑</h2>
+<p>Vaults的另一个核心价值是跨设备同步——手机、桌面、平板，同一套Vault数据自动过去。这个功能在Pro版解锁，也是$10/月Pro档最硬的卖点。</p>
+<p>但这里有个容易被忽略的代价：<strong>加密密码的分发问题</strong>。Termius要求你在每台新设备上都重新输入Vault的加密密码来解密。这很安全——没人能绕过你把数据从云端拉下来——但也意味着你换设备时多了一个步骤。更麻烦的是，如果你忘了这个加密密码，<strong>Termius自己也帮不了你</strong>，因为云端根本没存明文。</p>
+<p>我实际用下来发现，很多人第一次遇到这个坑是在换手机的时候：旧手机登着好好的，新手机装完Termius输入账号密码之后卡在"请输入Vault加密密码"，然后才想起来当初设完就忘了。样本里安装指南特意提了一句"加密密码一定要记好"，这句话不是礼貌性提醒，是有用户真的因此丢了全部主机配置。</p>
+<h2>硬件密钥为什么要做到移动端</h2>
+<p>Vaults把安全边界推到了移动端——既然手机上也存着你的SSH密钥、能直接连生产服务器，那手机丢了怎么办？Termius给出的答案是<strong>把FIDO2硬件密钥支持做到了移动端</strong>。</p>
+<p>样本里MFA那篇有个细节值得注意：YubiKey通过USB OTG连Android手机，就能直接在Termius里触发FIDO2认证。私钥烧在YubiKey硬件里，永远导不出来——就算我手机被root、被恶意软件扫描Termius的沙箱，也拿不到私钥。连接服务器时必须物理按一下YubiKey才放行。</p>
+<p>这个设计的妙处在于它<strong>统一了桌面和移动的安全模型</strong>。传统SSH客户端的硬件密钥支持基本只在桌面端，手机端要么简化要么放弃。Termius因为Vaults的存在，手机和桌面在安全等级上是同构的——所以它不能在手机上开后门，必须做到和桌面一样的FIDO2防护。代价也很明确：你得随身带个YubiKey，而且USB OTG转接头是刚需，否则硬件密钥在Android端用不了。</p>
+<h2>Vaults架构的天然边界：谁该用、谁不该用</h2>
+<p>说了这么多Vaults的好处，它也有明显的适用边界。</p>
+<p><strong>适合的场景</strong>：你有超过一台设备需要SSH、你在小团队里、你对服务器安全有基本要求、你不想把SSH密钥散落在IM聊天和密码管理器里。Vaults的价值正好在这些点上——跨设备同步帮你省了手动同步配置的麻烦，权限隔离帮你省了文件系统权限配置的麻烦，端到端加密帮你省了密钥泄露的风险。</p>
+<p><strong>不太适合的场景</strong>：纯单机运维——就一台电脑、就几台自己的服务器、不需要跟任何人协作。这时候Vaults的所有优势都用不上，反而多了一个加密密码要记，多了一个云账号要维护。文件夹加<code>~/.ssh/config</code>就够了，没必要为了架构美感花$10/月。</p>
+<p>还有一个场景值得单独说：<strong>完全离线的环境</strong>。如果你的服务器是物理隔离的内网、设备也连不上外网，那Vaults的云同步完全废掉，Starter版的本地Vault存储倒是能凑合，但Team Vault和自定义Vault的权限隔离也就没了意义——因为没地方同步、没地方分发权限。</p>
+<h2>写在最后</h2>
+<p>Termius选Vaults而不是文件夹，本质上是把SSH客户端从「本地工具」重构成了「加密资产的多端同步容器」。这个选择让它在移动时代活得很好——手机连服务器、团队共享密钥、硬件密钥防护，这些都是传统SSH客户端到今天还没解决好的问题。</p>
+<p>但它也有代价：你必须接受一个云账号、必须记好加密密码、必须付费才能用跨设备同步。这些对老派运维来说可能是不可接受的侵入性设计。</p>
+<p>我自己现在的用法是：桌面端Pro版开云同步存Production Vault，手机Android版连同一套Vault做应急运维，Personal Vault里放测试用的临时服务器。Vaults的权限隔离帮我把私人测试和工作用服务器彻底分开了，不用担心误操作连上生产。硬件密钥在桌面和手机上都配了，虽然随身带个YubiKey有点麻烦，但想到手机丢了也没人能碰我的生产SSH，这点麻烦就值了。</p>
+<p>跨五个平台全覆盖是它的另一个加分项——Windows走微软商店、macOS用Homebrew Cask、Linux直接AppImage免安装，Android在Google Play搜一下就有，不用折腾第三方市场。</p>
+<p>这次整理Vaults架构、加密模型、硬件密钥支持这些资料，我分别放到了<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Termius" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Termius" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Termius" target="_blank" rel="noopener">GitCode</a>三个仓库里，选哪个访问都一样，内容是同步的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/aurorastore-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Aurora Store 用了一年，这些坑我替你踩过了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/vocalremover-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

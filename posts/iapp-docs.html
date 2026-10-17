@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>iApp 十年版本进化史：从安卓开发工具到跨平台全栈引擎 · 老郭软件铺</title>
+  
+<meta name="description" content="从裕v3到裕v7，iApp 走过了一条奇特的进化路线——既要照顾老用户生态，又要咬牙推进语法现代化，跨平台打包能力到底是怎么拼出来的？">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/iapp-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iApp 十年版本进化史：从安卓开发工具到跨平台全栈引擎">
+<meta property="og:description" content="从裕v3到裕v7，iApp 走过了一条奇特的进化路线——既要照顾老用户生态，又要咬牙推进语法现代化，跨平台打包能力到底是怎么拼出来的？">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/iapp-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/iapp-docs/iapp-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/iapp-docs/iapp-icon.png">
+
+<meta name="twitter:title" content="iApp 十年版本进化史：从安卓开发工具到跨平台全栈引擎">
+<meta name="twitter:description" content="从裕v3到裕v7，iApp 走过了一条奇特的进化路线——既要照顾老用户生态，又要咬牙推进语法现代化，跨平台打包能力到底是怎么拼出来的？">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u88d5v3\u5230\u88d5v7\uff0ciApp \u8d70\u8fc7\u4e86\u4e00\u6761\u5947\u7279\u7684\u8fdb\u5316\u8def\u7ebf\u2014\u2014\u65e2\u8981\u7167\u987e\u8001\u7528\u6237\u751f\u6001\uff0c\u53c8\u8981\u54ac\u7259\u63a8\u8fdb\u8bed\u6cd5\u73b0\u4ee3\u5316\uff0c\u8de8\u5e73\u53f0\u6253\u5305\u80fd\u529b\u5230\u5e95\u662f\u600e\u4e48\u62fc\u51fa\u6765\u7684\uff1f", "headline": "iApp \u5341\u5e74\u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece\u5b89\u5353\u5f00\u53d1\u5de5\u5177\u5230\u8de8\u5e73\u53f0\u5168\u6808\u5f15\u64ce", "image": ["https://laoguosofts.github.io/images/iapp-docs/iapp-icon.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/iapp-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/iapp-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "iApp \u5341\u5e74\u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece\u5b89\u5353\u5f00\u53d1\u5de5\u5177\u5230\u8de8\u5e73\u53f0\u5168\u6808\u5f15\u64ce", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">iApp 十年版本进化史：从安卓开发工具到跨平台全栈引擎</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">iApp 十年版本进化史：从安卓开发工具到跨平台全栈引擎</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从裕v3到裕v7，iApp 走过了一条奇特的进化路线——既要照顾老用户生态，又要咬牙推进语法现代化，跨平台打包能力到底是怎么拼出来的？</p>
+  </header>
+  <div class="prose serif">
+<h2>开场：现在这版 iApp 是什么样</h2>
+<p>我最近从<a href="https://iapp.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a>拿了安装包重新装了一次 iApp，打开新建项目向导时，盯着语言版本那五个单选框愣了一下——裕v7、裕v6、裕v5、游戏、裕v3，整整齐齐排着队。官方教程明确写着"没有特殊理由选裕v7"，但社区里翻一翻，v3 的老项目源码、视频教程、现成案例，比 v7 多得多。这就是 iApp 现在最有意思的地方：<strong>两套生态并行，一个在往前跑，一个在往后沉。</strong></p>
+<p><img src="../images/iapp-docs/iapp-icon.png" alt="iApp 图标" loading="lazy"></p>
+<p>最新的裕v7 是它的拳头：语法终于有了 <code>if</code>、<code>for</code>、类模块这些像模像样的现代结构，不再是 v3 那种用 <code>s</code> 赋值、<code>f</code> 判断、<code>syso</code> 输出的怪风格。更关键的是 v7 是唯一能跨平台打包的版本——电脑 exe、苹果 ipa、网页 html、鸿蒙应用，一套代码多端跑。而 v3 呢，生态最厚，网上能搜到的教程、源码、社区讨论十有八九是 v3 的，但它打不了 exe，也出不了 html。</p>
+<h2>来路：它从哪起步</h2>
+<p>样本文档里没提更早的版本历史，但从 v3、v5、v6、v7 这一串编号能拼出一条线——iApp 不是从零开始设计好跨平台的，它是<strong>一边做一边改</strong>出来的。</p>
+<p>v3 是那个"能读懂社区老代码"的版本，也是生态厚度的根基。文档里提到"官方更新日志近年把重点放在 v3 修复与 v7 新增功能上"，这句话有意思——v3 没被废弃，而是转到了维护模式。v5 和 v6 是过渡版本，"主要服务于老项目维护"，新项目没有主动选它们的理由。这说明 v7 不是凭空冒出来的，中间有至少两代在铺路。</p>
+<p>我自己用过 v3，那种语法确实反直觉：变量赋值用 <code>s</code>，条件判断用 <code>f</code>，输出用 <code>syso</code>。写惯了主流语言的人看 v3 代码会觉得像某种私货。但 v3 的优点也很实在——它够老，够简单，网上教你做一个记账本 App 的视频，从零到能跑全在 v3 里完成，连换版本的机会都不给你。</p>
+<h2>关键转折点：裕v7 为什么是分水岭</h2>
+<p>v7 的变化不是增量优化，是<strong>范式切换</strong>。文档样本里有一句很关键的话："语法现代（if、for、四类变量、类模块）"——这几个字背后是整个语言体系的重写。v3 没有真正的 <code>if</code> 语句，v5/v6 可能在往这边靠，但没走到底，v7 直接把现代控制结构放进来了。</p>
+<p>更重要的是跨平台打包。iApp 之前的定位就是"安卓开发工具"，做出来的东西只能是 APK。v7 突然说一套代码能出 exe、ipa、html、鸿蒙包——这不是加了几个导出格式，是<strong>把产品定位从"安卓开发工具"拉到了"跨平台引擎"</strong>。你看现在<a href="https://iapp.gerw.hair" target="_blank" rel="noopener">iapp官网</a>上的介绍，不再只提"可视化设计界面，让你设计应用界面一目了然"，而是把打包能力和语法一起摆出来讲。</p>
+<p>可视化布局这个招牌能力一直没变——从 v3 到 v7，组件面板、设计画布、属性设置三块区域的基本节奏没动过，"添加控件 → 设置大小 → 摆位置 → 挂事件"这套四步口诀在<a href="https://iapp-docs.pages.dev/" target="_blank" rel="noopener">文档</a>里反复出现。变的是<strong>画完之后能去哪</strong>：以前只能变成 APK，现在能变成四种东西。</p>
+<p><img src="../images/iapp-docs/yyb-shot-01.png" alt="可视化拖拽布局界面" loading="lazy"></p>
+<h2>迭代规律：团队一直在死磕什么</h2>
+<p>从现有版本的功能分布和官方更新的侧重点，能看出 iApp 团队的优先级逻辑：</p>
+<p><strong>死磕语法现代化</strong>。v5 到 v6 到 v7 是一条清晰的演进线，每一代都在往"更像主流语言"靠，直到 v7 才把类模块、四类变量这些基石搭好。文档里说"v5/v6 是过渡版本"，但过渡了两代才走到 v7——说明语法重写这件事比做界面难多了。</p>
+<p><strong>死磕跨平台，但只在新版上做</strong>。v3 生态那么厚，但跨平台能力一块都不给它。v7 独占所有打包格式，本质上是团队在说：<strong>v7 才是未来，v3 是存量用户的安全网</strong>。官方更新日志"v3 修复 + v7 新增"的分配，就是这个逻辑。</p>
+<p><strong>旧语法不删，只做兼容</strong>。v5/v6 没有被废弃，v3 也还能建新项目——团队不想做那种强制迁移、得罪老用户的事。裕语言五个选项摆在那，用户爱选哪个选哪个，只是新版功能只给最新版。</p>
+<h2>预判：下一步大概会怎么走</h2>
+<p>这些是从迭代规律推的，不是官方口径：</p>
+<p><strong>第一，v7 语法会继续深挖，但不太会再出 v8 了。</strong> 因为 v7 才刚把类模块、四类变量这些基础补全，接下来应该是在 v7 上做库扩展和体验打磨，而不是又开一代语法。跨平台打包的覆盖率倒是可能继续扩——现在有 exe/ipa/html/鸿蒙，下一个是谁？</p>
+<p><strong>第二，v3 的维护窗口会收窄，但不会立刻死。</strong> 官方现在还在修 v3，是因为社区老项目太多了。但如果 v7 的生态厚度能赶上 v3（现在差得远），v3 就会真的进入纯归档状态——不再修 bug，只保留能打开的能力。</p>
+<p><strong>第三，可视化设计这条线会一直是招牌。</strong> 从样本文档的篇幅分配就能看出来，拖拽布局、属性设置、事件挂接这部分占了很大比重，是 iApp 区别于 Flutter、UniApp 这些框架的核心差异点。别人是"写代码生成界面"，iApp 是"画界面挂事件"——这个定位不会丢。</p>
+<h2>写在最后</h2>
+<p>我特意去 iapp文档翻了一下才弄明白，样本文档没写的早期版本历史不是疏忽，是 iApp 这个产品本身就不太爱宣传自己——"重庆联思创信息科技有限公司"这个开发者名字，在各大应用商店的介绍里都不显眼，社区讨论也大多集中在具体问题而非路线图。这种低调风格其实和版本策略是一致的：默默把 v7 堆出来，默默把 v3 维护好，用户你能看懂哪个就用哪个。</p>
+<p>如果你是个新手，别纠结——直接建 v7 项目，跟着官方最新教程走就对了。v3 生态厚是事实，但那堆老代码读起来费劲，不如花半小时建个 v3 练手项目跑一遍基本指令，目的是"能读懂"社区老代码，不是真的去写。两套语法别混，一个项目从头到尾只用一套，这是过来人的建议。</p>
+<p>这套资料我顺手在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/iapp" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/iapp" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/iapp" target="_blank" rel="noopener">GitCode</a> 也各留了一份，方便不同网络环境下查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/3dmgame.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">3DM游戏APP从零到上手：装起来、登进去、攻略和视频都能刷</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/cambly.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Cambly 从试课到稳定用：一篇带新手走完整个上手流程的实战指南</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

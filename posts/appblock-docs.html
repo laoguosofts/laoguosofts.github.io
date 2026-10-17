@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞 · 老郭软件铺</title>
+  
+<meta name="description" content="每周要产出高质量方案和技术文档，但手机短视频、社交通知总在关键时刻打断。把 AppBlock 塞进工作流后，深度工作时长从平均 45 分钟拉到了 3 小时，而且没有一次是靠意志力硬扛的。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/appblock-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞">
+<meta property="og:description" content="每周要产出高质量方案和技术文档，但手机短视频、社交通知总在关键时刻打断。把 AppBlock 塞进工作流后，深度工作时长从平均 45 分钟拉到了 3 小时，而且没有一次是靠意志力硬扛的。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/appblock-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞">
+<meta name="twitter:description" content="每周要产出高质量方案和技术文档，但手机短视频、社交通知总在关键时刻打断。把 AppBlock 塞进工作流后，深度工作时长从平均 45 分钟拉到了 3 小时，而且没有一次是靠意志力硬扛的。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u8981\u4ea7\u51fa\u9ad8\u8d28\u91cf\u65b9\u6848\u548c\u6280\u672f\u6587\u6863\uff0c\u4f46\u624b\u673a\u77ed\u89c6\u9891\u3001\u793e\u4ea4\u901a\u77e5\u603b\u5728\u5173\u952e\u65f6\u523b\u6253\u65ad\u3002\u628a AppBlock \u585e\u8fdb\u5de5\u4f5c\u6d41\u540e\uff0c\u6df1\u5ea6\u5de5\u4f5c\u65f6\u957f\u4ece\u5e73\u5747 45 \u5206\u949f\u62c9\u5230\u4e86 3 \u5c0f\u65f6\uff0c\u800c\u4e14\u6ca1\u6709\u4e00\u6b21\u662f\u9760\u610f\u5fd7\u529b\u786c\u625b\u7684\u3002", "headline": "\u628a AppBlock \u5d4c\u8fdb\u6df1\u5ea6\u5de5\u4f5c\u6d41\u2014\u2014\u624b\u673a\u4e0d\u518d\u662f\u751f\u4ea7\u529b\u7684\u9ed1\u6d1e", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/appblock-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/appblock-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a AppBlock \u5d4c\u8fdb\u6df1\u5ea6\u5de5\u4f5c\u6d41\u2014\u2014\u624b\u673a\u4e0d\u518d\u662f\u751f\u4ea7\u529b\u7684\u9ed1\u6d1e", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周要产出高质量方案和技术文档，但手机短视频、社交通知总在关键时刻打断。把 AppBlock 塞进工作流后，深度工作时长从平均 45 分钟拉到了 3 小时，而且没有一次是靠意志力硬扛的。</p>
+  </header>
+  <div class="prose serif">
+<h2>以前每周二到周四下午，我的手机是生产力黑洞</h2>
+<p>我每周的节奏是这样的：周一开会对齐方向，周二到周四下午是固定的深度工作时段——要写方案、写技术文档、改代码评审意见。但这三个下午过去一半的时候，我发现一个很稳定的规律：<strong>平均每 45 分钟我会被手机打断一次，每次打断后重新进入状态需要 15 到 20 分钟</strong>。</p>
+<p>旧流程的应对方式很朴素：系统自带的屏幕时间工具设个提醒、开勿扰模式、把手机面朝下扣在桌子上。这三招对大多数人有效，但对我来说有两个绕不开的卡点：</p>
+<ul><li>系统提醒是软性的——"再给我 5 分钟"这个按钮，我每次都会点，而且一点就是半小时起步。勿扰模式拦不住微信和飞书的消息推送（有时候真有急事），但刷抖音的时候也在勿扰模式里，一划就进去了。</li><li>我试过把手机锁在抽屉里，结果是想查一个函数定义的时候不得不翻抽屉、解锁、打开搜索引擎——这整个动作本身就消耗掉了"我在工作"的心理势能。</li></ul>
+<p>说白了，旧流程的本质是<strong>靠意志力对抗一个设计精良的上瘾产品</strong>。输多赢少。</p>
+<h2>新流程：AppBlock 作为核心环节嵌进去</h2>
+<p>现在的深度工作链是这样的：</p>
+<p><strong>早上到公司</strong> → 飞书日历自动识别今天下午有深度工作会议 → 日历事件里的"专注时段"标签触发 AppBlock 的定时计划 → AppBlock 进入严格模式 → 屏蔽列表按预设生效（短视频 App 的 Reels 和 Shorts 板块、小红书、社交通讯的 Channels）→ 允许列表里只留搜索引擎和 GitHub → 电脑端浏览器扩展同步屏蔽所有带 "shorts" 关键词的链接。</p>
+<p>这条链里，AppBlock 是<strong>硬性拦截的核心</strong>，它的<a href="https://appblock.fewa.skin" target="_blank" rel="noopener">官网</a>上有完整的功能地图，而且它不是孤立的——前后有几个工具在配合，衔接点我逐个说清楚。</p>
+<h3>衔接点一：飞书日历 → AppBlock 定时触发</h3>
+<p>AppBlock 本身支持时间条件的计划，<a href="https://appblock.fewa.skin/download.html" target="_blank" rel="noopener">下载</a>安装后进引导流程就能快速配置好，我把工作日下午 14:00 到 18:00 设成默认深度工作时段。但有时候客户会议会突然插进来，或者下午需要跑现场——这时候固定时间就不够灵活。</p>
+<p>解决方式是让飞书日历的事件标签来控制 AppBlock：日历里标了"专注时段"的事件，通过 Tasker 的自动化链路同步到 AppBlock，触发对应的计划开关。不需要每次手动开/关 AppBlock，日历改了，屏蔽规则跟着自动调整。少了<strong>两次每天的手动开/关操作</strong>，而且不会漏。</p>
+<h3>衔接点二：严格模式 + 板块级拦截 = 不做极端取舍</h3>
+<p>这是 AppBlock 和系统工具最本质的区别。系统屏幕时间要么全关 App 要么全放开，AppBlock 可以进入 App 内部，只屏蔽最耗时间的信息流板块。</p>
+<p>我不想完全告别抖音和 Instagram——有时候下班刷两分钟也是一种放松。但工作时段，我只需要把 Reels 和 Shorts 关掉，Feed 和 DM 照常能用。这样做的好处是：<strong>不会因为"彻底戒断"产生强烈的逆反心理</strong>，也不会错过真正重要的私信消息。</p>
+<p>严格模式在这里的作用是"防反悔"——规则上锁后改不了、关不掉，连卸载都能禁，具体锁死哪些选项和解锁组合方案去 <a href="https://appblock-docs.pages.dev/" target="_blank" rel="noopener">appblock文档</a> 翻一下就清楚了。解锁方式我选的是 PIN 码加 5 分钟冷却，给自己留了一条不至于完全锁死的后路，但足够拦住"手一划就关"的冲动。</p>
+<h3>衔接点三：浏览器扩展同步电脑端</h3>
+<p>手机管好了，电脑上还有 YouTube Shorts 和 Twitter 的算法推荐。AppBlock Premium 支持浏览器扩展，手机端的屏蔽列表同步到 Chrome 和 Edge，所有带 "shorts" 关键词的链接自动拦截，Allowlist 里的 GitHub、Stack Overflow 正常访问。</p>
+<p>这一步补上了之前流程里最大的漏洞——以前手机管住了，电脑照样能刷，等于白搭。</p>
+<h2>实操里最容易断链的两个环节</h2>
+<h3>环节一：小米/华为手机的权限回收</h3>
+<p>我用的小米 13，MIUI 的后台清理策略很激进。AppBlock 刚装完权限全开，过了一周忽然发现拦截失效——AppBlock 被系统从后台杀掉了，或者"使用情况访问"权限被静默关闭了。</p>
+<p>解决办法是三个动作：</p>
+<ol><li>把 AppBlock 加入电池优化白名单（系统设置 → 电池与性能 → 找到 AppBlock → 设置为"无限制"）</li><li>多任务界面下拉 AppBlock 的卡片，点亮锁头图标锁定后台</li><li>每次系统大版本更新后，去 AppBlock 内置的 Troubleshooting 页面核对一遍所有权限状态</li></ol>
+<p>现在 AppBlock 的拦截稳定性已经做到了连续运行两周不失效。</p>
+<h3>环节二：临时需要被屏蔽的 App 查资料</h3>
+<p>有时候写文档需要查一下被屏蔽的小红书笔记或者抖音上的某个教程。严格模式下规则改不了，Quick Block 的暂停选项也被锁死了。</p>
+<p>我的做法是设一个<strong>紧急解锁方案</strong>：解锁条件选 PIN 码加"插入充电器"。查资料的时候插一下充电器输入 PIN，解锁 15 分钟，用完拔掉充电器自动重新上锁。这个设置比纯 PIN 码多了一个物理动作，等于给自己加了一层心理闸门——不是真的需要就不会去插充电器。</p>
+<h2>效果和边界</h2>
+<p>跑了三个月之后，我统计了一下：深度工作时段的平均连续时长从 45 分钟拉到了<strong>3 小时 10 分钟</strong>，每周产出的技术文档页数从 12 页涨到了 22 页。没有一次是靠意志力硬扛的——要么拦截生效手机根本打不开，要么打开了也没有让我刷停不下来的内容。</p>
+<p>但这套流程也有不划算的时候：</p>
+<ul><li><strong>突发紧急事件周</strong>——比如线上事故需要随时响应，这时候屏蔽通知反而是帮倒忙。我会把这一周的日历"专注时段"标签去掉，让 AppBlock 的计划自动暂停。</li><li><strong>家长管控场景</strong>——如果是给孩子用手机，解锁条件应该换成 Approval（家长邮箱审批），锁死选项全部勾上。这个场景下 AppBlock 的价值比我自己用还要大，因为孩子没有"冷静 5 分钟就好了"的自控力。</li><li><strong>免费版 vs Premium 的决策</strong>——免费版只有时间条件的基础拦截，没有板块级拦截和严格模式。如果你的干扰源就是 1 到 2 个 App 且意志力尚可，免费版够用。但如果你也像我一样一划就停不下来，Premium 的严格模式和板块级拦截是刚需。</li></ul>
+<p>现在这套工作流已经稳定跑了三个月，AppBlock 成了我每天早上到公司后第一个确认状态的应用——不是检查有没有拦截成功，而是确认它还在后台好好跑着，没有被小米偷偷杀掉。这就是工具的正确位置：不是主角，是默默托住你的那个环节。项目本身是开源的，<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/appblock" target="_blank" rel="noopener">GitHub</a>上有完整的文档仓库，国内访问慢的话可以走<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/appblock" target="_blank" rel="noopener">Gitee</a>或者<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/appblock" target="_blank" rel="noopener">GitCode</a>的镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/letsview.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">LetsView 怎么用？五分钟从装到投完全上手</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/super-ai-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用 Super AI 踩过的五个坑，别再犯了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>HammerAI 实战指南：从零把本地 AI 角色聊天跑起来 · 老郭软件铺</title>
+  
+<meta name="description" content="手把手带你完成 HammerAI 从安装到上手的完整流程，包括硬件对号、模型选择、角色库浏览与 Proxy 外接模型配置，避开新手最容易翻车的几个坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/hammerai.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HammerAI 实战指南：从零把本地 AI 角色聊天跑起来">
+<meta property="og:description" content="手把手带你完成 HammerAI 从安装到上手的完整流程，包括硬件对号、模型选择、角色库浏览与 Proxy 外接模型配置，避开新手最容易翻车的几个坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/hammerai.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/hammerai/mobile-app.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/hammerai/mobile-app.webp">
+
+<meta name="twitter:title" content="HammerAI 实战指南：从零把本地 AI 角色聊天跑起来">
+<meta name="twitter:description" content="手把手带你完成 HammerAI 从安装到上手的完整流程，包括硬件对号、模型选择、角色库浏览与 Proxy 外接模型配置，避开新手最容易翻车的几个坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u624b\u628a\u624b\u5e26\u4f60\u5b8c\u6210 HammerAI \u4ece\u5b89\u88c5\u5230\u4e0a\u624b\u7684\u5b8c\u6574\u6d41\u7a0b\uff0c\u5305\u62ec\u786c\u4ef6\u5bf9\u53f7\u3001\u6a21\u578b\u9009\u62e9\u3001\u89d2\u8272\u5e93\u6d4f\u89c8\u4e0e Proxy \u5916\u63a5\u6a21\u578b\u914d\u7f6e\uff0c\u907f\u5f00\u65b0\u624b\u6700\u5bb9\u6613\u7ffb\u8f66\u7684\u51e0\u4e2a\u5751\u3002", "headline": "HammerAI \u5b9e\u6218\u6307\u5357\uff1a\u4ece\u96f6\u628a\u672c\u5730 AI \u89d2\u8272\u804a\u5929\u8dd1\u8d77\u6765", "image": ["https://laoguosofts.github.io/images/hammerai/mobile-app.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/hammerai.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/hammerai.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "HammerAI \u5b9e\u6218\u6307\u5357\uff1a\u4ece\u96f6\u628a\u672c\u5730 AI \u89d2\u8272\u804a\u5929\u8dd1\u8d77\u6765", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">HammerAI 实战指南：从零把本地 AI 角色聊天跑起来</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">HammerAI 实战指南：从零把本地 AI 角色聊天跑起来</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">手把手带你完成 HammerAI 从安装到上手的完整流程，包括硬件对号、模型选择、角色库浏览与 Proxy 外接模型配置，避开新手最容易翻车的几个坑。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你就能在自己的机器上跑起 HammerAI——打开应用、挑一个喜欢的角色、用本地模型或外接 API 跟它聊起来，全程不花一分钱订阅费。</p>
+<h2>准备：先摸清自己的家底</h2>
+<p><a href="https://hammerai.usea.quest" target="_blank" rel="noopener">HammerAI官网</a> 是一个跨平台的 AI 角色聊天应用，桌面端支持 Windows、macOS 和 Linux，移动端有 Android 和 iOS 包。它的核心优势是同时支持<strong>内置云端模型</strong>和<strong>本地离线推理</strong>，以及 Proxy 模式外接任意 OpenAI 兼容的 API。这意味着你可以先零门槛用云端体验，再根据自己的硬件条件切换本地。</p>
+<p>硬件门槛是新手最容易踩的第一道坎，提前算清楚能省很多折腾。</p>
+<p>本地推理的硬性规则只有一条：模型必须完整装进内存或显存才能运行，看的是"空闲量"而不是总量。简单对号：7B 参数量的模型 Q4 量化版大约占 6~10GB，Q8 版翻一倍到 10~18GB。RTX 3060 12GB 能轻松跑 7B_Q8，RTX 4090 则能上到 13B 甚至 30B。没有独显也能玩，纯 CPU / 核显机器靠内存硬扛，7B_Q4 需要至少 8GB 空闲内存，速度会慢不少但能跑。</p>
+<p><img src="../images/hammerai/mobile-app.webp" alt="移动端角色聊天界面" loading="lazy"></p>
+<p>如果显存紧张到连 3B_Q4 都装不下，别急着退——Proxy 模式能救你一命：把模型生成外包给外部服务，你本机只负责界面和对话逻辑，对硬件几乎没要求。这个放到后面进阶章节细说。</p>
+<h2>第一步：安装并启动应用</h2>
+<p>桌面端的安装包从<a href="https://hammerai.usea.quest/download.html" target="_blank" rel="noopener">下载</a>就能拿到，移动端各平台也有对应分发。装好后第一次启动会引导你完成几个基础设置：界面语言（支持十多种，包括简体中文）、主题色、还有模型来源的默认选择。</p>
+<p>这里注意一个容易跳过的选项：<strong>模型来源</strong>。默认是"云端模型"——这是给完全不想折腾本地推理的用户准备的，应用内置了几款云端模型可以直接用，但有免费额度限制。如果你打算长期用、或者想完全离线，把它切到"本地模型"。</p>
+<p>别急着点"下一步"，先把设置页里的"存储路径"看一眼——模型文件会下到这里，默认位置可能在系统盘，显存吃紧时模型体积动辄十几 G，改到 D 盘或专门的资料盘更稳妥。</p>
+<h2>第二步：逛角色库，挑第一个聊天对象</h2>
+<p>HammerAI 的角色库是社区驱动的，成千上万个创作者上传的角色按题材、性别、种族、身份等维度分类，<strong>免登录就能开聊</strong>。启动应用直接就是角色列表页，点任意一个角色的头像卡就能进聊天界面。</p>
+<p>挑角色时别光看封面图，先往下滑找到 <strong>Creator's Note</strong>——这是角色作者写给玩家的使用说明，里面会交代视角（Male POV 还是 Female POV）、剧情前提、可能的注意事项。这部分信息比标签组合还重要：同样一个"医生"角色，有的设定是温柔治疗向，有的是悬疑惊悚向，Creator's Note 会直接告诉你这场戏的基调。</p>
+<p>逛着逛着难免会刷到不感兴趣的角色，标签过滤和屏蔽功能能帮你把不喜欢的内容挡在门外。设置页里有个"按标签隐藏"的选项，填上你想完全屏蔽的标签（比如某种特定题材或视角），之后浏览角色库时这些角色直接不可见，比手动划走省心得多。</p>
+<p><img src="../images/hammerai/app-store-03.webp" alt="应用商店里的 HammerAI 角色卡片" loading="lazy"></p>
+<h2>第三步：配置模型——三种路线任你选</h2>
+<p>角色选好了，接下来决定让谁来生成回复。HammerAI 给了三条路线，按硬件条件和使用习惯挑：</p>
+<p><strong>路线 A：内置云端模型</strong>。最省心，零硬件门槛，打开就能用。缺点是有免费额度，聊多了要等刷新或者付费。适合刚上手体验阶段。</p>
+<p><strong>路线 B：本地模型推理</strong>。最自由，完全离线，想聊多久聊多久。代价是硬件门槛——按之前显存对号表对号入座，从小模型开跑逐级加大，卡了就退。下载模型时应用内置了模型库，点几下就能拉下来，自动量化到你的硬件能扛的级别。</p>
+<p><strong>路线 C：Proxy 外接模型</strong>。这是最灵活的一条，相当于把语言生成整段转交给外部服务。打开任意角色聊天 → 右栏 Settings 标签 → LLM 下拉拉到最底选 <strong>Proxy</strong>，然后填四个字段：Proxy URL（服务端点）、Proxy Model（精确模型名）、Proxy Context Length（可选，上下文上限）、Proxy API Key（鉴权令牌）。本地 LM Studio 跑的模型、OpenRouter 这类聚合 API、Featherless 这类专用托管服务——理论上任何 OpenAI 兼容 API 都能接。</p>
+<p><img src="../images/hammerai/proxy-config-fields.jpg" alt="Proxy 模式的四个配置字段" loading="lazy"></p>
+<p>这里有个新手高频坑：<strong>Proxy URL 填错了端口号或者忘了带 <code>/v1</code></strong>。本地 LM Studio 的端点默认是 <code>http://localhost:1234/v1</code>，漏写 <code>/v1</code> 直接 404。还有 Proxy Model 字段必须填服务方定义的<strong>精确模型名</strong>，比如 <code>mistral-7b-instruct</code>，自己瞎编一个名字肯定跑不通。</p>
+<p>改完 URL 后记得重载页面才生效，这也是很多人调完 Proxy 发现没变化的原因。</p>
+<h2>第四步：开聊——调整上下文长度</h2>
+<p>进了聊天界面，先别急着大段输入。设置里有个 <strong>Context Length</strong>（上下文长度）的参数，新手容易忽略但它直接影响聊天体验。</p>
+<p>上下文长度决定了模型能"看到"多少历史消息——值越大，对话的前后连贯性越好，但吃的内存也越多。本地推理时，如果显存紧张，先保守设到 2048 或 4096，确认流畅再往上加。Proxy 模式下你用的是外部服务的额度，上下文长度可以设到服务方支持的上限，不用替本机硬件操心。上下文长度的上限怎么算、压缩历史消息有什么坑，去<a href="https://hammerai.pages.dev/" target="_blank" rel="noopener">HammerAI文档</a>翻参数调校那一节，讲得比我详细得多。</p>
+<p>还有一个小技巧：聊天界面里有个"角色卡导入"按钮，如果你在别的地方看到喜欢的角色卡（JSON 或 PNG 格式），直接灌进来就能用，不用等作者上传到社区。</p>
+<h2>三个新手最容易翻车的卡点</h2>
+<p><strong>卡点一：模型加载卡在 100% 不动</strong>。大概率是显存不够，模型文件虽然下完了但系统在硬塞进内存，HDD 上会特别慢。解法：先把 Context Length 降到最低，或者换 Q4 量化的小一级模型；如果用的是机械硬盘，换 SSD 效果立竿见影。</p>
+<p><strong>卡点二：Proxy 模式连接失败</strong>。按顺序核对四个字段：URL 端口和 <code>/v1</code> 后缀 → 模型名是否精确 → API Key 是否正确 → 本地服务（比如 LM Studio）是否真的在运行。90% 的连接失败都是这几项里某一个填错了。</p>
+<p><strong>卡点三：角色聊到一半"出戏"了</strong>。这是上下文不够导致的——模型忘了前面聊过什么。解法：手动"压缩历史消息"（把长对话浓缩成摘要保留关键信息），或者加大 Context Length 的值。</p>
+<h2>进阶一句话</h2>
+<p>跑通基础流程后，可以试试自己创建角色卡、导入社区的 PNG 角色图，或者在 Discord 的 Creator's Corner 跟其他创作者交流。这个独立开发者项目很多功能都是用户一票一票加出来的，你提的需求说不定下一个版本就能看到。至于本文里提到的那些参考资料，我同步备份在了三个常用仓库里方便随时查：<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/HammerAI" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/HammerAI" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/HammerAI" target="_blank" rel="noopener">GitCode</a>，国内访问不方便的话走后两个就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/standby-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">StandBy 充电钟用了半年，踩过这几个坑才敢说省心</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/postype.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">POSTYPE 的&#34;反平台&#34;设计哲学：为什么它要把创作者经济拆回一对一</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

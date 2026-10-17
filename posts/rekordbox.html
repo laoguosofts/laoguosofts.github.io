@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从找歌到上台：我用 rekordbox 把 DJ 备演压成一条六步流水线 · 老郭软件铺</title>
+  
+<meta name="description" content="以前备演要在三个文件夹里翻歌、手工记 Cue 点、U 盘来回拷——现在整条链交给 rekordbox，从曲库整理到上台打碟一条线走完，中间零手动转存。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/rekordbox.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从找歌到上台：我用 rekordbox 把 DJ 备演压成一条六步流水线">
+<meta property="og:description" content="以前备演要在三个文件夹里翻歌、手工记 Cue 点、U 盘来回拷——现在整条链交给 rekordbox，从曲库整理到上台打碟一条线走完，中间零手动转存。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/rekordbox.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/rekordbox/export-mode.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/rekordbox/export-mode.png">
+
+<meta name="twitter:title" content="从找歌到上台：我用 rekordbox 把 DJ 备演压成一条六步流水线">
+<meta name="twitter:description" content="以前备演要在三个文件夹里翻歌、手工记 Cue 点、U 盘来回拷——现在整条链交给 rekordbox，从曲库整理到上台打碟一条线走完，中间零手动转存。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u5907\u6f14\u8981\u5728\u4e09\u4e2a\u6587\u4ef6\u5939\u91cc\u7ffb\u6b4c\u3001\u624b\u5de5\u8bb0 Cue \u70b9\u3001U \u76d8\u6765\u56de\u62f7\u2014\u2014\u73b0\u5728\u6574\u6761\u94fe\u4ea4\u7ed9 rekordbox\uff0c\u4ece\u66f2\u5e93\u6574\u7406\u5230\u4e0a\u53f0\u6253\u789f\u4e00\u6761\u7ebf\u8d70\u5b8c\uff0c\u4e2d\u95f4\u96f6\u624b\u52a8\u8f6c\u5b58\u3002", "headline": "\u4ece\u627e\u6b4c\u5230\u4e0a\u53f0\uff1a\u6211\u7528 rekordbox \u628a DJ \u5907\u6f14\u538b\u6210\u4e00\u6761\u516d\u6b65\u6d41\u6c34\u7ebf", "image": ["https://laoguosofts.github.io/images/rekordbox/export-mode.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/rekordbox.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/rekordbox.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece\u627e\u6b4c\u5230\u4e0a\u53f0\uff1a\u6211\u7528 rekordbox \u628a DJ \u5907\u6f14\u538b\u6210\u4e00\u6761\u516d\u6b65\u6d41\u6c34\u7ebf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">从找歌到上台：我用 rekordbox 把 DJ 备演压成一条六步流水线</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">从找歌到上台：我用 rekordbox 把 DJ 备演压成一条六步流水线</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前备演要在三个文件夹里翻歌、手工记 Cue 点、U 盘来回拷——现在整条链交给 rekordbox，从曲库整理到上台打碟一条线走完，中间零手动转存。</p>
+  </header>
+  <div class="prose serif">
+<p>每周三晚上有一场固定的 club set，以前备演的流程是：微信接收主办方发来的歌单 → 网盘下载 → 扔到桌面一个叫"演出曲目"的文件夹 → 打开播放器逐首听、手工记哪段该进、哪段该渐出 → 把文件夹整个拷到 U 盘 → 揣着 U 盘打车去现场。六步里至少三次手动搬文件，现场还经常翻半天找不到那首 Bootleg 在哪个子文件夹。</p>
+<p>把 <a href="https://rekordbox.fewf.ren" target="_blank" rel="noopener">rekordbox官网</a> 插进这条链之后，备演变成了一条没有手动拷贝环节的流水线。它的核心是把"找歌 → 分析 → 打点 → 组织 → 导出"这五件事收在一个界面里，上下游分别接微信（接歌单）和 CDJ/XDJ（现场播放），中间不需要再开任何别的软件。整个工作流拆开来看是这样的。</p>
+<h2>旧流程卡在哪</h2>
+<p>先复盘一下之前的痛点，这也是为什么换了工具之后感受那么明显：</p>
+<ul><li><strong>曲库膨胀之后找歌全靠运气</strong>：两年下来桌面堆了几十个"演出曲目_20240308"这种文件夹，里面还有按风格分子目录的子目录。现场灯光暗、耳机里响着混音，在触控板上翻三四层才能找到目标曲目——这是演出前最容易炸心态的环节。</li><li><strong>Cue 点记在纸上容易错位</strong>：以前手工用播放器设好起播点和 loop，记在小纸条上带去现场，上台前还要对着 CDJ 屏幕核对一遍。偶尔现场临时改了 loop 长度，下来纸条就作废了，下次再用那首歌等于白记。</li><li><strong>U 盘导出是条漏缝</strong>：播放器不识别无损格式、同名不同码率的曲目会被覆盖、Cue 点在 CDJ 上显示不出来——这些坑以前每次演出至少踩一个，踩多了开始带两个 U 盘当备胎。</li></ul>
+<p>这些问题本质上都是同一个矛盾：<strong>现场设备和桌面曲库之间没有中间层</strong>。播放器只认文件不认元数据，而我的 Cue 点、调性、BPM 这些现场真正要用的信息，全藏在播放器的内部数据库里，跟文件本身脱节。</p>
+<h2>新流程：rekordbox 作为中间枢纽</h2>
+<p>rekordbox 解决的就是这个"中间层"问题。它不是播放器的替代品，而是把曲库当成<strong>项目</strong>来管理——每首歌不只是一个文件，还有一套跟着它走的元数据：调性、BPM、Cue 点、循环、颜色标签、备注。导出 U 盘的时候，这些信息全部打包写进一个 <code>.rekordbox</code> 数据库文件，CDJ 插 U 盘直接读这套数据库，Cue 点在哪个 pad 上、循环多长、甚至我在备注里写的"这里贝斯线会断一拍"，全部原样呈现。</p>
+<p>安装包从<a href="https://rekordbox.fewf.ren/download.html" target="_blank" rel="noopener">下载</a>拿，整套流水线现在长这样：</p>
+<p><strong>第一步：微信接收歌单 → 网盘批量下载到"待导入"文件夹</strong>。这一步不变，还是用浏览器批量保存。<strong>第二步：rekordbox 导入 → 自动分析 BPM 和调性</strong>。拖进去就能分析，也可以批量选中后右键一次性跑完。分析引擎比播放器准——遇到变速曲目会标出多个 BPM 段，网格自动吸附，QUANTIZE 开关一开，后续设 Cue 点和循环全不会歪。<strong>第三步：批量打标签 + 设颜色语义</strong>。这是以前没做过但现在必做的一步：给开场曲标红色、高潮备用标蓝色、过渡垫场标绿色，现场一眼认出。标题里的 Remix、Bootleg、Featuring 后缀也要补全——以前搜"One Kiss"会出来三首，现在只有一首精准匹配。<strong>第四步：设 Hot Cue + Memory Cue</strong>。Hot Cue 占 A–P 共 16 个 pad，只留给现场肯定会用到的入口；细节注脚用不限数量的 Memory Cue，比如"这里人声切半拍后进第二段 drop"——不占 pad 槽位但现场能按调用键逐一切换。循环入出点自动吸附节拍，QUANTIZE 开着手抖也不会切出歪 loop。<strong>第五步：整理播放列表 + 合并重复</strong>。以前同名不同码率的曲目会留两份，ver.7.2.8 起有内置合并重复文件功能——自动检出标题艺人相同的曲目，选定一份当代表文件，Cue 点等数据自动保留。重复文件清完，Collection 窗口筛选干净了，现场翻歌速度至少快三倍。<strong>第六步：EXPORT 模式导出 U 盘</strong>。这一步是整条链的终点，也是以前最容易出错的环节。用本软件导出的 U 盘在 CDJ/XDJ 上可以直接读取 Cue 点、循环、颜色标签——不用再手动核对，现场设备和桌面曲库完全同步。</p>
+<p><img src="../images/rekordbox/export-mode.png" alt="U 盘导出后的数据库结构示意" loading="lazy"></p>
+<h2>最容易断链的两个环节</h2>
+<p>整条流水线里有两个地方最容易卡壳，踩过几次之后总结了固定处理方式：</p>
+<p><strong>第一个断链点：QUANTIZE 没开</strong>。这个开关在 DJM 混音台和软件界面都有，默认开着但有时候重开软件会自动恢复默认——后来去<a href="https://rekordbox.pages.dev/" target="_blank" rel="noopener">rekordbox文档</a>翻了一下才弄清它有全局和曲目级两个开关，只开全局不够，每首曲目还要单独确认。现场设 Cue 点如果 QUANTIZE 关着，手抖一点就设到节拍缝里，后面 loop 循环会错位。现在养成习惯：演出前最后一道工序就是检查混音台和软件里的 QUANTIZE 开关，两个都亮着才敢出门。</p>
+<p><strong>第二个断链点：U 盘导出的数据库没刷新</strong>。如果在 rekordbox 里改了 Cue 点之后没来得及重新导出，U 盘上还是旧数据。解决方式很简单——导出之后插回电脑检查一下，或者演出前一天提前导好，当天有改动再补导一次。导出速度很快，整个曲库（大概 3000 首）不到两分钟。</p>
+<h2>效果和边界</h2>
+<p>这条流水线跑了半年多，实际省下来的时间可以量化：</p>
+<ul><li><strong>备演时间从 4 小时压到 1.5 小时</strong>——主要是省掉了翻文件夹找歌、手工写 Cue 点、核对 U 盘数据这几个环节。</li><li><strong>现场零找歌焦虑</strong>——搜索框输入艺人名直接跳，颜色标签秒认开场/高潮/过渡。</li><li><strong>U 盘不再踩格式坑</strong>——CDJ 不认无损？没关系，在 rekordbox 里先转换一下再导出，一次搞定。</li></ul>
+<p>但这条链也有边界，不是所有 DJ 场景都适合用：</p>
+<ul><li><strong>免费版 20 首云同步限制</strong>——如果需要跨多台电脑同步整套曲库，免费版只够单人单台用，多设备要上云档位。但我自己一台电脑备演，免费版 EXPORT 模式全功能够用。</li><li><strong>STEMS 和 DVS 要订阅 Creative</strong>——分轨混音、黑胶控制这些进阶玩法，免费版和 EXPORT 模式不支持，需要升到 Creative 档位才解锁。如果只是常规 club set 打碟，EXPORT 模式完全够用。</li><li><strong>硬件解锁比订阅划算</strong>——手上有 XDJ-RX3 或 DDJ-FLX10 的话，连一次就能永久解锁 PING PONG、HELIX、VINYL BRAKE 这些 DJM 型效果，比订阅划算得多，而且断开设备也保持解锁状态。</li></ul>
+<p><img src="../images/rekordbox/ver7-browse.png" alt="免费版功能边界一览" loading="lazy"></p>
+<p>说到底，rekordbox 不是一个"打碟软件"，而是一套<strong>备演工作流的操作系统</strong>——它把我以前散落在三个文件夹、一个播放器、一张纸条里的信息全部收在一起，变成了一条可以标准化执行的流水线。以前备演每次都像开盲盒，现在是照流程走一遍就稳。</p>
+<p>这套工作流涉及的资料我同步到了三个仓库，<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/rekordbox" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/rekordbox" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/rekordbox" target="_blank" rel="noopener">GitCode</a> 上都能拿到，国内访问选 Gitee 更顺。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/duckstation-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">DuckStation 全能力盘点：为什么它成了 PS1 模拟器新标杆</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/steamcici.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">SteamCICI 用了大半年，说点当初没注意到的事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

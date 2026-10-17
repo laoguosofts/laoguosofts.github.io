@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Grayjay 看视频的四个暗坑，踩过才知道 · 老郭软件铺</title>
+  
+<meta name="description" content="Grayjay 喊着「关注创作者而非平台」，理念确实诱人，但上手时几个隐性设计经常把人带沟里——多渠道版本打架、搜索越用越乱、登录后的追踪方向、把聚合器当平台用。这篇把每个坑的症状、原因和解法一次说清。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/grayjay.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Grayjay 看视频的四个暗坑，踩过才知道">
+<meta property="og:description" content="Grayjay 喊着「关注创作者而非平台」，理念确实诱人，但上手时几个隐性设计经常把人带沟里——多渠道版本打架、搜索越用越乱、登录后的追踪方向、把聚合器当平台用。这篇把每个坑的症状、原因和解法一次说清。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/grayjay.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/grayjay/login-recommend.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/grayjay/login-recommend.png">
+
+<meta name="twitter:title" content="用 Grayjay 看视频的四个暗坑，踩过才知道">
+<meta name="twitter:description" content="Grayjay 喊着「关注创作者而非平台」，理念确实诱人，但上手时几个隐性设计经常把人带沟里——多渠道版本打架、搜索越用越乱、登录后的追踪方向、把聚合器当平台用。这篇把每个坑的症状、原因和解法一次说清。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Grayjay \u558a\u7740\u300c\u5173\u6ce8\u521b\u4f5c\u8005\u800c\u975e\u5e73\u53f0\u300d\uff0c\u7406\u5ff5\u786e\u5b9e\u8bf1\u4eba\uff0c\u4f46\u4e0a\u624b\u65f6\u51e0\u4e2a\u9690\u6027\u8bbe\u8ba1\u7ecf\u5e38\u628a\u4eba\u5e26\u6c9f\u91cc\u2014\u2014\u591a\u6e20\u9053\u7248\u672c\u6253\u67b6\u3001\u641c\u7d22\u8d8a\u7528\u8d8a\u4e71\u3001\u767b\u5f55\u540e\u7684\u8ffd\u8e2a\u65b9\u5411\u3001\u628a\u805a\u5408\u5668\u5f53\u5e73\u53f0\u7528\u3002\u8fd9\u7bc7\u628a\u6bcf\u4e2a\u5751\u7684\u75c7\u72b6\u3001\u539f\u56e0\u548c\u89e3\u6cd5\u4e00\u6b21\u8bf4\u6e05\u3002", "headline": "\u7528 Grayjay \u770b\u89c6\u9891\u7684\u56db\u4e2a\u6697\u5751\uff0c\u8e29\u8fc7\u624d\u77e5\u9053", "image": ["https://laoguosofts.github.io/images/grayjay/login-recommend.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/grayjay.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/grayjay.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Grayjay \u770b\u89c6\u9891\u7684\u56db\u4e2a\u6697\u5751\uff0c\u8e29\u8fc7\u624d\u77e5\u9053", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">用 Grayjay 看视频的四个暗坑，踩过才知道</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">用 Grayjay 看视频的四个暗坑，踩过才知道</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Grayjay 喊着「关注创作者而非平台」，理念确实诱人，但上手时几个隐性设计经常把人带沟里——多渠道版本打架、搜索越用越乱、登录后的追踪方向、把聚合器当平台用。这篇把每个坑的症状、原因和解法一次说清。</p>
+  </header>
+  <div class="prose serif">
+<p>从<a href="https://grayjay.gltd.quest" target="_blank" rel="noopener">Grayjay官网</a>第一次了解到它的设计理念时，我觉得终于等到了「想看谁就追谁，不管他在哪个平台发视频」的那一天。装完打开界面清爽，插件架构说装哪个平台就装哪个，通用信息流把所有订阅创作者的新视频按时间倒序排好，没算法投喂这点特别舒服。但用了大概两周，几个坑前前后后踩了一遍——有的差点把我积累的订阅列表弄丢，有的让我对着屏幕骂了五分钟才反应过来是自己搞错了产品定位。</p>
+<p>下面四个坑，都是用 Grayjay 的过程中真真切切遇到的，没有虚构的问题，也不是网上瞎传的段子。</p>
+<h2>坑一：同时装两个渠道版本，数据全不互通</h2>
+<p><strong>症状</strong>：手机上突然多了两个 Grayjay 图标，一个叫 Grayjay，一个也叫 Grayjay。点进去发现订阅列表不一样，历史记录也各记各的。后来才知道是 Google Play 商店装了一个，官网又装了一个——两个包名不同的应用，数据完全隔离。我之前在 Play 版上手动订阅了二十多个创作者，全都白弄了。</p>
+<p><strong>原因</strong>：Grayjay 的三个分发渠道（官网、Steam、F-Droid）各有各的安装包签名。官网直装版和 F-Droid 仓库版还能凑合用，但 Google Play 商店版的包名和官网版不一样，Android 系统把它们当两个独立应用处理。同样的问题在桌面端也可能出现——如果你既装了 Steam 版又装了官网便携版，登录的账户数据不会自动同步。</p>
+<p><strong>解法</strong>：选一个渠道，从一而终。我后来固定从<a href="https://grayjay.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿 Android universal APK，桌面端也用同渠道的便携版（不写注册表，换电脑直接拷过去就能用）。已经装了两个的，先把旧版的订阅列表记下来或者导出，卸载干净再装选定的那个。官方 FAQ 里特意提了这个，说「不要混装不同渠道版本」，但安装时没弹任何提示，只能自己留意。</p>
+<h2>坑二：搜索结果混在一起，忘了还有过滤这回事</h2>
+<p><strong>症状</strong>：搜了个「原神攻略」，YouTube、Bilibili、Twitch、Odysee 的结果全堆在一页上。YouTube 有长视频深度解析，B 站有短视频速通，Twitch 又混了直播回放，翻了半页还没找到想要的。一开始以为这就是 Grayjay 搜索的全部能力，觉得太杂了，差点换回单独用 B 站 App 搜。</p>
+<p><strong>原因</strong>：Grayjay 默认搜索是所有已启用的平台一起搜，没有自动按平台分类。过滤按钮藏在搜索结果页面的右上角，不是很显眼——至少我第一次用的时候完全没注意到。官方文档里说过滤选项的面板列出了所有已启用的平台，默认全部勾选，你可以只选某一个、排除某几个，或者自由组合。</p>
+<p><strong>解法</strong>：养成搜完先点一下 Filter 的习惯。我自己的高频组合是「只看 Bilibili」搜攻略教程，「YouTube + Odysee」搜英文评测，Twitch 和 Kick 平时直接排除，偶尔想看直播回放的时候再加上。文档里还提到一个细节：禁用某些源之后，剩余的过滤选项会自动变得更丰富——比如「只看长视频」「只看高清」这类条件，只有在你缩小了平台范围之后才有意义。发现这个之后搜索效率一下提上来了。</p>
+<h2>坑三：以为登录会把凭证上传到 Grayjay 服务器</h2>
+<p><strong>症状</strong>：第一次看到登录功能时犹豫了好久——会不会我的 YouTube 账户密码被 Grayjay 存到他们服务器上了？隐私党最怕这个。纠结了三天一直没敢登，导致通用信息流里只有手动订阅的内容，没有平台侧的推荐，新创作者发现起来特别慢。</p>
+<p><strong>原因</strong>：Grayjay 本身不追踪你的行为，不上传你的数据到任何服务器——这点在核心理念文档里反复强调。但登录平台账户这个动作本身，Grayjay 只是作为客户端使用你的凭证直接去调平台接口，中间没有 Grayjay 自己的服务器转发。真正会追踪你的是<strong>平台端</strong>——你登录后，YouTube 那边知道有个叫 Grayjay 的客户端在用你的账户访问内容，这是平台自己的数据收集逻辑，Grayjay 拦不住。两个方向搞反了，担心的点也反了。</p>
+<p><strong>解法</strong>：如果对平台追踪不敏感，放心登录。登录之后能一键从平台账户导入订阅列表（不用手动一个个加），还能拉到平台侧的个性化推荐，付费会员内容也能解锁。如果对追踪极度敏感，就保持不登录，只用手动订阅——Grayjay 的本地记录照样正常工作，只是少了平台侧的推荐和导入功能。我自己选了登录，毕竟手动加二十多个频道确实累。</p>
+<p><img src="../images/grayjay/login-recommend.png" alt="登录获取推荐" loading="lazy"></p>
+<h2>坑四：把 Grayjay 当成了可以替代 YouTube 的平台</h2>
+<p><strong>症状</strong>：朋友问我「用 Grayjay 看 YouTube 是不是就等于翻墙了？」，我愣住了。后来又有一个人说「Grayjay 上搜不到那个视频，是不是他们没授权？」。我自己也有过类似的误解——以为 Grayjay 有自己的内容库，搜不到是因为没覆盖到。直到去<a href="https://grayjay.pages.dev/" target="_blank" rel="noopener">Grayjay文档</a>翻了官方 FAQ 才搞清楚，Grayjay 不是平台，是聚合器。</p>
+<p><strong>原因</strong>：Grayjay 不托管任何视频内容，不分发任何视频资源，所有视频流都来自原平台。它做的事情很简单——提供一个统一的客户端界面，让你用一个 App 同时看 YouTube、Twitch、Bilibili、Odysee 等多个平台的内容。搜不到某个视频，大概率是那个视频在原平台本身就搜不到（区域限制、隐私设置、已经被删了），跟 Grayjay 没关系。同理，Grayjay 也不会帮你绕任何平台的访问限制——它只是个客户端，不是 VPN 或代理。</p>
+<p><strong>解法</strong>：摆正定位就好。把 Grayjay 理解成「多平台视频统一入口」，不是「替代 YouTube 的新平台」。想看 Grayjay 上有没有某个创作者的内容，先确认他在 YouTube 或其他插件支持的平台上有没有发。想看 Grayjay 支持哪些平台，打开插件库看一眼就行，想加哪个装哪个。官方核心理念文档里有个比喻挺贴切的：Grayjay 之于视频平台，就像 RSS 阅读器之于博客——统一入口，内容还是各平台的。</p>
+<p><img src="../images/grayjay/feed-view.png" alt="通用信息流视图" loading="lazy"></p>
+<h2>防坑清单（3 分钟速查）</h2>
+<ul><li><strong>只从一个渠道装，别混装</strong>。官网、Steam、F-Droid 三个渠道选一个跟到底，包名不一样的版本绝对不要同时装</li><li><strong>搜索先过滤</strong>。搜完先点右上角 Filter 按钮，按平台缩小范围再看结果，比一页页翻高效十倍</li><li><strong>搞清楚谁在追踪你</strong>。Grayjay 不上传你的凭证，但登录后平台端知道你在用这个客户端——怕追踪就别登录，怕麻烦就登</li><li><strong>它是聚合器不是平台</strong>。Grayjay 不托管视频也不绕限制，内容来自原平台，搜不到先去原平台确认</li></ul>
+<p>知道这些坑之后，Grayjay 其实相当省心。插件架构按需装，本地优先不追踪，通用信息流时间倒序干净利落——前提是别把它当成别的东西来用。关于 Grayjay 的中文资料，我在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/Grayjay" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/Grayjay" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/Grayjay" target="_blank" rel="noopener">GitCode</a>都维护了一份镜像，国内访问选 Gitee 或 GitCode 更顺手。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/berriz.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">写了 8000 字的庆生帖发不出去？Berriz 社区的坑我替你踩过了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/talki-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我把 Talki 嵌进角色开发流水线之后，每周省出了两天</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

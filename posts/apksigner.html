@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Apksigner 新手入门：手机上给 APK 签名，五分钟跑通 · 老郭软件铺</title>
+  
+<meta name="description" content="第一次接触 APK 签名？不用担心，Apksigner 让这件事在手机上就能完成。跟着这篇走，从零到签出第一个自己的包，全程不碰电脑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/apksigner.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apksigner 新手入门：手机上给 APK 签名，五分钟跑通">
+<meta property="og:description" content="第一次接触 APK 签名？不用担心，Apksigner 让这件事在手机上就能完成。跟着这篇走，从零到签出第一个自己的包，全程不碰电脑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/apksigner.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/apksigner/sign-tab.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/apksigner/sign-tab.jpg">
+
+<meta name="twitter:title" content="Apksigner 新手入门：手机上给 APK 签名，五分钟跑通">
+<meta name="twitter:description" content="第一次接触 APK 签名？不用担心，Apksigner 让这件事在手机上就能完成。跟着这篇走，从零到签出第一个自己的包，全程不碰电脑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u63a5\u89e6 APK \u7b7e\u540d\uff1f\u4e0d\u7528\u62c5\u5fc3\uff0cApksigner \u8ba9\u8fd9\u4ef6\u4e8b\u5728\u624b\u673a\u4e0a\u5c31\u80fd\u5b8c\u6210\u3002\u8ddf\u7740\u8fd9\u7bc7\u8d70\uff0c\u4ece\u96f6\u5230\u7b7e\u51fa\u7b2c\u4e00\u4e2a\u81ea\u5df1\u7684\u5305\uff0c\u5168\u7a0b\u4e0d\u78b0\u7535\u8111\u3002", "headline": "Apksigner \u65b0\u624b\u5165\u95e8\uff1a\u624b\u673a\u4e0a\u7ed9 APK \u7b7e\u540d\uff0c\u4e94\u5206\u949f\u8dd1\u901a", "image": ["https://laoguosofts.github.io/images/apksigner/sign-tab.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/apksigner.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/apksigner.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "Apksigner \u65b0\u624b\u5165\u95e8\uff1a\u624b\u673a\u4e0a\u7ed9 APK \u7b7e\u540d\uff0c\u4e94\u5206\u949f\u8dd1\u901a", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">Apksigner 新手入门：手机上给 APK 签名，五分钟跑通</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">Apksigner 新手入门：手机上给 APK 签名，五分钟跑通</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次接触 APK 签名？不用担心，Apksigner 让这件事在手机上就能完成。跟着这篇走，从零到签出第一个自己的包，全程不碰电脑。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从零开始，在手机上给自己的 APK 包签名——不需要电脑，不需要懂什么是签名，跟着一步步点就行。</p>
+<h2>它到底是干嘛的？一个生活化类比讲明白</h2>
+<p>想象一下你网购收快递，包裹外面有一层塑料封条。如果封条完好，说明这包裹没被人拆过；如果封条破了，你就知道中间被人动过手脚。APK 签名干的就是这么一件事——给安卓安装包贴一层"封条"。</p>
+<p>这层"封条"用的是一套密钥机制：你手上有一份私钥（只有你知道的那把钥匙），签名时用私钥在 APK 文件上盖个章。安装应用时，安卓系统会拿 APK 里带的公钥（配套的那把锁）去验这个章对不对——对得上说明包没被动过手脚，对不上就拒绝安装。</p>
+<p><a href="https://apksigner.boop.uno" target="_blank" rel="noopener">Apksigner官网</a>介绍的这款工具，在手机上就能完成整套盖章+验章流程。不用装 Java，不用搭 Android SDK，打开应用就能用。</p>
+<p><img src="../images/apksigner/sign-tab.jpg" alt="Apksigner 签名标签页：选择文件、密钥、方案，一条线走完" loading="lazy"></p>
+<h2>五分钟上手：从下载安装到第一次跑通</h2>
+<h3>第一步：装应用、给权限</h3>
+<p>安装包从<a href="https://apksigner.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>或者应用商店都能拿到，装好打开，第一个弹窗是要存储权限——必须给，不然它看不到你手机里的 APK 文件也没法把签好的包存回去。如果手滑点了拒绝，去「设置 → 应用 → Apksigner → 权限」里手动把存储改成允许就行。</p>
+<p>第二个可能的弹窗是「安装未知应用」，只有当你想用它直接装签好的包时才需要，暂时可以跳过。</p>
+<h3>第二步：选一个 APK 文件来签</h3>
+<p>进入「签名」标签页，点那个蓝色的悬浮按钮，选「签名文件」。系统文件选择器弹出来，找到你想签的 APK——随便找一个就行，第一次练手建议用个不大的包，几兆的那种。</p>
+<h3>第三步：选密钥</h3>
+<p>第一次用？直接用应用内置的测试密钥就行，不用自己导入。以后有自己的正式密钥库了，再换过来。选完密钥可能要输密码，测试密钥默认密码通常是 123456，不行就看应用内提示。</p>
+<h3>第四步：勾签名方案</h3>
+<p>这里新手最容易懵——v1、v2、v3、v4 一堆勾选项。简单记：<strong>v1 + v2 都勾上</strong>，是目前最稳妥的默认组合。</p>
+<p>v2 是 Android 7.0 以后的标配，它对整个 APK 文件做字节级校验，比 v1 的逐个文件检查更安全、更快。v1 留着是为了兼容老设备。v3 和 v4 目前对新手来说用不上，等你需要密钥轮替或增量安装的时候再研究。</p>
+<h3>第五步：输出</h3>
+<p>确认信息，点签名。等个几秒钟（小包几乎秒出），签好的包会自动保存在原 APK 同目录，文件名后面加了个 <code>-signed</code> 后缀。</p>
+<p>拿这个包去装一下试试——如果原来的包已经装在手机上，先卸掉再装，不然会撞「签名不一致」的报错。</p>
+<p><img src="../images/apksigner/verify-tab.jpg" alt="Apksigner 验证标签页：签完顺手验一下，确认签名生效" loading="lazy"></p>
+<h2>上手后先玩这三个功能</h2>
+<p>签完第一个包别急着关应用，有三个功能最值得你先摸一摸。</p>
+<h3>功能一：直接签已安装的应用</h3>
+<p>刚才的流程是「先有 APK 文件再签」。但很多时候包就在你手机里装着——比如某个应用你想拿它重签一份留档。这时候不用先到处找 APK 文件，回到「签名」标签页点悬浮按钮，选「签名已安装应用」，应用列表直接弹出来，逐行显示包名、版本和体积。找到目标，点一下就直接进入选密钥那一步，后面的流程和签文件完全一样。</p>
+<p>你会发现这比导包再签快了不止一个节拍——尤其是系统应用很多的时候，搜索图标一按就能过滤。不过注意：带 <strong>Sys</strong> 标记的系统应用别乱碰，重签后强行替换可能导致系统启动异常。</p>
+<h3>功能二：验证签名有没有真的生效</h3>
+<p>签完包顺手切到「验证」标签页，把刚签好的包拖进去（或者选已安装应用），点验证。你会看到应用告诉你这个 APK 用了哪些方案签的、密钥指纹是什么——把结果和你刚才的密钥对一下，确认无误。这个习惯能帮你排查"为什么装不上"这类问题，很多时候是签名没正确打上去。验证页能看到的签名方案比新手上勾的那几项丰富得多，想深一点的话翻<a href="https://apksigner.pages.dev/" target="_blank" rel="noopener">Apksigner文档</a>。</p>
+<h3>功能三：导出你的密钥库</h3>
+<p>用测试密钥练手没问题，但正式签名一定要有自己的密钥——而且一定要备份！换手机、应用重装、密钥丢了，之前签的所有包就再也没法用同一个签名更更新了。</p>
+<p>在应用里找导出密钥库的入口，设一个强密码，存到网盘里。这步花不了一分钟，但关键时刻能省大麻烦。</p>
+<h2>小白的三个常见疑问</h2>
+<h3>为什么换了密钥的包装不上？</h3>
+<p>安卓系统把"同签名"当成"同一家出品"的标志。你用 A 密钥签了 v1，又用 B 密钥签了 v2，系统会认为这是两个完全不同的应用，v2 想覆盖 v1 就会报「签名不一致」。解决方法只有两个：要么先卸旧的再装新的，要么一直用同一把密钥签同一个包。</p>
+<h3>v1 和 v2 到底有啥区别？</h3>
+<p>一句话：v1 查每个文件，v2 查整个文件。v1 是早期方案，它逐个解压 APK 里的文件去验签名，速度慢而且有结构漏洞——有人可以在文件没动的情况下改 APK 的 zip 注释字段，v1 就发现不了。v2 把整个 APK 当一个完整的字节流做摘要，任何改动都会让校验失败，速度也快得多。Android 7.0 以上设备原生支持 v2，所以<strong>v2 是必勾项</strong>，v1 只是兜底兼容老设备用的。</p>
+<h3>不给存储权限会怎么样？</h3>
+<p>最直接的表现是点「签名文件」之后看不到任何 APK，或者签名完了包存不回去。权限是 Android 按功能单独管的，Apksigner 需要读写你的文件才能干活。如果手滑点了「拒绝且不再询问」，去系统设置里手动开一下就行。</p>
+<h2>写在最后</h2>
+<p>五分钟能跑通，说明 Apksigner 的门槛确实不高——但"能签"和"签得好"之间还有不少细节，比如密钥的生成与保存策略、v1/v2/v3/v4 的组合怎么选、签 AAB 和签普通 APK 有什么不同。这些都可以等你熟练了再慢慢折腾。</p>
+<p>先把签名这步的闭环跑通，你就已经跨过了 APK 签名最大的那道坎。进阶方向推荐去看版本线——6.10.0 是 v3/v4 的分水岭，了解一下每版加了什么能力，能帮你判断手上的版本够不够用。</p>
+<p>这套工具的资料文档同步维护在三个代码仓库里——<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Apksigner" target="_blank" rel="noopener">GitHub</a>上是主仓库，国内网络不方便的话可以去<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Apksigner" target="_blank" rel="noopener">Gitee</a>或<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Apksigner" target="_blank" rel="noopener">GitCode</a>上找。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/simpletv-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">SimpleTV 快问快答：一款只有 5MB 的免费全球直播聚合器</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/hunter-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Hunter 到底值不值得掏钱？——一个认真算过账的安卓玩机人给你算三笔</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

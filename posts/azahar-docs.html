@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了一年 Azahar，我把 3DS 模拟器里里外外摸了一遍 · 老郭软件铺</title>
+  
+<meta name="description" content="从第一次把卡带 dump 出来到现在，这台模拟器陪我走过了密钥提取、图形调优、60FPS 解锁的全过程。有些东西越用越顺手，有些坑踩了不止一次。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/azahar-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了一年 Azahar，我把 3DS 模拟器里里外外摸了一遍">
+<meta property="og:description" content="从第一次把卡带 dump 出来到现在，这台模拟器陪我走过了密钥提取、图形调优、60FPS 解锁的全过程。有些东西越用越顺手，有些坑踩了不止一次。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/azahar-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/azahar-docs/setup-graphics-tab.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/azahar-docs/setup-graphics-tab.png">
+
+<meta name="twitter:title" content="用了一年 Azahar，我把 3DS 模拟器里里外外摸了一遍">
+<meta name="twitter:description" content="从第一次把卡带 dump 出来到现在，这台模拟器陪我走过了密钥提取、图形调优、60FPS 解锁的全过程。有些东西越用越顺手，有些坑踩了不止一次。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u7b2c\u4e00\u6b21\u628a\u5361\u5e26 dump \u51fa\u6765\u5230\u73b0\u5728\uff0c\u8fd9\u53f0\u6a21\u62df\u5668\u966a\u6211\u8d70\u8fc7\u4e86\u5bc6\u94a5\u63d0\u53d6\u3001\u56fe\u5f62\u8c03\u4f18\u300160FPS \u89e3\u9501\u7684\u5168\u8fc7\u7a0b\u3002\u6709\u4e9b\u4e1c\u897f\u8d8a\u7528\u8d8a\u987a\u624b\uff0c\u6709\u4e9b\u5751\u8e29\u4e86\u4e0d\u6b62\u4e00\u6b21\u3002", "headline": "\u7528\u4e86\u4e00\u5e74 Azahar\uff0c\u6211\u628a 3DS \u6a21\u62df\u5668\u91cc\u91cc\u5916\u5916\u6478\u4e86\u4e00\u904d", "image": ["https://laoguosofts.github.io/images/azahar-docs/setup-graphics-tab.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/azahar-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/azahar-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86\u4e00\u5e74 Azahar\uff0c\u6211\u628a 3DS \u6a21\u62df\u5668\u91cc\u91cc\u5916\u5916\u6478\u4e86\u4e00\u904d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">用了一年 Azahar，我把 3DS 模拟器里里外外摸了一遍</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">用了一年 Azahar，我把 3DS 模拟器里里外外摸了一遍</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从第一次把卡带 dump 出来到现在，这台模拟器陪我走过了密钥提取、图形调优、60FPS 解锁的全过程。有些东西越用越顺手，有些坑踩了不止一次。</p>
+  </header>
+  <div class="prose serif">
+<h2>装它的理由很简单</h2>
+<p>我最早是 Citra 用户——准确说，是 Citra 停更前半年才入坑的那种边缘玩家。社区里喊了快两年的「<a href="https://azahar.gltd.quest" target="_blank" rel="noopener">Azahar 是续作</a>」，我观望了大半年才真正切过去。理由没什么情怀，就是想试试 Vulkan 后端在笔记本上能不能比 Citra 的 OpenGL 跑得更顺。结果一切就是一年多，期间从 Azahar 2108 版本一路更到现在的 2133。</p>
+<p><img src="../images/azahar-docs/setup-graphics-tab.png" alt="图形设置界面" loading="lazy"></p>
+<h2>变化三连：越用越顺手的、越用越烦的、离不开的</h2>
+<p>先说好的——<strong>磁盘着色器缓存</strong>是我最没想到会这么香的功能。2126 版本之前，我每次开《塞尔达时之笛 3D》，刚进标题画面那十秒必然 stutter 到 20FPS 以下，硬挺几秒才好。当时以为 Vulkan 本身就这样，忍了大半年。结果缓存功能一上，整个游戏从头到尾帧率稳得像锁死。这个改动看起来不大，实际把我对模拟器的耐心阈值抬高了一截——现在任何让我等三秒以上的加载画面，我都会下意识去设置里找有没有缓存开关。</p>
+<p>然后是<strong>越用越烦的部分</strong>，说出来可能有点矫情：作弊补丁这东西，我现在只敢给《马里奥赛车 7》开 60FPS，别的游戏碰都不敢碰。当初解锁《怪物猎人 3G》的帧率，结果怪物的攻击判定和动画不同步——看着挥过来的刀明明还在半空中，我已经被秒了。更绝的是《宝可梦 X》，解锁后过场动画全是两倍速，连对话音轨都赶不上字幕。这些坑不是 Azahar 的锅，是游戏引擎本身写死了 30 FPS 的假设，但模拟器侧没有一个「补丁兼容性警告」之类的东西，全靠自己踩。现在我的策略是：先原速跑一遍确认没问题，再考虑要不要解锁帧率。</p>
+<p><img src="../images/azahar-docs/setup-advanced-graphics.png" alt="高级图形设置" loading="lazy"></p>
+<p><strong>离不开的功能</strong>——说个反直觉的：禁用右眼渲染。3DS 是裸眼 3D 设备，左右眼画面有细微差异，PC 端输出 2D 时右眼那一半根本用不上。关掉它之后，GPU 负载直接砍了三分之一，我的笔记本从室内 35 度飙到 50 度的时间也往后推了半小时。这个开关藏在图形设置的高级选项里，第一次翻设置时还以为是个 debug 选项。</p>
+<p>至于碰都没再碰的功能？ArticBase 推流。这个功能的概念很美好——实体 3DS 开机，模拟器自动接上，存档两边同步。问题是我那台老 3DS 的 Wi-Fi 模块早就不太灵光，连同一局域网都经常掉，更别说稳定推流了。折腾了两个周末放弃，之后再也没打开过这个设置。</p>
+<h2>时间让它显出什么样</h2>
+<p>刚换 Azahar 那会，我高估了「开源社区接力更新」这件事——觉得 Citra 停更后，Azahar 应该很快就能把所有遗留问题补齐。实际上大版本更新的节奏比我预想的慢得多，很多我以为会修的小问题（比如某些游戏的音频延迟），到现在还在 issue tracker 里挂着。但反过来说，我也低估了它在基础功能上的扎实程度——密钥提取、图形调优、作弊系统这些「够用就行」的模块，从 2108 到 2133 几乎没出过大 bug，稳定到我有时候会忘了这东西还在迭代。</p>
+<p>另一个修正：我之前觉得 GodMode9 提取密钥是个一次性的「麻烦事」，提取完 aes_keys.txt 扔进去就再也不用管了。直到上个月我换了电脑，新模拟器读不到存档——才发现是我当时把密钥文件直接从 3DS SD 卡复制出来的，文件名带了个 <code>.txt.txt</code>（Windows 默认隐藏扩展名的老坑）。那次折腾让我重新去<a href="https://azahar-docs.pages.dev/" target="_blank" rel="noopener">azahar文档</a>翻了一遍提取流程，还顺便重新去<a href="https://azahar.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>了一份最新版，发现 GodMode9 的自动 dump 其实比我当初手动操作靠谱得多，只是我当时嫌麻烦没仔细看说明。</p>
+<h2>去留结论</h2>
+<p>会不会卸载 Azahar？短期不会。现在它在我机器上的角色已经从「模拟器」变成了「3DS 游戏的存档容器」——二十多个游戏的存档都在模拟器里，迁出去重新配置一遍的成本远高于继续用它。但有两个信号会让我认真考虑换方案：一是如果有新的模拟器支持更好的在线联机（本地联机我试过最多四人房，延迟波动比较大），二是磁盘着色器缓存的体积继续膨胀到我 SSD 真扛不住——目前 cache 目录已经快 3GB 了。</p>
+<p>说句实在的，用了一年模拟器最大的感受不是「技术进步真快」，而是「老游戏真的经得住折腾」。马里奥赛车 7 是 2011 年的游戏，跑在 4K 分辨率、60 FPS、Vulkan 后端下，画面和手感跟我第一次在 3DS 上玩的时候完全不是一个东西。模拟器做的事情其实很朴素——把老硬件的限制拆掉，让老游戏在新硬件上活出第二遍。Azahar 在这件事上做得够好，所以它还在我电脑里占着那 3GB 的空间。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/azahar" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/azahar" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/azahar" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，方便不同网络环境下查阅，也顺便做个备份。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/stopwatch-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">安卓悬浮秒表横评：为什么我把系统秒表和大厂方案都卸了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/paperyy.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">PaperYY 查重怎么用？一篇问答速查把它讲清楚</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

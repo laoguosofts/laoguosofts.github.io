@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我用 Home Assistant 把回家那三分钟缩成了一个语音词 · 老郭软件铺</title>
+  
+<meta name="description" content="以前每天进门要开空调、调灯光、查空气质量、抄电表、发群通知，五个动作各管一套；现在一条自动化链搞定，连电表都不用碰">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/home-assistant-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我用 Home Assistant 把回家那三分钟缩成了一个语音词">
+<meta property="og:description" content="以前每天进门要开空调、调灯光、查空气质量、抄电表、发群通知，五个动作各管一套；现在一条自动化链搞定，连电表都不用碰">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/home-assistant-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/home-assistant-docs/smart-home-overview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/home-assistant-docs/smart-home-overview.webp">
+
+<meta name="twitter:title" content="我用 Home Assistant 把回家那三分钟缩成了一个语音词">
+<meta name="twitter:description" content="以前每天进门要开空调、调灯光、查空气质量、抄电表、发群通知，五个动作各管一套；现在一条自动化链搞定，连电表都不用碰">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u6bcf\u5929\u8fdb\u95e8\u8981\u5f00\u7a7a\u8c03\u3001\u8c03\u706f\u5149\u3001\u67e5\u7a7a\u6c14\u8d28\u91cf\u3001\u6284\u7535\u8868\u3001\u53d1\u7fa4\u901a\u77e5\uff0c\u4e94\u4e2a\u52a8\u4f5c\u5404\u7ba1\u4e00\u5957\uff1b\u73b0\u5728\u4e00\u6761\u81ea\u52a8\u5316\u94fe\u641e\u5b9a\uff0c\u8fde\u7535\u8868\u90fd\u4e0d\u7528\u78b0", "headline": "\u6211\u7528 Home Assistant \u628a\u56de\u5bb6\u90a3\u4e09\u5206\u949f\u7f29\u6210\u4e86\u4e00\u4e2a\u8bed\u97f3\u8bcd", "image": ["https://laoguosofts.github.io/images/home-assistant-docs/smart-home-overview.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/home-assistant-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/home-assistant-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "\u6211\u7528 Home Assistant \u628a\u56de\u5bb6\u90a3\u4e09\u5206\u949f\u7f29\u6210\u4e86\u4e00\u4e2a\u8bed\u97f3\u8bcd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">我用 Home Assistant 把回家那三分钟缩成了一个语音词</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">我用 Home Assistant 把回家那三分钟缩成了一个语音词</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前每天进门要开空调、调灯光、查空气质量、抄电表、发群通知，五个动作各管一套；现在一条自动化链搞定，连电表都不用碰</p>
+  </header>
+  <div class="prose serif">
+<p>每天下班进门那三分钟，我以前是这么干的：掏手机开空调 App、走到玄关按一下智能灯开关、打开空气质量检测仪看一眼数值、翻出家里的电表拍张照、再去家庭群里发一条"今日用电 XX 度"。五个动作、五个 App、三个不同品牌的设备，偶尔哪个 App 抽风连不上 Wi-Fi，就得手动去按实体开关。</p>
+<p>这套流程我忍了大半年才下决心换 Home Assistant。不是说 Home Assistant 比其他智能家居 App 好用一点——它好用很多——而是我终于意识到：我根本不需要五个独立的 App，我需要的是<strong>一条能自己跑完的链</strong>。</p>
+<h2>旧流程的问题</h2>
+<p>复盘一下以前的痛点：</p>
+<p><strong>设备不联动</strong>。米家空调能连 Wi-Fi，但我的 Yeelight 灯不在米家生态里；空气质量检测仪是青藤的 App，电表又是物业送的独立系统。想让"空气闷就自动开新风"？我得在三个 App 之间手动桥接，靠手机定时转发。</p>
+<p><strong>状态不可见</strong>。回家前我不会提前开空调，因为我不知道路上堵不堵；到家后才开，等二十分钟才凉下来。想让"我离家两公里时自动开空调"？没有一个 App 能同时读到我的手机定位和空调状态，还能自动触发。</p>
+<p><strong>自动化不会写</strong>。米家的自动化是图形界面拖拖拽拽，能做"温度超过 30 度开空调"这种简单逻辑，但"我在家且是晚上且客厅没人时自动关灯"——三个条件组合起来，图形界面就绕晕了。更不用说"或"逻辑、嵌套条件、模板判断这些复杂场景。</p>
+<p><strong>数据出不去</strong>。电表数据只能在物业 App 里看，想让它和 Home Assistant 联动、自动算日用电、自动发群通知？以前得在电表上装个读卡器，再写个 Python 脚本定时爬数据，手动推到飞书。每周要跑一次维护，偶尔脚本挂了还得手动补数据。</p>
+<h2>新流程：Home Assistant 当中枢</h2>
+<p>Home Assistant 的核心定位是<strong>智能家居的操作系统</strong>——它不直接生产设备，而是把所有设备的状态集中到一个地方，然后用一套统一的自动化引擎把它们串成链。想了解它能连哪些品牌、有哪些现成集成，可以去<a href="https://home-assistant.gltd.quest" target="_blank" rel="noopener">Home Assistant官网</a>扫一眼，覆盖面确实惊人。我装的时候直接从<a href="https://home-assistant.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿 Home Assistant OS 镜像刷进了 N100 小主机，一条命令就起来了。我的新流程大概是这样：</p>
+<p><img src="../images/home-assistant-docs/smart-home-overview.webp" alt="Home Assistant 作为智能家居中枢的概览面板" loading="lazy"></p>
+<p><strong>感知层（ESPHome 传感器）</strong>。空气传感器是自己用 ESP32-S3 + SCD40（CO₂）+ BME280（温湿度气压）+ PMS5003（PM2.5）攒的，成本不到两百块。刷 ESPHome 固件的时候只写 YAML 配置，编译刷写一气呵成；刷好后 Home Assistant 通过局域网加密通信自动发现，三个实体（温度/湿度/PM2.5）直接出现在面板上，零配置。</p>
+<p>电表这块我一开始想用 ESPHome + 霍尔传感器 DIY 抄表器，后来发现 Home Assistant 有现成的 REST 集成能直接调物业 App 的接口——只要物业 App 不封 IP，每天自动拉一次读数。</p>
+<p><strong>逻辑层（自动化引擎）</strong>。Home Assistant 的自动化引擎是 YAML 写的，条件支持 AND/OR/NOT 嵌套、支持 Jinja2 模板写任意逻辑。我用了两条核心自动化：</p>
+<p>第一条是"回家场景"，触发器是手机定位进入家庭区域，条件是"时间在晚上 6 点到 11 点之间"，动作链是：开客厅灯 → 调空调到 26 度 → 读一次空气质量 → 如果 PM2.5 超过 75 就开新风。这条链里如果任何一步失败，Home Assistant 会在后台报错但不中断后续步骤——我不用盯着手机等每一步确认。</p>
+<p>第二条是"每日用电日报"，触发器是每天晚上 10 点，条件是"我在家（避免出差时误报）"，动作是把电表读数算出来、查一下当天的太阳能发电量（如果装了光伏板的话）、拼成一段文字发到飞书家庭群。</p>
+<p><strong>语音层（Ollama + Assist）</strong>。Home Assistant 自带的语音助手只能理解结构化指令，说"今天有点暗了"它听不懂。我给它接了本地 Ollama，Pull 了 qwen2.5:7b 模型，在 System Prompt 里写了一段人设：叫"小管家"，语气亲切，能主动汇报状态。这样回家进门说一句"小管家，我回来了"，它会自动执行回家场景的整条链，还会补一句"客厅湿度 55%，挺舒服的"。</p>
+<h2>实操细节：两个容易断链的环节</h2>
+<h3>ESPHome 传感器的联网稳定性</h3>
+<p>ESP8266/ESP32 刷好固件后偶尔会掉线重连，这段时间 Home Assistant 读到的实体状态会变成"unavailable"。我踩过两个坑：</p>
+<p>一是 WiFi 密码直接写在 YAML 里，换路由器时要挨个刷固件。现在用 <code>secrets.yaml</code> 单独存密码，改一处就行——这个机制我也是翻了<a href="https://home-assistant-docs.pages.dev/" target="_blank" rel="noopener">Home Assistant文档</a>才知道的，之前硬编码了半年多，换路由器时折腾了一下午。二是传感器的 <code>update_interval</code> 设成 30 秒但 WiFi 信号差时可能超时，我后来加了 <code>filters: sliding_window_moving_average</code>，用 10 次采样做滑动平均，信号抖动时读数不会跳。</p>
+<h3>自动化条件的防误触发</h3>
+<p>Home Assistant 的触发器命中后先检查条件，条件不满足就跳过这次。但如果我的手机定位偶尔漂到了家庭区域边界（比如小区门口），回家场景就会误触发。解决办法是给区域加了 <code>zone: zone.home</code>，再叠加 <code>time: after: &quot;18:00:00&quot; before: &quot;23:00:00&quot;</code>，两个条件 AND 组合——只有真的回家且时间在晚上才触发。</p>
+<p>还有一个容易忽略的点：条件不会排队。如果我刚好在晚上 6 点整走进家门，触发器命中时 Home Assistant 会瞬间检查条件；但如果 Home Assistant 那一瞬间刚好在扫描网络、CPU 高占用，条件检查可能慢半拍——这时触发器已经过了，条件检查结果出来也没用。我的做法是给触发器加 <code>for: 5s</code>，让 Home Assistant 在触发前确认条件持续满足五秒，既防抖又留足检查时间。</p>
+<h2>效果和边界</h2>
+<p>省了多少事？具体数字：回家的手动操作从五个动作（开空调 → 调灯光 → 查空气质量 → 抄电表 → 发群通知）缩成一个语音词，少了两次手动复制（电表数据复制到群）、少了三个 App 切换、少了每周一次的脚本维护。每天省下大概两分钟，一年就是 12 小时——虽然不算特别多，但那两分钟是每天最累的时候，省下来的不是时间是精力。</p>
+<p><img src="../images/home-assistant-docs/energy-dashboard.jpg" alt="Home Assistant 的能耗面板能直观看到每日用电分布" loading="lazy"></p>
+<p>这套流程的边界也很清楚：</p>
+<p><strong>什么时候不划算</strong>：临时改设置的时候。比如朋友来家里，我想临时开一下除湿机——这时走自动化链反而麻烦，直接在 Home Assistant App 里点一下更快。Home Assistant 允许单个实体手动覆盖状态，自动化链在条件满足时会再次接管，不会冲突。</p>
+<p><strong>安全隐患</strong>：本地 LLM 推理延迟大概 2~5 秒，比云端 LLM 慢但数据不出局域网；ESPHome 的 encryption.key 必须设，否则局域网里任何人都能控制你的设备——我一开始没设，后来在 Home Assistant 文档里看到后赶紧补上了。</p>
+<p><strong>维护成本</strong>：Home Assistant Container 用 Docker 跑，更新就是 <code>docker pull ghcr.io/home-assistant/home-assistant:stable &amp;&amp; docker compose up -d</code>，config 目录不动数据不丢。ESPHome 固件升级可以 OTA，不用重新插 USB。整体维护量比我以前同时跑三个 App + 一个 Python 脚本要轻得多。</p>
+<p>这套工作流我已经稳定跑了三个月，中间只出过一次问题：电表数据的 REST 接口被物业 App 限流了，改成每两小时拉一次就没再出事。关键是想清楚你要的不是"设备联网"，而是"能自己跑完的链"——Home Assistant 提供了框架，剩下的就是把你的生活场景翻译成 YAML 而已。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Home%20Assistant" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Home%20Assistant" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/Home%20Assistant" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，方便不同网络环境的朋友按需取用。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/28hse.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把 28Hse 嵌进找房流程链，一个月省出 20 小时</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/tandem-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Tandem 为什么能让对话真的流动起来——双向匹配背后的社区工程学</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

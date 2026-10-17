@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Guise 改机踩过的四个坑——从 Build 层到属性层的血泪教训 · 老郭软件铺</title>
+  
+<meta name="description" content="Guise 看着是个简单的改机模块，实则有几个容易忽视的细节：Java 层与属性层不同步、IMEI Luhn 校验缺失、Android ID 跨签名共享、配置改完忘了重启。本文结合实际排查经验，逐个拆解症状、原因与解法，最后一份防坑清单速查。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/guise-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guise 改机踩过的四个坑——从 Build 层到属性层的血泪教训">
+<meta property="og:description" content="Guise 看着是个简单的改机模块，实则有几个容易忽视的细节：Java 层与属性层不同步、IMEI Luhn 校验缺失、Android ID 跨签名共享、配置改完忘了重启。本文结合实际排查经验，逐个拆解症状、原因与解法，最后一份防坑清单速查。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/guise-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/guise-docs/guise-shot-1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/guise-docs/guise-shot-1.png">
+
+<meta name="twitter:title" content="Guise 改机踩过的四个坑——从 Build 层到属性层的血泪教训">
+<meta name="twitter:description" content="Guise 看着是个简单的改机模块，实则有几个容易忽视的细节：Java 层与属性层不同步、IMEI Luhn 校验缺失、Android ID 跨签名共享、配置改完忘了重启。本文结合实际排查经验，逐个拆解症状、原因与解法，最后一份防坑清单速查。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Guise \u770b\u7740\u662f\u4e2a\u7b80\u5355\u7684\u6539\u673a\u6a21\u5757\uff0c\u5b9e\u5219\u6709\u51e0\u4e2a\u5bb9\u6613\u5ffd\u89c6\u7684\u7ec6\u8282\uff1aJava \u5c42\u4e0e\u5c5e\u6027\u5c42\u4e0d\u540c\u6b65\u3001IMEI Luhn \u6821\u9a8c\u7f3a\u5931\u3001Android ID \u8de8\u7b7e\u540d\u5171\u4eab\u3001\u914d\u7f6e\u6539\u5b8c\u5fd8\u4e86\u91cd\u542f\u3002\u672c\u6587\u7ed3\u5408\u5b9e\u9645\u6392\u67e5\u7ecf\u9a8c\uff0c\u9010\u4e2a\u62c6\u89e3\u75c7\u72b6\u3001\u539f\u56e0\u4e0e\u89e3\u6cd5\uff0c\u6700\u540e\u4e00\u4efd\u9632\u5751\u6e05\u5355\u901f\u67e5\u3002", "headline": "Guise \u6539\u673a\u8e29\u8fc7\u7684\u56db\u4e2a\u5751\u2014\u2014\u4ece Build \u5c42\u5230\u5c5e\u6027\u5c42\u7684\u8840\u6cea\u6559\u8bad", "image": ["https://laoguosofts.github.io/images/guise-docs/guise-shot-1.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/guise-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/guise-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "Guise \u6539\u673a\u8e29\u8fc7\u7684\u56db\u4e2a\u5751\u2014\u2014\u4ece Build \u5c42\u5230\u5c5e\u6027\u5c42\u7684\u8840\u6cea\u6559\u8bad", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">Guise 改机踩过的四个坑——从 Build 层到属性层的血泪教训</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">Guise 改机踩过的四个坑——从 Build 层到属性层的血泪教训</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Guise 看着是个简单的改机模块，实则有几个容易忽视的细节：Java 层与属性层不同步、IMEI Luhn 校验缺失、Android ID 跨签名共享、配置改完忘了重启。本文结合实际排查经验，逐个拆解症状、原因与解法，最后一份防坑清单速查。</p>
+  </header>
+  <div class="prose serif">
+<p>前阵子折腾改机，去<a href="https://guise.fedq.ren" target="_blank" rel="noopener">Guise官网</a>逛了一圈才发现，Guise 作为一个通用的 Android 设备参数伪装模块，看上去功能很直观——勾选应用、填参数、保存，完事。但我第一次用的时候差点放弃：明明改了 <code>Build.MODEL</code>，某银行 App 还是把我识别成老设备；IMEI 随机生成后被一些应用直接判了无效；甚至有一次 Android ID 改了之后，多个账号被认为是同一个设备。</p>
+<p>这些不是 Bug，是设计上的分层和边界没摸透。Guise 同时 Hook 了 Java Build 层、SystemProperties 属性层、电话 API、标识符通道四条通道，每条通道各自的覆盖范围和注意事项不同。下面把我踩过的四个坑逐个说清楚。</p>
+<h2>坑一：只改了 Java Build 层，SystemProperties 层漏了</h2>
+<p><strong>症状</strong>：你在配置里把 <code>Build.MODEL</code> 改成了 Pixel 7，打开一些应用能看到 Pixel 7，但另一些应用或完整性检查 SDK 却把你识别成真机 Redmi，甚至标记为可疑设备。</p>
+<p><strong>原因</strong>：这是改机模块最常见的「半残」状态。很多开发者以为 Hook 了 Java 的 <code>Build.*</code> 类就完事了，但实际上有相当数量的应用和安全 SDK 根本不走 Java 层，而是直接读取系统属性 <code>ro.product.model</code>。Java 层和属性层是两个独立的读取入口：</p>
+<ul><li>应用 A 用 <code>Build.MODEL</code> 读 → 看到你伪装的值 ✅</li><li>应用 B 用 <code>SystemProperties.get(&quot;ro.product.model&quot;)</code> 读 → 看到真机值 ❌</li><li>完整性检查 SDK 两边都读 → 发现矛盾 → 标记可疑 ❌</li></ul>
+<p>Guise 一次性覆盖了 23 个 <code>ro.*</code> 开头的构建属性，包括品牌、型号、设备代号、指纹、版本号等。但如果你手动改了某一项、或者某个字段的 Hook 意外没加载，就会出现这种两层不同步的情况。</p>
+<p><strong>解法</strong>：第一，不要只挑着改，整组字段一起改——品牌、制造商、型号、指纹、版本号这几项通常是联动的，单独改一个反而更容易出矛盾。第二，保存配置后用 Guise Test 靶应用快速验证，三源交叉哈希能直观告诉你哪些通道跟上了、哪些没跟上。</p>
+<p><img src="../images/guise-docs/guise-shot-1.png" alt="Build 层与属性层双通道路由示意图" loading="lazy"></p>
+<h2>坑二：IMEI 随机生成后被判定无效</h2>
+<p><strong>症状</strong>：一键随机了 IMEI，某些应用一读就说「设备标识无效」或者干脆跳过了 IMEI 校验环节（说明它拿到假的就放弃了）。</p>
+<p><strong>原因</strong>：IMEI 的最后一位是 <strong>Luhn 校验位</strong>，不是随便填的数字。传统的改机工具经常忽略这一点，直接让用户填 15 位数字或者纯随机生成，结果校验位不对——应用一算就知道是假的。这就像身份证号最后一位校验码错了，输入再完整也会被系统拒绝。</p>
+<p>Guise 内置了 Luhn 合成算法：你填前 14 位（或者一键随机前 14 位），它自动计算第 15 位校验位，返回完整的、校验正确的 IMEI。但如果你手动硬改了第 15 位、或者从别处拷了一个 IMEI 没算校验，照样会出问题。</p>
+<p>另外双卡设备上还有个细节：当前配置是单值，<code>getImei(0)</code> 和 <code>getImei(1)</code> 返回的是同一个 IMEI，界面会有说明但你可能没注意。某些双卡感知强的应用可能会觉得两个卡槽返回一样的值有点奇怪——不过这个目前还在接受范围内，真要区分两槽得等后续版本。</p>
+<p><strong>解法</strong>：安装包从<a href="https://guise.fedq.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿，装好后永远只用一键随机生成的 IMEI，或者自己填前 14 位让 Guise 补最后一位。不要全手填 15 位，算错一个数字就白折腾。</p>
+<h2>坑三：Android ID 改了之后，多个账号被认为来自同一设备</h2>
+<p><strong>症状</strong>：你给应用 A 和应用 B 分别配了不同的 Android ID，但登录后发现它们还是共享设备画像，甚至触发了风控关联。</p>
+<p><strong>原因</strong>：Android 10 引入了 SSAID（Scoped Storage App ID）机制，按<strong>应用签名</strong>隔离 Android ID——同一开发者账号下签名的多个应用，读到的是同一个 SSAID。这意味着如果你只给每个应用单独配了 Android ID，但它们属于同一个签名组，Guise 会按组返回同一个值。</p>
+<p>还有一种情况是 WebView 独立进程。有些应用内部嵌了 WebView，WebView 有独立的 Android ID 读取入口。Guise 已经覆盖了独立进程的读取，但如果你发现主进程和 WebView 进程返回的值不一致，说明某个入口漏了，得去<a href="https://guise-docs.pages.dev/" target="_blank" rel="noopener">Guise文档</a>里查一下当前版本的覆盖范围。</p>
+<p>另外，Android ID 改变本身就是个大动作——目标应用会认为这是一台「新设备」，之前登录的账号状态可能直接失效，首次启动会走新用户引导。这个不是 Bug，是行为预期，改之前要有心理准备。</p>
+<p><strong>解法</strong>：跨签名组的应用才需要各配各的 Android ID；同一开发者账号下的应用，Android ID 会自动保持一致，这是 SSAID 的设计，不用纠结。改完 Android ID 后如果应用状态变了，别慌——清除应用数据后重新登录就行。</p>
+<h2>坑四：改完配置忘了重启目标应用</h2>
+<p><strong>症状</strong>：保存了新配置，打开目标应用一看——参数还是旧的，好像什么都没改。反复保存、反复确认配置在，就是不生效。</p>
+<p><strong>原因</strong>：Xposed 模块的 Hook 代码是在<strong>目标应用进程启动时注入</strong>的。进程一旦启动并加载了某个模块的 Hook，运行期间无法动态卸载或重新加载。所以：</p>
+<ul><li>首次勾选应用 → 需要重启目标应用，让进程带着新 Hook 启动</li><li>取消勾选应用 → 需要重启目标应用，让进程不再加载 Hook</li><li>修改任何配置 → 需要重启目标应用，让新配置生效</li></ul>
+<p>我第一次改完配置直接切回目标应用，它还在后台活着呢，Hook 状态当然没变。以为模块坏了，差点卸载重装。</p>
+<p><strong>解法</strong>：Guise 保存配置后，如果检测到目标应用正在运行，会主动问你「是否停止并重启该应用以使修改生效」。这个提示别跳过。进程控制有三级回退——有 Root 直接操作、没有 Root 就走 Xposed service、再不行引导手动强制停止。如果应用当前没在运行，下次手动打开时就自动带新配置启动，不用特意重启整个手机。</p>
+<p><img src="../images/guise-docs/guise-floating-icon.png" alt="重启目标应用让新Hook状态生效" loading="lazy"></p>
+<h2>防坑清单（速查）</h2>
+<p>最后整理几条要点，每次配置完对照过一遍：</p>
+<ul><li>✅ <strong>Java 层 + 属性层一起改</strong>：品牌、型号、指纹、版本号整组联动，不要只改单个字段</li><li>✅ <strong>IMEI 只用一键随机或前 14 位自动补校验</strong>：Luhn 位算错 = 直接裸奔</li><li>✅ <strong>Android 10+ 注意 SSAID 签名隔离</strong>：同一开发者账号下的应用共享 Android ID，不用各配各的</li><li>✅ <strong>改完必重启目标应用</strong>：Xposed Hook 是进程启动时注入的，运行中改配置不会生效</li><li>✅ <strong>定期用 Guise Test 验三通道</strong>：Build 层、属性层、电话 API 一起测，交叉哈希一眼看出哪里漏了</li></ul>
+<p>知道这些坑之后，Guise 其实相当省心。它把你能踩到的大多数细节都提前兜住了——双通道 Hook、Luhn 合成算法、独立进程覆盖、重启提醒——只是这些设计藏在分层里，不踩一次坑真不知道。对了，这套改机相关的资料我分别同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Guise" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Guise" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Guise" target="_blank" rel="noopener">GitCode</a>三个仓库，怕哪天某一边挂了还能从别的地方捞到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/interpals.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">InterPals 对比评测：语言交换社区里最&#34;慢&#34;也最实在的那一个</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/bettervia.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">深夜赶方案那夜，BetterVia 帮我省了三小时</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

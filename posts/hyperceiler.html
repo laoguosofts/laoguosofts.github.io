@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我把 HyperCeiler 嵌进了每周照片整理 + Termux 脚本链，少了至少三次手动介入 · 老郭软件铺</title>
+  
+<meta name="description" content="每周要处理照片导出 PDF、切证件照、后台 Termux 不被杀、应用商店不弹窗——以前分散在五六个设置里，现在 HyperCeiler 一条链串起来。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/hyperceiler.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我把 HyperCeiler 嵌进了每周照片整理 + Termux 脚本链，少了至少三次手动介入">
+<meta property="og:description" content="每周要处理照片导出 PDF、切证件照、后台 Termux 不被杀、应用商店不弹窗——以前分散在五六个设置里，现在 HyperCeiler 一条链串起来。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/hyperceiler.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="我把 HyperCeiler 嵌进了每周照片整理 + Termux 脚本链，少了至少三次手动介入">
+<meta name="twitter:description" content="每周要处理照片导出 PDF、切证件照、后台 Termux 不被杀、应用商店不弹窗——以前分散在五六个设置里，现在 HyperCeiler 一条链串起来。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u8981\u5904\u7406\u7167\u7247\u5bfc\u51fa PDF\u3001\u5207\u8bc1\u4ef6\u7167\u3001\u540e\u53f0 Termux \u4e0d\u88ab\u6740\u3001\u5e94\u7528\u5546\u5e97\u4e0d\u5f39\u7a97\u2014\u2014\u4ee5\u524d\u5206\u6563\u5728\u4e94\u516d\u4e2a\u8bbe\u7f6e\u91cc\uff0c\u73b0\u5728 HyperCeiler \u4e00\u6761\u94fe\u4e32\u8d77\u6765\u3002", "headline": "\u6211\u628a HyperCeiler \u5d4c\u8fdb\u4e86\u6bcf\u5468\u7167\u7247\u6574\u7406 + Termux \u811a\u672c\u94fe\uff0c\u5c11\u4e86\u81f3\u5c11\u4e09\u6b21\u624b\u52a8\u4ecb\u5165", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/hyperceiler.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/hyperceiler.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u628a HyperCeiler \u5d4c\u8fdb\u4e86\u6bcf\u5468\u7167\u7247\u6574\u7406 + Termux \u811a\u672c\u94fe\uff0c\u5c11\u4e86\u81f3\u5c11\u4e09\u6b21\u624b\u52a8\u4ecb\u5165", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">我把 HyperCeiler 嵌进了每周照片整理 + Termux 脚本链，少了至少三次手动介入</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">我把 HyperCeiler 嵌进了每周照片整理 + Termux 脚本链，少了至少三次手动介入</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周要处理照片导出 PDF、切证件照、后台 Termux 不被杀、应用商店不弹窗——以前分散在五六个设置里，现在 HyperCeiler 一条链串起来。</p>
+  </header>
+  <div class="prose serif">
+<h2>以前我每周要做的事，分散在五六个地方</h2>
+<p>作为一个每天手机拍几十张的人，每周日晚上我得干这么一串：先把相册里这周攒的图挑出来，PDF 打包发工作群；其中几张要洗出来的，得抠背景换白底当证件照；同时后台挂着 Termux 里跑的 Python 爬虫脚本，出门买个菜回来就被系统杀了，得重新手动拉起来；偶尔打开应用商店装个东西，"今日精选"弹窗先拍脸上，推送通知关了还会偷偷发 banner。</p>
+<p>以前我是这么干的：PDF 用 WPS 单独导出一遍；证件照装第三方 App 抠图换底；Termux 每次被杀就手动加白名单，还是防不住；应用商店的推广弹窗没辙，关了通知它还弹。一条下来大概要手动切换五六个 App 或设置页面，中间还经常被 HyperOS 激进的后台策略打断。</p>
+<p>后来在 HyperCeiler 上把这条链打通了，现在每周日晚上处理这一套的时间从四十分钟缩到十来分钟。下面讲具体怎么接。</p>
+<h2>新流程：HyperCeiler 插在四个关键环节</h2>
+<p>HyperCeiler 是什么简单说一句——给小米 / Redmi 做的 LSPosed 模块，把官方藏起来或限制机型的系统功能解锁，顺便关掉一些默认的烦人行为。去<a href="https://hyperceiler.hfdk.space" target="_blank" rel="noopener">hyperceiler官网</a>能直接拿到安装包，从<a href="https://hyperceiler.hfdk.space/download.html" target="_blank" rel="noopener">官方下载</a>渠道就行，装完在 LSPosed 里勾上作用域就行。</p>
+<h3>第一环：相册 PDF 打包，不再跳 WPS</h3>
+<p>以前从相册选图导 PDF 要跳 WPS，现在 HyperCeiler 解锁了相册原生的「生成 PDF」。选中一组图后菜单里直接有这个选项，按顺序打包，保存在 <code>相册/PDF</code> 目录。</p>
+<p>!<a href="/images/hyperceiler-ui-2.png">相册里直接生成 PDF</a></p>
+<p>这一环省了什么？少了打开 WPS → 新建 PDF → 导入图片 → 调顺序 → 导出 → 回到相册删中间文件，一整套复制粘贴和临时文件清理。</p>
+<h3>第二环：证件照直接在相册里抠</h3>
+<p>HyperCeiler 解锁的证件照功能比我用过的第三方 App 靠谱——不用装额外的东西，就在相册里选一张人脸清晰的照片，自动抠背景、换蓝底白底红底、裁剪成一寸两寸小二寸规格。生成的证件照直接保存到相册，或者点微信发送。</p>
+<p>这一环没什么悬念，但我之前找过三个第三方证件照 App，要么有水印要么要付费，HyperCeiler 这一套是纯本地处理不出外网，还免了我每次先存到相册再切 App 的往返。</p>
+<h3>第三环：Termux 后台不被杀——HyperOS 默认的激进策略是真的烦</h3>
+<p>HyperOS 的后台管理策略在 8GB RAM 以上的机型上完全是负体验。系统默认"应用不活跃超时"就杀，我有时候切出去发个消息，回来 Termux 里跑了半小时的爬虫脚本已经重启了。</p>
+<p>HyperCeiler 从 <code>HyperOSXXL</code> 模块合并过来的「禁止自动终止后台应用进程」开关，Hook 的是 ActivityManagerService——它忽略"闲置超时"这条规则，只在内存真不够时才杀。配合「增强最近任务可见性」一起开，所有后台 App 都会显示在最近任务列表里，切回来状态完整保留。</p>
+<p>有个细节要注意：这个开关不禁止内存不足时的系统强制清理（Low Memory Killer），也不影响你手动划掉 App——它只挡"超时自动终止"这一类清理。如果你手机 RAM 真的跑满了该杀还是会杀。</p>
+<p>另外 HyperOS 还有个"后台弹出界面限制"默认禁止后台 App 弹窗，HyperCeiler 不会改这个设置，如果你开了禁止自动杀后台，记得手动在系统设置里把它关掉——不然 Termux 就算没被杀，弹不出通知窗口也白搭。</p>
+<h3>第四环：应用商店再也不弹窗不监控</h3>
+<p>HyperCeiler 给应用商店做了一整套拦截：禁用推广弹窗和 banner、禁止监控你装了什么删了什么、关掉首次启动的"允许推送"弹窗，还有个强制安全评级显示"优秀"的开关——这个有争议，我只在自己非常清楚来源的 App 上用，不会用它绕过陌生应用的安全警示。</p>
+<h2>最容易断链的两个环节怎么处理</h2>
+<p>整个流程里我踩过两个坑，单独说一下，其他环节照着<a href="https://hyperceiler.pages.dev/" target="_blank" rel="noopener">hyperceiler文档</a>对照排查就行。</p>
+<p>第一个坑是 <strong>相册功能的作用域没勾全</strong>。HyperCeiler 的相册功能分三个包名作用域——<code>com.miui.gallery</code>（相册本身）、<code>com.miui.creation</code>（小米创作）、<code>com.miui.mediaeditor</code>（相册编辑器，就是点"编辑"后打开的那个独立 App）。只勾相册不勾编辑器，Leica 滤镜和定制画框看不到；只勾编辑器不勾相册，PDF 生成和证件照不出现。三个都勾上，改完重启这三个作用域（或者直接重启手机）。</p>
+<p>!<a href="/images/hyperceiler-lsposed.png">LSPosed 里要勾全三个相册相关包名</a></p>
+<p>第二个坑是 <strong>系统框架作用域的重启</strong>。「禁止自动杀后台」需要在 LSPosed 里勾 <code>system</code>（系统框架）——这是必勾作用域之一。但 system 进程不能单独重启，改完得直接重启设备，这个不能懒。我第一次改完没重启，以为功能不生效，白查了半小时。</p>
+<h2>效果与边界</h2>
+<p>说具体数字，以前每周处理这套流程：PDF 导出 10 分钟、证件照 5 分钟、Termux 被杀重拉 3 次每次 2 分钟、关应用商店弹窗和通知 5 分钟，合计约 36 分钟。现在：相册里直接导 PDF 3 分钟、证件照 2 分钟、Termux 一次没被杀过、应用商店弹窗再也没出现，合计约 5 分钟。少了大概 30 分钟，核心是两次手动复制（相册→WPS、相册→证件照 App）和三次手动重拉 Termux 脚本。</p>
+<p>这套流程什么时候不划算？三种情况：第一，手机是低端机 6GB RAM 及以下——HyperOS 的后台策略在低端机上有它的道理，强行禁止自动杀后台可能反而导致系统卡；第二，你不跑后台脚本也不常用相册 PDF，那 HyperCeiler 对应用商店的拦截单独装个模块就够了，没必要整套都开；第三，HyperCeiler 2.6.162 起移除了几项依赖云端处理的相册功能（AI 写真、文字烟花、魔法消除、魔法换天、大师滤镜），本地 Hook 确实做不了这些——如果你需要它们，找专门的相册增强模块，别在 HyperCeiler 里死磕。</p>
+<p>整体上，把 HyperCeiler 嵌进每周固定的照片 + 后台脚本流程，最大的价值不是解锁了多少功能，而是把本来散在不同 App 和设置里的一串手动操作串成了一条链。以前是我追着每个环节跑，现在是环节在那等我。</p>
+<p>这份 HyperCeiler 的功能索引我也挂了三个仓库备份，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/hyperceiler" target="_blank" rel="noopener">GitHub</a> 是主仓，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/hyperceiler" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/hyperceiler" target="_blank" rel="noopener">GitCode</a> 做国内镜像，访问不上的时候换一个就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/lspatch.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">LSPatch 用了大半年：从 Shizuku 连不上到脚本化批量修补</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/kkday-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">KKday 深度盘点：从下单到核销，这台旅行预订机器到底有多少零件</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把大模型装进安卓手机——Local AI 从零上手到跑通多模态 · 老郭软件铺</title>
+  
+<meta name="description" content="Local AI 是一个通用 GGUF 模型运行器，不自带模型、不依赖云端。这篇教程带你从零把应用装上、选对模型、调好参数，最终在手机离线状态下跑通对话和识图。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/local-ai-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把大模型装进安卓手机——Local AI 从零上手到跑通多模态">
+<meta property="og:description" content="Local AI 是一个通用 GGUF 模型运行器，不自带模型、不依赖云端。这篇教程带你从零把应用装上、选对模型、调好参数，最终在手机离线状态下跑通对话和识图。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/local-ai-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/local-ai-docs/model-manager.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/local-ai-docs/model-manager.png">
+
+<meta name="twitter:title" content="把大模型装进安卓手机——Local AI 从零上手到跑通多模态">
+<meta name="twitter:description" content="Local AI 是一个通用 GGUF 模型运行器，不自带模型、不依赖云端。这篇教程带你从零把应用装上、选对模型、调好参数，最终在手机离线状态下跑通对话和识图。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Local AI \u662f\u4e00\u4e2a\u901a\u7528 GGUF \u6a21\u578b\u8fd0\u884c\u5668\uff0c\u4e0d\u81ea\u5e26\u6a21\u578b\u3001\u4e0d\u4f9d\u8d56\u4e91\u7aef\u3002\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u628a\u5e94\u7528\u88c5\u4e0a\u3001\u9009\u5bf9\u6a21\u578b\u3001\u8c03\u597d\u53c2\u6570\uff0c\u6700\u7ec8\u5728\u624b\u673a\u79bb\u7ebf\u72b6\u6001\u4e0b\u8dd1\u901a\u5bf9\u8bdd\u548c\u8bc6\u56fe\u3002", "headline": "\u628a\u5927\u6a21\u578b\u88c5\u8fdb\u5b89\u5353\u624b\u673a\u2014\u2014Local AI \u4ece\u96f6\u4e0a\u624b\u5230\u8dd1\u901a\u591a\u6a21\u6001", "image": ["https://laoguosofts.github.io/images/local-ai-docs/model-manager.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/local-ai-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/local-ai-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a\u5927\u6a21\u578b\u88c5\u8fdb\u5b89\u5353\u624b\u673a\u2014\u2014Local AI \u4ece\u96f6\u4e0a\u624b\u5230\u8dd1\u901a\u591a\u6a21\u6001", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Local AI 是一个通用 GGUF 模型运行器，不自带模型、不依赖云端。这篇教程带你从零把应用装上、选对模型、调好参数，最终在手机离线状态下跑通对话和识图。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你能在自己的安卓手机上完成一件事：不连 Wi-Fi、不插 SIM，也能用本地大模型流畅对话、识别图片里的物体和文字。</p>
+<h2>准备工作：三个门槛提前扫清</h2>
+<p>在动手之前，先确认三件事，省得做到一半卡住。</p>
+<p>第一是硬件。Local AI 本体约 193 MB，真正吃内存的是模型文件。6 GB RAM 的手机能跑 2~3 B 参数量的量化模型（比如 Qwen2.5-3B 的 Q4_K_M 档，文件大约 1.8 GB）；8 GB 以上可以尝试 7 B 档。如果你的手机只有 4 GB，建议先跳过，等换了机器再来折腾——强行加载只会让系统频繁杀后台。</p>
+<p>第二是平台限定。目前只有安卓，iOS 用户不用找了，还没有发布。</p>
+<p>第三是存储空间。模型文件按需下载、不用就删，但至少预留 3~5 GB 给应用和首批模型，否则加载时会因为磁盘读写跟不上直接崩溃。</p>
+<p>确认这三条没问题，就可以去<a href="https://local-ai.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>页面拿安装包了。</p>
+<h2>第一步：装应用、选模型</h2>
+<p><a href="https://local-ai.yoan.quest" target="_blank" rel="noopener">Local AI官网</a> 本体不带任何模型——它的定位是一个通用运行器，把你选中的 GGUF 文件装进手机 SoC 里跑推理。所以安装完应用之后，第一件事是去模型管理页面下载第一个模型。</p>
+<p>打开应用，底部导航切到"模型管理"，点右上角的下载按钮。你会看到一批预配置好的开源模型：Qwen2.5 系列、DeepSeek-R1、Llama 3.2、Gemma 2 等等，每个模型都带了推荐的量化档位和参数量。</p>
+<p>新手直接选 <strong>Qwen2.5-3B Q4_K_M</strong> 就行——30 亿参数、4 比特量化，中文对话能力在线，内存占用也比较友好。如果你的手机是 8 GB 以上，可以考虑 7 B 档，回答质量会有明显提升，但生成速度会慢一些。</p>
+<p><img src="../images/local-ai-docs/model-manager.png" alt="模型管理器" loading="lazy"></p>
+<p>下载完之后不用做任何额外操作，回到对话页面就可以开始聊了。</p>
+<h2>第二步：设置系统提示词，给模型定个基调</h2>
+<p>很多人第一次用 Local AI 就是打开对话框直接输入，聊了两句发现模型回答风格不对路——要么太啰嗦，要么太敷衍。问题出在系统提示词没设。</p>
+<p>在对话页点右上角的设置图标，滚到"系统提示词"一栏。默认是一句英文的 "You are a helpful assistant"，把它改成你想要的角色定义。</p>
+<p>好的系统提示词应该包含三个要素：<strong>你是谁、你要怎么回答、回答的风格要求</strong>。给你一个实用的起点：</p>
+<pre><code>你是一个中文技术助手，擅长解释概念和写代码。回答时先给简洁结论，再补充细节。代码示例用 fenced code block。不确定的内容明确说&quot;不确定&quot;，不要猜测。</code></pre>
+<p>这条指令会贯穿整个会话，不计入上下文轮数、不占对话历史槽位——比在对话框里第一条消息写人设要稳定得多。模型切换后系统提示词不会自动清空，新模型会继承上一个模型的设置，这点要留意。</p>
+<h2>第三步：调参数，让模型跑得又快又稳</h2>
+<p>第一次对话跑通之后，别着急一直聊，先花三分钟把 GGUF 精细参数调一下——默认值比较保守，把每 GB 内存和每帧算力挤出来能让体验上一个台阶。</p>
+<p>回到对话设置页，滚动到 GGUF 精细配置区域。你会看到一堆参数：GPU 层数、内存锁定、批次大小、并行数。这里说三个最重要的。</p>
+<p><strong>GPU 层数</strong> 决定了模型有多少层跑在 GPU 上——设成"尽量多"就好，Local AI 会根据你的手机 SoC 自动分配。手动指定层数容易出错，除非你对硬件非常熟。</p>
+<p><strong>内存锁定</strong> 打开它。这样推理时用到的内存不会被系统回收，长对话过程中模型被后台杀掉的概率会降低很多。代价是可用内存少了几百 MB，对 6 GB 以上的机器影响不大。</p>
+<p><strong>批次大小</strong> 默认是 512。调到大一点（比如 1024 或 2048）可以提升推理吞吐量，但如果你的手机在对话中出现了明显发热或卡顿，就往回调。小内存机器保持默认即可。</p>
+<p><img src="../images/local-ai-docs/gguf-tuning.png" alt="GGUF 精细调优" loading="lazy"></p>
+<p>调完这三项，退出设置回对话页，模型加载会慢几秒（因为重新分配了 GPU 层），之后生成速度应该有肉眼可见的提升。</p>
+<h2>第四步：上下文轮数，别让模型"失忆"</h2>
+<p>你可能会遇到这个情况：和模型聊了七八轮之后，它突然开始重复之前说过的内容，或者答非所问。这不是模型傻了，是上下文窗口快满了。</p>
+<p>Local AI 默认保留 12 轮对话历史。对于日常问答来说完全够用，但如果你在讨论同一个复杂话题、需要模型引用之前十几轮的内容，就得调高。</p>
+<p>对话设置页的"上下文数量"滑块可以调到 20~30 轮。记住一条换算规则：<strong>上下文轮数 × 每轮平均 token 数 ≤ 模型的上下文长度上限</strong>。后者是 GGUF 文件架构层面的硬限制（通常 4096~32768），超了就会截断最早的部分——这和轮数滑块无关，是模型本身的能力边界。</p>
+<p>日常用保持 12 轮就行。长篇连续写作或需要精确引用前文的任务，临时调到 20~30，写完改回来。发现模型开始"失忆"的时候，别慌，开个新会话重新来就好。</p>
+<h2>第五步：多模态识图，手机本地就能做</h2>
+<p>如果你的手机内存够（8 GB 起步），可以试试带视觉能力的模型——比如 Qwen2.5-VL 系列。装好之后，对话页面的输入框旁边会多一个相机图标，点它就可以从相册选图或直接拍照。</p>
+<p><img src="../images/local-ai-docs/multimodal-vision.png" alt="多模态识图" loading="lazy"></p>
+<p>常见的三个用法：</p>
+<p><strong>查票据信息</strong>。拍一张购物小票或快递面单，让模型帮你提取商店名称、总价、日期这类关键字段。清晰印刷体识别效果不错，手写体和模糊的小票需要多试几次。</p>
+<p><strong>识别陌生物体</strong>。逛街时看到不认识的花、菜、工具，拍一张发给模型。手机端小模型（2~3 B 参数量）能识别常见物体，小众品类可能认错。不确定时它会老实说不知道。</p>
+<p><strong>读截图和界面</strong>。朋友发来 App 界面截图想知道怎么操作，或者自己电脑上有报错截图需要分析原因——把截图裁好发过去，让模型帮你解读。</p>
+<p>这里有两个实用技巧：一是图片质量决定识别效果，光线好、对焦准、内容清晰的图片准确率大幅提升；二是裁剪后再发，原图里无关内容太多时，先在相册里把主体裁出来，模型注意力更集中、识别精度更高。</p>
+<p>最重要的是，所有这些操作都在手机本地完成——图片不会上传到任何服务器，飞行模式下照常可用。这一点是云端 AI 识图完全做不到的。关于多模态模型的选型建议和更多 prompt 技巧，在<a href="https://local-ai-docs.pages.dev/" target="_blank" rel="noopener">Local AI文档</a>里有更详细的说明。</p>
+<h2>常见卡点</h2>
+<h3>模型加载到一半卡住</h3>
+<p>最常见的原因是内存不够。先关掉其他后台应用再试；如果还是不行，换一个更小参数量的模型（比如从 7 B 降到 3 B），或者把 GGUF 的量化档位从 Q8 降到 Q4。</p>
+<h3>生成速度特别慢</h3>
+<p>检查 GPU 层数是不是设成了太少或者 0。Local AI 有时候不会自动分配好 GPU 层，手动把 GPU 层数调到"尽量多"可以解决大部分情况。另外，批次大小太小也会拖慢吞吐量，适当调大。</p>
+<h3>模型答非所问、"失忆"反复出现</h3>
+<p>上下文窗口满了。手动开新会话，或者在 GGUF 精细设置里检查当前模型的上下文长度上限——有些老模型的 GGUF 文件上下文窗口很小（4096），聊个五六轮就顶满了，需要换一个新量化的版本。</p>
+<h2>还能往哪玩</h2>
+<p>跑通基础对话和识图之后，可以试试系统提示词的进阶写法——把模型角色设成"中文文案润色助手"，给它一套输出格式规则，让它帮你改文案；或者设成"代码审查助手"，把一段代码贴进去让它找 bug。这些都不需要联网、不需要换模型，改一段系统提示词就行。</p>
+<p>另外，Local AI 的开发者社区一直在跟进新模型的 GGUF 版本，Qwen、DeepSeek、Llama 每次出新模型，一两周内就能在模型管理页看到。保持应用更新，新模型直接加载不用等应用适配。</p>
+<p>这套本地运行器的安装指南、模型推荐和参数调优参考，分别同步到了 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Local%20AI" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Local%20AI" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Local%20AI" target="_blank" rel="noopener">GitCode</a> 上，国内网络访问时切 Gitee 或 GitCode 更快。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/animoe-docs.html">Animoe 快问快答：追番党都想知道的 7 件事</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/artworkout.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/datatool-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我用 tTorrent 搭了一条每周资源归档的自动化链路 · 老郭软件铺</title>
+  
+<meta name="description" content="把 tTorrent、手机浏览器和云盘串成一条从种子发现到文件备份的完整管道，告别手动一个个下载复制的旧流程。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ttorrent.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我用 tTorrent 搭了一条每周资源归档的自动化链路">
+<meta property="og:description" content="把 tTorrent、手机浏览器和云盘串成一条从种子发现到文件备份的完整管道，告别手动一个个下载复制的旧流程。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ttorrent.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ttorrent/status.1.5.6.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ttorrent/status.1.5.6.png">
+
+<meta name="twitter:title" content="我用 tTorrent 搭了一条每周资源归档的自动化链路">
+<meta name="twitter:description" content="把 tTorrent、手机浏览器和云盘串成一条从种子发现到文件备份的完整管道，告别手动一个个下载复制的旧流程。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u628a tTorrent\u3001\u624b\u673a\u6d4f\u89c8\u5668\u548c\u4e91\u76d8\u4e32\u6210\u4e00\u6761\u4ece\u79cd\u5b50\u53d1\u73b0\u5230\u6587\u4ef6\u5907\u4efd\u7684\u5b8c\u6574\u7ba1\u9053\uff0c\u544a\u522b\u624b\u52a8\u4e00\u4e2a\u4e2a\u4e0b\u8f7d\u590d\u5236\u7684\u65e7\u6d41\u7a0b\u3002", "headline": "\u6211\u7528 tTorrent \u642d\u4e86\u4e00\u6761\u6bcf\u5468\u8d44\u6e90\u5f52\u6863\u7684\u81ea\u52a8\u5316\u94fe\u8def", "image": ["https://laoguosofts.github.io/images/ttorrent/status.1.5.6.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ttorrent.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ttorrent.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "\u6211\u7528 tTorrent \u642d\u4e86\u4e00\u6761\u6bcf\u5468\u8d44\u6e90\u5f52\u6863\u7684\u81ea\u52a8\u5316\u94fe\u8def", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">我用 tTorrent 搭了一条每周资源归档的自动化链路</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">我用 tTorrent 搭了一条每周资源归档的自动化链路</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">把 tTorrent、手机浏览器和云盘串成一条从种子发现到文件备份的完整管道，告别手动一个个下载复制的旧流程。</p>
+  </header>
+  <div class="prose serif">
+<h2>以前的痛点：三步重复劳动</h2>
+<p>每周我都要处理一批公开可分享的大文件资源——纪录片、开源软件镜像、教育资料。以前的流程是：浏览器搜种子 → 点开一个个下载 → 下载完手动把文件从手机拷到电脑 → 再同步到云盘做备份。这一套下来至少两小时，中间还容易漏拷、拷错路径。</p>
+<p>最烦的是下载这一步：浏览器里的磁力链接经常被 App 拦截，得手动复制再打开下载器；用手机自带下载的话 BT 协议支持又不好，断了还得重来。试过好几个手机端 BT 客户端，要么广告太多，要么下载速度跟不上 WiFi。</p>
+<h2>新流程：tTorrent 当核心下载引擎</h2>
+<p>后来我把这套流程简化成了一条链，tTorrent 就是链上的核心下载引擎。整体思路很直白：<strong>种子发现 → 自动唤起下载 → 下载完自动落到云盘同步目录</strong>。整个过程中我只需要点一下磁力链接，后面都是自动的。</p>
+<h3>种子发现：浏览器直达</h3>
+<p>先说一个关键事实：tTorrent 内置的种子搜索功能已经没了。Google Play 政策调整后，新版把搜索模块下掉了，官方也没再恢复。所以找种子这一步得靠别的工具。</p>
+<p>我现在的方案很简单：手机浏览器直接搜。Chrome、Firefox、Edge 都行，找到种子站进去找资源。碰到磁力链接，浏览器会弹出选项让你选 App，tTorrent 会在列表里，点一下直接进去；如果是 <code>.torrent</code> 文件，下载完点一下也会自动唤起。</p>
+<p>这套衔接的关键是确保 tTorrent 已经关联上磁力链接和 torrent 文件。进入 App 设置，把相关的文件类型关联勾上，一次设置永久生效。</p>
+<h3>下载引擎：Lite 版完全够用</h3>
+<p>tTorrent 有两个版本——Lite 和 Pro。Lite 免费带广告，Pro 付费无广告。但官方明确说明：<strong>两个版本除了广告，功能完全一致</strong>。RSS、Web 界面、种子创建这些 Pro 版有的功能，Lite 版全都有。</p>
+<p>我用的是 Lite 版，Google Play 直接搜 "tTorrent Lite" 就能找到，也可以从<a href="https://ttorrent.laze.skin/download.html" target="_blank" rel="noopener">tTorrent下载</a>拿 APK 直装，包名是 <code>hu.tagsoft.ttorrent.lite</code>。Play 版有自动更新，比<a href="https://ttorrent.laze.skin" target="_blank" rel="noopener">官网</a>直下 APK 省心太多。官网也提供 Lite 版 APK，但那种方式不支持自动更新，得手动盯着换版本。</p>
+<h3>存储路径：内置存储优先</h3>
+<p>tTorrent 默认下载到 <code>/sdcard/torrent</code>，也就是手机内置存储。我试过切到外置 SD 卡，但踩了两个坑：一是 SD 卡需要单独授权（Settings → Directories → External storage access），换卡还得重走一遍授权；二是 FAT32 文件系统有 4GB 单文件限制，下大资源容易撞墙。所以后来老老实实回内置存储，空间不够了手动清老文件。</p>
+<h2>最容易断链的两个环节</h2>
+<p>这条链条跑下来基本稳定，但有两个环节我踩过坑，值得单独说一下。</p>
+<h3>环节一：后台下载被系统杀掉</h3>
+<p>Android 对后台进程管得越来越严。有次锁屏放一边，过俩小时回来一看下载停了。tTorrent 第一次启动时会弹权限请求，其中有「开机自启」和「后台运行」这两个可选权限——我一开始嫌麻烦没开，后来才发现这俩正是保证它后台不被杀的关键。</p>
+<p>现在每次装完必开这两个权限。如果还出问题，得去系统设置里把 tTorrent 加入电池优化白名单，华为、小米这类国产 ROM 尤其要注意，它们对后台进程的管控比原生 Android 严格得多。</p>
+<p><img src="../images/ttorrent/status.1.5.6.png" alt="下载状态界面" loading="lazy"></p>
+<h3>环节二：换版本后文件找不到了</h3>
+<p>有次朋友让我试试 Pro 版，我就装了一个。Pro 版包名是 <code>hu.tagsoft.ttorrent.noads</code>，和 Lite 版的 <code>hu.tagsoft.ttorrent.lite</code> 不一样，意味着两个版本的 App 私有数据目录也不同。我以前默认用私有目录存下载文件，换完 Pro 版，旧的下载目录直接找不到了，差点以为文件丢了。</p>
+<p>后来把保存路径从私有目录改成了 <code>/sdcard/torrent</code>，公共目录不受包名变化影响，不管换什么版本文件都在那里。关于换版本数据保留和权限授权的更多注意事项，<a href="https://ttorrent.pages.dev/" target="_blank" rel="noopener">tTorrent文档</a>里有详细说明。这之后就没再出过这种事。</p>
+<p><img src="../images/ttorrent/details.1.5.5.png" alt="种子详情界面" loading="lazy"></p>
+<h2>效果与边界</h2>
+<p>搭好这条链之后，每周处理资源的时间从两小时缩到了四十分钟——主要省在「不用一个个手动复制粘贴」这件事上。下载完文件直接躺在云盘同步目录里，云盘客户端会自动帮我同步到电脑端，我只需要偶尔检查一下有没有失败的种子就行。少了两次手动复制的环节，也不会再有拷错路径、漏拷文件这种低级错误。</p>
+<p>但这套流程也有边界。tTorrent 毕竟是手机端下载器，做不了远程管理那种复杂调度。我试过配合 Transdroid 做远程控制，但操作复杂度一下就上去了，适合有远程下载需求的玩家，我这种本地单实例、手动触发出种子的场景用不上。</p>
+<p>另外它的 RSS 订阅功能我至今没真正用过。据说可以订阅公开的种子更新源，有新资源自动加入下载队列，但对我来说手动找种子的频率不高，开 RSS 反而会下一堆我不想要的东西，徒占空间。</p>
+<h2>顺手交个底</h2>
+<p>现在这套工作流跑了快三个月，基本稳定，没再出过断链的情况。tTorrent 作为下载引擎放在中间位置，上游接浏览器的种子发现，下游接云盘的自动同步，中间不需要我手动干预。手机上唯一要做的事就是：刷到好资源 → 点一下磁力链接 → 锁屏等它跑完。</p>
+<p>关于 tTorrent 的版本差异、安装方式、存储设置这些细节，以及我自己整理的一些配置笔记，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/tTorrent" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/tTorrent" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/tTorrent" target="_blank" rel="noopener">GitCode</a> 三个仓库都能看到——毕竟开源软件的资料多备份几个地方总是好的，国内朋友用 Gitee 或 GitCode 访问起来也方便。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/51tv-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">给爸妈的电视装个直播 App：51TV 上手几天说点实在的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/our-teacher.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Our Teacher 快问快答：班主任人手一份的 AI 工具到底值不值得装</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

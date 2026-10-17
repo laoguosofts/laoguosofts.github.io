@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>CaptiveMgr 快问快答：Android 网络感叹号救星 · 老郭软件铺</title>
+  
+<meta name="description" content="整理一篇关于 CaptiveMgr 的快问快答。这个小工具专门解决 Android 连上 WiFi 却带感叹号、系统总说没网的老问题，用 Shizuku 或 root 写 settings global 参数，比敲 ADB 命令省事多了。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/captivemgr.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CaptiveMgr 快问快答：Android 网络感叹号救星">
+<meta property="og:description" content="整理一篇关于 CaptiveMgr 的快问快答。这个小工具专门解决 Android 连上 WiFi 却带感叹号、系统总说没网的老问题，用 Shizuku 或 root 写 settings global 参数，比敲 ADB 命令省事多了。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/captivemgr.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/captivemgr/app-main.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/captivemgr/app-main.webp">
+
+<meta name="twitter:title" content="CaptiveMgr 快问快答：Android 网络感叹号救星">
+<meta name="twitter:description" content="整理一篇关于 CaptiveMgr 的快问快答。这个小工具专门解决 Android 连上 WiFi 却带感叹号、系统总说没网的老问题，用 Shizuku 或 root 写 settings global 参数，比敲 ADB 命令省事多了。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6574\u7406\u4e00\u7bc7\u5173\u4e8e CaptiveMgr \u7684\u5feb\u95ee\u5feb\u7b54\u3002\u8fd9\u4e2a\u5c0f\u5de5\u5177\u4e13\u95e8\u89e3\u51b3 Android \u8fde\u4e0a WiFi \u5374\u5e26\u611f\u53f9\u53f7\u3001\u7cfb\u7edf\u603b\u8bf4\u6ca1\u7f51\u7684\u8001\u95ee\u9898\uff0c\u7528 Shizuku \u6216 root \u5199 settings global \u53c2\u6570\uff0c\u6bd4\u6572 ADB \u547d\u4ee4\u7701\u4e8b\u591a\u4e86\u3002", "headline": "CaptiveMgr \u5feb\u95ee\u5feb\u7b54\uff1aAndroid \u7f51\u7edc\u611f\u53f9\u53f7\u6551\u661f", "image": ["https://laoguosofts.github.io/images/captivemgr/app-main.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/captivemgr.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/captivemgr.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "CaptiveMgr \u5feb\u95ee\u5feb\u7b54\uff1aAndroid \u7f51\u7edc\u611f\u53f9\u53f7\u6551\u661f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">CaptiveMgr 快问快答：Android 网络感叹号救星</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">CaptiveMgr 快问快答：Android 网络感叹号救星</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">整理一篇关于 CaptiveMgr 的快问快答。这个小工具专门解决 Android 连上 WiFi 却带感叹号、系统总说没网的老问题，用 Shizuku 或 root 写 settings global 参数，比敲 ADB 命令省事多了。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一篇关于 CaptiveMgr 的快问快答——这个小工具专门解决 Android 上一个烦了好几年的老问题：WiFi 信号满格却带个感叹号，下拉通知栏总写着"网络受限"或"无互联网连接"。</p>
+<p><strong>CaptiveMgr 到底是啥？能干什么？</strong></p>
+<p>一句话：它是一个帮你改 Android 系统 Captive Portal 探测地址的图形化工具。Android 连上 WiFi 后会自动向指定服务器发一个 HTTP 请求，收到 204 响应就判定"有网"。厂商的默认探测服务器在国内经常被墙或不稳定，结果就是明明能上网，系统偏说没网。CaptiveMgr 把这一步做成了可视化操作，它的<a href="https://captivemgr.wxhp.skin" target="_blank" rel="noopener">CaptiveMgr官网</a>上也有完整的说明——测速挑一个能通的服务器、一键应用、点一下刷新图标，感叹号当场消失。它本质上就是封装了 <code>settings global captive_portal_http_url</code> 那组参数的写入逻辑，让你不用开电脑敲 ADB 命令。</p>
+<p><img src="../images/captivemgr/app-main.webp" alt="主界面" loading="lazy"></p>
+<p><strong>谁需要这个东西？</strong></p>
+<p>三类人最有感触：常年折腾 ROM 的刷机党，换过 MIUI、ColorOS、Flyme 之后对感叹号已经麻木了；公司或学校 WiFi，网关强制走 captive portal 认证，系统探测请求经常被拦；还有就是不想 root 但又受够了这个小毛病的普通用户——CaptiveMgr 支持 Shizuku 授权，无 root 也能用。反过来说，如果你一直用默认 ROM、连的是家里的宽带、从没见过感叹号，那完全没必要折腾。</p>
+<p><strong>装起来麻烦吗？有什么前置条件？</strong></p>
+<p>分两档。最简单的：设备已经 root 了，从<a href="https://captivemgr.wxhp.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿到 APK 装上直接授权就能用，完事儿。无 root 就要走 Shizuku——先装 Shizuku App，开发者选项里打开无线调试、配对、启动，然后把权限授予 CaptiveMgr。国内厂商的系统还要额外开几个开关：小米 Redmi 系列要开"USB 调试（安全设置）"，OPPO 一加要关掉"权限监控"，魅族 Flyme 的支付保护得把 Shizuku 加白名单。还有个小细节：不管哪家厂商，都建议把 Shizuku 和 CaptiveMgr 加到系统清理白名单，不然后台进程被管家杀了授权就失效了。</p>
+<p><strong>核心操作怎么弄——换服务器那点事</strong></p>
+<p>工具界面上已经把事情拆得很清楚：先测速，把候选服务器列表跑一遍，哪些能通、延迟多少一目了然。点一下测速通过的那条，地址栏自动填上。安卓 7.0 以上系统要求同时设 HTTP 和 HTTPS 两个地址，工具界面分两行展示，都填上就行。然后点"应用并保存"——等价执行了 <code>adb shell settings put global</code> 那几条命令，只是你不用敲。应用成功之后别忘了点"刷新图标"，系统不会自动重新跑探测，手动触发一下立马能看到效果。想恢复默认更简单：地址栏全部留空再应用，系统自己会回到 ROM 出厂的默认服务器。</p>
+<p><strong>遇到安装被拦截怎么办？</strong></p>
+<p>最常见的是"不允许安装未知应用"弹窗——系统默认禁止文件管理器和浏览器来源的 APK 安装，进"设置 → 应用 → 打开 APK 的那个应用 → 允许安装未知应用"，开关打开就行，装完可以再关掉。小米华为 OPPO 这类厂商的系统会在安装前跑一遍安全扫描，弹"此应用未经过安全检测"的警告，点"继续安装"就好，这不是 CaptiveMgr 有问题，只是它没在厂商应用商店上架。还有一种情况是装了 Google Play Protect 的设备，它会对 Play 商店外的 APK 报风险，点"更多详情 → 仍然安装"即可，工具功能太简单，Play Protect 不会把它判成恶意。真装完点图标没反应的话，检查一下安装包有没有损坏（重新下载）、Magisk Hide 之类的 root 管理功能有没有冲突、系统版本是不是太低（Android 5.0 以下不支持）。</p>
+<p><strong>Shizuku 那一堆开关——小米 OPPO 怎么搞？</strong></p>
+<p>国产厂商在原生无线调试上加了额外保护层，按 Shizuku 官方教程走完流程仍然配对或启动失败，十有八九是这些开关没碰。每家设备上的开关位置和叫法略有不同，拿不准的话翻一下<a href="https://captivemgr.pages.dev/" target="_blank" rel="noopener">CaptiveMgr文档</a>里的厂商适配表。小米 Redmi POCO：开发者选项里必须开"USB 调试（安全设置）"，没开的话无线调试能配对但 shell 命令执行会被拦截。OPPO 一加 Realme：ColorOS 和 OxygenOS 的"权限监控"必须关掉，它会拦截应用通过无线调试拿到的 shell 权限。魅族：Flyme 支付保护把无线调试判为高风险，要么把 Shizuku 加白名单要么临时关掉支付保护。通用排查顺序：无线调试先关再开 → 重新配对一次 → 检查厂商特殊开关 → 确认 Shizuku 和 CaptiveMgr 在清理白名单 → 重启设备从头走一遍。</p>
+<p><img src="../images/captivemgr/screenshot-1.jpg" alt="测速界面" loading="lazy"></p>
+<p><strong>和 ADB 命令比到底哪个好？</strong></p>
+<p>本质上两条路做的是同一件事——写 <code>settings global</code> 参数，CaptiveMgr 内部也是跑 shell 命令，只是封装成了图形界面。差别在于：ADB 需要电脑、需要会敲命令、安卓 7+ 和 6 以下命令还不一样得自己查版本；CaptiveMgr 纯手机操作，系统版本自动检测、参数写对、内置测速、一键刷新。最关键的一点：无 root 设备上 ADB shell 权限根本不够写 global 域的参数，必须 root 才能手动改，而 CaptiveMgr 走 Shizuku 路线，无 root 也能用。什么时候选 ADB？只有一种情况——你已经在电脑上开着 ADB、设备连着 USB、就是不想多装一个 APK。除此之外 CaptiveMgr 全面胜出。两条路互不冲突，ADB 设完参数可以用 CaptiveMgr 的刷新图标触发探测，反过来也行。</p>
+<p><strong>有没有什么坑？值得装吗？</strong></p>
+<p>说几个容易踩的。第一，安卓 7+ 系统必须同时设 HTTP 和 HTTPS 两个地址，只设一个系统还是会跑另一个探测请求，还是会感叹号。第二，应用成功不等于生效，必须点刷新图标，或者开关一次飞行模式，等系统周期性重新探测也可以。第三，厂商系统的特殊开关别漏，漏一个 Shizuku 授权就失效，CaptiveMgr 拿不到 shell 权限就写不了参数。第四，清理白名单别忘了加 Shizuku 本身，很多人只加了 CaptiveMgr，结果系统把 Shizuku 后台杀了授权失效。第五，下载 APK 前确认包名是 <code>tech.evlsoc.captivemgr</code>，非官方来源可能被二次打包。</p>
+<p>最后一句总结：如果你的 Android 设备上有 WiFi 感叹号、系统版本在 5.0 以上、愿意花十分钟配一下 Shizuku（或已经 root），那就装，装完终身受益；如果没这毛病，别折腾。</p>
+<hr>
+<p>这套资料同步维护在三个仓库，<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/CaptiveMgr" target="_blank" rel="noopener">GitHub</a> 是主站，<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/CaptiveMgr" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/CaptiveMgr" target="_blank" rel="noopener">GitCode</a> 是国内加速镜像，哪边网络通就去哪边拿。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/adaway.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">AdAway 上手测评：我用了一周的安卓 root 广告拦截神器</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/mito-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

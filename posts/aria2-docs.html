@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>命令行下载工具的实力派——aria2 上手体验 · 老郭软件铺</title>
+  
+<meta name="description" content="从一个被浏览器大文件下载逼疯的用户视角，讲讲 aria2 这个命令行下载器上手一周以来的真实感受：快、稳、能挑文件，但也得接受它没有图形界面的冷启动门槛。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/aria2-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="命令行下载工具的实力派——aria2 上手体验">
+<meta property="og:description" content="从一个被浏览器大文件下载逼疯的用户视角，讲讲 aria2 这个命令行下载器上手一周以来的真实感受：快、稳、能挑文件，但也得接受它没有图形界面的冷启动门槛。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/aria2-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/aria2-docs/ariang-desktop.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/aria2-docs/ariang-desktop.png">
+
+<meta name="twitter:title" content="命令行下载工具的实力派——aria2 上手体验">
+<meta name="twitter:description" content="从一个被浏览器大文件下载逼疯的用户视角，讲讲 aria2 这个命令行下载器上手一周以来的真实感受：快、稳、能挑文件，但也得接受它没有图形界面的冷启动门槛。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u4e00\u4e2a\u88ab\u6d4f\u89c8\u5668\u5927\u6587\u4ef6\u4e0b\u8f7d\u903c\u75af\u7684\u7528\u6237\u89c6\u89d2\uff0c\u8bb2\u8bb2 aria2 \u8fd9\u4e2a\u547d\u4ee4\u884c\u4e0b\u8f7d\u5668\u4e0a\u624b\u4e00\u5468\u4ee5\u6765\u7684\u771f\u5b9e\u611f\u53d7\uff1a\u5feb\u3001\u7a33\u3001\u80fd\u6311\u6587\u4ef6\uff0c\u4f46\u4e5f\u5f97\u63a5\u53d7\u5b83\u6ca1\u6709\u56fe\u5f62\u754c\u9762\u7684\u51b7\u542f\u52a8\u95e8\u69db\u3002", "headline": "\u547d\u4ee4\u884c\u4e0b\u8f7d\u5de5\u5177\u7684\u5b9e\u529b\u6d3e\u2014\u2014aria2 \u4e0a\u624b\u4f53\u9a8c", "image": ["https://laoguosofts.github.io/images/aria2-docs/ariang-desktop.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/aria2-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/aria2-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u547d\u4ee4\u884c\u4e0b\u8f7d\u5de5\u5177\u7684\u5b9e\u529b\u6d3e\u2014\u2014aria2 \u4e0a\u624b\u4f53\u9a8c", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">命令行下载工具的实力派——aria2 上手体验</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">命令行下载工具的实力派——aria2 上手体验</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从一个被浏览器大文件下载逼疯的用户视角，讲讲 aria2 这个命令行下载器上手一周以来的真实感受：快、稳、能挑文件，但也得接受它没有图形界面的冷启动门槛。</p>
+  </header>
+  <div class="prose serif">
+<p>说实话，我之前从来没认真想过要装一个命令行下载工具。</p>
+<p>浏览器自带下载够省心，IDM 又不是没花钱买过，迅雷虽然偶尔抽风但总归是个图形界面。直到上个月有个 80 多 G 的 PT 资源，浏览器下载到一半断了三次，IDM 不认种子链接，迅雷下到 40G 之后速度直接归零——我才发现手里居然没一个能在 HTTP、BT、磁力这几种下载方式之间通吃的家伙。</p>
+<p>同事提了句 aria2，它的<a href="https://aria2.rggd.pw" target="_blank" rel="noopener">官网</a>上写着这玩意儿同时支持 HTTP、BT 和磁力，我抱着试试看的心态去装了一下。这一周用下来，有些感受挺值得说的。</p>
+<h2>初印象：一个没有脸的下载器</h2>
+<p>安装包从<a href="https://aria2.rggd.pw/download.html" target="_blank" rel="noopener">aria2下载</a>拿，解压到一个目录，把路径加到环境变量的 PATH 里，重开终端敲一句 <code>aria2c --version</code>，版本号蹦出来，完事。整个过程不超过五分钟，没有安装向导，没有捆绑软件，没有注册表污染——你在控制面板里找不到它，它也不打算被你找到。</p>
+<p>说实话刚开始我有点懵。第一次用它下东西的时候，敲完命令回车，屏幕上一行一行滚的全是日志式输出，进度条是纯 ASCII 画的，连个百分比都得自己数。这跟我习惯了的那种带加速球、带悬浮窗的下载器完全不是一个物种。</p>
+<p>但转念一想，人家从一开始就没打算给你做界面。aria2 是命令行工具，设计哲学就是让你能在终端里搞定一切——甚至包括远程控制。</p>
+<h2>真正让我留下来的三个地方</h2>
+<h3>多文件种子里挑着下：这功能太实用了</h3>
+<p>之前用迅雷下一个影视剧集的种子，种子里带了 10 集正片、3 个花絮、2 个宣传片，还有各种字幕文件。我只想下其中 4 集正片，但迅雷默认全下，而且中途不能取消没下的文件。</p>
+<p>aria2 怎么干这件事的？先敲 <code>-S</code> 参数看种子里所有文件的编号表：</p>
+<pre><code class="language-bash">aria2c -S &quot;剧集.torrent&quot;</code></pre>
+<p>它会列出每个文件的 idx（编号）、路径和大小，然后你用 <code>--select-file</code> 按编号挑：</p>
+<pre><code class="language-bash">aria2c --select-file=1,3,5-7 &quot;剧集.torrent&quot;</code></pre>
+<p>逗号分隔、区间写法、混着来都行，甚至还能把挑中的某个文件重定向到别的目录。更绝的是，Metalink 格式的资源（那些带签名校验的软件安装包集合）也用同一套编号逻辑，不用记两套语法。</p>
+<p>这个功能看起来小，但真的戳中了日常下载的痛点——多少人下载完才发现下了一堆根本不想要的东西？</p>
+<h3>代理场景下不卡壳</h3>
+<p>我平时挂着代理下载，之前用别的工具经常遇到"直连能跑，走代理就卡住"或者反过来的情况。aria2 在这点上让我很意外。</p>
+<p>它支持好几种代理配置方式：<code>--all-proxy</code> 一条命令管所有协议，或者按 HTTP/HTTPS/FTP 分别指定；带用户名密码的代理也能直接写在参数里，或者拆成 <code>--all-proxy-user</code> 和 <code>--all-proxy-passwd</code> 分开填。还有个 <code>--no-proxy</code> 能精准排除不走代理的地址，内网下载不受影响。</p>
+<p>更方便的是环境变量。临时想换代理，直接一行：</p>
+<pre><code class="language-bash">http_proxy=代理地址:端口 aria2c &quot;下载直链&quot;</code></pre>
+<p>用完关掉终端就回到默认状态，不用改配置文件。命令行参数优先级最高，环境变量次之，配置文件兜底——这个层次也很清晰，不会出现"不知道哪来的旧配置偷偷生效"的情况。</p>
+<p>说实话之前我对命令行工具的预期是"功能单一，能跑就行"，aria2 在这些边角细节上的处理反而让我觉得它是被认真打磨过的。</p>
+<h3>给它配个遥控器之后，整个体验就不一样了</h3>
+<p>命令行虽然利索，但老盯着终端窗口也不是个事儿。我后来去<a href="https://aria2-docs.pages.dev/" target="_blank" rel="noopener">aria2文档</a>翻了翻，aria2 有个 RPC 接口，可以让网页前端当遥控器用。</p>
+<p>目前最流行的前端是 AriaNg，一个纯静态的单页应用。打开 RPC 功能之后，在 AriaNg 的设置里填三要素：RPC 主机地址、端口号（默认 6800）、密钥——连上就能用了。</p>
+<p><img src="../images/aria2-docs/ariang-desktop.png" alt="AriaNg 桌面端界面" loading="lazy"></p>
+<p>连上之后发现，之前那些命令行参数在图形界面里都变成了勾选框和下拉菜单：选择性下载就是勾选文件列表里的复选框，限速就是拖个滑块，甚至还能看实时速度曲线、按文件类型筛选、拖拽排序任务。</p>
+<p>另一个叫 webui-aria2 的前端是更老的开源项目，界面风格偏朴素，但功能也挺全。还有 Docker 镜像版本，自托管一份也很方便。</p>
+<p><img src="../images/aria2-docs/webui-overview.png" alt="webui-aria2 界面" loading="lazy"></p>
+<p>这里面有个坑值得提一句：直接把 AriaNg 的 HTML 文件拖到浏览器打开可能被同源策略拦住，用它的 All-in-One 单文件版或者桌面版就没这个问题。还有 RPC 端口千万别裸奔暴露公网，记得配密钥，需要远程访问的话最好前面加反代和 TLS。</p>
+<h2>写在后面</h2>
+<p>用了一周下来，aria2 给我的感觉是一个<strong>不怎么打扮但活儿特别好</strong>的工具。它没有华丽的界面，没有"加速引擎"的噱头广告，甚至连个设置向导都没有。但它的多线程下载确实能把带宽跑满，BT/HTTP/磁力的统一支持确实省了不少切换工具的麻烦，那些看起来细碎的参数（选择性下载、代理排除、RPC 密钥）恰恰覆盖了真实使用中最容易踩的坑。</p>
+<p>当然，它也不是谁都适合。如果你对命令行有天然的抵触，或者就是习惯了有悬浮窗、有右键菜单的下载体验，那 aria2 可能会让你觉得门槛太高。但如果你偶尔需要处理一些"浏览器和图形下载器都搞不定"的下载场景，或者就想在终端里完整体验一遍下载到底是怎么回事，那值得花半小时装一下试试。</p>
+<p>这套命令行下载工具的资料我平时用了会同步整理，放在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/aria2" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/aria2" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/aria2" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，方便不同网络环境的朋友查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/crush-ai.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">你以为 CRUSH AI 只是个聊天陪玩？我翻了半天才发现这些藏得真深的功能</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/readwise-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Readwise 深度用了一年：它凭什么在高亮管理这个冷门赛道里扎稳了根</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>深夜十二点，我让 MateClaw 替我写完了竞品调研报告 · 老郭软件铺</title>
+  
+<meta name="description" content="产品经理的崩溃时刻：周五下班前接到周一要交的竞品调研报告。朋友扔来一个自部署的 AI 操作系统，我用它的先计划后执行模式，一个小时搞定了原本要三天的活。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/mateclaw.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深夜十二点，我让 MateClaw 替我写完了竞品调研报告">
+<meta property="og:description" content="产品经理的崩溃时刻：周五下班前接到周一要交的竞品调研报告。朋友扔来一个自部署的 AI 操作系统，我用它的先计划后执行模式，一个小时搞定了原本要三天的活。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/mateclaw.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/mateclaw/cloud-deploy.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/mateclaw/cloud-deploy.png">
+
+<meta name="twitter:title" content="深夜十二点，我让 MateClaw 替我写完了竞品调研报告">
+<meta name="twitter:description" content="产品经理的崩溃时刻：周五下班前接到周一要交的竞品调研报告。朋友扔来一个自部署的 AI 操作系统，我用它的先计划后执行模式，一个小时搞定了原本要三天的活。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ea7\u54c1\u7ecf\u7406\u7684\u5d29\u6e83\u65f6\u523b\uff1a\u5468\u4e94\u4e0b\u73ed\u524d\u63a5\u5230\u5468\u4e00\u8981\u4ea4\u7684\u7ade\u54c1\u8c03\u7814\u62a5\u544a\u3002\u670b\u53cb\u6254\u6765\u4e00\u4e2a\u81ea\u90e8\u7f72\u7684 AI \u64cd\u4f5c\u7cfb\u7edf\uff0c\u6211\u7528\u5b83\u7684\u5148\u8ba1\u5212\u540e\u6267\u884c\u6a21\u5f0f\uff0c\u4e00\u4e2a\u5c0f\u65f6\u641e\u5b9a\u4e86\u539f\u672c\u8981\u4e09\u5929\u7684\u6d3b\u3002", "headline": "\u6df1\u591c\u5341\u4e8c\u70b9\uff0c\u6211\u8ba9 MateClaw \u66ff\u6211\u5199\u5b8c\u4e86\u7ade\u54c1\u8c03\u7814\u62a5\u544a", "image": ["https://laoguosofts.github.io/images/mateclaw/cloud-deploy.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/mateclaw.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/mateclaw.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6df1\u591c\u5341\u4e8c\u70b9\uff0c\u6211\u8ba9 MateClaw \u66ff\u6211\u5199\u5b8c\u4e86\u7ade\u54c1\u8c03\u7814\u62a5\u544a", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">深夜十二点，我让 MateClaw 替我写完了竞品调研报告</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">深夜十二点，我让 MateClaw 替我写完了竞品调研报告</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">产品经理的崩溃时刻：周五下班前接到周一要交的竞品调研报告。朋友扔来一个自部署的 AI 操作系统，我用它的先计划后执行模式，一个小时搞定了原本要三天的活。</p>
+  </header>
+  <div class="prose serif">
+<p>周五晚上十二点，我盯着飞书那条消息，烟一根接一根。</p>
+<p>老板在群里 @ 我和另外两个同事：「下周一早会，要一份我们产品线三个直接竞品的调研报告，要有数据面板、功能对比矩阵和结论页。」另外两个同事秒回「收到」，我盯着屏幕半天没敲字——我心里清楚，这条消息里藏着一个所有人都没说破的事：三个竞品，每个至少要翻官网、翻功能页、翻用户评价、翻定价策略，最后还要拉数据做对比。按我之前的节奏，这东西要三天。</p>
+<p>「要不试试 MateClaw？」朋友是个折腾服务器的家伙，平时说话从不涉及办公工具——他的画风永远是「这个 Linux 发行版内核编译选项怎么调」或者「这个 Dockerfile 的多阶段构建有坑」。所以这次他主动给我推荐一个东西，我点开他发过来的链接之前，心里是有些忐忑的。</p>
+<h2>原来不是又一个聊天框</h2>
+<p>之前被各种 AI 助手伤过太多次。它们都长着同一个样子：一个聊天框、一行提示词、底下一排历史对话。你问它什么它答什么，但你让它「帮我做一份竞品调研」，它就开始跟你聊天——聊竞品是谁、聊调研框架、聊应该看哪些维度，聊到最后，调研报告的正文还是空白。</p>
+<p><a href="https://mateclaw.fewf.ren" target="_blank" rel="noopener">MateClaw官网</a> 给我的第一冲击是它根本不是聊天框。</p>
+<p><img src="../images/mateclaw/cloud-deploy.png" alt="MateClaw 云端连接过程" loading="lazy"></p>
+<p>它是一整套可以自部署的 AI 操作系统——一个从<a href="https://mateclaw.fewf.ren/download.html" target="_blank" rel="noopener">官方下载</a>就能拿到的 JAR 包，持久化数据和所有外发集成都在自己的机器上。我让朋友帮我在他闲置的一台云主机上部署了一份，从 Docker Compose 起 PostgreSQL 到登录控制台，大概二十分钟。登录后看到的是一个 Vue 3 写的控制台，左侧栏按使用意图分了六段——直接对话、让 Agent 做事、接外部能力、运维观察、团队管理、系统配置——不是按技术模块拆的，而是按「你想干嘛」拆的，这个设计思路本身就挺戳我。</p>
+<h2>研究助手模板：先计划，后执行</h2>
+<p>让我真正停下来的是它的 Agent 引擎。MateClaw 有两种执行模式——ReAct 是走一步看一步，Plan-and-Execute 是先把整条路画出来再走。这两种模式共用同一个 StateGraph 引擎，不是两套独立系统，而是在同一张执行图上应用不同的编排规则。</p>
+<p>研究助手这个模板，默认就是 Plan-and-Execute 模式。</p>
+<p>我新建 Agent，选了研究助手模板，改了个名字叫「竞品调研员」，然后把老板给的任务直接粘进去——「帮我做一份 A、B、C 三个竞品的调研报告，要有数据面板、功能对比矩阵和结论页，数据要真实可溯源，不能编造。」</p>
+<p>它没有像其他助手那样立刻开始跟我讨论。</p>
+<p>它先给了我一份计划。</p>
+<p>分六个步骤：第一步用 web search 分别爬三个竞品的官网首页、产品页和定价页，第二步读取 Wiki 里已有的行业基础数据，第三步对每个竞品做用户评价的聚合和关键词提取，第四步整理功能对比矩阵，第五步拉取公开的用户量和营收数据做数据面板，第六步写结论和建议。每一步都标了预计耗时，总时长四十七分钟。</p>
+<p>我点了「开始执行」。</p>
+<h2>四十七分钟的守望</h2>
+<p>我没有在那傻等。计划里每一步执行完，MateClaw 都会在 UI 上更新进度条——绿色的小勾，带执行结果摘要。我去倒了杯咖啡，回来的时候第一步已经完成了，三个竞品的官网数据全部拉了下来，自动去重、自动结构化存进了它的 Wiki。</p>
+<p>中途第二步遇到了一个小问题：某个竞品的定价页被 Cloudflare 挡了，web search 工具拿不到完整内容。MateClaw 没有卡死，也没有报错停止，它自动调整了后续步骤——原来计划里第二步是读取 Wiki，它改成了先用备用的浏览器工具再试一次，同时跳过这个竞品的定价信息收集、先去完成另外两个。大概两分钟后它又补了回来——这次成功了。</p>
+<p>我后来才知道这就是 Plan-and-Execute 模式的核心价值：不是一条路走到黑。计划是活的，执行过程中哪一步出问题了，Agent 会重新调整后续步骤的依赖关系，而不是整个任务直接崩掉。</p>
+<p><img src="../images/mateclaw/mateclaw-home.png" alt="MateClaw 云端连接过程" loading="lazy"></p>
+<p>四十七分钟后，Agent 回来给我做最终验证。它列了三个竞品各十二个关键功能点，一张对比矩阵覆盖了核心差异，数据面板里有公开可查的用户规模和营收估算，结论页把三个产品各自的优劣势点了出来，最后给了三条我们产品线可以切入的方向。</p>
+<p>我把那份报告打开，从头到尾翻了一遍。没有编造的数据，所有引用的用户评价都附了来源链接，功能点对比和我自己之前整理的草稿基本一致——它甚至把我草稿里漏掉的一个竞品新出的 AI 功能补上了。</p>
+<h2>它为什么能做到这些</h2>
+<p>后来我去翻了它的<a href="https://mateclaw.pages.dev/" target="_blank" rel="noopener">文档</a>才弄明白，MateClaw 能把这个活干下来，不只是因为它有研究助手模板和 Plan-and-Execute 引擎，而是整个产品从设计上就是按「让 Agent 做事」来的。</p>
+<p>它的七个起步模板——通用助手、研究、代码、写作、知识策展、数据分析、自定义——每个都是开箱即用的起点，预置了 System Prompt、默认执行类型和推荐工具集。模板不是终点，拿到之后做三件事：改名字和图标让团队一眼能认、收紧 System Prompt 加上具体要求、审计工具权限去掉不想让 Agent 碰的东西。而且模板的配置不会被后续升级自动覆盖——你改了就是你的了。</p>
+<p>底层技术选型也够务实。后端是 Spring Boot 3.5 加 Spring AI Alibaba 1.1，Agent 运行时是一张 StateGraph，reasoning、action、observation、plan generation、step execution 都是图上的节点。前端 Vue 3 加 TypeScript，Pinia 管状态，Element Plus 加 Tailwind 做 UI。桌面端直接 Electron 包 JRE 21 和后端 JAR，双击启动，用户完全不需要知道底下跑的是什么。</p>
+<p>还有一点很重要——部署上。一个 JAR 包就能跑，桌面端自带 JRE，Docker Compose 一条命令启动全套。更关键的是数据掌控：对话、日志、文档和记忆都持久化在自己的部署里，只有完成任务所需的内容会发出去。一开始上某个云模型，等本地 GPU 到位了就切本地模型，某个高价值 Agent 单独挂一个模型，其他的走便宜的——它的 Agent 配置和工具图不关心底下是什么模型接口。</p>
+<h2>周一早上</h2>
+<p>周一早会，我把那份报告投到屏幕上。另外两个同事各交了一份，花了一个周末的那种。老板扫了三份，翻到我的时候停了——数据面板的格式、对比矩阵的清晰度、结论的精炼度，明显高出一截。</p>
+<p>「你什么时候搞的？」老板问。</p>
+<p>「周五晚上。」</p>
+<p>我没有提 MateClaw 的名字，也没有提它怎么帮我干活的细节。但那天早会散场之后，有三个同事过来找我私聊：「那报告是你自己一个人做的？用了什么工具？」</p>
+<p>我笑了笑，把朋友那天发我的那条链接转发给了他们。</p>
+<p>对了，那个链接就是 MateClaw 官网。这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/MateClaw" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/MateClaw" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/MateClaw" target="_blank" rel="noopener">GitCode</a> 三个开源仓库都有同步，直接搜就能找到 Apache 2.0 协议的源码和完整文档。至于你想从哪个开始，看你习惯用哪个平台就好。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/y8games.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Y8Games 上手测评：一个活了十九年的浏览器游戏平台，还在坚守 Flash 遗产</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/screen-time-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Screen Time 看着简单，其实有几个坑容易踩</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

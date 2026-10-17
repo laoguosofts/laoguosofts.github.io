@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AfuseKt 从零到一实战：接入资源库 + 精准刮削全流程 · 老郭软件铺</title>
+  
+<meta name="description" content="第一次装 AfuseKt 不知道从哪下手？这篇跟着做，半小时内搞定 WebDAV 资源库接入和 TMDB 手动刮削，海报墙干干净净。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/afusekt.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AfuseKt 从零到一实战：接入资源库 + 精准刮削全流程">
+<meta property="og:description" content="第一次装 AfuseKt 不知道从哪下手？这篇跟着做，半小时内搞定 WebDAV 资源库接入和 TMDB 手动刮削，海报墙干干净净。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/afusekt.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/afusekt/library-view.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/afusekt/library-view.jpg">
+
+<meta name="twitter:title" content="AfuseKt 从零到一实战：接入资源库 + 精准刮削全流程">
+<meta name="twitter:description" content="第一次装 AfuseKt 不知道从哪下手？这篇跟着做，半小时内搞定 WebDAV 资源库接入和 TMDB 手动刮削，海报墙干干净净。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u88c5 AfuseKt \u4e0d\u77e5\u9053\u4ece\u54ea\u4e0b\u624b\uff1f\u8fd9\u7bc7\u8ddf\u7740\u505a\uff0c\u534a\u5c0f\u65f6\u5185\u641e\u5b9a WebDAV \u8d44\u6e90\u5e93\u63a5\u5165\u548c TMDB \u624b\u52a8\u522e\u524a\uff0c\u6d77\u62a5\u5899\u5e72\u5e72\u51c0\u51c0\u3002", "headline": "AfuseKt \u4ece\u96f6\u5230\u4e00\u5b9e\u6218\uff1a\u63a5\u5165\u8d44\u6e90\u5e93 + \u7cbe\u51c6\u522e\u524a\u5168\u6d41\u7a0b", "image": ["https://laoguosofts.github.io/images/afusekt/library-view.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/afusekt.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/afusekt.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "AfuseKt \u4ece\u96f6\u5230\u4e00\u5b9e\u6218\uff1a\u63a5\u5165\u8d44\u6e90\u5e93 + \u7cbe\u51c6\u522e\u524a\u5168\u6d41\u7a0b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">AfuseKt 从零到一实战：接入资源库 + 精准刮削全流程</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">AfuseKt 从零到一实战：接入资源库 + 精准刮削全流程</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次装 AfuseKt 不知道从哪下手？这篇跟着做，半小时内搞定 WebDAV 资源库接入和 TMDB 手动刮削，海报墙干干净净。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你能独立完成两件事：把一个 WebDAV 资源库接进 AfuseKt，并对刮削失败的文件手动指定 TMDB ID 拿到正确的海报和元数据。这两步是 <a href="https://afusekt.boop.uno" target="_blank" rel="noopener">afusekt官网</a>上标注的新手入门必走流程，也是 AfuseKt 最常用也最容易卡壳的实操环节，做通之后其他协议（阿里云盘、Alist、Emby）的接入逻辑和它基本一致。</p>
+<h2>准备</h2>
+<p>动手前确认三件事：</p>
+<ul><li>AfuseKt 已从<a href="https://afusekt.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>安装完成并通过邮箱注册，PRO 版是否激活暂时不影响接入和手动刮削</li><li>你手里有一个可用的 WebDAV 服务地址（小雅、自建 NAS 都行，需要完整 URL + 用户名 + 密码）</li><li>手机有稳定的网络，刮削阶段要大量请求 TMDB API，4G/5G 比 WiFi 有时还靠谱一点</li></ul>
+<h2>第一步：添加 WebDAV 资源库</h2>
+<p>打开 AfuseKt，左侧边栏找到「资源库」，点「添加资源库」，在弹出的协议列表里选 WebDAV。</p>
+<p>这里注意，填三个核心字段：</p>
+<ul><li><strong>服务地址</strong>：必须是完整的 URL，包括协议头和路径。小雅通常是 <code>http://xxx/webdav</code> 结尾，自建 NAS 一般是 <code>http://NAS-IP:5005/</code>。别漏了末尾的斜杠，WebDAV 对路径很敏感。</li><li><strong>用户名</strong> / <strong>密码</strong>：服务提供方分配的凭证。自建 NAS 的话就是你的 NAS 登录账号。</li></ul>
+<p>下面有两个可选项：HTTPS 勾不勾看你的地址是不是 https 开头，别乱勾，勾错了直接 SSL 报错；连接超时默认 30 秒就行，网络特别差再加到 60 秒。</p>
+<p>点确认，AfuseKt 会立即开始扫描目录。这个过程视资源量而定，几百部电影的话通常几十秒到一两分钟。扫描完自动进入刮削阶段——如果这是你第一次用 AfuseKt，此刻看到的应该是文件名列表，还没海报。</p>
+<p><img src="../images/afusekt/library-view.jpg" alt="刚接入时的目录视图，还没刮削" loading="lazy"></p>
+<h2>第二步：处理刮削失败的文件</h2>
+<p>扫描完 AfuseKt 会自动调 TMDB API 匹配元数据。但自动识别不可能 100% 准——重名作品、冷门老片、中文译名和 TMDB 英文原名对不上的，都可能识别错或者干脆识别不出来。</p>
+<p>别慌，手动设置 TMDB ID 是最精准的补救手段。操作路径：找到识别错的那个文件（比如同一部《蝙蝠侠》被识别成了 1989 版而你要的是 2022 版），长按或点右上角更多菜单，选「编辑元数据」或「手动刮削」，粘贴 TMDB ID 就行。</p>
+<h3>怎么找 TMDB ID</h3>
+<p>TMDB ID 是每个电影/剧集在 TMDB 数据库里的唯一整数编号。最快的方式：浏览器打开 www.themoviedb.org，搜你要的片，进详情页，地址栏里的数字就是。比如 <code>www.themoviedb.org/movie/27205</code>，27205 就是《盗梦空间》的 TMDB ID。</p>
+<p>还有个更懒的办法——直接在 AfuseKt 的详情页里点「重新刮削」，它会列出搜索结果让你选，选对了相当于自动填了 TMDB ID。适合搜索结果不多、一眼能看对的情况。</p>
+<p>如果你的资源库文件名是别人分享的、不想重命名，AfuseKt 支持在文件名里直接写 TMDB ID：<code>盗梦空间 {tmdbid:27205}.mkv</code>，下次刮削自动识别。文件夹名也支持，一个文件夹全是同一部剧的话，在文件夹名上加一次 ID 就能批量覆盖里面所有文件。</p>
+<p>这里有个优先级规则要记：<strong>文件级 &gt; 文件夹级</strong>。如果同一个文件和它所在文件夹都设了 TMDB ID，以文件级为准。所以批量错了先改文件夹级，个别错了再单独改文件级，效率最高。</p>
+<p>AfuseKt 还支持 AI 增强刮削做自动匹配，手动 ID 兜底是精度最高的方案，更多进阶玩法和参数可以翻<a href="https://afusekt.pages.dev/" target="_blank" rel="noopener">afusekt文档</a>。</p>
+<p>刮削正确之后，海报墙应该长这样：</p>
+<p><img src="../images/afusekt/poster-wall.png" alt="刮削完成后的海报墙，元数据和海报都对上了" loading="lazy"></p>
+<h2>常见卡点</h2>
+<h3>卡点一：WebDAV 连接直接超时</h3>
+<p>八成是地址填错了。先确认协议头（http 还是 https），再确认路径是否完整。自建 NAS 的话，5005 端口有没有被防火墙拦？公网访问的话 HTTPS 用 443 端口试试，很多运营商封了 5005。实在不行改 HTTP 80 端口，或者在 AfuseKt 设置里允许忽略 SSL 错误。</p>
+<h3>卡点二：TMDB ID 粘贴后没反应</h3>
+<p>先退出详情页再重新进入，有时界面缓存没刷新。如果还是没变化，检查网络——刮削阶段需要能访问 TMDB，国内直连偶尔会抽风，挂个代理或者重试几次一般就好。</p>
+<h3>卡点三：小雅地址连不上</h3>
+<p>公共小雅地址变更频率很高，这不是你的问题。关注分享社区拿最新地址，或者干脆自建一个 WebDAV 服务，稳定性好得多。</p>
+<h2>进阶一句话</h2>
+<p>这两步跑通之后，你可以继续开 PRO 版云同步把配置推送到 TV 端躺沙发上看，也可以绑定 Trakt 让观看历史跨设备自动记——AfuseKt 的生态比这篇教程里讲的大得多。</p>
+<hr>
+<p>AfuseKt 的全套文档在三个仓库都同步维护，国内访问选 Gitee 或 GitCode 更顺：<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/afusekt" target="_blank" rel="noopener">GitHub 仓库</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/afusekt" target="_blank" rel="noopener">Gitee 仓库</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/afusekt" target="_blank" rel="noopener">GitCode 仓库</a>，每个仓库里都能找到完整的分类目录和单篇文档。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/dreamina-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Dreamina 速查：从出第一张图到做完整条视频</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/9xbuddy-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">把 9xbuddy 串进每周素材采集流水线：从社媒刷到剪辑台，一条链少四次手动复制</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

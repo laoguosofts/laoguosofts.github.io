@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>装 Armoury Crate 踩过的那些坑——从&#34;装不上&#34;到&#34;能省心用&#34; · 老郭软件铺</title>
+  
+<meta name="description" content="帮朋友装 ROG 硬件管理器折腾三个小时才摸透，整理出五个真实踩过的坑和对应解法，附防坑清单速查。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/armoury-crate-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装 Armoury Crate 踩过的那些坑——从&#34;装不上&#34;到&#34;能省心用&#34;">
+<meta property="og:description" content="帮朋友装 ROG 硬件管理器折腾三个小时才摸透，整理出五个真实踩过的坑和对应解法，附防坑清单速查。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/armoury-crate-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/armoury-crate-docs/home-dashboard-overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/armoury-crate-docs/home-dashboard-overview.png">
+
+<meta name="twitter:title" content="装 Armoury Crate 踩过的那些坑——从&#34;装不上&#34;到&#34;能省心用&#34;">
+<meta name="twitter:description" content="帮朋友装 ROG 硬件管理器折腾三个小时才摸透，整理出五个真实踩过的坑和对应解法，附防坑清单速查。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5e2e\u670b\u53cb\u88c5 ROG \u786c\u4ef6\u7ba1\u7406\u5668\u6298\u817e\u4e09\u4e2a\u5c0f\u65f6\u624d\u6478\u900f\uff0c\u6574\u7406\u51fa\u4e94\u4e2a\u771f\u5b9e\u8e29\u8fc7\u7684\u5751\u548c\u5bf9\u5e94\u89e3\u6cd5\uff0c\u9644\u9632\u5751\u6e05\u5355\u901f\u67e5\u3002", "headline": "\u88c5 Armoury Crate \u8e29\u8fc7\u7684\u90a3\u4e9b\u5751\u2014\u2014\u4ece\"\u88c5\u4e0d\u4e0a\"\u5230\"\u80fd\u7701\u5fc3\u7528\"", "image": ["https://laoguosofts.github.io/images/armoury-crate-docs/home-dashboard-overview.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/armoury-crate-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/armoury-crate-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u88c5 Armoury Crate \u8e29\u8fc7\u7684\u90a3\u4e9b\u5751\u2014\u2014\u4ece\"\u88c5\u4e0d\u4e0a\"\u5230\"\u80fd\u7701\u5fc3\u7528\"", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">装 Armoury Crate 踩过的那些坑——从&#34;装不上&#34;到&#34;能省心用&#34;</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">装 Armoury Crate 踩过的那些坑——从&#34;装不上&#34;到&#34;能省心用&#34;</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">帮朋友装 ROG 硬件管理器折腾三个小时才摸透，整理出五个真实踩过的坑和对应解法，附防坑清单速查。</p>
+  </header>
+  <div class="prose serif">
+<p>去年帮朋友折腾他刚到手的 ROG 魔霸，我心想 Armoury Crate 不就是个驱动管理器吗，上<a href="https://armoury-crate.xnyx.quest" target="_blank" rel="noopener">官网</a>下载个安装器点下一步不就完事了？结果装了卸、卸了装，前后花了三个多小时才把这个玩意儿弄明白。说出来都是泪——这软件看着简单，其实有几个坑真的能把人憋到想重装系统。我把踩过的坑整理了一下，如果你也在装这个，照着一条条过一遍，大概率能省不少时间。</p>
+<h2>坑一：旧版残留（90% 的安装失败根因）</h2>
+<p><strong>症状</strong>：安装器点"下一步"直接弹"已存在相同版本的 Armoury Crate 组件"，或者进度条卡在某个百分比一动不动半小时。</p>
+<p>我第一次撞到的就是这个——朋友之前自己装过 Aura Sync 来调灯效，以为卸了就干净了，结果注册表、服务、任务计划程序里全是残留。<strong>原因</strong>是华硕这套软件以前改了好几次名字（Aura Sync、ROG Gaming Center、AEGIS III 到现在的 Armoury Crate），新旧版本的组件路径不完全一致，Windows 默认的"卸载程序"只会删当前版本的注册项，旧版的系统服务、驱动文件、计划任务都会留在后台拦着新版安装。</p>
+<p><strong>解法</strong>：卸完控制面板里所有华硕相关软件后，第一件事不是重启，是从<a href="https://armoury-crate.xnyx.quest/download.html" target="_blank" rel="noopener">官方下载</a> Armoury Crate 卸载工具，勾上"深度清理"跑一遍，然后重启。重启之后打开任务计划程序，搜"ASUS"、"ROG"、"Aura"关键词，看到残留的任务就禁用或删除。这步我之前嫌麻烦跳过了，结果白跑了三遍安装流程。</p>
+<h2>坑二：VPN 和系统代理拦下载</h2>
+<p><strong>症状</strong>：安装器能正常开始，但走到"下载功能模块"这一步直接报错，或者进度条在 0% 卡几分钟后弹窗说"无法连接服务器"。</p>
+<p>我第二遍装的时候开着 Surfshark 挂了个美国节点，以为下载会更快——结果安装器根本连不上华硕的模块下载服务器。<strong>原因</strong>是 Armoury Crate 安装器用的是固定的直连域名，不走系统代理，也不识别 VPN 的分流规则，挂了 VPN 反而把连接路线搞乱了。</p>
+<p><strong>解法</strong>：装之前把 VPN 彻底关掉，系统代理也关（设置 → 网络和 Internet → 代理 → 关闭"使用代理服务器"），用直连的家庭或办公网络跑。公司网络有时候也会拦下载，实在不行开个手机热点试。</p>
+<h2>坑三：杀毒软件拦驱动注册</h2>
+<p><strong>症状</strong>：安装器跑完了，没有报错，但点开 Armoury Crate 之后界面里所有设备面板都是灰的，点任何选项都没反应，或者直接弹"无法启动服务"。</p>
+<p>我第三遍装的时候 Defender 实时保护没关，结果 Armoury Crate 注册系统驱动和后台服务那步被 Defender 当成可疑行为直接拦截了。<strong>原因</strong>是 Armoury Crate 需要注册内核级的硬件驱动（风扇控制、超频这些功能要动底层），杀毒软件默认会拦这种行为。</p>
+<p><strong>解法</strong>：装之前临时关掉 Defender 的实时保护（病毒和威胁防护 → 管理设置 → 关掉实时保护），装完记得开回来。装了第三方杀软的（360、火绒、Avast 这些）也要临时关一下，同样道理。</p>
+<h2>坑四：BIOS 里 Armoury Crate 开关被禁了</h2>
+<p><strong>症状</strong>：安装器走完一切正常，Armoury Crate 也能打开，但设备列表是空的，或者某几个关键设备（比如 MUX 开关、显卡模式）的选项是灰的。</p>
+<p>这个坑我差点就放弃了——朋友的主板是 ROG Strix Z690-A，我以为是主板太老不兼容新版 Armoury Crate，折腾了一天。后来翻<a href="https://armoury-crate-docs.pages.dev/" target="_blank" rel="noopener">armoury crate文档</a>和主板说明书才发现，BIOS 里有个叫"ASUS Software Installation"或"Armoury Crate Switch"的选项，如果之前设成了 Disable，软件层面根本无法和主板固件通信。<strong>坑的是华硕没在软件里给任何提示</strong>，设备列表空着的时候谁会联想到去 BIOS 里找？</p>
+<p><strong>解法</strong>：开机进 BIOS（按 F2 或 Del），找到这个开关，改成 Enabled，保存重启。就这么简单。</p>
+<h2>坑五：系统版本不够</h2>
+<p><strong>症状</strong>：安装器点开直接弹"当前系统版本不支持 Armoury Crate"，连下一步都不给点。</p>
+<p>这个是最低门槛，我一开始没当回事，结果朋友笔记本是 Windows 10 1809 版（内部版本 17763），确实太低。Armoury Crate 要求 Windows 10 内部版本 ≥ 18362（也就是 1903 创意者更新之后的版本），或者任意版本的 Windows 11，而且必须是 64 位。32 位系统不用看了，直接装不了。</p>
+<p><strong>解法</strong>：在 Windows 搜索栏输 <code>winver</code> 回车，弹窗里的内部版本号对照一下，不够就跑 Windows Update 升级。</p>
+<p><img src="../images/armoury-crate-docs/home-dashboard-overview.png" alt="Armoury Crate 首页仪表板概览" loading="lazy"></p>
+<h2>防坑清单</h2>
+<p>装 Armoury Crate 前先按这个清单过一遍，大概率能一次过：</p>
+<ul><li>先跑 <code>winver</code> 确认 Windows 10 ≥ 18362 或 Win11，64 位；</li><li>卸控制面板里所有华硕软件后，必须跑华硕官方卸载工具做深度清理，重启两次；</li><li>装之前关 VPN、关系统代理，用直连网络；</li><li>临时关 Defender 实时保护，装完再开；</li><li>如果设备面板全灰，第一时间进 BIOS 找 Armoury Crate 开关确认是不是 Enabled。</li></ul>
+<p>说真的，知道这些坑之后，Armoury Crate 装起来其实相当省心，装完之后用着也顺手——灯效同步、风扇曲线、性能模式切换，这些功能真能提升不少使用体验。我现在给任何 ROG 用户装这套东西，都是按着这五步走，还没翻过车。顺便提一句，这套排坑经验我也同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/armoury%20crate" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/armoury%20crate" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/armoury%20crate" target="_blank" rel="noopener">GitCode</a>，方便随时对照查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/eightsleep-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">连续加班一周后我被热醒了——一张会给床「降温升温」的床垫救了我</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/wallpics.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Wallpics 深度盘点：把手机桌面变成一张会呼吸的画布</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

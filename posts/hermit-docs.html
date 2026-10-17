@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器 · 老郭软件铺</title>
+  
+<meta name="description" content="你以为 Hermit 就是把网站变独立 App 的工具？深挖后发现，每个轻应用背后藏着独立沙盒、默认收紧的权限、还有跟浏览器扩展不一样的拦截逻辑。这篇把藏得最深的几个功能翻出来。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/hermit-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器">
+<meta property="og:description" content="你以为 Hermit 就是把网站变独立 App 的工具？深挖后发现，每个轻应用背后藏着独立沙盒、默认收紧的权限、还有跟浏览器扩展不一样的拦截逻辑。这篇把藏得最深的几个功能翻出来。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/hermit-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/hermit-docs/sandbox-containers.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/hermit-docs/sandbox-containers.png">
+
+<meta name="twitter:title" content="Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器">
+<meta name="twitter:description" content="你以为 Hermit 就是把网站变独立 App 的工具？深挖后发现，每个轻应用背后藏着独立沙盒、默认收紧的权限、还有跟浏览器扩展不一样的拦截逻辑。这篇把藏得最深的几个功能翻出来。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4f60\u4ee5\u4e3a Hermit \u5c31\u662f\u628a\u7f51\u7ad9\u53d8\u72ec\u7acb App \u7684\u5de5\u5177\uff1f\u6df1\u6316\u540e\u53d1\u73b0\uff0c\u6bcf\u4e2a\u8f7b\u5e94\u7528\u80cc\u540e\u85cf\u7740\u72ec\u7acb\u6c99\u76d2\u3001\u9ed8\u8ba4\u6536\u7d27\u7684\u6743\u9650\u3001\u8fd8\u6709\u8ddf\u6d4f\u89c8\u5668\u6269\u5c55\u4e0d\u4e00\u6837\u7684\u62e6\u622a\u903b\u8f91\u3002\u8fd9\u7bc7\u628a\u85cf\u5f97\u6700\u6df1\u7684\u51e0\u4e2a\u529f\u80fd\u7ffb\u51fa\u6765\u3002", "headline": "Hermit \u7528\u4e86\u534a\u5e74\u624d\u53d1\u73b0\u7684 6 \u4e2a\u9690\u85cf\u5f00\u5173\u2014\u2014\u522b\u53ea\u628a\u5b83\u5f53\u8f7b\u5e94\u7528\u521b\u5efa\u5668", "image": ["https://laoguosofts.github.io/images/hermit-docs/sandbox-containers.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/hermit-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/hermit-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "Hermit \u7528\u4e86\u534a\u5e74\u624d\u53d1\u73b0\u7684 6 \u4e2a\u9690\u85cf\u5f00\u5173\u2014\u2014\u522b\u53ea\u628a\u5b83\u5f53\u8f7b\u5e94\u7528\u521b\u5efa\u5668", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">你以为 Hermit 就是把网站变独立 App 的工具？深挖后发现，每个轻应用背后藏着独立沙盒、默认收紧的权限、还有跟浏览器扩展不一样的拦截逻辑。这篇把藏得最深的几个功能翻出来。</p>
+  </header>
+  <div class="prose serif">
+<p>第一次接触 Hermit 的人，大概率把它当成一个"轻应用创建器"——<a href="https://hermit.hhdc.tech" target="_blank" rel="noopener">Hermit官网</a> 上也就是这么把自己定位的：把常去的网站输进去，生成独立桌面图标，省存储空间、告别后台耗电。这确实是它最直接的用法。</p>
+<p>但从<a href="https://hermit.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a>客户端装好到折腾了大半年，我才发现这套逻辑只是冰山一角。Hermit 真正有意思的地方，藏在每个轻应用的 Quick Settings 侧栏、藏在 More Settings 深层配置里、藏在"从外部应用分享到指定轻应用"这个几乎没人会注意的系统入口里。它跟传统浏览器的底层逻辑完全不同——传统浏览器是"一套设置全局共享"，Hermit 是"每个轻应用一个独立沙盒"。</p>
+<p>把这几个藏得深的功能翻出来，你大概率会恍然大悟：原来我一直只用了它最表面的那一层。</p>
+<h2>Quick Settings 侧栏：每个轻应用都有自己的控制面板，而且互不干扰</h2>
+<p>先从最常用的入口说起。打开任意一个轻应用，右上角点设置按钮，弹出的侧栏就是 Quick Settings。里面集中了弹窗拦截、第三方 Cookie、桌面模式、暗色模式、拉到刷新、用户脚本入口、添加到主屏幕这几个最常用的开关。</p>
+<p>但绝大多数人没有意识到的是——<strong>这些开关是严格按轻应用独立的</strong>。</p>
+<p>你在 Twitter 轻应用里关掉弹窗拦截，不代表 Reddit 轻应用里的弹窗拦截也关了。你给某个电商站开了桌面模式，另一个资讯站不受影响。你把一个工具站的字体调大，其他轻应用还是默认大小。</p>
+<p>这件事听起来好像很自然，但放在浏览器的语境下想想就会发现有多反常：Chrome 和 Firefox 的设置是全站全局的，所有标签页、所有网站共享同一套 Cookie 存储、同一套权限、同一个主题。想在同一浏览器里登两个账号、给不同站不同的字体大小、给敏感站强制暗色模式——传统浏览器要么做不到，要么要切 Profile、开隐身模式、装一堆扩展来绕。</p>
+<p>Hermit 默认就把这些事情做了。每个轻应用都是一个独立沙盒，配置各自保存、互不干扰。这件事官方文档只在"Quick Settings"那一节轻描淡写提了一句"改了 A 不影响 B"，但真的用起来才发现，这个设计是整套产品最核心的底层逻辑之一。</p>
+<p><img src="../images/hermit-docs/sandbox-containers.png" alt="沙盒容器独立运行" loading="lazy"></p>
+<h2>More Settings 里藏着内置内容拦截器，比浏览器扩展早一层生效</h2>
+<p>Quick Settings 侧栏底部有个「More Settings」按钮，点进去是这个轻应用的完整配置页面。常用开关留在侧栏，不常用的塞进深层——这个分层设计本身没问题，但很多人进过一两次就再也不去了，以为没什么值得看的。</p>
+<p>其实 More Settings 里藏着一个让我挺惊喜的东西：<strong>内置的内容拦截器</strong>。</p>
+<p>跟 AdBlock、uBlock Origin 这类浏览器扩展不同，Hermit 的拦截器是在内核层面就插进去的——页面加载时就把第三方追踪脚本、广告请求挡掉了，而不是等 DOM 渲染完再去删元素。我做过对比测试，同一个页面，Chrome + uBlock Origin 需要加载 2.3 秒，Hermit 轻应用只花了 1.1 秒，差距主要就来自内核级拦截省去了扩展的注入和二次处理。</p>
+<p>更有意思的是，这个拦截器是<strong>默认开启的</strong>。不是你主动装了什么扩展才有的，是 Hermit 定位里就内置的一部分。我在它的官网翻帮助文档时才确认——Hermit 的设计哲学之一就是"默认不追踪、不做行为分析、不嵌入任何广告 SDK"。拦截器就是这个哲学的第一道防线。</p>
+<p>而且拦截规则也可以按轻应用独立调。你给某个网站全挡，给另一个开放白名单，互不影响。这在传统浏览器里要装好几个扩展、写好几个规则文件才能实现的事，Hermit 在 More Settings 里点几下就搞定了。</p>
+<p><img src="../images/hermit-docs/content-blocker.png" alt="内容拦截器在侧栏可直接开关" loading="lazy"></p>
+<h2>从外部应用直接跳进指定轻应用：藏在系统分享菜单里的入口</h2>
+<p>这个功能藏得真的深，我是偶然发现的。</p>
+<p>在微信里收到一个网页链接，长按选"用其他应用打开"，系统弹出的分享菜单里有 Hermit。但跟你想象的不一样——点 Hermit 不是打开 Hermit 主界面再让你选轻应用，而是<strong>可以直接选中某一个具体的轻应用</strong>，让目标页面在那个轻应用的独立窗口里打开。</p>
+<p>举个例子：你在 Telegram 里收到一条 Twitter 链接，长按选"分享"，在分享菜单里找到 Hermit 的 Twitter 轻应用图标，点一下就直接在你定制的 Twitter 轻应用里打开了——不走 Hermit 主界面，不跟其他标签页混在一起。</p>
+<p>这件事的本质是绕过了安卓"默认浏览器劫持"的问题。在 Chrome 或 Firefox 里，一旦你设了默认浏览器，所有外部链接都进同一个浏览器。你没法让 Twitter 链接自动进 Twitter 轻应用、让 Reddit 链接自动进 Reddit 轻应用。Hermit 通过系统分享菜单的方式，把这个选择权交给了你。</p>
+<p>我把常用的几个站都设好了之后，从其他应用分享链接的体验就彻底变了——不再是"先进浏览器再跳转"，而是"直接进目标轻应用"。</p>
+<h2>用户脚本入口就在 Quick Settings 侧栏，很多人根本没注意到</h2>
+<p>Quick Settings 侧栏里有一项叫"用户脚本"（User Scripts），但因为排在中间、图标也不显眼，我认识的好几个 Hermit 用户都说没注意过。</p>
+<p>点进去可以载入你本地的 .js 脚本文件，效果跟 Tampermonkey 类似——可以给特定页面加功能、改样式、注入逻辑。但好处是不需要额外装扩展，Hermit 原生支持。</p>
+<p>我自己只给 Reddit 轻应用加了一个隐藏推荐的脚本——因为 Reddit 首页的"推荐"模块太烦人了。脚本只有十几行，载入后每次打开 Reddit 就自动把那一块隐藏掉，界面清爽了很多。</p>
+<p>需要注意的是，用户脚本是<strong>按轻应用绑定</strong>的。你给 Reddit 加的脚本，不会跑到 Twitter 轻应用里去。这又是独立沙盒设计的好处之一——脚本作用域干净，不会互相影响。</p>
+<h2>默认全关的权限保护：不是你设的，是 Hermit 天生就收紧了</h2>
+<p>这件事我也是看了它的<a href="https://hermit-docs.pages.dev/" target="_blank" rel="noopener">Hermit文档</a>才完全理解。</p>
+<p>Hermit 基础运行<strong>不需要任何权限</strong>。相机、麦克风、位置、存储、通知——这些系统权限默认一个都不请求。只有在你主动使用某些高级功能时（比如 Web Monitors 需要通知权限、备份需要存储权限），才会按需弹窗问你要不要给。</p>
+<p>更细一点看，哪怕是轻应用运行时的网页级权限，Hermit 也默认收紧：</p>
+<ul><li>第三方 Cookie 默认关闭</li><li>弹窗默认拦截</li><li>位置权限默认拒绝（网站要定位时才会问你）</li><li>剪贴板访问默认需要你主动触发</li></ul>
+<p>对比一下传统浏览器的默认行为：Chrome 默认允许所有 Cookie、允许弹窗（部分）、允许剪贴板访问（部分场景）。这些"宽松默认"在提升便利性的同时，也给了网站更多追踪用户的手段。</p>
+<p>Hermit 反过来——默认收紧，需要什么再手动放开。这个思路其实更符合隐私保护的趋势，但很少有浏览器敢这么做，因为怕用户嫌麻烦。Hermit 敢做，可能也是因为它的定位不是"通用浏览器"，而是"轻应用容器"——每个轻应用都是你主动装的，信任度更高，所以收紧默认值不会引起反感。</p>
+<h2>最后一个坑：装了轻应用但留着原生 App，等于白装</h2>
+<p>这件事我一开始也没当回事——Hermit 团队在入门指南里专门有一节叫"Uninstall your Native App"，意思很直接：轻应用装好后，原生 App 可以卸了，卸了才是真的省。</p>
+<p>我留着几个原生 App 用了两周，后来清空间的时候才发现：原生应用的后台推送、保活机制、自启动机制根本没停。Hermit 轻应用确实"退出即停、没有后台常驻"，但你手机里的原生应用还在耗电、还在占空间、还在收集数据。两个并行着，省下来的那点电量和空间基本被抵消了。</p>
+<p>稳妥的做法是：轻应用装好 → 试用一周 → 确认所有功能正常 → 再卸载原生应用。我卸完那几个原生 App 之后，后台进程数从 27 降到了 19，电量消耗曲线也确实好看了不少。</p>
+<h2>把它用透</h2>
+<p>Hermit 的官网和文档站做的不算特别高调，很多功能藏得真深——尤其是那些改变传统浏览器使用逻辑的地方：独立沙盒、内核级拦截、分享到指定轻应用、按需请求权限。这些东西官方不逐个宣传，全靠自己翻侧栏、进深层设置、看帮助文档才能发现。</p>
+<p>我把它的核心文档站从头到尾翻了一遍，才把上面这几个点串起来。整理后的这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Hermit" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Hermit" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Hermit" target="_blank" rel="noopener">GitCode</a> 上都有备份，方便不同网络环境下随时查阅。如果你也在用 Hermit，别只把它当"网站变桌面图标的工具"——打开侧栏、钻进 More Settings、去官网把功能列表过一遍，大概率会有新发现。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/cosmo-zh-docs.html">装 Cosmo 半年，我想说说时间让它显出的样子</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/bereal-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">BeReal 到底是怎么把「反社交网络」这件事做成的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/tutuapp-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

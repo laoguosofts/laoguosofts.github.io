@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>ServerBox 这几年是怎么长大的：从 SSH 玩具到运维工作台 · 老郭软件铺</title>
+  
+<meta name="description" content="ServerBox 现在能做的事情——SFTP 双栏、推送通知、Docker 管理——回头看其实每一步都踩得挺稳。从一个简单的 SSH 客户端，它用了几个版本才长成今天的样子。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/serverbox-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ServerBox 这几年是怎么长大的：从 SSH 玩具到运维工作台">
+<meta property="og:description" content="ServerBox 现在能做的事情——SFTP 双栏、推送通知、Docker 管理——回头看其实每一步都踩得挺稳。从一个简单的 SSH 客户端，它用了几个版本才长成今天的样子。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/serverbox-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/serverbox-docs/serverbox-overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/serverbox-docs/serverbox-overview.png">
+
+<meta name="twitter:title" content="ServerBox 这几年是怎么长大的：从 SSH 玩具到运维工作台">
+<meta name="twitter:description" content="ServerBox 现在能做的事情——SFTP 双栏、推送通知、Docker 管理——回头看其实每一步都踩得挺稳。从一个简单的 SSH 客户端，它用了几个版本才长成今天的样子。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "ServerBox \u73b0\u5728\u80fd\u505a\u7684\u4e8b\u60c5\u2014\u2014SFTP \u53cc\u680f\u3001\u63a8\u9001\u901a\u77e5\u3001Docker \u7ba1\u7406\u2014\u2014\u56de\u5934\u770b\u5176\u5b9e\u6bcf\u4e00\u6b65\u90fd\u8e29\u5f97\u633a\u7a33\u3002\u4ece\u4e00\u4e2a\u7b80\u5355\u7684 SSH \u5ba2\u6237\u7aef\uff0c\u5b83\u7528\u4e86\u51e0\u4e2a\u7248\u672c\u624d\u957f\u6210\u4eca\u5929\u7684\u6837\u5b50\u3002", "headline": "ServerBox \u8fd9\u51e0\u5e74\u662f\u600e\u4e48\u957f\u5927\u7684\uff1a\u4ece SSH \u73a9\u5177\u5230\u8fd0\u7ef4\u5de5\u4f5c\u53f0", "image": ["https://laoguosofts.github.io/images/serverbox-docs/serverbox-overview.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/serverbox-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/serverbox-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "ServerBox \u8fd9\u51e0\u5e74\u662f\u600e\u4e48\u957f\u5927\u7684\uff1a\u4ece SSH \u73a9\u5177\u5230\u8fd0\u7ef4\u5de5\u4f5c\u53f0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">ServerBox 这几年是怎么长大的：从 SSH 玩具到运维工作台</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">ServerBox 这几年是怎么长大的：从 SSH 玩具到运维工作台</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">ServerBox 现在能做的事情——SFTP 双栏、推送通知、Docker 管理——回头看其实每一步都踩得挺稳。从一个简单的 SSH 客户端，它用了几个版本才长成今天的样子。</p>
+  </header>
+  <div class="prose serif">
+<h2>现状：它现在是什么样</h2>
+<p>打开 ServerBox 最新版本，第一眼是服务器列表卡片，每台机器的 CPU、内存、磁盘用条形图实时挂在上面。点进去能看进程管理、SFTP 文件浏览、Docker 容器日志，手机不在跟前的时候还有 ServerBoxMonitor 主动推送告警。桌面版和移动端长得不一样但数据互通，生物识别解锁帮我省了每次输密码的麻烦。</p>
+<p>说起来，三年前第一次装<a href="https://serverbox.fewz.tech" target="_blank" rel="noopener">ServerBox官网</a>上的这个东西的时候，它还只是个能连 SSH 的小玩具。谁能想到它会走到今天这一步。</p>
+<p><img src="../images/serverbox-docs/serverbox-overview.png" alt="ServerBox 概览" loading="lazy"></p>
+<h2>来路：从 SSH 壳到工作台的几步关键棋</h2>
+<p>样本文档没提具体的版本号迭代表——这本身就挺有意思，说明作者不把 changelog 当主要叙事线。但从功能的成熟度反推，几个关键转折点还是能看出来的。</p>
+<p><strong>起步阶段（V1.x）：能连上就好。</strong></p>
+<p>最初的 ServerBox 就是一个跨平台 SSH 客户端，支持多端登录、密钥认证、基本的终端会话。这阶段的目标很朴素——手机上临时连一下服务器跑个命令，比掏笔记本方便。没有 SFTP，没有监控，没有 Docker，就是纯终端。很多人这时候可能把它当 Termius 的便宜替代品在用。</p>
+<p><strong>V2.x：文件管理补进来了。</strong></p>
+<p>这是第一个让我觉得它认真做的信号——SFTP 文件浏览器。不是那种简陋的文件列表，而是<strong>双栏布局</strong>：左边远程、右边本地，桌面版并排显示，移动端可以切换。面包屑导航、快速跳转按钮、收藏常用目录，这些细节放出来的时候，竞品要么加钱要么没有。ServerBox 的设计思路从"SSH 外壳"悄悄转向了"运维场景覆盖"。</p>
+<p><img src="../images/serverbox-docs/sftp-browser.png" alt="SFTP 双栏浏览" loading="lazy"></p>
+<p><strong>V3.x 前后：主动推送和 Docker。</strong></p>
+<p>ServerBoxMonitor 是这个阶段最有代表性的动作。之前 ServerBox 一直是"客户端拉取"模式——不开 App 就什么都不知道。Monitor 组件把这个逻辑翻了过来：Go 编译的单文件二进制扔服务器上跑，10~20MB 内存占着，CPU 超过阈值手机立刻弹通知，具体阈值和推送配置去<a href="https://serverbox-docs.pages.dev/" target="_blank" rel="noopener">ServerBox文档</a>翻。配合主屏小组件，形成了手动巡检 + 主动推送 + 后台刷新三件套。</p>
+<p>Docker 容器管理也是这阶段补的——容器状态、日志、终端进入，从 SSH 手工敲 <code>docker ps</code> 变成卡片式管理。这一步意味着 ServerBox 的定位从"连得上服务器"变成了"帮你管着服务器"。</p>
+<p><strong>最近几个版本：安全和分发体系。</strong></p>
+<p>生物识别解锁（Face ID、指纹、macOS Touch ID）跨端铺开，应用锁定机制细到"切后台 30 秒后自动锁定"这种粒度。安装包从<a href="https://serverbox.fewz.tech/download.html" target="_blank" rel="noopener">ServerBox下载</a>拿最直接，下载渠道也从单纯的 GitHub Releases 扩展到了 F-Droid——对开源社区是个明确信号。分发不再是技术问题，而是生态问题。</p>
+<h2>规律：他们一直在死磕什么</h2>
+<p>回顾这些步骤，一个很清晰的模式浮出来了。</p>
+<p><strong>优先级一：跨平台一致性。</strong></p>
+<p>每加一个功能，几乎同步就要覆盖 iOS、Android、macOS、Windows、Linux。样本文档里 SFTP 写了"桌面版并排、移动端切换"，生物识别表格列了五个平台的对应方案——不是敷衍的"移动端适配"，是真的不同平台有不同交互策略。这在同类工具里挺少见，大多数竞品要么主打桌面端要么主打移动端。</p>
+<p><strong>优先级二：不造轮子但贴得紧。</strong></p>
+<p>ServerBoxMonitor 不是自己写守护进程——用的就是标准 <code>top / free / df</code> 命令。SFTP 不额外开端口，复用 SSH 连接。推送走 Webhook，部署用 systemd。团队的思路是：系统已经有的东西不重写，但把体验层做厚。这是很务实的工程取舍。</p>
+<p><strong>一直没碰的东西：</strong></p>
+<p>样本文档没提团队协作、云端同步、多用户权限。目前所有服务器配置都存在本地。这意味着 ServerBox 从始至终是"我的服务器我的管"的个人工具定位，没有往团队版方向走。有人觉得这是不够，有人觉得这是克制——至少到 V4 之前，他们没动这块。</p>
+<h2>预判：按这个节奏下一步是什么</h2>
+<p>这部分是从迭代规律推的，不是官方信息。</p>
+<p><strong>最可能的：配置同步。</strong></p>
+<p>现在最烦的事是新设备要重新扫一遍服务器密钥。团队既然死磕跨平台一致性，这块纸糊的缺口迟早要补。但他们不会自己搞云同步服务——大概率走 encrypted export/import 或者接 Dropbox、iCloud 的文件同步通道，继续贴系统轮子。</p>
+<p><strong>有可能的：命令片段库。</strong></p>
+<p>样本文档提了 Docker 日志查看、SFTP 拖拽上传，都是高频场景。下一步可能把常用命令（比如 <code>nginx -t</code>、<code>journalctl -u xxx</code>）做成可收藏的命令片段，一键执行。这和他们现在的"薄平台厚体验"思路一致。</p>
+<p><strong>大概率不会的：团队协作。</strong></p>
+<p>这个就不提了——从目录结构到权限设计，全是单人使用模式，突然转向会推翻已有架构。除非有明确的付费化信号，否则这块是禁区。</p>
+<h2>小结</h2>
+<p>ServerBox 这几年的成长不是那种大跃进来的，是每个版本往"运维日常"这块拼图上多放一块——先把 SSH 连上，再把文件拖进去，再帮你盯着告警，再帮你管容器。没有花哨的功能发布会，改的全是日常会碰到的痛点。</p>
+<p>你要说它有多惊艳？也谈不上。但手机上 SSH 连进去看一眼、SFTP 拖个配置文件过去、CPU 过载了手机弹个通知——这一套组合拳现在让我离不开它。很多工具能单点做好一件事，能把这几件事在五六个平台上同时做好的，不多。</p>
+<hr>
+<p>ServerBox 的资料维护分散在三个仓库，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ServerBox" target="_blank" rel="noopener">GitHub</a> 是主源，国内网络不稳的时候可以去 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ServerBox" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/ServerBox" target="_blank" rel="noopener">GitCode</a> 的镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/iptv-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把 IPTV 播放器翻了个底朝天，发现这几个功能藏得真深</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/bilipai.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">你以为 BiliPai 只是去广告？这些隐藏功能我翻了三个月才挖全</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

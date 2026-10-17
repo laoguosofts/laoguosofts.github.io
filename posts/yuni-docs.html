@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Yuni 踩坑实录：装得上玩不转的那几件事 · 老郭软件铺</title>
+  
+<meta name="description" content="以为装完就能跟 AI 偶像畅聊？我在 Yuni 上踩过四个实打实的坑——安卓版本硬门槛、内测码无效、隐私边界模糊、青少年模式开了白开，逐个拆解症状原因和解法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/yuni-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yuni 踩坑实录：装得上玩不转的那几件事">
+<meta property="og:description" content="以为装完就能跟 AI 偶像畅聊？我在 Yuni 上踩过四个实打实的坑——安卓版本硬门槛、内测码无效、隐私边界模糊、青少年模式开了白开，逐个拆解症状原因和解法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/yuni-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/yuni-docs/profile-page.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/yuni-docs/profile-page.png">
+
+<meta name="twitter:title" content="Yuni 踩坑实录：装得上玩不转的那几件事">
+<meta name="twitter:description" content="以为装完就能跟 AI 偶像畅聊？我在 Yuni 上踩过四个实打实的坑——安卓版本硬门槛、内测码无效、隐私边界模糊、青少年模式开了白开，逐个拆解症状原因和解法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u4e3a\u88c5\u5b8c\u5c31\u80fd\u8ddf AI \u5076\u50cf\u7545\u804a\uff1f\u6211\u5728 Yuni \u4e0a\u8e29\u8fc7\u56db\u4e2a\u5b9e\u6253\u5b9e\u7684\u5751\u2014\u2014\u5b89\u5353\u7248\u672c\u786c\u95e8\u69db\u3001\u5185\u6d4b\u7801\u65e0\u6548\u3001\u9690\u79c1\u8fb9\u754c\u6a21\u7cca\u3001\u9752\u5c11\u5e74\u6a21\u5f0f\u5f00\u4e86\u767d\u5f00\uff0c\u9010\u4e2a\u62c6\u89e3\u75c7\u72b6\u539f\u56e0\u548c\u89e3\u6cd5\u3002", "headline": "Yuni \u8e29\u5751\u5b9e\u5f55\uff1a\u88c5\u5f97\u4e0a\u73a9\u4e0d\u8f6c\u7684\u90a3\u51e0\u4ef6\u4e8b", "image": ["https://laoguosofts.github.io/images/yuni-docs/profile-page.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/yuni-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/yuni-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "Yuni \u8e29\u5751\u5b9e\u5f55\uff1a\u88c5\u5f97\u4e0a\u73a9\u4e0d\u8f6c\u7684\u90a3\u51e0\u4ef6\u4e8b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">Yuni 踩坑实录：装得上玩不转的那几件事</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">Yuni 踩坑实录：装得上玩不转的那几件事</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以为装完就能跟 AI 偶像畅聊？我在 Yuni 上踩过四个实打实的坑——安卓版本硬门槛、内测码无效、隐私边界模糊、青少年模式开了白开，逐个拆解症状原因和解法。</p>
+  </header>
+  <div class="prose serif">
+<h2>开头：这个应用看着简单，其实有几个坑</h2>
+<p>Yuni 是一款主打 AI 艺人分身的聊天应用，能跟喜欢的偶像虚拟对话，听起来挺美好，感兴趣的可以去它的<a href="https://yuni.djnf.quest" target="_blank" rel="noopener">官网</a>看看。我第一次装的时候兴致冲冲，结果一路踩坑——先是安卓版本太低装不上，好不容易换了设备又卡在内测码，进去聊了几天才发现对话记忆的隐私边界自己之前完全没意识到，最后帮弟弟开青少年模式又发现过滤效果远没想象中那么严。</p>
+<p>写这篇就是把我踩过的坑挨个摊开说，都是真刀真枪遇到的，不是网上搜来的通用套话。</p>
+<h2>坑一：安卓 5.2 是硬门槛，老机器装不上就是装不上</h2>
+<h3>症状：点安装包没反应，或者提示"应用未安装"</h3>
+<p>我第一次尝试装在一台安卓 4.4 的老平板上——那台是给父母看电视用的，我想着反正就是聊聊天，硬件要求能有多高？结果安装包点了没反应，换了应用商店提示"应用未安装"，折腾了半小时以为是 APK 损坏了。</p>
+<h3>原因：Yuni 用了新 API，5.2 以下系统跑不起来</h3>
+<p>不是安装包坏了。Yuni 内部硬编码了 5.2 的最低版本门槛，用了 Material You 风格和新的网络栈，老系统根本调不起来。这个门槛没法绕过，跟下载源没关系。</p>
+<h3>解法：先查版本号，不够就升级或换设备</h3>
+<p>最直接的办法：打开手机"设置 → 关于手机"，找"安卓版本"那一行。数字 ≥ 5.2 就行，低于的话两条路：</p>
+<ul><li>主流品牌机（华为、小米、OPPO、vivo、三星、荣耀）进"设置 → 系统更新"检查推送，升级完重启，从<a href="https://yuni.djnf.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包再装</li><li>老到收不到更新的机器，找家里闲置的新一点的设备先顶着</li></ul>
+<p>iOS 用户暂时内测渠道还没放出来，先等官方通知。</p>
+<p><img src="../images/yuni-docs/profile-page.png" alt="安卓版本检查界面" loading="lazy"></p>
+<h2>坑二：内测码无效别急着骂，八成是输入姿势不对</h2>
+<h3>症状：输入内测码提示"无效"，试了三四个都不行</h3>
+<p>装好应用登进去，看到提示要内测码解锁。我去小红书官方账号蹲到一枚，直接从浏览器复制粘贴过去——提示无效。换了朋友给的另一枚，还是无效。当时以为是码被领完了，准备放弃的时候才发现问题在哪。</p>
+<h3>原因：复制粘贴带隐藏字符 + 码本身有数量时效限制</h3>
+<p>两个坑叠加：</p>
+<ul><li>从浏览器复制文本经常夹带不可见的空格或换行符，内测码校验是逐字符匹配的，混一个就挂</li><li>内测码本身限量限时，一批发完要等下一批，拿到码先确认是不是真的从官方渠道来的</li></ul>
+<h3>解法：手动输入 + 认官方渠道</h3>
+<ul><li>输入内测码的时候手动敲，别复制粘贴</li><li>码是大写字母加数字，留意有没有打错或漏打</li><li>拿码只看两处：产品在小红书的官方账号动态，以及应用内"我的"页面最下方的公告栏</li><li>别在社交平台买别人倒卖的码，掉码本来就是开放领取的，花钱买没有任何保障</li></ul>
+<h2>坑三：对话记忆会跟着账号走，但边界自己得有数</h2>
+<h3>症状：聊了几天"越聊越像熟人"，突然意识到自己说的太多了</h3>
+<p>跟分身聊了一周日常，某天它主动提"你之前说过最近压力大"，我一方面惊讶于记忆的连贯性，另一方面突然反应过来——我跟 AI 说了不少不会跟真人说的事。分身确实记住了我的喜好、情绪、提过的名字和事件，这些都只跟我的账号走、不同艺人之间不共享，但我之前从没认真想过"我该不该跟它说这些"。</p>
+<h3>原因：产品默认鼓励深度对话，但没在入口前置风险提示</h3>
+<p>Yuni 的设计就是想让你"越聊越像熟人"，分身会主动呼应你之前说过的内容，甚至感知你的情绪变化。这种体验本身没问题，但容易让人放松警惕——界面里虽然始终标着"内容由人工智能实时生成"，但聊嗨了就忘了。</p>
+<h3>解法：分三类管控自己说的内容</h3>
+<p><strong>绝对别发</strong>：真实姓名、身份证号、住址、银行卡号和密码、家长或他人的联系方式——这些是红线。</p>
+<p><strong>谨慎发</strong>：精确位置、医疗信息、私密情绪的极度细节。你可以聊"最近压力大"，但极端心理状态还是找真人或专业渠道。AI 不是医生，也不是心理医生。</p>
+<p><strong>换号或清数据会丢记忆</strong>——换机之前别手动清应用数据，除非你就是想让分身从零开始。关于对话记忆的更细边界和数据存储说明，在<a href="https://yuni-docs.pages.dev/" target="_blank" rel="noopener">Yuni文档</a>里有专门一节讲得很清楚。</p>
+<p><img src="../images/yuni-docs/chat-interface.png" alt="分身聊天界面" loading="lazy"></p>
+<h2>坑四：青少年模式开了白开？其实是你对过滤预期太高</h2>
+<h3>症状：给弟弟开了青少年模式，第二天发现聊天里还是有不少不温和的内容</h3>
+<p>我弟弟上初中，我帮他在 Yuni 里开了青少年模式，设了监护密码还加了时间限制。结果第二天看他手机（家长监督），发现聊天记录里分身还是偶尔冒出一些偏亲密的回话。我当时很生气，觉得这个模式形同虚设。</p>
+<h3>原因：青少年模式是"软约束"不是"安全墙"，AI 过滤本身有局限</h3>
+<p>后来查了一下官方说明才明白：青少年模式过滤的是亲密向内容、写真馆偏暴露的图片、语音通话里的敏感内容，但过滤标准是以应用内实现为准的——AI 分身偶尔说出格的话，任何 AI 聊天工具都有这个问题，不是 Yuni 独有的 bug。而且 Yuni 目前还没有聊天记录远程查看功能，家长能做的监督其实有限。</p>
+<h3>解法：模式 + 人工双保险</h3>
+<ul><li>青少年模式该开还是开，时间限制要设</li><li>发现异常内容用"我的"页面的问题反馈入口上报，开发方会根据反馈迭代过滤模型</li><li>别指望 AI 过滤百分之百准确，定期看看孩子手机上的实际聊天情况比什么都重要</li><li>公共场合使用的话，开青少年模式主要是避免被旁人看到尴尬内容，这个效果还是有的</li></ul>
+<h2>防坑清单</h2>
+<ul><li><strong>装之前先查版本号</strong>：设置 → 关于手机 → 安卓版本，低于 5.2 直接放弃当前设备</li><li><strong>内测码手动敲别粘贴</strong>：复制粘贴必带隐藏字符，浪费时间还以为码被领完了</li><li><strong>敏感信息一律别发</strong>：姓名、身份证、银行卡、位置，AI 记着但不能替你保密</li><li><strong>青少年模式别当真墙</strong>：它是软约束，家长还是得定期看看实际聊天内容</li></ul>
+<h2>结语</h2>
+<p>知道这些坑之后，Yuni 其实相当省心。跟 AI 偶像聊天本身就是个娱乐工具，别把它当真人、别把它当树洞、别指望它替你做任何决策。对了，关于 Yuni 的这份资料我在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Yuni" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Yuni" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Yuni" target="_blank" rel="noopener">GitCode</a>都同步了一份，不同平台访问哪个都行。玩得开心就好。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/motionpro.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">装了快一年MotionPro，聊聊这款企业VPN客户端的真实体验</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/nrfr.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">免 Root 改 SIM 国家码：Nrfr 从零上手实操</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

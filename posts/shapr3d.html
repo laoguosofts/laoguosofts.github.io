@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到 · 老郭软件铺</title>
+  
+<meta name="description" content="从生成式渲染的提示词技巧到抽壳不选面做封闭空心体，从草图投影跨面刻字到偏移面负值调配合间隙——聊聊几个官方不怎么宣传但一用就回不去的隐藏玩法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/shapr3d.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到">
+<meta property="og:description" content="从生成式渲染的提示词技巧到抽壳不选面做封闭空心体，从草图投影跨面刻字到偏移面负值调配合间隙——聊聊几个官方不怎么宣传但一用就回不去的隐藏玩法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/shapr3d.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/shapr3d/generative-render.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/shapr3d/generative-render.png">
+
+<meta name="twitter:title" content="用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到">
+<meta name="twitter:description" content="从生成式渲染的提示词技巧到抽壳不选面做封闭空心体，从草图投影跨面刻字到偏移面负值调配合间隙——聊聊几个官方不怎么宣传但一用就回不去的隐藏玩法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u751f\u6210\u5f0f\u6e32\u67d3\u7684\u63d0\u793a\u8bcd\u6280\u5de7\u5230\u62bd\u58f3\u4e0d\u9009\u9762\u505a\u5c01\u95ed\u7a7a\u5fc3\u4f53\uff0c\u4ece\u8349\u56fe\u6295\u5f71\u8de8\u9762\u523b\u5b57\u5230\u504f\u79fb\u9762\u8d1f\u503c\u8c03\u914d\u5408\u95f4\u9699\u2014\u2014\u804a\u804a\u51e0\u4e2a\u5b98\u65b9\u4e0d\u600e\u4e48\u5ba3\u4f20\u4f46\u4e00\u7528\u5c31\u56de\u4e0d\u53bb\u7684\u9690\u85cf\u73a9\u6cd5\u3002", "headline": "\u7528\u4e86 Shapr3D \u4e09\u5e74\uff0c\u8fd9\u4e9b\u85cf\u5f97\u771f\u6df1\u7684\u529f\u80fd\u6211\u6700\u8fd1\u624d\u6478\u5230", "image": ["https://laoguosofts.github.io/images/shapr3d/generative-render.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/shapr3d.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/shapr3d.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86 Shapr3D \u4e09\u5e74\uff0c\u8fd9\u4e9b\u85cf\u5f97\u771f\u6df1\u7684\u529f\u80fd\u6211\u6700\u8fd1\u624d\u6478\u5230", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从生成式渲染的提示词技巧到抽壳不选面做封闭空心体，从草图投影跨面刻字到偏移面负值调配合间隙——聊聊几个官方不怎么宣传但一用就回不去的隐藏玩法。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为<a href="https://shapr3d.gltd.quest" target="_blank" rel="noopener">Shapr3D官网</a>上被广泛安利的这个应用只是个"iPad 上能建模"的轻量 CAD？或者以为它就是把 SolidWorks 那套核心工具搬了个家？我以前也是这么想的。直到最近把它翻了个底朝天，才发现里面藏了好几个大多数人没注意到的玩意儿——有的是工具本身的冷门参数，有的是几个功能串起来才能触发的组合技。</p>
+<p>写这篇不是为了列工具清单，就挑几个我自己用着最爽、但同事聊起来"还有这操作？"的东西说说。</p>
+<h2>生成式渲染：别写结构，写氛围</h2>
+<p>很多人点开生成式渲染，面对提示词框直接懵了——"我该写什么？" 然后老老实实填了"把这个零件改得更光滑"，结果出来的图和原模型没什么区别，就调了个滤镜。</p>
+<p>其实 AI 根本不负责改模型结构。你的模型形状在基础截图里已经定死了，生成式渲染干的事情只有一件：<strong>给这个模型套上一层光影和材质的氛围</strong>。所以提示词里别写"改圆角""加凹槽"这种结构描述，写环境。</p>
+<p>写"暗色摄影棚、顶光、微反光地面、背景虚化"，出来的像产品宣传片。写"木质桌面、窗边自然光、旁边放一杯咖啡"，出来的像家居场景图。写"磨砂金属、蓝色发光线条、深空背景"，直接赛博朋克风。</p>
+<p>还有一个隐藏技巧：基础截图的构图和角度直接决定生成效果的上限。截图时把模型摆到你想要的最终角度、调好比例，生成只是在这个基础上"上妆"——角度没选好，提示词写上天也救不回来。</p>
+<p><img src="../images/shapr3d/generative-render.png" alt="生成式渲染教程配图：AI 为模型生成风格化效果图" loading="lazy"></p>
+<p>生成额度免费档每天 3 张，Pro 档 50 张，<a href="https://shapr3d.pages.dev/" target="_blank" rel="noopener">shapr3d文档</a>里有完整的档位对比表，建议 Pro 用户先把最满意的截图角度都存好，然后一口气跑生成，别一张一张地试浪费额度。</p>
+<h2>抽壳不选面：做封闭空心体的捷径</h2>
+<p>抽壳（Shell）这个工具大家都知道——建个盒子，选顶面，抽壳，变成一个开口的容器。但你试过<strong>一个面都不选直接抽壳</strong>吗？</p>
+<p>这个操作官方文档里只是一句话带过，没有专门的教程。不选面抽壳，得到的是一个完全封闭的空心体——没有任何开口的那种。适合做什么？中空的浮力件、内部掏空的装饰品、需要减重但不想留开口的结构件。</p>
+<p>要注意两件事：一是封闭空心体如果拿去 3D 打印，记得自己开个排气孔，不然打印时内部空气膨胀会炸；二是抽壳壁厚别太大，外形曲率太急的地方容易报错，缩小壁厚或者把尖角倒圆就好。</p>
+<h2>草图投影 + 文本 + 浮雕：曲面刻字三步走</h2>
+<p>草图模式下有个投影（Project）工具，大多数人用它把实体边缘"印"到当前草图平面上当基准。但投影有个隐藏用法：<strong>3D 空间版的投影可以把草图元素投到曲面上</strong>。</p>
+<p>这个组合技我管它叫"曲面刻字三步走"：</p>
+<ol><li>在一个与目标曲面平行的平面上用文本工具写出你要刻的字；</li><li>把草图里的文字用 3D 投影投到目标曲面上；</li><li>沿着投影后的文字轮廓走环绕浮雕，字就"长"在曲面表面了。</li></ol>
+<p>听起来简单，但中间有几个坑：文本草图的平面不能离目标曲面太远，投影会丢精度；字体选得太细、环浮雕深度设得太深，边缘容易破。我现在用的经验值是字体高度不小于 2 毫米，浮雕深度 0.3 到 0.5 毫米之间，FDM 打印出来刚好清晰可辨。</p>
+<h2>偏移面负值：配合间隙的懒办法</h2>
+<p>偏移面（Offset Face）的常规用法是选中一个面往外推，做壁厚、做胶位。但很少有人用<strong>偏移负值</strong>——把整个实体往内缩一圈。</p>
+<p>这个操作在做配合件的时候太省时间了。比如你做了一个外壳，现在要做一个和它刚好能装进去的内芯。常规套路是重新画一个、重新拉伸、重新标尺寸，改来改去。用偏移面的话：</p>
+<ol><li>选中外壳的外表面；</li><li>执行偏移面，输入负值（比如 -0.3 毫米，留打印公差）；</li><li>新的缩小版实体就是内芯的基础，修剪掉多余面就能用了。</li></ol>
+<p>更懒的办法：直接选中整个实体偏移负值，整体缩一圈。配合间隙靠偏移值控制，不用再算壁厚差。唯一的限制是偏移不能跨越太复杂的几何特征，有尖角的地方可能失败，这时把面拆开来逐个偏移就行。</p>
+<p><img src="../images/shapr3d/variables-expressions.png" alt="变量表达式让尺寸互相引用，改一个全跟着变" loading="lazy"></p>
+<h2>免费档的"删旧建新"循环</h2>
+<p>这个不算什么隐藏功能，但我发现真有人不知道。从<a href="https://shapr3d.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿到手就能用的 Basic 免费档限制 2 个项目，很多人看了这个数字就放弃了，以为只能玩两次。</p>
+<p>其实你可以删旧项目建新的。我学建模那会儿就是这么练的：画完一个零件，觉得差不多了，删掉，开新项目画下一个。两个月下来画了快 20 个零件，全是免费档完成的。</p>
+<p>删项目不会有任何副作用——不像某些 SaaS 会留计数或者恢复付费时才给你数据，Shapr3D 的删就是真删，干净利落。</p>
+<h2>一个别踩的坑</h2>
+<p>抽壳和偏移面这两个工具，在曲率变化剧烈的地方容易报错，而且报错信息非常笼统——就一个红色感叹号，说"操作失败"。别慌，按这个顺序排查：先把壁厚/偏移值调小，不行就把外形的尖角倒圆，再不行就简化外形（删掉一些装饰性的小特征再操作）。</p>
+<p>还有，生成式渲染出来的图是效果图，不是工程图。尺寸不准、比例可能有微调，发给加工商之前一定要附上带尺寸标注的 2D 工程图，别只发一张渲染图让人家猜。</p>
+<hr>
+<p>上面这几个东西，有的是我翻帮助中心时在边角处看到的一句话，有的是瞎点按钮不小心试出来的。Shapr3D 的建模内核是实打实的 Parasolid，功能密度其实不低——很多好用的东西藏在"非典型用法"里，等你自己去挖。</p>
+<p>这套资料我同步维护在三个仓库里，<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/shapr3d" target="_blank" rel="noopener">GitHub</a>是主仓库，<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/shapr3d" target="_blank" rel="noopener">Gitee</a>方便国内直接克隆，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/shapr3d" target="_blank" rel="noopener">GitCode</a>作为备份以防万一，内容都是一模一样的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/noteshelf-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/sora2-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Sora 2 存档值不值得花半小时折腾？一笔给好奇者的时间账</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>月底流量见底那夜，我用 Skit 揪出了偷跑的元凶 · 老郭软件铺</title>
+  
+<meta name="description" content="一个安卓折腾党在流量超支的窘迫夜晚，如何用 Skit 的使用报告、流量拆分和权限分级功能，一步步定位到后台偷跑且申请了不必要权限的可疑应用，顺手清理了几个常年躺在手机里的&#34;沉默消耗者&#34;。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/skit-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="月底流量见底那夜，我用 Skit 揪出了偷跑的元凶">
+<meta property="og:description" content="一个安卓折腾党在流量超支的窘迫夜晚，如何用 Skit 的使用报告、流量拆分和权限分级功能，一步步定位到后台偷跑且申请了不必要权限的可疑应用，顺手清理了几个常年躺在手机里的&#34;沉默消耗者&#34;。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/skit-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/skit-docs/apps-usage-report.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/skit-docs/apps-usage-report.png">
+
+<meta name="twitter:title" content="月底流量见底那夜，我用 Skit 揪出了偷跑的元凶">
+<meta name="twitter:description" content="一个安卓折腾党在流量超支的窘迫夜晚，如何用 Skit 的使用报告、流量拆分和权限分级功能，一步步定位到后台偷跑且申请了不必要权限的可疑应用，顺手清理了几个常年躺在手机里的&#34;沉默消耗者&#34;。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u4e2a\u5b89\u5353\u6298\u817e\u515a\u5728\u6d41\u91cf\u8d85\u652f\u7684\u7a98\u8feb\u591c\u665a\uff0c\u5982\u4f55\u7528 Skit \u7684\u4f7f\u7528\u62a5\u544a\u3001\u6d41\u91cf\u62c6\u5206\u548c\u6743\u9650\u5206\u7ea7\u529f\u80fd\uff0c\u4e00\u6b65\u6b65\u5b9a\u4f4d\u5230\u540e\u53f0\u5077\u8dd1\u4e14\u7533\u8bf7\u4e86\u4e0d\u5fc5\u8981\u6743\u9650\u7684\u53ef\u7591\u5e94\u7528\uff0c\u987a\u624b\u6e05\u7406\u4e86\u51e0\u4e2a\u5e38\u5e74\u8eba\u5728\u624b\u673a\u91cc\u7684\"\u6c89\u9ed8\u6d88\u8017\u8005\"\u3002", "headline": "\u6708\u5e95\u6d41\u91cf\u89c1\u5e95\u90a3\u591c\uff0c\u6211\u7528 Skit \u63ea\u51fa\u4e86\u5077\u8dd1\u7684\u5143\u51f6", "image": ["https://laoguosofts.github.io/images/skit-docs/apps-usage-report.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/skit-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/skit-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u6708\u5e95\u6d41\u91cf\u89c1\u5e95\u90a3\u591c\uff0c\u6211\u7528 Skit \u63ea\u51fa\u4e86\u5077\u8dd1\u7684\u5143\u51f6", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">月底流量见底那夜，我用 Skit 揪出了偷跑的元凶</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">月底流量见底那夜，我用 Skit 揪出了偷跑的元凶</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一个安卓折腾党在流量超支的窘迫夜晚，如何用 Skit 的使用报告、流量拆分和权限分级功能，一步步定位到后台偷跑且申请了不必要权限的可疑应用，顺手清理了几个常年躺在手机里的&#34;沉默消耗者&#34;。</p>
+  </header>
+  <div class="prose serif">
+<h2>月末焦虑</h2>
+<p>每月二十号左右，我的手机都会弹出一条提醒：移动流量已用 90%。这通常是个信号——接下来的十天我得把自动播放关掉，出门在外尽量只刷文字，省着点用。</p>
+<p>但那次不一样。十一月初，我刚充完套餐才过了七天，通知就弹了。打开运营商 APP 一看，数字跳得比以往任何时候都快。我懵了：这个月既没追剧，也没下载大文件，连地图导航都只偶尔开了两次。流量跑哪去了？</p>
+<p>我先试了系统自带的数据用量统计。安卓的设置里倒是能看到各应用的消耗，但那个界面只有一个数字——某应用耗了 1.2GB，另一应用耗了 800MB。我盯着数字，还是不知道谁有问题。1.2GB 那个是视频 APP，虽然我没主动打开，但它的后台推送和自动预加载确实吃流量，似乎也说得过去。800MB 那个是个天气预报应用，我更懵了——查天气能花这么多？</p>
+<p>折腾了半小时，系统设置没给我答案。一个朋友推荐说，去<a href="https://skit.fewf.click" target="_blank" rel="noopener">Skit官网</a>下一个试试。</p>
+<h2>第一次打开 Skit</h2>
+<p>Skit 是一款安卓应用信息查看工具，能把手机里装的每一个 App 的底细翻出来——用了多少时间、耗了多少流量、申请了哪些权限。安装包从<a href="https://skit.fewf.click/download.html" target="_blank" rel="noopener">官方下载</a>拿的，我装它本来是想用来看看某些奇怪应用到底在干什么，没想到第一个用武之地就是流量排查。</p>
+<p>打开 Skit，先找到"使用报告"入口。这张报告页给我的第一个冲击不是数字，而是那个占比进度条——每款应用一行，进度条的长度直接对应它吃掉了我多少时间和流量。我一眼就看到了头部那几个：视频 APP 排在第一，这没什么悬念；但第二名赫然是那款天气应用，进度条的颜色亮得刺眼。</p>
+<p><img src="../images/skit-docs/apps-usage-report.png" alt="使用报告页：总时长、打开次数与流量消耗逐项列出" loading="lazy"></p>
+<p>我点进去细看，原来 Skit 有个关键设计：<strong>移动流量和 Wi-Fi 是分开记的</strong>。视频 APP 的 1.2GB 里，绝大部分是 Wi-Fi；而那款天气应用的 800MB，移动流量占了 760MB，Wi-Fi 只有 40MB。这个数字让我瞬间警觉——一个查天气的应用，为什么几乎只在我用移动网络的时候偷跑？</p>
+<h2>顺着线索往下挖</h2>
+<p>Skit 不只是给我一个总数，它让我能按移动数据用量重新排序。排完之后，我找到了三个异常对象：</p>
+<p>第一个就是那个天气应用——我几乎没主动打开过它，但它的移动流量消耗排在第三。第二个更离谱：一个我装了之后就没再打开过的小游戏，移动流量耗了 300MB。第三个是个笔记应用，我天天用，但它的移动流量反而只有 20MB。</p>
+<p>我先点开那个天气预报应用的详情。Skit 把这款应用的权限按四个级别分组展示：正常、危险、特殊、未定义。让我皱眉的是"特殊"那一组——悬浮窗和自启动，它都申请了。一个查天气的应用，要自启动干什么？还要悬浮窗？再看"危险"权限里，位置信息也被授予了，但它为什么需要持续获取我的位置？</p>
+<h2>那个游戏更有意思</h2>
+<p>我点开第二款——那个装了就没碰过的小游戏。Skit 显示它的移动流量全部来自后台。而且在权限页的"危险"组里，我看到了"麦克风"。一个休闲小游戏，申请麦克风权限？</p>
+<p>Skit 在这里的价值就体现出来了：它不像系统设置那样只告诉你"这个应用申请了麦克风"，而是帮我把权限按安全级别分类，让我一眼就能判断哪些申请有问题。手电筒应用申请位置权限、游戏申请无障碍——这些都是去<a href="https://skit-docs.pages.dev/" target="_blank" rel="noopener">Skit文档</a>里能查到的典型可疑信号。那天晚上我把几款应用的权限都翻了一遍，果然清出了几个"沉默消耗者"。</p>
+<h2>清理之后</h2>
+<p>关掉自启动、撤销了几款应用不必要的危险权限、卸载了那个从没打开过的小游戏，三天之后我再看 Skit 的使用报告，移动流量的消耗速度明显降了下来。那个天气预报应用在关闭自启动之后，移动流量消耗几乎归零。</p>
+<p>那次之后我养成了一个习惯：每过一两周就打开 Skit 的使用报告，按移动数据排个序，看看有没有新的异常。它成了我手机里的"消耗体检仪"——不是为了精确定位每个 MB 的去向，而是为了在某个应用悄悄膨胀之前，先把它揪出来。</p>
+<h2>复盘几句</h2>
+<p>回头看，安卓系统自带的数据用量统计其实也能告诉我"哪个应用耗得多"，但它给的信息太粗了——混在一起的总量、没有按网络类型拆分、也没有权限分组。Skit 把这三块拼到一起，让我不只是看到"有问题"，还能顺着线索挖到根因。</p>
+<p>那天晚上我在 Skit 的帮助里翻了一下，原来这种权限分级和流量拆分都不是一开始就有的，是几个版本迭代慢慢加上的——3.1 版本把数据用量按 Wi-Fi 和移动网络拆分，3.0 版本引入了四级权限分组。独立开发者的项目能这样一步步打磨功能，挺难得的。</p>
+<p>如果你也有过"流量莫名其妙见底"或者"想知道手机里的应用到底在干什么"的时刻，试试 Skit。这款工具的中文资料我顺手同步了三份备份，主站是 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/Skit" target="_blank" rel="noopener">GitHub</a>，国内访问不方便的话可以换 <a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/Skit" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/Skit" target="_blank" rel="noopener">GitCode</a>。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/cerulean-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Cerulean 避坑指南：这几个翻车位我替你踩过了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/raylink-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">远程技术支持的一条链：RayLink 嵌进我每周三次的客户服务流程</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

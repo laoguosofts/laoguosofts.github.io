@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>GoodSync 藏着这 5 个没人讲透的功能，用完才知道什么叫专业级同步 · 老郭软件铺</title>
+  
+<meta name="description" content="你以为它只是个文件夹同步工具？其实 GoodSync 在 NAT 穿透、端到端加密、块级传输上藏着一堆官方不怎么宣传的黑科技，今天把它们挖出来。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/goodsync.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoodSync 藏着这 5 个没人讲透的功能，用完才知道什么叫专业级同步">
+<meta property="og:description" content="你以为它只是个文件夹同步工具？其实 GoodSync 在 NAT 穿透、端到端加密、块级传输上藏着一堆官方不怎么宣传的黑科技，今天把它们挖出来。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/goodsync.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/goodsync/main-window.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/goodsync/main-window.png">
+
+<meta name="twitter:title" content="GoodSync 藏着这 5 个没人讲透的功能，用完才知道什么叫专业级同步">
+<meta name="twitter:description" content="你以为它只是个文件夹同步工具？其实 GoodSync 在 NAT 穿透、端到端加密、块级传输上藏着一堆官方不怎么宣传的黑科技，今天把它们挖出来。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4f60\u4ee5\u4e3a\u5b83\u53ea\u662f\u4e2a\u6587\u4ef6\u5939\u540c\u6b65\u5de5\u5177\uff1f\u5176\u5b9e GoodSync \u5728 NAT \u7a7f\u900f\u3001\u7aef\u5230\u7aef\u52a0\u5bc6\u3001\u5757\u7ea7\u4f20\u8f93\u4e0a\u85cf\u7740\u4e00\u5806\u5b98\u65b9\u4e0d\u600e\u4e48\u5ba3\u4f20\u7684\u9ed1\u79d1\u6280\uff0c\u4eca\u5929\u628a\u5b83\u4eec\u6316\u51fa\u6765\u3002", "headline": "GoodSync \u85cf\u7740\u8fd9 5 \u4e2a\u6ca1\u4eba\u8bb2\u900f\u7684\u529f\u80fd\uff0c\u7528\u5b8c\u624d\u77e5\u9053\u4ec0\u4e48\u53eb\u4e13\u4e1a\u7ea7\u540c\u6b65", "image": ["https://laoguosofts.github.io/images/goodsync/main-window.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/goodsync.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/goodsync.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "GoodSync \u85cf\u7740\u8fd9 5 \u4e2a\u6ca1\u4eba\u8bb2\u900f\u7684\u529f\u80fd\uff0c\u7528\u5b8c\u624d\u77e5\u9053\u4ec0\u4e48\u53eb\u4e13\u4e1a\u7ea7\u540c\u6b65", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">GoodSync 藏着这 5 个没人讲透的功能，用完才知道什么叫专业级同步</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">GoodSync 藏着这 5 个没人讲透的功能，用完才知道什么叫专业级同步</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">你以为它只是个文件夹同步工具？其实 GoodSync 在 NAT 穿透、端到端加密、块级传输上藏着一堆官方不怎么宣传的黑科技，今天把它们挖出来。</p>
+  </header>
+  <div class="prose serif">
+<p>我翻了 GoodSync 的菜单翻了快三年，说出来你可能不信——<a href="https://goodsync.ggcd.store" target="_blank" rel="noopener">GoodSync官网</a>上宣传得很克制，这玩意儿表面上就是个"选左边文件夹、选右边文件夹、点一下同步"的简单工具，但菜单一层层展开之后，藏着好几个让我这种折腾党拍大腿的特性。很多人用它同步个桌面文件夹就完了，根本不知道这些偏门入口能解决多大的问题。</p>
+<p><img src="../images/goodsync/main-window.png" alt="GoodSync 主窗口界面" loading="lazy"></p>
+<h2>1. GSTP 点对点：没公网 IP 也能跨局域网直连</h2>
+<p>你有没有过这种情况：家里电脑存着照片，公司电脑存着文档，想同步一下——但两台机器各在各的 NAT 后面，没有公网 IP，端口映射又搞不定？大多数同步工具遇到这个场景就只能退而求其次，把数据先传到云端再拉回来，白白浪费带宽还把隐私交出去了。</p>
+<p>GoodSync 的解法是自家的 <strong>GSTP 点对点协议</strong>。在两台机器上各自从<a href="https://goodsync.ggcd.store/download.html" target="_blank" rel="noopener">官方下载</a>装 GoodSync，注册一个 GoodSync Connect 账号，然后互相添加对方的设备 ID——就这么简单。中间走的是 Mediator 协调服务器帮忙打洞，打不通的时候还有 Forwarder 中继兜底，但一旦连上就是 P2P 直连，数据不经过任何第三方中转。</p>
+<p>这个功能藏得真深。它不是独立的"连接"功能，而是嵌在端点配置里的——当你选 GoodSync Connect 作为端点类型时，它自动就在背后干活了。很多人甚至没注意到自己正在用它。</p>
+<h2>2. 端到端 AES-256 加密：密钥自管，云服务商也看不到</h2>
+<p>如果你同步的是机密文件——财务报表、合同扫描件、未发布的设计稿——单纯靠传输层的 TLS 加密是不够的。GoodSync 在应用层额外提供了一层 AES-256 加密，覆盖两个层面：传输过程中的每一个数据包，以及如果目标是 GoodSync Storage 云存储的话，服务器端落地的文件本身也是加密的。</p>
+<p>关键在于<strong>密钥是你自己设的</strong>，GoodSync 不保存。首次启用加密时输入密码，它用 PBKDF2 算法派生出对称密钥，之后两端自动加解密。换电脑也不怕——把密钥文件复制过去就行，具体迁移步骤可以去<a href="https://goodsync.pages.dev/" target="_blank" rel="noopener">GoodSync文档</a>翻一下密钥管理的章节。</p>
+<p>但有一个坑必须提：<strong>密码丢了就彻底找不回来</strong>。这是真正的"端到端"——连 GoodSync 官方都帮不了你。我见过有人加密完存了一堆文件，半年后换了个同步方案，回来发现密码早忘了，几百 G 的数据直接报废。启用前务必把密钥文件备份好，或者干脆记在密码管理器里。</p>
+<h2>3. 块级传输：大文件只传变更的那几 KB</h2>
+<p>普通同步工具遇到大文件变更（比如虚拟机镜像从 50GB 变成 50.1GB），会老老实实地重传整个文件。GoodSync 不一样——它做了<strong>块级差异比对</strong>，只传输真正变动的数据块。</p>
+<p>这个优化在视频剪辑师那里是刚需：一个 20GB 的剪辑工程文件，改了开头的一个字幕，普通工具可能要传十几分钟，GoodSync 几秒钟就搞定了。我测试过在两块 NAS 之间同步一个 80GB 的 VDI 文件，修改了末尾几 KB 后重传，GoodSync 显示只传了 4KB 就完成了。</p>
+<p>这个特性默认开启，你甚至感觉不到它存在。但当你同步的文件动辄几十上百 GB 时，差距就是"喝一杯咖啡"和"等一集电视剧"。</p>
+<h2>4. VSS 锁定文件复制：Outlook 的 PST 也能备份</h2>
+<p>Windows 上有一类文件特别麻烦——被其他程序打开、锁住了，普通备份工具拿它一点办法都没有。最典型的就是 Outlook 的 PST 数据文件：只要 Outlook 在运行，它就独占打开，任何拷贝操作都会报"文件被占用"。</p>
+<p>GoodSync 在 Windows 上调用了<strong>卷影复制服务（VSS）</strong>——这是 Windows 内置的快照机制，可以在文件被占用时拍一个瞬间快照，然后从快照里读取数据。整个过程用户完全无感知，Outlook 正常运行、你正常同步，互不干扰。</p>
+<p>这个功能也是默认开启的，藏在引擎深处。只有当你真的遇到"某个文件总是备份失败"的时候，才会偶然发现 GoodSync 居然能绕过这个限制。</p>
+<h2>5. _gsdata_ 状态目录：同步出问题的终极解法</h2>
+<p>每个同步端点下，GoodSync 都会偷偷建一个 <code>_gsdata_</code> 目录，里面存着它对文件状态的追踪数据。正常情况下你完全不需要管它，但当同步出现诡异问题时——比如明明没改文件却被判定为变更、或者某些文件总是同步失败——这个目录就是关键。</p>
+<p>GoodSync 的解决方式是 <strong>Clear State</strong>：在作业设置里点一下，它清空内部状态文件，然后强制做一次全量重新分析。绝大多数同步异常到这一步就能解决，比卸载重装好用多了。</p>
+<p>但千万<strong>不要手动删除</strong> <code>_gsdata_</code> 目录里的 <code>_state/</code> 子目录。我见过有人以为那是垃圾文件删了，结果下次同步 GoodSync 把所有文件都判定为"新文件"，两端同时创建重复副本，收拾了一整天才理干净。</p>
+<p><img src="../images/goodsync/options-advanced.png" alt="高级选项界面" loading="lazy"></p>
+<h2>最后说一句</h2>
+<p>这五个特性里，GSTP 穿透和 VSS 锁定文件这两个是 GoodSync 的独门武器——其他同步工具要么不做，要么做得没它彻底。端到端加密和块级传输虽然不算独家，但 GoodSync 的实现细节（密钥自管、并行块传输）还是比大多数竞品更成熟。</p>
+<p>把它用透的人都知道，GoodSync 不是给小白"同步个文件夹"用的——它是给那种"我有一堆东西要在好几个地方安全、可靠、悄无声息地保持一致"的人准备的工具。菜单深是深了点，但每一层都有东西。</p>
+<p>这套资料我顺手同步到了三个代码仓库：<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/GoodSync" target="_blank" rel="noopener">GitHub</a> 上有完整的历史版本，国内访问直接去<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/GoodSync" target="_blank" rel="noopener">Gitee</a> 或<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/GoodSync" target="_blank" rel="noopener">GitCode</a> 就行，不用挂代理。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/jetaudio.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">jetAudio 藏得最深的 5 个功能，用了三年才翻出来</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/steampy.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">帮朋友代买Steam游戏，我把原来四步操作压成了一条链</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

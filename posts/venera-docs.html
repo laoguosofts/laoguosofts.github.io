@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>venera 踩过的四个坑：从导入到同步一次讲透 · 老郭软件铺</title>
+  
+<meta name="description" content="看着简单的漫画阅读器，实际用起来在目录导入、WebDAV 同步、搜索命中、订阅更新这几个地方藏着容易让人抓狂的细节。踩过之后整理出这份防坑清单。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/venera-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="venera 踩过的四个坑：从导入到同步一次讲透">
+<meta property="og:description" content="看着简单的漫画阅读器，实际用起来在目录导入、WebDAV 同步、搜索命中、订阅更新这几个地方藏着容易让人抓狂的细节。踩过之后整理出这份防坑清单。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/venera-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/venera-docs/ui-import.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/venera-docs/ui-import.jpg">
+
+<meta name="twitter:title" content="venera 踩过的四个坑：从导入到同步一次讲透">
+<meta name="twitter:description" content="看着简单的漫画阅读器，实际用起来在目录导入、WebDAV 同步、搜索命中、订阅更新这几个地方藏着容易让人抓狂的细节。踩过之后整理出这份防坑清单。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u770b\u7740\u7b80\u5355\u7684\u6f2b\u753b\u9605\u8bfb\u5668\uff0c\u5b9e\u9645\u7528\u8d77\u6765\u5728\u76ee\u5f55\u5bfc\u5165\u3001WebDAV \u540c\u6b65\u3001\u641c\u7d22\u547d\u4e2d\u3001\u8ba2\u9605\u66f4\u65b0\u8fd9\u51e0\u4e2a\u5730\u65b9\u85cf\u7740\u5bb9\u6613\u8ba9\u4eba\u6293\u72c2\u7684\u7ec6\u8282\u3002\u8e29\u8fc7\u4e4b\u540e\u6574\u7406\u51fa\u8fd9\u4efd\u9632\u5751\u6e05\u5355\u3002", "headline": "venera \u8e29\u8fc7\u7684\u56db\u4e2a\u5751\uff1a\u4ece\u5bfc\u5165\u5230\u540c\u6b65\u4e00\u6b21\u8bb2\u900f", "image": ["https://laoguosofts.github.io/images/venera-docs/ui-import.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/venera-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/venera-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "venera \u8e29\u8fc7\u7684\u56db\u4e2a\u5751\uff1a\u4ece\u5bfc\u5165\u5230\u540c\u6b65\u4e00\u6b21\u8bb2\u900f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">venera 踩过的四个坑：从导入到同步一次讲透</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">venera 踩过的四个坑：从导入到同步一次讲透</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">看着简单的漫画阅读器，实际用起来在目录导入、WebDAV 同步、搜索命中、订阅更新这几个地方藏着容易让人抓狂的细节。踩过之后整理出这份防坑清单。</p>
+  </header>
+  <div class="prose serif">
+<p>第一次在<a href="https://venera.rggd.pw" target="_blank" rel="noopener">venera官网</a>装 venera 时以为就是个看漫画的阅读器，打开界面清爽、源脚本也多，感觉没什么难的。结果前后折腾了快一周才把书架整理利索——不是软件有 bug，是有几个设计上的细节太反直觉，新手很容易一头撞上去。写完这篇算给自己留个备忘，也给刚上手的朋友省点时间。</p>
+<h2>坑一：漫画导进来全是空的，原来目录摆错了</h2>
+<p>这个坑我踩得最早，也是最懵的一次。把收藏了大半年的漫画文件夹扔进导入目录，打开应用一看——书架上有条目，但点进去一张图都没有。</p>
+<h3>症状</h3>
+<p>导入后漫画封面和标题都显示正常，但进入阅读时所有章节空白，或者干脆连章节列表都不出来。我第一次遇到时以为要重装应用，甚至怀疑是不是文件权限问题，折腾了半小时没头绪。</p>
+<h3>原因</h3>
+<p>venera 对目录结构的要求比我用过的其他阅读器严格得多，它只认两种摆法：要么一本漫画一个文件夹、图片直接平铺；要么每章一个子目录、图片放进章节目录。关键是<strong>章节子目录里不能再嵌套</strong>——我习惯按「作品名 → 章节名 → 图片」三层摆，venera 扫到第二层就停了，下面的图片全被忽略。</p>
+<p>另外文件名排序也有讲究。Windows 默认按字符串排，img1、img10、img2 的顺序会变成 img1、img10、img2，页序直接乱掉。没补零命名的漫画翻起来会跳页。</p>
+<p><img src="../images/venera-docs/ui-import.jpg" alt="导入界面的目录选择" loading="lazy"></p>
+<h3>解法</h3>
+<p>把目录拍平成两层结构——漫画文件夹直接放图片，或者漫画文件夹下一层章节目录。文件名统一补零，三位数就 001、002、003，两位数至少 01、02。压缩包同理，包内结构和文件夹导入的规则完全一致，不用解压直接丢进去也行。</p>
+<h2>坑二：WebDAV 同步方向搞反，把云端覆盖了</h2>
+<p>多设备同步是我用 venera 的刚需——手机上看了一半，回家想在电脑上续。配置 WebDAV 的过程本身很简单，但第一次接入那一下的操作顺序差点让我丢了好几个月的收藏分组。</p>
+<h3>症状</h3>
+<p>新买的平板接入 WebDAV，我习惯性点了「上传」，结果云端的书架被平板上那套空壳数据顶掉了。等我反应过来的时候，以前整理的收藏分组和订阅记录全没了，只能从备份里恢复。</p>
+<h3>原因</h3>
+<p>同步方向不是看设备新旧，而是看哪一边的数据更完整。新设备第一次接入应该先「拉取」——把云端已有的完整书架同步过来，而不是反过来把自己的空数据推上去。我当时想当然地以为「上传 = 把新设备的数据传到云端」，完全没意识到这会覆盖掉云端的东西。</p>
+<p>还有一个容易忽略的点：WebDAV 只同步应用数据这一层——收藏、订阅、阅读历史、设置偏好。漫画文件本身不在同步范围内，换设备看本地漫画还得手动拷过去或者重新下载。</p>
+<p><img src="../images/venera-docs/ui-settings.jpg" alt="同步配置界面" loading="lazy"></p>
+<h3>解法</h3>
+<p>新设备第一次接入 WebDAV 永远先「拉取」，确认书架完整之后，以后的日常同步再按实际情况选上传还是拉取。如果两边都有新增数据，先在本地导出一份归档再操作，保险一点。想自动化的话桌面端从<a href="https://venera.rggd.pw/download.html" target="_blank" rel="noopener">venera下载</a>拿到安装包就行，还自带命令行通道，可以把同步脚本定时跑起来。</p>
+<h2>坑三：搜不到想看的漫画，不一定是源挂了</h2>
+<p>有段时间我搜某部漫画始终没结果，换了好几个源都不行，以为是源脚本全挂了，跑了排查清单也没找到问题。后来去<a href="https://venera-docs.pages.dev/" target="_blank" rel="noopener">venera文档</a>翻了一下才弄明白，原来是关键词的翻译差异——我搜的是台译书名，源里用的是大陆译名。</p>
+<h3>症状</h3>
+<p>输入关键词后结果为空，换同义写法也搜不到，但用同一部作品的另一个译名或者角色名就能命中。有时候聚合搜索能出结果，但固定到某个源里单独搜就不行。</p>
+<h3>原因</h3>
+<p>venera 的搜索分聚合和单源两种模式，聚合搜索是所有启用的源一起查，覆盖面最大；单源搜索只能用该源声明的筛选项。很多人习惯性地直接在单源里搜，错过了其他源的命中。另外标签联想功能支持的源会弹出标准标签建议，比手打关键词准确率高，但很多人不知道有这个功能。</p>
+<h3>解法</h3>
+<p>搜不到的时候先跑聚合搜索，结果里按来源标识分流看哪个源命中质量最高。关键词多试几个同义写法和别名——翻译差异是搜不到的最常见原因。支持标签联想的源，点选建议标签比手打靠谱得多，尤其是按角色名和作品标签精确检索的时候。</p>
+<h2>坑四：收藏了就以为会提醒更新，结果追更断档</h2>
+<p>我有个坏习惯：看到连载中的漫画随手加个收藏就不管了，以为收藏了自然会有更新提醒。过了两个月想起来回去看，发现人家已经更了十几章，我完全没收到通知。</p>
+<h3>症状</h3>
+<p>收藏夹里的连载作品悄悄更新了，但应用没有任何推送或提醒。订阅更新页是空的，或者只有少数几部作品有状态变化。</p>
+<h3>原因</h3>
+<p>venera 里收藏和订阅是两个独立功能，分工完全不同：收藏是归档标记，解决「这部作品我标记了」；订阅才是盯更新，解决「它更新了我要第一时间知道」。只收藏不订阅的话，应用不会主动检查更新，得自己打开订阅更新页手动刷新才看得到。</p>
+<h3>解法</h3>
+<p>连载中的作品订阅和收藏双开——订阅负责盯更、收藏负责归组方便整理。完结作品只收藏就行。想省心的话，桌面端支持命令行批量检查订阅更新，配合系统定时任务能搭出「每日更新摘要」，不用每天手动打开刷新。</p>
+<h2>防坑清单</h2>
+<p>把上面的教训浓缩成五条速查，下次上手新设备或者新漫画时过一遍就够了：</p>
+<ul><li>目录摆成两层：图片平铺或章节一层子目录，文件名补零防排序乱</li><li>WebDAV 新设备先拉取，云端数据比本地完整时别反向覆盖</li><li>搜不到先跑聚合搜索，关键词多试同义词，善用标签联想</li><li>连载作品订阅加收藏双开，只收藏不订阅等于没追更</li><li>WebDAV 只同步应用数据，漫画文件迁移靠归档或手动拷贝</li></ul>
+<p>知道这些坑之后，这软件其实相当省心——源脚本加载快、阅读器体验流畅、多设备同步也稳。踩坑不可怕，可怕的是不知道坑在哪，希望这份清单能帮你少走点弯路。相关资料我在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/venera" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/venera" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/venera" target="_blank" rel="noopener">GitCode</a>三个平台都同步了一份，国内访问哪个顺手就选哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/duckduckgo-com.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">DuckDuckGo 到底值不值得从 Google 换过来？一个老用户的对比评测</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/usj-app.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">日本环球影城官方 App 从装到用，一篇搞定排队和预约</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

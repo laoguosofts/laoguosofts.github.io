@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Cinetry 从零上手：把你手里的视频源全部整合到一个播放器里 · 老郭软件铺</title>
+  
+<meta name="description" content="还在手机装一个 TV 端装一个、每个盒子都单独找片源？Cinetry 一套资源库配置搞定多端同步，本篇带你从安装到导入 IPTV 和 CMS 源完整走一遍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/cinetry.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cinetry 从零上手：把你手里的视频源全部整合到一个播放器里">
+<meta property="og:description" content="还在手机装一个 TV 端装一个、每个盒子都单独找片源？Cinetry 一套资源库配置搞定多端同步，本篇带你从安装到导入 IPTV 和 CMS 源完整走一遍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/cinetry.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/cinetry/desktop-main.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/cinetry/desktop-main.png">
+
+<meta name="twitter:title" content="Cinetry 从零上手：把你手里的视频源全部整合到一个播放器里">
+<meta name="twitter:description" content="还在手机装一个 TV 端装一个、每个盒子都单独找片源？Cinetry 一套资源库配置搞定多端同步，本篇带你从安装到导入 IPTV 和 CMS 源完整走一遍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8fd8\u5728\u624b\u673a\u88c5\u4e00\u4e2a TV \u7aef\u88c5\u4e00\u4e2a\u3001\u6bcf\u4e2a\u76d2\u5b50\u90fd\u5355\u72ec\u627e\u7247\u6e90\uff1fCinetry \u4e00\u5957\u8d44\u6e90\u5e93\u914d\u7f6e\u641e\u5b9a\u591a\u7aef\u540c\u6b65\uff0c\u672c\u7bc7\u5e26\u4f60\u4ece\u5b89\u88c5\u5230\u5bfc\u5165 IPTV \u548c CMS \u6e90\u5b8c\u6574\u8d70\u4e00\u904d\u3002", "headline": "Cinetry \u4ece\u96f6\u4e0a\u624b\uff1a\u628a\u4f60\u624b\u91cc\u7684\u89c6\u9891\u6e90\u5168\u90e8\u6574\u5408\u5230\u4e00\u4e2a\u64ad\u653e\u5668\u91cc", "image": ["https://laoguosofts.github.io/images/cinetry/desktop-main.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/cinetry.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/cinetry.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Cinetry \u4ece\u96f6\u4e0a\u624b\uff1a\u628a\u4f60\u624b\u91cc\u7684\u89c6\u9891\u6e90\u5168\u90e8\u6574\u5408\u5230\u4e00\u4e2a\u64ad\u653e\u5668\u91cc", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Cinetry 从零上手：把你手里的视频源全部整合到一个播放器里</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Cinetry 从零上手：把你手里的视频源全部整合到一个播放器里</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">还在手机装一个 TV 端装一个、每个盒子都单独找片源？Cinetry 一套资源库配置搞定多端同步，本篇带你从安装到导入 IPTV 和 CMS 源完整走一遍。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你手里那些散落在不同盒子、不同手机里的视频源——无论是 IPTV 直播、苹果 CMS 点播，还是 TvBox 订阅链接——都能整合进同一个播放器，并且桌面端、手机端、TV 端共用一份资源库配置，看片不再来回折腾。</p>
+<h2>准备工作：先把安装包拿好</h2>
+<p>Cinetry 是一款跨平台的视频聚合播放器，它的<a href="https://cinetry.gerw.hair" target="_blank" rel="noopener">官网</a>上正式版的<a href="https://cinetry.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a>同步发布在多个渠道，主渠道是 GitHub Releases，另外还有 123 云盘和小飞机网盘两个备用下载点，速度会更快。如果你想提前体验还没正式上线的新功能，可以去找预览版——通常比正式版快一到两个版本号，但可能包含还不太稳定的改动。</p>
+<p>各平台安装步骤差别不小，这里重点说几个新手最常踩坑的。</p>
+<h3>Android 和 TV 端</h3>
+<p>安卓手机装 Cinetry 最直接：下载 APK 到手机，打开文件管理器找到安装包，系统会弹一个「允许安装未知来源应用」的权限请求——不同手机厂商的措辞可能不一样，小米叫「允许本次安装」，华为叫「允许安装该应用」，总之点允许就行。</p>
+<p>安卓电视或盒子稍微绕一点。官方的建议很明确：TV 端直接装手机版 APK 就行，不需要专门找什么 TV 版。你可以用 U 盘把 APK 拷过去插盒子里装，也可以用 ADB 命令行推送，嫌麻烦就装个应用商店辅助工具（比如当贝市场里搜「文件管理器」），直接从局域网或网盘下载 APK 打开。支持的 CPU 架构是 arm64-v8a，体积大概 78MB，系统要求 Android 7.0 以上——目前市面上绝大多数盒子都能满足。</p>
+<h3>Windows / macOS / Linux</h3>
+<p>Windows 下载 exe 安装包双击就能跑向导，选好安装路径等进度条走完，桌面自动生成快捷方式。要求是 Windows 10 以上的 64 位系统。</p>
+<p>macOS 用户下载 dmg 文件，双击打开把 Cinetry 图标拖进「应用程序」文件夹就完成了。但 macOS 的 Gatekeeper 经常会拦截——首次启动时如果弹「无法打开，因为无法验证开发者」，去「系统设置 → 隐私与安全性」往下翻，在底部能看到一条「Cinetry 已被阻止」的提示，点旁边的「仍要打开」，以后就不会再拦了。Apple Silicon 和 Intel 两种架构的 Mac 都支持。</p>
+<p>Linux 提供 AppImage 和 deb 两种格式，AppImage 下载后需要 <code>chmod +x</code> 给执行权限，deb 用 dpkg 装，Debian / Ubuntu 系发行版直接用就行。</p>
+<h3>iOS 的特殊情况</h3>
+<p>iOS 因为系统封闭，安装路径稍微曲折一点。目前有三种方式：最稳定的是 TestFlight——打赏开发者后留言邮箱，能拿到邀请链接；第二种是用爱思助手，连电脑后装 IPA；已经越狱或装了巨魔的设备可以直接侧载 IPA，自由度最高。</p>
+<h2>第一步：导入你的 IPTV 直播源</h2>
+<p>安装完成后第一次打开 Cinetry，侧边栏的资源库管理是空的。我们从最常用的 IPTV 直播源开始。</p>
+<p>Cinetry 支持两种 IPTV 格式：最主流的 m3u / m3u8 播放列表，以及 TvBox 常用的 txt 节目单格式。导入方式也有两种——网络地址和本地文件，大多数人手里的 IPTV 源都是以 URL 形式分享的，直接填地址就行。</p>
+<p>在资源库添加页面选择「IPTV」作为类型，把 m3u 或 txt 的地址粘进去，确认后 Cinetry 会自动下载解析频道列表。</p>
+<p><img src="../images/cinetry/desktop-main.png" alt="Cinetry 桌面端主界面" loading="lazy"></p>
+<p>IPTV 资源库有几个特点需要知道：不需要账号密码，只要地址能访问就能导；导入多个 IPTV 源时 Cinetry 会把所有频道合并到一个列表里，不用自己手动去重；另外 IPTV 不参与播放进度同步——毕竟直播内容没有进度条这个概念。</p>
+<h3>常见卡点 1：m3u 导入后频道列表为空</h3>
+<p>这是新手最常遇到的问题。排查顺序按这个来：先在浏览器里打开那个 m3u 地址看能不能正常下载文件（确认 URL 本身有效），再检查文件开头有没有 <code>#EXTM3U</code> 标准标识（有些不规范的源会漏掉这一行），最后看网络环境——有些 IPTV 源有地区限制或需要特定的 UserAgent。</p>
+<h2>第二步：用 TvBox 订阅一键批量导入</h2>
+<p>如果你手上有别人分享的 TvBox 订阅地址（就是一串 JSON 格式的 URL），Cinetry 提供了一个省时省力的快捷方式——直接导入整个 TvBox 订阅。</p>
+<p>操作路径在「数据中心 → TvBox 订阅导入」，把订阅链接粘进去，UserAgent 字段默认留空就行，执行导入。Cinetry 会自动从订阅配置里解析出所有的苹果 CMS 点播接口和 IPTV 直播接口，逐个导入到资源库管理页面，还会检测每个接口能不能连上——连不上的自动跳过，不会阻塞其他接口的导入。</p>
+<p>需要注意的是，TvBox 订阅里的「网页解析」数据目前还不支持导入，只有 CMS 和 IPTV 两种类型的接口会被提取。</p>
+<h3>常见卡点 2：订阅里的有些源之前手动加过</h3>
+<p>Cinetry 不会在这种情况下重复创建一个同名资源库，而是做<strong>数据更新</strong>——用订阅里的新配置覆盖旧的。所以放心批量导就行，不会把资源库管理撑得乱七八糟。如果导入后想精细调整每个库的开关、或者配 EPG 节目单这些进阶设置，可以去<a href="https://cinetry.pages.dev/" target="_blank" rel="noopener">Cinetry文档</a>里查。</p>
+<h2>第三步：桌面端快捷键，看片快人一步</h2>
+<p>资源库配置好之后就是日常使用了。桌面端（Windows / macOS / Linux）的播放器快捷键值得花两秒钟记一下，尤其是空格和 F 这两个——看片时手放在键盘上按一下比移鼠标去点屏幕快得多。</p>
+<p>最常用的几个：</p>
+<ul><li><strong>空格</strong>：播放 / 暂停切换</li><li><strong>F</strong>：全屏 / 退出全屏</li><li><strong>ESC</strong>：退出全屏或关闭播放器</li><li><strong>左右方向键</strong>：快进 / 后退</li><li><strong>上下方向键</strong>：上一集 / 下一集</li></ul>
+<p>从 0.8.3 版本起，音量调节改成了<strong>软件音量</strong>控制——这意味着你在 Cinetry 里调音量只影响 Cinetry 本身，不会把系统全局音量拉下来。对同时挂着浏览器或语音通话的场景特别友好。</p>
+<p>三套操作方式各自独立：桌面端是键盘，手机端是屏幕手势，TV 端是遥控器按键，互不干扰。</p>
+<p><img src="../images/cinetry/mobile-main.jpg" alt="Cinetry 手机端界面" loading="lazy"></p>
+<h2>进阶：同步到多端</h2>
+<p>资源库配好之后，手机装一个 Cinetry、盒子装一个 Cinetry，把同一个资源库配置导过去就行——CMS 和 IPTV 源本质上都是 URL，换个设备粘进去就通。播放进度和收藏列表支持多端同步，但 IPTV 直播因为没有进度概念所以不走同步通道。</p>
+<h2>写在最后</h2>
+<p>Cinetry 的核心理念就是「配置一次、全端通吃」，不需要在每个盒子上单独装一套源、也不需要为不同设备维护不同的播放列表。上面这三个步骤——安装、导入 IPTV、批量导入 TvBox 订阅——覆盖了绝大多数人的使用场景，剩下的字幕切换、EPG 节目单这些进阶功能，等你把基础流程跑通了再去折腾也不迟。关于资源库的整理和更新节奏，资料同步放在了<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Cinetry" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Cinetry" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Cinetry" target="_blank" rel="noopener">GitCode</a> 三个仓库上，选一个访问顺手的就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/taskbar-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">TaskBar 藏得最深的五个冷门玩法——用了两年才发现还能这样</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/moises-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Moises 到底能干嘛？一份给音乐人的快问快答</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

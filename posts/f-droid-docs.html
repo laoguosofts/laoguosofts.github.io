@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>告别 Google Play 的第一步：用 F-Droid 找到你真正需要的 App · 老郭软件铺</title>
+  
+<meta name="description" content="第一次接触 F-Droid 完全不用慌。这篇文章从零带你理解它是什么、怎么装、能做什么——五分钟上手，以后找 Android 应用再也不用被广告和追踪骚扰。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/f-droid-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="告别 Google Play 的第一步：用 F-Droid 找到你真正需要的 App">
+<meta property="og:description" content="第一次接触 F-Droid 完全不用慌。这篇文章从零带你理解它是什么、怎么装、能做什么——五分钟上手，以后找 Android 应用再也不用被广告和追踪骚扰。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/f-droid-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/f-droid-docs/logo-large.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/f-droid-docs/logo-large.png">
+
+<meta name="twitter:title" content="告别 Google Play 的第一步：用 F-Droid 找到你真正需要的 App">
+<meta name="twitter:description" content="第一次接触 F-Droid 完全不用慌。这篇文章从零带你理解它是什么、怎么装、能做什么——五分钟上手，以后找 Android 应用再也不用被广告和追踪骚扰。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u63a5\u89e6 F-Droid \u5b8c\u5168\u4e0d\u7528\u614c\u3002\u8fd9\u7bc7\u6587\u7ae0\u4ece\u96f6\u5e26\u4f60\u7406\u89e3\u5b83\u662f\u4ec0\u4e48\u3001\u600e\u4e48\u88c5\u3001\u80fd\u505a\u4ec0\u4e48\u2014\u2014\u4e94\u5206\u949f\u4e0a\u624b\uff0c\u4ee5\u540e\u627e Android \u5e94\u7528\u518d\u4e5f\u4e0d\u7528\u88ab\u5e7f\u544a\u548c\u8ffd\u8e2a\u9a9a\u6270\u3002", "headline": "\u544a\u522b Google Play \u7684\u7b2c\u4e00\u6b65\uff1a\u7528 F-Droid \u627e\u5230\u4f60\u771f\u6b63\u9700\u8981\u7684 App", "image": ["https://laoguosofts.github.io/images/f-droid-docs/logo-large.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/f-droid-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/f-droid-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "\u544a\u522b Google Play \u7684\u7b2c\u4e00\u6b65\uff1a\u7528 F-Droid \u627e\u5230\u4f60\u771f\u6b63\u9700\u8981\u7684 App", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">告别 Google Play 的第一步：用 F-Droid 找到你真正需要的 App</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">告别 Google Play 的第一步：用 F-Droid 找到你真正需要的 App</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次接触 F-Droid 完全不用慌。这篇文章从零带你理解它是什么、怎么装、能做什么——五分钟上手，以后找 Android 应用再也不用被广告和追踪骚扰。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从完全不懂到用起来。不需要任何技术基础，甚至你连"开源"这个词是什么意思都无所谓——跟着步骤走，五分钟之后你就能在手机上用 F-Droid 找应用了。</p>
+<h2>它到底是干嘛的？一个生活化类比</h2>
+<p>想象一下你家楼下有两个菜市场。</p>
+<p>一个是连锁大超市，货架满满当当，但你买的每棵菜都被要求登记手机号，菜上贴着条形码记录你什么时候买的、买了几次，而且有些货架你明明想买却被店员悄悄撤走了——理由你也不知道。</p>
+<p>另一个是社区小菜市，摊位都是街坊邻居自己摆的。每棵菜你都能看到它是哪家种的、用了什么肥料、有没有打过农药。没人查你手机号，也没人跟踪你今天逛了几个摊位。</p>
+<p><a href="https://f-droid.yoan.quest" target="_blank" rel="noopener">F-Droid官网</a> 就是后者。它是一个专门给 Android 手机用的开源应用商店——这里所有上架的应用，源代码都公开（你要是看得懂可以自己检查里面有没有偷偷干坏事），而且<strong>所有应用都不包含追踪你行为的代码</strong>，不要求不必要的权限，不会弹出烦人的广告。</p>
+<p>对普通用户来说，最直接的好处就两个：<strong>隐私更干净</strong>，<strong>体验更纯粹</strong>。</p>
+<p><img src="../images/f-droid-docs/logo-large.png" alt="F-Droid 的 Logo，绿色的小机器人手里拿着一把钥匙" loading="lazy"></p>
+<h2>五分钟上手：从下载安装到第一次跑通</h2>
+<h3>第一步：打开手机的"未知来源"开关</h3>
+<p>Android 出于安全考虑，默认只允许从官方应用商店装软件。你要装 F-Droid，得先开这个权限。</p>
+<p>路径是这样的（不同品牌手机名字略有差异）：<strong>设置 → 安全和隐私 → 安装未知应用</strong>，然后找到你要用的浏览器（比如 Chrome 或者系统自带浏览器），把它的权限打开。</p>
+<p>别担心——这个开关只表示"允许从这个渠道来的文件安装"，不是把手机安全关掉。装完 F-Droid 之后，后续的应用安装都由 F-Droid 自己来处理，你不需要每次都来回切换。</p>
+<p>华为/荣耀的用户注意了：你们的 EMUI 或 HarmonyOS 对后台管得特别严，装完 F-Droid 之后记得去<strong>设置 → 电池优化</strong>里把它加进白名单，否则自动更新通知可能被系统杀掉。</p>
+<h3>第二步：下载并安装 F-Droid</h3>
+<p>打开浏览器，访问 F-Droid 的<a href="https://f-droid.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>页面。点击那个大按钮下载最新版的 APK 文件。</p>
+<p>下载完成后，点文件就能安装。系统可能会弹一个"是否允许安装"的确认框，点"安装"就好。整个过程和你装任何一个 APK 文件没区别。</p>
+<p>如果安装时提示"解析包时出现问题"，通常有两个原因：要么是下载的文件损坏了（重新下一遍），要么是你的 Android 版本太低——F-Droid 2.0.1 要求 Android 7.0 以上。太老的设备可以找旧版 F-Droid（1.23.x 支持 Android 6.0）。</p>
+<h3>第三步：打开 F-Droid，等它同步完仓库</h3>
+<p>第一次打开 F-Droid，它会花几十秒同步一个全球的应用索引（就是一份"F-Droid 上所有应用的完整目录"）。这个过程需要联网，建议用 Wi-Fi，速度会快一些。</p>
+<p>同步完之后，你就能看到主界面了：分类列表、最近更新、热门推荐，和你用过的任何一个应用商店界面都差不多。但仔细看每个应用的详情页，你会发现不一样的地方。</p>
+<p><img src="../images/f-droid-docs/screenshot-browse.jpg" alt="F-Droid 的浏览界面，按分类列出上千款开源应用" loading="lazy"></p>
+<h2>上手后先玩这三个功能</h2>
+<p>F-Droid 的全部用法远不止这三样，但作为新手，先把下面这三个功能玩明白，你就能感受到它和 Google Play 的核心区别。</p>
+<h3>功能一：看权限说明——真的知道应用在要什么</h3>
+<p>每个应用的详情页里都有一个"权限"区域。点开之后你会发现，F-Droid 不会像其他商店那样只给你一个笼统的"网络"或"存储"分类，而是<strong>逐条解释每个权限的具体用途</strong>。</p>
+<p>比如你看到"拥有完全的网络访问权限"这一条，下面会跟着解释："允许此应用创建网络套接字和使用自定义网络协议。浏览器和其他应用提供了将数据发送到互联网的方法，因此不需要此权限将数据发送到互联网。"</p>
+<p>这意味着什么？你可以<strong>用权限来判断一个应用靠不靠谱</strong>。假设两个功能差不多的笔记应用，一个只申请了"访问存储"和"开机启动"，另一个还额外要了"精确位置"和"麦克风"——后者就非常可疑，你可以果断选前者。</p>
+<p>顺便说一句，F-Droid 客户端自己申请的权限其实非常克制：扫描已安装应用、触发安装流程、下载 APK、蓝牙/局域网分享、开机检查更新、显示通知。它<strong>不需要</strong>你的通讯录、短信、完整存储读写、麦克风、精确位置、相机——除非你主动用 Nearby 功能扫描二维码。</p>
+<h3>功能二：安装和更新——简单，自动，无追踪</h3>
+<p>在 F-Droid 里安装应用和在其他商店里点一下就装的体验一模一样。但有一个细节值得你注意：F-Droid 在后台做了一套完整的安全验证链——具体的三层信任链细节，<a href="https://f-droid-docs.pages.dev/" target="_blank" rel="noopener">F-Droid文档</a>里有详细说明。</p>
+<p>简单说就是三层：<strong>仓库索引签名 → APK 数字签名 → APK 文件哈希</strong>。只有这三层全部验证通过，F-Droid 才会把 APK 标记为可信并允许安装。你完全不用手动管这些——客户端在后台自动完成了，你只需要看到"验证通过"然后点安装就行。</p>
+<p>自动更新也是同样的省心：F-Droid 会定期检查你装的应用有没有新版本，有就推送通知，你点一下确认就好。不会有强制更新，也不会有那种"为了更好的体验请允许我们收集……"的弹窗。</p>
+<h3>功能三：离线分享——不用流量传应用</h3>
+<p>这个功能叫 Nearby，可能是 F-Droid 最被低估的功能了。</p>
+<p>想象一下：你和朋友出门，他想装你手机上某个好用的应用，但他没网，或者那个应用在他的运营商网络下下载特别慢。这时候你们俩同时打开 F-Droid 的 Nearby，手机通过蓝牙或局域网直接配对，就能把应用从你的手机<strong>直接传过去</strong>——完全不用走互联网，速度快而且省流量。</p>
+<p>操作很简单：你打开 F-Droid，滑到"我的应用"标签，找到要分享的那个应用，点旁边的 Nearby 图标；对方打开 F-Droid 的 Nearby 页面，就能搜到你的设备。双方确认一下，传输就开始了。</p>
+<p>唯一要注意的是：两边都得是最新版 F-Droid，都开蓝牙，都授予定位权限，而且最好在同一个 Wi-Fi 或者其中一台开个热点。</p>
+<p><img src="../images/f-droid-docs/screenshot-categories.jpg" alt="F-Droid 按分类浏览应用的界面，整洁清爽没有广告" loading="lazy"></p>
+<h2>小白的三个常见疑问</h2>
+<h3>Q：F-Droid 会不会泄露我的隐私？</h3>
+<p>恰恰相反。F-Droid 的整个设计目标就是保护你的隐私。它不要求不必要的权限、每个权限都有中文说明、所有应用源代码公开可以被任何人审计、不包含追踪行为、不显示个性化广告（因为它根本不知道你是谁、你喜欢什么）。</p>
+<p>F-Droid 客户端本身的行为也完全透明——它只做三件事：帮你找应用、帮你装应用、帮你更新应用。不收集、不上传、不分析。</p>
+<h3>Q：我平时用 Google Play，会冲突吗？</h3>
+<p>完全不会。你可以两个商店同时装着用，互不干扰。F-Droid 不会替换掉你已有的任何应用——它只负责安装新的，或者更新你<strong>从 F-Droid 装的</strong>那批应用。</p>
+<p>如果你某个应用是从 Google Play 装的，F-Droid 不会尝试去更新它，反之亦然。两个来源各管各的，不会出现"同包名不同签名"的冲突。</p>
+<h3>Q：F-Droid 上应用全吗？会不会找不到我想要的？</h3>
+<p>F-Droid 收录的应用都是开源的——这意味着它不可能有微信、支付宝、抖音这些闭源大厂应用。但在"个人效率、安全工具、阅读、音乐、视频、社交"等类别里，F-Droid 有大量经过社区审查的高质量替代品。</p>
+<p>比如你想找一个笔记 App，可以用 OpenNote；想找一个音乐播放器，可以用 MusicBee 或者 Simple Music Player；想找一个网盘客户端，可以用 Nextcloud。这些应用的质量不会比大厂的差，而且没有广告、不追踪你。</p>
+<p>找不到的时候怎么办？先翻分类，用搜索关键词换几种写法试试，也可以看看 F-Droid 社区论坛的推荐帖子。F-Droid 有超过 4000 款应用，日常使用的覆盖度已经相当不错。</p>
+<h2>写在最后</h2>
+<p>F-Droid 并不完美——界面没有 Google Play 那么花哨，有些应用的中文文档不全，国内访问官方仓库偶尔会慢。但它给了你一个选择权：当你厌倦了被广告轰炸、被追踪行为、被强制更新绑架的时候，F-Droid 是一个干净、简单、尊重你的替代方案。</p>
+<p>现在你已经知道怎么装、怎么用三个核心功能、怎么排查常见问题了。去把它装上，花十分钟逛一遍分类，挑一个你平时常用的应用试试看——也许你会发现，好的软件从来不需要那么多权限和广告。</p>
+<p>如果装完之后想更深入地挖细节，还有很多内容可以慢慢探索。本文涉及的文档素材同时在<a href="https://github.com/alipymanbu/APK/tree/main/APP/F-Droid" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/F-Droid" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/F-Droid" target="_blank" rel="noopener">GitCode</a> 三个仓库有备份，国内用户访问时任选其一即可。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/reccloud-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">录咖：我花 20 分钟把一段 TikTok 美妆视频变成能发抖音的中文片</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/goodnovel.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">GoodNovel 对比实测：BookTok 引流 + 免费金币，海外网文阅读还能这样玩</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

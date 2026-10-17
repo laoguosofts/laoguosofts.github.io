@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Bochs 从零跑起 Windows 98——手把手搭一个 x86 模拟器环境 · 老郭软件铺</title>
+  
+<meta name="description" content="Bochs 不是虚拟机，它逐条解释 x86 指令，精度到特权级和页表遍历。跟着这篇教程，你会在自己电脑上搭起 Bochs 环境，用 bximage 创建硬盘、写好 bochsrc、完整走完 Win98 安装流程。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/bochs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Bochs 从零跑起 Windows 98——手把手搭一个 x86 模拟器环境">
+<meta property="og:description" content="Bochs 不是虚拟机，它逐条解释 x86 指令，精度到特权级和页表遍历。跟着这篇教程，你会在自己电脑上搭起 Bochs 环境，用 bximage 创建硬盘、写好 bochsrc、完整走完 Win98 安装流程。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/bochs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/bochs/bochs-winxp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/bochs/bochs-winxp.png">
+
+<meta name="twitter:title" content="用 Bochs 从零跑起 Windows 98——手把手搭一个 x86 模拟器环境">
+<meta name="twitter:description" content="Bochs 不是虚拟机，它逐条解释 x86 指令，精度到特权级和页表遍历。跟着这篇教程，你会在自己电脑上搭起 Bochs 环境，用 bximage 创建硬盘、写好 bochsrc、完整走完 Win98 安装流程。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Bochs \u4e0d\u662f\u865a\u62df\u673a\uff0c\u5b83\u9010\u6761\u89e3\u91ca x86 \u6307\u4ee4\uff0c\u7cbe\u5ea6\u5230\u7279\u6743\u7ea7\u548c\u9875\u8868\u904d\u5386\u3002\u8ddf\u7740\u8fd9\u7bc7\u6559\u7a0b\uff0c\u4f60\u4f1a\u5728\u81ea\u5df1\u7535\u8111\u4e0a\u642d\u8d77 Bochs \u73af\u5883\uff0c\u7528 bximage \u521b\u5efa\u786c\u76d8\u3001\u5199\u597d bochsrc\u3001\u5b8c\u6574\u8d70\u5b8c Win98 \u5b89\u88c5\u6d41\u7a0b\u3002", "headline": "\u7528 Bochs \u4ece\u96f6\u8dd1\u8d77 Windows 98\u2014\u2014\u624b\u628a\u624b\u642d\u4e00\u4e2a x86 \u6a21\u62df\u5668\u73af\u5883", "image": ["https://laoguosofts.github.io/images/bochs/bochs-winxp.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/bochs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/bochs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u7528 Bochs \u4ece\u96f6\u8dd1\u8d77 Windows 98\u2014\u2014\u624b\u628a\u624b\u642d\u4e00\u4e2a x86 \u6a21\u62df\u5668\u73af\u5883", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">用 Bochs 从零跑起 Windows 98——手把手搭一个 x86 模拟器环境</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">用 Bochs 从零跑起 Windows 98——手把手搭一个 x86 模拟器环境</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Bochs 不是虚拟机，它逐条解释 x86 指令，精度到特权级和页表遍历。跟着这篇教程，你会在自己电脑上搭起 Bochs 环境，用 bximage 创建硬盘、写好 bochsrc、完整走完 Win98 安装流程。</p>
+  </header>
+  <div class="prose serif">
+<p>跟着这篇教程，你会在自己电脑上从零搭起一个 Bochs 环境，跑通 Windows 98 的完整安装——从创建虚拟硬盘、写配置文件，到 BIOS 自检、引导、分区格式化、Setup 安装、首次进入桌面，每个环节都带你过一遍。</p>
+<h2>准备：你需要哪些东西</h2>
+<p>先说清楚 Bochs 和 VMware / VirtualBox 不是一类东西——它不做硬件虚拟化，而是把每一条 x86 指令解释执行一遍，精度到特权级切换、页表遍历、DMA 传输。想知道更多的话去它的<a href="https://bochs.fwen.ren" target="_blank" rel="noopener">bochs官网</a>看。这种设计让它成了 OS 内核开发者的标配调试器，但也意味着速度不会太快，适合跑经典系统（DOS、Win9x、Linux 早期版本），别指望用它跑 Win10。</p>
+<p>开工前准备这几样：</p>
+<ul><li><strong>Bochs 本体</strong>：从<a href="https://bochs.fwen.ren/download.html" target="_blank" rel="noopener">bochs下载</a>拿官方发布包就行，里面带 bochs.exe（运行）、bochsdbg.exe（带调试器）、bximage.exe（磁盘镜像工具）三个核心工具</li><li><strong>BIOS 文件</strong>：Bochs 自带 <code>BIOS-bochs-latest</code> 和 <code>VGABIOS-lgpl-latest-cirrus.bin</code>，不用单独找</li><li><strong>Windows 98 SE 安装盘 ISO</strong>：可引导的那种</li><li><strong>一个空目录</strong>：整个操作都在这个目录里完成，bochsrc、磁盘镜像、ISO 都放这，干净</li></ul>
+<h2>第一步：用 bximage 创建虚拟硬盘</h2>
+<p>Bochs 的磁盘镜像是 raw 格式（flat），最简单的方式是用自带的 bximage 工具生成。打开命令行，cd 到你的工作目录：</p>
+<pre><code>bximage -q -create -mode flat -size 500M -filename win98.img</code></pre>
+<p>这条命令会输出几行信息，其中最重要的是 C/H/S 三个数字（柱面数、磁头数、每磁道扇区数），类似这样：</p>
+<pre><code>C/H/S = 1040/16/63</code></pre>
+<p><strong>把这三个数字抄下来</strong>——后面写 bochsrc 时要原封不动填进去，差一个 Fdisk 就会报磁盘容量不对。500MB 对 Win98 绰绰有余，当年标配才 2GB。</p>
+<h2>第二步：写 bochsrc 配置文件</h2>
+<p>bochsrc 是 Bochs 的核心——它告诉模拟器要模拟什么硬件、从哪引导、日志怎么打。在工作目录下创建一个叫 <code>bochsrc</code> 的纯文本文件，写入以下内容：</p>
+<pre><code>romimage: file=BIOS-bochs-latest, address=0xfffc0000
+vgaromimage: file=VGABIOS-lgpl-latest-cirrus.bin
+
+cpu: model=pentium, count=1, ips=15000000
+memory: guest=64, host=64
+
+ata0-master: type=disk, path=&quot;win98.img&quot;, mode=flat, cylinders=1040, heads=16, spt=63
+ata1-master: type=cdrom, path=&quot;win98se.iso&quot;, status=inserted
+
+boot: cdrom, disk
+mouse: enabled=1
+display_library: wx
+
+log: bochsout.txt
+panic: action=ask
+error: action=report
+warn: action=ignore
+info: action=ignore
+debug: action=ignore</code></pre>
+<p>注意几点：</p>
+<ul><li><code>cylinders=1040, heads=16, spt=63</code> 这里换成你刚才 bximage 输出的数字</li><li><code>path=&quot;win98.img&quot;</code> 和 <code>path=&quot;win98se.iso&quot;</code> 分别改成你实际的文件名</li><li>VGA 选 Cirrus —— 这是 Win95/98 自带驱动能识别的唯一显卡型号，换别的启动就黑屏</li><li>CPU model 用 pentium 或 pentium2，太高反而可能有兼容性问题</li><li>日志级别只留 error 和 panic，其他全 ignore，避免刷屏看不到关键错误</li><li>bochsrc 每个参数的完整说明和更多硬件配置选项可以翻<a href="https://bochs.pages.dev/" target="_blank" rel="noopener">bochs文档</a>查</li></ul>
+<h2>第三步：启动 Bochs，装 Win98</h2>
+<p>双击 bochs.exe（或者 bochsdbg.exe），Bochs 会弹出一个 wx 窗口，先过 BIOS 自检——屏幕上应该能看到 Bochs BIOS 的硬件检测信息，包括 CPU、内存、Cirrus VGA、硬盘、光驱。这一步如果报错，八成是 bochsrc 里路径写错了。</p>
+<p>BIOS 自检完，因为我们设置了 <code>boot: cdrom</code>，它会尝试从光驱引导。Win98 SE 的 ISO 是可引导的，会显示经典的蓝色 <code>Windows 98 Setup</code> 启动界面。</p>
+<p>接下来就是和真实 PC 一模一样的安装流程：</p>
+<ol><li><strong>引导盘菜单</strong>：选"Boot from CD-ROM" → 再选"Start Windows 98 Setup from CD-ROM"</li><li><strong>Fdisk 分区</strong>：Setup 会先跑 Fdisk，给 500MB 的硬盘分一个主 DOS 分区（默认选项就行），分完重启</li><li><strong>Format 格式化</strong>：重启后 Setup 自动检测到新分区，问你要不要 Format，选 Yes，等它跑完</li><li><strong>Setup 向导</strong>：这是图形界面了，选安装目录（默认 C:\Windows）、填产品密钥、等它复制文件、检测硬件——这里它应该能检测到 Cirrus 显卡、PS/2 鼠标、可能还有 NE2000 网卡（如果 bochsrc 里开了的话）</li><li><strong>第一次重启</strong>：Setup 完会提示重启。这时候关掉 Bochs，打开 bochsrc，把 <code>boot: cdrom, disk</code> 改成 <code>boot: disk</code>（拔掉光驱），再启动——就进入 Win98 桌面了</li></ol>
+<p>整个安装过程大概 20~30 分钟，取决于你的宿主 CPU 速度。Bochs 是解释执行，ips=15000000 大概相当于 Pentium III 1.5GHz 的指令吞吐量，但实际速度会慢一些。新一点的 i7 / i9 CPU 上，Win98 启动应该在 30 秒以内，打开窗口不卡顿。</p>
+<p><img src="../images/bochs/bochs-winxp.png" alt="Bochs 运行 Windows 98" loading="lazy"></p>
+<h2>常见卡点</h2>
+<h3>Fdisk 报告的磁盘容量不对</h3>
+<p>bximage 创建时输出的 C/H/S 必须完整抄到 bochsrc 的 <code>ata0-master</code> 那一行。如果 Fdisk 显示的容量和你创建时设的 500MB 差得离谱，就是 CHS 参数写错了。删掉 win98.img 重新来一遍，这次仔细看 bximage 的输出。</p>
+<h3>安装完重启后黑屏</h3>
+<p>最常见的原因是 boot 顺序没改——你已经装完系统了，还让它先试光驱引导，而光驱里还是安装盘，它会再次进入 Setup 或者什么都不显示。改成 <code>boot: disk</code> 就好。</p>
+<p>如果 boot 顺序没错还是黑屏，检查 VGA BIOS 和 VGA 型号是否匹配——bochsrc 里 <code>vgaromimage</code> 必须用 Cirrus 的 bin 文件，不能用别的 VGA BIOS。</p>
+<h3>鼠标不能用</h3>
+<p>bochsrc 里必须有 <code>mouse: enabled=1</code>。而且 Win98 安装过程中需要检测到 PS/2 鼠标（Bochs 默认模拟的就是这个）。如果 bochsrc 里加了 usb 鼠标或者其他设备导致资源冲突，也可能让 PS/2 鼠标不工作。</p>
+<h2>往下还能玩什么</h2>
+<p>Win98 跑起来之后，可以试试打开 bochsrc 里注释掉的 SB16 声卡和 NE2000 网卡——装完驱动就能在 Bochs 里玩 Doom、StarCraft 这些经典 DOS 游戏（不过声音能不能直接出来取决于编译时有没有开 SDL，更省事的方案是改用 DOSBox）。OS 开发者则可以切到 bochsdbg.exe，对任意指令下断点、观察特权级切换、调试自己写的内核。</p>
+<p>这套环境在你自己电脑上搭建一遍之后，以后想研究 x86 架构、想跑老软件、想写 OS 内核，都有一个精确可控的实验台。bochsrc 模板和我整理的一些进阶调试笔记同步到了三个代码仓库——主仓库在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/bochs" target="_blank" rel="noopener">GitHub</a>，国内镜像放在<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/bochs" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/bochs" target="_blank" rel="noopener">GitCode</a>，访问不上 GitHub 直接走镜像就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/mirroring-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">投屏的五个原理坑：为什么重启总管用、画质到底由谁决定</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/genspark-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Genspark 用了三个月，踩过的五个坑给你打个预防针</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

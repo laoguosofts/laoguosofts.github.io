@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我把 Wan2.2 从跑不起来到跑通 720P，踩了这六个坑 · 老郭软件铺</title>
+  
+<meta name="description" content="Wan2.2 看着是个开源视频模型，实际本地部署和云端调用都有不少容易踩的细节。从分辨率对齐到显存调度、从水印控制到地域绑定，这篇把我踩过的坑一次性说清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/wan2-2-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我把 Wan2.2 从跑不起来到跑通 720P，踩了这六个坑">
+<meta property="og:description" content="Wan2.2 看着是个开源视频模型，实际本地部署和云端调用都有不少容易踩的细节。从分辨率对齐到显存调度、从水印控制到地域绑定，这篇把我踩过的坑一次性说清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/wan2-2-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/wan2-2-docs/gpu-efficiency.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/wan2-2-docs/gpu-efficiency.png">
+
+<meta name="twitter:title" content="我把 Wan2.2 从跑不起来到跑通 720P，踩了这六个坑">
+<meta name="twitter:description" content="Wan2.2 看着是个开源视频模型，实际本地部署和云端调用都有不少容易踩的细节。从分辨率对齐到显存调度、从水印控制到地域绑定，这篇把我踩过的坑一次性说清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Wan2.2 \u770b\u7740\u662f\u4e2a\u5f00\u6e90\u89c6\u9891\u6a21\u578b\uff0c\u5b9e\u9645\u672c\u5730\u90e8\u7f72\u548c\u4e91\u7aef\u8c03\u7528\u90fd\u6709\u4e0d\u5c11\u5bb9\u6613\u8e29\u7684\u7ec6\u8282\u3002\u4ece\u5206\u8fa8\u7387\u5bf9\u9f50\u5230\u663e\u5b58\u8c03\u5ea6\u3001\u4ece\u6c34\u5370\u63a7\u5236\u5230\u5730\u57df\u7ed1\u5b9a\uff0c\u8fd9\u7bc7\u628a\u6211\u8e29\u8fc7\u7684\u5751\u4e00\u6b21\u6027\u8bf4\u6e05\u695a\u3002", "headline": "\u6211\u628a Wan2.2 \u4ece\u8dd1\u4e0d\u8d77\u6765\u5230\u8dd1\u901a 720P\uff0c\u8e29\u4e86\u8fd9\u516d\u4e2a\u5751", "image": ["https://laoguosofts.github.io/images/wan2-2-docs/gpu-efficiency.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/wan2-2-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/wan2-2-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u628a Wan2.2 \u4ece\u8dd1\u4e0d\u8d77\u6765\u5230\u8dd1\u901a 720P\uff0c\u8e29\u4e86\u8fd9\u516d\u4e2a\u5751", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">我把 Wan2.2 从跑不起来到跑通 720P，踩了这六个坑</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">我把 Wan2.2 从跑不起来到跑通 720P，踩了这六个坑</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Wan2.2 看着是个开源视频模型，实际本地部署和云端调用都有不少容易踩的细节。从分辨率对齐到显存调度、从水印控制到地域绑定，这篇把我踩过的坑一次性说清楚。</p>
+  </header>
+  <div class="prose serif">
+<p>朋友给我推荐 Wan2.2 的时候说，这玩意儿开源、免费、能本地跑，比闭源模型香多了——它的<a href="https://wan2-2.uerg.quest" target="_blank" rel="noopener">官网</a>上有完整的模型家族介绍和 demo 视频。我一听就来劲，下载完权重 <code>python generate.py</code> 一行命令跑起来。结果从下载到真正跑出一段没毛病的 5 秒视频，中间折腾了小一周。不是模型不行，是有些地方它就是没写在 README 显眼的位置，或者写了但你不会往那个方向想。</p>
+<p>这篇把我踩过的几个坑挨个说——每个坑我当时都以为要重装或者放弃了，最后都是翻文档或者试错才救回来的。</p>
+<h2>坑一：分辨率直接用 1280×720，结果跑一半崩</h2>
+<p>我第一次跑 TI2V-5B 图生视频，参考图就是 720P 的，直接抄了网上一个命令里的 <code>--size 1280*720</code>。结果跑了大概两分钟，GPU 就报错退出了，日志里堆了一大串 shape mismatch。我以为权重文件下载坏了，重新下载一遍还是一样。后来去<a href="https://wan2-2-docs.pages.dev/" target="_blank" rel="noopener">Wan2.2文档</a>翻了一下才看到，TI2V-5B 的 VAE 压缩比是 4×32×32，高宽必须是 32 的倍数。720 不是 32 的倍数，所以用 704 才对。改成 <code>--size 1280*704</code> 立刻就通了。</p>
+<p>这事儿说穿了就是对齐问题，但没人提醒你真想不到去查 VAE 压缩比。而且这个差异只在 TI2V-5B 上有，A14B 系列的规则不一样，别搞混。</p>
+<h2>坑二：24GB 显存居然也 OOM</h2>
+<p>我用的是 RTX 4090，24GB 显存，想当然以为跑 TI2V-5B 绰绰有余。结果第一次不加任何显存优化参数跑，跑到一半直接 OOM 退出。查官方给的参数，发现 TI2V-5B 在 4090 上<strong>必须</strong>加三个参数：<code>--offload_model True</code>（把模型部分权重卸载到 CPU）、<code>--convert_model_dtype</code>（bfloat16 比 float32 省一半显存）、<code>--t5_cpu</code>（把 T5 文本编码器放 CPU 跑）。三个参数一个都不能少，少一个就爆显存。</p>
+<p>加上之后峰值显存大概在 22GB 左右，刚好卡在 24GB 以内。如果你显卡只有 16GB（比如 4060 Ti），那就得把分辨率降到 480P 再试，还不行只能找社区量化版本的权重。</p>
+<p><img src="../images/wan2-2-docs/gpu-efficiency.png" alt="显存优化参数实测对比" loading="lazy"></p>
+<h2>坑三：百炼 API 跨地域调用，直接报错</h2>
+<p>本地调通之后我想试试云端 API，不用本地显卡的时候也能跑。在阿里云百炼控制台申请了 API Key，随便找了个 Endpoint URL 就调，结果接口直接返回错误码。翻了文档才发现：<strong>模型、Endpoint URL、API Key 三者必须属于同一个地域</strong>。我 API Key 是华北 2 的，Endpoint 却选了新加坡，肯定通不了。改对地域之后立刻就好了。</p>
+<p>百炼现在有华北 2（北京）和新加坡两个主要地域，WorkspaceId 在业务空间详情页能查到，Endpoint URL 里要带上这个 ID。这事儿没在 quickstart 里加粗提醒，我试错了三次才对上。</p>
+<h2>坑四：想要无水印，别从控制台点</h2>
+<p>百炼的网页控制台体验确实方便，调 prompt 看效果很快，但有个问题：<strong>右下角强制有"AI 生成"水印，关不掉</strong>。我第一次用控制台调完效果觉得不错，想批量生成一批，结果发现批量也在控制台里，水印一样关不掉。后来才知道：水印控制只在 API 里，<code>watermark</code> 参数默认是 <code>false</code>，也就是无水印。控制台的水印是写死的。</p>
+<p>所以如果你要做生产场景的素材、或者要自动化批量生成，必须走 DashScope API，别在控制台死磕。控制台适合快速试 prompt，真干活还是得 API。</p>
+<h2>坑五：图生视频空 prompt 跑出来像随机动起来</h2>
+<p>看到样本文档里说 I2V 模型可以完全不写 prompt，只靠参考图生成。我试了，视频确实能动，但动起来的感觉就是镜头瞎晃，完全不知道它想表达什么。原来"不写 prompt 也能生成"这句话有个隐含前提：最好配合 <code>--use_prompt_extend</code> 和 <code>--prompt_extend_method dashscope</code>，让 DashScope 里的视觉语言模型自动从参考图生成 prompt。空 prompt 等于你放弃了对运动方向和风格的所有控制权。</p>
+<p>如果没有 DashScope API Key，至少写个简单的 prompt 告诉它怎么动，比如 "the waves gently rock it" 这种。完全空的话，效果真的看运气。</p>
+<h2>坑六：没有 80GB 显卡，别碰 A14B</h2>
+<p>一开始我看着 A14B-I2V 出的 demo 效果特别好，就从<a href="https://wan2-2.uerg.quest/download.html" target="_blank" rel="noopener">下载</a>页面拉了 A14B 的权重，然后在 4090 上跑。结果不用说，直接 OOM。A14B 系列是 MoE 架构，需要 80GB 显存，4090 只有 24GB，光模型权重就放不下。Wan2.2 家族里，<strong>只有 TI2V-5B 能在消费级显卡上跑</strong>。这一点文档里有，但下载页面没写，我白下了两个小时的权重文件才发现。</p>
+<p><img src="../images/wan2-2-docs/moe-architecture.png" alt="MoE 架构与显存占用" loading="lazy"></p>
+<h2>防坑清单</h2>
+<p>把上面六个坑浓缩成几条能记的：</p>
+<ul><li><strong>分辨率先对齐 VAE 压缩比</strong>：TI2V-5B 用 32 的倍数，1280×704 别写成 1280×720</li><li><strong>单卡必加三个显存优化参数</strong>：<code>--offload_model True</code>、<code>--convert_model_dtype</code>、<code>--t5_cpu</code></li><li><strong>百炼三要素同地域</strong>：模型、Endpoint URL、API Key 必须同一个地域，别混着来</li><li><strong>要无水印就走 API</strong>：控制台强制有水印，生产场景别在那浪费时间</li><li><strong>图生视频别空 prompt</strong>：要么配合 DashScope 自动扩展，要么自己写一句运动描述</li><li><strong>消费级显卡认准 TI2V-5B</strong>：A14B 和 S2V 都要 80GB，别白下载</li></ul>
+<p>知道这些坑之后，Wan2.2 其实相当省心。TI2V-5B 在 4090 上 720P 大概 9 分钟出一段 5 秒视频，效果够用来做电商产品动态、短视频开头封面、或者快速验证创意。本地模型完全免费、权重下完之后不用联网，这些都是闭源模型比不了的。</p>
+<p>这套从权重下载、命令行参数调优到百炼 API 调用的完整资料，我在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Wan2.2" target="_blank" rel="noopener">GitHub</a>维护主仓库的同时，也在<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Wan2.2" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Wan2.2" target="_blank" rel="noopener">GitCode</a>各同步了一份，国内访问选 Gitee 或 GitCode 更快，看你习惯哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/symfonium.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Symfonium 15.0 为什么是一次&#34;推倒重来&#34;</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/moodly-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Moodly 的虚拟陪伴为什么让人上头？拆解它的角色设计底层逻辑</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

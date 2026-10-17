@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>FamiStudio 入门实战：从零写出你的第一首 8-bit 曲子 · 老郭软件铺</title>
+  
+<meta name="description" content="5 步走完 FamiStudio 全流程，从新建工程到导出 NSF，避开三个新手必踩的坑，做出能上 NES 真机的 chiptune。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/famistudio.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FamiStudio 入门实战：从零写出你的第一首 8-bit 曲子">
+<meta property="og:description" content="5 步走完 FamiStudio 全流程，从新建工程到导出 NSF，避开三个新手必踩的坑，做出能上 NES 真机的 chiptune。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/famistudio.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/famistudio/main-window.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/famistudio/main-window.png">
+
+<meta name="twitter:title" content="FamiStudio 入门实战：从零写出你的第一首 8-bit 曲子">
+<meta name="twitter:description" content="5 步走完 FamiStudio 全流程，从新建工程到导出 NSF，避开三个新手必踩的坑，做出能上 NES 真机的 chiptune。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "5 \u6b65\u8d70\u5b8c FamiStudio \u5168\u6d41\u7a0b\uff0c\u4ece\u65b0\u5efa\u5de5\u7a0b\u5230\u5bfc\u51fa NSF\uff0c\u907f\u5f00\u4e09\u4e2a\u65b0\u624b\u5fc5\u8e29\u7684\u5751\uff0c\u505a\u51fa\u80fd\u4e0a NES \u771f\u673a\u7684 chiptune\u3002", "headline": "FamiStudio \u5165\u95e8\u5b9e\u6218\uff1a\u4ece\u96f6\u5199\u51fa\u4f60\u7684\u7b2c\u4e00\u9996 8-bit \u66f2\u5b50", "image": ["https://laoguosofts.github.io/images/famistudio/main-window.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/famistudio.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/famistudio.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "FamiStudio \u5165\u95e8\u5b9e\u6218\uff1a\u4ece\u96f6\u5199\u51fa\u4f60\u7684\u7b2c\u4e00\u9996 8-bit \u66f2\u5b50", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">FamiStudio 入门实战：从零写出你的第一首 8-bit 曲子</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">FamiStudio 入门实战：从零写出你的第一首 8-bit 曲子</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">5 步走完 FamiStudio 全流程，从新建工程到导出 NSF，避开三个新手必踩的坑，做出能上 NES 真机的 chiptune。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇教程结束时，你能独立完成一首完整的 8-bit 风格曲子——从打开软件、敲下第一个音符，到导出可以在 NES 模拟器或真机上播放的 NSF 文件。不需要任何 chiptune 基础，你只需要一台 Windows 电脑和十分钟。</p>
+<h2>准备：你需要什么</h2>
+<p>FamiStudio 是免费开源的 chiptune 制作工具，<a href="https://famistudio.ggcd.uno" target="_blank" rel="noopener">官网</a>上有完整的功能介绍和截图。跨平台支持 Windows、Mac、Linux，还有 Android 移动版。我们用桌面版来演示，<a href="https://famistudio.ggcd.uno/download.html" target="_blank" rel="noopener">下载</a>安装包，解压到任意目录，双击 <code>FamiStudio.exe</code> 就能跑，不依赖任何运行库。</p>
+<h2>第一步：新建工程，认识界面</h2>
+<p>打开软件，默认就给你建好了一个空白工程，先别急着写音符。你得先搞清楚三个核心区域各自管什么，这一步搞混了后面会反复撞墙。</p>
+<p><img src="../images/famistudio/main-window.png" alt="FamiStudio 主界面" loading="lazy"></p>
+<ul><li><strong>工程浏览器（Project Explorer）</strong>：左上角树状图，管整个项目——歌曲列表、乐器、琶音、DPCM 采样都在这里切换。右键任意节点可以新增、重命名、删除。</li><li><strong>钢琴卷帘（Piano Roll）</strong>：中间最大的那块，这是你写音符的主战场。横轴是时间（格子），纵轴是音高。点击放音符，拖拽移动，右键擦除。</li><li><strong>属性面板</strong>：右侧，选中什么就显示什么的参数。乐器的 ADSR 包络、歌曲的 BPM、扩展芯片开关，全在这里调。</li></ul>
+<p>现在点工程浏览器里的「歌曲 1」，下方会出现音序器（Sequencer）——横向排列的格子是 Pattern 槽位，当前选中哪个槽位，卷帘里就显示哪个 Pattern 的内容。</p>
+<h2>第二步：敲下第一个音符</h2>
+<p>卷帘里点一下，一个音符就放上去了。但先别瞎点，有几个操作习惯现在养成能省你后面大量时间：</p>
+<ul><li><strong>音符长度默认是当前工具选中的值</strong>。工具栏上有一排格子图标，从 1/64 全音符到 8 分音符都有，选哪个，点出来的音符默认就是那个长度。</li><li><strong>Qwerty 键盘映射</strong>：按 FamiStudio 键位可以直接用电脑键盘弹——数字行是低音区，上排字母是高音区，空格键播放。在菜单里切换一下就能用，手感比鼠标点好太多。</li><li><strong>复制粘贴是你的好朋友</strong>：写好一小段节奏，选中 Ctrl+C，然后在后面的格子里 Ctrl+V 连续粘，很快就能铺完一个 16 格 Pattern。</li></ul>
+<p><img src="../images/famistudio/create-note.gif" alt="卷帘写音符" loading="lazy"></p>
+<p>写一个简单的 16 格低音线试试——用三角波通道（Triangle），从低八度 C 开始，每 4 格跳一次，做一个 C-G-Am-F 的循环。写完按空格试听，是不是已经有那味儿了？</p>
+<h2>第三步：调一把像样的音色</h2>
+<p>默认乐器音色偏"干"，像没开混响的合成器预设。好消息是 FamiStudio 的乐器编辑非常直观——选中一个乐器，属性面板左侧的箭头展开，你会看到 ADSR 四个参数：</p>
+<ul><li><strong>Attack（起音）</strong>：0~31，数字越小音头越陡，0 是瞬间发声，适合方波做主旋律；</li><li><strong>Decay（衰减）</strong>：从峰值掉到持续电平的速度，长一点声音更"厚"；</li><li><strong>Sustain（持续电平）</strong>：按键按住不动时维持的音量，0 就是纯打击乐，最大就是长音；</li><li><strong>Release（释音）</strong>：松手后音完全消失的时间，决定尾巴多长。</li></ul>
+<p><img src="../images/famistudio/instrument-editor.png" alt="乐器参数面板" loading="lazy"></p>
+<p>这四个参数组合起来能调出非常多样的音色——方波快 Attack 短 Release 做 lead，三角波长 Sustain 做贝斯，噪声通道短 Decay 做军鼓。调的时候多试听，没有标准答案，耳朵收货。</p>
+<h2>第四步：编排成曲，设置节拍</h2>
+<p>你在卷帘里写的是单个 Pattern，但整首歌是由一串 Pattern 拼接起来的。点歌曲旁边的齿轮图标，打开歌曲属性对话框：</p>
+<p><img src="../images/famistudio/song-props.png" alt="歌曲属性对话框" loading="lazy"></p>
+<p>重点关注三个字段：</p>
+<ul><li><strong>歌曲长度</strong>：整首歌排多少个 Pattern 槽位，默认 16，循环的话一般 32 或 64 比较够用；</li><li><strong>每 Pattern 音符数</strong>：单个 Pattern 有多长，默认 16 格（等于 4/4 拍 4 小节，每小节 4 拍，每拍 4 格）；</li><li><strong>BPM</strong>：直接输你想要的速度，软件自动换算成 NES 帧。</li></ul>
+<p>常用节奏速查表记一下，拼拍号不用算：</p>
+<table><thead><tr><th>想要的感觉</th><th>每 Pattern 音符数</th></tr></thead><tbody><tr><td>2/4 进行曲</td><td>8</td></tr><tr><td>3/4 华尔兹</td><td>12</td></tr><tr><td>4/4 常规流行</td><td>16</td></tr><tr><td>5/4 爵士</td><td>20</td></tr><tr><td>6/8 复合拍</td><td>24（BPM 翻倍）</td></tr></tbody></table>
+<p>在音序器里，每个通道可以独立编排 Pattern 序列——主旋律通道编 <code>0, 1, 0, 2</code> 这种循环，贝斯通道可以一直挂 Pattern 0 跟。写完按空格键从头到尾试听一遍，哪里衔接不自然，回到对应 Pattern 里改。</p>
+<h2>第五步：导出你的第一首歌</h2>
+<p>觉得差不多了？点菜单文件 → 导出，你有好几个选项：</p>
+<p><img src="../images/famistudio/export-nsf.png" alt="导出 NSF" loading="lazy"></p>
+<ul><li><strong>NSF</strong>：NES Sound Format，chiptune 的标准分发格式，任何主流模拟器（FCEUX、Mesen）和很多播放器（ModPlayer、Winamp 插件）都能直接播放。这是我们最常用的导出格式；</li><li><strong>ROM（NES 文件）</strong>：直接生成一个能在 NES 真机或模拟器里运行的游戏 ROM，加载后自动循环播放你的曲子；</li><li><strong>WAV</strong>：导出成 PCM 音频，方便你传到视频平台或做后期混音；</li><li><strong>视频</strong>：自动生成一段钢琴卷帘可视化视频，很适合发 B 站。</li></ul>
+<p>导出 NSF 时注意两个选项：<strong>循环</strong>要不要勾上（一般都勾），还有<strong>芯片切换</strong>——如果你没用扩展芯片就保持默认 2A03 即可。导出映射器和扩展芯片的对应关系、更多导出选项的说明，<a href="https://famistudio.pages.dev/" target="_blank" rel="noopener">FamiStudio文档</a> 里都有详细表。</p>
+<h2>新手最容易翻车的三个点</h2>
+<h3>卡点一：音符放不进去，卷帘灰的</h3>
+<p>你大概率是选中了错误的通道。每个 Pattern 里六个通道（2A03 原生两方能有四个：方波 ×2、三角波、噪声波，加上 DPCM 采样通道），你在某个通道的卷帘区域点击才能放音。上面通道是灰的？回到工程属性里启用扩展芯片。</p>
+<h3>卡点二：速度太快或太慢，BPM 调不准</h3>
+<p>FamiStudio 有两种节拍模式：FamiStudio 模式直接输 BPM，FamiTracker 模式用 Speed + Tempo 双参数。新手别碰后者，在歌曲属性里确认用的是 FamiStudio 模式，直接填你想要的 BPM 数值就行。某些 BPM 值软件会用 Groove 序列逼近（因为 NES 以 60fps 跑，不是所有 BPM 都能整除），Groove Padding 选中间位置，最不容易听出不匀。</p>
+<h3>卡点三：导出 ROM 后黑屏没声音</h3>
+<p>90% 是映射器选错了。打开工程属性，确认工程用的扩展芯片和你导出 ROM 时选的映射器一致——只用原生 2A03 的话选 NROM 或 Mapper 0；用了 VRC6 扩展就必须选 VRC6a 映射器。这个在工程创建时就要确认好，后期改映射器会让 Pattern 里的通道全部错位。</p>
+<h2>进阶：让你的曲子跳出方波圈</h2>
+<p>原生 2A03 只有四个通道，音色全靠 ADSR 组合来凑。想玩出花样，试试扩展芯片：VRC6 加锯齿波贝斯，VRC7 带来六通道 FM 合成，FDS 提供可循环波形的磁带机音源。每个扩展芯片在工程属性里一键开关，开关之后新通道自动出现在卷帘里——多一个芯片等于多一条或几条新通道供你编排。</p>
+<p>另外，工具栏上有个清理图标，大改之后随手跑一下，合并重复 Pattern、删掉没用上的乐器和采样，工程会干净很多。定稿导出 NSF 前记得做一次完整清理。</p>
+<p>FamiStudio 的中文资料相对零散，我把整理过的内容同步到了 <a href="https://github.com/alipymanbu/APK/tree/main/APP/FamiStudio" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/FamiStudio" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/FamiStudio" target="_blank" rel="noopener">GitCode</a> 三个仓库，想查阅更完整的参考资料随时可以去翻。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/mediainfo-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">MediaInfo 到底值不值得掏钱——一份免费软件的&#34;付费决策账本&#34;</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/scratchjr-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">幼儿园的一节编程课，我在角落旁观了半小时</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

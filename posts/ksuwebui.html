@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>KsuWebUI 从入门到上手：手机 root 管理的浏览器捷径 · 老郭软件铺</title>
+  
+<meta name="description" content="不想每次都掏手机点来点去管理 root 模块？KsuWebUI 把 KernelSU 的管理界面搬到了浏览器上。本教程带你从零启动、连接、管理授权和备份，十分钟搞定。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ksuwebui.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KsuWebUI 从入门到上手：手机 root 管理的浏览器捷径">
+<meta property="og:description" content="不想每次都掏手机点来点去管理 root 模块？KsuWebUI 把 KernelSU 的管理界面搬到了浏览器上。本教程带你从零启动、连接、管理授权和备份，十分钟搞定。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ksuwebui.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ksuwebui/start-webui.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ksuwebui/start-webui.png">
+
+<meta name="twitter:title" content="KsuWebUI 从入门到上手：手机 root 管理的浏览器捷径">
+<meta name="twitter:description" content="不想每次都掏手机点来点去管理 root 模块？KsuWebUI 把 KernelSU 的管理界面搬到了浏览器上。本教程带你从零启动、连接、管理授权和备份，十分钟搞定。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e0d\u60f3\u6bcf\u6b21\u90fd\u638f\u624b\u673a\u70b9\u6765\u70b9\u53bb\u7ba1\u7406 root \u6a21\u5757\uff1fKsuWebUI \u628a KernelSU \u7684\u7ba1\u7406\u754c\u9762\u642c\u5230\u4e86\u6d4f\u89c8\u5668\u4e0a\u3002\u672c\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u542f\u52a8\u3001\u8fde\u63a5\u3001\u7ba1\u7406\u6388\u6743\u548c\u5907\u4efd\uff0c\u5341\u5206\u949f\u641e\u5b9a\u3002", "headline": "KsuWebUI \u4ece\u5165\u95e8\u5230\u4e0a\u624b\uff1a\u624b\u673a root \u7ba1\u7406\u7684\u6d4f\u89c8\u5668\u6377\u5f84", "image": ["https://laoguosofts.github.io/images/ksuwebui/start-webui.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ksuwebui.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ksuwebui.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "KsuWebUI \u4ece\u5165\u95e8\u5230\u4e0a\u624b\uff1a\u624b\u673a root \u7ba1\u7406\u7684\u6d4f\u89c8\u5668\u6377\u5f84", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">KsuWebUI 从入门到上手：手机 root 管理的浏览器捷径</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">KsuWebUI 从入门到上手：手机 root 管理的浏览器捷径</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">不想每次都掏手机点来点去管理 root 模块？KsuWebUI 把 KernelSU 的管理界面搬到了浏览器上。本教程带你从零启动、连接、管理授权和备份，十分钟搞定。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇教程结束时，你可以在电脑浏览器上远程管理 Android 手机的 root 权限、启停模块、导出备份，全程不用碰手机屏幕。</p>
+<h2>准备：三件事先确认</h2>
+<p>动手前先把三个条件理顺——缺了哪个都跑不起来。</p>
+<p><strong>第一，手机已经刷了 KernelSU。</strong> 去<a href="https://ksuwebui.wrwq.fun" target="_blank" rel="noopener">KsuWebUI官网</a>看一眼就知道它是什么了——KsuWebUI 是 KernelSU 的 Web 管理组件，Magisk 用户用不了它。如果你还在 Magisk 体系里，先换到 KernelSU 再往下走。确认方法：手机应用列表里能找到 KernelSU Manager。</p>
+<p><strong>第二，手机和电脑在同一个局域网。</strong> 家里的 Wi-Fi、办公室的内网都行。一个在 5GHz 一个在 2.4GHz 没关系，同一台路由器下面就能互访。</p>
+<p><strong>第三，电脑上有个正常的浏览器。</strong> Chrome、Edge、Firefox 都行，不需要装任何插件。建议 Chrome，兼容性最好。</p>
+<h2>第一步：在手机上启动 WebUI</h2>
+<p>打开 KernelSU Manager，找到「WebUI」或者「网页管理」入口。不同版本位置略有差异——有的在侧栏，有的在主页底部。点进去之后会看到这样一个界面：</p>
+<p><img src="../images/ksuwebui/start-webui.png" alt="KsuWebUI 启动界面" loading="lazy"></p>
+<p>别急着点「启动」，先看一眼界面上显示的<strong>端口号</strong>。默认通常是 6789，但有些固件会改掉这个值。记下这个数字，后面要用。</p>
+<p>点「启动」后，手机会弹出一个提示——大致意思是 Web 服务已开启、可通过浏览器访问。这时候保持这个页面亮着或者锁屏都行，只要别手动把 KernelSU Manager 杀掉。</p>
+<h2>第二步：用电脑浏览器连接</h2>
+<p>打开电脑浏览器，地址栏输入 <code>http://手机IP:端口号</code>。</p>
+<p>手机 IP 怎么找？在手机上进「设置 → Wi-Fi → 当前连接的详情页」，里面会显示一串 192.168.x.x 的数字。把 IP 和刚才记下的端口拼在一起，比如 <code>http://192.168.1.102:6789</code>，回车。</p>
+<p>第一次连接时浏览器大概率会弹一个安全警告——因为 KsuWebUI 用的是自签名证书。放心继续访问就行，局域网内部的 HTTPS 警告不是真的有风险。</p>
+<p>连上之后你会看到 KsuWebUI 的主界面，左侧是导航栏，右侧是内容区。接下来的操作全部在这里完成，手机可以放一边了。</p>
+<h2>第三步：管一管你的 Root 授权</h2>
+<p>连上了先别着急动模块——建议第一件事去看看「授权应用」页面。root 权限给出去容易收回来难，定期检查是个好习惯。</p>
+<p>左侧导航找到「Root 权限」分组，点「授权应用」。右侧会列出所有拿过 root 的 APP，每一条显示：</p>
+<ul><li>APP 图标和名字</li><li>什么时候授权的</li><li>最近一次用 root 是什么时候</li></ul>
+<p>扫一眼这个列表。有没有看着陌生的 APP 排在上面？有没有很久以前装的 APP 还挂在永久授权？这些就是安全隐患。比如一个普通的记账 APP 不该要 root，一个你卸载了的工具还留着授权记录，都应该点进去撤销。</p>
+<p>撤销操作很简单：点那条记录，在详情页找「撤销授权」按钮，确认就完事。KsuWebUI 和底层 KernelSU 框架用的是同一份权限数据，这边撤了那边同步生效，不用两边都改。</p>
+<h2>第四步：模块启停与批量管理</h2>
+<p>接下来进入模块管理，这是 KsuWebUI 最省心的部分。左侧点「模块管理」，右侧会列出当前所有已安装的模块。</p>
+<p>每个模块右侧有一个开关。拉到「开」就是启用，「关」就是禁用。注意：KsuWebUI 禁用模块不等于卸载——模块包还在，只是下次开机不加载。这个设计特别实用，当你怀疑某个模块导致手机异常时，先禁用观察几天，确认有问题再彻底卸载，省得来回跑<a href="https://ksuwebui.wrwq.fun/download.html" target="_blank" rel="noopener">KsuWebUI下载</a>拿包重装。</p>
+<p><img src="../images/ksuwebui/module-management.png" alt="模块管理开关界面" loading="lazy"></p>
+<p>如果同时装了五六个模块，一个一个点开关太慢。找一下列表顶部的「批量操作」按钮，或者长按任意一个模块进入多选模式——勾选完想动的模块，统一启用或禁用，一次搞定。</p>
+<p><strong>重要提醒</strong>：大多数模块的启停需要<strong>重启手机</strong>才生效。少数只改系统属性的模块支持热切换，但涉及文件替换、服务启动的模块不行。KsuWebUI 会在你切换开关后提示「下次重启生效」，别以为没反应就是坏了。</p>
+<h2>第五步：做一份备份——刷机前的保险</h2>
+<p>准备刷机、换系统或者换手机了？先把模块配置备份一份，不然新系统装完所有模块又要从头调一遍。</p>
+<p>左侧导航找到「备份」功能，进去后默认全选了所有可备份项：模块列表、每个模块的配置数据、内核参数、root 授权记录。不用改，直接选一个备份保存位置，等进度条走完就行。备份功能的完整选项和恢复步骤在<a href="https://ksuwebui.pages.dev/" target="_blank" rel="noopener">KsuWebUI文档</a>里写得更细，有需要可以对照着来。</p>
+<p>备份文件是一个压缩包，建议：</p>
+<ol><li>导出后复制到电脑上存一份——手机丢了或彻底变砖还能找回来</li><li>备份文件别随便外传——里面包含了 root 配置细节</li><li>每次大规模调整模块后都顺手备一份，花不了三分钟</li></ol>
+<h2>常见卡点和解法</h2>
+<p><strong>卡点一：浏览器输入地址后打不开页面。</strong> 先确认手机 WebUI 真的启动了、端口号没记错、电脑和手机确实在同一 Wi-Fi。还不行的话，把手机上运行 KernelSU Manager 的那个页面保持在前台再试一次——有些省电策略会杀掉后台服务。</p>
+<p><strong>卡点二：HTTPS 警告后继续访问，页面是空白的。</strong> 大概率是浏览器缓存问题，按 <code>Ctrl+Shift+R</code> 强制刷新试试。不行就换个浏览器，Chrome 不行换 Edge。</p>
+<p><strong>卡点三：备份文件恢复后有些模块没恢复成功。</strong> 检查一下这些模块对应的 ZIP 包是不是还在——备份只存配置，不存模块本体。恢复前先把之前的模块包装回去，再导入备份数据。</p>
+<h2>进阶方向</h2>
+<p>基础操作跑通之后，你可以试试 KsuWebUI 的内核参数调整功能——在「内核设置」页面可以改 CPU 调度器、频率阈值、温控，调整完重启就能生效。这部分属于进阶玩法，改之前建议先备份当前参数，调错了能快速回滚。</p>
+<p>总的来说，KsuWebUI 把 KernelSU 管理从小小的手机屏幕搬到了舒适的浏览器里，批量启停模块、远程查授权、导出备份这些操作都省心了不少。花十分钟把局域网打通之后，下次再调 root 相关的东西你就不会想再掏手机了。</p>
+<p>关于这套资料，维护者在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/KsuWebUI" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/KsuWebUI" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/KsuWebUI" target="_blank" rel="noopener">GitCode</a> 三个仓库都同步了同一份内容，国内网络环境下可以选访问最快的那份来查，遇到问题换个仓库试试说不定就能打开。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/hoptodesk-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">HopToDesk 装了大半年，那些当初没在意的细节才是长期用下来的关键</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/colamanga.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Colamanga 这几年是怎么一步一步长成现在这样的</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

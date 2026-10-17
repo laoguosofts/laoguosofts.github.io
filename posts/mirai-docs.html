@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我是怎么用 MIRAI 把角色设定的验证流程砍掉一半时间的 · 老郭软件铺</title>
+  
+<meta name="description" content="以前写个角色设定要跨三四个平台反复调试，现在 Notion 写草稿 MIRAI 测原型，一条链走完">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/mirai-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我是怎么用 MIRAI 把角色设定的验证流程砍掉一半时间的">
+<meta property="og:description" content="以前写个角色设定要跨三四个平台反复调试，现在 Notion 写草稿 MIRAI 测原型，一条链走完">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/mirai-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/mirai-docs/create-character-screen.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/mirai-docs/create-character-screen.jpg">
+
+<meta name="twitter:title" content="我是怎么用 MIRAI 把角色设定的验证流程砍掉一半时间的">
+<meta name="twitter:description" content="以前写个角色设定要跨三四个平台反复调试，现在 Notion 写草稿 MIRAI 测原型，一条链走完">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u5199\u4e2a\u89d2\u8272\u8bbe\u5b9a\u8981\u8de8\u4e09\u56db\u4e2a\u5e73\u53f0\u53cd\u590d\u8c03\u8bd5\uff0c\u73b0\u5728 Notion \u5199\u8349\u7a3f MIRAI \u6d4b\u539f\u578b\uff0c\u4e00\u6761\u94fe\u8d70\u5b8c", "headline": "\u6211\u662f\u600e\u4e48\u7528 MIRAI \u628a\u89d2\u8272\u8bbe\u5b9a\u7684\u9a8c\u8bc1\u6d41\u7a0b\u780d\u6389\u4e00\u534a\u65f6\u95f4\u7684", "image": ["https://laoguosofts.github.io/images/mirai-docs/create-character-screen.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/mirai-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/mirai-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u662f\u600e\u4e48\u7528 MIRAI \u628a\u89d2\u8272\u8bbe\u5b9a\u7684\u9a8c\u8bc1\u6d41\u7a0b\u780d\u6389\u4e00\u534a\u65f6\u95f4\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">我是怎么用 MIRAI 把角色设定的验证流程砍掉一半时间的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">我是怎么用 MIRAI 把角色设定的验证流程砍掉一半时间的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前写个角色设定要跨三四个平台反复调试，现在 Notion 写草稿 MIRAI 测原型，一条链走完</p>
+  </header>
+  <div class="prose serif">
+<h2>我每个月要攒三到五个可互动角色，以前的流程是一场小型迁徙</h2>
+<p>做内容创作的人可能都有同感——角色设定这种事，写出来只是第一步，真正能"站住脚"要让它活起来才行。我每个月要攒三到五个角色，有的是为自己的网文攒素材，有的是给短视频频道做互动脚本。以前这套流程让我挺头疼：</p>
+<p>先在 Notion 里按"五问法"打草稿——她是谁、从哪来、在哪、想要什么、怕什么，大概五六百字。然后开手机热点，用浏览器打开三四个不同的 AI 聊天平台，把设定分别粘进去测试。麻烦不在粘设定，而在<strong>等反馈</strong>：每个平台的模型都需要至少四五轮对话才能稳定下来，同一个设定在 A 平台说话风格和 B 平台完全不一样，有时候在 A 平台表现很好，在 B 平台就像换了个人。测试完一个角色要一两个小时，五个角色就是大半天。</p>
+<p>更闹心的是"改了又测"的循环。发现设定有问题，回到 Notion 改，再重新粘到每个平台。上次我写了一个便利店打工的高中生角色，在平台 A 表现还行，但在平台 B 她完全不记得自己要补贴家用这件事，跟个富二代似的。后来发现是我粘设定的时候不小心把那段删了，但我自己没注意到——跨平台复制的过程太容易出这种低级错误。</p>
+<h2>现在 MIRAI 插在中间，变成了一个专用的"角色原型验证器"</h2>
+<p>现在的流程是这样的：</p>
+<p><strong>上游还是 Notion</strong>，负责写初稿和归档。我依然用五问法或者三幕式打草稿，写完之后先在 Notion 里通读一遍，确保五个问题都有明确答案。这个环节没变，因为 Notion 的大纲视图帮我检查设定有没有漏洞特别方便。</p>
+<p><strong>中间环节换成了 <a href="https://mirai.ggcd.store" target="_blank" rel="noopener">MIRAI官网</a></strong>，这是改动的核心。以前跨三四个平台测试，现在从<a href="https://mirai.ggcd.store/download.html" target="_blank" rel="noopener">官方下载</a>装好 MIRAI 之后，只在里面建一个角色档案，把 Notion 里的设定粘进背景故事，选几个标签贴上去，然后直接开测。MIRAI 的好处是——它不是那种"每次对话都从零开始"的临时聊天，角色档案是持久化的，你改完设定保存，下次对话就是新版本的角色，不用重新开会话。</p>
+<p><strong>下游还是回到 Notion 归档</strong>。测试通过的角色，我把 MIRAI 里几次典型对话的截图贴回 Notion，作为"角色行为参考"，后面写正文的时候可以对照。这个环节也没变，因为 Notion 里能同时看到设定原文和对话表现，写正文的时候特别好用。</p>
+<p>整个流程现在是：<strong>Notion 写草稿 → MIRAI 建档案测试 → Notion 归档</strong>。砍掉了三个中间环节：跨平台复制、多模型差异导致的重复测试、"改完设定重新粘"的循环。实际感受是——以前花五六个小时做的事，现在两三个小时就能搞定。</p>
+<h2>实操里最容易断链的两个地方，踩过坑之后记下来了</h2>
+<p>流程听起来简单，但有两个地方我一开始没注意，导致前几个角色还是出了问题。踩过坑之后总结了两个检查点，现在每次都对着过一遍。</p>
+<p><strong>第一个检查点：测试的"记忆验证"环节不能跳过</strong>。MIRAI 有一个五步测试流程——破冰、引导、压力测试、记忆验证、风格确认。我一开始只做前三步，觉得"破冰看看语气对不对就行了"。结果第一个角色上线之后发现，她完全不记得背景故事里我写的"父母离婚跟着妈妈生活"这件事——原来我在背景故事里提了，但标签没带相关的情感倾向，AI 模型没抓住重点。现在每次测试必须走完整五步，特别是记忆验证这一步——聊完一个无关话题之后绕回来，看角色能不能主动引用自己的背景。这个环节其实就是 MIRAI 内置的"设定覆盖率"检查器。</p>
+<p><strong>第二个检查点：标签和背景故事必须对得上</strong>。有一次我给一个角色贴了"傲娇"的标签，但背景故事里只写了"她是个班长"，没解释为什么傲娇。结果 AI 回复的时候就很困惑——有时候带刺、有时候特别礼貌，表现极不稳定。后来去 <a href="https://mirai-docs.pages.dev/" target="_blank" rel="noopener">MIRAI文档</a> 翻了一下才明白：背景故事是标签的注脚，标签写"傲娇"就得在故事里说清楚"从小娇生惯养所以嘴上不饶人但其实在意别人"。现在我在 Notion 打草稿的时候，会在每个标签旁边加一行小字解释，粘进 MIRAI 之前先检查一遍标签和故事的对应关系。</p>
+<p><img src="../images/mirai-docs/create-character-screen.jpg" alt="MIRAI 的角色创建界面，背景故事和标签都在这里编辑" loading="lazy"></p>
+<h2>效果是可量化的，但也有两个边界要提前知道</h2>
+<p>说几个具体的数字。以前测试一个角色平均要 45 分钟（跨三个平台，每个平台至少四五轮对话），现在在 MIRAI 里测一个大概 15 分钟——角色档案持久化了，不用每次重新加载设定。改设定之后的重测，以前要重新粘到所有平台，现在在 MIRAI 里点编辑、改背景故事、保存，直接在同一会话里继续聊，省了至少三次手动复制。</p>
+<p>但这套流程也有不划算的场景。MIRAI 免费额度够我每月五六个角色的测试用，但如果有人要做十几个角色、或者每个角色要反复改几十版，可能需要考虑它的订阅计划。另外，MIRAI 安卓支持 APK 直装、iOS 在 App Store，PC 端只有 Apple Silicon 的 Mac 和 iPad 支持得好，纯 Windows 电脑的朋友如果不想搞安卓模拟器，这套流程就得换工具。</p>
+<p>不过就我目前的使用场景来说——每个月三到五个角色、用安卓手机或 iPad 测试、Notion 写设定归档——这条链跑得挺顺。MIRAI 不需要替代我的 Notion，也不需要替代我的内容创作环节，它就做一件事：<strong>把"写了一个设定但不知道好不好"的那段模糊的时间，变成了一个有明确步骤的测试流程</strong>。手上攒的 MIRAI 资料包我分散存在三个代码仓库里，方便国内访问时选最快节点——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/MIRAI" target="_blank" rel="noopener">GitHub</a> 主力更新、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/MIRAI" target="_blank" rel="noopener">Gitee</a> 做国内镜像、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/MIRAI" target="_blank" rel="noopener">GitCode</a> 做第三份备份。</p>
+<p><img src="../images/mirai-docs/chat-screen-1.jpg" alt="MIRAI 的对话界面，角色会按设定稳定地延续对话" loading="lazy"></p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/gopeed-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Gopeed 值不值得当主力下载器？对比了一圈同类工具后的结论</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/hoyoget.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">HoYoGet 值不值得掏钱？一份给米哈游玩家的抽卡工具账本</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Switch 模拟器两家独大，Ryujinx 为什么在跨平台党里更吃香 · 老郭软件铺</title>
+  
+<meta name="description" content="Switch 模拟器圈经历过洗牌后只剩两个主力，Ryujinx 以跨平台覆盖和图形后端灵活性站稳了脚跟。这篇对比从老用户的角度拆解它的差异化优势与取舍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ryujinx-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Switch 模拟器两家独大，Ryujinx 为什么在跨平台党里更吃香">
+<meta property="og:description" content="Switch 模拟器圈经历过洗牌后只剩两个主力，Ryujinx 以跨平台覆盖和图形后端灵活性站稳了脚跟。这篇对比从老用户的角度拆解它的差异化优势与取舍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ryujinx-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ryujinx-docs/settings-ui.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ryujinx-docs/settings-ui.png">
+
+<meta name="twitter:title" content="Switch 模拟器两家独大，Ryujinx 为什么在跨平台党里更吃香">
+<meta name="twitter:description" content="Switch 模拟器圈经历过洗牌后只剩两个主力，Ryujinx 以跨平台覆盖和图形后端灵活性站稳了脚跟。这篇对比从老用户的角度拆解它的差异化优势与取舍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Switch \u6a21\u62df\u5668\u5708\u7ecf\u5386\u8fc7\u6d17\u724c\u540e\u53ea\u5269\u4e24\u4e2a\u4e3b\u529b\uff0cRyujinx \u4ee5\u8de8\u5e73\u53f0\u8986\u76d6\u548c\u56fe\u5f62\u540e\u7aef\u7075\u6d3b\u6027\u7ad9\u7a33\u4e86\u811a\u8ddf\u3002\u8fd9\u7bc7\u5bf9\u6bd4\u4ece\u8001\u7528\u6237\u7684\u89d2\u5ea6\u62c6\u89e3\u5b83\u7684\u5dee\u5f02\u5316\u4f18\u52bf\u4e0e\u53d6\u820d\u3002", "headline": "Switch \u6a21\u62df\u5668\u4e24\u5bb6\u72ec\u5927\uff0cRyujinx \u4e3a\u4ec0\u4e48\u5728\u8de8\u5e73\u53f0\u515a\u91cc\u66f4\u5403\u9999", "image": ["https://laoguosofts.github.io/images/ryujinx-docs/settings-ui.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ryujinx-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ryujinx-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Switch \u6a21\u62df\u5668\u4e24\u5bb6\u72ec\u5927\uff0cRyujinx \u4e3a\u4ec0\u4e48\u5728\u8de8\u5e73\u53f0\u515a\u91cc\u66f4\u5403\u9999", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Switch 模拟器两家独大，Ryujinx 为什么在跨平台党里更吃香</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Switch 模拟器两家独大，Ryujinx 为什么在跨平台党里更吃香</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Switch 模拟器圈经历过洗牌后只剩两个主力，Ryujinx 以跨平台覆盖和图形后端灵活性站稳了脚跟。这篇对比从老用户的角度拆解它的差异化优势与取舍。</p>
+  </header>
+  <div class="prose serif">
+<p>Switch 模拟器这个品类的格局这两年其实挺明朗的——曾经百花齐放，经历过一次停摆事件后，真正还在活跃更新、社区讨论度不掉队的就剩两家。如果你只在 Windows 上玩，选哪家差别不算大，但一旦你想在 macOS 上跑、或者笔记本是双显卡配置，Ryujinx 的存在感就立刻出来了。</p>
+<p>我两家都长期用过，从 Windows 台式机到 MacBook Pro 都试过，今天单独把 Ryujinx 拎出来说，去它的<a href="https://ryujinx.ggcd.uno" target="_blank" rel="noopener">ryujinx官网</a>扫一眼就能感受到那份认真——它在跨平台覆盖这件事上做得比另一家更扎实，而且很多设计细节是给"真折腾"的用户留的入口，不是那种装完点一下就完事的模拟器。</p>
+<h2>图形后端三选一，别人做不到</h2>
+<p>这是 Ryujinx 最实打实的差异化优势。打开图形设置页，你会看到一个下拉框让你在 Vulkan、OpenGL、Metal 之间挑。另一家主力模拟器基本锁死 Vulkan，而 Ryujinx 给了你三个选项——Windows 和 Linux 上可以走 Vulkan 或 OpenGL，macOS 用户则有 Vulkan（经 MoltenVK 转译到 Metal）和直接选 Metal 后端两条路。</p>
+<p>为什么这很重要？Vulkan 确实是性能首选，CPU 开销低、多线程渲染效率高，绝大多数游戏用它帧率最高。但模拟器重建 Switch 的 Maxwell GPU 毕竟不是原生硬件，总有那么些游戏在特定后端下出问题——花屏、贴图错乱、启动就崩。这时候切到另一个后端对照一下，往往就能定位问题根源。如果另一家只有 Vulkan，遇到这种情况你基本就卡死了。</p>
+<p><img src="../images/ryujinx-docs/settings-ui.png" alt="图形设置页的后端与画质选项" loading="lazy"></p>
+<p>驱动是后端体验的地基，后端选得再对，驱动旧了照样报 Video Core Error——<a href="https://ryujinx-docs.pages.dev/" target="_blank" rel="noopener">ryujinx文档</a>里有专门的常见报错速查，遇到问题先翻那里省得瞎试。Ryujinx 在 Linux 下的 Vulkan 驱动支持做得尤其扎实，Steam Deck 用户用 Linux 包直接跑就能工作，这在模拟器圈子里不算常见。</p>
+<h2>Docked 模式不只是画质，还决定手柄配在哪</h2>
+<p>很多人第一次接触 Ryujinx 会被输入设置页顶部那个 Docked Mode 勾选框搞懵。勾上和不勾，差的远不止"画面像不像插了底座"——它同时决定了游戏的分辨率目标、帧率档位，以及<strong>你该去哪里配手柄</strong>。</p>
+<p>这是个反直觉的设计，但逻辑很顺：Switch 游戏运行时会探测自己插没插底座，据此决定内部渲染规格。勾了 Docked 等于告诉游戏"我在电视上"，游戏就按高规格跑。同时，Docked 模式下你配手柄要去 Player 1 那个槽位，Handheld 模式则去 Handheld 槽位。很多新手勾了 Docked 却把手柄配在 Handheld 槽位上，结果就是画面正常但按键全没反应。</p>
+<p><img src="../images/ryujinx-docs/docked-handheld.png" alt="Docked Mode 勾选框" loading="lazy"></p>
+<p>这个双槽位设计其实很实用——你可以在 Player 1 槽位配一个 Pro Controller 风格的配置，在 Handheld 槽位配掌机模式下的键位，运行中随时切换。另一家主力模拟器的输入设置更偏向"一套配置走天下"，没有这种模式绑定的槽位概念。</p>
+<h2>上手门槛：密钥和固件是绕不开的</h2>
+<p>说了两个优势，也得说它的取舍。Ryujinx 的上手门槛比另一家主力模拟器略高一点，主要卡在密钥文件和固件这两块——Switch 游戏的加密是硬件级的，模拟器想跑必须拿到对应的密钥和系统固件镜像。</p>
+<p>另一家主力模拟器在很多场景下可以通过联网从服务器拉取这些文件，对新手来说更省心。Ryujinx 坚持本地文件放置的方式，密钥文件必须放在特定目录（Windows 在 <code>%AppData%/Ryujinx/system/</code>，Linux 在 <code>~/.config/Ryujinx/system/</code>），固件也需要手动安装。这多了几步操作，但换来的好处是彻底离线可用——对于 Steam Deck 或者不想联网的用户来说，这反而成了优点。安装包从<a href="https://ryujinx.ggcd.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿就行。</p>
+<p>另外，Ryujinx 的 Linux 包管理也比另一家细致，有 AppImage 免安装和 tar.gz 解压两种形态，三大发行版的依赖补齐命令都列在文档里。但反过来，它对系统库的依赖也更明确——SDL2 和 OpenAL 缺一个都启动不了。</p>
+<h2>选购结论</h2>
+<p>如果你是纯 Windows 用户，而且只在一台机器上玩，两家主力模拟器的体验差距没那么大，随便选都行。但只要你符合下面任意一条，Ryujinx 就是更合适的那一个：</p>
+<ul><li>用 macOS 玩 Switch 模拟器，Ryujinx 是目前体验最完整的选项，Metal 后端的支持在 Apple Silicon 上表现扎实；</li><li>想在 Steam Deck 上跑，Ryujinx 的 Linux 包和离线可用特性比另一家的方案更稳；</li><li>笔记本是双显卡配置，Ryujinx 的 Preferred GPU 下拉可以明确指定独立显卡，不会被核显抢走导致"能玩但巨卡"；</li><li>喜欢折腾图形后端，遇到渲染问题想自己切后端排查的。</li></ul>
+<p>一句话总结：跨平台党选 Ryujinx，它在覆盖面上的广度和细节上的扎实度，目前没有哪家能完全替代。项目本身是开源的，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/ryujinx" target="_blank" rel="noopener">GitHub</a> 上能看到完整源码，国内用户也可以在 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/ryujinx" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/ryujinx" target="_blank" rel="noopener">GitCode</a> 上拿到同一份镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/vivo-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">小白也能搞定！vivo 官方 App 从下载到抢新机全流程</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/lyricify-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Lyricify 快问快答：把 Spotify 歌词这件事讲透</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

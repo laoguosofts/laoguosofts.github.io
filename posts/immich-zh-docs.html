@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Immich 藏得真深：五个大多数人不知道还能这样用的功能 · 老郭软件铺</title>
+  
+<meta name="description" content="你以为 Immich 只是个自托管相册备份工具？其实它还藏着只读模式、手动选择上传、相册同步回填、释放空间四道闸门，以及 4GB 内存降级路径——五个冷门但关键时刻救场的技巧。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/immich-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Immich 藏得真深：五个大多数人不知道还能这样用的功能">
+<meta property="og:description" content="你以为 Immich 只是个自托管相册备份工具？其实它还藏着只读模式、手动选择上传、相册同步回填、释放空间四道闸门，以及 4GB 内存降级路径——五个冷门但关键时刻救场的技巧。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/immich-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/immich-zh-docs/mobile-read-only.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/immich-zh-docs/mobile-read-only.webp">
+
+<meta name="twitter:title" content="Immich 藏得真深：五个大多数人不知道还能这样用的功能">
+<meta name="twitter:description" content="你以为 Immich 只是个自托管相册备份工具？其实它还藏着只读模式、手动选择上传、相册同步回填、释放空间四道闸门，以及 4GB 内存降级路径——五个冷门但关键时刻救场的技巧。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4f60\u4ee5\u4e3a Immich \u53ea\u662f\u4e2a\u81ea\u6258\u7ba1\u76f8\u518c\u5907\u4efd\u5de5\u5177\uff1f\u5176\u5b9e\u5b83\u8fd8\u85cf\u7740\u53ea\u8bfb\u6a21\u5f0f\u3001\u624b\u52a8\u9009\u62e9\u4e0a\u4f20\u3001\u76f8\u518c\u540c\u6b65\u56de\u586b\u3001\u91ca\u653e\u7a7a\u95f4\u56db\u9053\u95f8\u95e8\uff0c\u4ee5\u53ca 4GB \u5185\u5b58\u964d\u7ea7\u8def\u5f84\u2014\u2014\u4e94\u4e2a\u51b7\u95e8\u4f46\u5173\u952e\u65f6\u523b\u6551\u573a\u7684\u6280\u5de7\u3002", "headline": "Immich \u85cf\u5f97\u771f\u6df1\uff1a\u4e94\u4e2a\u5927\u591a\u6570\u4eba\u4e0d\u77e5\u9053\u8fd8\u80fd\u8fd9\u6837\u7528\u7684\u529f\u80fd", "image": ["https://laoguosofts.github.io/images/immich-zh-docs/mobile-read-only.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/immich-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/immich-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "Immich \u85cf\u5f97\u771f\u6df1\uff1a\u4e94\u4e2a\u5927\u591a\u6570\u4eba\u4e0d\u77e5\u9053\u8fd8\u80fd\u8fd9\u6837\u7528\u7684\u529f\u80fd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">Immich 藏得真深：五个大多数人不知道还能这样用的功能</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">Immich 藏得真深：五个大多数人不知道还能这样用的功能</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">你以为 Immich 只是个自托管相册备份工具？其实它还藏着只读模式、手动选择上传、相册同步回填、释放空间四道闸门，以及 4GB 内存降级路径——五个冷门但关键时刻救场的技巧。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 <a href="https://immich.ggcd.uno" target="_blank" rel="noopener">Immich官网</a> 上宣传的就是它的全部？搭好服务器、开个自动备份，然后就放着不管了？</p>
+<p>我之前也是这么想的——直到把设置菜单翻了个底朝天，才发现它藏着一堆官方没怎么宣传、但用起来能大幅改善体验的功能。有些是给特殊场景准备的，有些是给低配机器留的后门，还有几个是设计得太隐蔽以至于默认你不会注意到。</p>
+<h2>长按头像出来的只读模式</h2>
+<p>先不说功能本身，光是开启方式就够冷门的：<strong>长按时间线右上角的个人头像图标</strong>。没错，就是长按，多点几秒，App 会弹出一个开关叫「Read-only Mode（只读模式）」。设置 → Advanced（高级）里也有，但谁会没事翻高级设置？</p>
+<p>这个模式把 App 锁成「只能看」：时间线浏览、搜索、回忆都正常，但删除、移动等破坏性操作被禁用。官方的设计场景很具体——防止家人（尤其小孩）在你手机上随手把照片删了。</p>
+<p>我把自己的旧手机装了 Immich 给我妈看照片，开只读模式之后就不用担心她清理空间时把历史相册给删干净了。注意一点：只读模式保护的是<strong>这台手机上的本地文件</strong>不被误删，服务器上的照片管理（比如我在网页端删照片）不受它约束。所以如果有多端同步，服务器端的权限还是要管好。</p>
+<p><img src="../images/immich-zh-docs/mobile-read-only.webp" alt="手机端只读模式的开关界面" loading="lazy"></p>
+<h2>存储指示器配合手动上传，告别全量备份的强制</h2>
+<p>Immich 默认是「整个相册一锅端」自动备份——但不是每个人都想把手机里 20 万张照片全部传上去。有人只关心旅行和孩子的照片，有人手机里还存着一堆聊天截图和临时工作文件。</p>
+<p>解决办法藏在两个开关里：</p>
+<p>第一个，设置 → Photo Grid（照片网格）→ 开启「Show Storage indicator on asset tiles（在缩略图上显示存储指示）」。之后每张照片的右下角会出现小云朵图标：有云朵 = 已同步到服务器；无云朵 = 仅存本机。这样你在相册里一眼就能看出哪些传了哪些没传。</p>
+<p>第二个，进入备份页，把包含目标照片的本地相册勾上——这一步只是建立「服务器能接收这些照片」的通道，不会立刻触发上传。然后回到时间线或该相册，长按进入多选，挑出想传的照片，点底部操作栏的<strong>上传</strong>按钮，选中的照片立即上传，其余照片保持本地不动。</p>
+<p>这个模式配合释放空间要格外谨慎——释放空间的扫描范围跟随备份配置，全量备份关着时它不会误删，但保留闸门值得再核一遍。</p>
+<p><img src="../images/immich-zh-docs/mobile-upload-selected.webp" alt="在手机上选中照片准备手动上传" loading="lazy"></p>
+<h2>相册同步：单向镜像 + 存量回填的隐形服务</h2>
+<p>默认情况下，备份到服务器的照片是「一锅端」进时间线的，手机上「相机」「微信」「截图」的相册结构不会跟过来。<strong>相册同步（Album Sync）</strong> 就是补齐这一层的服务——开启后，服务器上会自动创建与你手机相册同名的相册，照片上传后自动归入。</p>
+<p>开启方式很简单，在备份设置里打开就行。但有两个细节大多数人不知道：</p>
+<p>第一，它对<strong>开启之后</strong>新上传的照片自动生效；开启之前已经传上去的照片也不会被落下——备份页里有个 <strong>Reorganize into album（重新归入相册）</strong> 按钮，点一下就会把存量上传按原相册结构回填一遍。我第一次用的时候，之前已经传了上千张照片，点了这个按钮之后等了十来分钟，服务器端的相册结构就和手机上一模一样了——后来去<a href="https://immich-zh-docs.pages.dev/" target="_blank" rel="noopener">Immich文档</a>翻了一下才确认这个按钮就是干存量回填的。</p>
+<p>第二，它是<strong>单向同步</strong>。方向永远是「手机 → 服务器」。你在服务器网页端往同步相册里加照片、调整顺序，不会反向影响手机；反过来，手机上删掉某张照片、把照片移出相册，服务器上的相册<strong>也不会</strong>跟着删或跟——首次建相册时的成员构成就是基线，之后只反映「新增」。这个设计是为了防止误删扩散，但也意味着「手机上整理相册」对服务器无效，整理动作要去服务器端做。</p>
+<p><img src="../images/immich-zh-docs/backup-album-sync.webp" alt="手机相册同步到服务器的设置界面" loading="lazy"></p>
+<h2>释放空间的四道筛选闸门，不是无脑全删</h2>
+<p>释放空间（Free Up Space）是 Immich 取代早年各种社区方案的官方功能，v2.5.0 才加入。很多人知道它能清理手机上已备份的照片，但不知道它不是无脑全删——App 提供四道可叠加的筛选闸门：</p>
+<ul><li><strong>截止日期</strong>：只清理这个日期<strong>当天及以前</strong>的照片视频——留出最近一段的本地副本，防止「刚拍的还没被服务器处理完」的边缘情况；</li><li><strong>保留收藏</strong>：标记过收藏的本地文件不动；</li><li><strong>保留相册</strong>：勾选的相册一律保留在本机。默认勾选了 WhatsApp 相关相册；</li><li><strong>始终保留</strong>：可以强制「所有照片」或「所有视频」永不清理。</li></ul>
+<p>配置好闸门后，App 先扫描并列出「将被删除」的清单和可回收的空间总量，<strong>你审阅确认后</strong>才执行删除。删除的动作是把文件移入系统相册/回收站，不是直接粉碎——大批量时按批次处理（安卓每批 2000 个、iOS 每批 10000 个）以保证稳定。想让空间立即可用，还需要<strong>手动清空系统回收站</strong>——这一步在 Immich 之外，别找了。</p>
+<h2>低配机器的 4GB 内存降级路径</h2>
+<p>这个是给还在犹豫要不要上 Immich 的人看的——安装包从<a href="https://immich.ggcd.uno/download.html" target="_blank" rel="noopener">下载</a>拿就行，官方最低配置写的是 6GB 内存起步，但只有 4GB 内存的机器也能跑。</p>
+<p>办法是在管理后台关闭机器学习功能——关掉之后语义搜索和人脸识别不可用，只剩基础的时间线浏览和备份。这不是理想形态，但作为一个降级路径确实值得知道。一台老笔记本或迷你主机配上外接硬盘，4GB 内存 + 关闭机器学习，足够一个四口之家从零用起。</p>
+<p>另外，从 v3 起，机器学习容器在 amd64 上要求 CPU 支持 x86-64-v2 指令集——大约 2012 年以后的主流 CPU 都满足。极老的机器最高只能用到 v2.7.5 版本。</p>
+<h2>两个别踩的坑</h2>
+<p>聊了这么多好用的功能，有两个高危场景必须单独拎出来说：</p>
+<p><strong>iCloud 用户碰释放空间要格外小心。</strong> iCloud 相册是双向同步——你在 iPhone 上删掉的照片，会同步删掉 iCloud 和所有登录同一 Apple 账号设备上的同一张。释放空间之后，那张照片的存亡就完全系于你的 Immich 服务器（和 iPhone 的「最近删除」30 天）。官方给双备份用户的建议是改用 iCloud 的「优化 iPhone 存储空间」模式，而不是对 iCloud 库做释放空间。</p>
+<p><strong>微信/WhatsApp 用户别碰聊天相册的释放空间。</strong> 聊天记录里的图片依赖本地文件显示。如果备份了微信相册又执行了释放空间，聊天里的图片会变成模糊占位或消失，只能去 Immich 里看。所以默认保留 WhatsApp 相册；用微信同理——要么保留，要么从一开始就别备份这类相册。</p>
+<h2>写在最后</h2>
+<p>Immich 的功能密度其实很高，只是默认开启的那条主路径太清晰了——「搭服务器 → 开自动备份 → 放着不管」，以至于很多人用了一年都没碰过那些藏起来的设置。我现在的日常节奏是：手机自动后台备份 → 每两周手动选一批照片细调归类 → 每月跑一次释放空间清手机。把它用透，手机存储焦虑就真的解放了。顺手提一句，这份整理用到的资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Immich" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Immich" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Immich" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，国内访问选哪个顺手就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/etermapp.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用了一年的 eTerm 手机版，我发现自己低估了它</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/effieapp.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">周五晚上的方案救星：当思路乱成一团时我怎么用 Effieapp 理清楚</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

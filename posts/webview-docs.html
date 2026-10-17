@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Android WebView 开发者实战指南：从嵌入第一个网页到搞定权限与下载 · 老郭软件铺</title>
+  
+<meta name="description" content="想在自己的 Android App 里嵌入网页？这篇教程带你走完 WebView 集成的全流程——从初始化配置、处理权限请求，到搞定各厂商 ROM 的兼容性坑，一步都不落下。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/webview-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android WebView 开发者实战指南：从嵌入第一个网页到搞定权限与下载">
+<meta property="og:description" content="想在自己的 Android App 里嵌入网页？这篇教程带你走完 WebView 集成的全流程——从初始化配置、处理权限请求，到搞定各厂商 ROM 的兼容性坑，一步都不落下。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/webview-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/webview-docs/play-store-webview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/webview-docs/play-store-webview.png">
+
+<meta name="twitter:title" content="Android WebView 开发者实战指南：从嵌入第一个网页到搞定权限与下载">
+<meta name="twitter:description" content="想在自己的 Android App 里嵌入网页？这篇教程带你走完 WebView 集成的全流程——从初始化配置、处理权限请求，到搞定各厂商 ROM 的兼容性坑，一步都不落下。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u60f3\u5728\u81ea\u5df1\u7684 Android App \u91cc\u5d4c\u5165\u7f51\u9875\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u8d70\u5b8c WebView \u96c6\u6210\u7684\u5168\u6d41\u7a0b\u2014\u2014\u4ece\u521d\u59cb\u5316\u914d\u7f6e\u3001\u5904\u7406\u6743\u9650\u8bf7\u6c42\uff0c\u5230\u641e\u5b9a\u5404\u5382\u5546 ROM \u7684\u517c\u5bb9\u6027\u5751\uff0c\u4e00\u6b65\u90fd\u4e0d\u843d\u4e0b\u3002", "headline": "Android WebView \u5f00\u53d1\u8005\u5b9e\u6218\u6307\u5357\uff1a\u4ece\u5d4c\u5165\u7b2c\u4e00\u4e2a\u7f51\u9875\u5230\u641e\u5b9a\u6743\u9650\u4e0e\u4e0b\u8f7d", "image": ["https://laoguosofts.github.io/images/webview-docs/play-store-webview.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/webview-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/webview-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "Android WebView \u5f00\u53d1\u8005\u5b9e\u6218\u6307\u5357\uff1a\u4ece\u5d4c\u5165\u7b2c\u4e00\u4e2a\u7f51\u9875\u5230\u641e\u5b9a\u6743\u9650\u4e0e\u4e0b\u8f7d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">Android WebView 开发者实战指南：从嵌入第一个网页到搞定权限与下载</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">Android WebView 开发者实战指南：从嵌入第一个网页到搞定权限与下载</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 14 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">想在自己的 Android App 里嵌入网页？这篇教程带你走完 WebView 集成的全流程——从初始化配置、处理权限请求，到搞定各厂商 ROM 的兼容性坑，一步都不落下。</p>
+  </header>
+  <div class="prose serif">
+<h2>你将学到什么</h2>
+<p>这篇教程结束时，你能独立在 Android App 里集成 WebView，正确处理相机、麦克风、定位等权限请求，搞定小米 HyperOS、华为 ArkWeb 等厂商 ROM 上的 blob URL 拦截问题，让 App 内嵌的网页功能像原生浏览器一样跑通。在动手之前，如果你还对 WebView 的全貌感兴趣，可以先去 <a href="https://webview.gerw.hair" target="_blank" rel="noopener">webview官网</a> 看看它的完整功能介绍。</p>
+<h2>准备工作</h2>
+<p>在动手之前，先确认这几样东西：</p>
+<ul><li><strong>开发环境</strong>：Android Studio 或 VS Code + Android SDK，最低编译版本建议 API 23（Android 6.0），因为运行时权限模型从这个版本开始强制要求</li><li><strong>依赖</strong>：Gradle 里只需一行——<code>implementation &#x27;androidx.webkit:webkit:1.11.0&#x27;</code>，这是 JetPack 维护的 WebKit 兼容层，比直接用系统 <code>android.webkit.WebView</code> 更稳；WebView APK 本身也需要更新才能跟上 Chromium 主线，可以去 <a href="https://webview.gerw.hair/download.html" target="_blank" rel="noopener">webview下载</a> 拿最新版本。</li><li><strong>Manifest 权限</strong>：网络权限是必须的（<code>android.permission.INTERNET</code>），相机、麦克风、定位按需声明，<strong>注意 Android 13+ 还有细粒度权限</strong>（<code>POST_NOTIFICATIONS</code> 等），别漏了</li></ul>
+<h2>第一步：在布局里放 WebView 并初始化</h2>
+<p>先在 Activity 或 Fragment 的布局 XML 里加一个 WebView 容器：</p>
+<pre><code class="language-xml">&lt;WebView
+    android:id=&quot;@+id/webView&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;</code></pre>
+<p>然后在代码里拿到实例，做三件核心配置：</p>
+<pre><code class="language-java">WebView webView = findViewById(R.id.webView);
+WebSettings settings = webView.getSettings();
+
+// 1. 开启 JS 支持——绝大多数网页都依赖 JS 渲染
+settings.setJavaScriptEnabled(true);
+
+// 2. 开启内容访问——小米 HyperOS 上 blob 下载需要这个
+settings.setAllowContentAccess(true);
+
+// 3. 开启硬件加速渲染——性能直接拉满
+webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);</code></pre>
+<p>别急着 <code>loadUrl()</code> 往下走，还有两个回调必须先挂上，不然后面权限和文件上传全会静默失败。</p>
+<h2>第二步：配置 WebViewClient 和 WebChromeClient</h2>
+<p>很多新手只配了 WebViewClient，然后发现网页里点文件上传没反应、调相机拿不到权限——因为这些是 WebChromeClient 管的，两者分工不同：</p>
+<table><thead><tr><th>回调类</th><th>负责什么</th></tr></thead><tbody><tr><td><strong>WebViewClient</strong></td><td>页面加载、URL 拦截、错误处理</td></tr><tr><td><strong>WebChromeClient</strong></td><td>JS 对话框、权限请求、文件上传、视频全屏、进度条</td></tr></tbody></table>
+<p>先把 WebChromeClient 挂上，至少实现 <code>onPermissionRequest</code> 这个方法。这是整套教程最容易翻车的地方——<strong>WebView 默认不会帮你弹权限框，App 必须自己实现整套授权流程</strong>。</p>
+<pre><code class="language-java">webView.setWebChromeClient(new WebChromeClient() {
+    @Override
+    public void onPermissionRequest(PermissionRequest request) {
+        // 拿到网页请求的权限资源列表
+        String[] resources = request.getResources();
+
+        // 1. 先检查 Android 运行时权限（API 23+）
+        if (needsRuntimePermission(resources)) {
+            // 2. 请求 Android 运行时权限
+            ActivityCompat.requestPermissions(
+                MainActivity.this,
+                toManifestPermissions(resources),
+                1001
+            );
+            // 3. 暂存 request，等系统权限回调后再 grant
+            pendingPermissionRequest = request;
+        } else {
+            // 没有运行时权限要求，直接放行
+            request.grant(resources);
+        }
+    }
+});</code></pre>
+<p>然后在 Activity 的 <code>onRequestPermissionsResult</code> 回调里补完最后的 grant 动作：</p>
+<pre><code class="language-java">@Override
+public void onRequestPermissionsResult(int rc, String[] perms, int[] results) {
+    if (rc == 1001 &amp;&amp; pendingPermissionRequest != null) {
+        if (allGranted(results)) {
+            pendingPermissionRequest.grant(pendingPermissionRequest.getResources());
+        } else {
+            pendingPermissionRequest.deny();
+        }
+        pendingPermissionRequest = null;
+    }
+}</code></pre>
+<p>这里注意一个细节：用户选了"以后不再问"之后，<code>ActivityCompat.requestPermissions</code> 不再弹窗——你的代码需要检测 <code>shouldShowRequestPermissionRationale</code> 返回 <code>false</code> 时引导用户去系统设置里手动打开权限。另外 WebChromeClient 还管着文件上传、JS 对话框、视频全屏等好几个场景，完整的回调清单可以去 <a href="https://webview-docs.pages.dev/" target="_blank" rel="noopener">webview文档</a> 里翻。</p>
+<h2>第三步：处理 blob URL 下载被拦截</h2>
+<p>这是国内厂商 ROM 上最常见的坑——小米 HyperOS、华为 ArkWeb 默认拦截 <code>blob:</code> 协议，导致网页里的附件下载、PDF.js 预览、二维码扫描结果保存等功能<strong>什么都不发生、也不报错</strong>。</p>
+<p>出现这个现象时，先判断设备类型：</p>
+<p><strong>小米 HyperOS 的解法</strong>（反射调用私有 API）：</p>
+<pre><code class="language-java">try {
+    Class&lt;?&gt; clazz = Class.forName(&quot;com.android.webview.Settings&quot;);
+    Method m = clazz.getMethod(&quot;setAllowBlobUrls&quot;, boolean.class);
+    m.invoke(settings, true);
+} catch (Exception e) {
+    // 非 HyperOS 设备或版本不支持，走默认行为
+}</code></pre>
+<p>这个 <code>setAllowBlobUrls</code> 是小米私有 API，不是 Android 标准接口，所以必须用反射——直接编译会找不到类。而且版本变化可能失效，代码里一定要包在 try-catch 里。</p>
+<p><strong>华为 ArkWeb 的解法</strong>不太一样，鸿蒙上要让 JS 端手动触发下载事件：</p>
+<pre><code class="language-javascript">const link = document.createElement(&#x27;a&#x27;);
+link.href = blobUrl;
+link.download = filename;
+link.dispatchEvent(new MouseEvent(&#x27;click&#x27;, { bubbles: true, cancelable: true }));</code></pre>
+<p>如果还是不行，大概率是鸿蒙 WebView 拦截了非 HTTPS 来源的 blob 下载——让后端改成 HTTPS 响应再试。</p>
+<p>还有一个更通用的思路：<strong>绕开 blob 协议，让服务端直接提供可下载的 HTTPS URL</strong>，然后 App 端用 <code>DownloadListener</code> 接管下载：</p>
+<pre><code class="language-java">webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -&gt; {
+    // 交给系统 DownloadManager 或自己处理
+});</code></pre>
+<p>这个方案对所有厂商 WebView 都生效，不用一个个兼容厂商私有 API。</p>
+<h2>第四步：确保 WebView 及时更新</h2>
+<p>WebView 是一个独立的 APK（包名 <code>com.google.android.webview</code>），版本号直接对应 Chromium 大版本——127 对应 Chromium M127，以此类推。更新它不需要跟着 Android 系统走，直接在应用商店搜 "Android System WebView" 就能找到并更新。</p>
+<p><img src="../images/webview-docs/play-store-webview.png" alt="Google Play 上的 Android System WebView" loading="lazy"></p>
+<p>版本号的读法很简单：第一段（127、128、129…）是 Chromium 大版本，后面几截是 Google 内部的构建批次号，安全补丁更新会变最后一截。只要第一段跟上 Chromium 主线，就是最新的。</p>
+<p>大部分情况下更新完不需要重启——WebView 是按需加载的，新版本渲染进程从下次 App 打开时就会用上。但如果你发现某些 App 内网页表现跟之前一模一样，重启一下设备是最稳妥的保险操作。</p>
+<h2>常见卡点与快速排查</h2>
+<h3>卡点一：权限请求用户点了允许，但网页 JS 还是拿不到</h3>
+<p>八成是你只做了 <code>ActivityCompat.requestPermissions</code>，忘了在 <code>onRequestPermissionsResult</code> 里调用 <code>pendingPermissionRequest.grant()</code>。Android 系统的权限弹窗和 WebView 的 PermissionRequest 是两套独立机制——用户在系统弹窗点"允许"不代表网页那边自动收到授权回调，你必须手动桥接。</p>
+<h3>卡点二：小米 HyperOS 上 blob 下载就是不生效</h3>
+<p>先确认 <code>settings.setAllowContentAccess(true)</code> 有没有开——这个是前置条件，不开的话反射 <code>setAllowBlobUrls</code> 也没用。其次检查你的反射代码是否真的走到了，加一行日志打一下 <code>Class.forName</code> 有没有抛异常，HyperOS 不同版本这个私有 API 可能变动。</p>
+<h3>卡点三：网页在 App 里白屏但浏览器里正常</h3>
+<p>先在 <code>WebViewClient.onReceivedError</code> 里打日志看是什么错误。最常见的是 JS 没开（<code>setJavaScriptEnabled(true)</code>）、文件协议拦截（<code>setAllowFileAccess(true)</code>）、或者 HTTPS 混合内容被拦截（Android 9+ 默认禁止，可通过 <code>setMixedContentMode</code> 放宽）。</p>
+<h2>进阶方向</h2>
+<p>搞定上面四步之后，可以继续往这几个方向深入：WebView 与原生代码的双向通信（<code>addJavascriptInterface</code>）、预渲染加速（<code>WebView.Prerenderer</code>）、WebView 的多进程隔离（防止渲染崩溃带崩主进程）、以及 JetPack <code>androidx.webkit</code> 里的实验性 API（<code>WebViewCompat</code>、<code>SafeBrowsingConfig</code>）。</p>
+<p>另外值得一提的是，WebView 从 Android 5.0 开始就不再是编译进系统镜像的静态库了——它被拆成一个独立签名的 APK，签名是 Google Platform 签名，与系统其他模块同源。这意味着你可以独立于 Android 系统升级来更新 WebView，不用再为了一个浏览器内核去刷固件。WebView 的主进程负责资源调度和进程管理，每个 WebView 实例有自己的渲染进程跑 Blink + V8，GPU 进程负责硬件加速——这种多进程隔离就是 Chromium 的安全基石，渲染进程崩溃只会让网页黑屏，不会把整个 App 带崩。</p>
+<p><img src="../images/webview-docs/webview-embed-diagram.png" alt="WebView 架构全景图" loading="lazy"></p>
+<h2>资料在哪找</h2>
+<p>本文涉及的完整代码示例和 API 参考资料，为了方便不同网络环境的开发者，分别托管在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/webview" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/webview" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/webview" target="_blank" rel="noopener">GitCode</a> 三个平台，按需取用即可。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/scratchjr-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">幼儿园的一节编程课，我在角落旁观了半小时</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/5play.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用5play从零装完第一个第三方APK——避坑实记</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

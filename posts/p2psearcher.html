@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>P2PSearcher 从零上手：搜索、筛选、云播一条龙 · 老郭软件铺</title>
+  
+<meta name="description" content="刚装完 P2PSearcher 不知道从哪下手？这篇教程带你走完第一次启动、第一次搜索、第一次筛选、第一次云播，把最容易翻车的几个卡点也一并讲透。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/p2psearcher.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P2PSearcher 从零上手：搜索、筛选、云播一条龙">
+<meta property="og:description" content="刚装完 P2PSearcher 不知道从哪下手？这篇教程带你走完第一次启动、第一次搜索、第一次筛选、第一次云播，把最容易翻车的几个卡点也一并讲透。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/p2psearcher.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/p2psearcher/screenshot-hero.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/p2psearcher/screenshot-hero.jpeg">
+
+<meta name="twitter:title" content="P2PSearcher 从零上手：搜索、筛选、云播一条龙">
+<meta name="twitter:description" content="刚装完 P2PSearcher 不知道从哪下手？这篇教程带你走完第一次启动、第一次搜索、第一次筛选、第一次云播，把最容易翻车的几个卡点也一并讲透。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u521a\u88c5\u5b8c P2PSearcher \u4e0d\u77e5\u9053\u4ece\u54ea\u4e0b\u624b\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u8d70\u5b8c\u7b2c\u4e00\u6b21\u542f\u52a8\u3001\u7b2c\u4e00\u6b21\u641c\u7d22\u3001\u7b2c\u4e00\u6b21\u7b5b\u9009\u3001\u7b2c\u4e00\u6b21\u4e91\u64ad\uff0c\u628a\u6700\u5bb9\u6613\u7ffb\u8f66\u7684\u51e0\u4e2a\u5361\u70b9\u4e5f\u4e00\u5e76\u8bb2\u900f\u3002", "headline": "P2PSearcher \u4ece\u96f6\u4e0a\u624b\uff1a\u641c\u7d22\u3001\u7b5b\u9009\u3001\u4e91\u64ad\u4e00\u6761\u9f99", "image": ["https://laoguosofts.github.io/images/p2psearcher/screenshot-hero.jpeg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/p2psearcher.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/p2psearcher.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "P2PSearcher \u4ece\u96f6\u4e0a\u624b\uff1a\u641c\u7d22\u3001\u7b5b\u9009\u3001\u4e91\u64ad\u4e00\u6761\u9f99", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">P2PSearcher 从零上手：搜索、筛选、云播一条龙</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">P2PSearcher 从零上手：搜索、筛选、云播一条龙</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刚装完 P2PSearcher 不知道从哪下手？这篇教程带你走完第一次启动、第一次搜索、第一次筛选、第一次云播，把最容易翻车的几个卡点也一并讲透。</p>
+  </header>
+  <div class="prose serif">
+<p>装好了 P2PSearcher——如果还没下，去<a href="https://p2psearcher.fewf.ren" target="_blank" rel="noopener">p2psearcher官网</a>拿最新版就行——双击 EXE 弹出来一个界面，输入框在那儿空着，服务器列表在右下角打转——然后呢？这篇教程结束的时候，你应该能独立完成一次完整的搜索流程：连上节点、跑出结果、用筛选器把几万条噪声干掉、找到一个能播的资源。</p>
+<p><img src="../images/p2psearcher/screenshot-hero.jpeg" alt="P2PSearcher 主界面截图" loading="lazy"></p>
+<h2>准备工作：确认三个前置条件</h2>
+<p>动手之前先检查一下，省得后面卡壳不知道为什么：</p>
+<ul><li><strong>版本选对</strong>：PC 下从<a href="https://p2psearcher.fewf.ren/download.html" target="_blank" rel="noopener">p2psearcher下载</a>拿绿色压缩包解压就能用，安卓下直接装 APK 覆盖安装（不要先卸载，卸载会丢收藏和历史）。PC 绿色版不需要安装程序，解压到哪个文件夹都行，EXE 同级目录就是配置文件的存放位置。</li><li><strong>网络条件</strong>：P2PSearcher 走的是 ED2K + DHT 网络，有些运营商会做干扰。如果你在宽带下搜不到结果，先别急着删软件，手机热点开一下试试——热点能搜到、宽带搜不到，就是运营商这边的问题，不是软件的锅。</li><li><strong>防火墙放行</strong>：Windows Defender 偶尔会把穿透模式的端口误拦。第一次启动如果弹防火墙提示，点允许就行；没弹但一直连不上节点，手动进 Defender 把 P2PSearcher EXE 加到白名单。</li></ul>
+<h2>第一步：启动、等节点连上</h2>
+<p>双击 EXE 之后，第一件事不是搜索——是看右下角的状态。绿色对勾代表 ED2K 服务器连上了，DHT 节点数字在跳才说明 P2P 网络通了。刚启动那几十秒节点数可能只有几十个，等一会儿会涨到几百上千，这时候搜索结果才会稳定。</p>
+<p>如果等了一分钟节点数还是个位数甚至一直零，点一下界面上的"穿透模式"开关。穿透模式是 P2PSearcher 应对运营商屏蔽的撒手锏，默认可能没开，手动切一下，节点数通常会在几秒内跳起来。</p>
+<p><img src="../images/p2psearcher/result-list.png" alt="结果列表与筛选面板" loading="lazy"></p>
+<h2>第二步：第一次搜索，别输太长的关键词</h2>
+<p>搜索框里直接敲关键词就行，但有个小技巧：<strong>第一次搜别加太多限定词</strong>。比如你搜"肖申克的救赎 1080p"，结果会少很多——因为 P2P 网络上的文件名千奇百怪，有的叫"肖申克.1080p"，有的叫"Shawshank.Redemption.BluRay"，有的根本不带分辨率后缀。先只输片名本身，跑出结果之后再用筛选器收窄范围。</p>
+<p>搜完之后别急着往下翻，先看结果列表上方的筛选栏——就是<a href="https://p2psearcher.pages.dev/" target="_blank" rel="noopener">p2psearcher文档</a>里提到的类型、大小、时间三个维度。类型筛选默认已经自动分好组了，点"视频"标签就能把 MP4、MKV、RMVB 这些全挑出来，文档、压缩包、EXE 这些噪声直接消失。</p>
+<h2>第三步：用筛选器干掉 90% 的垃圾结果</h2>
+<p>这是新手最容易跳过、但提升最明显的一步。结果多的时候能有上万条，不筛选直接翻等于大海捞针。</p>
+<p><strong>大小筛选</strong>是判断视频清晰度的最快标尺：一部 1080p 蓝光电影通常在 10 到 25GB 之间，720p 大概 4 到 8GB，在线片源 WEB-DL 只有 1 到 3GB。填一个最小值进去（比如"≥4GB"），低质量片源直接被过滤掉；填最大值（"≤2GB"）适合只想找在线片源的场景。</p>
+<p><strong>时间筛选</strong>用来踢掉断种的老资源。选"近 3 个月"或"近 1 年"，大部分上传时间早但一直有人分享的经典资源不会被误杀——它只是上传时间早，不是种子少，时间筛选看的是上传时间不是种子数量。</p>
+<p>三个维度可以叠加用。一个常见组合：关键词只输片名，类型点"视频"，大小填"≥4GB"，时间选"近 6 个月"——出来的结果基本就是"近半年内有人在分享、清晰度不错的片源"，质量直接上一个台阶。</p>
+<h2>第四步：点云播，先看再下</h2>
+<p>找到心仪的结果之后，点一下云播按钮试试。能播最好，确认画质没问题再下载；播不了也不慌——P2PSearcher 的云播依赖第三方引擎，不是软件自己维护的，通道挂了、资源本身坏了、磁力链接死了都有可能导致云播加载不出来。</p>
+<p>点云播之后一直转圈、黑屏、或者提示引擎无法解析，先切一个云播通道试试。通道切换按钮在云播窗口右上角的齿轮菜单里，换一个通道能播就说明是默认通道的问题，不是这个资源的问题。多个通道都不行的话，把磁力链接复制出来丢给迅雷或其他下载器，下载到本地用 VLC 或 PotPlayer 看——本地播放器的效果比云播引擎其实更好。</p>
+<h2>三个新手最容易翻车的卡点</h2>
+<p><strong>卡点一：节点连不上、搜不到结果。</strong> 八成是穿透模式没开，或者运营商屏蔽了 P2P 端口。先开穿透模式，不行换手机热点测一下，热点能搜到就说明是宽带的问题，可以在网络设置里换个端口试试。还有一种可能是版本太老，内置的 ED2K 服务器列表和 DHT 引导节点过期了——去下载最新版，绿色版解压到新目录直接覆盖旧版 EXE 就行。</p>
+<p><strong>卡点二：云播一直转圈。</strong> 别第一时间怀疑自己的网络。按这个顺序排查：先切通道 → 再换另一个同类资源试试 → 最后把磁力链接丢给迅雷看能不能找到节点。迅雷也找不到节点，说明这个资源本身已经断种了，换一个种子数更高的结果就行。真遇到所有资源都云播不出来，直接下本地播放器，别在云播上耗时间。</p>
+<p><strong>卡点三：绿色版更新后收藏和历史没了。</strong> 因为你卸载了旧版。绿色版更新不需要卸载——关闭旧版，下载新版压缩包解压到临时目录，先启动测试一下能不能正常连节点、能不能搜索，确认没问题了再把旧目录里的收藏夹、历史记录、自定义服务器列表这几个用户数据文件复制到新目录就行。主配置文件和缓存文件不要拷，让新版自己生成。</p>
+<h2>往下还能玩什么</h2>
+<p>基本流程走通之后，可以试试自定义服务器列表——手动导入一批 ED2K 服务器，比内置节点池更多、更全；或者研究一下穿透模式的进阶设置，在运营商屏蔽特别狠的环境下手动指定备选节点池。还有个冷门技巧：收藏夹里的条目可以右键导出磁力链接清单，批量交给下载器排队下载，适合攒了一堆想看的资源之后统一处理。</p>
+<p>P2PSearcher 本身不做内容分发，它只是帮你在 ED2K + DHT 网络里把别人正在分享的文件搜出来。节点池会过期、云播通道会下线、经典资源会断种——所以版本更新勤快一点准没错，新版接入新引擎、刷新节点池、优化穿透策略的频率比你想的高得多。这份软件资料在 <a href="https://github.com/alipymanbu/APK/tree/main/APP/p2psearcher" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/p2psearcher" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/p2psearcher" target="_blank" rel="noopener">GitCode</a> 三处都同步了，国内访问不稳的时候可以换着拿。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/emochi.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">emochi 翻了底朝天：那些藏在菜单里没人点过的设置</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/kali-linux.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Kali Linux 踩过的六个深坑，每个都差点让我重装系统</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

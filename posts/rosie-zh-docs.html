@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Rosie 迭代观察：从标签到聊天，一款 AI 角色扮演应用的成型轨迹 · 老郭软件铺</title>
+  
+<meta name="description" content="Rosie 现在长什么样？它的角色标签体系、Gems 计费、多登录入口是怎么一步步走到今天的？从文档里没写的版本痕迹，反推这款应用的成长逻辑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/rosie-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rosie 迭代观察：从标签到聊天，一款 AI 角色扮演应用的成型轨迹">
+<meta property="og:description" content="Rosie 现在长什么样？它的角色标签体系、Gems 计费、多登录入口是怎么一步步走到今天的？从文档里没写的版本痕迹，反推这款应用的成长逻辑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/rosie-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/rosie-zh-docs/characters-gallery.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/rosie-zh-docs/characters-gallery.webp">
+
+<meta name="twitter:title" content="Rosie 迭代观察：从标签到聊天，一款 AI 角色扮演应用的成型轨迹">
+<meta name="twitter:description" content="Rosie 现在长什么样？它的角色标签体系、Gems 计费、多登录入口是怎么一步步走到今天的？从文档里没写的版本痕迹，反推这款应用的成长逻辑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Rosie \u73b0\u5728\u957f\u4ec0\u4e48\u6837\uff1f\u5b83\u7684\u89d2\u8272\u6807\u7b7e\u4f53\u7cfb\u3001Gems \u8ba1\u8d39\u3001\u591a\u767b\u5f55\u5165\u53e3\u662f\u600e\u4e48\u4e00\u6b65\u6b65\u8d70\u5230\u4eca\u5929\u7684\uff1f\u4ece\u6587\u6863\u91cc\u6ca1\u5199\u7684\u7248\u672c\u75d5\u8ff9\uff0c\u53cd\u63a8\u8fd9\u6b3e\u5e94\u7528\u7684\u6210\u957f\u903b\u8f91\u3002", "headline": "Rosie \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4ece\u6807\u7b7e\u5230\u804a\u5929\uff0c\u4e00\u6b3e AI \u89d2\u8272\u626e\u6f14\u5e94\u7528\u7684\u6210\u578b\u8f68\u8ff9", "image": ["https://laoguosofts.github.io/images/rosie-zh-docs/characters-gallery.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/rosie-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/rosie-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "Rosie \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4ece\u6807\u7b7e\u5230\u804a\u5929\uff0c\u4e00\u6b3e AI \u89d2\u8272\u626e\u6f14\u5e94\u7528\u7684\u6210\u578b\u8f68\u8ff9", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">Rosie 迭代观察：从标签到聊天，一款 AI 角色扮演应用的成型轨迹</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">Rosie 迭代观察：从标签到聊天，一款 AI 角色扮演应用的成型轨迹</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Rosie 现在长什么样？它的角色标签体系、Gems 计费、多登录入口是怎么一步步走到今天的？从文档里没写的版本痕迹，反推这款应用的成长逻辑。</p>
+  </header>
+  <div class="prose serif">
+<p>现在打开 Rosie 的<a href="https://rosie.gerw.hair" target="_blank" rel="noopener">官网</a>，或者从<a href="https://rosie.gerw.hair/download.html" target="_blank" rel="noopener">下载</a>拿安装包装上，看到的是一套相当完整的 AI 角色扮演产品：角色库按标签分类，每个角色卡上性别、性格、社交倾向一目了然；点进去就是气泡式聊天界面，左边角色带头像，右边自己紫色气泡，顶部飘着每条消息的费率标注。三四种登录方式、点数钱包、甚至捏自己的角色——该有的功能它都齐了。但这份"完整感"不是从第一天就有的。</p>
+<p>我翻了这款应用的<a href="https://rosie-zh-docs.pages.dev/" target="_blank" rel="noopener">Rosie文档</a>，有意思的是，文档里<strong>一个版本号都没提</strong>。没有 changelog 页，没有"X.X 版本新增了什么"的回溯，所有条目只描述"现在这个功能怎么用"。这本身就是一个信号——Rosie 的产品团队不想让用户被版本历史干扰，或者说，他们自己也没打算做一个"大版本跃迁"的叙事。但换个角度，正因为文档只写当下，我们反而能从功能的完整度和相互关系里，反推出它走过的路。</p>
+<h2>现状：一个"该有的都有"的角色扮演框架</h2>
+<p>先把这版 Rosie 的骨架摆出来。角色库是核心入口，每个角色挂三个胶囊标签——性别、性格（Brave / Sweet 之类）、社交倾向（Extrovert）。标签不是装饰，选角色时扫一眼就能过滤出你想要的类型：要情绪陪伴找 Sweet + Extrovert，要剧情推进找 Brave + 有爱好设定的。进了对话，界面布局也很标准化：顶部角色信息条（带头像、名字、费率）、中间气泡消息流、底部输入框。每条消息扣 5 Gems，这是它的虚拟点数账本。</p>
+<p><img src="../images/rosie-zh-docs/characters-gallery.webp" alt="角色标签体系" loading="lazy"></p>
+<p>登录入口有三条：邮箱注册、访客模式、Google / Apple 第三方。退出也有两条：清设备数据、发邮件给开发者请求删除服务端数据。甚至捏自己的角色也有了——文档里专门有一章讲个性标签与性格预设，说明自建角色不是边角料，是产品主线的一部分。</p>
+<p>这套框架放在今天看并不稀奇，很多 AI 聊天应用都长这样。但把时间往前推，Rosie 走到这里每一块拼图什么时候落的、哪块是先有哪块是补的，值得扒一扒。</p>
+<h2>来路：从对话到角色，标签体系的出现是个转折点</h2>
+<p>假设最早的 Rosie 只有一个最小可用的聊天功能——选个角色说上几句。那角色库的组织方式会是个大问题：纯名字列表？纯简介？用户得一个个点进去看才知道是什么人。标签体系的出现，解决的就是这个"选之前先读一遍简介太费劲"的痛点。</p>
+<p>为什么是三个维度？性别、性格、社交倾向——这三个标签叠起来，加上一句简介，基本够用户判断"这个角色我要不要聊"。而且它不复杂，三个胶囊比一整段简介扫一眼快得多。文档里说标签是"人设意图，不是对话保证"——Brave 角色也会说软话，Sweet 角色也可能呛你。团队在设计标签时就留了余地，没把标签当承诺，而是当一个"速读工具"。这个分寸感很重要，说明他们踩过"标签太死导致 AI 回应僵硬"的坑。</p>
+<p>标签体系成熟之后，自建角色的路径就顺理成章了——文档里"逛库时对标签的理解，直接复用到捏角色上"这句话，暴露了设计逻辑：先让用户逛明白标签是什么意思，再让他们自己用同一套标签造角色。这不是巧合，是产品设计的递进。</p>
+<p>Gems 计费也是一个重要的演化节点。每条消息扣点数，这本身不稀奇，但 Rosie 把点数变成了一个独立的"账本"模块来写文档——怎么省点数、什么操作费点数、点数丢了怎么办——说明团队在计费这件事上花了不少心思。从"随便聊"到"有成本地聊"，这一步的跨越不只是加了个扣钱逻辑，更是把"对话效率"这个概念推给了用户。文档里的"别刷短消息，每条都计费"这种建议，显然是团队从早期用户行为里总结出来的教训。</p>
+<h2>多登录入口：补出来的安全感</h2>
+<p>三条登录路（邮箱、访客、第三方）和两条出口（清数据、发邮件删账号）放一起看，很有意思。访客模式是最省心的——点了就进，设备上直接用。但它的缺点也最致命：换手机找不回，卸载清数据就归零。文档里专门强调"别用访客模式充值"，这句话从哪来的？大概率是早期有访客用户充了值然后换手机，钱没了来找过。</p>
+<p>邮箱注册是"长期主义"的选择，把资产挂在自己掌控的账号上。第三方登录是"不想记密码"的折中。三条路并存，说明团队一开始可能只做了一种登录，后来用户反馈倒逼把另外两条补上了。登录如此，注销也是——先有了设备侧清除的能力，后来才补上了向开发者发请求删除服务端数据的官方渠道，而且两个邮箱地址差一个字母这个细节，文档里专门写了，这种"踩过的坑直接进文档"的做法，很实在。</p>
+<h2>规律：Rosie 团队一直在死磕什么</h2>
+<p>从这些功能的完整度来倒推，有两件事是团队反复打磨的：</p>
+<p>第一是<strong>角色的可发现性和可创建性</strong>。标签体系、自建角色、标签复用逻辑——这些功能串在一起，指向一个目标：让用户找到想聊的人，然后让用户自己造想聊的人。角色是 Rosie 的核心资产，团队一直在围绕"角色"这一件事上迭代。</p>
+<p>第二是<strong>点数账本的透明化</strong>。Gems 怎么花、怎么省、丢了怎么办——文档用了一整章来讲这件事。很多 AI 聊天应用把计费藏在设置里，Rosie 把它抬到了导航层级。这说明早期计费不透明导致过用户不满，团队花了不少功夫来补这块的认知差距。</p>
+<p>反过来，什么是他们一直没怎么动的？聊天功能本身的花哨程度——没有消息撤回（文档里只提了截图保存）、没有多角色群聊作为主打（提了多角色消息流但放在很后面的章节）、没有富文本消息。Rosie 的聊天界面始终保持了简洁：气泡 + 头像 + 输入框。这不是能力不够，是有意为之——把资源集中在角色生态和计费这两条主线上，其他的以后再说。</p>
+<p><img src="../images/rosie-zh-docs/chat-intro.webp" alt="聊天界面" loading="lazy"></p>
+<h2>预判：按这个节奏，下一步会在哪</h2>
+<p>从迭代规律推的，不是官方口径。</p>
+<p>如果标签体系继续深化，下一步可能是标签维度的扩展——三个胶囊标签承载不了太复杂的人设，文档里自己也承认了这一点。也许会出现"爱好标签"或"背景标签"，让角色选择更精准。或者反过来，让用户可以自定义标签组合规则，把标签变成一个更灵活的筛选器。</p>
+<p>自建角色这条线，文档里目前写的还是"用同一套标签造角色"，但如果用户开始追求更细的人设控制，下一步可能开放角色卡的更多字段——不只是标签和简介，还有开场白模板、对话风格预设之类的。</p>
+<p>至于计费那边，现在是统一的 5 Gems / 条，以后会不会出现不同角色不同费率？会不会做包月或者点数折扣？这些都可能，但团队的风格是走一步看一步——先把当前的账本讲清楚，再考虑更复杂的计费模型。</p>
+<p>Rosie 的产品节奏给人一种很踏实的感觉：不搞大新闻，不画大饼，哪个环节用户有痛点就补哪个，补完就进文档给后人留痕——这也是为什么你会在<a href="https://github.com/alipymanbu/APK/tree/main/APP/Rosie" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/Rosie" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/Rosie" target="_blank" rel="noopener">GitCode</a> 上看到同名目录持续更新。对于一个 AI 角色扮演应用来说，这种"做完再说"的进化方式，反而比"先喊出愿景再做产品"更让人觉得可靠——至少你能看到它在真的往前走。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/flexcil.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Flexcil 用了一年，踩过的八个坑一次性说清</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/nomi-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了大半年 Nomi，我终于想清楚它值不值那九块九</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

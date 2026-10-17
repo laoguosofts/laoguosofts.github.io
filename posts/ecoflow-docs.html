@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>正浩电源入坑半年，踩过的那些让人想砸设备的坑 · 老郭软件铺</title>
+  
+<meta name="description" content="刚买正浩便携电源觉得挺简单，结果配网卡了半小时、蓝牙搜不到设备、远程控制延迟——分享几个真实踩过的坑和绕过它们的办法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ecoflow-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正浩电源入坑半年，踩过的那些让人想砸设备的坑">
+<meta property="og:description" content="刚买正浩便携电源觉得挺简单，结果配网卡了半小时、蓝牙搜不到设备、远程控制延迟——分享几个真实踩过的坑和绕过它们的办法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ecoflow-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ecoflow-docs/control-screen.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ecoflow-docs/control-screen.webp">
+
+<meta name="twitter:title" content="正浩电源入坑半年，踩过的那些让人想砸设备的坑">
+<meta name="twitter:description" content="刚买正浩便携电源觉得挺简单，结果配网卡了半小时、蓝牙搜不到设备、远程控制延迟——分享几个真实踩过的坑和绕过它们的办法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u521a\u4e70\u6b63\u6d69\u4fbf\u643a\u7535\u6e90\u89c9\u5f97\u633a\u7b80\u5355\uff0c\u7ed3\u679c\u914d\u7f51\u5361\u4e86\u534a\u5c0f\u65f6\u3001\u84dd\u7259\u641c\u4e0d\u5230\u8bbe\u5907\u3001\u8fdc\u7a0b\u63a7\u5236\u5ef6\u8fdf\u2014\u2014\u5206\u4eab\u51e0\u4e2a\u771f\u5b9e\u8e29\u8fc7\u7684\u5751\u548c\u7ed5\u8fc7\u5b83\u4eec\u7684\u529e\u6cd5\u3002", "headline": "\u6b63\u6d69\u7535\u6e90\u5165\u5751\u534a\u5e74\uff0c\u8e29\u8fc7\u7684\u90a3\u4e9b\u8ba9\u4eba\u60f3\u7838\u8bbe\u5907\u7684\u5751", "image": ["https://laoguosofts.github.io/images/ecoflow-docs/control-screen.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ecoflow-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ecoflow-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u6b63\u6d69\u7535\u6e90\u5165\u5751\u534a\u5e74\uff0c\u8e29\u8fc7\u7684\u90a3\u4e9b\u8ba9\u4eba\u60f3\u7838\u8bbe\u5907\u7684\u5751", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">正浩电源入坑半年，踩过的那些让人想砸设备的坑</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">正浩电源入坑半年，踩过的那些让人想砸设备的坑</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刚买正浩便携电源觉得挺简单，结果配网卡了半小时、蓝牙搜不到设备、远程控制延迟——分享几个真实踩过的坑和绕过它们的办法。</p>
+  </header>
+  <div class="prose serif">
+<p>半年前入手<a href="https://ecoflow.fewa.skin" target="_blank" rel="noopener">ecoflow官网</a>推荐的那款便携电源的时候，以为就是个大号充电宝——插上去就能用，App 扫个码完事。结果第一晚就卡了配网卡在那转圈转了半个多小时，后来又遇到蓝牙怎么都搜不到、端口控制半天不响应的问题。老实说这个软件看着简单，其实有几个坑新手一踩一个准。</p>
+<h2>第一个坑：配网死活连不上，App 在那转圈跟抽筋似的</h2>
+<p><strong>症状</strong>：按 App 提示长按 IoT RESET，设备热点连得上，一到"连接家庭 Wi-Fi"那一步就开始转圈，转个一两分钟然后提示超时或密码错误。我第一次遇到时以为要把设备寄回厂家，差点发起退货申请。</p>
+<p><strong>原因</strong>：排查了一圈发现，大多数情况不是设备坏了，是几个低级细节没注意到。最常见的是 <strong>5GHz Wi-Fi 的问题</strong>——老款正浩设备只支持 2.4GHz，不支持 5GHz。现在路由器默认双频合一，手机也优先连 5GHz，结果设备一头雾水地去尝试 5GHz 当然失败。还有一种情况是<strong>手机蜂窝数据没关</strong>，配网时手机同时开着流量，某些系统会优先用流量而不是真的连接设备热点，设备根本收不到 Wi-Fi 密码。</p>
+<p>另外还有两种容易忽略的情况：路由器开了 <strong>AP 隔离</strong>（访客网络模式），设备连上 Wi-Fi 后跟手机不在一个局域网里，配网当然完成不了；或者你家 Wi-Fi 密码里有 <code>#</code> <code>&amp;</code> <code>@</code> 这类特殊字符，早期固件对这些字符支持不好。</p>
+<p><strong>解法</strong>：最直接的办法是进路由器管理页，把 2.4GHz 和 5GHz 的 SSID <strong>手动分开</strong>——给 2.4GHz 起个单独名字比如"Home-2.4G"，配网时连这个。或者临时关掉 5GHz 只用 2.4 配。<strong>配网时一定关掉手机流量</strong>，下拉通知栏点一下流量图标就行，配完再开。如果怀疑密码有问题，临时改成纯字母数字的密码试一下。AP 隔离那个在路由器设置里找"客户端隔离"或"访客网络隔离"关掉就好。</p>
+<p>还有一招兜底：先<strong>用蓝牙模式连上设备</strong>（蓝牙对固件版本要求低得多），在 App 里检查固件更新并升级到最新版本，然后再重新走 IoT 配网。很多老固件不兼容新 App 的配网协议，升级一下就通了——后来去<a href="https://ecoflow-docs.pages.dev/" target="_blank" rel="noopener">ecoflow文档</a>翻了一下才确认这真的是最常见的原因之一。</p>
+<h2>第二个坑：蓝牙怎么都搜不到设备</h2>
+<p><strong>症状</strong>：App 里点"添加设备"然后蓝牙扫描，扫了三分钟啥也没出来。或者搜到了但一直卡在"配对中"。</p>
+<p><strong>原因</strong>：蓝牙问题比配网简单得多——通常就是权限没给全或者蓝牙模块卡了。Android 12 引入的"附近的设备"权限最坑——你只给蓝牙权限不够，必须同时把"附近的设备"和"位置"开关都打开，蓝牙扫描才能正常工作。还有一种情况是之前配过别的手机，<strong>旧的配对记录损坏</strong>了，手机以为设备已配对就不主动发现。</p>
+<p><strong>解法</strong>：最有效的一步——<strong>重置蓝牙模块</strong>。设备关机状态下长按主电源按钮 5 秒以上，屏幕亮起后继续按住直到听到提示音再松开。这能解决 70% 的蓝牙问题。同时别忘了在手机上也<strong>删除旧的配对记录</strong>（系统设置 → 蓝牙 → 找到正浩设备 → 点"忽略此设备"）。权限那块要注意：Android 12+ 一定要在应用权限里单独给"附近的设备"允许，iOS 则在隐私与安全里检查蓝牙和位置服务的开关。另外配网时别在金属柜里或靠近微波炉这些地方，蓝牙信号会被严重干扰。</p>
+<p><img src="../images/ecoflow-docs/control-screen.webp" alt="蓝牙扫描界面" loading="lazy"></p>
+<h2>第三个坑：远程控制半天不响应，App 显示开关成功但实际没电</h2>
+<p><strong>症状</strong>：在 App 里点了 USB 口的开关，界面显示"已关闭"，但插头插着的露营灯还是亮着，等了好几秒才暗下去。或者有时候点了根本没反应。</p>
+<p><strong>原因</strong>：远程控制延迟是正常的——IoT 模式下可能有 1~3 秒延迟，蓝牙/直连会快得多。但如果迟迟没反应，大概率是<strong>固件版本问题</strong>。某些新型号的精细端口控制功能（比如单独开关每个 AC 插座）需要设备固件达到一定版本，老固件根本没有这个能力。还有一种可能是<strong>过载保护触发了</strong>——如果 App 显示开关成功但实际没电，试试拔掉所有负载后再开一次，有可能是之前接的设备功率太大触发了保护。</p>
+<p><strong>解法</strong>：先等几秒确认是不是延迟。如果持续没反应，进 App 的设备详情页检查固件更新。端口那边如果经常过载，注意看一下设备的额定功率，别超了。长期不用的端口可以主动关掉省电——某些设备待机功耗虽小但积少成多，关掉端口等于彻底断电。</p>
+<h2>第四个坑：下载装完发现是旧版，功能对不上</h2>
+<p><strong>症状</strong>：按照网上教程下载安装了 App，结果教程里说的功能（比如 AC Always On、TOU 模式）在自己的 App 里找不到，或者界面完全不一样。</p>
+<p><strong>原因</strong>：正浩 App 的分发渠道比较分散，不同地区版本不一样。国内版和海外版 APK 是两个独立安装包，从第三方 APK 下载站（APKPure 之类）下到的可能是旧版或者被二次打包的版本，功能不全甚至有广告。</p>
+<p><strong>解法</strong>：iOS 用户老老实实走 App Store 就好，这是唯一官方渠道。Android 用户优先从手机厂商自家应用商店（华为、小米、OPPO、vivo）搜"正浩"，这些渠道有额外安全审计。没有应用商店的设备可以从<a href="https://ecoflow.fewa.skin/download.html" target="_blank" rel="noopener">ecoflow下载</a>拿 APK 直装包，<strong>别从第三方下载站下</strong>。</p>
+<p><img src="../images/ecoflow-docs/app-download-cn.png" alt="App 下载页面" loading="lazy"></p>
+<h2>防坑清单（新手速查）</h2>
+<ul><li>配网前<strong>手动分开双频 Wi-Fi</strong> 的 SSID，或者临时关 5GHz</li><li>配网时<strong>关掉手机蜂窝数据</strong>，配完再开</li><li>蓝牙搜不到先<strong>重置蓝牙模块</strong> + 删除手机旧配对记录</li><li>Android 12+ 必须给"<strong>附近的设备</strong>"权限，只给蓝牙权限不够</li><li>所有端口都关掉能省不少电，长期存放建议全关</li></ul>
+<p>知道这些坑之后，这软件其实相当省心。远程在被窝里关灯、出门在外检查设备是否待机、低谷电价自动充电这些功能用起来很舒服——前提是别在前面几个坑上浪费时间。顺便提一句，我整理的这款软件排查笔记和相关资料同步放在了<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/ecoflow" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/ecoflow" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/ecoflow" target="_blank" rel="noopener">GitCode</a>三个仓库，方便不同网络环境的朋友查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/artflow.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">ArtFlow 版本进化史：从涂鸦画板到专业移动绘画工具</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/webcat-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">WebCat 5.21 原理解析：一部安卓手机，为什么能装下整套网页开发链</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

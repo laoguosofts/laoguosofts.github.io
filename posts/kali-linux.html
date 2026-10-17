@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Kali Linux 踩过的六个深坑，每个都差点让我重装系统 · 老郭软件铺</title>
+  
+<meta name="description" content="从无线网卡到 Metasploit，从 NetHunter 到 WSL，Kali Linux 的工具链看着开箱即用，背后藏着一堆硬件兼容、服务依赖和环境路径的陷阱。本文把我踩过的最痛的六个坑逐个拆开。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kali-linux.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali Linux 踩过的六个深坑，每个都差点让我重装系统">
+<meta property="og:description" content="从无线网卡到 Metasploit，从 NetHunter 到 WSL，Kali Linux 的工具链看着开箱即用，背后藏着一堆硬件兼容、服务依赖和环境路径的陷阱。本文把我踩过的最痛的六个坑逐个拆开。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kali-linux.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/kali-linux/nethunter-screen-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/kali-linux/nethunter-screen-1.jpg">
+
+<meta name="twitter:title" content="Kali Linux 踩过的六个深坑，每个都差点让我重装系统">
+<meta name="twitter:description" content="从无线网卡到 Metasploit，从 NetHunter 到 WSL，Kali Linux 的工具链看着开箱即用，背后藏着一堆硬件兼容、服务依赖和环境路径的陷阱。本文把我踩过的最痛的六个坑逐个拆开。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u65e0\u7ebf\u7f51\u5361\u5230 Metasploit\uff0c\u4ece NetHunter \u5230 WSL\uff0cKali Linux \u7684\u5de5\u5177\u94fe\u770b\u7740\u5f00\u7bb1\u5373\u7528\uff0c\u80cc\u540e\u85cf\u7740\u4e00\u5806\u786c\u4ef6\u517c\u5bb9\u3001\u670d\u52a1\u4f9d\u8d56\u548c\u73af\u5883\u8def\u5f84\u7684\u9677\u9631\u3002\u672c\u6587\u628a\u6211\u8e29\u8fc7\u7684\u6700\u75db\u7684\u516d\u4e2a\u5751\u9010\u4e2a\u62c6\u5f00\u3002", "headline": "Kali Linux \u8e29\u8fc7\u7684\u516d\u4e2a\u6df1\u5751\uff0c\u6bcf\u4e2a\u90fd\u5dee\u70b9\u8ba9\u6211\u91cd\u88c5\u7cfb\u7edf", "image": ["https://laoguosofts.github.io/images/kali-linux/nethunter-screen-1.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kali-linux.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kali-linux.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Kali Linux \u8e29\u8fc7\u7684\u516d\u4e2a\u6df1\u5751\uff0c\u6bcf\u4e2a\u90fd\u5dee\u70b9\u8ba9\u6211\u91cd\u88c5\u7cfb\u7edf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Kali Linux 踩过的六个深坑，每个都差点让我重装系统</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Kali Linux 踩过的六个深坑，每个都差点让我重装系统</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从无线网卡到 Metasploit，从 NetHunter 到 WSL，Kali Linux 的工具链看着开箱即用，背后藏着一堆硬件兼容、服务依赖和环境路径的陷阱。本文把我踩过的最痛的六个坑逐个拆开。</p>
+  </header>
+  <div class="prose serif">
+<h2>开头：以为装上就能跑全套，结果卡了三天</h2>
+<p>当初我是冲着"一键搞定渗透测试"来的——600 多款工具预装、定制内核、无线支持，<a href="https://kali-linux.qjxz.skin" target="_blank" rel="noopener">官网</a>把 Kali Linux 吹得像是插上电源就能开始审计。现实是：我从 ISO 写到 U 盘那一刻起，到真正跑通第一条 <code>airodump-ng</code> 扫描命令，中间卡了整整三天。</p>
+<p>不是我菜，是 Kali 的坑藏得太巧。每个坑单独看都是"小问题"，但连起来能把新手的耐心磨到零。下面这六个是我印象最深的，每个都有症状、有原因、有解法。</p>
+<p><img src="../images/kali-linux/nethunter-screen-1.jpg" alt="NetHunter 在安卓设备上的运行界面" loading="lazy"></p>
+<h2>坑一：airmon-ng start 之后，网卡直接消失</h2>
+<p><strong>症状</strong>：敲完 <code>airmon-ng start wlan0</code>，终端里报了一句 "monitor mode enabled on wlan0mon"，然后再敲 <code>iwconfig</code>——wlan0 和 wlan0mon 都不见了，只剩下一张 <code>lo</code>。重启网络管理器也没用，甚至 reboot 之后网卡名还在但就是扫不到任何 Wi-Fi 信号。</p>
+<p><strong>原因</strong>：Kali 默认的 NetworkManager 服务会在 monitor 模式切换过程中自动接管无线网卡，把 airmon-ng 创建的虚拟接口给"收编"回去了。这个问题只在某些内核版本和特定芯片上出现，所以<a href="https://kali-linux.pages.dev/" target="_blank" rel="noopener">kali linux文档</a>只在 FAQ 最底部提了一句，很容易漏看。</p>
+<p><strong>解法</strong>：跑 airmon-ng 之前先干掉所有会抢网卡的进程：</p>
+<pre><code class="language-bash">airmon-ng check kill</code></pre>
+<p>这条命令会自动 stop NetworkManager、wpa_supplicant 等服务。跑完再 <code>airmon-ng start wlan0</code>，网卡就老老实实留在 monitor 模式了。用完之后记得 <code>airmon-ng stop wlan0mon</code>，然后 <code>service NetworkManager start</code> 恢复日常上网，不然后面没法搜漏洞数据库。</p>
+<h2>坑二：airodump-ng 一片空白，连自己家的 AP 都扫不到</h2>
+<p><strong>症状</strong>：monitor 模式看起来开成功了，<code>iwconfig</code> 也显示 Mode: Monitor，但是敲 <code>airodump-ng wlan0mon</code> 之后屏幕上只有一个空表格，等了五分钟一个 BSSID 都没有。</p>
+<p><strong>原因</strong>：九成概率是<strong>硬件不支持</strong>。笔记本自带的无线网卡，十张里有八张的芯片组不支持 monitor mode 或 packet injection——Kali 的定制内核虽然打了补丁，但补丁只对 RTL8812AU、AR9271、RTL8187L 这些特定芯片有效。我那台联想拯救者用的是 Intel AX210，就是被补丁列表漏掉的那一批。</p>
+<p><strong>解法</strong>：老老实实买一张外接 USB 网卡。Alfa AWUS036ACH（RTL8812AU 芯片）是圈内公认的入门款，插上就能用，不用折腾驱动。还有一成概率是你在虚拟机里跑 Kali——虚拟网卡直通物理网卡这件事，VMware 和 VirtualBox 在不同内核版本上表现完全不一样，我后来干脆改成物理机安装，省了无数调试时间。</p>
+<h2>坑三：aireplay-ng 报 injection failed，握手包永远抓不到</h2>
+<p><strong>症状</strong>：扫到了目标 AP，锁定了频道，aireplay-ng 也发出去认证包了，但是目标 AP 纹丝不动，没有任何客户端掉线重连。a irodump-ng 右上角的 Handshake 区域始终空着。</p>
+<p><strong>原因</strong>：还是硬件。injection（数据包注入）是比 monitor mode 更苛刻的硬件能力，有些网卡能 monitor 但不能注入，比如早期的 RTL8723 系列。还有一种可能是目标 AP 开了 WPA3 或者 PMF（Protected Management Frames），强制客户端下线的 deauthentication 包会被 AP 直接丢弃。</p>
+<p><strong>解法</strong>：先跑 <code>aireplay-ng -9 wlan0mon</code> 做注入测试——如果看到 "Injection is working!" 那就是 AP 端的问题，得换目标或者等 WPS 漏洞；如果测试就失败，那赶紧换网卡，别在这上面耗时间。另外可以用 <code>reaver</code> 工具走 WPS 攻击路径绕过握手包捕获，前提是目标路由器没禁用 WPS。</p>
+<h2>坑四：Metasploit 启动报数据库连接失败</h2>
+<p><strong>症状</strong>：敲 <code>msfconsole</code> 能进去，但跑 <code>db_status</code> 显示 "Database not connected"，搜索历史和自动记录的功能全不可用。新手可能觉得无所谓，但实际跑渗透任务时，没了数据库跟踪每个目标的扫描结果，多目标场景下很快就乱了。</p>
+<p><strong>原因</strong>：Kali 2024 之后把 PostgreSQL 的初始化从"首次启动自动完成"改成了"需要手动执行"——这是为了节省 Live 模式的内存占用，但官方没把这个改动放在显眼位置。很多人以为装完 Kali 数据库就好了，其实根本没初始化。</p>
+<p><strong>解法</strong>：三条命令搞定，顺序不能反：</p>
+<pre><code class="language-bash">sudo systemctl start postgresql
+sudo msfdb init
+msfconsole</code></pre>
+<p>进 msfconsole 之后再敲 <code>db_status</code>，应该能看到 <code>[*] Connected to msf. Connection type: postgresql.</code> 这行提示。顺便提一句，每次开机 postgresql 服务默认不会自启，嫌麻烦的可以 <code>sudo systemctl enable postgresql</code> 设成开机自动。</p>
+<h2>坑五：NetHunter 装在安卓上，很多工具跑不动</h2>
+<p><strong>症状</strong>：安卓机型装完 NetHunter，打开终端发现 <code>aircrack-ng</code>、<code>reaver</code> 这些无线工具全部执行失败，报 "Operation not permitted" 或者直接段错误。Metasploit 能跑但 payload 发出去收不到回连。</p>
+<p><strong>原因</strong>：NetHunter 依赖内核级权限，必须刷入第三方内核（通常是 Kali 官方编译的自定义内核）。用 Magisk root 而不刷内核的话，安卓的 SELinux 和内核模块会把无线注入等操作全部拦截。另外，高通芯片的安卓机比联发科的兼容性好很多，我之前用一台联发科机型，刷了内核也跑不起来 monitor mode。</p>
+<p><strong>解法</strong>：先去 NetHunter 官网的设备支持列表查你的机型——在列表里的按教程刷内核，安装所需镜像从<a href="https://kali-linux.qjxz.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿；不在列表里的，要么换设备要么放弃无线测试，只当普通命令行工具用。Metasploit 收不到回连大概率是安卓防火墙没开端口转发，<code>iptables -I INPUT -p tcp --dport 4444 -j ACCEPT</code> 先放行监听端口再说。</p>
+<p><img src="../images/kali-linux/wsl-apps.png" alt="WSL 模式下运行的 Kali 工具集界面" loading="lazy"></p>
+<h2>坑六：WSL 里跑 Kali，网络永远对不上</h2>
+<p><strong>症状</strong>：WSL2 装了 Kali，工具链齐全，但是 <code>nmap</code> 扫不到 Windows 主机的局域网设备，Metasploit 的 <code>LHOST</code> 设了内网 IP，反向 shell 就是回不来。更离谱的是有时候 WSL 的 IP 每次重启都变，连 SSH 进去都费劲。</p>
+<p><strong>原因</strong>：WSL2 用的是虚拟网卡 + NAT 的网络模型，WSL 实例和 Windows 主机不在同一个二层网络里。<code>nmap 192.168.1.0/24</code> 能扫到的只有 WSL 自己的虚拟网段，外面的真实局域网设备根本看不见。2024 年底 WSL 加了 Mirror Network 模式，但默认还是 NAT。</p>
+<p><strong>解法</strong>：在 <code>%USERPROFILE%\.wslconfig</code> 里加一行 <code>networkingMode=mirrored</code>，启用镜像网络模式。这样 WSL 和 Windows 共享同一套网络栈，nmap 能扫到真实局域网，反向 shell 的 <code>LHOST</code> 也能直接写 Windows 的内网 IP。代价是 WSL 的网络性能会略有下降，但对安全测试场景来说这个牺牲完全可以接受。</p>
+<h2>防坑清单（3 秒速查）</h2>
+<ul><li>无线测试前先 <code>iw list</code> 确认网卡支持 monitor + injection，不行就外接 Alfa</li><li>airmon-ng 之前一定 <code>airmon-ng check kill</code>，用完记得恢复 NetworkManager</li><li>Metasploit 数据库必须手动 init，开机记得 start postgresql</li><li>NetHunter 先查设备支持列表，联发科机型慎刷</li><li>WSL 跑 Kali 记得开 Mirror Network 模式，不然 nmap 等于瞎子摸象</li></ul>
+<p>这份 Kali Linux 的踩坑笔记和配套的工具脚本，我在三个地方做了备份：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/kali%20linux" target="_blank" rel="noopener">GitHub</a> 上有完整版本，国内网络优先看 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/kali%20linux" target="_blank" rel="noopener">Gitee</a>，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/kali%20linux" target="_blank" rel="noopener">GitCode</a> 也同步了一份方便不同场景查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/p2psearcher.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">P2PSearcher 从零上手：搜索、筛选、云播一条龙</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/bigc-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">BIGC 从 0 到 1：打歌投票、独家花絮、演出购票一次搞懂</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

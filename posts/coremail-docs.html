@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>审计组上门那天，我才庆幸行里换了 Coremail · 老郭软件铺</title>
+  
+<meta name="description" content="城商行 IT 运维的一个周一早上，审计组要五年前的邮件归档，同事又误删了客户协议确认函。信创迁移刚半年，Coremail XT6 能不能同时扛住合规、安全和恢复这三关？">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/coremail-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="审计组上门那天，我才庆幸行里换了 Coremail">
+<meta property="og:description" content="城商行 IT 运维的一个周一早上，审计组要五年前的邮件归档，同事又误删了客户协议确认函。信创迁移刚半年，Coremail XT6 能不能同时扛住合规、安全和恢复这三关？">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/coremail-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/coremail-docs/xt6-system.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/coremail-docs/xt6-system.png">
+
+<meta name="twitter:title" content="审计组上门那天，我才庆幸行里换了 Coremail">
+<meta name="twitter:description" content="城商行 IT 运维的一个周一早上，审计组要五年前的邮件归档，同事又误删了客户协议确认函。信创迁移刚半年，Coremail XT6 能不能同时扛住合规、安全和恢复这三关？">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u57ce\u5546\u884c IT \u8fd0\u7ef4\u7684\u4e00\u4e2a\u5468\u4e00\u65e9\u4e0a\uff0c\u5ba1\u8ba1\u7ec4\u8981\u4e94\u5e74\u524d\u7684\u90ae\u4ef6\u5f52\u6863\uff0c\u540c\u4e8b\u53c8\u8bef\u5220\u4e86\u5ba2\u6237\u534f\u8bae\u786e\u8ba4\u51fd\u3002\u4fe1\u521b\u8fc1\u79fb\u521a\u534a\u5e74\uff0cCoremail XT6 \u80fd\u4e0d\u80fd\u540c\u65f6\u625b\u4f4f\u5408\u89c4\u3001\u5b89\u5168\u548c\u6062\u590d\u8fd9\u4e09\u5173\uff1f", "headline": "\u5ba1\u8ba1\u7ec4\u4e0a\u95e8\u90a3\u5929\uff0c\u6211\u624d\u5e86\u5e78\u884c\u91cc\u6362\u4e86 Coremail", "image": ["https://laoguosofts.github.io/images/coremail-docs/xt6-system.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/coremail-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/coremail-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u5ba1\u8ba1\u7ec4\u4e0a\u95e8\u90a3\u5929\uff0c\u6211\u624d\u5e86\u5e78\u884c\u91cc\u6362\u4e86 Coremail", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">审计组上门那天，我才庆幸行里换了 Coremail</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">审计组上门那天，我才庆幸行里换了 Coremail</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">城商行 IT 运维的一个周一早上，审计组要五年前的邮件归档，同事又误删了客户协议确认函。信创迁移刚半年，Coremail XT6 能不能同时扛住合规、安全和恢复这三关？</p>
+  </header>
+  <div class="prose serif">
+<p>周一早上八点四十，我刚把保温杯塞进保温杯架，审计组三个人已经坐在会议室等着了。</p>
+<p>"王工，麻烦调一下 2020 年那笔城西综合体项目的审批邮件，从立项到放款的完整链条，监管要抽查。"说话的是审计部李姐，手里攥着银保监会的合规检查清单。</p>
+<p>我心里咯噔一下。那是五年前的邮件了，而且当年行里还在用 IBM Domino——那套系统的归档检索，我至今记得是出了名的慢，关键词一多就卡死，格式还经常乱码。去年信创迁移选型的时候，我在<a href="https://coremail.bmww.store" target="_blank" rel="noopener">coremail官网</a>上把金融行业案例翻了个遍，最终拍板换 Coremail XT6，信创全栈适配加上金融行业合规能力是主要理由，<a href="https://coremail.bmww.store/download.html" target="_blank" rel="noopener">coremail下载</a>拿到的安装包也有信创专项版本，但说实话，真正把老系统全量迁移完才三个月，归档系统还没怎么用过，心里没底。</p>
+<p>旁边小周凑过来小声说："对了王工，今早张姐误删了一封客户那边的协议确认函，垃圾箱已经清了，说是系统自动清理的……"</p>
+<p>得，两头凑一块了。我深吸一口气，先拉审计组的人坐下泡茶，转身进了机房。</p>
+<h2>归档检索：原来审计员权限真的只在归档系统里</h2>
+<p>以前用 Domino 的时候，审计要邮件归档，得专门找 IBM 开工单导 PST，等上两三天是常态。Coremail 这套是三权分立设计——管理员、审计员、操作员权限完全隔开，我作为管理员碰不到归档里的邮件，只有审计组自己在归档系统里操作。</p>
+<p>我给李姐开了审计员账号，让她登录归档界面。她输了几个关键词——项目代号、客户公司名、审批人名——回车不到三秒，屏幕上刷出了完整的邮件线程，从 2020 年 3 月的第一封立项邮件到 11 月的放款审批，一共 147 封，时间线清清楚楚。</p>
+<p>"这就能导出成 EML？"李姐有点意外。以前导出来的 PST 经常出格式问题，这次她特意问了一句。</p>
+<p>我点头。归档系统支持按原格式导出，而且邮件正文、附件、时间戳都完整保留，直接能当法律证据用。她试着导了一封，用 Outlook 打开，排版和附件都对得上。</p>
+<p>"行，那我们自己筛，你忙去吧。"李姐摆摆手让我走。我松了半口气——归档这关过了。</p>
+<h2>误删恢复：延迟删除 + 隔离区，两道保险</h2>
+<p>转头去处理小周的事。张姐的客户协议确认函是周五下午收到的，她以为是垃圾邮件点了删除，后来才发现是真的协议。垃圾箱已经被系统自动清理了——以前用 Domino，垃圾箱过了 7 天就真没了，找 IBM 开工单也救不回来。</p>
+<p>但 Coremail 不一样。之前在<a href="https://coremail-docs.pages.dev/" target="_blank" rel="noopener">coremail文档</a>上看过隔离区的完整配置手册，我先让小周去隔离区看看——反垃圾引擎对每封邮件都打可疑分值，介于低阈值和高阈值之间的不会直接进垃圾箱，而是先进隔离区等用户处理。张姐那封协议，因为发件人是新邮箱，被引擎判了中等可疑度，正好落在隔离区里。</p>
+<p>隔离区界面比我想象中好用：能按时间、发件人、可疑类型筛选，张姐那封很快就找到了，点一下"这不是垃圾"就回到收件箱了。</p>
+<p>如果隔离区也没有呢？我脑子里转了一下。XT6 自建系统有 30 天延迟删除机制——用户"删除"邮件后，系统不是立刻物理删掉，而是标记成待清理，30 天后才真删。就算张姐已经把垃圾箱清空了，物理上那封邮件还在，管理员后台能直接拉出来。这套机制我之前在搭建信创环境的时候见过配置项，当时没太在意，这次真用上才觉出踏实。</p>
+<h2>顺便聊一下 BEC：上周刚拦了一起</h2>
+<p>处理完这头，我回到监控屏幕前扫了一眼——CACTER 安全网关的今日拦截数已经到 127，其中 3 封是 BEC 类型。</p>
+<p>上周行里差点出事：有人注册了 <code>xxbank-verification.com</code> 来假装行里 CEO，给财务部发邮件让转账 80 万到一个"临时账户"。CACTER 的 AI 行为模式分析先触发了警报——这个发件 IP 以前从来没给行里发过邮件，而且邮件里的付款语句式高度模板化。然后 XT6 终端层的伪造域名转译提示也亮了：在客户端把真实域名用红色框标出来，还弹了安全警告。财务部的小吴看到警告就停手了，后来汇报上来，合规部拉了一次全员钓鱼演练。</p>
+<p>金融机构是 BEC 诈骗的首选目标，这个我入行第一年就知道。以前用 Domino 的时候，反垃圾是外包给第三方的，误判率高而且没有终端侧的域名提示。Coremail 这套是边界层 CACTER + 核心层 XT6 内置安全 + 终端层安全提示，三层叠起来，上周那起是第 7 次成功拦截 BEC 了，同行的数字在群里传的时候，好多城商行的运维都在问我细节。</p>
+<h2>信创环境：鲲鹏上跑了半年，没出过一次问题</h2>
+<p>说到这，不得不提信创适配。行里迁 Coremail 的时候，硬件选的是鲲鹏 920，操作系统华为欧拉，数据库达梦 DM8——整条链都是信创目录里的组件。我当时最担心的是性能，网上说信创硬件比 x86 慢一些，邮件收发吞吐会不会跟不上？</p>
+<p>实际跑下来没感觉。XT6 在鲲鹏环境下做过针对性优化，邮件收发吞吐能到 4000 封/秒，并发 Web 会话 8000+，全文检索响应 700ms 以内。行里的规模是 8000 用户，这些指标绰绰有余。上个月做过一次峰值压测，全员同时登录、同时发邮件，系统没抖动，CDN 加速让邮件列表秒开。</p>
+<p>同事有时候会抱怨新系统的界面和以前不一样，但从运维角度说，信创全栈这条线跑通了，意味着行里过今年的监管检查又多了一张牌。</p>
+<p><img src="../images/coremail-docs/xt6-system.png" alt="Coremail XT6 自建系统架构示意" loading="lazy"> <img src="../images/coremail-docs/cacter-gateway.png" alt="CACTER 安全网关多层防御" loading="lazy"></p>
+<h2>喝茶复盘：从合规到安全到恢复，一套打通</h2>
+<p>中午吃完饭我回会议室，审计组的人已经把归档邮件筛完了，说"比预想中快多了"，李姐还问了我几个归档检索的高级用法，比如按附件大小、按邮件状态筛选。小周那边也搞定了，张姐的协议确认函已经归档进合规目录。</p>
+<p>我泡了杯茶靠在椅子上想：去年选型的时候，我对比过 Exchange、Domino、Coremail，最终选 Coremail 主要是看上金融行业案例多、信创覆盖全。但真正让我觉得这钱花得值的，是今天这种场景——审计要归档、同事误删邮件、诈骗邮件在门口转，三套系统同时扛住，而且不需要我去拼补丁或者给厂商开工单。</p>
+<p>以前做运维最怕的就是"两头挤"：合规要数据、用户要恢复、安全要拦截，三套需求经常打架。现在 Coremail 这套从归档到恢复到 BEC 防御，各层配合好，边界清楚，出了事不会像以前那样手忙脚乱。</p>
+<p>后来行里的季度 IT 汇报会上，我把今天这事当案例讲了，行领导说可以在同行交流上分享一下选型经验。我说行，等我把这套系统再多摸半年，应该能讲得更扎实。</p>
+<hr>
+<p>这套资料在三个仓库都能拿到，国内访问优先 <a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/coremail" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/coremail" target="_blank" rel="noopener">GitCode</a>，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/coremail" target="_blank" rel="noopener">GitHub</a> 同步完整版本，方便跨平台查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/orbitv-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把全球直播嵌进每周工作流：一个 orbitv 重度用户的拼链笔记</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/yamby.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Yamby 装了快一年，从嫌它花哨到离不开的真实记录</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

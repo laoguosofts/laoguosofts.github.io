@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>FluxDown 从零到自动下载：一个下载器能帮你省多少手动活 · 老郭软件铺</title>
+  
+<meta name="description" content="FluxDown 把下载器做成了可以交给 AI 和队列自己跑的状态。本文从安装到配置到让 AI 代劳，跟着一步步走下来，你就能让它挂在后台替你管下完该下的东西。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/fluxdown.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FluxDown 从零到自动下载：一个下载器能帮你省多少手动活">
+<meta property="og:description" content="FluxDown 把下载器做成了可以交给 AI 和队列自己跑的状态。本文从安装到配置到让 AI 代劳，跟着一步步走下来，你就能让它挂在后台替你管下完该下的东西。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/fluxdown.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="FluxDown 从零到自动下载：一个下载器能帮你省多少手动活">
+<meta name="twitter:description" content="FluxDown 把下载器做成了可以交给 AI 和队列自己跑的状态。本文从安装到配置到让 AI 代劳，跟着一步步走下来，你就能让它挂在后台替你管下完该下的东西。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "FluxDown \u628a\u4e0b\u8f7d\u5668\u505a\u6210\u4e86\u53ef\u4ee5\u4ea4\u7ed9 AI \u548c\u961f\u5217\u81ea\u5df1\u8dd1\u7684\u72b6\u6001\u3002\u672c\u6587\u4ece\u5b89\u88c5\u5230\u914d\u7f6e\u5230\u8ba9 AI \u4ee3\u52b3\uff0c\u8ddf\u7740\u4e00\u6b65\u6b65\u8d70\u4e0b\u6765\uff0c\u4f60\u5c31\u80fd\u8ba9\u5b83\u6302\u5728\u540e\u53f0\u66ff\u4f60\u7ba1\u4e0b\u5b8c\u8be5\u4e0b\u7684\u4e1c\u897f\u3002", "headline": "FluxDown \u4ece\u96f6\u5230\u81ea\u52a8\u4e0b\u8f7d\uff1a\u4e00\u4e2a\u4e0b\u8f7d\u5668\u80fd\u5e2e\u4f60\u7701\u591a\u5c11\u624b\u52a8\u6d3b", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/fluxdown.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/fluxdown.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "FluxDown \u4ece\u96f6\u5230\u81ea\u52a8\u4e0b\u8f7d\uff1a\u4e00\u4e2a\u4e0b\u8f7d\u5668\u80fd\u5e2e\u4f60\u7701\u591a\u5c11\u624b\u52a8\u6d3b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">FluxDown 从零到自动下载：一个下载器能帮你省多少手动活</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">FluxDown 从零到自动下载：一个下载器能帮你省多少手动活</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">FluxDown 把下载器做成了可以交给 AI 和队列自己跑的状态。本文从安装到配置到让 AI 代劳，跟着一步步走下来，你就能让它挂在后台替你管下完该下的东西。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇教程，你会把 FluxDown 装起来、配好基本队列、连上浏览器扩展，甚至让 AI 帮你加下载任务——然后把下载这件事从每天手动操作变成自动跑的事。</p>
+<h2>准备工作</h2>
+<p>FluxDown 的<a href="https://fluxdown.boop.uno" target="_blank" rel="noopener">官网</a>上把桌面端、Docker Server、NAS 部署三种形态的安装包都放了。桌面端目前支持 Windows 10/11 和 macOS 12+，安装包是标准的 exe / dmg 一路下一步就行，装完会常驻系统托盘——这是它的 Agent 层，负责剪贴板监听、协议注册和浏览器扩展通信。</p>
+<p>有两点装完就顺手设了，不然后面容易忘：</p>
+<ul><li>打开设置，在「API」页点一下「启用本地服务器」——默认监听 127.0.0.1:17800，后面队列调度、MCP 都要用到这个端口。</li><li>浏览器扩展在<a href="https://fluxdown.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>页就能找到，Chrome Edge Firefox 都有，装完它会自动识别下载链接并弹 FluxDown 面板，比手复制 URL 省心。</li></ul>
+<h2>第一步：建好你的第一条队列</h2>
+<p>FluxDown 的队列不是摆设——每个队列有自己的并发数和每日计划，配好了以后它自己会按时间自动启停。</p>
+<p>打开设置 → 队列 → 新建队列，先建两个够用的：</p>
+<p><strong>日常下载队列</strong>：并发设 4，不加时间计划——全天跑，适合平时下文档、小安装包、HTTP 资源这类不抢带宽的东西。</p>
+<p><strong>夜间全速队列</strong>：并发拉到 16，在每日计划里勾上「每天 22:00 自动启动，次日 08:00 自动暂停」。专门放大文件——BT 磁力、4K 视频、ISO 镜像。再顺手在「全局限速配合」里设一下：22:00 起全局限速解除，08:00 起限速到 30%。这样白天浏览网页不受影响，晚上它自己疯跑。</p>
+<p>建完保存，不用手动点什么——Daemon 层常驻进程每分钟会检查一次时间窗口，到点自动切换。</p>
+<h2>第二步：让浏览器扩展替你把任务送进来</h2>
+<p>扩展装完默认就生效，但有两个行为建议调一下：</p>
+<p>打开扩展的选项页，找到「下载嗅探」——把 HLS 和 DASH 嗅探都勾上。很多视频网站流媒体是这两种格式，勾上后扩展会自动识别 <code>.m3u8</code> / <code>.mpd</code> 结尾的请求，弹出 FluxDown 下载面板。</p>
+<p>第二个是「剪贴板监听」——默认开着，复制了 http/ftp/magnet/ed2k 开头的 URL 都会弹 FluxDown 的新建窗口。嫌烦的话可以在设置里关，但我建议留着——有时候在 IM 里收到个磁力链接，复制一下就进队列了，比开浏览器扩展还快。</p>
+<h2>第三步：选一个合眼的主题</h2>
+<p>下载器整天挂在托盘和状态栏，界面不好看真的会烦。FluxDown 内置了 13 套主题，深色浅色两档，在设置 → 外观里挑。GPUI 的 GPU 渲染让切换基本无延迟——点一下就变。</p>
+<p>如果你跟我一样晚上关灯刷东西，深色 + accent 选个低饱和的颜色就好。还可以勾上「跟随系统」——Windows 11 切暗黑模式时 FluxDown 自动跟着切。主题只影响视觉层，不碰引擎任何功能，放心试。</p>
+<h2>第四步（可选）：让 AI 帮你加下载</h2>
+<p>FluxDown 最有意思的一点是它在 <code>/mcp</code> 路由上实现了 Model Context Protocol——Trae、Cursor、Claude Desktop 这些 AI 助手都可以通过这个接口直接调用 FluxDown 的下载管理工具。</p>
+<p>先在设置 → API 里把 MCP 开关打开，然后复制出来的 Access Key 填进你 AI 客户端的 MCP 配置里。比如 Trae 里是在 MCP Servers 里加一条 HTTP server，URL 填 <code>http://127.0.0.1:17800/mcp</code>，Header 里放 Bearer token。</p>
+<p>配好之后你可以直接对 AI 说「帮我把这个 Ubuntu 24.04 ISO 下了」，AI 会调 <code>fluxdown_add_task</code> 工具把任务塞给 FluxDown。想看进度就问「那个 Ubuntu 下完没有」，AI 调 <code>fluxdown_list_tasks</code> 查完告诉你。不想让它下了就说「把所有下载暂停一下，我远程开会」。</p>
+<p>安全上不用太担心——MCP 默认关闭，要手动打开；所有请求必须带 Bearer Token；MCP server 只暴露下载管理的预定义工具，不会执行任意 shell 或读你本地文件。更多 MCP 工具列表和各个 AI 客户端的配置示例，在<a href="https://fluxdown.pages.dev/" target="_blank" rel="noopener">fluxdown文档</a>里有更详细的说明。</p>
+<h2>新手容易踩的三个坑</h2>
+<p><strong>剪贴板弹窗太频繁</strong>：复制个 http 开头的文本就弹，烦。在设置 → 浏览器 → 剪贴板监听里关了就行，扩展本身还是正常工作的。</p>
+<p><strong>队列时间没生效</strong>：99% 的原因是 Daemon 进程没跑——FluxDown 桌面端关掉不影响，但如果连系统托盘的常驻 Agent 都退出了，调度器就没人管了。装完别手动 kill 托盘进程就行。Docker / NAS 部署场景记得设对 TZ 环境变量，不然时间和本地不一致。</p>
+<p><strong>LAN 访问开了之后没加密</strong>：默认 127.0.0.1 没问题，但如果你想局域网其他设备也能发任务进来，记得只在「设置 → 本地服务器」里开 LAN，不要裸露到公网——公网的话套一个反向代理加 HTTPS 吧。</p>
+<h2>一句话进阶</h2>
+<p>队列 + 每日计划够用一段时间了。后面可以试试用 fluxdown:// 协议写点 userscript 或自己的脚本——比如在油猴里点一下就能把当前页面上所有视频链接批量塞给 FluxDown，比手动一个个复制省太多事。这套软件的资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/fluxdown" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/fluxdown" target="_blank" rel="noopener">Gitee</a> 和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/fluxdown" target="_blank" rel="noopener">GitCode</a> 上同步维护，国外访问走 GitHub 更稳，国内直接选 Gitee 或 GitCode 就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/google-earth.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Google Earth 到底怎么用？一次把最常问的问题答完</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/miyu-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">miyu 从零上手：三步建好角色、开好群聊、管好隐私</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

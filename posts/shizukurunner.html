@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>ShizukuRunner 深度解析：为什么手机上跑 shell 命令这件事，值得一套专门的架构 · 老郭软件铺</title>
+  
+<meta name="description" content="Shizuku + Runner 的组合在 Android 上搭起了一座 Binder 权限桥，让免 root 的 shell 命令执行成为可能。本文拆解这套架构的设计原理、核心取舍与能力边界。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/shizukurunner.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ShizukuRunner 深度解析：为什么手机上跑 shell 命令这件事，值得一套专门的架构">
+<meta property="og:description" content="Shizuku + Runner 的组合在 Android 上搭起了一座 Binder 权限桥，让免 root 的 shell 命令执行成为可能。本文拆解这套架构的设计原理、核心取舍与能力边界。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/shizukurunner.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/shizukurunner/main-ui.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/shizukurunner/main-ui.jpg">
+
+<meta name="twitter:title" content="ShizukuRunner 深度解析：为什么手机上跑 shell 命令这件事，值得一套专门的架构">
+<meta name="twitter:description" content="Shizuku + Runner 的组合在 Android 上搭起了一座 Binder 权限桥，让免 root 的 shell 命令执行成为可能。本文拆解这套架构的设计原理、核心取舍与能力边界。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Shizuku + Runner \u7684\u7ec4\u5408\u5728 Android \u4e0a\u642d\u8d77\u4e86\u4e00\u5ea7 Binder \u6743\u9650\u6865\uff0c\u8ba9\u514d root \u7684 shell \u547d\u4ee4\u6267\u884c\u6210\u4e3a\u53ef\u80fd\u3002\u672c\u6587\u62c6\u89e3\u8fd9\u5957\u67b6\u6784\u7684\u8bbe\u8ba1\u539f\u7406\u3001\u6838\u5fc3\u53d6\u820d\u4e0e\u80fd\u529b\u8fb9\u754c\u3002", "headline": "ShizukuRunner \u6df1\u5ea6\u89e3\u6790\uff1a\u4e3a\u4ec0\u4e48\u624b\u673a\u4e0a\u8dd1 shell \u547d\u4ee4\u8fd9\u4ef6\u4e8b\uff0c\u503c\u5f97\u4e00\u5957\u4e13\u95e8\u7684\u67b6\u6784", "image": ["https://laoguosofts.github.io/images/shizukurunner/main-ui.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/shizukurunner.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/shizukurunner.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "ShizukuRunner \u6df1\u5ea6\u89e3\u6790\uff1a\u4e3a\u4ec0\u4e48\u624b\u673a\u4e0a\u8dd1 shell \u547d\u4ee4\u8fd9\u4ef6\u4e8b\uff0c\u503c\u5f97\u4e00\u5957\u4e13\u95e8\u7684\u67b6\u6784", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">ShizukuRunner 深度解析：为什么手机上跑 shell 命令这件事，值得一套专门的架构</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">ShizukuRunner 深度解析：为什么手机上跑 shell 命令这件事，值得一套专门的架构</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 12 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Shizuku + Runner 的组合在 Android 上搭起了一座 Binder 权限桥，让免 root 的 shell 命令执行成为可能。本文拆解这套架构的设计原理、核心取舍与能力边界。</p>
+  </header>
+  <div class="prose serif">
+<p>你有没有想过这个问题：在 Android 手机上执行一条 shell 命令，到底要走多远的路？</p>
+<p>大多数人的第一反应是「用 adb 连电脑」或者「先 root 再装 Termux」。但这两条路都有明显的别扭——前者意味着每次操作都要电脑在场，后者意味着你得跳过 Bootloader 解锁的层层关卡、接受 Widevine L1 降级的代价。<a href="https://shizukurunner.qjxz.skin" target="_blank" rel="noopener">shizukurunner官网</a> 上介绍的 Shizuku + Runner 这套组合解决的，正是这个中间地带的问题：不 root、不插电脑，却能在手机上执行 shell 命令。</p>
+<p>这件事听起来像是「又一个自动化工具」，但它背后的架构设计其实挺精巧。我花了些时间把它的原理拆解清楚，发现它的核心是一座 Binder 权限桥——而桥的另一端，是 Android 系统本身。</p>
+<h2>Shizuku 到底在做什么：Binder 通道上的权限代理</h2>
+<p>Android 系统的 shell 权限是个奇怪的东西。它比 root 弱很多，但比普通应用权限强不少——你可以用 <code>pm disable-user</code> 冻结预装应用、用 <code>dumpsys</code> 读系统服务状态、用 <code>settings put</code> 改安全设置，这些操作普通 App 根本碰不到。但问题是，shell 权限默认只给 <code>adb shell</code> 进程，不给任何装在手机上的 App。</p>
+<p>Shizuku 的解决方案是：自己启动一个 uid=shell 身份的后台服务进程，然后通过 Android 的 Binder IPC 机制暴露接口给其他 App。Runner 就是调用方——它通过 Shizuku 提供的 Binder 通道，把命令字符串发过去，Shizuku 以 shell 身份执行，再把结果回传回来。</p>
+<p>这套设计的精妙之处在于它<strong>不绕过 Android 权限模型，而是在模型内部找了一条合法的通路</strong>。不是 root、不是提权，就是老老实实以 shell 身份跑，但把入口从 USB 调试口搬到了手机上。</p>
+<h2>三种启动方式背后的权限等级陷阱</h2>
+<p>安装包从<a href="https://shizukurunner.qjxz.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿，装好之后还得先搞定服务启动。Shizuku 服务需要先被拉起来，Runner 才能用。目前有三种方式可以拉起这个服务，它们的区别远不止「方便程度」那么简单——本质上是拿到的权限等级不同。</p>
+<p><img src="../images/shizukurunner/main-ui.jpg" alt="三种启动方式的选择取决于你对权限等级的需求" loading="lazy"></p>
+<p>无线调试配对是现在最主流的方式。Android 11 引入了无线调试，Shizuku 利用这个机制让手机上的服务进程获得 shell 权限。配对完成后，每次启动服务只需要在 Shizuku 主应用点一下。但这里有个容易忽略的细节：<strong>手机重启后无线调试不会自动开启</strong>，意味着每次开机你都要手动打开无线调试 → 进 Shizuku → 点启动。</p>
+<p>USB adb 连接方式更传统，但只适用于 Android 10 及以下。命令很简单：<code>adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh</code>，但代价是你得插电脑。好处是 Android 版本不受限制，有些定制系统（比如早期 MIUI）的无线调试配对经常失败，USB 方式反而更靠谱。</p>
+<p>第三种是通过 Magisk 等 root 框架直接启动，此时服务进程以 uid=0（真正的 root）运行。这是唯一能拿到完整 root 权限的方式——前两种方式跑 <code>pm disable-user</code> 没问题，但跑 <code>su</code> 或修改 /system 分区就会被拒绝。代价也很直接：你得已经 root 了设备，这就把 Shizuku 的「免 root」定位抵消了一半。</p>
+<p>三种方式的选择其实是在回答一个问题：<strong>你到底需要 shell 权限还是 root 权限</strong>？如果你只是想冻结预装 App、改开发者选项开关，shell 权限已经够了；如果你想改 build.prop 或删除系统分区文件，那还是得走 Magisk 这条路。</p>
+<h2>Runner 作为前端的设计取舍：为什么命令用 JSON 存、输出限 1000 字符</h2>
+<p>拿到了 shell 权限之后，Runner 要解决的是「怎么在手机上舒服地执行命令」。这里的几个设计选择很有意思——它们都不是随便拍脑袋定的，每个背后都有明确的工程取舍。</p>
+<h3>JSON 格式而非纯文本</h3>
+<p>Runner 不把命令存成纯文本 shell 脚本，而是存成 JSON 对象。一个简单的命令长这样：</p>
+<pre><code class="language-json">{
+  &quot;title&quot;: &quot;冻结微博&quot;,
+  &quot;command&quot;: &quot;pm disable-user --user 0 com.sina.weibo&quot;
+}</code></pre>
+<p>多个命令组成数组就能批量执行。为什么不直接存 shell 命令？答案是<strong>参数化和结构化</strong>。JSON 格式让 Runner 能做三件纯文本做不到的事：支持命令模板里的变量替换、支持条件分支（不同场景自动切命令）、以及最实用的——执行前做 JSON 语法校验。在手机上纯手敲长命令本身就容易打错，编辑器能在你保存前提示引号没配对、逗号多写了，这体验差距很大。</p>
+<p>代价是 JSON 的转义规则会让新手困惑：shell 里写 <code>\n</code>，JSON 里要写成 <code>\\n</code>；shell 命令里的双引号得加反斜杠转义。去<a href="https://shizukurunner.pages.dev/" target="_blank" rel="noopener">shizukurunner文档</a>翻一下就能找到这些注意事项——这是结构化设计必须承担的复杂度成本。</p>
+<h3>1000 字符输出上限</h3>
+<p>Runner 对单次命令的输出有硬性限制，超过约 1000 字符就会强制截断，返回值是 141。141 这个数字不是随便编的——它是 <code>SIGPIPE</code> 信号的退出码。意思是 Runner 检测到输出超了阈值，主动关闭了读取管道，shell 子进程在写入时发现管道已断，收到 SIGPIPE 信号就终止了。</p>
+<p>这个限制<strong>不是 bug，是安全设计</strong>。Runner 跑在手机 App 进程里，如果命令无限输出（比如 <code>logcat</code> 持续打印、<code>top</code> 实时监控），没有终端控制码的 Runner 根本没法给子进程发 Ctrl+C 信号——子进程会一直跑，Runner 界面卡死，直到手机主动杀进程或你重启。所以 Runner 干脆在管道层做了硬截断，宁可丢部分输出也不让 App 挂掉。</p>
+<p>解决方式也很直接：要么把输出重定向到文件（<code>dumpsys activity all &gt; /sdcard/activity_dump.txt 2&gt;&amp;1</code>），要么用 <code>timeout</code> 命令限制执行时长（<code>timeout 10 logcat -d &gt; /sdcard/log.txt</code>）。本质上就是 Runner 把「终端交互」这个能力彻底放弃了，换来了稳定性。</p>
+<h3>自动补全的边界</h3>
+<p>Runner 的编辑器内置了命令自动补全、语法检查和参数提示。输入 <code>pm dis</code> 会弹出 <code>disable-user</code>，输入包名前几个字符会根据已安装应用列表自动补全。但这个补全<strong>只覆盖 Android 系统自带工具</strong>——<code>pm</code>、<code>am</code>、<code>dumpsys</code>、<code>settings</code>、<code>getprop</code>、<code>input</code> 这些。</p>
+<p>自定义脚本里的命令、第三方二进制、你推送到 <code>/data/local/tmp/</code> 的自己编译的可执行文件，Runner 全都不认识。这不是功能缺失，是架构决定的——Runner 补全靠的是内置的命令知识库，它不解析你写的脚本逻辑。所以复杂的脚本逻辑，官方建议还是在电脑上写好 JSON 导入，而不是完全在手机上手敲。</p>
+<p><img src="../images/shizukurunner/freeze-app.png" alt="冻结 App 是 Runner 最常用的 shell 操作之一" loading="lazy"></p>
+<h2>哪些事 Runner 做不了：能力边界与禁区</h2>
+<p>了解了架构原理之后，Runner 做不了的事也就清晰了。有四类命令是 Runner 里要么跑不了、要么不该跑的：</p>
+<p><strong>无限输出类</strong>：<code>logcat</code>、<code>top -b -d 1</code>、<code>dumpsys activity activities --watch</code>——这些命令会一直跑，Runner 没有终端控制码发终止信号，启动了就只能等手机杀进程。替代方案是用 <code>timeout</code> 限定时长，或者重定向到文件后再读。</p>
+<p><strong>超大输出类</strong>：<code>dumpsys activity all</code>、<code>dumpsys batterystory</code>、<code>dumpsys package</code>——输出可能几百上千行，直接触发 141 截断。解决办法是重定向到文件。</p>
+<p><strong>阻塞交互类</strong>：<code>vi</code>、需要输入 Y/N 的 <code>install -r</code>——Runner 不支持交互式命令，它只会给命令喂空输入。解决办法是加 <code>-y</code> 参数或用非交互式方式重写。</p>
+<p><strong>破坏性操作</strong>：<code>rm -rf /system/*</code>、<code>pm clear --all</code>、<code>setenforce 0</code>——shell 权限下能做的危险操作 Runner 不拦，降权开关只能挡 root 权限下才能做的事。这个边界要记牢：Runner 本身没有安全沙箱，它只是个命令执行器，执行的后果你自己承担。</p>
+<h2>这套原理意味着什么：适合谁、不适合谁</h2>
+<p>把前面的原理拼起来，Shizuku + Runner 的定位就很清楚了。它适合的场景有两个明确的前提：<strong>你不需要 root 权限</strong>，且<strong>你希望操作主要在手机上完成而非依赖电脑在场</strong>。</p>
+<p>典型用户画像：喜欢折腾系统设置的安卓玩家（冻结预装 App、改动画缩放、关通知权限）、需要批量执行 shell 命令的自动化党、想绕过 adb 调试安全限制的 App 开发者。这类人需要的就是 shell 权限的那点「额外能力」，但又不想为此牺牲 Widevine L1 或付出解锁 Bootloader 的成本。</p>
+<p>不适合的场景也同样明确：需要修改系统分区或 build.prop 的重度 root 需求（得用 Magisk 方式启动 Shizuku，但那样你已经 root 了）、需要长时间跑监控或日志采集的任务（Runner 不支持持久进程）、需要交互式 shell 会话的场景（用 Termux + root 更合适）。</p>
+<p>说到底，Shizuku 解决的是 Android 权限模型里一个被忽视的中间层问题——shell 权限既不够强也不常被用到，但刚好覆盖了大部分日常折腾的需求。Runner 把这个中间层的入口搬到了手机上，用 JSON 格式解决了手机上写命令的体验问题，用输出截断换来了 App 不会卡死的稳定性。这套取舍谈不上完美，但精准地命中了一群明确的用户。</p>
+<p>如果你刚好在这个交集里，值得折腾一下；如果你已经 root 了设备、或者只需要偶尔用一次 <code>pm disable-user</code>，那它的价值就没那么大了。工具从来不是越多越好，是越精准越好。为了方便不同地区的用户访问，这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/shizukurunner" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/shizukurunner" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/shizukurunner" target="_blank" rel="noopener">GitCode</a> 上都有完整的镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/keep-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">第一次打开 Keep 到跑完第一周：七步把训练计划用起来</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/smule.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">第一次用 Smule？五分钟从注册到唱出第一首歌</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

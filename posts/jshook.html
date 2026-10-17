@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从普通用户到离不开内核驱动——jshook 用了大半年的真实感受 · 老郭软件铺</title>
+  
+<meta name="description" content="装 jshook 是冲着 Frida 来的，没想到用着用着内核驱动模式成了主力。双引擎切换、MCP 接入、反检测这些当初没在意的细节，时间久了才显出价值和毛病。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/jshook.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从普通用户到离不开内核驱动——jshook 用了大半年的真实感受">
+<meta property="og:description" content="装 jshook 是冲着 Frida 来的，没想到用着用着内核驱动模式成了主力。双引擎切换、MCP 接入、反检测这些当初没在意的细节，时间久了才显出价值和毛病。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/jshook.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/jshook/screenshot-framework.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/jshook/screenshot-framework.png">
+
+<meta name="twitter:title" content="从普通用户到离不开内核驱动——jshook 用了大半年的真实感受">
+<meta name="twitter:description" content="装 jshook 是冲着 Frida 来的，没想到用着用着内核驱动模式成了主力。双引擎切换、MCP 接入、反检测这些当初没在意的细节，时间久了才显出价值和毛病。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u88c5 jshook \u662f\u51b2\u7740 Frida \u6765\u7684\uff0c\u6ca1\u60f3\u5230\u7528\u7740\u7528\u7740\u5185\u6838\u9a71\u52a8\u6a21\u5f0f\u6210\u4e86\u4e3b\u529b\u3002\u53cc\u5f15\u64ce\u5207\u6362\u3001MCP \u63a5\u5165\u3001\u53cd\u68c0\u6d4b\u8fd9\u4e9b\u5f53\u521d\u6ca1\u5728\u610f\u7684\u7ec6\u8282\uff0c\u65f6\u95f4\u4e45\u4e86\u624d\u663e\u51fa\u4ef7\u503c\u548c\u6bdb\u75c5\u3002", "headline": "\u4ece\u666e\u901a\u7528\u6237\u5230\u79bb\u4e0d\u5f00\u5185\u6838\u9a71\u52a8\u2014\u2014jshook \u7528\u4e86\u5927\u534a\u5e74\u7684\u771f\u5b9e\u611f\u53d7", "image": ["https://laoguosofts.github.io/images/jshook/screenshot-framework.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/jshook.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/jshook.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece\u666e\u901a\u7528\u6237\u5230\u79bb\u4e0d\u5f00\u5185\u6838\u9a71\u52a8\u2014\u2014jshook \u7528\u4e86\u5927\u534a\u5e74\u7684\u771f\u5b9e\u611f\u53d7", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">从普通用户到离不开内核驱动——jshook 用了大半年的真实感受</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">从普通用户到离不开内核驱动——jshook 用了大半年的真实感受</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">装 jshook 是冲着 Frida 来的，没想到用着用着内核驱动模式成了主力。双引擎切换、MCP 接入、反检测这些当初没在意的细节，时间久了才显出价值和毛病。</p>
+  </header>
+  <div class="prose serif">
+<h2>当初为什么装它</h2>
+<p>说实话一开始装 jshook 挺随便的——就是想在手机上试试 Frida，不想单独跑一台电脑端的 frida-server。安装包从<a href="https://jshook.xnyx.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿的。选它主要是去<a href="https://jshook.xnyx.quest" target="_blank" rel="noopener">jshook官网</a>看了看介绍，听说同时支持 rhino 和 Frida 两套引擎，对我这种以前写过点 Xposed 的人来说，两套都能用等于多了一层安全感。那段时间正好在折腾 Unity 游戏的一些小参数，想着有个趁手的工具改改数值就行。</p>
+<h2>变化最明显的地方：内核驱动模式成了主力</h2>
+<p>刚上手那会儿根本没注意内核驱动模式这个选项，觉得不就是个开关吗。直到有次玩的那款游戏更新后加了反注入检测，普通模式一开 Hook 就闪退，才被迫去翻了一下<a href="https://jshook.pages.dev/" target="_blank" rel="noopener">jshook文档</a>才弄明白怎么开。</p>
+<p>内核驱动模式的核心逻辑其实很简单：脚本不在目标进程里跑，而是克隆一个独立的观察者进程，通过内核驱动模块直接读写内存。听起来比注入复杂，但实际用起来反而更省心。目标进程崩溃不影响脚本、没有注入痕迹难被检测、能读写任意内存地址——这三点叠加起来，基本解决了我当时最大的痛点。</p>
+<p>说个反直觉的感受：从普通模式切到内核模式，我反而少踩了很多坑。普通模式下 Java 层 Hook、Interceptor、各种 view 操作都能用，但也正因为能用的东西多，写脚本的时候很容易在不同 API 之间乱窜。内核模式把可用 API 收得很窄，就 kernel.getModuleBase、kernel.readDword/writeDword、memory 这几个，加上 modmenu 和 moddraw——反而逼着我把逻辑写得更清晰。</p>
+<p><img src="../images/jshook/screenshot-framework.png" alt="内核驱动模式的内存读写" loading="lazy"></p>
+<h2>越用越烦的那些细节</h2>
+<p>不是说内核模式完美。最烦的就是 API 限制。观察者进程和目标进程物理隔离这个设计，直接砍掉了一大堆在普通模式下顺手的东西：Java.use()、Interceptor.attach()、Module.findBaseAddress() 全不可用。刚开始切换的时候经常在脚本里惯性敲 Java.perform()，跑起来才想起来这在内核模式下根本没有执行环境。</p>
+<p>还有地址基址的问题。动态链接的 SO 库每次加载地址都不一样，普通模式下 Frida 帮你处理了这些，内核模式下得每次自己重新获取基址。这不是大问题，但切换模式测试的时候偶尔会忘，然后对着一串垃圾值调半天。</p>
+<p><img src="../images/jshook/screenshot-home.png" alt="主界面的配置布局" loading="lazy"></p>
+<h2>哪个功能成了每天离不开的</h2>
+<p>如果一定要说一个，就是 runtime.isKernel 这个判断。它让同一份脚本能同时跑在两种模式下——普通模式下走完整 Frida + JsApi，内核模式下切纯 kernel API。写一次、不用维护两份脚本，这个设计让我后来所有的脚本都按双模式来写。</p>
+<p>还有 MCP 服务。这个是后来才开的，用 VS Code Copilot 直接调 jshook 的工具，省了好多手动写模板代码的时间。找类、查方法、读内存地址这些以前要翻半天文档的事，现在直接跟 AI 说就行。虽然只在本地开发用，不敢暴露到公网，但确实是个好用的东西。</p>
+<h2>当初高估了什么，低估了什么</h2>
+<p>刚装的时候高估了 rhino 引擎。以为两套引擎切换着用很灵活，结果实际场景里几乎一直用 Frida——rhino 能做的事 Frida 都能做，Frida 能做的 native Hook rhino 做不了。现在 rhino 基本上就是个备份，只有偶尔改个简单的 Java 返回值才用得上。</p>
+<p>低估了内核驱动模式的价值。当初觉得它是个小众功能，难被检测而已。用久了才发现它的设计逻辑本身就更干净——不污染目标进程、崩溃隔离、API 边界清晰，这些不是反检测的小手段，而是工具设计思路上的根本区别。</p>
+<h2>去留结论</h2>
+<p>目前没打算卸载。主要是内核驱动模式已经成了我所有 Hook 脚本的默认运行方式，换别的工具还得重写一遍。但我也清楚，一旦哪天我需要做复杂的 Java 层逻辑 Hook，可能还是得切回普通模式，或者干脆换一套工具链。</p>
+<p>什么信号出现就该换了？如果某款游戏的反检测升级到内核驱动模式也过不去的程度，或者 jshook 的内核驱动模块不再适配我的手机内核版本，那时候就得考虑替代方案。不过目前这两样都没发生，继续用着就行。</p>
+<p><img src="../images/jshook/screenshot-toolset.png" alt="工具集界面" loading="lazy"></p>
+<h2>最后说句实在的</h2>
+<p>用了这么久，jshook 给我的感觉不是那种一眼惊艳的工具，而是一个慢慢磨合出默契的搭档。内核驱动模式从"试试看"变成主力，MCP 从"什么玩意"变成日常依赖，这些变化都不是第一天就能预料到的。工具的价值，有时候真的是时间用出来的。这份使用记录我同步在三个仓库里存了一份，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/jshook" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/jshook" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/jshook" target="_blank" rel="noopener">GitCode</a> 都有，方便不同网络环境的朋友查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/pdf-reader-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从阅读器到全能PDF工具：一款移动端PDF App的七年迭代脉络</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/luckytool-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">LuckyTool 深度盘点：ColorOS 上最能干的 Hook 模块到底能改多少东西</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

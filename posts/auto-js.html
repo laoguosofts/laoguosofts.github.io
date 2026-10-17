@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>auto.js 快问快答：安卓自动化脚本，看完这 8 组问答就够上手 · 老郭软件铺</title>
+  
+<meta name="description" content="auto.js 是安卓平台最流行的自动化脚本工具。整理 8 组读者最关心的问题——从它是什么、怎么装、核心 API 怎么用，到后台被杀、打包发布这些进阶话题，一个一个给你讲明白。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/auto-js.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="auto.js 快问快答：安卓自动化脚本，看完这 8 组问答就够上手">
+<meta property="og:description" content="auto.js 是安卓平台最流行的自动化脚本工具。整理 8 组读者最关心的问题——从它是什么、怎么装、核心 API 怎么用，到后台被杀、打包发布这些进阶话题，一个一个给你讲明白。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/auto-js.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/auto-js/autojs6-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/auto-js/autojs6-logo.png">
+
+<meta name="twitter:title" content="auto.js 快问快答：安卓自动化脚本，看完这 8 组问答就够上手">
+<meta name="twitter:description" content="auto.js 是安卓平台最流行的自动化脚本工具。整理 8 组读者最关心的问题——从它是什么、怎么装、核心 API 怎么用，到后台被杀、打包发布这些进阶话题，一个一个给你讲明白。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "auto.js \u662f\u5b89\u5353\u5e73\u53f0\u6700\u6d41\u884c\u7684\u81ea\u52a8\u5316\u811a\u672c\u5de5\u5177\u3002\u6574\u7406 8 \u7ec4\u8bfb\u8005\u6700\u5173\u5fc3\u7684\u95ee\u9898\u2014\u2014\u4ece\u5b83\u662f\u4ec0\u4e48\u3001\u600e\u4e48\u88c5\u3001\u6838\u5fc3 API \u600e\u4e48\u7528\uff0c\u5230\u540e\u53f0\u88ab\u6740\u3001\u6253\u5305\u53d1\u5e03\u8fd9\u4e9b\u8fdb\u9636\u8bdd\u9898\uff0c\u4e00\u4e2a\u4e00\u4e2a\u7ed9\u4f60\u8bb2\u660e\u767d\u3002", "headline": "auto.js \u5feb\u95ee\u5feb\u7b54\uff1a\u5b89\u5353\u81ea\u52a8\u5316\u811a\u672c\uff0c\u770b\u5b8c\u8fd9 8 \u7ec4\u95ee\u7b54\u5c31\u591f\u4e0a\u624b", "image": ["https://laoguosofts.github.io/images/auto-js/autojs6-logo.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/auto-js.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/auto-js.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "auto.js \u5feb\u95ee\u5feb\u7b54\uff1a\u5b89\u5353\u81ea\u52a8\u5316\u811a\u672c\uff0c\u770b\u5b8c\u8fd9 8 \u7ec4\u95ee\u7b54\u5c31\u591f\u4e0a\u624b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">auto.js 快问快答：安卓自动化脚本，看完这 8 组问答就够上手</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">auto.js 快问快答：安卓自动化脚本，看完这 8 组问答就够上手</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">auto.js 是安卓平台最流行的自动化脚本工具。整理 8 组读者最关心的问题——从它是什么、怎么装、核心 API 怎么用，到后台被杀、打包发布这些进阶话题，一个一个给你讲明白。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一篇关于 auto.js 的快问快答，覆盖新手最常问的 8 个问题。</p>
+<h3>auto.js 到底是什么？</h3>
+<p>一句话：<strong>auto.js 是一个让安卓手机「自动帮你干活」的脚本工具</strong>，它的<a href="https://auto-js.gerw.hair" target="_blank" rel="noopener">官网</a>上有完整功能列表和截图。你写一段 JavaScript 代码，它就能模拟人的手指去点屏幕、滑界面、读文字、判断状态——签到、抢单、批量操作 APP，全靠脚本驱动，不用人盯着。</p>
+<p>它的核心跑在 Rhino JS 引擎上，不是 Node.js 那一套。ES5 语法全支持，ES6 支持 <code>let</code>、<code>const</code>、箭头函数、模板字符串，但 <code>async/await</code>、Promise、<code>class</code> 继承这些现代特性在原版里用不了。Pro 9.x 之后追加了 Node.js 引擎，完整支持 ES2021，但那是付费版的事。</p>
+<p><img src="../images/auto-js/autojs6-logo.png" alt="auto.js 图标" loading="lazy"></p>
+<h3>谁需要用 auto.js？</h3>
+<p><strong>有重复操作痛点的人</strong>。比如每天要在十几个 APP 上签到领积分的用户，抢火车票要反复刷新余票的旅客，批量上传内容到电商后台的运营同学——只要是「同一套动作每天都做、做起来机械枯燥」的场景，auto.js 都能顶上去。</p>
+<p>它不替代 APP，不破解什么，就是个「按你写的指令去点屏幕」的工具。写得好的脚本可以完全脱离主界面工作，挂在后台自己跑。</p>
+<h3>装起来麻烦吗？核心要开什么权限？</h3>
+<p>装 APP 本身不麻烦，应用商店或<a href="https://auto-js.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a>拿 APK 安装就行。真正绕不过去的是<strong>两个必开权限</strong>：无障碍服务 + 悬浮窗。</p>
+<p>无障碍服务 auto.js 需要它才能读取屏幕上的控件树——知道当前界面有哪些按钮、哪些文字、哪个位置可以点。不开的话脚本里的 <code>text(&quot;签到&quot;).click()</code> 根本找不到目标。悬浮窗是脚本运行状态的可视化入口，那个常驻屏幕边缘的圆形小浮球就是它。没开悬浮窗也能跑脚本，但你没法随时暂停、继续、停止，也没法一键打开布局分析器调试界面。</p>
+<p>部分国产 ROM 对这两个权限有坑。比如 MIUI 10 以上，普通悬浮窗和全屏悬浮窗是两个独立开关，得分别开。vivo、OPPO 的早期版本即使开了前台服务也可能杀后台，这个后面会说。</p>
+<h3>脚本怎么写？需要很懂 JavaScript 吗？</h3>
+<p><strong>不用全懂，会基础就能上手</strong>。auto.js 的核心 API 是它自家的——<code>text()</code>、<code>id()</code>、<code>className()</code> 定位控件，<code>.click()</code>、<code>.waitFor()</code>、<code>.findOne()</code> 操作控件，<code>sleep()</code> 延时，<code>toast()</code> 弹出提示。这些才是写脚本的主体。</p>
+<p>Rhino JS 引擎虽然老，但日常用的变量、函数、数组、对象、条件判断、循环全齐：</p>
+<pre><code class="language-javascript">// 定位&quot;签到&quot;按钮并点击
+text(&quot;签到&quot;).waitFor().click();
+
+// 循环点 10 次
+for (var i = 0; i &lt; 10; i++) {
+  text(&quot;下一个&quot;).click();
+  sleep(1000);
+}</code></pre>
+<p>Rhino 有几个老版本特有的坑要留意：<code>typeof null === &quot;object&quot;</code> 是 JS 历史遗留、早期版本没有 <code>const</code>、不支持 ESM 模块语法只能用 <code>require()</code>。但简单脚本逻辑不会踩到这些。复杂场景可以去<a href="https://auto-js.pages.dev/" target="_blank" rel="noopener">auto.js文档</a>查详细说明。</p>
+<h3>脚本跑到一半被系统杀掉怎么办？</h3>
+<p>Android 为了省电，对后台进程的清理越来越激进。auto.js 如果在后台被系统回收，正在跑的脚本会<strong>悄无声息地停掉</strong>——没有报错、没有崩溃提示。</p>
+<p>目前最有效的手段是开<strong>前台服务</strong>。开了之后通知栏会出现一个常驻的「进行中」通知，告诉系统「这个应用正在做重要的事，别杀我」。</p>
+<p>但前台服务不是 100% 保险。系统极端缺资源时（同时开了很多重型应用）前台服务也可能被回收。想要最大存活率，建议三重保障：<strong>前台服务 + 电池优化白名单 + 自启动管理</strong>。另外部分国产 ROM（vivo/OPPO 早期版本）即使开了前台服务也可能杀，这种情况就得看各品牌的自启动管理里能不能把 auto.js 加到白名单。</p>
+<h3>能打包装成自己的 APK 吗？</h3>
+<p><strong>Pro 版可以</strong>，而且配置很简单。打包项目里有一个 <code>config.json</code> 文件，几个核心字段必填：应用名 <code>name</code>、包名 <code>packageName</code>（Java 风格如 <code>com.example.signin</code>）、版本号 <code>versionCode</code> 和版本名 <code>versionName</code>、入口脚本 <code>main</code>。权限字段按需要声明——<code>ACCESSIBILITY</code> 和 <code>SYSTEM_ALERT_WINDOW</code> 是必开的两个，其他像存储、网络、相机按需加。</p>
+<p>Pro 版还有三个好用的配置项：<code>encrypt</code> 加密脚本源码、<code>buildNodeModule</code> 打包时把 npm 模块（如 axios、cheerio）构建进去、<code>minify</code> 打包前压缩代码。配置好之后一键打包就出 APK，装到手机上脚本直接跑，不用再开 auto.js 主应用。</p>
+<h3>有哪些常见的坑？</h3>
+<p>最频繁遇到的有三个：<strong>权限分级、引擎差异、后台被杀</strong>。</p>
+<p>权限坑前面提过，MIUI 悬浮窗分普通和全屏两档，都要开。引擎差异是 Rhino 的老问题——如果你之前写前端或 Node 写惯了，<code>async/await</code>、Promise 这些语法在原版 auto.js 里用不了，得老老实实写回调或者同步循环。后台被杀是 Android 全局的事，三重保障能大幅降低概率但不能完全杜绝，长时脚本建议加一个定期自检：如果检测到自己不在运行就自动重启。</p>
+<p>还有一个小坑：部分全屏沉浸式应用（视频播放器、游戏）会自动隐藏悬浮窗，这是正常的系统行为，回到普通界面就恢复了，不是故障。</p>
+<h3>值不值得长期用？</h3>
+<p>值得，前提是你确实有重复操作的痛点需要解决。auto.js 上手门槛不高，核心 API 就那几十个，官方提供了详细的参考。但要写好脚本、处理各种边界情况（网络卡、界面变了、权限被关了），还是需要持续练习和调试。它不会替你解决问题，但能替你省时间——省下来的时间去做更值得的事。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/auto.js" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/auto.js" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/auto.js" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，选一个访问顺畅的就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/ankidroid.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">AnkiDroid 藏得最深的 4 个功能，用了三年才发现第一个</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/blackbox-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Blackbox 深度拆解：为什么一个免 Root 的安卓虚拟化引擎能跑 Xposed</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>FunBox 全能力盘点：一个模块能把聊天表情和语音玩出多少花样 · 老郭软件铺</title>
+  
+<meta name="description" content="FunBox 是跑在 LSPosed 框架上的聊天增强模块，为微信、QQ、TIM 提供表情与语音面板。本文从表情包资源、语音消息、作用域管理、日常维护四个能力域展开盘点，同时客观讨论其依赖框架、适配窗口等现实局限。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/funbox-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FunBox 全能力盘点：一个模块能把聊天表情和语音玩出多少花样">
+<meta property="og:description" content="FunBox 是跑在 LSPosed 框架上的聊天增强模块，为微信、QQ、TIM 提供表情与语音面板。本文从表情包资源、语音消息、作用域管理、日常维护四个能力域展开盘点，同时客观讨论其依赖框架、适配窗口等现实局限。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/funbox-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/funbox-docs/app-basic-info.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/funbox-docs/app-basic-info.jpg">
+
+<meta name="twitter:title" content="FunBox 全能力盘点：一个模块能把聊天表情和语音玩出多少花样">
+<meta name="twitter:description" content="FunBox 是跑在 LSPosed 框架上的聊天增强模块，为微信、QQ、TIM 提供表情与语音面板。本文从表情包资源、语音消息、作用域管理、日常维护四个能力域展开盘点，同时客观讨论其依赖框架、适配窗口等现实局限。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "FunBox \u662f\u8dd1\u5728 LSPosed \u6846\u67b6\u4e0a\u7684\u804a\u5929\u589e\u5f3a\u6a21\u5757\uff0c\u4e3a\u5fae\u4fe1\u3001QQ\u3001TIM \u63d0\u4f9b\u8868\u60c5\u4e0e\u8bed\u97f3\u9762\u677f\u3002\u672c\u6587\u4ece\u8868\u60c5\u5305\u8d44\u6e90\u3001\u8bed\u97f3\u6d88\u606f\u3001\u4f5c\u7528\u57df\u7ba1\u7406\u3001\u65e5\u5e38\u7ef4\u62a4\u56db\u4e2a\u80fd\u529b\u57df\u5c55\u5f00\u76d8\u70b9\uff0c\u540c\u65f6\u5ba2\u89c2\u8ba8\u8bba\u5176\u4f9d\u8d56\u6846\u67b6\u3001\u9002\u914d\u7a97\u53e3\u7b49\u73b0\u5b9e\u5c40\u9650\u3002", "headline": "FunBox \u5168\u80fd\u529b\u76d8\u70b9\uff1a\u4e00\u4e2a\u6a21\u5757\u80fd\u628a\u804a\u5929\u8868\u60c5\u548c\u8bed\u97f3\u73a9\u51fa\u591a\u5c11\u82b1\u6837", "image": ["https://laoguosofts.github.io/images/funbox-docs/app-basic-info.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/funbox-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/funbox-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "FunBox \u5168\u80fd\u529b\u76d8\u70b9\uff1a\u4e00\u4e2a\u6a21\u5757\u80fd\u628a\u804a\u5929\u8868\u60c5\u548c\u8bed\u97f3\u73a9\u51fa\u591a\u5c11\u82b1\u6837", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">FunBox 全能力盘点：一个模块能把聊天表情和语音玩出多少花样</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">FunBox 全能力盘点：一个模块能把聊天表情和语音玩出多少花样</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">FunBox 是跑在 LSPosed 框架上的聊天增强模块，为微信、QQ、TIM 提供表情与语音面板。本文从表情包资源、语音消息、作用域管理、日常维护四个能力域展开盘点，同时客观讨论其依赖框架、适配窗口等现实局限。</p>
+  </header>
+  <div class="prose serif">
+<h2>它是什么，以及为什么值得认真盘点</h2>
+<p>如果你在 Android 上折腾过 LSPosed 这类模块框架，大概率见过名字里带「Fun」的模块。FunBox 就是其中一款——它不做激进的事情，不碰风控、不批量操作账号，<a href="https://funbox.fewz.tech" target="_blank" rel="noopener">官网</a>上列了完整的支持范围，定位非常清晰：给微信、QQ、TIM 三款聊天应用各注入一个额外面板，让你在聊天时能快速调用表情资源和语音消息。</p>
+<p>听起来功能面很窄，但真正用起来会发现它把「表情」和「语音」这两个维度的需求做了很完整的覆盖：不只是发送，还有保存、管理、迁移；不只是面板调用，还有框架生效链路的完整说明。模块免费开源、通过正规渠道发布，包名 <code>have.fun</code>，发行版体积常年维持在 7MB 上下——小而专注的典型。</p>
+<h2>能力域一：表情包资源体系——把聊天里的表情玩出「素材库」质感</h2>
+<h3>面板调用与在线资源</h3>
+<p>FunBox 的核心入口是聊天应用里长按输入框弹出的额外面板。面板里预设了多套表情资源，同时支持在线下载更多。下载后的表情落在模块管理的本地目录里，断网也能正常调用——这是它比微信自带表情商店好的地方：自带表情一旦离线就只能用已下载的，而 FunBox 的资源路径对你完全透明。</p>
+<h3>本地存储与备份迁移</h3>
+<p>面板里的表情资源本质上就是授权存储目录里的一批文件。模块在基础信息页会明确告诉你当前存储路径是什么。换机前把这个目录整体拷贝走，换机后再授权新路径，表情就原封不动回来了——这一点对攒了上百套表情的重度用户来说价值巨大，微信自带表情做不到这么彻底的迁移。</p>
+<p><img src="../images/funbox-docs/app-basic-info.jpg" alt="基础信息页展示的存储路径与版本信息" loading="lazy"></p>
+<h3>什么场景用得上</h3>
+<ul><li>日常聊天需要快速甩表情但不想在相册里翻找保存的 GIF；</li><li>同时在微信、QQ、TIM 三款应用活跃，不想各自攒一套表情；</li><li>换机或换 ROM 时，希望把表情资产完整迁过去。</li></ul>
+<h2>能力域二：语音消息面板——把「听完就走」的语音变成可复用素材</h2>
+<p>语音是 FunBox 里经常被忽视的半壁江山。它对语音做了两件事：<strong>从聊天里保存</strong>和<strong>从面板里发送</strong>——一进一出，把语音从「即时沟通的载体」变成了「可以攒起来随时调用的表达素材」。</p>
+<h3>保存链路</h3>
+<p>在面板里对在线语音资源执行保存后，内容进入本地语音列表。保存后的语音与下载后的表情同属模块管理的存储体系，落在同一个授权目录下。这意味着备份逻辑和表情完全一致：目录在资源就在，删了就没。</p>
+<h3>发送链路</h3>
+<p>从面板把语音发进聊天的操作路径和发送表情类似，只是选中的资源类型不同。语音面板的价值在于：你不用再翻聊天记录找那条朋友发的搞笑语音然后转发，直接在面板里选一下就能发出去——这在群聊里造梗时效率差了一个量级。</p>
+<h3>三个管理建议</h3>
+<ul><li><strong>命名靠不上就靠分类</strong>：语音不像图片能预览内容，数量多了靠滑动浏览找，常用几条留在列表前部最有效率；</li><li><strong>别囤积</strong>：语音的价值在「随手能发」，攒几百条和攒十条的体验天差地别；</li><li><strong>来源注意版权边界</strong>：保存的语音用于个人聊天自娱没问题，二次分发要注意内容本身的版权与合规。</li></ul>
+<p><img src="../images/funbox-docs/app-assist-functions.jpg" alt="功能辅助面板总览" loading="lazy"></p>
+<h2>能力域三：基础信息与作用域管理——把生效链路说透</h2>
+<p>FunBox 模块的生效链路比普通 APK 长不少：装包只是第一环，后面还有启用模块、勾选作用域、重启聊天应用。任何一环没满足条件，最后都会表现成「面板弹不出来」。</p>
+<p>模块在基础信息页把这条链路完全透明化了：</p>
+<ol><li><strong>模块框架环境</strong>：手机上需要已经装好 LSPosed 这类框架工具，框架处于已激活状态；</li><li><strong>聊天应用版本</strong>：微信 8.0.40 以上、QQ 9.0.30 以上、TIM 4.0.97 以上——低于这些版本不在支持范围内；</li><li><strong>存储空间与权限</strong>：留出足够存储（模块本体约 7MB，但表情资源下载、图片缓存都会落在本地），首次使用会弹出存储目录授权；</li><li><strong>启用与作用域</strong>：在框架的模块列表里找到 FunBox，勾选上对应的聊天应用作用域，然后重启目标应用。</li></ol>
+<p>四项都过了才进入正常使用阶段。这套自检逻辑让排查面板弹不出来的问题时能快速定位到是哪一环断了。</p>
+<h2>能力域四：日常维护与版本节奏</h2>
+<h3>下载渠道的差异</h3>
+<p>FunBox 的发行版主要通过三类渠道分发：</p>
+<ul><li><strong>首选是 LSPosed 模块仓库</strong>，包名 <code>have.fun</code> 对应的模块页会列出全部发行版，版本号是四位数样式（如 v2173、v1972），历史版本也都保留；</li><li><strong>次选是作者频道</strong>，新版本第一时间发布，附带更新说明和反馈评论区；</li><li><strong>第三方应用商店</strong>版本号自成体系（三位数如 v698），部分商店会把它并不具备的功能（壁纸库、小组件、智能分析）写在简介里，参考价值有限。</li></ul>
+<p>需要安装包直接从<a href="https://funbox.fewz.tech/download.html" target="_blank" rel="noopener">官方下载</a>拿。下载时要核对包名和体积，坚决避开任何带「修改版」字样的来源——来路不明的版本才有越界行为的风险。</p>
+<h3>版本适配窗口</h3>
+<p>FunBox 依赖聊天应用的接口，QQ、微信每次大版本更新都可能带来适配空窗。用不了就等更新的心态是使用此类模块的前提。遇到适配问题可以去<a href="https://funbox-docs.pages.dev/" target="_blank" rel="noopener">funbox文档</a>查最新的版本兼容表，模块仓库的更新频率大致跟随聊天应用的版本迭代节奏，适配窗口通常在一两周内。</p>
+<h2>短板也要说透</h2>
+<p>盘点不能只讲好处。FunBox 有几个现实局限是每个使用者都需要接受的：</p>
+<ul><li><strong>框架依赖是硬门槛</strong>：没有 LSPosed 或同类框架，它就是个普通 APK，核心功能完全用不上。框架本身的安装和配置对普通 Android 用户来说有一定门槛；</li><li><strong>聊天应用大版本更新可能断适配</strong>：微信、QQ 更一次大版本就可能出现闪退或面板弹不出来的情况，这不是 Bug，是接口变了需要重新适配；</li><li><strong>账号灰色地带</strong>：模块向聊天应用注入代码的行为处于官方服务条款的灰色地带，理论上存在账号被限制的可能。用主号还是小号，每个人自己掂量；</li><li><strong>功能边界清晰但不花哨</strong>：它不做批量操作、不碰风控、没有绕不过去的复杂配置。如果你的需求是更激进的自动化，FunBox 不是那块料。</li></ul>
+<h2>什么样的人该用它</h2>
+<p>盘完四个能力域、也聊了短板，最后做个画像——三类人会真正用顺这个模块：</p>
+<p><strong>表情包重度爱好者</strong>：同时在微信、QQ、TIM 活跃，不想各自攒一套表情资产，换机时也不想丢。FunBox 的统一面板和透明存储路径刚好解决这个痛点。</p>
+<p><strong>喜欢用语音表达但嫌麻烦的人</strong>：每次想复用某条语音都要翻聊天记录找朋友发的然后转发——保存链路把语音从「听完就走」变成了「攒起来随时发」，在群聊造梗场景下效率差了一个量级。</p>
+<p><strong>已经在折腾 Android 框架的玩家</strong>：LSPosed 生态的自然延伸。框架本身已经装好了、激活了，加一个 FunBox 只是多勾选一个作用域的事，没有额外的安装负担。</p>
+<p>整理好的文档资料和模块发行版在 GitHub、Gitee、GitCode 都有镜像，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/funbox" target="_blank" rel="noopener">GitHub</a> 是主仓，国内访问推荐看 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/funbox" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/funbox" target="_blank" rel="noopener">GitCode</a>，三者内容同步维护。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/rhythm-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Rhythm 上手几天，终于找到能同时听音乐和有声书的播放器</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/file-converter-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了这么久 File Converter，这五个隐藏功能我猜你没碰过</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

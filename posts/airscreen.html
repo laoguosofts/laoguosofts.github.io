@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AirScreen 避坑指南：投屏神器也有这几处容易栽跟头的地方 · 老郭软件铺</title>
+  
+<meta name="description" content="AirScreen 是 Android TV 上最靠谱的 AirPlay/Cast/DLNA 接收端，但实际用起来踩过的坑真不少——从 Wi-Fi 隔离到同名产品混淆，一个个帮你排清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/airscreen.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AirScreen 避坑指南：投屏神器也有这几处容易栽跟头的地方">
+<meta property="og:description" content="AirScreen 是 Android TV 上最靠谱的 AirPlay/Cast/DLNA 接收端，但实际用起来踩过的坑真不少——从 Wi-Fi 隔离到同名产品混淆，一个个帮你排清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/airscreen.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/airscreen/airscreen-connection.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/airscreen/airscreen-connection.png">
+
+<meta name="twitter:title" content="AirScreen 避坑指南：投屏神器也有这几处容易栽跟头的地方">
+<meta name="twitter:description" content="AirScreen 是 Android TV 上最靠谱的 AirPlay/Cast/DLNA 接收端，但实际用起来踩过的坑真不少——从 Wi-Fi 隔离到同名产品混淆，一个个帮你排清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "AirScreen \u662f Android TV \u4e0a\u6700\u9760\u8c31\u7684 AirPlay/Cast/DLNA \u63a5\u6536\u7aef\uff0c\u4f46\u5b9e\u9645\u7528\u8d77\u6765\u8e29\u8fc7\u7684\u5751\u771f\u4e0d\u5c11\u2014\u2014\u4ece Wi-Fi \u9694\u79bb\u5230\u540c\u540d\u4ea7\u54c1\u6df7\u6dc6\uff0c\u4e00\u4e2a\u4e2a\u5e2e\u4f60\u6392\u6e05\u695a\u3002", "headline": "AirScreen \u907f\u5751\u6307\u5357\uff1a\u6295\u5c4f\u795e\u5668\u4e5f\u6709\u8fd9\u51e0\u5904\u5bb9\u6613\u683d\u8ddf\u5934\u7684\u5730\u65b9", "image": ["https://laoguosofts.github.io/images/airscreen/airscreen-connection.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/airscreen.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/airscreen.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "AirScreen \u907f\u5751\u6307\u5357\uff1a\u6295\u5c4f\u795e\u5668\u4e5f\u6709\u8fd9\u51e0\u5904\u5bb9\u6613\u683d\u8ddf\u5934\u7684\u5730\u65b9", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">AirScreen 避坑指南：投屏神器也有这几处容易栽跟头的地方</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">AirScreen 避坑指南：投屏神器也有这几处容易栽跟头的地方</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 10 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">AirScreen 是 Android TV 上最靠谱的 AirPlay/Cast/DLNA 接收端，但实际用起来踩过的坑真不少——从 Wi-Fi 隔离到同名产品混淆，一个个帮你排清楚。</p>
+  </header>
+  <div class="prose serif">
+<p>AirScreen 这东西说简单也简单，装在电视盒子上就能让 iPhone、Mac、安卓手机往电视里投——它就是个把 AirPlay、Cast、DLNA 一股脑全接住的万能接收器，<a href="https://www.bmww.store" target="_blank" rel="noopener">airscreen官网</a>上现在还在持续更新。但我第一次用的时候真的是连着翻了好几个车，尤其是"找不到设备"那一段折腾了一下午才搞明白——原来不是 AirScreen 本身坏了，而是我对 Wi-Fi 和权限的理解太天真了。</p>
+<p>这篇把我踩过的坑一个个列出来，每个坑讲清楚你会看到什么症状、为什么会这样、怎么救或者怎么提前避开。看完这些，AirScreen 其实相当省心。</p>
+<h2>坑一：搜不到设备——八成是 Wi-Fi 在搞事</h2>
+<h3>症状</h3>
+<p>打开 AirScreen 显示"等待连接"，手机下拉控制中心点 AirPlay 扫描，列表就是空的。等了十遍、关掉 Wi-Fi 再打开还是找不到。我当时第一反应是 AirScreen 没装好，卸载重装了三遍——白折腾。</p>
+<h3>原因</h3>
+<p>AirScreen 依赖局域网广播包（mDNS / SSDP）来发现设备。只要路由器或网络环境里有任何一层拦截了广播，设备就互相看不见。实际场景里最常见的几种拦截：</p>
+<p><strong>访客网络（Guest Wi-Fi）</strong>：很多家庭路由器默认开了 Guest Wi-Fi，访客网络的设计目标就是"能上网但不能碰家里的设备"，广播包从源头就被挡住了。我家路由器把 Guest Wi-Fi 的 SSID 设成了跟主 Wi-Fi 几乎一样的名字，只是末尾多了个"-guest"后缀，第一次连的时候没注意，手机就一直在 Guest 网络里漂着。</p>
+<p><strong>AP 隔离 / 客户端隔离</strong>：即使手机和电视在同一个 SSID 下，路由器如果开了 AP 隔离，设备之间还是通信不了。这个功能本意是防止蹭网的人访问局域网其他设备，但也把 AirScreen 的发现通道给堵死了。不同品牌路由器的叫法不一样，TP-Link 叫"AP隔离"、华硕在"专业设置"里、小米叫"关闭 AP 隔离"。</p>
+<p><strong>2.4G 和 5G 隔离</strong>：现代路由器大多双频合一，但有的路由器开了"频段间隔离"或者叫"独立频段"，导致连 5GHz 的设备和连 2.4GHz 的设备虽然看着在同一个 SSID 下，实际被物理隔开了。我家电视盒子在客厅角落信号弱自动跳 2.4G，手机在沙发上 5G 满格，两边就是互相看不见。</p>
+<p><strong>多路由器串联</strong>：如果家里有副路由做有线级联，副路由的工作模式必须是 AP 模式或桥接模式。我之前副路由设的是路由模式，结果它给自己的设备分了独立网段（192.168.2.x），主路由的设备根本打不进去。</p>
+<h3>解法</h3>
+<p>排查顺序我现在是固定的：先开手机热点，把 AirScreen 的盒子和发送端都连到热点上试。如果热点下能找到，那问题百分之百在家庭网络，按上面四个场景逐个查。如果热点下也找不到，才去怀疑 AirScreen 本身或者设备兼容性。拿不准各家路由器具体参数的话，去<a href="https://airscreen.pages.dev/" target="_blank" rel="noopener">airscreen文档</a>对照一下常见品牌的设置路径。</p>
+<p><img src="../images/airscreen/airscreen-connection.png" alt="连接异常排查" loading="lazy"></p>
+<h2>坑二：Android 12+ 上位置权限——不给就找不到设备</h2>
+<h3>症状</h3>
+<p>同样是搜不到设备，但确认了 Wi-Fi 没问题、热点下也能找到其他设备但就是发现不了 AirScreen。这个坑在 Android 12 及以上系统的电视盒子上特别常见，我用小米盒子从<a href="https://www.bmww.store/download.html" target="_blank" rel="noopener">官方下载</a>装 AirScreen 时就中招了。</p>
+<h3>原因</h3>
+<p>Android 12 引入了新的安全策略：应用发现局域网设备需要位置信息权限。AirScreen 在新版系统上需要这个权限来扫描 mDNS 广播——它不是要定位你在哪，是 Android 系统强制要求的。我装的时候习惯性把权限都设成"仅在使用时允许"，结果 AirScreen 后台服务起来就没了，设备发现自然失败。</p>
+<h3>解法</h3>
+<p>进 Settings → Apps → See all apps → AirScreen → Permissions → Location，改成"始终允许"（Allow all the time）。不要设"仅在使用时允许"——AirScreen 需要后台持续运行来监听广播，前台使用时才给权限等于不给。这个改完基本不用重启，等十几秒扫描列表里就能看到了。</p>
+<h2>坑三：iOS App Store 上的同名产品——别装错了</h2>
+<h3>症状</h3>
+<p>朋友让我帮他在 iPad 上装 AirScreen，我在 App Store 一搜就装了。结果装完发现这东西的功能跟我电视上的 AirScreen 完全不一样——图标也像但开发者不是 Ionitech，它是 Aran Amida 的 sender 端应用，能把 iPhone 内容推出去但不是接收端。</p>
+<h3>原因</h3>
+<p>App Store 上有两款叫 AirScreen 的应用。Ionitech 的 AirScreen 是<strong>接收端</strong>，跑在 Android TV / Google TV / Fire TV 上，包名 com.ionitech.airscreen。Aran Amida 的 AirScreen iOS 版是<strong>发送端</strong>，把 iPhone 变成投屏发射器，定位完全相反。而且 AirPlay 接收端在苹果生态里是受限能力，没有 MFi 认证的硬件是做不了的——Ionitech 根本没发过 iOS 版的接收端。</p>
+<h3>解法</h3>
+<p>记住一个判断方法：想接收投屏 → 看 Android 平台 → Ionitech AirScreen；想把 iPhone 变成发射器 → 看 App Store → Aran Amida AirScreen iOS。别在 iPad 上找接收端了，苹果没开放这个 API，软件层面做不了真正的 AirPlay 接收器。</p>
+<p><img src="../images/airscreen/airscreen-platforms.png" alt="多平台对比" loading="lazy"></p>
+<h2>坑四：Pro 版录屏——DRM 保护的内容录不了</h2>
+<h3>症状</h3>
+<p>买了 Pro 版就是冲录屏功能去的，结果投 Netflix 电影的时候点录屏按钮，录下来的视频只有开头几秒画面就黑屏了，或者干脆录不了有 DRM 保护的流媒体。</p>
+<h3>原因</h3>
+<p>这不是 AirScreen 的 bug，是 DRM 链路的硬性规定。Netflix、Disney+ 等平台的内容在传输过程中会带上 DRM 保护标记，录屏程序检测到保护标记后会主动阻止捕获。AirScreen 没法绕过这个限制——就算用系统录屏工具也一样被拦。如果你用屏幕镜像模式（不是流媒体推送）来录屏，镜像模式下内容已经解码了可能能录，但这可能违反流媒体平台的使用条款。</p>
+<h3>解法</h3>
+<p>录屏前先确认内容有没有 DRM 保护。适合录屏的场景：投屏本地视频、演示 PPT、操作教程、网页内容。不适合录屏的：Netflix、Disney+、Amazon Prime Video 等付费流媒体。另外录屏文件默认存在电视盒子的内部存储，10 分钟 1080p 大约占 100~300MB，建议在 AirScreen 设置里把保存路径改成外接 U 盘。</p>
+<h2>坑五：AirScreen 切后台就被杀进程</h2>
+<h3>症状</h3>
+<p>AirScreen 开着显示"等待连接"，我切到电视主屏幕或者其他应用看一眼时间，过了五分钟再回头打开 AirScreen——发现它被系统杀掉了，接收状态没了。这种情况在 FireTV / FireOS 8+ 上特别明显。</p>
+<h3>原因</h3>
+<p>Android TV 的后台管理机制比较激进，长时间不在前台的应用会被系统回收内存。AirScreen 需要后台持续运行才能监听 AirPlay/Cast/DLNA 广播，如果后台服务没开或者被系统杀了，发现通道就断了。</p>
+<h3>解法</h3>
+<p>进 AirScreen 设置找后台服务相关选项，确保开启。FireOS 8+ 还要额外检查后台权限是否允许。另外我养成了一个习惯：AirScreen 打开后尽量不主动切走，如果必须切就尽量快，别让系统有机会回收它。</p>
+<h2>防坑清单</h2>
+<p>把这五个坑浓缩成一句话速查，以后新设备首次连接的时候按这个过一遍，能省掉大部分排查时间：</p>
+<ul><li><strong>先开热点隔离测试</strong>：搜不到设备第一反应不是重装，先开个手机热点让两边连上去试——能通就是家庭网络的问题</li><li><strong>检查位置权限</strong>：Android 12+ 必须给 AirScreen 位置权限"始终允许"，没给就找不到设备</li><li><strong>确认 Wi-Fi 不是 Guest 网络</strong>：Guest Wi-Fi 默认不让内部设备互访，看一眼 SSID 后缀有没有 guest</li><li><strong>副路由设成 AP 模式</strong>：有线级联的副路由必须切到 AP 模式或桥接模式，路由模式会划出独立网段</li><li><strong>iOS 别找接收端</strong>：App Store 上的 AirScreen 不是同一个产品，Ionitech 不做 iOS 接收端，苹果没开放这个权限</li></ul>
+<p>知道这些坑之后，AirScreen 其实相当省心——装完设置好权限和 Wi-Fi 环境，基本就是开机即连，投 PPT、投电影、投网页都稳定得很。我现在用它做演示和看球已经半年多了，没再出过什么幺蛾子。之前整理的 AirScreen 安装指南和避坑笔记也同步到了<a href="https://github.com/alipymanbu/APK/tree/main/APP/airscreen" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/airscreen" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/airscreen" target="_blank" rel="noopener">GitCode</a>，有需要的朋友可以直接去拿。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/incredibox-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Incredibox 看着简单，用起来这几个坑你一定要避开</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/vivo-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">小白也能搞定！vivo 官方 App 从下载到抢新机全流程</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

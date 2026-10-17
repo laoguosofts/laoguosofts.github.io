@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我是怎么把这款电报客户端嵌进每周信息采集工作流里的 · 老郭软件铺</title>
+  
+<meta name="description" content="每周要从十几个海外频道和技术群组里摘情报、翻译、整理进飞书笔记，以前三条链路手动串，现在一个客户端扛下翻译和过滤，整条链只留一个手动节点。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/turrit.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我是怎么把这款电报客户端嵌进每周信息采集工作流里的">
+<meta property="og:description" content="每周要从十几个海外频道和技术群组里摘情报、翻译、整理进飞书笔记，以前三条链路手动串，现在一个客户端扛下翻译和过滤，整条链只留一个手动节点。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/turrit.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/turrit/turrit-local-shot1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/turrit/turrit-local-shot1.jpg">
+
+<meta name="twitter:title" content="我是怎么把这款电报客户端嵌进每周信息采集工作流里的">
+<meta name="twitter:description" content="每周要从十几个海外频道和技术群组里摘情报、翻译、整理进飞书笔记，以前三条链路手动串，现在一个客户端扛下翻译和过滤，整条链只留一个手动节点。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u8981\u4ece\u5341\u51e0\u4e2a\u6d77\u5916\u9891\u9053\u548c\u6280\u672f\u7fa4\u7ec4\u91cc\u6458\u60c5\u62a5\u3001\u7ffb\u8bd1\u3001\u6574\u7406\u8fdb\u98de\u4e66\u7b14\u8bb0\uff0c\u4ee5\u524d\u4e09\u6761\u94fe\u8def\u624b\u52a8\u4e32\uff0c\u73b0\u5728\u4e00\u4e2a\u5ba2\u6237\u7aef\u625b\u4e0b\u7ffb\u8bd1\u548c\u8fc7\u6ee4\uff0c\u6574\u6761\u94fe\u53ea\u7559\u4e00\u4e2a\u624b\u52a8\u8282\u70b9\u3002", "headline": "\u6211\u662f\u600e\u4e48\u628a\u8fd9\u6b3e\u7535\u62a5\u5ba2\u6237\u7aef\u5d4c\u8fdb\u6bcf\u5468\u4fe1\u606f\u91c7\u96c6\u5de5\u4f5c\u6d41\u91cc\u7684", "image": ["https://laoguosofts.github.io/images/turrit/turrit-local-shot1.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/turrit.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/turrit.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u662f\u600e\u4e48\u628a\u8fd9\u6b3e\u7535\u62a5\u5ba2\u6237\u7aef\u5d4c\u8fdb\u6bcf\u5468\u4fe1\u606f\u91c7\u96c6\u5de5\u4f5c\u6d41\u91cc\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">我是怎么把这款电报客户端嵌进每周信息采集工作流里的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">我是怎么把这款电报客户端嵌进每周信息采集工作流里的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周要从十几个海外频道和技术群组里摘情报、翻译、整理进飞书笔记，以前三条链路手动串，现在一个客户端扛下翻译和过滤，整条链只留一个手动节点。</p>
+  </header>
+  <div class="prose serif">
+<p>每周一上午我有一个固定动作：把 Telegram 上订阅的十几个海外技术频道、三个行业群组扫一遍，挑出有用的条目，翻成中文，贴进飞书的信息情报库。以前这件事要跨三个应用：官方客户端负责看和聊，浏览器插件或翻译 App 负责翻译，飞书负责归档。手动复制粘贴一天能吃掉我半小时，频道里贴片广告和骚扰消息又分散注意力。现在换成了从<a href="https://turrit.fewf.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿包装好的 Turrit，客户端本身就把翻译和过滤都扛了下来，整条链路只剩一个需要我手动触发的节点——归档。</p>
+<h2>旧流程：三条链路手动串，每天半小时复制粘贴</h2>
+<p>说清楚旧流程卡在哪，才能讲清新流程省了什么。以前的路径是这样的：</p>
+<p><strong>第一步：看频道。</strong> 官方 Telegram 客户端装好，订阅了 TechCrunch、The Verge、几个开源项目的公告频道、以及两个做海外 SaaS 情报的行业群。问题在于这些频道里偶尔会贴片广告，群组里更别提——总有几个人天天刷营销话术。我得盯着标题判断哪些该跳过，一条一条手动点开。</p>
+<p><strong>第二步：翻译。</strong> 遇到看不懂的外语消息，长按复制 → 打开浏览器翻译插件或单独的翻译 App → 粘贴进去 → 等翻译 → 复制翻译结果 → 回到客户端贴在脑子里对照。如果看完想回复，还得把自己要说的话再拿去翻译一遍，然后复制回来发送。来回复制至少四次，一条消息走完。频道里连续刷个十条，半小时没了。</p>
+<p><strong>第三步：归档。</strong> 看中的内容手动复制进飞书的情报库文档，分好类、加日期标签。这一步倒不麻烦，但前面两步让整个流程的心理负担特别大——你总觉得翻译这一步不应该存在，它不就是个"把外语显示成中文"的事吗，为什么要我手动操作这么多次。</p>
+<p>整条链里最烦的不是哪一步慢，而是<strong>注意力被来回切</strong>：从聊天窗口跳去翻译 App，再跳回来，再跳去笔记软件。每一次切换都要把上下文重新拉回来。频道里还夹着广告和骚扰，更别说那些我不关心的营销话术，刷的时候得时刻绷着一根弦过滤噪音。</p>
+<h2>新流程：Turrit 嵌在哪一环，上下游怎么接</h2>
+<p>换成 <a href="https://turrit.fewf.ren" target="_blank" rel="noopener">turrit官网</a> 上这款主打全场景翻译的客户端之后，翻译和过滤这两件事直接进了客户端本身，我不需要再跳出去。具体嵌法如下：</p>
+<p><strong>客户端内部就把旧的前两步合并了。</strong> 实时翻译默认跟随我的简体中文界面，外语消息直接显示翻译结果，滚动浏览时翻译内容还会跟着更新。群友聊英文我直接看懂，频道里的日语新闻也是中文呈现。发消息前有个翻译按钮，我把要说的中文敲进去，点一下就出英文翻译，确认表达没问题直接发送——这两步在同一个窗口里完成，不需要切换应用。</p>
+<p><strong>过滤噪音直接在客户端里解决。</strong> 之前那些广告话术、骚扰消息，现在用关键词阻止拦一层，频道广告过滤再拦一层。命中关键词的消息直接从我的时间线里消失，频道里的贴片广告也被滤掉了。群组里刷屏的那几个人，我直接让他们的消息对我不可见——不用退群、不用找管理员，自己的时间线自己说了算。频道流配合时间线功能，几十个频道的内容聚在一起刷，信息流干净一大截。</p>
+<p><strong>归档这一步还在客户端外，但已经是纯体力活了。</strong> 看中的消息长按收藏，回到飞书粘贴一条链接或一段摘要就行——因为我已经看懂了，不需要再翻译。</p>
+<p>整条链路现在是这样的：</p>
+<pre><code>Turrit（订阅频道 + 群组消息）→ 客户端内部实时翻译 + 过滤噪音 → 长按收藏有价值内容 → 飞书情报库归档</code></pre>
+<p>相比旧流程少了两个应用切换（翻译 App 和过滤环节），归档前也不需要任何手动复制粘贴翻译的操作。</p>
+<h2>实操里最容易断链的两个环节，怎么处理</h2>
+<p>新流程跑起来整体顺畅，但有两个地方我一开始踩了坑，后来调通了：</p>
+<p><strong>第一个坑：翻译语言的跟随问题。</strong> 刚装上客户端时，有些群聊里的消息始终显示原文不翻译，我翻了一下<a href="https://turrit.pages.dev/" target="_blank" rel="noopener">turrit文档</a>才确认——那个群聊的目标语言被单独设成了英文（可能是我之前玩的时候不小心改的）。Turrit 允许每个聊天单独指定目标语言，不必跟全局设置走。这个设计灵活但也容易乱，我后来把所有频道和群组的目标语言统一设成简体中文，只跟几个外国朋友的私聊保持英文互译，问题就解决了。</p>
+<p><strong>第二个坑：AI 校准的使用边界。</strong> 有几次翻译结果明显差点意思，我点进去校准，发现 AI 校准每天有次数上限但免费。这个功能适合对准确度有要求的场合——比如要发正式消息或翻译合同片段时，拿不准就点一下。但日常刷频道不需要，实时翻译 95% 的准确率完全够用，校准留给关键消息就行。我一开始天天校准，次数用完了才发现完全没必要，后来只在要回复客户邮件时才用。</p>
+<p><img src="../images/turrit/turrit-local-shot1.jpg" alt="工作流整合后的频道浏览截图" loading="lazy"></p>
+<h2>效果和边界：省了多少事，什么时候这条链不划算</h2>
+<p>算一下时间账：旧流程里我每条频道消息平均要花 20 秒——点开、判断、翻译、可能还要回复，十条就是 200 秒。新流程里同一条消息就是 5 秒滑过，看中了长按一下收藏。一周十几条频道下来，大概能省出 25 分钟的纯操作时间。更重要的是<strong>注意力成本的降低</strong>——以前每刷十分钟就要停下来擦擦注意力切换留下的"认知油污"，现在可以一口气刷完整个列表再歇。</p>
+<p>但这条链也不是万能的，有几个场景用 Turrit 反而不划算：</p>
+<ul><li>如果你的频道里<strong>全是中文或你已经会的语言</strong>，翻译功能基本用不上，客户端的其他优势也不足以让你换掉用惯了的官方客户端。</li><li>如果你的工作流里<strong>有自动化归档的环节</strong>（比如用 Zapier 或飞书机器人自动同步），那归档这步也不需要手动——但 Turrit 本身不做这个，归档的自动化要在外部工具里搭。客户端只负责翻译和过滤，上下游同步还是要靠自己的笔记软件或机器人。</li><li><strong>AI 校准的次数有限</strong>，如果你的工作需要频繁翻译高质量的长文档，这个功能就不够用了，还是得回到专业翻译工具。日常消息回复没问题，但长文档另算。</li></ul>
+<p>总的来说，这套工作流适合<strong>有固定海外信息摄入需求、又不想在翻译这件事上花额外操作时间</strong>的场景——不管是看频道、聊群、还是回复外国客户，把翻译和过滤收进客户端里，上下游就能接得很顺滑。客户端安装也简单，安卓设备有谷歌商店直接搜名字装就好，认准开发者信息就行，没有谷歌服务的设备直接走 APK 安装也没问题，两条路装出来的是同一个客户端，数据互通。安装指引和翻译配置的详细说明，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/turrit" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/turrit" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/turrit" target="_blank" rel="noopener">GitCode</a> 三个仓库都能找到，国内网络访问也方便。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/afreeca-tv.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">你以为它只是韩国版虎牙？Afreeca TV 这5个隐藏功能官方都不宣传</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/smartglasses-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">戴着眼镜跑外务：我用 SmartGlasses 串起导航、翻译和记录的一条龙</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

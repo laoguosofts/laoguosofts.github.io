@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了 XBrowser 三年才挖到的 5 个隐藏功能——你以为它只是个轻量浏览器？ · 老郭软件铺</title>
+  
+<meta name="description" content="XBrowser 以 2MB 的小体积出名，但藏在设置深处的油猴原生引擎、阅读模式自动续章、强制页面缩放等功能，让它远不止一个&#34;能打开网页&#34;的浏览器。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/xbrowser-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了 XBrowser 三年才挖到的 5 个隐藏功能——你以为它只是个轻量浏览器？">
+<meta property="og:description" content="XBrowser 以 2MB 的小体积出名，但藏在设置深处的油猴原生引擎、阅读模式自动续章、强制页面缩放等功能，让它远不止一个&#34;能打开网页&#34;的浏览器。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/xbrowser-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/xbrowser-zh-docs/xbrowser-greasyfork-install.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/xbrowser-zh-docs/xbrowser-greasyfork-install.png">
+
+<meta name="twitter:title" content="用了 XBrowser 三年才挖到的 5 个隐藏功能——你以为它只是个轻量浏览器？">
+<meta name="twitter:description" content="XBrowser 以 2MB 的小体积出名，但藏在设置深处的油猴原生引擎、阅读模式自动续章、强制页面缩放等功能，让它远不止一个&#34;能打开网页&#34;的浏览器。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "XBrowser \u4ee5 2MB \u7684\u5c0f\u4f53\u79ef\u51fa\u540d\uff0c\u4f46\u85cf\u5728\u8bbe\u7f6e\u6df1\u5904\u7684\u6cb9\u7334\u539f\u751f\u5f15\u64ce\u3001\u9605\u8bfb\u6a21\u5f0f\u81ea\u52a8\u7eed\u7ae0\u3001\u5f3a\u5236\u9875\u9762\u7f29\u653e\u7b49\u529f\u80fd\uff0c\u8ba9\u5b83\u8fdc\u4e0d\u6b62\u4e00\u4e2a\"\u80fd\u6253\u5f00\u7f51\u9875\"\u7684\u6d4f\u89c8\u5668\u3002", "headline": "\u7528\u4e86 XBrowser \u4e09\u5e74\u624d\u6316\u5230\u7684 5 \u4e2a\u9690\u85cf\u529f\u80fd\u2014\u2014\u4f60\u4ee5\u4e3a\u5b83\u53ea\u662f\u4e2a\u8f7b\u91cf\u6d4f\u89c8\u5668\uff1f", "image": ["https://laoguosofts.github.io/images/xbrowser-zh-docs/xbrowser-greasyfork-install.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/xbrowser-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/xbrowser-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86 XBrowser \u4e09\u5e74\u624d\u6316\u5230\u7684 5 \u4e2a\u9690\u85cf\u529f\u80fd\u2014\u2014\u4f60\u4ee5\u4e3a\u5b83\u53ea\u662f\u4e2a\u8f7b\u91cf\u6d4f\u89c8\u5668\uff1f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">用了 XBrowser 三年才挖到的 5 个隐藏功能——你以为它只是个轻量浏览器？</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">用了 XBrowser 三年才挖到的 5 个隐藏功能——你以为它只是个轻量浏览器？</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">XBrowser 以 2MB 的小体积出名，但藏在设置深处的油猴原生引擎、阅读模式自动续章、强制页面缩放等功能，让它远不止一个&#34;能打开网页&#34;的浏览器。</p>
+  </header>
+  <div class="prose serif">
+<p>我最初装 XBrowser 是冲它那 2MB 的安装包——在<a href="https://xbrowser.uerg.quest/download.html" target="_blank" rel="noopener">官方下载站</a>拿的 APK，在这个 App 动辄几百 MB 的年代，一个浏览器做到这么小，总觉得应该试试。试了之后确实用了好长时间，多标签、广告拦截、阅读模式，这些是日常主力。后来才知道它的<a href="https://xbrowser.uerg.quest" target="_blank" rel="noopener">官网</a>上列的功能比我想的多太多，但翻设置翻了三年才发现，它藏得真深。</p>
+<h2>1. 油猴脚本原生跑——地址栏贴 .js 就装</h2>
+<p>大多数人把 XBrowser 当普通浏览器用，顶多开个广告拦截。但你知道它<strong>原生带 TamperMonkey / GreaseMonkey 引擎</strong>吗？不是装插件那种"套壳兼容"，是浏览器内核级的支持——GM_xmlhttpRequest、GM_download、GM_cookie 这些高级函数全部可用。</p>
+<p>安装脚本的方式也藏得很随意：在油猴脚本网站（比如 GreasyFork）点安装按钮，或者干脆<strong>把 .js 结尾的 URL 直接粘进地址栏</strong>，浏览器会自动识别弹出安装确认框。支持 <code>@match</code> / <code>@include</code> / <code>@exclude</code> 全套匹配规则。</p>
+<p>这个功能对什么人有用？常年泡论坛、贴吧、小说站的——找个去广告脚本、自动翻页脚本、VIP 视频解析脚本，粘个 URL 就装上，不用额外装油猴插件。官方几乎不宣传这个，我也是某次好奇往地址栏随便贴了个链接才撞出来的。想把 GM_* 函数玩透或者写自己的脚本，<a href="https://xbrowser-zh-docs.pages.dev/" target="_blank" rel="noopener">xbrowser文档</a>里有完整的 API 说明和脚本配置指南。</p>
+<p><img src="../images/xbrowser-zh-docs/xbrowser-greasyfork-install.png" alt="油猴脚本安装界面" loading="lazy"></p>
+<h2>2. 阅读模式 TTS——读完自动跳下一章</h2>
+<p>XBrowser 的阅读模式大家应该都在用，自动正文识别、过滤广告、小说自动拼页。但你试过<strong>开启 TTS 朗读</strong>吗？重点不是朗读本身，是读完一章自动跳到下一章、语音进度高亮跟随页面滚动、TTS 悬浮按钮可拖拽并自动吸附屏幕边缘——这一整套打磨完的阅读体验，在手机浏览器里我没见过别家做这么细的。</p>
+<p>藏在哪？打开阅读模式后，底部工具栏或浮动按钮里能找到 TTS 开关。首次使用系统会让你选一个 TTS 引擎（国内手机系统基本自带了，中文朗读没问题）。开启后可以设置：语速、自动播放下一章节、进度高亮。</p>
+<p>什么场景真有用？躺着看小说眼睛累的时候，开车坐地铁想听书的时候——你甚至可以把手机放口袋里，听完一章它自己翻下一章。我现在追网文基本都靠这个。</p>
+<h2>3. 强制页面缩放——绕过网站的 user-scalable=no</h2>
+<p>很多手机网站为了排版整齐，在 HTML 里加了 <code>&lt;meta name=&quot;viewport&quot; content=&quot;user-scalable=no&quot;&gt;</code>，把双指缩放给禁了。遇到字小的页面（比如某些技术文档、外文网站），你只能凑很近看，特别难受。</p>
+<p>XBrowser 有个全局开关<strong>直接绕过这个限制</strong>：设置 → 浏览器设置 → 高级设置 → 找「强制页面缩放」或「忽略页面缩放限制」，打开就行。从此不管网站自己怎么设置，你都能捏合双指随便缩放。</p>
+<p>副作用也有——某些页面缩放后会出现横向滚动条，或者固定定位的弹窗位置跑偏。但这是网页自己没考虑可缩放场景的锅，不是浏览器的问题。建议平时关着，遇到字小的页面再开，或者视力对小字体敏感的人可以一直开。</p>
+<h2>4. 加密书签——手势密码锁起来</h2>
+<p>有人会好奇：XBrowser 体积这么小，隐私保护到底靠不靠谱？答案是它从设计上就做了很多别的浏览器没做的事——不绑手机号、不收集数据、不用第三方 SDK、极少量权限申请。但最让我意外的是<strong>加密书签和历史记录</strong>这个功能。</p>
+<p>路径：进入书签或历史记录页面 → 找「加密存储」或「设置解锁手势」→ 画一个解锁手势（类似 Android 锁屏）。之后每次打开书签 / 历史记录，都要画这个手势才能看。而且这个手势<strong>只存在本地</strong>，不上传任何云端服务器。</p>
+<p>什么人用得上？手机经常被别人拿去玩的、有敏感书签不想被看到的、对隐私有重度需求的。如果你只是普通用户，觉得没必要多一道门槛，那可以无视。</p>
+<h2>5. 全屏游戏模式——禁用长按菜单和手势</h2>
+<p>这个是 V5.6.0 更新里加的，我也是刷版本日志才注意到。全屏模式大家都知道——隐藏工具栏、浮动按钮可拖拽。但<strong>全屏游戏模式</strong>在此基础上额外禁用了长按菜单和手势触发，防止玩游戏时不小心长按弹出菜单、或者滑动手势误触浏览器操作。</p>
+<p>开法：先切全屏，然后在全屏模式的设置或工具栏里找「游戏模式」开关。开启后全屏 + 禁用长按 + 禁用手势，纯纯给手游预留的。什么人用得上？用 XBrowser 玩网页游戏的——比如 H5 游戏、云游戏页面。普通浏览场景完全用不到。</p>
+<h2>一个提醒：强制缩放别常开</h2>
+<p>前面说了，强制页面缩放虽然好用，但某些网站的布局确实扛不住缩放——横向滚动条、悬浮按钮错位、甚至有些 JS 交互会出问题。最稳的做法是默认关着，遇到需要的页面临时开一下，看完就关。</p>
+<p>另外广告拦截开了之后记得<strong>订阅外部规则</strong>——默认只带了最基础的几条规则，拦截效果有限。进设置 → 隐私与安全 → 广告拦截 → 订阅规则，加 EasyChina 或者 AdGuard 基础规则，拦截效果立马提升。</p>
+<h2>最后说一句</h2>
+<p>XBrowser 只有 2MB，但功能密度真的比很多几十 MB 的浏览器高——油猴原生、阅读模式 TTS、强制缩放、加密书签、视频嗅探绑第三方下载器、BT/磁力支持、DLNA 投屏……还有很多没提到的小细节。用透了会发现，它不是"轻量浏览器"那么简单，是一个<strong>把功能藏在设置深处、等你自己挖的全能型浏览器</strong>。</p>
+<p>如果你也在找一个既能安静看网页、又能折腾脚本、还能当阅读器用的浏览器，版本更新一直没停过，功能密度还在往上堆。</p>
+<p>这套资料我同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/xbrowser" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/xbrowser" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/xbrowser" target="_blank" rel="noopener">GitCode</a> 三个仓库，不管你习惯哪个平台都能拿到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/libretorrent.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">LibreTorrent 内核拆解：一个 Android BT 客户端的设计取舍</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/brickit-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用 Brickit 把五年没碰的乐高翻成了可查的数字库存</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

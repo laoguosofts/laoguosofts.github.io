@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Lanerc 版本进化史：一款聚合工具如何把「不丢进度」刻进迭代 DNA · 老郭软件铺</title>
+  
+<meta name="description" content="从手势细节到多源切换，从断点续播到云端同步——Lanerc 的每一次更新都在做同一件事：让你被打断时损失降到最小。我们从公开文档里拼凑它的迭代轨迹，看看团队究竟在死磕什么。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/lanerc-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lanerc 版本进化史：一款聚合工具如何把「不丢进度」刻进迭代 DNA">
+<meta property="og:description" content="从手势细节到多源切换，从断点续播到云端同步——Lanerc 的每一次更新都在做同一件事：让你被打断时损失降到最小。我们从公开文档里拼凑它的迭代轨迹，看看团队究竟在死磕什么。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/lanerc-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/lanerc-docs/shot-player-gundam.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/lanerc-docs/shot-player-gundam.jpg">
+
+<meta name="twitter:title" content="Lanerc 版本进化史：一款聚合工具如何把「不丢进度」刻进迭代 DNA">
+<meta name="twitter:description" content="从手势细节到多源切换，从断点续播到云端同步——Lanerc 的每一次更新都在做同一件事：让你被打断时损失降到最小。我们从公开文档里拼凑它的迭代轨迹，看看团队究竟在死磕什么。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u624b\u52bf\u7ec6\u8282\u5230\u591a\u6e90\u5207\u6362\uff0c\u4ece\u65ad\u70b9\u7eed\u64ad\u5230\u4e91\u7aef\u540c\u6b65\u2014\u2014Lanerc \u7684\u6bcf\u4e00\u6b21\u66f4\u65b0\u90fd\u5728\u505a\u540c\u4e00\u4ef6\u4e8b\uff1a\u8ba9\u4f60\u88ab\u6253\u65ad\u65f6\u635f\u5931\u964d\u5230\u6700\u5c0f\u3002\u6211\u4eec\u4ece\u516c\u5f00\u6587\u6863\u91cc\u62fc\u51d1\u5b83\u7684\u8fed\u4ee3\u8f68\u8ff9\uff0c\u770b\u770b\u56e2\u961f\u7a76\u7adf\u5728\u6b7b\u78d5\u4ec0\u4e48\u3002", "headline": "Lanerc \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4e00\u6b3e\u805a\u5408\u5de5\u5177\u5982\u4f55\u628a\u300c\u4e0d\u4e22\u8fdb\u5ea6\u300d\u523b\u8fdb\u8fed\u4ee3 DNA", "image": ["https://laoguosofts.github.io/images/lanerc-docs/shot-player-gundam.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/lanerc-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/lanerc-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Lanerc \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4e00\u6b3e\u805a\u5408\u5de5\u5177\u5982\u4f55\u628a\u300c\u4e0d\u4e22\u8fdb\u5ea6\u300d\u523b\u8fdb\u8fed\u4ee3 DNA", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Lanerc 版本进化史：一款聚合工具如何把「不丢进度」刻进迭代 DNA</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Lanerc 版本进化史：一款聚合工具如何把「不丢进度」刻进迭代 DNA</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从手势细节到多源切换，从断点续播到云端同步——Lanerc 的每一次更新都在做同一件事：让你被打断时损失降到最小。我们从公开文档里拼凑它的迭代轨迹，看看团队究竟在死磕什么。</p>
+  </header>
+  <div class="prose serif">
+<p>上周用 Lanerc 追番时线路突然抽风——这款应用的<a href="https://lanerc.xnyx.quest" target="_blank" rel="noopener">官网</a>上产品介绍就把多源与续播放在最显眼的位置，安装包从<a href="https://lanerc.xnyx.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿就行——我习惯性地拧了一下换源按钮，画面没丢、进度没跳、甚至连画质档位都记住了。这个动作做得太自然了，自然到我差点忘了，几年前的同类应用换一次源等于重开一集，翻页漫放大看分镜再收回，十有八九跳回首页。</p>
+<p>现在的 Lanerc 看起来像是把「别让用户重新找位置」刻进了每一个交互细节：条漫顺着滑到底不设翻页感、页漫点边或滑动都能翻、两指缩放看完分镜松开还停在原位；播放页卡了换源不丢秒数，阅读器里换源不丢页码，画质随便调也不回退位置。这些细节散落在播放、阅读、收藏各个模块里，乍看没什么关联，串起来看却是一条清晰的迭代逻辑——我们等下会说到。</p>
+<p><img src="../images/lanerc-docs/shot-player-gundam.jpg" alt="播放器换源场景" loading="lazy"></p>
+<h2>来路：文档里没写版本号，但功能痕迹在说话</h2>
+<p>Lanerc 没有公开的版本演进时间线，我能查到的只有<a href="https://lanerc-docs.pages.dev/" target="_blank" rel="noopener">Lanerc文档</a>里散落的功能描述。但从这些描述的粒度和措辞，大致能倒推出几个关键阶段。</p>
+<p>最早的版本应该就是基础的聚合阅读器：找源、加载、播放、翻页。这是所有同类应用的起点，没什么特别的。真正的第一次迭代，大概率是<strong>把条漫和页漫的阅读手势分开处理</strong>。为什么这么猜？因为公开文档里条漫和页漫的翻法是分两节写的——条漫只有「顺着滑」一种姿势，页漫同时支持点边和滑动两种翻法。这个分治不是一开始就有的：早期聚合应用要么统一用点击翻页，要么全做成上下滑，很少有认真区分内容形态的。Lanerc 单独为两类作品各写一套手势，说明至少经历过「统一方案 → 用户抱怨 → 分治优化」的完整反馈周期。</p>
+<p>第二次大迭代是<strong>多源体系的成熟</strong>。文档里写的是「某一源挂掉时自动故障转移，你也可以手动换源」——这是多源的二阶形态。一阶形态通常是「给你列几个源让你自己选」，用户得记住哪个源好用、哪个源经常炸。Lanerc 的做法是底层预连接加自动切加手动拧，三条防线叠起来。更关键的是「换源不换进度」这条设计，文档特意加粗了「换源只换线路，不换观看位置」。能把这条做进去，说明团队自己踩过坑：早期版本换源可能就是会丢进度，用户抱怨多了才改成现在这样。</p>
+<p>第三次迭代是<strong>历史记录体系的补全</strong>。最早的历史记录应该就是一个列表，记着看过的东西。后来加了「继续追番条」——首页顶部一条横幅直达最近一部，不用进历史列表翻。这两个入口的分工在文档里写得很明确：只记得「昨晚在看」用横幅、同时追几部要挑用列表、想看的存货在收藏。这个分工不是拍脑袋的，是从「一个入口满足所有需求」演进过来的——单一入口要么太浅（横幅只显示一部）要么太深（列表翻半天），最后才拆成两个。</p>
+<p><img src="../images/lanerc-docs/shot-home-hot.jpg" alt="首页热榜与入口" loading="lazy"></p>
+<p>至于云端同步和登录体系，应该是更后期的事。文档里提到「本机记录卸载重装会清空，登录状态下走云端同步」，这是把已有功能（历史、收藏、进度）跨设备打通，属于锦上添花但不改变产品核心的迭代。</p>
+<h2>规律：他们一直在死磕什么？什么一直不管？</h2>
+<p>把这些迭代串起来看，一个非常清晰的主线浮出来：<strong>Lanerc 对「被打断」这件事有执念</strong>。</p>
+<p>缩放不丢进度——怕你放大看细节、收回来还要重新找位置。换源不丢进度——怕你切线路时丢观看位置。条漫不设翻页感、顺着滑到底——怕你每次翻页都有「断一下」的感觉。历史记录自动记断点——怕你关应用再打开还要手动找集数。登录同步——怕你换机或卸载重装丢进度。甚至连画质换档都设计成不回退位置，表面上是换画质，骨子里还是怕打断。</p>
+<p>这条主线贯穿了至少三次大迭代，而不是某一次更新突然加进去的。说明这不是某一个功能的实现，而是团队内部形成的一种产品原则——可能是从最早的用户反馈里提炼出来的，也可能是团队自己作为重度用户的痛点。</p>
+<p>那什么一直没管呢？翻遍文档，没有一处提到社交功能——没有评论、没有弹幕社区（文档里「播放与弹幕」章节讲的是播放器里显示的弹幕层，不是用户发弹幕的社区）、没有好友、没有动态。也没提个性化推荐算法，首页的内容展示更像是分类布局而非千人千面的 Feed 流。甚至连自定义主题、播放器皮肤这些常见的个性化选项，文档里也没专门写章节。</p>
+<p>换句话说，Lanerc 从第一天起就把自己定位成<strong>纯工具</strong>——帮你把想看的内容找到、读/看完，仅此而已。它不想做社区、不想做内容平台、不想黏住你的注意力，它只想让你在被各种现实打断时，最少花力气回到刚才的位置。</p>
+<h2>预判：照这个路线，下一步会往哪走？</h2>
+<p>从迭代规律推（不是官方口径，别当真），我觉得有两个方向的概率比较高。</p>
+<p>第一个是<strong>更细粒度的断点同步</strong>。现在的断点是「集数加大概位置」，条漫是「滑到第几章第几格」的粒度，页漫是「第几页」。未来可能做到更精确——比如页漫可以记住分镜级的位置、番剧可以精确到秒级进度条位置甚至记住你快进到哪了。这条路是「不丢进度」原则的自然延伸，而且技术上不太依赖新功能，只是把已有的同步精度再往下做一层。</p>
+<p>第二个是<strong>更智能的预加载和故障预判</strong>。现在的多源是「挂了才切」，未来可能做到「监测到某条源延迟上升、还没真挂就先切到备用」，甚至根据你常用的网络环境（比如你每天晚上 7 点用地铁 Wi-Fi，而那个时间那条源经常卡）提前预连接备用线路。这条路也是多源体系的延伸，从「被动故障转移」走到「主动故障预判」。</p>
+<p>但我不太看好它突然加社区或做推荐算法——这条主线从一开始就不在迭代轨迹上。Lanerc 的团队看起来是那种「先把一件事做透再想下一件」的人，而他们选的这件事，就是「不让你在回到刚才的位置上浪费时间」。顺手提一句，国内用户访问<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Lanerc" target="_blank" rel="noopener">GitHub</a>偶尔会慢，我同时在<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Lanerc" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Lanerc" target="_blank" rel="noopener">GitCode</a>也存了一份，方便不同网络环境下查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/smartglasses-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">戴着眼镜跑外务：我用 SmartGlasses 串起导航、翻译和记录的一条龙</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/microg.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">microG 快问快答：替换谷歌框架前，你该知道的六件事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

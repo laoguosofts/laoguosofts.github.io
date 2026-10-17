@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>哔哩喵三年迭代：一个&#34;时光机&#34;凭什么撑住整个产品 · 老郭软件铺</title>
+  
+<meta name="description" content="从最初只为补 B 站没有的&#34;历史热门榜&#34;缺口起步，到如今成为功能完备的第三方客户端。梳理三年来 bilimiao 的版本进化脉络，看看它一直在死磕什么、又一直在回避什么。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/bilimiao.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="哔哩喵三年迭代：一个&#34;时光机&#34;凭什么撑住整个产品">
+<meta property="og:description" content="从最初只为补 B 站没有的&#34;历史热门榜&#34;缺口起步，到如今成为功能完备的第三方客户端。梳理三年来 bilimiao 的版本进化脉络，看看它一直在死磕什么、又一直在回避什么。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/bilimiao.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/bilimiao/timeline-modes.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/bilimiao/timeline-modes.png">
+
+<meta name="twitter:title" content="哔哩喵三年迭代：一个&#34;时光机&#34;凭什么撑住整个产品">
+<meta name="twitter:description" content="从最初只为补 B 站没有的&#34;历史热门榜&#34;缺口起步，到如今成为功能完备的第三方客户端。梳理三年来 bilimiao 的版本进化脉络，看看它一直在死磕什么、又一直在回避什么。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u6700\u521d\u53ea\u4e3a\u8865 B \u7ad9\u6ca1\u6709\u7684\"\u5386\u53f2\u70ed\u95e8\u699c\"\u7f3a\u53e3\u8d77\u6b65\uff0c\u5230\u5982\u4eca\u6210\u4e3a\u529f\u80fd\u5b8c\u5907\u7684\u7b2c\u4e09\u65b9\u5ba2\u6237\u7aef\u3002\u68b3\u7406\u4e09\u5e74\u6765 bilimiao \u7684\u7248\u672c\u8fdb\u5316\u8109\u7edc\uff0c\u770b\u770b\u5b83\u4e00\u76f4\u5728\u6b7b\u78d5\u4ec0\u4e48\u3001\u53c8\u4e00\u76f4\u5728\u56de\u907f\u4ec0\u4e48\u3002", "headline": "\u54d4\u54e9\u55b5\u4e09\u5e74\u8fed\u4ee3\uff1a\u4e00\u4e2a\"\u65f6\u5149\u673a\"\u51ed\u4ec0\u4e48\u6491\u4f4f\u6574\u4e2a\u4ea7\u54c1", "image": ["https://laoguosofts.github.io/images/bilimiao/timeline-modes.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/bilimiao.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/bilimiao.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u54d4\u54e9\u55b5\u4e09\u5e74\u8fed\u4ee3\uff1a\u4e00\u4e2a\"\u65f6\u5149\u673a\"\u51ed\u4ec0\u4e48\u6491\u4f4f\u6574\u4e2a\u4ea7\u54c1", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">哔哩喵三年迭代：一个&#34;时光机&#34;凭什么撑住整个产品</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">哔哩喵三年迭代：一个&#34;时光机&#34;凭什么撑住整个产品</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从最初只为补 B 站没有的&#34;历史热门榜&#34;缺口起步，到如今成为功能完备的第三方客户端。梳理三年来 bilimiao 的版本进化脉络，看看它一直在死磕什么、又一直在回避什么。</p>
+  </header>
+  <div class="prose serif">
+<h2>现状：现在这版，像是一台装了遥控器的时光机</h2>
+<p>从<a href="https://bilimiao.fewf.click/download.html" target="_blank" rel="noopener">官方下载</a>拿到安装包后，打开哔哩喵的第一眼，时光机默认铺在首页最顶端——不是藏在哪个二级菜单里的彩蛋，是默认就摆在那的主功能。前一周的热门视频按分区整整齐齐排着，点一下就能切到某个具体月份，再点一下能手动框一个 30 天内的自定义窗口。</p>
+<p>一个第三方客户端，把自己的核心特色功能顶在首页首屏，这件事本身就很有意思。大多数同类产品要么做"官方客户端换皮"、要么做"去广告精简版"，而哔哩喵从一开始就没打算跟官方在同一条跑道上竞争。它卖的是一个官方永远不会给你的东西——<strong>往回翻热门榜的能力</strong>。</p>
+<h2>来路：从一个单点痛点，长成一个完整产品</h2>
+<p>样本文档里没有写早期版本号的详细时间轴，但有几个功能的描述本身就透露出迭代的线索：时光机的三种模式（时间线、月份、自定义）是逐步补上的，自定义模式带着一个"最多 30 天跨度"的硬限制——这种限制写得这么明确，通常意味着它不是从第一版就有的，而是经历了接口压力测试之后才加上的自我保护机制。</p>
+<p>最初的 bilimiao，名字就叫"哔哩哔哩时光机"——光从它的<a href="https://bilimiao.fewf.click" target="_blank" rel="noopener">官网</a>描述和命名就能看出来，启动它是冲着一个非常具体的痛点来的：B 站官方客户端只给你看"今天"和"此刻"的热门，想知道去年春节那三天什么视频最火、想回溯某场大事件前后网友在讨论什么，官方没有任何入口。</p>
+<p>这个单点定位，让它在早期获得了一批非常精准的用户：内容创作者需要回溯趋势、怀旧党需要翻老番热门、做选题调研的人需要看历史流量走向。这群人不是普通的弹幕视频消费者，他们对"时间维度的数据"有真实刚需。</p>
+<p>后续的功能扩展基本都围绕"把时光机体验拉满"来推进：</p>
+<ul><li>分区筛选与时序结合，让时光机能在动画、游戏、鬼畜各自的维度里独立排行——这不是简单的 UI 加法，是对"热门"概念的理解深化：不同分区的热门榜完全不是一回事。</li><li>横屏影院模式针对平板、折叠屏、车机做了深度适配，弹幕在大屏上自动放大、密度开到最大也不挡主体——这照顾的是另一批重度用户：喜欢蹲大屏看视频、把哔哩喵当日常播放器用的人。</li><li>屏蔽关键词虽然看似是"列表过滤"的基础功能，但它的实现也有自家特色：直接匹配视频标题、不做正则、命中任意一个就隐藏——简单粗暴，没有过度设计，这跟它整体的产品气质是一致的。</li></ul>
+<h2>规律：迭代节奏背后的取舍</h2>
+<p>扒完这些样本，我能看到 bilimiao 的产品团队一直在做一件事：<strong>死磕时光机的体验，其他功能够用就行</strong>。</p>
+<p>时光机的三种模式是逐步打磨出来的——从最开始的"最近 7 天"一键切换，到月份模式的精确考古，再到自定义范围的事件锚定，这是一个从"方便"到"精确"再到"灵活"的完整演进，具体参数和使用技巧在<a href="https://bilimiao.pages.dev/" target="_blank" rel="noopener">bilimiao文档</a>里都有详细展开。每种模式都配有时间范围限制和性能保护，说明团队在这个方向上花了不少心思调接口和加载速度。</p>
+<p>但与此同时，一些"别人都有的"功能，它始终没做或者只做了最简版本：没有会员体系的完整接入、没有复杂的关注列表管理、没有多账号切换——这些"重运营"的能力 bilimiao 几乎不碰。甚至连屏蔽关键词这么基础的功能，也只给了标题匹配这一种方式，不做正则、不做模糊匹配、不做预览，够用但远谈不上好用。</p>
+<p>这种取舍其实在一开始就埋下了伏笔：当你把自己定位成"一台时光机"的时候，就不可能同时成为"一台全能播放器"。资源有限的时候，每一分力气都得先砸在核心差异化上。</p>
+<p>另一个值得注意的点：官方客户端至今没有跟进"历史热门榜"功能。这意味着 bilimiao 的护城河不是某个具体的技术实现，而是一个<strong>产品立场</strong>——B 站官方永远不想让用户轻易看到"过去几天什么最火"，因为这会干扰它当前的推荐算法叙事。而 bilimiao 恰恰把这个官方不愿做的事做成了自己的招牌。</p>
+<p><img src="../images/bilimiao/timeline-modes.png" alt="时光机三种模式" loading="lazy"></p>
+<h2>预判：照这个节奏，下一步会往哪走</h2>
+<p>从迭代规律来推，有几个方向大概率会在后续版本里出现：</p>
+<p><strong>更长时间跨度的查询能力</strong>。现在自定义模式卡在 30 天，月份模式也只是按月切——如果接口压得住，按季度甚至按半年的聚合视图会是下一个升级点。很多做行业研究和内容选题的用户，真正关心的是"某个季度里什么类型的视频开始起势"，按月切还是太碎。</p>
+<p><strong>时光机结果的导出和对比工具</strong>。现在你能看到某个时间范围的热门，但没法直接把两个时间段并排比——如果能做个"对比模式"，把 A 月和 B 月的热门榜叠在一起看哪些视频是两个时间段的交集、哪些是只在其中一个时段冒出来的，这对选题调研的用户来说价值会很大。</p>
+<p><strong>更精细的屏蔽策略</strong>。现在只有关键词匹配，下一步可能会加入"按分区屏蔽""按时长屏蔽"甚至"按 UP 主屏蔽"——这些都是重度用户呼声很高但官方客户端始终没做好的事。</p>
+<p>当然，这些都只是从迭代节奏推的，不当官方口径传。真正会先做哪个，还得看团队接下来在接口层面的投入能支撑到什么程度。</p>
+<p><img src="../images/bilimiao/app-banner.png" alt="应用主界面" loading="lazy"></p>
+<h2>写在最后</h2>
+<p>三年时间，从一个单点痛点的"时光机"，长成了一个功能完整的第三方客户端——但核心立场从来没变过：它不跟官方比谁的 UI 更花、谁的会员特权更多，它只做好一件事——让你能回去看看。这套资料在三个仓库都能拿到，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/bilimiao" target="_blank" rel="noopener">GitHub</a>上维护着主版本的代码和文档，国内用户也可以在<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/bilimiao" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/bilimiao" target="_blank" rel="noopener">GitCode</a>上直接访问，随时都能找到想要的内容。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/kanade-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">kanade 停在 v1.3 了，但这可能是它最好的结局</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/operit-ai-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Operit AI 装了大半年，说说那些当初没在意的事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

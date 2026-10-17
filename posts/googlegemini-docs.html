@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>GoogleGemini 从 0 到会用：三步上手日常离不开的 AI 助手 · 老郭软件铺</title>
+  
+<meta name="description" content="Google 自研的 Gemini 模型家族已经把 Bard 完全收编进同一套体系。这篇教程带你从零走完注册、第一次对话、文件上传、思考模式切换的完整流程，以及三个新手最容易踩的坑怎么绕开。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/googlegemini-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GoogleGemini 从 0 到会用：三步上手日常离不开的 AI 助手">
+<meta property="og:description" content="Google 自研的 Gemini 模型家族已经把 Bard 完全收编进同一套体系。这篇教程带你从零走完注册、第一次对话、文件上传、思考模式切换的完整流程，以及三个新手最容易踩的坑怎么绕开。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/googlegemini-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/googlegemini-docs/home-screen.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/googlegemini-docs/home-screen.png">
+
+<meta name="twitter:title" content="GoogleGemini 从 0 到会用：三步上手日常离不开的 AI 助手">
+<meta name="twitter:description" content="Google 自研的 Gemini 模型家族已经把 Bard 完全收编进同一套体系。这篇教程带你从零走完注册、第一次对话、文件上传、思考模式切换的完整流程，以及三个新手最容易踩的坑怎么绕开。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Google \u81ea\u7814\u7684 Gemini \u6a21\u578b\u5bb6\u65cf\u5df2\u7ecf\u628a Bard \u5b8c\u5168\u6536\u7f16\u8fdb\u540c\u4e00\u5957\u4f53\u7cfb\u3002\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u8d70\u5b8c\u6ce8\u518c\u3001\u7b2c\u4e00\u6b21\u5bf9\u8bdd\u3001\u6587\u4ef6\u4e0a\u4f20\u3001\u601d\u8003\u6a21\u5f0f\u5207\u6362\u7684\u5b8c\u6574\u6d41\u7a0b\uff0c\u4ee5\u53ca\u4e09\u4e2a\u65b0\u624b\u6700\u5bb9\u6613\u8e29\u7684\u5751\u600e\u4e48\u7ed5\u5f00\u3002", "headline": "GoogleGemini \u4ece 0 \u5230\u4f1a\u7528\uff1a\u4e09\u6b65\u4e0a\u624b\u65e5\u5e38\u79bb\u4e0d\u5f00\u7684 AI \u52a9\u624b", "image": ["https://laoguosofts.github.io/images/googlegemini-docs/home-screen.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/googlegemini-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/googlegemini-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "GoogleGemini \u4ece 0 \u5230\u4f1a\u7528\uff1a\u4e09\u6b65\u4e0a\u624b\u65e5\u5e38\u79bb\u4e0d\u5f00\u7684 AI \u52a9\u624b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">GoogleGemini 从 0 到会用：三步上手日常离不开的 AI 助手</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">GoogleGemini 从 0 到会用：三步上手日常离不开的 AI 助手</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Google 自研的 Gemini 模型家族已经把 Bard 完全收编进同一套体系。这篇教程带你从零走完注册、第一次对话、文件上传、思考模式切换的完整流程，以及三个新手最容易踩的坑怎么绕开。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇教程结束时，你能够独立完成：注册一个 Gemini 账号、发起三种不同类型的对话（纯文字、上传文件、语音）、切换思考模式来解决复杂问题，以及用 Notebooks 把分散的对话组织成长期项目。</p>
+<p>GoogleGemini 是 Google 自研的 AI 助手系列，Bard 品牌在 2024 年正式并入后，它的<a href="https://googlegemini.uerg.quest" target="_blank" rel="noopener">官网</a>就成了统一入口。</p>
+<h2>准备阶段：你需要什么</h2>
+<p>三个前置条件，检查一下：</p>
+<ol><li><strong>网络能访问 Google 服务</strong>。Gemini 的网页端域名是 gemini.google.com，中国大陆网络下直连不通，需要你自己的网络手段。这是硬性门槛，没有就走不下去。</li><li><strong>一个 Google 账号</strong>。没有的话去 accounts.google.com 注册，手机号或者邮箱验证几分钟搞定。</li><li><strong>设备</strong>。电脑浏览器（Chrome / Edge 都行）或者手机 App（Android 原生、iOS 也有）都可以，功能略有差异但核心对话能力一致。</li></ol>
+<p>不需要安装任何东西——Gemini 是纯云端服务，浏览器打开即用。手机端如果想要完整功能（比如设为系统默认助理、实时语音对话），从<a href="https://googlegemini.uerg.quest/download.html" target="_blank" rel="noopener">官方下载</a>获取 App 再装。</p>
+<p><img src="../images/googlegemini-docs/home-screen.png" alt="Gemini 网页端主界面" loading="lazy"></p>
+<h2>第一步：注册并完成第一次对话</h2>
+<p>打开浏览器访问 gemini.google.com，右上角「登录」，用你的 Google 账号授权就行。首次进入会看到引导页，跟着点「开始使用」，几轮快速引导问完就到主界面了。</p>
+<p>主界面底部有一个大大的输入框——这就是你和 AI 的全部入口。第一句话建议别太笼统，试试具体一点的：</p>
+<ul><li>「帮我写一封请假邮件，下周一到周三回老家」</li><li>「解释一下什么是量子纠缠，用初中生物也能懂的方式」</li><li>「帮我规划一个 3 天的成都美食之旅，预算 2000 以内」</li></ul>
+<p>按回车或点右侧的发送按钮，几秒内会收到回复。回复下方有几个快捷操作：👍👎 给回答打分（Google 会用来改进模型）、「重新生成」换一个版本、「复制」一键复制全文、「分享」生成一个链接发给别人。</p>
+<p><img src="../images/googlegemini-docs/chat-interface.png" alt="Gemini 对话界面" loading="lazy"></p>
+<p>这里注意：默认模型是「自动」，Gemini 会根据你的问题难度自动路由到合适的模型。如果你是订阅用户，输入框旁边会多出一个模型选择器下拉菜单，可以手动指定「速度优先」（Flash 系列，响应最快）或者「思考型」（Deep Think，让模型花更多时间推理）。新手直接用「自动」就行。</p>
+<h2>第二步：上传文件让 AI 帮你干活</h2>
+<p>纯文字对话只是入门。Gemini 的真正强项在于多模态——能吃进去图片、PDF、音频、视频。找到输入框左侧的「+」或者直接拖文件进输入框（不同浏览器按钮位置略有差异，但一定有一个上传入口）。</p>
+<p>常见的使用场景：</p>
+<ul><li>拍一张账单的照片 → 上传后问「帮我算一下总支出，按餐饮/交通/购物分类汇总」</li><li>拖一份学术论文 PDF 进来 → 「用 5 句话总结核心贡献，再帮我翻译成英文摘要」</li><li>录一段课堂音频 → 「转录这段录音，整理成学习笔记，重点画考试考点」</li></ul>
+<p>上传完成后文件会显示在输入框上方，这时候再打你的问题。AI 会把上传的内容和你的问题结合起来回答，而不是只看你的文字。</p>
+<p>文件上传的限制：免费版单个文件不要超过几十兆，类型上 PDF、Word、PPT、图片、音频、视频都支持。如果上传失败，先检查是不是文件太大，再换个格式试试。</p>
+<h2>第三步：用思考模式解决复杂问题</h2>
+<p>日常问答用默认模型就够了，但遇到多变量数学题、复杂编程 Debug、逻辑推理链条很长的问题，这时候普通模式可能会犯低级错误——明明一步就能推出来的中间结论跳过去了。</p>
+<p>这种情况切到「思考型」（Deep Think）模式。在输入框旁的模型选择器里找到它，勾选后再提问。模型在正式回答前会先花一段时间做内部推理链：先把你的问题拆成子问题列表，逐个推理，交叉验证不同结论之间有没有矛盾，最后才汇总成最终回答。</p>
+<p>这个过程和你在提示词里写「请一步步思考」完全不同——提示词层面的 CoT 只是让模型把推理过程<strong>显示</strong>出来，而思考模式是模型<strong>内部</strong>真的分配了额外计算资源来推理。代价是回答变慢、消耗更多算力配额，但在需要精准推理的场景下质量提升非常明显。</p>
+<p>什么时候值得开？给你一个简单判断标准：问题本身如果需要你自己在草稿纸上画逻辑树，那就值得开。日常问「今天天气怎么样」「推荐一本小说」就别浪费了。更多关于思考模式的底层原理和不同模型的思考预算参数，可以去 <a href="https://googlegemini-docs.pages.dev/" target="_blank" rel="noopener">GoogleGemini文档</a> 翻一下。</p>
+<p><img src="../images/googlegemini-docs/feature-view.png" alt="Gemini 功能总览视图" loading="lazy"></p>
+<h2>常见卡点：三个新手最容易翻车的地方</h2>
+<p><strong>卡点一：为什么我上传的图片识别不准？</strong></p>
+<p>Gemini 的视觉能力很强，但照片太模糊、光线太暗、或者拍的是一张反光的屏幕（比如拍照电脑屏幕上的 PDF），识别率会明显下降。解决办法：把图片裁到只保留主体、补拍一张光线好的、或者直接把 PDF 文件上传而不是拍照——Gemini 对原生 PDF 的文本提取比对图片的 OCR 准确得多。</p>
+<p><strong>卡点二：回答里怎么没有图片？我明明看到别人用 Gemini 生成图片。</strong></p>
+<p>默认情况下 Gemini 的纯文本回答不会自动带图片。生成图片需要专门触发——要么在提示词里明确说「帮我画一张……」，要么找到 Nano Banana 生成功能的入口。如果只是想分析一张图，那反过来，你上传图片后再提问，AI 会引用你上传的图来回答。</p>
+<p><strong>卡点三：为什么突然不给我回答了？一直转圈或者报错。</strong></p>
+<p>免费版有每日调用上限——不是固定数字，Google 会根据服务器负载动态调整。如果你当天对话次数已经很多了，可能会被临时限流。解决办法：等几个小时再来，或者开订阅方案。订阅用户的配额大得多，Deep Think、Agent、视频生成这些进阶功能也只有订阅才能解锁。</p>
+<h2>进阶一句话</h2>
+<p>如果研究一个话题聊了几十轮对话、上传了一堆参考文件，别让它们散落在历史记录里到处找——去 Notebooks（项目文件夹）功能创建一个项目，把参考资料、自定义指令、对话、产物全归到同一个容器里，下次打开直接续上上下文，不用从零开始。</p>
+<p>关于 GoogleGemini 的资料整理，我在三个代码仓库都维护了同步副本：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/GoogleGemini" target="_blank" rel="noopener">GitHub 主仓库</a> 是首发地，<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/GoogleGemini" target="_blank" rel="noopener">Gitee</a> 做了国内镜像方便直接访问，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/GoogleGemini" target="_blank" rel="noopener">GitCode</a> 作为备份防止单一平台失效。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/spend-elon-musk-money-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">花光埃隆·马斯克的钱：这款模拟器为什么比同类更让人上头</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/e621-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">e621 客户端避坑：我踩过的四个常见翻车点</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

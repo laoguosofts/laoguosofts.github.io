@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把安卓手机画面投到电脑上的第三天，我终于放弃了 USB 线 · 老郭软件铺</title>
+  
+<meta name="description" content="投屏工具用过不少，但 ApowerMirror 是我见过最像&#34;瑞士军刀&#34;的那一个——同一套客户端里塞了 LAN 投屏、反向控制、甚至跨云互投，三天体验下来有惊喜也有槽点。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/apowermirror.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把安卓手机画面投到电脑上的第三天，我终于放弃了 USB 线">
+<meta property="og:description" content="投屏工具用过不少，但 ApowerMirror 是我见过最像&#34;瑞士军刀&#34;的那一个——同一套客户端里塞了 LAN 投屏、反向控制、甚至跨云互投，三天体验下来有惊喜也有槽点。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/apowermirror.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/apowermirror/desktop-intro.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/apowermirror/desktop-intro.png">
+
+<meta name="twitter:title" content="把安卓手机画面投到电脑上的第三天，我终于放弃了 USB 线">
+<meta name="twitter:description" content="投屏工具用过不少，但 ApowerMirror 是我见过最像&#34;瑞士军刀&#34;的那一个——同一套客户端里塞了 LAN 投屏、反向控制、甚至跨云互投，三天体验下来有惊喜也有槽点。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6295\u5c4f\u5de5\u5177\u7528\u8fc7\u4e0d\u5c11\uff0c\u4f46 ApowerMirror \u662f\u6211\u89c1\u8fc7\u6700\u50cf\"\u745e\u58eb\u519b\u5200\"\u7684\u90a3\u4e00\u4e2a\u2014\u2014\u540c\u4e00\u5957\u5ba2\u6237\u7aef\u91cc\u585e\u4e86 LAN \u6295\u5c4f\u3001\u53cd\u5411\u63a7\u5236\u3001\u751a\u81f3\u8de8\u4e91\u4e92\u6295\uff0c\u4e09\u5929\u4f53\u9a8c\u4e0b\u6765\u6709\u60ca\u559c\u4e5f\u6709\u69fd\u70b9\u3002", "headline": "\u628a\u5b89\u5353\u624b\u673a\u753b\u9762\u6295\u5230\u7535\u8111\u4e0a\u7684\u7b2c\u4e09\u5929\uff0c\u6211\u7ec8\u4e8e\u653e\u5f03\u4e86 USB \u7ebf", "image": ["https://laoguosofts.github.io/images/apowermirror/desktop-intro.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/apowermirror.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/apowermirror.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a\u5b89\u5353\u624b\u673a\u753b\u9762\u6295\u5230\u7535\u8111\u4e0a\u7684\u7b2c\u4e09\u5929\uff0c\u6211\u7ec8\u4e8e\u653e\u5f03\u4e86 USB \u7ebf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">把安卓手机画面投到电脑上的第三天，我终于放弃了 USB 线</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">把安卓手机画面投到电脑上的第三天，我终于放弃了 USB 线</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">投屏工具用过不少，但 ApowerMirror 是我见过最像&#34;瑞士军刀&#34;的那一个——同一套客户端里塞了 LAN 投屏、反向控制、甚至跨云互投，三天体验下来有惊喜也有槽点。</p>
+  </header>
+  <div class="prose serif">
+<p>说实话，我本来只是想找个能把安卓手机屏幕投到笔记本上的工具，用来录一些 App 操作的演示视频。之前试过 scrcpy，命令行大佬确实香，但每次插拔 USB、找设备号、敲命令，一套下来至少五分钟，而且偶尔会莫名其妙连不上。朋友说你去<a href="https://apowermirror.fedq.ren" target="_blank" rel="noopener">ApowerMirror官网</a>看看，装好点两下就完事了。</p>
+<p>我是抱着"又一个投屏 App"的心态装的。安装包从<a href="https://apowermirror.fedq.ren/download.html" target="_blank" rel="noopener">ApowerMirror下载</a>拿的，体积不大，Windows 桌面端双击运行就一路"下一步"，手机端在应用商店搜名字直接装。打开之后界面也挺清爽——左边是设备列表，中间一个大大的投屏按钮，右上角几个设置齿轮，不像某些投屏软件一上来先弹三个广告窗口让你开会员。</p>
+<p><img src="../images/apowermirror/desktop-intro.png" alt="桌面端主界面，中间的投屏按钮是日常操作最多的地方" loading="lazy"></p>
+<h2>连接：比想象中简单，但也有坑</h2>
+<p>第一次连接我选了 WiFi 模式。前提是手机和电脑在同一个局域网——这是所有本地投屏的基本盘，没什么好说的。手机 App 打开后会自动扫同一网络里的桌面端，两秒钟就搜到了，点一下"投屏"，手机上弹个确认框选"立即开始"，画面瞬间就出来了。</p>
+<p>但我很快遇到第一个坑：家里路由器是双频的，手机连的是 5GHz，电脑连的是 2.4GHz，虽然都叫"同一个 WiFi"，但它们其实不在同一个子网里，App 怎么搜都搜不到。这时候才搞明白"同一网络"指的是同一个 SSID 下的同一个频段，或者至少路由器开了 AP 隔离关闭。把手机切到 2.4G，重开 App，搞定。</p>
+<p>WiFi 投屏的延迟其实比我预期的低。录演示视频完全够用，甚至试过用它来玩节奏稍微慢一点的卡牌游戏，操作反馈没感觉到明显滞后。不过画面质感嘛，默认设置下有点糊，桌面端设置里调一下分辨率和码率就清楚多了——1080P 最高码率跑起来，画面几乎和直接看手机一样锐利，但代价是 CPU 占用会上去，老机器可能顶不住。</p>
+<p>USB 模式我也试了一次。手机开 USB 调试、插上数据线，桌面端立刻就识别到设备了。说实话 USB 连接比 WiFi 更稳，画面掉帧的情况从来没出现过，而且手机屏幕熄灭的时候也能持续投出——WiFi 模式下手机锁屏了投屏会自动断。但 USB 的麻烦是每次都要插线，对于我这种经常在客厅、书房之间挪笔记本的人来说，还是 WiFi 更自由。</p>
+<h2>真正让我惊讶的功能：不止是投屏</h2>
+<p>本来以为这就是个投屏器，结果用着用着发现还有几个功能挺有意思。</p>
+<p>第一个是<strong>反向控制</strong>。投屏通常是"手机画面投到电脑上看着"，但它能反过来——用电脑的鼠标键盘直接操作安卓手机。我第一次点这个按钮的时候，以为是个噱头，结果鼠标移到投出来的手机画面上，点一下居然真的能点开 App，滚轮能滑页面，键盘输入直接出现在手机的输入框里。这个功能的实用场景立刻浮现出来了：手机上要输一大段文字的时候，用电脑键盘打比在手机上戳快十倍；或者要演示某个需要多次点击的操作，直接用鼠标点，录出来的视频也更流畅。</p>
+<p>不过反向控制需要在安卓端额外授权——无障碍服务。系统会弹一串警告，说这个权限能监控你的操作之类的，得手动去系统设置里找到对应的服务打开。而且手机每次重启之后这个权限会被系统回收，得重新开一遍。这点确实烦人，安全机制没办法，但体验上打了点折扣。</p>
+<p>第二个是<strong>AirCast 云投屏</strong>。这是唯一一个不走局域网的连接方式——哪怕手机在公司、电脑在家里，只要两台设备都登录了同一个账号，输入 AirCast 码就能互投画面。我没真的跨城试过，但在公司里用自己手机投家里电脑试了一下，居然真的连上了，延迟比局域网稍高一点，但画面声音都能同步过去。代价是按时长计费，不是免费的，而且需要两端都更新到比较新的版本，旧版本根本找不到这个入口。适合确实有跨网络需求的人，比如远程给别人演示手机操作，但如果你只是家里用用，老实走 LAN 模式更划算。</p>
+<p><img src="../images/apowermirror/aircast-intro.png" alt="AirCast 跨网络投屏功能，不走局域网也能互投" loading="lazy"></p>
+<p>第三个是手机投电视。客厅电视装了它的 TV 端，手机上点一下就能把视频、照片甚至整个屏幕投上去看。这个功能现在很多电视自带的投屏也能做，但它的好处是<strong>安卓声音也能一起投到电视上</strong>——很多电视自带的投屏只传画面不传声音，或者声音从手机出来，体验很割裂。用它投的时候声音直接从电视音响出来，看视频舒服多了。</p>
+<h2>哪些地方让我觉得别扭</h2>
+<p>说点不好的。免费版和付费版之间的功能鸿沟有点大。反向控制、AirCast、安卓声音投电视这些好用的功能，免费版要么用不了要么限时限次。免费版基本只剩"局域网 WiFi 投屏 + 基础 USB 投屏"这两项，说实话这两项已经够用了，但用着用着就会忍不住想试试付费功能，然后被"请升级到专业版"的弹窗挡回来，有点痒。</p>
+<p>然后是版本管理。桌面端自动更新还行，但手机端和电视端的版本有时候会不同步——某次我桌面端更新到最新版，手机端还是上个月的版本，结果连不上，排查了半天才发现是版本差了一截。后来去<a href="https://apowermirror.pages.dev/" target="_blank" rel="noopener">ApowerMirror文档</a>翻了一下才确认，排障第一步永远是确认版本够新，这话真不是白说的。</p>
+<p>还有一个小细节：桌面端右下角那个 AirCast 入口藏得挺深，每次要走云投屏都得先点无线连接才能看到它，不像局域网投屏的按钮摆在最显眼的位置。可能是产品设计上的取舍，但我这种刚上手的人第一次找的时候愣了好一会儿。</p>
+<h2>适合谁，不适合谁</h2>
+<p>如果你需要的就是"把安卓画面投到电脑上，最好能用鼠标键盘操作"，那这款软件现在是我用过最顺手的方案——比命令行工具友好，比同类型图形化工具功能全，WiFi 和 USB 两种模式任选。但如果你的需求只是偶尔投一下看个视频，手机自带的投屏功能可能就够了，没必要专门装一个。</p>
+<p>适合谁：需要录屏演示、要在电脑上操控安卓、或者有跨网络投屏需求的人。不太适合：只想要最简单投屏、不想装软件、或者预算有限又想用全功能的人。</p>
+<p>至于我自己，现在录视频已经离不开它了。USB 线虽然更稳，但插拔的麻烦让我大部分时候还是选 WiFi——把路由器的 AP 隔离关了之后就再也没连不上过。工具嘛，顺手就行，没必要追求完美。</p>
+<p>上面这篇文章聊的就是这款投屏工具的上手体验。如果你也在考虑入手，可以去它的官网看看完整功能说明，下载安装包的话也有对应的官方渠道。关于连接问题的排障流程、各功能的详细操作步骤，官方文档里写得挺细的，遇到问题翻一翻基本都能找到答案。国内访问 GitHub 经常抽风，所以关于它的资料和补充说明我同步维护在了三个地方，哪个顺手用哪个：<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/ApowerMirror" target="_blank" rel="noopener">GitHub</a> 上是最新的主仓库，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/ApowerMirror" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/ApowerMirror" target="_blank" rel="noopener">GitCode</a> 作为国内镜像备用。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/gravity-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">GRAVITY 用半年：为什么我在一堆匿名社交里留着它</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/zlib-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">免费电子书库里它排第几——用了一年 zlib 的真实感受</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

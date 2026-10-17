@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Aseprite 从 0 画一张能跳的像素小人——新手实操全流程 · 老郭软件铺</title>
+  
+<meta name="description" content="从下载安装到导出 GIF，带你手把手走完 Aseprite 的像素画制作全链路。常见卡点和解法都在里面，按步骤走不会翻车。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/aseprite.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Aseprite 从 0 画一张能跳的像素小人——新手实操全流程">
+<meta property="og:description" content="从下载安装到导出 GIF，带你手把手走完 Aseprite 的像素画制作全链路。常见卡点和解法都在里面，按步骤走不会翻车。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/aseprite.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/aseprite/pixel-perfect.gif">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/aseprite/pixel-perfect.gif">
+
+<meta name="twitter:title" content="用 Aseprite 从 0 画一张能跳的像素小人——新手实操全流程">
+<meta name="twitter:description" content="从下载安装到导出 GIF，带你手把手走完 Aseprite 的像素画制作全链路。常见卡点和解法都在里面，按步骤走不会翻车。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u4e0b\u8f7d\u5b89\u88c5\u5230\u5bfc\u51fa GIF\uff0c\u5e26\u4f60\u624b\u628a\u624b\u8d70\u5b8c Aseprite \u7684\u50cf\u7d20\u753b\u5236\u4f5c\u5168\u94fe\u8def\u3002\u5e38\u89c1\u5361\u70b9\u548c\u89e3\u6cd5\u90fd\u5728\u91cc\u9762\uff0c\u6309\u6b65\u9aa4\u8d70\u4e0d\u4f1a\u7ffb\u8f66\u3002", "headline": "\u7528 Aseprite \u4ece 0 \u753b\u4e00\u5f20\u80fd\u8df3\u7684\u50cf\u7d20\u5c0f\u4eba\u2014\u2014\u65b0\u624b\u5b9e\u64cd\u5168\u6d41\u7a0b", "image": ["https://laoguosofts.github.io/images/aseprite/pixel-perfect.gif"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/aseprite.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/aseprite.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u7528 Aseprite \u4ece 0 \u753b\u4e00\u5f20\u80fd\u8df3\u7684\u50cf\u7d20\u5c0f\u4eba\u2014\u2014\u65b0\u624b\u5b9e\u64cd\u5168\u6d41\u7a0b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">用 Aseprite 从 0 画一张能跳的像素小人——新手实操全流程</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">用 Aseprite 从 0 画一张能跳的像素小人——新手实操全流程</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 11 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从下载安装到导出 GIF，带你手把手走完 Aseprite 的像素画制作全链路。常见卡点和解法都在里面，按步骤走不会翻车。</p>
+  </header>
+  <div class="prose serif">
+<h2>这篇教程能帮你做什么</h2>
+<p>跟着走完这篇，你能用 Aseprite 独立完成：<strong>画一个像素小人 → 给它做走路循环动画 → 导出成可在任何地方播放的 GIF</strong>。不要求你有绘画基础，也不要求你懂动画原理——只要会点鼠标、会按快捷键就行。</p>
+<h2>准备工作</h2>
+<h3>版本和平台</h3>
+<p>Aseprite 的<a href="https://aseprite.qhah.skin" target="_blank" rel="noopener">官网</a>提供了桌面版和安卓端，本教程以桌面版为主（Windows / macOS 都适用），快捷键统一标注。如果你只有安卓设备，步骤逻辑完全一致，操作换成触屏即可。</p>
+<p>软件安装有三种方式：Steam 购买最省心、<a href="https://aseprite.qhah.skin/download.html" target="_blank" rel="noopener">Aseprite下载</a>直接拿安装包、或者从源码自编译。免费的自编译路线适合有 C++ 基础的玩家，否则推荐直接在 Steam 买，19.99 美元，国区偶尔有打折。桌面版第一次启动需要创建 Aseprite 账号绑定 Steam，之后就能在任意设备登录。</p>
+<p>桌面版默认是英文界面，要切中文的话：打开 Edit → Preferences → General，点 "Download Translations"，选 Simplified Chinese 下载，重启就生效了。安卓端内置中文，装上直接用。</p>
+<h3>前置条件</h3>
+<p>不需要懂美术、不需要装额外插件。唯一的硬性要求是：<strong>把 Aseprite 装到电脑上并且能正常打开</strong>。如果启动就闪退，先在偏好设置里点 Reset 重置一下，再检查显卡驱动是不是最新版。</p>
+<h2>第一步：新建画布，画一个像素小人</h2>
+<p>打开 Aseprite，Ctrl+N 新建文件。画布大小选 <strong>32×32 像素</strong>——这是像素画最经典的起步尺寸，一张小图，刚好够画一个角色。</p>
+<p><img src="../images/aseprite/pixel-perfect.gif" alt="pixel-perfect" loading="lazy"></p>
+<h3>1.1 先开网格和 Pixel Perfect</h3>
+<p>画之前点两个开关：</p>
+<ul><li>菜单栏 View → Show → <strong>Grid</strong>，打开网格。画布会被分成一格一格的小方块，帮你对准落笔位置。新手全程开着，熟练了再关。</li><li>工具栏上找到 <strong>Pixel Perfect</strong> 图标（看起来像两格对齐的方块），点开。这个模式下你的线条会自动"粘"到像素格上，不会画出半格的毛刺。</li></ul>
+<h3>1.2 用形状工具打轮廓</h3>
+<p>不要直接拿铅笔瞎描——效率太低。先按 <strong>U</strong> 切换到形状工具，Shift+U 在矩形/椭圆之间循环选矩形。然后：</p>
+<ul><li>画身体：一个 8×12 的矩形，居中偏下</li><li>画头：一个 8×8 的矩形，接在身体上方</li><li>画胳膊腿：各画两个 2×6 的细矩形</li></ul>
+<p>注意，形状工具默认是<strong>描边模式</strong>，按 <strong>F 键</strong>或再按两下 U 切换成<strong>填充模式</strong>。按 Shift 可以画出正圆（如果你想画个圆脑袋的话）。</p>
+<p>打完轮廓后，用铅笔（<strong>P 键</strong>）手动修掉不满意的格子——比如把矩形的直角磨圆、把胳膊末端调细。这一步是"起粗稿"，糙一点没关系，后面会精修。</p>
+<h3>1.3 填色：油漆桶 + 手动修</h3>
+<p>按 <strong>G</strong> 切换到油漆桶。油漆桶只填<strong>封闭区域</strong>——这是新手最容易翻车的点：轮廓有任何一处小缺口，颜色会瞬间漏到整个画布。所以填之前先放大（Ctrl++）仔细看轮廓有没有断点。</p>
+<p>从调色板选颜色。别随手调新颜色，先选一个基色——比如皮肤用浅肉色、衣服用深蓝色。油漆桶容差保持 0，一笔填完一个区域。</p>
+<p>填完色后，用<strong>I 键</strong>吸色（或者 Ctrl+左键点击画布临时取色），从画布上已有的颜色里继续取，保持配色统一。不要随手点调色板里的新颜色，调色板越画越杂 = 画面变脏。</p>
+<h3>1.4 用 Shading Ink 做简单光影</h3>
+<p>Aseprite 有个叫 <strong>Shading Ink</strong> 的工具，像素画里独一份好用。它让你选一个基色，按光源方向自动生成明暗色阶，拖几下就能出光影感。</p>
+<p>原理很简单：像素画的光影不是画影子，而是用不同明度的同色系叠加来制造立体感。操作步骤：</p>
+<ol><li>在工具栏 Brush Settings 面板里切换到 Shading Ink</li><li>点调色板上你刚选的衣服颜色作为基色</li><li>光源方向选<strong>左上 45°</strong>——这是行业惯例，所有人都这么用，画面里所有物体的光影逻辑才统一</li><li>光标朝光源方向拖（右上）= 变亮；反方向拖（左下）= 变暗</li></ol>
+<p><img src="../images/aseprite/shading-mode.gif" alt="shading-mode" loading="lazy"></p>
+<p>铺光影底色很快，但 Shading Ink 只适合大面积铺底。等下你要给鼻子下面画小阴影、给头发丝画高光，这些精细活还是得回到铅笔手动画。</p>
+<h3>1.5 精修：关掉洋葱皮，画细节</h3>
+<p>画细节的时候<strong>把之前开的洋葱皮关掉</strong>（如果开着的话）——半透明的前后帧影子会干扰你看清当前帧的像素细节。Ctrl+滚轮放大到能看清每一格像素，然后：</p>
+<ul><li>用铅笔补眼睛：两个小黑点 + 两个小白点做高光</li><li>用橡皮（E 键）擦去多余的像素</li><li>用吸色+Shading Ink 把衣服的阴影过渡调均匀</li></ul>
+<p>画完按 Ctrl+S 保存，文件格式选 <code>.aseprite</code>——这是 Aseprite 的原生格式，保留所有图层和动画数据，随时可以回来改。</p>
+<h2>第二步：做一个走路循环动画</h2>
+<p>静态的小人不够，我们给它加一个四帧走路循环。</p>
+<h3>2.1 创建动画帧</h3>
+<p>现在你的画布只有 1 帧。在时间轴面板（底部那个横条）上：</p>
+<ul><li>选中第 1 帧，按 <strong>Ctrl+D</strong> 复制三次，一共 4 帧</li><li>或者点时间轴面板右下角的 "+" 按钮手动新建</li></ul>
+<h3>2.2 开洋葱皮，逐帧改动作</h3>
+<p>按 <strong>F3</strong> 或分号键打开洋葱皮。时间轴工具栏上那个"几层叠起来的方块"图标就是它。</p>
+<p>洋葱皮会把前后相邻帧以半透明影子叠在当前画面上，红色描边表示前一帧，蓝色表示后一帧。默认显示前后各 2 帧，这个数量刚好够用。</p>
+<p>走路循环的四帧动作是：</p>
+<ul><li><strong>帧 1</strong>：双腿并拢，双臂自然下垂（起始姿态）</li><li><strong>帧 2</strong>：右腿前迈一点，左腿后一点，胳膊跟着摆动</li><li><strong>帧 3</strong>：双腿并拢，和帧 1 一样（中间过渡）</li><li><strong>帧 4</strong>：左腿前迈，右腿后摆，和帧 2 对称</li></ul>
+<p>改每一帧的时候，洋葱皮帮你确认这一帧该挪多少——比如画帧 2 的右腿，参考帧 1 的位置往前挪 2~3 格就够了，别挪太多不然动作会飘。</p>
+<p><img src="../images/aseprite/onion-skin.gif" alt="onion-skin" loading="lazy"></p>
+<p><strong>关键节奏</strong>：每改完一帧，关掉洋葱皮画细节（看清每格像素），再打开洋葱皮检查动幅（确认前后帧衔接自然）。反复几次就出活。</p>
+<p>洋葱皮还有 Red/Blue、Grayscale、Merged 三种显示模式，以及按图层设置是否参与洋葱皮的独立开关，完整的参数配置在<a href="https://aseprite.pages.dev/" target="_blank" rel="noopener">Aseprite文档</a>里都有详细说明。</p>
+<h3>2.3 加一个跳跃帧（可选进阶）</h3>
+<p>想让小人能跳？在时间轴后面再加 2~3 帧，动作逻辑是：</p>
+<ul><li>身体整体上移 4~6 格</li><li>膝盖微微弯曲准备落地</li><li>双臂张开保持平衡</li></ul>
+<p>跳跃帧不需要做完整循环，单独放在走路循环的任意位置都行。</p>
+<h3>2.4 调整帧间隔</h3>
+<p>在时间轴面板上，每帧底部都有一个数字，默认是 100 毫秒（每秒 10 帧）。走路动画建议调到 <strong>80 毫秒</strong>稍快一点更自然，跳跃帧可以调到 120 毫秒慢一点有力度。</p>
+<p>双击那个数字直接改。</p>
+<h3>2.5 预览播放</h3>
+<p>按 <strong>空格</strong> 或点时间轴面板上的播放按钮预览动画效果。如果走路看着"抽搐"，说明帧间隔调太短；如果像慢动作，把间隔调小。感觉动幅不够，回到对应帧用洋葱皮重新对位。</p>
+<h2>第三步：导出 GIF</h2>
+<p>动画做好了，现在把它导出来。</p>
+<h3>3.1 导出前最后检查</h3>
+<p>预览一遍动画，确认没有跳帧、没有某个帧画歪了、帧间隔都调好了。然后 File → Save 再存一次。</p>
+<h3>3.2 选择导出格式</h3>
+<p>File → Export → 选 <strong>GIF</strong> 格式。弹出导出设置窗口：</p>
+<table><thead><tr><th>设置项</th><th>推荐值</th><th>原因</th></tr></thead><tbody><tr><td>Output</td><td>GIF</td><td>通用格式，任何地方都能播</td></tr><tr><td>Scale</td><td>2× 或 4×</td><td>导出时放大到 64×64 或 128×128，手机上看着更清晰</td></tr><tr><td>Frame Delay</td><td>保持各帧原间隔</td><td>不要统一改成一个值，否则走路会变快或变慢</td></tr><tr><td>Loop</td><td>Forever</td><td>动画无限循环，走路循环就该这样</td></tr><tr><td>Colors</td><td>Auto</td><td>让 Aseprite 自动优化调色板</td></tr></tbody></table>
+<h3>3.3 导出完成后的验证</h3>
+<p>导出完成后，用系统自带的图片查看器打开 GIF 文件，看一遍循环动画正常播放、没有跳帧。如果导出的 GIF 颜色糊了或者有条纹，回去检查调色板设置——可能是自动优化时把颜色合并了。</p>
+<h2>常见卡点（新手必看）</h2>
+<h3>卡点一：油漆桶填色漏了一画布</h3>
+<p><strong>原因</strong>：轮廓线有肉眼看不见的小缺口——可能是铅笔没连到、也可能是擦除的时候擦掉了一点。</p>
+<p><strong>解法</strong>：放大到每格像素清晰，Ctrl+Y 撤销油漆桶的操作，用铅笔把轮廓缺口补上，再重新填色。或者用"魔棒"工具（W 键）先选中要填的区域，再用油漆桶填——魔棒选中的区域更精确。</p>
+<h3>卡点二：洋葱皮的影子和当前帧颜色混在一起</h3>
+<p><strong>原因</strong>：洋葱皮透明度太高（默认 50% 其实还行）或者用了融合模式。</p>
+<p><strong>解法</strong>：打开 Edit → Preferences → Editor → Onion Skin，把透明度调到 30~40%。模式从 Merged 换回 Red/Blue 描边模式——红色=过去，蓝色=未来，一眼分清。</p>
+<h3>卡点三：导出的 GIF 颜色变脏或者有条纹</h3>
+<p><strong>原因</strong>：Aseprite 默认调色板只有 32 色，如果你在画的过程中手动加了太多新颜色，导出时 GIF 的 256 色限制会触发颜色量化，产生条纹。</p>
+<p><strong>解法</strong>：回到调色板，删掉没用的颜色（在调色板面板上右键 → Remove），确保总色数不超过 32。或者用"调色板优化"功能：菜单 Palette → Optimize。</p>
+<h2>一句话进阶</h2>
+<p>这篇只教了最基础的静态像素画 + 四帧走路循环。往下可以玩的还有很多：<strong>多图层动画</strong>（背景层不跟着动、前景层独立动画）、<strong>标签系统</strong>（Tag 多个帧片段分别导出）、<strong>Spritesheet 导出</strong>（给游戏引擎用的精灵图）、甚至可以用 Aseprite 的脚本系统批量自动化处理。但这些都建立在你能独立画出这篇教的"能跳的像素小人"之上——把基础动作练熟，进阶自然就顺了。</p>
+<hr>
+<p>Aseprite 是开源软件，完整的源码和安装指南都托管在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Aseprite" target="_blank" rel="noopener">GitHub</a>上，想自己编译最新版或者研究它的实现可以直接去看。如果你更习惯国内的代码托管平台，<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Aseprite" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Aseprite" target="_blank" rel="noopener">GitCode</a>上也有同步的镜像仓库，下载和浏览起来速度更快。三个仓库的内容完全一致，挑你顺手的那个用就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/konabess.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">KonaBess 驯龙快问快答：降压、超频、稳定性一次说清</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/drawpile.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Drawpile 不只是多人画布：5 个藏得真深的冷门功能</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

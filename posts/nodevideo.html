@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 NodeVideo 从零剪出第一支视频，跟我走 8 步 · 老郭软件铺</title>
+  
+<meta name="description" content="NodeVideo 把时间线、属性面板、特效、音频都揉进了手机里。这篇实战教程带你从导入素材到导出成片，踩过三个新手最容易翻车的坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/nodevideo.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 NodeVideo 从零剪出第一支视频，跟我走 8 步">
+<meta property="og:description" content="NodeVideo 把时间线、属性面板、特效、音频都揉进了手机里。这篇实战教程带你从导入素材到导出成片，踩过三个新手最容易翻车的坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/nodevideo.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/nodevideo/faq_proj.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/nodevideo/faq_proj.png">
+
+<meta name="twitter:title" content="用 NodeVideo 从零剪出第一支视频，跟我走 8 步">
+<meta name="twitter:description" content="NodeVideo 把时间线、属性面板、特效、音频都揉进了手机里。这篇实战教程带你从导入素材到导出成片，踩过三个新手最容易翻车的坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "NodeVideo \u628a\u65f6\u95f4\u7ebf\u3001\u5c5e\u6027\u9762\u677f\u3001\u7279\u6548\u3001\u97f3\u9891\u90fd\u63c9\u8fdb\u4e86\u624b\u673a\u91cc\u3002\u8fd9\u7bc7\u5b9e\u6218\u6559\u7a0b\u5e26\u4f60\u4ece\u5bfc\u5165\u7d20\u6750\u5230\u5bfc\u51fa\u6210\u7247\uff0c\u8e29\u8fc7\u4e09\u4e2a\u65b0\u624b\u6700\u5bb9\u6613\u7ffb\u8f66\u7684\u5751\u3002", "headline": "\u7528 NodeVideo \u4ece\u96f6\u526a\u51fa\u7b2c\u4e00\u652f\u89c6\u9891\uff0c\u8ddf\u6211\u8d70 8 \u6b65", "image": ["https://laoguosofts.github.io/images/nodevideo/faq_proj.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/nodevideo.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/nodevideo.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "\u7528 NodeVideo \u4ece\u96f6\u526a\u51fa\u7b2c\u4e00\u652f\u89c6\u9891\uff0c\u8ddf\u6211\u8d70 8 \u6b65", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">用 NodeVideo 从零剪出第一支视频，跟我走 8 步</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">用 NodeVideo 从零剪出第一支视频，跟我走 8 步</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">NodeVideo 把时间线、属性面板、特效、音频都揉进了手机里。这篇实战教程带你从导入素材到导出成片，踩过三个新手最容易翻车的坑。</p>
+  </header>
+  <div class="prose serif">
+<p>跟着这篇教程走完，你能用 NodeVideo 独立剪出一支有画面切换、有背景音乐、能导出到本地的短视频——不管你是安卓还是 iOS，流程完全一致。</p>
+<h2>准备工作：先把版本和项目设置搞对</h2>
+<p>去<a href="https://nodevideo.boop.uno" target="_blank" rel="noopener">nodevideo官网</a>能看到完整的版本对比——NodeVideo 有三个版本：安卓、iOS、还有电脑版。手机版是主力开发平台，Pro 会员能解锁更多特效和 4K 导出。新手先用免费版跑通流程就行。</p>
+<p>从<a href="https://nodevideo.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿到安装包装好之后，<strong>别急着导入素材</strong>。先点一下根节点（主时间线），属性面板会切换成项目设置——这里控制的是整个项目的全局参数，很多新手第一次进来直接导入了一堆素材，后来发现比例不对又得重做。</p>
+<p>四个关键项：比例按发布平台定（9:16 竖屏发抖音、16:9 横屏发 B 站），帧率预览期设 30 或以下换流畅，导出前再切回 60。预览质量默认 50% 不是画质缩水，是为了让手机能跑得动——预览模糊不等于导出模糊，别慌。每个参数的详细解释去<a href="https://nodevideo.pages.dev/" target="_blank" rel="noopener">nodevideo文档</a>里能找到。</p>
+<p><img src="../images/nodevideo/faq_proj.png" alt="NodeVideo 项目设置面板：比例 9:16、帧率 30、预览质量 50%、预览渲染模式当前图层" loading="lazy"></p>
+<h2>第一步：导入素材，顺便看一眼素材信息</h2>
+<p>点「新建图层 → 媒体文件」，把你要剪的视频、图片、音频都导进来。导完之后不要急着往上堆特效——先选中视频图层，点图层菜单 → 其它 → 信息，看一眼素材的分辨率、码率和帧率。</p>
+<p>把项目设置匹配成和素材一致，预览会流畅很多。素材是 1080P 你就别把项目设成 4K，项目分辨率高于视频分辨率不会提高画质，白白增加手机负担。</p>
+<p><img src="../images/nodevideo/faq_info.png" alt="NodeVideo 图层菜单中的信息入口，可查看视频分辨率与码率" loading="lazy"></p>
+<h2>第二步：展开时间线，用剪刀分割片段</h2>
+<p>默认编辑视图下 NodeVideo 以图层和参数为主角，但真要剪辑必须展开时间线视图——点时间线按钮，完整的时间轴就出来了。</p>
+<p>剪刀分割是最常用的操作：把时间指示器拖到你想切的位置，点剪刀图标，当前选中的图层就一分为二。删掉多余段落，或者把不同片段拖到不同时间点上重新排列。官方推荐在根节点上操作，这样所有图层同时可见，调整起来更直观。</p>
+<h2>第三步：给画面加点东西——特效和属性面板</h2>
+<p>选中任意图层，属性面板会列出这层所有可调参数。亮度、对比度、饱和度是最基础的调色；往上滑能找到辉光、摇晃、Saber 光效这些进阶特效。每个特效拖进去之后都可以打关键帧，让参数随时间变化。</p>
+<p>比如给一段夜空视频加辉光特效，在开头打一个辉光强度 0 的关键帧，再往后拖 2 秒打一个强度 80 的关键帧，播放时就能看到星光渐渐亮起来的效果。</p>
+<h2>第四步：音频别只放个 BGM</h2>
+<p>视频的完成度一半在声音。NodeVideo 对音频走的是图层化路线——音频也是图层，可以叠加、裁剪、打关键帧。</p>
+<p>点「新建图层 → 媒体文件 → 音频」导入音乐或音效，在时间线上用剪刀把多余段落剪掉。音量参数可以打关键帧做淡入淡出，音频控制面板还有频谱可视化，卡点剪辑时先用频谱定位节拍再切画面，比凭眼睛数帧准多了。</p>
+<p>想玩点花活？音频反应器可以让音频驱动视觉参数——比如音乐节奏越强，画面放大越厉害，或者光效跟着节拍闪烁。</p>
+<h2>第五步：画中画和图层顺序</h2>
+<p>想在主画面上叠一个小窗口（比如解说露脸、游戏直播画面），就把两个视频图层都放在时间线上，调整它们的位置和大小。上面的图层会盖住下面的，拖图层顺序就能调整前后关系。混合模式和透明度可以让叠放效果更自然，比如把 PNG 透明贴图放在最上层做水印。</p>
+<h2>第六步：检查卡点一——手机运存扛不住</h2>
+<p>闪退几乎都发生在「手机运存小 + 项目复杂」的组合下：图层太多、素材分辨率太高、特效堆了一层又一层，内存直接爆。按这个优先级排查：先减图层数量（合并、预渲染、删掉不可见的），再关掉高耗能功能（补帧预览、3D、多层发光），还不行就把导出分辨率降到 720P 或更低。终极方案是转移到电脑端——把工程文件传到 PC 上继续编辑和导出，性能强太多。</p>
+<h2>第七步：检查卡点二——预览卡顿不是 bug</h2>
+<p>预览卡顿主要是预览质量和帧率设置太高导致的。把预览质量保持在默认 50%，帧率预览期设 30 或以下，导出前再切回 60。如果还是卡，试试降低预览渲染模式的范围——卡顿时牺牲一点预览范围换流畅是值得的。</p>
+<h2>第八步：导出成片，完事</h2>
+<p>时间线拉到开头，点导出按钮。分辨率设成你需要的（720P 或 1080P 足够发社交媒体，Pro 会员能出 4K），帧率和项目设置一致，等进度条走完就能在相册里找到成片了。导出用的是完整质量渲染，预览时的模糊和卡顿不会带到成片里，放心。</p>
+<h2>进阶：往下还能玩什么</h2>
+<p>关键帧曲线编辑器、时间重映射、光流补帧这些进阶功能等着解锁——光流补帧能做丝滑慢动作，但参数调不好会出现果冻效应和重复帧，自己多试几次就能摸到感觉。3D 摄像机跟踪、木偶工具这些 Pro 级功能在手机上能用到什么程度，也值得自己摸索。</p>
+<p>这套完整的文档和资源我也同步到了三个代码仓库，<a href="https://github.com/alipymanbu/APK/tree/main/APP/nodevideo" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/nodevideo" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/nodevideo" target="_blank" rel="noopener">GitCode</a>各一份，哪个访问顺畅就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/glasswire-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">GlassWire 为什么能把你的网络画成心电图？</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/hoptodesk-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">HopToDesk 装了大半年，那些当初没在意的细节才是长期用下来的关键</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

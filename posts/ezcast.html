@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>EZCast用了仨月踩的五个坑——以为是坏了，其实全是设置问题 · 老郭软件铺</title>
+  
+<meta name="description" content="EZCast同屏器看着插上就能用，但WiFi绑定、AirPlay兼容、声音缺失这几个高频坑坑过不少人，整理一份实测踩坑记录给你提前避。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ezcast.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EZCast用了仨月踩的五个坑——以为是坏了，其实全是设置问题">
+<meta property="og:description" content="EZCast同屏器看着插上就能用，但WiFi绑定、AirPlay兼容、声音缺失这几个高频坑坑过不少人，整理一份实测踩坑记录给你提前避。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ezcast.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ezcast/android-app-menu.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ezcast/android-app-menu.png">
+
+<meta name="twitter:title" content="EZCast用了仨月踩的五个坑——以为是坏了，其实全是设置问题">
+<meta name="twitter:description" content="EZCast同屏器看着插上就能用，但WiFi绑定、AirPlay兼容、声音缺失这几个高频坑坑过不少人，整理一份实测踩坑记录给你提前避。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "EZCast\u540c\u5c4f\u5668\u770b\u7740\u63d2\u4e0a\u5c31\u80fd\u7528\uff0c\u4f46WiFi\u7ed1\u5b9a\u3001AirPlay\u517c\u5bb9\u3001\u58f0\u97f3\u7f3a\u5931\u8fd9\u51e0\u4e2a\u9ad8\u9891\u5751\u5751\u8fc7\u4e0d\u5c11\u4eba\uff0c\u6574\u7406\u4e00\u4efd\u5b9e\u6d4b\u8e29\u5751\u8bb0\u5f55\u7ed9\u4f60\u63d0\u524d\u907f\u3002", "headline": "EZCast\u7528\u4e86\u4ee8\u6708\u8e29\u7684\u4e94\u4e2a\u5751\u2014\u2014\u4ee5\u4e3a\u662f\u574f\u4e86\uff0c\u5176\u5b9e\u5168\u662f\u8bbe\u7f6e\u95ee\u9898", "image": ["https://laoguosofts.github.io/images/ezcast/android-app-menu.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ezcast.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ezcast.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "EZCast\u7528\u4e86\u4ee8\u6708\u8e29\u7684\u4e94\u4e2a\u5751\u2014\u2014\u4ee5\u4e3a\u662f\u574f\u4e86\uff0c\u5176\u5b9e\u5168\u662f\u8bbe\u7f6e\u95ee\u9898", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">EZCast用了仨月踩的五个坑——以为是坏了，其实全是设置问题</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">EZCast用了仨月踩的五个坑——以为是坏了，其实全是设置问题</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">EZCast同屏器看着插上就能用，但WiFi绑定、AirPlay兼容、声音缺失这几个高频坑坑过不少人，整理一份实测踩坑记录给你提前避。</p>
+  </header>
+  <div class="prose serif">
+<p>EZCast这东西，插上HDMI连个USB电源就能用——它的<a href="https://ezcast.hfdk.space" target="_blank" rel="noopener">官网</a>上宣传也是这么说的。我当初就是被这四个字"插上就用"忽悠下的单，结果到手头一周就踩了仨坑，甚至一度以为同屏器坏了要退货。</p>
+<p>写这篇的目的很简单：把我踩过的、在论坛里见人反复问的几个典型坑整理一下，症状、原因、解法全给你摆明白。遇到的时候不用慌，对号入座就行。</p>
+<h2>坑一：Android投屏有画面没声音——不是坏了，是硬件限制</h2>
+<p>这是EZCast论坛、应用商店评论里<strong>最高频的问题</strong>，没有之一。</p>
+<p><strong>症状</strong>：点EZCast App右上角那个Mirror按钮，电视上画面出来了，挺好，但就是没声。手机上播着视频，电视里只出画面不出声，开了半天静音模式似的。</p>
+<p><strong>我第一次遇到时</strong>，以为是HDMI线坏了，换了两根还是没声，又怀疑同屏器的HDMI口有问题，折腾了快半小时差点申请退换。</p>
+<p><strong>原因</strong>：这真不是bug，是双重限制。Android 10之后Google改了MediaProjection权限，App只能抓画面帧，<strong>系统音频输出被禁止抓取</strong>——这是出于隐私保护的设计决策，防止恶意App偷偷录音。老Android机型（5.0~9.0）倒是没这个限制，但硬件上芯片根本没有音视频同步编码能力，抓到声音也发不出去。</p>
+<p>所以Android上点EZCast App的Mirror按钮，有画面没声音是<strong>正常行为</strong>，EZCast也没辙，Google说了算。</p>
+<p><strong>解法</strong>：别用Mirror按钮，换路子。先从<a href="https://ezcast.hfdk.space/download.html" target="_blank" rel="noopener">下载</a>页面拿到EZCast App装好，然后在App菜单里点EZMirror让同屏器重启到Miracast模式，再下拉手机通知栏找"屏幕投射"或"Smart View"（不同品牌名字不一样），从原生入口发起连接，画面声音一起走。iPhone用户更简单，同屏器切EZAir模式直接AirPlay，连App都不用装。</p>
+<p><img src="../images/ezcast/android-app-menu.png" alt="EZCast App菜单入口" loading="lazy"></p>
+<h2>坑二：刚升了iOS，AirPlay突然连不上了</h2>
+<p><strong>症状</strong>：前一天还正常AirPlay投屏，iPhone更新完iOS大版本，AirPlay列表里要么扫不到同屏器，要么扫到了但连不上黑屏，要么连上了没声音。</p>
+<p><strong>原因</strong>：Apple每年发iOS/macOS大版本时，AirPlay协议<strong>经常偷偷改细节</strong>。比如iOS 15重构了AirPlay发现机制，iOS 17把连接超时机制收紧，iOS 18甚至对Discovery协议加了加密。老固件的EZAir模式没跟上协议变化，就直接失联了。</p>
+<p>EZCast的Settings里给了<strong>三种EZAir兼容模式</strong>可以切：Auto（默认自动识别）、Legacy（针对iOS 14及以前老协议）、Current（针对iOS 15+新协议）。但光切模式不够——固件里的"版本识别表"如果没更新，Auto模式还是认不准。</p>
+<p><strong>解法</strong>：按这个顺序来，别跳步：</p>
+<ol><li><strong>先升级OTA固件</strong>——这是最关键的，协议级变化靠换模式解决不了，固件升级的完整步骤在<a href="https://ezcast.pages.dev/" target="_blank" rel="noopener">EZCast文档</a>里有详细说明</li><li>进Settings → EZAir Mode，Auto不行就试Current，还不行试Legacy</li><li>每种模式切换时同屏器会自动重启10~15秒，等它自己起来再扫</li></ol>
+<p>我自己iPhone升iOS 17那次就是，固件升级完Auto模式直接就能用，根本没轮到手动切模式。固件才是根本，别上来就瞎切。</p>
+<p><img src="../images/ezcast/settings-menu-full.png" alt="Settings菜单总览" loading="lazy"></p>
+<h2>坑三：绑了路由器WiFi，改密码之后同屏器就"失联"了</h2>
+<p><strong>症状</strong>：同屏器原本绑在自家路由器WiFi上用得好好的，有一天改了路由器WiFi密码，发现投屏断了，同屏器待机画面上也不再显示路由器SSID，电视屏幕上只剩下同屏器自己的热点名。</p>
+<p><strong>原因</strong>：同屏器只认你绑定那天输的那个密码，<strong>不会自动跟着路由器改密码</strong>。路由器密码一变，同屏器连WiFi认证就失败了，连不上路由器就没法投屏，EZChannel也播不了，固件也升不了。</p>
+<p><strong>解法</strong>：别慌，同屏器WiFi连路由器失败后会<strong>自动退回自建热点</strong>（就是那个<code>EZCast-XXXXXX</code>），手机还能连上它。步骤是：</p>
+<ol><li>手机WiFi切到同屏器的自建热点</li><li>打开EZCast App，重新扫到同屏器</li><li>Settings → WiFi Router → 重新选你家路由器 → 输新密码</li><li>同屏器自动重启，待机画面上会重新显示路由器SSID</li></ol>
+<p>我当初改密码后傻等了十分钟才反应过来同屏器有自建热点兜底——以为彻底废了准备重买，结果两分钟就救回来了。</p>
+<h2>坑四：EZMirror切模式后60秒没赶上，自动切回去了</h2>
+<p><strong>症状</strong>：App里点了EZMirror，同屏器重启后待机画面上有个60秒倒计时在跳，我慢悠悠摸出手机下拉通知栏找投射入口，等找到的时候倒计时结束了，同屏器又切回EZCast模式，白折腾。</p>
+<p><strong>原因</strong>：EZMirror模式只开60秒的Miracast广播窗口——这是有意设计的，防止同屏器一直占着Miracast模式（两种模式不能同时开），也防止周围陌生设备误投。倒计时一过没设备连，自动回EZCast模式。</p>
+<p><strong>解法</strong>：提前准备好再切。我的习惯是先把手机通知栏拉下来露出"屏幕投射"图标，然后快速连EZMirror，倒计时跑起来的瞬间就点手机上的投射，基本十秒内就能连上。没赶上就再点一次EZMirror重试，没次数限制。</p>
+<p>另外还有个细节：一旦Miracast连接建立，<strong>EZCast App就可以关了</strong>——投屏完全由手机系统和同屏器直接通信，App只是个切换模式的触发器。但如果你之后想再用App改设置或升固件，得让同屏器先切回EZCast模式（按遥控器或长按电源键），不然App搜不到它。</p>
+<h2>坑五：以为同屏器坏了要恢复出厂——其实只是没绑路由器WiFi</h2>
+<p>这个是我觉得最容易被忽略的一点，也是新手最容易踩的：同屏器出厂默认自己建热点，手机连上能投屏，<strong>但手机暂时没有外网</strong>。YouTube播不了、EZChannel在线视频看不了、固件升不了——这些都不是同屏器坏了，就是没绑路由器。</p>
+<p>我刚拿到手那两天还纳闷"怎么EZChannel里的内容全加载不出来"，反复检查网络设置，甚至给客服发了邮件。直到看文档才明白：同屏器自建热点只是个局域网，手机连上去等于断了外网。</p>
+<p><strong>解法</strong>：App → Settings → WiFi Router → 搜自家路由器 → 输密码 → 同屏器重启切过去。然后手机WiFi也切回路由器，投屏和上网就同时通了。EZChannel能用了，OTA固件升级的通路也打通了——前面说的AirPlay兼容问题需要升级固件才能解决，而升级固件的前提就是同屏器能上网。</p>
+<p>如果路由器改了WiFi密码、或者周围没有路由器可用（出租屋临时场景），也可以让同屏器<strong>连手机热点</strong>——手机开移动热点，同屏器绑上去，应急用完全没问题，只是手机热点耗电快、移动数据耗流量，别长期用。</p>
+<h2>防坑清单</h2>
+<ul><li>Android用户别用EZCast Mirror按钮，要声音直接走EZMirror或原生AirPlay</li><li>iOS/macOS升级大版本后AirPlay连不上，<strong>先升固件再切EZAir模式</strong>，别反过来</li><li>路由器WiFi改密码后记得给同屏器重新绑一次（它不会自动同步）</li><li>改密码时同屏器会退回自建热点，手机连那个热点就能重绑，不是彻底断了</li><li>EZMirror切模式前先把手机通知栏拉下来准备好，60秒倒计时没浪费</li></ul>
+<p>知道这些坑之后，这同屏器其实相当省心——就是设置上有点反直觉，踩一遍就记住了。</p>
+<p>EZCast同屏器的各种玩法教程在它的官方文档里写得比我细多了，WiFi绑定、固件升级、各种模式切换的细节都能查到。文档维护也挺勤快，新固件的变更说明和iOS版本适配指南都会及时更新。考虑到访问稳定性，这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/EZCast" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/EZCast" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/EZCast" target="_blank" rel="noopener">GitCode</a>都有镜像副本，哪个顺手用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/saylo.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">翻遍 Saylo 设置才挖到的 4 个隐藏玩法——它远不止 AI 单聊那么简单</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/1panel-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">1Panel 快问快答：装面板前必须知道的九件事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

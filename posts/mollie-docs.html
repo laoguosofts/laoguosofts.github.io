@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>独立站收单工作流改造：用 Mollie 把付款到记账压成一条链 · 老郭软件铺</title>
+  
+<meta name="description" content="做欧洲独立站的小团队分享：以前付款确认、财务记账、客户邮件要三个工具手动接力，现在接入 Mollie 后一条链自动跑完，少了四次复制粘贴和半夜查账。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/mollie-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="独立站收单工作流改造：用 Mollie 把付款到记账压成一条链">
+<meta property="og:description" content="做欧洲独立站的小团队分享：以前付款确认、财务记账、客户邮件要三个工具手动接力，现在接入 Mollie 后一条链自动跑完，少了四次复制粘贴和半夜查账。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/mollie-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/mollie-docs/checkout-demo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/mollie-docs/checkout-demo.jpg">
+
+<meta name="twitter:title" content="独立站收单工作流改造：用 Mollie 把付款到记账压成一条链">
+<meta name="twitter:description" content="做欧洲独立站的小团队分享：以前付款确认、财务记账、客户邮件要三个工具手动接力，现在接入 Mollie 后一条链自动跑完，少了四次复制粘贴和半夜查账。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u505a\u6b27\u6d32\u72ec\u7acb\u7ad9\u7684\u5c0f\u56e2\u961f\u5206\u4eab\uff1a\u4ee5\u524d\u4ed8\u6b3e\u786e\u8ba4\u3001\u8d22\u52a1\u8bb0\u8d26\u3001\u5ba2\u6237\u90ae\u4ef6\u8981\u4e09\u4e2a\u5de5\u5177\u624b\u52a8\u63a5\u529b\uff0c\u73b0\u5728\u63a5\u5165 Mollie \u540e\u4e00\u6761\u94fe\u81ea\u52a8\u8dd1\u5b8c\uff0c\u5c11\u4e86\u56db\u6b21\u590d\u5236\u7c98\u8d34\u548c\u534a\u591c\u67e5\u8d26\u3002", "headline": "\u72ec\u7acb\u7ad9\u6536\u5355\u5de5\u4f5c\u6d41\u6539\u9020\uff1a\u7528 Mollie \u628a\u4ed8\u6b3e\u5230\u8bb0\u8d26\u538b\u6210\u4e00\u6761\u94fe", "image": ["https://laoguosofts.github.io/images/mollie-docs/checkout-demo.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/mollie-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/mollie-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u72ec\u7acb\u7ad9\u6536\u5355\u5de5\u4f5c\u6d41\u6539\u9020\uff1a\u7528 Mollie \u628a\u4ed8\u6b3e\u5230\u8bb0\u8d26\u538b\u6210\u4e00\u6761\u94fe", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">独立站收单工作流改造：用 Mollie 把付款到记账压成一条链</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">独立站收单工作流改造：用 Mollie 把付款到记账压成一条链</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">做欧洲独立站的小团队分享：以前付款确认、财务记账、客户邮件要三个工具手动接力，现在接入 Mollie 后一条链自动跑完，少了四次复制粘贴和半夜查账。</p>
+  </header>
+  <div class="prose serif">
+<h2>我每周要做的那件事，以前是三步</h2>
+<p>我在荷兰和德国各跑一个 WordPress 独立站，卖手工皮具和定制文具。月流水不高，€40K 上下，但订单碎——大部分 €30-€80，还有 15% 左右是订阅续费。</p>
+<p>每周一上午雷打不动的工作：</p>
+<ol><li>打开 Shopify 的支付后台（两个站各登一次），导出上周的 CSV；</li><li>把 CSV 里的交易记录手动粘到 Notion 财务表，再按支付方式分栏；</li><li>用 Mailchimp 群发确认邮件——付款成功的发"感谢"，Pending 的发"请补付"，拒付的发"我们注意到"。</li></ol>
+<p>三件事加起来大概两小时。最烦的是第二步：两个支付通道的字段名不一样，Shopify 导出的 <code>payment_id</code> 是 shopify_payment_id，我记账需要的是原始的 <code>tr_xxxxxxxx</code> 交易号，得翻回 Mollie Dashboard 一条条复制。还有拒付——上个月有个德国客户拒付了一笔 €65 的皮具款，我三天后才发现，因为拒付邮件进了 Mollie Dashboard 没同步到我的邮件提醒。</p>
+<h2>把 Mollie 插进流程的哪一环</h2>
+<p>现在整个流程是这样的，一条链通到底：</p>
+<pre><code>客户在 WooCommerce 结账 → Mollie 处理支付 → Webhook 推到我的服务器
+  ├── 成功 → WooCommerce 订单自动标记 Complete → Zapier 推一条到 Notion 财务表
+  ├── 待支付 → Zapier 等 12 小时，还没支付就发提醒邮件
+  ├── 拒付 → 飞书机器人立刻@我 + 自动暂停订单发货
+  └── 订阅续费到期 → 邮件提醒 7 天 + Mollie 自动扣费 + 成功后记账</code></pre>
+<p>核心衔接点有五个，分别用了不同的上下游工具：</p>
+<p><strong>支付入口层</strong>：两个 WordPress 站都装了 Mollie Payments for WooCommerce 插件——在<a href="https://mollie.gerw.hair" target="_blank" rel="noopener">Mollie官网</a>上能找到所有支持的电商平台列表，搜 Mollie B.V. 那个官方认证的，15 分钟能配完。启用 iDEAL、SEPA Direct Debit、信用卡、PayPal、Klarna 五种支付方式，这覆盖了荷兰和德国 90% 以上的本地支付习惯。插件在 WordPress 后台能直接装，需要其他集成方式或离线包的话可以去<a href="https://mollie.gerw.hair/download.html" target="_blank" rel="noopener">下载</a>页面拿。插件做了所有脏活：自动生成 Payments API 调用、自动处理 Webhook endpoint、自动更新 WooCommerce 订单状态。</p>
+<p><strong>Webhook 路由层</strong>： Mollie 把事件推到 <code>/api/mollie/webhook</code>，我用一个简单的 Express 中间件做分发——不同事件类型（payment.paid、payment.failed、chargeback.received、subscription.cancelled）走不同的下游。签名验证是插件已经帮我做好的，我只需要按事件名路由。</p>
+<p><strong>财务记账层</strong>：paid 事件进来后，Zapier 抓交易号、金额、支付方式、订单号四个字段，追加到 Notion 财务表的一行。字段映射一次配好就不用管，现在每周的财务表是自动更新的，我只需要月末跑个 SUMIF 加汇率换算。</p>
+<p><strong>异常通知层</strong>：chargeback.received 和 payment.refunded 这两类事件走飞书机器人——@我个人账号，消息里带交易号和客户邮箱，点链接直接跳 Mollie Dashboard 的那笔交易。拒付通知从"三天后才看到"变成了"十分钟内推到手机"。</p>
+<p><strong>客户沟通层</strong>：成功付款走 WooCommerce 自带的确认邮件，但我改了模板，加了 Mollie 传过来的 <code>checkout_url</code> 的交易摘要链接（客户以后查自己的付款记录直接点这个）。待支付的走 Zapier 的延迟触发——等 12 小时如果还没收到 payment.paid，自动发催付邮件。</p>
+<p><img src="../images/mollie-docs/checkout-demo.jpg" alt="Mollie 结算页的支付方式选择界面" loading="lazy"></p>
+<h2>最容易断链的两个环节</h2>
+<p>跑了三个月，这套流程在两个地方出过问题，修完就稳了。</p>
+<p><strong>第一个坑：Webhook 在测试环境能收，切正式模式就断</strong>。原因是我的 Redirect URL 在测试环境是 <code>test.myshop.com/order/success</code>，切到 Live 模式忘了改。Mollie 上线清单里明确写了——正式模式的 Redirect URL 必须指向生产环境页面，否则客户付完款跳不回来。还有 Webhook URL 的验证——Mollie 会发一个 <code>token</code> 查询请求，你的 endpoint 必须回传同样的 token 才算验证通过。我是手动 Postman 测的，写了个 curl 命令发过去确认。</p>
+<p><strong>第二个坑：3DS 触发策略卡转化率</strong>。刚上线时我让所有卡类支付都强制走 3DS，结果结算页完成率掉了 18%——荷兰客户对"跳去银行验证"这件事特别敏感，一半人看到 3DS 页面就关了。查了 <a href="https://mollie-docs.pages.dev/" target="_blank" rel="noopener">Mollie文档</a> 的 Acceptance &amp; Risk 模块才搞明白：SCA 法规豁免的场景包括低金额（&lt;€30）、低风险、固定收款方。我改了策略：€30 以下的卡支付跳过 3DS，€30-€200 的让 Mollie 按风险评分自动决定，€200 以上强制 3DS。改完一周结算页完成率回升到原来的水平，拒付率没什么变化。</p>
+<p><img src="../images/mollie-docs/mobile-app-realtime.png" alt="Mollie 移动端实时看交易" loading="lazy"></p>
+<h2>省了多少事，什么时候不划算</h2>
+<p>量化一下效果：</p>
+<ul><li>每周财务记账的手动工作从 2 小时降到 15 分钟——就是月末核对汇率那点事；</li><li>拒付响应时间从 72 小时降到 10 分钟——上个月有笔 €89 的拒付，我收到飞书通知立刻查了发货记录，提交了签收凭证，28 天内拿回了钱；</li><li>订阅续费从"每月手动提醒"变成"自动扣费 + 成功后邮件"，120 个订阅客户里只有 3 个因为卡过期扣费失败，自动触发了续费失败邮件；</li><li>两个站的结算页完成率平均提升 12%——主要是 Mollie Checkout 比原来的 PayPal Checkout 快，客户不用再跳转两次。</li></ul>
+<p>这套流程的边界也很清楚：如果你做的是全球业务，美国和东南亚的支付方式 Mollie 覆盖不全，可能要补 Stripe 或 Adyen；如果你月流水超过 €1M，需要深度的费率配置和风控定制，Adyen 的企业级方案会更合适；还有一点——Mollie 不做支付宝和微信，亚洲客户比例高的话得另找通道。</p>
+<p>对我这种"欧洲本地小团队 + 不想花专门的支付团队"的场景，这套 Mollie + WooCommerce + Zapier + 飞书机器人的组合是目前为止最顺手的。整个接入过程花了两个晚上，调试 Webhook 用了大半天，之后就是零维护。</p>
+<p>这套资料我分别放到了 GitHub、Gitee 和 GitCode 三个仓库——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Mollie" target="_blank" rel="noopener">主仓库</a>放完整文档目录，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Mollie" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Mollie" target="_blank" rel="noopener">GitCode</a> 各同步一份方便国内访问，后续更新也会一起推过去。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/adobe-firefly.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Adobe Firefly 新手入门：0基础也能5分钟跑出AI创作</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/gamekee.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">每周追四款游戏更新，我只用 GameKee 一条链搞定</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

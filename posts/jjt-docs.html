@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解 · 老郭软件铺</title>
+  
+<meta name="description" content="我试过七八种 AI PPT 工具，大多是「一键出活」然后让人头疼地改结构。JJT 反着来——它把生成过程拆成了四步，让用户在关键节点介入。这背后的设计取舍，值得聊聊。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/jjt-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解">
+<meta property="og:description" content="我试过七八种 AI PPT 工具，大多是「一键出活」然后让人头疼地改结构。JJT 反着来——它把生成过程拆成了四步，让用户在关键节点介入。这背后的设计取舍，值得聊聊。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/jjt-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/jjt-docs/workbench-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/jjt-docs/workbench-hero.webp">
+
+<meta name="twitter:title" content="为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解">
+<meta name="twitter:description" content="我试过七八种 AI PPT 工具，大多是「一键出活」然后让人头疼地改结构。JJT 反着来——它把生成过程拆成了四步，让用户在关键节点介入。这背后的设计取舍，值得聊聊。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6211\u8bd5\u8fc7\u4e03\u516b\u79cd AI PPT \u5de5\u5177\uff0c\u5927\u591a\u662f\u300c\u4e00\u952e\u51fa\u6d3b\u300d\u7136\u540e\u8ba9\u4eba\u5934\u75bc\u5730\u6539\u7ed3\u6784\u3002JJT \u53cd\u7740\u6765\u2014\u2014\u5b83\u628a\u751f\u6210\u8fc7\u7a0b\u62c6\u6210\u4e86\u56db\u6b65\uff0c\u8ba9\u7528\u6237\u5728\u5173\u952e\u8282\u70b9\u4ecb\u5165\u3002\u8fd9\u80cc\u540e\u7684\u8bbe\u8ba1\u53d6\u820d\uff0c\u503c\u5f97\u804a\u804a\u3002", "headline": "\u4e3a\u4ec0\u4e48 AI \u505a PPT \u8fd8\u9700\u8981\"\u5de5\u4f5c\u53f0\"\uff1f\u2014\u2014 JJT \u7684\u8bbe\u8ba1\u903b\u8f91\u62c6\u89e3", "image": ["https://laoguosofts.github.io/images/jjt-docs/workbench-hero.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/jjt-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/jjt-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e3a\u4ec0\u4e48 AI \u505a PPT \u8fd8\u9700\u8981\"\u5de5\u4f5c\u53f0\"\uff1f\u2014\u2014 JJT \u7684\u8bbe\u8ba1\u903b\u8f91\u62c6\u89e3", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">我试过七八种 AI PPT 工具，大多是「一键出活」然后让人头疼地改结构。JJT 反着来——它把生成过程拆成了四步，让用户在关键节点介入。这背后的设计取舍，值得聊聊。</p>
+  </header>
+  <div class="prose serif">
+<p>我试过七八种 AI PPT 工具。共同体验是：一键生成，出来的东西大多能看但不能用——结构对不上汇报逻辑、数据点跳空、页面套模板套得生硬。每次都得花半小时手动调大纲、补细节、换风格，生成那一分钟的爽感很快被后续的折腾盖过去。</p>
+<p>JJT 给了我不同的感觉。去它的<a href="https://jjt.gltd.quest" target="_blank" rel="noopener">官网</a>翻了一圈才明白——不是因为它生成得更漂亮，而是它<strong>从一开始就没打算让 AI 把所有事做完</strong>。它给用户留了工作台，让用户在几个关键节点介入。这个设计选择，背后藏着一套挺有意思的产品判断。</p>
+<h2>问题出在哪：为什么"一键生成"总是差一口气</h2>
+<p>先回到那个老问题——AI 为什么做不好 PPT？</p>
+<p>核心矛盾在于：PPT 不是内容的搬运容器，而是<strong>说服工具</strong>。你要汇报一个项目进展，PPT 的逻辑链得跟着听众的接受路径走——先讲背景、再讲问题、再讲方案、最后给结论。这个逻辑链不是"把一堆文字塞进模板"就能自动推导出来的。</p>
+<p>绝大多数 AI PPT 工具的做法是：<strong>先堆内容，后套模板</strong>。它们用大模型把你给的主题展开成十几页文字，然后把每一页塞进某个视觉模板里。结果就是——内容本身没有经过"逻辑编排"这道工序，模板只能救颜值救不了骨架。</p>
+<p>JJT 的做法反过来了：<strong>先定骨架，再填肉</strong>。<a href="https://jjt-docs.pages.dev/" target="_blank" rel="noopener">JJT文档</a>里反复强调的"大纲确认"是整个流程的关键节点——AI 先生成一份大纲让你过，你可以删减、重排、改标题，甚至换成你自己的大纲再往后走。这一步在文档里被标记为"最值钱的一步"，我觉得这个定位本身就说透了产品的底层逻辑。</p>
+<p>大纲确认这一步，本质上是把"内容编排"的判断权还给了人。AI 擅长展开但不擅长取舍——它不知道你这次汇报要给甲方看还是给老板看，不知道哪组数据要突出、哪条支线可以砍掉。这些判断必须由知道上下文的人来做。</p>
+<h2>工作台的四重分工：一套被低估的界面设计</h2>
+<p>JJT 的工作台文档里把界面分成了四个区块——创作入口区、对话/指令区、画布区、工具区。乍看只是常规的分区布局，但仔细想每个区块对应着一种不同的人机协作模式：</p>
+<p><strong>创作入口区</strong>是"输入编排"。五种生成方式（一句话主题、文档转 PPT、大纲转 PPT、链接生成、长内容总结）其实对应着五种不同的用户状态：你是脑子里只有一个模糊想法、手里有一份 Word 文档、已经写好了大纲、还是只有一个网页链接可以参考。入口区的作用是帮你选对"起始输入"——不同输入类型决定了后续生成链的起点，选对了能省不少事。</p>
+<p><strong>对话/指令区</strong>是"过程协作"。这不是简单的聊天框——它同时承担了指令输入和进度反馈两个角色。你可以用自然语言描述修改需求，同时能看到云端任务的逐页生成进度。这种双向通道的设计很重要：大多数工具要么只让你"生成一次、看一次结果"，要么只让你事后改，中间过程是黑箱。JJT 把过程打开了，让用户在生成中途就知道哪些页可能出问题，可以提前介入调整。</p>
+<p><strong>画布区</strong>是"精修权"。文档里提到"元素级精修"——选中单个文字、图片、图表、形状直接改。这看起来是所有 PPT 工具都应该有的基本能力，但很多 AI PPT 工具在这一步做得非常克制：它们只允许你用 AI 的方式改（比如"把这页改成商务风"），而不允许你像在 PowerPoint 里那样拖一个文本框、换一张图片。JJT 在画布区完全开放了元素级操作，等于承认了一个现实——<strong>AI 做的永远是草稿，定稿必须由人来完成</strong>。</p>
+<p><strong>工具区</strong>是"能力外挂"。智能排版优化、全套风格换新、页面精准配图、数据转图表、电影级转场、AI 演讲稿……这些不是生成流程的必经之路，而是"在你需要的时候帮你一把"的能力包。这种"外挂式"设计和主流程解耦——你可以只用生成功能，也可以生成完再用排版工具优化一遍，完全看你那一份 PPT 的需求是什么。</p>
+<p><img src="../images/jjt-docs/workbench-hero.webp" alt="工作台界面：四区分工让人机协作的路径清晰" loading="lazy"></p>
+<h2>取舍：这套设计的代价是什么</h2>
+<p>聊完好的，也得说说这套设计的代价。不是所有用户都适合这种协作模式。</p>
+<p>第一，<strong>它需要用户的主动参与</strong>。如果你想要"我给个主题，一分钟后拿到一份完美 PPT"，JJT 不适合你。大纲确认这一步就可能要花 5~10 分钟，之后每一页的微调又是时间成本。它节省的是"从零开始做 PPT"的体力，但不节省"判断什么是好 PPT"的脑力。</p>
+<p>第二，<strong>云端依赖是硬约束</strong>。安装包从<a href="https://jjt.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿之后，生成本身是"云端任务"——意味着你必须联网才能用核心功能，生成速度受网络和服务器负载影响。如果你在没信号的电梯里突然要改个东西，那就尴尬了。相比之下，传统 PPT 软件虽然笨一点但完全离线可用。</p>
+<p>第三，<strong>计费模式是 J 分消耗</strong>。文档里把"J分是什么"、"免费额度能做什么"、"省 J分的实操习惯"各写了一页，说明团队自己也清楚这个模式会让用户有成本顾虑。大纲确认一次、生成一次、优化一次——每一步都在消耗，不小心多点几次按钮可能积分就见底了。免费额度够你试几次，但真要长期用大概率得充会员。</p>
+<p>第四，<strong>它不适合大规模批量生产</strong>。如果你要一口气出二十份差不多的模板 PPT，JJT 的"逐步确认"流程反而成了阻碍。它更像是一个"帮你把一份 PPT 做精"的工具，而不是"帮你批量做一堆 PPT"的流水线。</p>
+<h2>判断：这套设计适合谁</h2>
+<p>说了这么多，最后落回那个实际问题：JJT 适合你吗？</p>
+<p>适合的场景很明确——<strong>你在乎这一份 PPT 的质量，而且你能花 20 分钟在上面</strong>。比如年终述职的汇报材料、课堂结课答辩的展示、给客户的方案演示。这些场景下，PPT 本身就是你的"说服武器"，花时间打磨是值得的。JJT 帮你省掉了从零搭骨架、找模板、调格式这些体力活，但保留了所有关键的判断节点让你自己来做。</p>
+<p>不太适合的场景也很清晰——<strong>你只要一份"差不多能交差"的东西</strong>。比如部门周会的例行汇报、团队内部的同步材料。这些情况下，花时间在大纲确认和逐页精修上反而是浪费，用个更"全自动"的工具可能效率更高。</p>
+<p>我自己用下来的感受是：JJT 最大的价值不在于"让 AI 做 PPT"，而在于它<strong>重新定义了 AI 和人在 PPT 制作里的分工边界</strong>。AI 擅长快速展开、批量生成、风格变换这些机械性工作，人擅长逻辑编排、价值取舍、审美判断这些需要上下文的事。JJT 的工作台设计就是把这两类事清清楚楚地分开，各干各擅长的。</p>
+<p>这个思路其实可以延伸到很多 AI 辅助创作的场景里——文案、视频、甚至代码。不是让 AI 替你写完，而是让 AI 帮你打草稿，你在关键节点把控方向。这样做出来的东西才既有 AI 的效率，又有人的判断。</p>
+<p>对了，如果你手上有现成的 Word 文档想转成 PPT，或者你只有一个网页链接想快速出一份汇报，JJT 的五种生成方式覆盖了这两种情况。安卓版也已经上线了，手机上可以快速查看和分享，双端账号互通这点对经常移动办公的人来说挺实用的。</p>
+<p><img src="../images/jjt-docs/speech-demo.png" alt="AI 演讲稿功能：按时长、场合、受众生成配套讲稿" loading="lazy"></p>
+<p>这些资料和更多使用细节，在三个仓库里都能找到——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/JJT" target="_blank" rel="noopener">GitHub</a>上的主仓库维护着完整的文档目录，国内访问不方便的时候可以去<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/JJT" target="_blank" rel="noopener">Gitee</a>的镜像仓库拿，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/JJT" target="_blank" rel="noopener">GitCode</a>上也有一份同步备份。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/readany.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">800 页技术书里找一段代码，我再也不用 Ctrl+F 瞎猜了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/whack-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Whack 入门攻略：从零开始搭建你的第一个 AI 社群</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>App Ops 迭代史：一个让 Android 拿回控制权的工具是怎么长成的 · 老郭软件铺</title>
+  
+<meta name="description" content="App Ops 从默默无名到 Android 权限圈的标配，它的版本迭代里藏着一条清晰的主线：让用户真正掌控每一项敏感权限。4.0 带来剪贴板监视只是其中一步，回溯这条路能看清它的优先级。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/appops.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="App Ops 迭代史：一个让 Android 拿回控制权的工具是怎么长成的">
+<meta property="og:description" content="App Ops 从默默无名到 Android 权限圈的标配，它的版本迭代里藏着一条清晰的主线：让用户真正掌控每一项敏感权限。4.0 带来剪贴板监视只是其中一步，回溯这条路能看清它的优先级。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/appops.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/appops/shizuku-setup.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/appops/shizuku-setup.jpg">
+
+<meta name="twitter:title" content="App Ops 迭代史：一个让 Android 拿回控制权的工具是怎么长成的">
+<meta name="twitter:description" content="App Ops 从默默无名到 Android 权限圈的标配，它的版本迭代里藏着一条清晰的主线：让用户真正掌控每一项敏感权限。4.0 带来剪贴板监视只是其中一步，回溯这条路能看清它的优先级。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "App Ops \u4ece\u9ed8\u9ed8\u65e0\u540d\u5230 Android \u6743\u9650\u5708\u7684\u6807\u914d\uff0c\u5b83\u7684\u7248\u672c\u8fed\u4ee3\u91cc\u85cf\u7740\u4e00\u6761\u6e05\u6670\u7684\u4e3b\u7ebf\uff1a\u8ba9\u7528\u6237\u771f\u6b63\u638c\u63a7\u6bcf\u4e00\u9879\u654f\u611f\u6743\u9650\u30024.0 \u5e26\u6765\u526a\u8d34\u677f\u76d1\u89c6\u53ea\u662f\u5176\u4e2d\u4e00\u6b65\uff0c\u56de\u6eaf\u8fd9\u6761\u8def\u80fd\u770b\u6e05\u5b83\u7684\u4f18\u5148\u7ea7\u3002", "headline": "App Ops \u8fed\u4ee3\u53f2\uff1a\u4e00\u4e2a\u8ba9 Android \u62ff\u56de\u63a7\u5236\u6743\u7684\u5de5\u5177\u662f\u600e\u4e48\u957f\u6210\u7684", "image": ["https://laoguosofts.github.io/images/appops/shizuku-setup.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/appops.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/appops.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "App Ops \u8fed\u4ee3\u53f2\uff1a\u4e00\u4e2a\u8ba9 Android \u62ff\u56de\u63a7\u5236\u6743\u7684\u5de5\u5177\u662f\u600e\u4e48\u957f\u6210\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">App Ops 迭代史：一个让 Android 拿回控制权的工具是怎么长成的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">App Ops 迭代史：一个让 Android 拿回控制权的工具是怎么长成的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">App Ops 从默默无名到 Android 权限圈的标配，它的版本迭代里藏着一条清晰的主线：让用户真正掌控每一项敏感权限。4.0 带来剪贴板监视只是其中一步，回溯这条路能看清它的优先级。</p>
+  </header>
+  <div class="prose serif">
+<p>现在打开 App Ops 的最新版本——它的<a href="https://appops.rggd.pw" target="_blank" rel="noopener">官网</a>上能看到版本更新的完整脉络——首页会列出手机里每一个安装过的应用，点进去能看到十几项甚至几十项权限开关——不是系统设置里那种粗略的"允许/拒绝"，而是更细粒度的四种状态：允许、拒绝、每次询问、忽略。这在今天看来似乎是理所当然的事情，但如果回溯它的版本历史就会发现，App Ops 走到这一步中间踩过不少坑，也放弃过一些东西。</p>
+<h2>来路：样本文档没写的早期</h2>
+<p>手头能拿到的文档从 Shizuku 模式和剪贴板监视开始讲起，App Ops 的更早版本信息不多。但这点留白本身就能说明问题：它最初定位是一个系统 appops 层面的读写工具——Android 框架里藏着一套比公开 Runtime Permission 更底层的权限控制机制，但系统设置只暴露了一小部分，App Ops 把剩下的全部挖了出来，底层 appops 参数的详解在<a href="https://appops.pages.dev/" target="_blank" rel="noopener">appops文档</a>里有完整收录。</p>
+<p>早期版本的 App Ops 依赖 Root 才能工作，这是它和 Shizuku 结合之前的状态。Root 门槛高，覆盖用户有限，好在现在<a href="https://appops.rggd.pw/download.html" target="_blank" rel="noopener">官方下载</a>已经同时提供 Root 版和 ADB 激活版。真正让它从小众走向更广泛群体的转折点，是引入了 Shizuku 这条路径——通过 ADB 激活服务，无 Root 设备也能使用完整的 appops 读写能力。这一步的意义不只是"降低门槛"，更像是把 App Ops 从 Root 玩家的玩具变成了任何有电脑和数据线的用户都能用的实用工具。</p>
+<p><img src="../images/appops/shizuku-setup.jpg" alt="Shizuku 激活流程" loading="lazy"></p>
+<p>但 Shizuku 也不是完美的。每次手机重启都需要重新跑 ADB 命令，无线调试虽然能减少插线次数但 Wi-Fi 变化端口也跟着变。于是又有了 DPM 托管设备管理员模式——通过 Island 等应用获得 Device Owner 身份，一次设置长期有效。只是 DPM 模式能力打了折扣：设不了 permission flags，Android 11 上不支持"每次都询问"，备份功能也不完整。</p>
+<h2>4.0：剪贴板监视是一个信号</h2>
+<p>样本文档里最明确的版本标记是 4.0——这一版引入了剪贴板监视功能。开启条件挺苛刻：Android 10 以上 + Shizuku 必须是 Root 激活（ADB 激活的 Shizuku 用不了）。功能本身也不复杂：每次有应用读写剪贴板时弹个 Toast 提醒，告诉你谁在操作。</p>
+<p>但 4.0 这一步的意义远不止加了一个小功能。它暴露了 App Ops 一直在死磕的一条主线：<strong>让用户感知到权限在被滥用</strong>。系统层面没有剪贴板读取的权限面板，Android 10 之前后台应用读剪贴板几乎是无限制的——购物 App 偷链接比价、社交 App 读复制的对话内容、金融 App 读密码验证码。App Ops 的做法是先让你"看到"谁在读，再给你一个"直接忽略"的权限开关把这条路堵死。</p>
+<p>4.0 之前 App Ops 做的主要是"控制"：把系统 appops 的开关全暴露出来，让你对每个应用的每项权限设四种状态。4.0 加的"监视"是另一个维度——在开关之外给你实时的行为反馈。这个思路后来还在延续，比如后台运行的实时告警、传感器访问的静默提醒，都是"先看见再决定"这条逻辑的延伸。</p>
+<h2>两种模式的取舍：团队一直在死磕什么</h2>
+<p>从 Shizuku 到 DPM 再到 App Ops X，看 App Ops 的迭代路径能很清楚地看到团队的优先级排序。</p>
+<p>第一优先级永远是<strong>能力完整度</strong>。Shizuku 模式之所以被官方推荐、功能迭代优先，核心原因就是它能同时读写 appops、runtime permission 和 permission flags 三者——这是 DPM 模式做不到的。App Ops X 作为独立扩展应用出现，也是因为普通第三方应用权限不够、控制系统应用需要更高权限，那他们就单独做一个组件来补这块短板。</p>
+<p>第二优先级是<strong>渐进式覆盖</strong>。不是一开始就要求 Root，也不是只做 Shizuku 一条路，而是有 Root 给你 Root 激活、没 Root 给你 ADB 激活、嫌 ADB 麻烦还有 DPM 兜底。每条路都有代价（Root 有门槛、ADB 重启要重跑、DPM 能力打折），但每条路都能让你用上核心功能。这种不卡死单一路径的策略，让 App Ops 在不同设备条件下都能有立足之地。</p>
+<p>第三优先级才是<strong>易用性</strong>。剪贴板监视的开启条件苛刻（Root 激活的 Shizuku 才行）、ADB 激活步骤要插线跑命令、App Ops X 还要单独装一个 APK——这些地方都没做"傻瓜化"处理。能感觉到团队把精力主要放在"能不能做到"上，"能不能更方便"留到了后面。</p>
+<p><img src="../images/appops/permission-detail.jpg" alt="权限详情页" loading="lazy"></p>
+<p>反过来看，哪些东西一直没做？批量导入导出虽然有备份功能但界面入口不显眼；没有云同步，换手机设置得手动迁移；DPM 模式的能力缺陷没补、反而迭代持续偏向 Shizuku 一侧。这些"非核心"的体验缺口一直留到现在也没见优先级提上来。</p>
+<h2>预判：从迭代规律看下一步</h2>
+<p>照这个路线推，App Ops 的近期走向大概率还是延续"能力优先、覆盖优先、易用性靠后"的节奏。</p>
+<p>App Ops X 这条线应该会继续加强——系统应用的权限控制目前只解锁了基本的 appops 读写，更深层的系统参数修改还有空间。剪贴板监视开启条件里那个"必须 Root 激活 Shizuku"的限制，如果团队能找到方案让 ADB 激活也能用，会是一个不大但很实用的迭代点。</p>
+<p>另一个可能的方向是和 Shizuku 本身的绑定更深。Shizuku 最近几个版本也在迭代无线调试的稳定性，如果 Shizuku 能做到开机自启 ADB 连接，App Ops 用户最大的痛点（重启后重跑命令）就没了，这比 App Ops 自己做任何易用性改进都管用。</p>
+<p>不太可能很快看到的是跨设备同步、一键式初始化向导这类"更像商业化产品"的功能——从历史迭代来看，团队的重心一直不在这上面。</p>
+<hr>
+<p>App Ops 的安装包和配套文档同步发在三个代码托管平台上：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/appops" target="_blank" rel="noopener">GitHub</a> 适合海外网络、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/appops" target="_blank" rel="noopener">Gitee</a> 国内访问更快、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/appops" target="_blank" rel="noopener">GitCode</a> 作为双备份。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/sensetime-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">商汤这几个藏得真深的能力，翻遍官网才挖出来</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/manwa2-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">漫蛙2 深度盘点：从书架到阅读器，这款漫画 App 把日常追更做透了什么</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

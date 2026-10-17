@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Shelter 看着简单，其实有这几个坑要留神 · 老郭软件铺</title>
+  
+<meta name="description" content="Shelter 靠 Android 工作资料把应用关进独立空间，双开、隔离一个工具搞定。但系统兼容性、安全边界、同类互斥这几道坎，踩错了轻则用不了重则可能变砖。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/shelter-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shelter 看着简单，其实有这几个坑要留神">
+<meta property="og:description" content="Shelter 靠 Android 工作资料把应用关进独立空间，双开、隔离一个工具搞定。但系统兼容性、安全边界、同类互斥这几道坎，踩错了轻则用不了重则可能变砖。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/shelter-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/shelter-docs/shelter-icon.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/shelter-docs/shelter-icon.png">
+
+<meta name="twitter:title" content="Shelter 看着简单，其实有这几个坑要留神">
+<meta name="twitter:description" content="Shelter 靠 Android 工作资料把应用关进独立空间，双开、隔离一个工具搞定。但系统兼容性、安全边界、同类互斥这几道坎，踩错了轻则用不了重则可能变砖。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Shelter \u9760 Android \u5de5\u4f5c\u8d44\u6599\u628a\u5e94\u7528\u5173\u8fdb\u72ec\u7acb\u7a7a\u95f4\uff0c\u53cc\u5f00\u3001\u9694\u79bb\u4e00\u4e2a\u5de5\u5177\u641e\u5b9a\u3002\u4f46\u7cfb\u7edf\u517c\u5bb9\u6027\u3001\u5b89\u5168\u8fb9\u754c\u3001\u540c\u7c7b\u4e92\u65a5\u8fd9\u51e0\u9053\u574e\uff0c\u8e29\u9519\u4e86\u8f7b\u5219\u7528\u4e0d\u4e86\u91cd\u5219\u53ef\u80fd\u53d8\u7816\u3002", "headline": "Shelter \u770b\u7740\u7b80\u5355\uff0c\u5176\u5b9e\u6709\u8fd9\u51e0\u4e2a\u5751\u8981\u7559\u795e", "image": ["https://laoguosofts.github.io/images/shelter-docs/shelter-icon.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/shelter-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/shelter-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "Shelter \u770b\u7740\u7b80\u5355\uff0c\u5176\u5b9e\u6709\u8fd9\u51e0\u4e2a\u5751\u8981\u7559\u795e", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">Shelter 看着简单，其实有这几个坑要留神</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">Shelter 看着简单，其实有这几个坑要留神</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Shelter 靠 Android 工作资料把应用关进独立空间，双开、隔离一个工具搞定。但系统兼容性、安全边界、同类互斥这几道坎，踩错了轻则用不了重则可能变砖。</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次碰 Shelter 是想给手机做个双开，两个账号互不干扰那种。当时的想法很简单：开源的、无广告、靠系统能力实现，看起来比那些第三方双开工具靠谱多了。装的时候一路点下一步，向导第三页跳出个兼容性提示，我扫了一眼觉得"我的系统应该没问题吧"就跳过去了——结果是真的出问题了。</p>
+<p>说真的，Shelter 的<a href="https://shelter.fedq.ren" target="_blank" rel="noopener">官网</a>把理念讲得很清楚：一台手机，两个独立空间，应用各跑各的，数据互不通。对需要双开社交账号、或者想把某些不可信应用跟日常使用隔离开的人来说，这简直是完美方案。但它不是魔法，它依赖的是 Android 本身的工作资料机制，这意味着<strong>系统实现的质量就是它的天花板</strong>。下面我把自己踩过和确认过的坑列出来，帮你在动手之前心里有数。</p>
+<p><img src="../images/shelter-docs/shelter-icon.png" alt="Shelter 应用图标" loading="lazy"></p>
+<h2>坑一：MIUI 用户直接上，官方都点名了</h2>
+<p><strong>症状</strong>：Shelter 在 MIUI 上可能崩溃，甚至有设备变砖的风险。你没看错——变砖，官方原文就是这个措辞。</p>
+<p><strong>原因</strong>：Shelter 依赖 Android 工作资料（Work Profile）这套系统级机制。问题是，MIUI 对这套机制的实现<strong>本身就是损坏的</strong>。在<a href="https://shelter-docs.pages.dev/" target="_blank" rel="noopener">shelter文档</a>里，官方专门把 MIUI 拿出来说事，措辞很重：作者自己没有小米设备，没法修，也不提供支持，出了问题后果自负。这不是 Shelter 不想兼容，是下游系统把地基搞坏了，它在上面怎么盖楼都不稳。</p>
+<p>我自己没在 MIUI 上踩过这个坑，但身边有朋友试过， Shelter 确实能装上、也能设好工作资料，但一到克隆应用这步就闪退。反复折腾之后只好放弃，退回用 MIUI 自带的应用双开——功能少点但至少稳定。</p>
+<p><strong>解法</strong>：MIUI 用户先评估自己的需求。如果只是双开个微信或者隔离个社交 App，先用系统自带的双开/隐私空间功能看看够不够用。如果确实需要 Shelter 更细粒度的隔离能力，那就得权衡一下风险了——官方把"变砖"两个字写在 README 里不是开玩笑。实在想试的话，至少先确认自己能进 Fastboot 或者 Recovery，真出问题了能救回来。</p>
+<h2>坑二：向导里的兼容性提示，别当耳旁风</h2>
+<p><strong>症状</strong>：装完能跑，但功能时灵时不灵，某些操作做一半卡住或者闪退。你不知道是 Shelter 的问题还是系统的问题，排查起来头大。</p>
+<p><strong>原因</strong>：Shelter 的开发测试环境是在<strong>类 AOSP 的安卓衍生品</strong>上——就是 Pixel 那种原生安卓、LineageOS 这种开源定制 ROM。厂商定制系统（MIUI、ColorOS、OneUI、EMUI 等）为了自家的功能会改系统底层，改得越多，跟工作资料机制的兼容性就越没谱。向导第三页那一堆兼容性提示，本质上是在说：我只对 AOSP 系有把握，其他系统你自己看着办。</p>
+<p><img src="../images/shelter-docs/wizard-compatibility.jpg" alt="兼容性提示页面：系统深度定制越多，兼容性风险越大" loading="lazy"></p>
+<p><strong>解法</strong>：真想要 Shelter 跑得稳，优先用 AOSP 系的设备。Pixel 系列基本是亲儿子级别支持，LineageOS 这种开源 ROM 也没问题。实在用厂商系统的，先去搜搜你这台手机的具体型号有没有人成功跑过 Shelter——社区反馈比向导的模糊警告靠谱得多。如果向导给了红色警告，别硬上，那是真的有问题。</p>
+<h2>坑三：把 Shelter 当万能沙盒，这是最危险的误解</h2>
+<p><strong>症状</strong>：觉得装了 Shelter、把敏感应用关进隔离空间就安全了，结果真遇到恶意软件照样中招。</p>
+<p><strong>原因</strong>：Shelter 不是一个完整的沙盒实现。官方列了四条防不了的东西：系统内核漏洞、系统里被植入的后门、手机固件里的后门、Android 本身强加的其他限制。换句话说，Shelter 是在 Android 工作资料的基础上建隔离墙，但地基如果是烂的，墙再高也没用。它能防的是应用之间的互相窥探和数据泄露，防不了更底层的安全问题。</p>
+<p>我第一次看到 Shelter 的安全边界时也愣了一下——原来以为它是个万能保险箱，结果只是个房间，而且门锁还是系统给的。但转念一想，这其实是 Shelter 做得好的地方：它没瞎吹自己能防一切，反而把边界说得很清楚。</p>
+<p><strong>解法</strong>：把 Shelter 当成"隔离工具"而不是"安全工具"来用。它适合把不可信应用关进房间里，不让它们碰你的日常应用和数据；但真正的安全底线还是得靠你自己：系统保持更新、ROM 来源可信、应用只从可信渠道获取。这三件事没做到，装什么隔离软件都白搭。</p>
+<h2>坑四：跟 Island、Insular 互斥，二选一</h2>
+<p><strong>症状</strong>：之前装了 Island 或者 Insular，现在想换 Shelter，发现装不上或者工作资料冲突。</p>
+<p><strong>原因</strong>：Android 系统级硬限制——<strong>一台设备只能有一个工作资料</strong>。Island、Insular、Shelter 这些应用，底层用的都是同一套工作资料机制，不可能同时管理两个。不是 Shelter 小气要跟同类竞争，是 Android 就只给了一个坑位。</p>
+<p>我之前试过 Island，后来想换 Shelter 试试，直接卸载 Island 然后发现工作资料还残留着，Shelter 装完向导跑到一半就报错。折腾了好一会儿才在系统设置里把旧的工作资料清干净，Shelter 才正常工作。</p>
+<p><strong>解法</strong>：决定用哪个之前先想清楚，别换来换去。真要换的话，先把旧的工作资料里的应用数据清掉，然后在系统设置里彻底移除旧的工作资料（注意：这会删掉隔离空间里的所有应用和数据），确认干净了再装新的。别两个一起装，那肯定出问题。</p>
+<h2>坑五：安装渠道选错，要么没更新要么不安全</h2>
+<p><strong>症状</strong>：随手搜个 APK 装上，以后想更新找不到版本号对应关系，或者担心下到的包被篡改过。</p>
+<p><strong>原因</strong>：Shelter 的安装渠道有几种。直接下 APK 也能用，但不会收到自动更新，而且你没法确认这个 APK 是不是 F-Droid 官方构建签名的那个。官方推荐的渠道是 F-Droid——这是一个专注自由开源应用的仓库，Shelter 在上面构建、签名、上架，版本号跟源码一一对应，装了之后自动推送更新。</p>
+<p><strong>解法</strong>：首选 F-Droid 客户端安装。如果网络环境拿不到 F-Droid，退而求其次才考虑从<a href="https://shelter.fedq.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包手动装。但手动装的版本记得关注版本号，定期去更新，别用着用着就忘记了。</p>
+<h2>防坑清单</h2>
+<p>最后总结一下，动手之前先过一遍这几条：</p>
+<ul><li><strong>MIUI 用户先停一停</strong>：官方明确点名，风险最大，优先考虑系统自带能力</li><li><strong>兼容性警告别跳过</strong>：向导说不太行就是真的不太行，别硬上</li><li><strong>安全边界要清楚</strong>：Shelter 是隔离工具不是安全防线，系统才是根本</li><li><strong>同类工具只装一个</strong>：Island、Insular、Shelter 只能三选一，换之前彻底清干净</li><li><strong>安装渠道选 F-Droid</strong>：自动更新 + 签名可验证，比瞎搜 APK 靠谱</li></ul>
+<p>Shelter 的源码和文档资料在多个开源仓库都能获取——主仓库在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/shelter" target="_blank" rel="noopener">GitHub</a>，国内网络访问受限时可以通过<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/shelter" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/shelter" target="_blank" rel="noopener">GitCode</a> 的镜像拿到同样的内容。</p>
+<p>知道这些坑之后，Shelter 其实相当省心。选对系统、选对安装渠道、理解它的边界在哪，它就是那个能帮你把应用隔离开来的好帮手。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/prequel-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把十年前的手机相册翻出来：一个怀旧博主的Prequel奇遇</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/itranslate.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">iTranslate 新手入门：从零开始把翻译效率拉满</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

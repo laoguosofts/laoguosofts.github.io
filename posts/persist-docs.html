@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量 · 老郭软件铺</title>
+  
+<meta name="description" content="七类音量通道各管各的、预设快照一键切换、日历蓝牙时间多条件触发，这套工作流让我彻底告别手动调音量。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/persist-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量">
+<meta property="og:description" content="七类音量通道各管各的、预设快照一键切换、日历蓝牙时间多条件触发，这套工作流让我彻底告别手动调音量。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/persist-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/persist-docs/volume-locker-main.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/persist-docs/volume-locker-main.png">
+
+<meta name="twitter:title" content="用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量">
+<meta name="twitter:description" content="七类音量通道各管各的、预设快照一键切换、日历蓝牙时间多条件触发，这套工作流让我彻底告别手动调音量。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e03\u7c7b\u97f3\u91cf\u901a\u9053\u5404\u7ba1\u5404\u7684\u3001\u9884\u8bbe\u5feb\u7167\u4e00\u952e\u5207\u6362\u3001\u65e5\u5386\u84dd\u7259\u65f6\u95f4\u591a\u6761\u4ef6\u89e6\u53d1\uff0c\u8fd9\u5957\u5de5\u4f5c\u6d41\u8ba9\u6211\u5f7b\u5e95\u544a\u522b\u624b\u52a8\u8c03\u97f3\u91cf\u3002", "headline": "\u7528 Persist \u642d\u4e00\u6761\u81ea\u52a8\u97f3\u91cf\u94fe\u2014\u2014\u4f1a\u8bae\u901a\u52e4\u7761\u89c9\u4e0d\u518d\u624b\u52a8\u62c9\u97f3\u91cf", "image": ["https://laoguosofts.github.io/images/persist-docs/volume-locker-main.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/persist-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/persist-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u7528 Persist \u642d\u4e00\u6761\u81ea\u52a8\u97f3\u91cf\u94fe\u2014\u2014\u4f1a\u8bae\u901a\u52e4\u7761\u89c9\u4e0d\u518d\u624b\u52a8\u62c9\u97f3\u91cf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">用 Persist 搭一条自动音量链——会议通勤睡觉不再手动拉音量</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">七类音量通道各管各的、预设快照一键切换、日历蓝牙时间多条件触发，这套工作流让我彻底告别手动调音量。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要做的事里有三样是雷打不动的——周一三五下午开部门周会、每天早上坐地铁 40 分钟、晚上 11 点关灯睡觉。以前这三个场景的音量是我手动切的：进会议室前把响铃拉到 0、通知也关；地铁上媒体音量开到能盖过报站但不震耳朵；睡前把所有通道拉低但闹钟必须保持满格。三个场景来回切，一天至少手动调五六次，偶尔忘了切，要么开会时手机响成傻逼被侧目视，要么地铁上闹钟在兜里炸出一身冷汗。</p>
+<h2>旧流程卡在哪</h2>
+<p>安卓的音量不是一条通道，是七条——响铃、通知、媒体、系统、闹钟、语音、蓝牙，各是各的音量条。以前每次切场景不是拉一条，是把所有相关的都拉一遍。比如进会议室：响铃要 0、通知要 0、系统按键音要 0、媒体要拉低但别锁（万一有人发语音），闹钟留高。拉完这五条，手都累了。</p>
+<p>更糟的是，系统没有"回到日常档"这个概念。比如会议开了两小时，中间我手动把媒体拉到 30 听了条语音，散会后忘记拉回，晚上回家看视频才发现音量怎么这么大。</p>
+<h2>新流程：把 Persist 插进三条场景链</h2>
+<p>我用<a href="https://persist.uerg.quest" target="_blank" rel="noopener">Persist官网</a>的 Persist 搭了四个预设，每个预设就是一个"整套音量快照"，然后把排程挂上去自动触发：</p>
+<ul><li><strong>会议预设</strong>：响铃 0、通知 0、系统 0、媒体 20、闹钟保持、振动关——触发条件是日历匹配"部门周会"关键词</li><li><strong>通勤预设</strong>：媒体 50、响铃低、通知振动、闹钟高——触发条件是早上 8:00 + 蓝牙断开（地铁上蓝牙耳机一般连不上）</li><li><strong>睡觉预设</strong>：响铃 0、通知 0、系统 0、媒体 0、闹钟 100、振动关——触发条件是每天 23:00</li><li><strong>Default 预设</strong>：响铃中、通知低、媒体中、系统 0、闹钟高——<strong>不挂排程</strong>，只当回档锚点</li></ul>
+<p>最后这个 Default 是关键，我一开始没理解它的角色——以为预设就是触发目标。后来发现它是所有排程跑完后的归位点：会议预设到点自动结束？回到 Default。睡觉预设到点了？回到 Default。甚至我临时给静音预设套个 15 分钟定时器，到点也自动回到 Default。现在我把 Default 调成了日常最舒服的档位，不用惦记"散会后拉多少、起床后拉多少"，它自己回去了。</p>
+<p><img src="../images/persist-docs/volume-locker-main.png" alt="Persist 主界面，七条音量通道并列展示，每条都有独立的锁图标和数值" loading="lazy"></p>
+<p><img src="../images/persist-docs/presets-list.png" alt="预设 tab 列表，每个预设带图标和排程提示，Default 排在最前" loading="lazy"></p>
+<h2>最容易断链的两个环节</h2>
+<p>权限和电池优化。这两个是我踩过的坑，也是很多人反馈"锁了还是被改"的主要原因。</p>
+<h3>勿扰访问 + 修改系统设置</h3>
+<p>Persist 需要两个特殊权限才能稳定监听和弹回音量变化：勿扰访问权限和修改系统设置权限。勿扰访问是 Android 6.0 引入的特殊级别，拿到了才能稳定拦截系统层的音量请求——没给的话，音量锁弹回速度从 100ms 变成几百 ms，用户能感知到"音量动了一下"。</p>
+<p>从<a href="https://persist.uerg.quest/download.html" target="_blank" rel="noopener">下载</a>拿了安装包，首次打开应用会有引导跳去系统设置里开，不同品牌入口名略有差异，有的叫"勿扰权限"、有的叫"声音控制"，但流程都是一样的：系统设置 → 声音与振动 → 勿扰模式 → 勿扰访问 → 找到 Persist 打开开关。</p>
+<h3>电池优化白名单（国产 ROM 必加）</h3>
+<p>安卓的电池优化机制会在灭屏后杀死"非必要"的后台进程——Persist 没了进程，就没法监听和弹回音量变化。我一开始以为是权限没给全，重开了三遍权限还是不行，后来去<a href="https://persist-docs.pages.dev/" target="_blank" rel="noopener">Persist文档</a>翻了一下才发现 MIUI 和 HarmonyOS 对勿扰访问还做了二次限制，给了权限但系统服务层依然拦截。</p>
+<p>正确做法是把 Persist 加进系统设置的三个地方：电池优化白名单（允许后台运行）、自启动列表（开机自启）、后台冻结名单的排除项。不同品牌入口名字不一样，但统称"电池优化白名单"就够了。加完之后重启一下手机刷新后台进程，权限才算真正生效。</p>
+<h2>锁通道要按场景锁全套</h2>
+<p>另一个常见误区是只锁了一条通道。比如开会时只锁了响铃，但通知没锁——短信推送时通知音还是会改音量。或者媒体没锁——开视频时媒体被系统拉满。</p>
+<p>正确做法是每个场景把<strong>所有受影响的通道</strong>都锁了。静音场景要锁响铃+通知+系统+媒体四条，闹钟不锁。会议场景要锁响铃+通知+系统，媒体可以不锁（万一需要听语音），闹钟保持。不要嫌麻烦，七类通道逐条过一遍，比事后尴尬一次划算。</p>
+<h2>效果和边界</h2>
+<p>这套流程跑起来之后，我一天手动调音量的次数从五六次降到 0。省的不是那几秒钟拉音量的时间，是开会时不用惦记手机静音、下车不用惦记恢复、睡前不用拉音量的那份注意力。偶尔手动切一次 Default 档，也就手指划两下的事。</p>
+<p>但这套工作流也有边界。对有固定日程、固定场景的人来说，预设加排程的组合威力最大；如果你的场景每天都不一样，排程触发条件匹配不上，可能反而要手动改预设参数，那还不如直接拉音量条来得快。另外极少数 App 不走标准 AudioManager API，用系统服务层直接改音量，Persist 的监听抓不到这种，但从我用了快一年的体验来看，这种情况极少见，换那个 App 就好。</p>
+<p>总结下来就是：把四条预设搭好、Default 调好、权限和电池白名单给全、每个场景锁对通道——四步做完，音量这件事就从"每天手动做几遍"变成了"设好之后再也不管"。它的开源源码我分别同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Persist" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Persist" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Persist" target="_blank" rel="noopener">GitCode</a>，国内访问走后两者更快。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/langster.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">通勤学外语从三 App 到一条链：我怎么把 Langster 嵌进每日 30 分钟学习流程</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/nomad-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">翻了半年 Nomad 设置面板，挖出这 5 个没人教你的隐藏玩法</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

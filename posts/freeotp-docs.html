@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>换新手机那天我差点把账号锁死——FreeOTP 无云同步的惊魂一课 · 老郭软件铺</title>
+  
+<meta name="description" content="刚换完新手机，两台机器同时出码搞混了，连续输错被网站限流。翻了 FreeOTP 的文档才明白，无云同步不是缺陷，是它选择的安全哲学。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/freeotp-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="换新手机那天我差点把账号锁死——FreeOTP 无云同步的惊魂一课">
+<meta property="og:description" content="刚换完新手机，两台机器同时出码搞混了，连续输错被网站限流。翻了 FreeOTP 的文档才明白，无云同步不是缺陷，是它选择的安全哲学。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/freeotp-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/freeotp-docs/screenshot-tokens.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/freeotp-docs/screenshot-tokens.png">
+
+<meta name="twitter:title" content="换新手机那天我差点把账号锁死——FreeOTP 无云同步的惊魂一课">
+<meta name="twitter:description" content="刚换完新手机，两台机器同时出码搞混了，连续输错被网站限流。翻了 FreeOTP 的文档才明白，无云同步不是缺陷，是它选择的安全哲学。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u521a\u6362\u5b8c\u65b0\u624b\u673a\uff0c\u4e24\u53f0\u673a\u5668\u540c\u65f6\u51fa\u7801\u641e\u6df7\u4e86\uff0c\u8fde\u7eed\u8f93\u9519\u88ab\u7f51\u7ad9\u9650\u6d41\u3002\u7ffb\u4e86 FreeOTP \u7684\u6587\u6863\u624d\u660e\u767d\uff0c\u65e0\u4e91\u540c\u6b65\u4e0d\u662f\u7f3a\u9677\uff0c\u662f\u5b83\u9009\u62e9\u7684\u5b89\u5168\u54f2\u5b66\u3002", "headline": "\u6362\u65b0\u624b\u673a\u90a3\u5929\u6211\u5dee\u70b9\u628a\u8d26\u53f7\u9501\u6b7b\u2014\u2014FreeOTP \u65e0\u4e91\u540c\u6b65\u7684\u60ca\u9b42\u4e00\u8bfe", "image": ["https://laoguosofts.github.io/images/freeotp-docs/screenshot-tokens.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/freeotp-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/freeotp-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6362\u65b0\u624b\u673a\u90a3\u5929\u6211\u5dee\u70b9\u628a\u8d26\u53f7\u9501\u6b7b\u2014\u2014FreeOTP \u65e0\u4e91\u540c\u6b65\u7684\u60ca\u9b42\u4e00\u8bfe", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">换新手机那天我差点把账号锁死——FreeOTP 无云同步的惊魂一课</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">换新手机那天我差点把账号锁死——FreeOTP 无云同步的惊魂一课</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刚换完新手机，两台机器同时出码搞混了，连续输错被网站限流。翻了 FreeOTP 的文档才明白，无云同步不是缺陷，是它选择的安全哲学。</p>
+  </header>
+  <div class="prose serif">
+<h2>两台手机同时出码的那个下午</h2>
+<p>上个月换了台 Android 新机，折腾了一下午把常用应用都装好了。FreeOTP 我是从 F-Droid 装的，<a href="https://freeotp.gerw.hair/download.html" target="_blank" rel="noopener">FreeOTP下载</a>也列了正规渠道来源，Google 自动备份居然帮我把令牌也恢复了——当时还挺开心，觉得"现在的应用真贴心"。</p>
+<p>然后旧手机也没卸 FreeOTP，就那么放着，想等新机用几天稳定了再说。</p>
+<p>第二天早上登录 GitHub，像往常一样掏出手机出码。输完六个数字——"验证失败"。再看进度条，刚刷新了，等它走完再输一次——还是错。第三次，GitHub 直接弹出了"连续多次验证失败，请稍后重试"。</p>
+<p>我愣了一下，然后看见旧手机屏幕也亮着——它也在出同一个 GitHub 的码。两台手机、两个一模一样的令牌、同时刷新、同时出码。我昨天到底输的是哪台的？不确定了。</p>
+<p>更糟的是 Gmail 也被锁了——那边是真的锁，恢复代码早就不知道丢哪了，翻了半天才在密码管理器的一个废弃条目里找到。</p>
+<h2>它为什么不做云同步</h2>
+<p>平复下来之后我去 FreeOTP 的<a href="https://freeotp.gerw.hair" target="_blank" rel="noopener">官网</a>翻了一下。原来"无云同步"从一开始就是设计好的——不是 Red Hat 没工夫加，是故意不加。文档里写得清楚：如果令牌上云，那云服务本身就成了单点故障。你信不过的厂商泄露一次，所有两步验证形同虚设。</p>
+<p>这个逻辑我其实能想通——但"自动备份帮我恢复了"这件事本身就让我踩了坑。Google 的 Android 备份会把应用的本地数据打包到云端，而 FreeOTP 把令牌存在本地 encrypted storage 里。所以在"无云同步"的大原则下，它仍然会被系统级的备份机制带上云。这不是它的本意，但现实就是这样。</p>
+<h2>重新走一遍完整搬家剧本</h2>
+<p><a href="https://freeotp-docs.pages.dev/" target="_blank" rel="noopener">FreeOTP文档</a>里有一篇换机迁移的四幕流程，我当时是跳着做的。这次老老实实从头走：</p>
+<p><strong>第一幕是旧手机上</strong>。先确认主密码还记得——之前设了个 16 位的，还好密码管理器里存了。然后手动做了一次 XML 备份，存到本地，再上传到网盘一份以备不时之需。最关键的一步是清点恢复代码：GitHub、Gmail、Dropbox 这几个重要账户的恢复代码，密码管理器里有没有全？缺了的当天就去各自网站重新生成了一遍。</p>
+<p><strong>第二幕新机安装恢复</strong>。这次我用手动文件恢复，不再依赖 Google 自动备份——把旧机导出的 XML 拷到新机，在 FreeOTP 里点 Restore 选它，输主密码，令牌列表完整出来了。那一刻盯着那个熟悉的绿色图标矩阵，比昨天自动恢复成功还要踏实。</p>
+<p><img src="../images/freeotp-docs/screenshot-tokens.png" alt="在新机上恢复完成的令牌列表" loading="lazy"></p>
+<p><strong>第三幕逐站验证</strong>。文档特意强调"不要跳"，我以前觉得这是啰嗦。但经历了昨天的输错事件之后，我老老实实挨个试：GitHub 登录 → 新机出码 → 通过；Gmail → 通过；SSH 服务器 → 通过。三个全过才松了口气。</p>
+<p><strong>第四幕旧机收尾</strong>。新机稳定用了三天，确认每个网站的登录都没问题了，回到旧机，逐个删除 FreeOTP 里的令牌——不是卸载应用，是删令牌本身。卸载可能会留残留数据，删令牌才是真的干净。然后退掉 Google 账号，恢复出厂设置。</p>
+<h2>码不对时该先做什么</h2>
+<p>搬家之后还有个小插曲：有天深夜登录 Gitee，码突然就不对了。那个时间点我困得很，差点把恢复代码用掉。想起来文档里有个"验证码总排查"，按命中率排的七步，我按顺序试：</p>
+<p>第一步，对时间。手机时钟自动设置本来就是开的，但关了再开一次之后，再出码——对了。文档说 TOTP 按时间算码，手机时钟哪怕只漂 30 秒，所有令牌一起错。这个修好了就行，不用重绑。</p>
+<p>后来又遇到过一次"码看起来正常但网站说不对"，这次是第三步——用错了账户。FreeOTP 里我有两三个 GitHub 相关的令牌（工作的、个人的），图标都是猫的剪影，颜色还差不多。令牌卡片上的副标题就是账户名，出码前扫一眼那行小字的习惯，我现在每次都做。</p>
+<p><img src="../images/freeotp-docs/screenshot-token-detail.png" alt="令牌详情页能看到完整的服务名和账户名" loading="lazy"></p>
+<h2>开源到底给了我什么</h2>
+<p>FreeOTP 是 Apache 2.0 许可证开源的，Android 和 iOS 代码分两个仓库放在 GitHub 的 freeotp 组织下，Red Hat 赞助维护。说实话我看不懂代码，但"开源"这件事让我觉得靠谱——它说"不收集任何数据"，不是厂商宣传语，是任何人可以去扒代码验证的事实。</p>
+<p>这也是我最终选它而不是 Google Authenticator 的原因之一。GA 现在也支持云同步了，但我真的不希望自己的两步验证密钥跟着任何厂商的云服务走。</p>
+<h2>最后</h2>
+<p>那次换机折腾之后，我养成了三个习惯：每三个月手动做一次 XML 备份；恢复代码永远和密码管理器里的账户条目放在一起；每次出码前先扫一眼副标题确认账户名。</p>
+<p>FreeOTP 的体验说不上惊艳——界面朴素，没有云同步，没有花哨的分组和标签功能。但它在安全这件事上的态度是认真的，每一个设计决策背后都有明确的取舍理由。对我来说，两步验证器的核心功能就是"出对码"，这一点它做得很好。</p>
+<p>这次搬家的教训也算值了——把文档里该看的部分都翻了一遍，比当年绑完所有令牌就再也没打开过 App 的状态靠谱多了。FreeOTP 的中文资料我也维护了三份：<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/FreeOTP" target="_blank" rel="noopener">GitHub</a> 是主仓库，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/FreeOTP" target="_blank" rel="noopener">Gitee</a> 走国内线路更快，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/FreeOTP" target="_blank" rel="noopener">GitCode</a> 留作备份镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/yeelight.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Yeelight 用了三年才挖到的五个冷门技巧——你以为它只是调个颜色？</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/new-bing-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">从网页聊到任务栏——New Bing 三年迭代里，微软到底在押什么</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Hamibot 从零跑通：一台安卓机到脚本自动执行的完整实操 · 老郭软件铺</title>
+  
+<meta name="description" content="刚接触 Hamibot 不知道从哪下手？这篇教程带你走完安装、配对、权限配置、脚本安装运行的全流程，避开新手最容易踩的几个坑，让你的安卓机半小时内就能自动执行任务。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/hamibot.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hamibot 从零跑通：一台安卓机到脚本自动执行的完整实操">
+<meta property="og:description" content="刚接触 Hamibot 不知道从哪下手？这篇教程带你走完安装、配对、权限配置、脚本安装运行的全流程，避开新手最容易踩的几个坑，让你的安卓机半小时内就能自动执行任务。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/hamibot.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/hamibot/pairing-guide-console.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/hamibot/pairing-guide-console.png">
+
+<meta name="twitter:title" content="Hamibot 从零跑通：一台安卓机到脚本自动执行的完整实操">
+<meta name="twitter:description" content="刚接触 Hamibot 不知道从哪下手？这篇教程带你走完安装、配对、权限配置、脚本安装运行的全流程，避开新手最容易踩的几个坑，让你的安卓机半小时内就能自动执行任务。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u521a\u63a5\u89e6 Hamibot \u4e0d\u77e5\u9053\u4ece\u54ea\u4e0b\u624b\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u8d70\u5b8c\u5b89\u88c5\u3001\u914d\u5bf9\u3001\u6743\u9650\u914d\u7f6e\u3001\u811a\u672c\u5b89\u88c5\u8fd0\u884c\u7684\u5168\u6d41\u7a0b\uff0c\u907f\u5f00\u65b0\u624b\u6700\u5bb9\u6613\u8e29\u7684\u51e0\u4e2a\u5751\uff0c\u8ba9\u4f60\u7684\u5b89\u5353\u673a\u534a\u5c0f\u65f6\u5185\u5c31\u80fd\u81ea\u52a8\u6267\u884c\u4efb\u52a1\u3002", "headline": "Hamibot \u4ece\u96f6\u8dd1\u901a\uff1a\u4e00\u53f0\u5b89\u5353\u673a\u5230\u811a\u672c\u81ea\u52a8\u6267\u884c\u7684\u5b8c\u6574\u5b9e\u64cd", "image": ["https://laoguosofts.github.io/images/hamibot/pairing-guide-console.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/hamibot.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/hamibot.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "Hamibot \u4ece\u96f6\u8dd1\u901a\uff1a\u4e00\u53f0\u5b89\u5353\u673a\u5230\u811a\u672c\u81ea\u52a8\u6267\u884c\u7684\u5b8c\u6574\u5b9e\u64cd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">Hamibot 从零跑通：一台安卓机到脚本自动执行的完整实操</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">Hamibot 从零跑通：一台安卓机到脚本自动执行的完整实操</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刚接触 Hamibot 不知道从哪下手？这篇教程带你走完安装、配对、权限配置、脚本安装运行的全流程，避开新手最容易踩的几个坑，让你的安卓机半小时内就能自动执行任务。</p>
+  </header>
+  <div class="prose serif">
+<p>半小时后，你手里那台闲置的安卓手机，就能自动打开指定应用、模拟操作、跑完整个流程。这就是 Hamibot 能帮你做到的事——把重复性的手机操作交给脚本，自己退到一边喝茶。</p>
+<p>Hamibot 是一套云端控制的安卓自动化平台：手机上装一个 App 当执行端，浏览器打开控制台当指挥中心，脚本在云端编辑和分发，手机连上就能远程遥控。它兼容 AutoJS 的 JavaScript 语法，控件选择器、OCR 识别、坐标触摸这些核心能力都已经封装好，不用你从零写。</p>
+<h2>准备条件</h2>
+<p>开始之前确认这几样东西：</p>
+<ul><li>一台安卓手机，系统版本 7.0 以上，能正常联网</li><li>手机存储空间至少剩出 50MB（安装包本身不大，但后续脚本和日志会占一些）</li><li>你自己的手机号或邮箱，用来注册 Hamibot 控制台账号</li><li>手机别插着 SIM 卡当砖使——全程需要稳定的网络，Wi-Fi 优先</li></ul>
+<p>先在电脑上打开 Hamibot 的<a href="https://hamibot.hhdc.tech" target="_blank" rel="noopener">官网</a>，注册一个账号。注册完成后登录进去，后面所有操作都在这个网页里完成。</p>
+<h2>第一步：安装 App 并配对手机</h2>
+<p>打开控制台后，左侧菜单找到「设备」，点进去能看到一个空的设备列表，右上角有「添加设备」按钮。点它，控制台会弹出一个二维码。</p>
+<p><img src="../images/hamibot/pairing-guide-console.png" alt="控制台的配对二维码界面" loading="lazy"></p>
+<p>现在拿起手机，用浏览器扫这个二维码，会跳到 App 的<a href="https://hamibot.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a>页面。下载安装包，打开安装——安卓会提示「未知来源应用」，去设置里给浏览器开一下允许安装的权限，装完直接打开 Hamibot App。</p>
+<p>App 打开后就是一个扫码界面，对准控制台刚才弹出的那个二维码，手机会自动匹配。匹配成功的标志是：控制台设备列表里出现了你的手机，状态显示「在线」；手机上 Hamibot App 的首页也能看到「已连接」的绿色标签。</p>
+<p>配对这一步如果卡住了——比如扫完没反应、控制台一直显示「离线」——先别急着重复扫码。常见原因在手机网络上，确认手机 Wi-Fi 信号满格、没有开 VPN，关掉再试一次。</p>
+<h2>第二步：把三个权限开齐</h2>
+<p>Hamibot 要替你操作手机，必须拿到三个核心权限。配对成功后 App 会依次弹出请求，但有些 ROM 会跳过或者默认关闭，这一步手动去系统设置里逐个检查一遍，别等脚本跑起来才发现缺权限。</p>
+<p>打开手机设置 → 应用管理 → Hamibot，按顺序确认：</p>
+<p><strong>无障碍服务</strong>：找到「无障碍」或「辅助功能」入口，把 Hamibot 的开关拉到开。这是最重要的权限——没有它，脚本根本点不了任何按钮、读不了任何控件。系统会弹出一个全屏提示说「这会监控你的操作」，放心确认，Hamibot 只在脚本运行时接管触摸事件，脚本停了就释放。</p>
+<p><img src="../images/hamibot/accessibility-1.jpg" alt="系统无障碍服务的授权页面" loading="lazy"></p>
+<p><strong>后台弹出界面</strong>：有些脚本需要在锁屏或后台状态下弹提示框，这项权限不开的话弹不出来。设置里找「后台弹出界面」或类似表述的选项，允许 Hamibot 使用。</p>
+<p><strong>屏幕截图</strong>：OCR 识别和图片匹配类脚本需要截屏能力。App 里触发时会弹系统截图授权，允许就行。</p>
+<p>三个权限都开齐后，回到 Hamibot App 首页，三个状态指示全部变绿才算过关。</p>
+<h2>第三步：装一个脚本跑起来</h2>
+<p>权限搞定，设备也在线了，接下来就是让它做点什么。回到控制台，左侧菜单找「脚本市场」，里面有现成的脚本可以选购和安装——从简单的定时打卡、自动签到，到复杂的游戏辅助、数据采集，按自己的需求挑一个。</p>
+<p>脚本安装到设备上后，进控制台的「设备」详情页，在「已安装脚本」列表里找到刚才那个脚本，点右边的「运行」按钮。几秒之内，手机屏幕会自动亮起来，Hamibot App 弹出悬浮窗显示脚本正在执行，整个过程你能实时看到它在干什么。</p>
+<p>运行状态在控制台右上角有个日志图标，点开能看到脚本的每一行输出。第一次运行建议开着日志，一方面知道脚本正常在跑，另一方面出问题时能直接看到报错信息。不确定某个函数怎么写的话顺手翻一下<a href="https://hamibot.pages.dev/" target="_blank" rel="noopener">Hamibot文档</a>。</p>
+<h2>新手最容易翻的三个车</h2>
+<h3>车一：设备隔几个小时就离线</h3>
+<p>这是新手问得最多的问题。手机放着过夜，早上起来控制台一看设备灰了。根因基本就两种：系统省电策略把 Hamibot 杀了，或者 Wi-Fi 路由器断开了闲置设备。</p>
+<p>解决顺序：先去手机设置 → 应用管理 → Hamibot → 省电策略，把它改成「无限制」或「允许后台活动」。然后检查自启动开关有没有打开，ROM 里有没有「后台冻结」「锁屏自动清理」这类功能，把 Hamibot 加进白名单。Wi-Fi 那边如果是工作室大量设备，记得在路由器里关闭闲置自动断开。</p>
+<h3>车二：脚本点运行很快就结束了</h3>
+<p>大概率是权限没开全。特别是无障碍服务，有些手机重启后会自动关掉，得手动去设置里重新开一遍。后台弹窗权限也容易被系统偷偷收回，跑之前扫一眼三个权限的状态指示器。</p>
+<h3>车三：脚本运行到一半卡住</h3>
+<p>等几秒看看是在加载还是真卡住。真卡住了先点控制台的「停止」按钮，等十秒再重新运行。反复卡住的话，要么是脚本本身有 bug（去脚本市场看有没有更新），要么是手机内存不够——关掉几个大 App 再试。</p>
+<h2>接下来还能玩什么</h2>
+<p>跑通第一个脚本之后，可以试着在控制台创建定时任务，让脚本每天自动触发；REST API 这条线可以让你用程序批量给多台设备下发指令，甚至把 Hamibot 接入自己的监控系统。</p>
+<p>相关资料我分别放在了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/hamibot" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/hamibot" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/hamibot" target="_blank" rel="noopener">GitCode</a>三个仓库，方便不同网络环境下的访问。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/appmanager-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">App Manager 藏了这么多进阶玩法，你还只拿它来备份？</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/magic-eraser-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">网页版 AI 消除工具横评，Magic Eraser 为什么值得单独拎出来</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Miru 从零上手：装好扩展、追番、看漫画一条龙 · 老郭软件铺</title>
+  
+<meta name="description" content="开源聚合媒体客户端 Miru 的完整入门教程——从下载安装、启用官方扩展仓库，到装上第一个扩展、追第一部番剧，带新手绕过最常见的三个坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/miru-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Miru 从零上手：装好扩展、追番、看漫画一条龙">
+<meta property="og:description" content="开源聚合媒体客户端 Miru 的完整入门教程——从下载安装、启用官方扩展仓库，到装上第一个扩展、追第一部番剧，带新手绕过最常见的三个坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/miru-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/miru-docs/main-screenshot.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/miru-docs/main-screenshot.webp">
+
+<meta name="twitter:title" content="Miru 从零上手：装好扩展、追番、看漫画一条龙">
+<meta name="twitter:description" content="开源聚合媒体客户端 Miru 的完整入门教程——从下载安装、启用官方扩展仓库，到装上第一个扩展、追第一部番剧，带新手绕过最常见的三个坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5f00\u6e90\u805a\u5408\u5a92\u4f53\u5ba2\u6237\u7aef Miru \u7684\u5b8c\u6574\u5165\u95e8\u6559\u7a0b\u2014\u2014\u4ece\u4e0b\u8f7d\u5b89\u88c5\u3001\u542f\u7528\u5b98\u65b9\u6269\u5c55\u4ed3\u5e93\uff0c\u5230\u88c5\u4e0a\u7b2c\u4e00\u4e2a\u6269\u5c55\u3001\u8ffd\u7b2c\u4e00\u90e8\u756a\u5267\uff0c\u5e26\u65b0\u624b\u7ed5\u8fc7\u6700\u5e38\u89c1\u7684\u4e09\u4e2a\u5751\u3002", "headline": "Miru \u4ece\u96f6\u4e0a\u624b\uff1a\u88c5\u597d\u6269\u5c55\u3001\u8ffd\u756a\u3001\u770b\u6f2b\u753b\u4e00\u6761\u9f99", "image": ["https://laoguosofts.github.io/images/miru-docs/main-screenshot.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/miru-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/miru-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Miru \u4ece\u96f6\u4e0a\u624b\uff1a\u88c5\u597d\u6269\u5c55\u3001\u8ffd\u756a\u3001\u770b\u6f2b\u753b\u4e00\u6761\u9f99", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Miru 从零上手：装好扩展、追番、看漫画一条龙</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Miru 从零上手：装好扩展、追番、看漫画一条龙</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">开源聚合媒体客户端 Miru 的完整入门教程——从下载安装、启用官方扩展仓库，到装上第一个扩展、追第一部番剧，带新手绕过最常见的三个坑。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇，你能在 Windows 上装起 Miru、启用官方扩展仓库、装好至少一个可用的视频源扩展，并且成功搜到并播放一部番剧。</p>
+<h2>准备：为什么选 Miru 客户端而不是网页版</h2>
+<p><a href="https://miru.fewf.click" target="_blank" rel="noopener">Miru官网</a>是一个开源的聚合媒体客户端，把视频源、漫画源、小说源都收进一个应用里。它的核心是扩展机制——每个媒体源对应一个 JS 扩展文件，你装什么扩展就能看什么内容。</p>
+<p>官方提供了客户端和网页版两种形态，但如果你想长期稳定使用，<strong>直接装客户端</strong>。网页版受浏览器安全沙箱限制，CORS 跨域拦截几乎让所有视频源的 <code>watch()</code> 方法失效，只能用来测试搜索功能或临时蹭用一下。客户端没有这些限制，扩展能完整跑起来。</p>
+<p>前置条件很简单：一台 Windows 电脑、能上网，剩下的就是装 Miru 客户端。你可以去 Miru 的官方渠道下载安装包。</p>
+<p><img src="../images/miru-docs/main-screenshot.webp" alt="Miru 主界面截图" loading="lazy"></p>
+<h2>第一步：安装 Miru 客户端</h2>
+<p>去<a href="https://miru.fewf.click/download.html" target="_blank" rel="noopener">官方下载</a>拿到 Windows 安装包，双击运行一路下一步就行。安装完成后第一次打开，你会看到左侧分类导航（视频 / 漫画 / 小说），右侧是仓库管理区。别急着点分类，先把扩展仓库启起来——没扩展的 Miru 就是个空壳。</p>
+<h2>第二步：启用官方扩展仓库</h2>
+<p>Miru 官方内置了一个扩展仓库，里面收录了社区审核过的扩展。启用后你就能直接浏览和安装，不用自己去网上到处找 JS 文件。</p>
+<p>操作步骤：</p>
+<ol><li>打开 Miru，切换到右侧的"仓库管理"区域；</li><li>找到"官方仓库"条目，点击它右侧的"启用 / Enable"按钮；</li><li>等几秒钟，官方仓库下面会列出所有可用扩展，按视频 / 漫画 / 小说分类展示；</li><li>从里面挑一个你熟悉的视频源扩展，点击扩展右侧的"安装 / Install"按钮；</li><li>安装好的扩展会出现在"已安装扩展"列表里，状态变成绿色就是就绪了。</li></ol>
+<p><img src="../images/miru-docs/add-repo.jpg" alt="扩展仓库管理界面" loading="lazy"></p>
+<p>这里注意：官方仓库主要收录视频类扩展，漫画和小说源相对少一些。如果你要漫画或小说源，后面可能需要加自定义仓库或导入单独的扩展文件。另外<strong>启用仓库不等于自动装扩展</strong>，你得逐个挑着装——这是故意设计的，避免默认塞一堆你用不上的源拖慢启动。遇到参数配置或扩展开发这类进阶问题时，去<a href="https://miru-docs.pages.dev/" target="_blank" rel="noopener">Miru文档</a>翻一下通常能直接找到答案。</p>
+<h2>第三步：搜索并播放</h2>
+<p>装好扩展后切回左侧的视频分类，顶部有一个搜索框，输入你想追的番剧名。搜到结果后点进去看详情页，里面会有"播放 / Watch"按钮，点一下就能开播。</p>
+<p>如果内置播放器播不出来、或者你本来就习惯用 PotPlayer / VLC，还可以开启外部播放器接管：去 Miru 设置里找到外部播放器选项，指定 PotPlayer 或 VLC 的安装路径，保存后详情页会多出"用外部播放器打开"按钮。不过要注意，外部播放器和 Miru 之间不会同步观看进度——你在 PotPlayer 里看到哪、看了多久，Mirv 不知道，进度不会自动回写。</p>
+<h2>常见卡点与解法</h2>
+<h3>卡点一：扩展装好了但搜索不出任何内容</h3>
+<p>先别慌，按这个顺序排查：</p>
+<ol><li>检查网络能不能正常访问目标媒体源（开代理的情况尤其要注意，有些源在代理下反而访问不了）；</li><li>去 Miru 设置里看看代理是否已开启，有没有填错端口；</li><li>确认扩展有没有更新——官方仓库里会显示版本号，已装版本落后会有提示，点一下就能升级；</li><li>还不行就卸载这个扩展，换一个类似的试试。扩展的稳定性很大程度取决于目标媒体源本身——站点改版、换接口、被墙都会让扩展失效。</li></ol>
+<h3>卡点二：官方仓库里找不到想要的那个源</h3>
+<p>官方仓库是社区审核收录的，不一定覆盖你想要的所有站点。这时候就需要自己加自定义仓库，或者直接导入单个扩展 JS 文件。自定义仓库的地址你可以去社区论坛、GitHub Issues 里找，复制进 Miru 的仓库管理区添加即可。</p>
+<h3>卡点三：视频能搜到但播放时报错</h3>
+<p>大概率是内置播放器的兼容性问题。直接用外部播放器接管试试——PotPlayer 和 VLC 都原生支持 HLS（.m3u8）格式，而绝大多数视频源用的都是 HLS，基本打开就能播。另外有些视频 URL 带时效性，几小时就过期了，如果外部播放器报"URL 已过期"，回到 Mirv 里重新点一下播放刷新 URL 就行。</p>
+<h2>进阶：自己写扩展也不难</h2>
+<p>走到这一步，你已经能正常追番了。往下还能玩什么？Miru 的扩展用 JavaScript 写，每个扩展就是一个 JS 文件，四个核心方法——<code>latest()</code>、<code>search()</code>、<code>detail()</code>、<code>watch()</code>——实现完就能接入一个新的媒体源。写好了想分享给更多人，可以提交到官方仓库，PR 经过社区审核后就能被所有用户看到和安装。当然，如果你只是自己用，直接把 JS 文件丢进 Mirv 的扩展目录就行，不用走 PR 流程。</p>
+<p>Miru 的扩展开发指南、PR 流程说明和完整资料，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Miru" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Miru" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Miru" target="_blank" rel="noopener">GitCode</a> 三个仓库都有镜像备份，国内访问选 Gitee 或 GitCode 更顺畅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/typeless-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Typeless 迭代史：从&#34;听写工具&#34;到&#34;语音原生输入系统&#34;这一路</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/simple-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Simple 避坑指南：这款轻量社交应用看着简单，其实有几个容易踩的点</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

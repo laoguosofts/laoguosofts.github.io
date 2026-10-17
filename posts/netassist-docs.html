@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>一个夜班联调的深夜，NetAssist 把我从崩溃边缘拉了回来 · 老郭软件铺</title>
+  
+<meta name="description" content="公司新上一批物联网传感器，组播通信联调卡了三天没人能搞定。在准备敲老板房门汇报&#34;完不成&#34;的那个晚上，同事甩来一个小工具，事情开始悄悄起变化。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/netassist-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个夜班联调的深夜，NetAssist 把我从崩溃边缘拉了回来">
+<meta property="og:description" content="公司新上一批物联网传感器，组播通信联调卡了三天没人能搞定。在准备敲老板房门汇报&#34;完不成&#34;的那个晚上，同事甩来一个小工具，事情开始悄悄起变化。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/netassist-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta name="twitter:card" content="summary">
+
+<meta name="twitter:title" content="一个夜班联调的深夜，NetAssist 把我从崩溃边缘拉了回来">
+<meta name="twitter:description" content="公司新上一批物联网传感器，组播通信联调卡了三天没人能搞定。在准备敲老板房门汇报&#34;完不成&#34;的那个晚上，同事甩来一个小工具，事情开始悄悄起变化。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u516c\u53f8\u65b0\u4e0a\u4e00\u6279\u7269\u8054\u7f51\u4f20\u611f\u5668\uff0c\u7ec4\u64ad\u901a\u4fe1\u8054\u8c03\u5361\u4e86\u4e09\u5929\u6ca1\u4eba\u80fd\u641e\u5b9a\u3002\u5728\u51c6\u5907\u6572\u8001\u677f\u623f\u95e8\u6c47\u62a5\"\u5b8c\u4e0d\u6210\"\u7684\u90a3\u4e2a\u665a\u4e0a\uff0c\u540c\u4e8b\u7529\u6765\u4e00\u4e2a\u5c0f\u5de5\u5177\uff0c\u4e8b\u60c5\u5f00\u59cb\u6084\u6084\u8d77\u53d8\u5316\u3002", "headline": "\u4e00\u4e2a\u591c\u73ed\u8054\u8c03\u7684\u6df1\u591c\uff0cNetAssist \u628a\u6211\u4ece\u5d29\u6e83\u8fb9\u7f18\u62c9\u4e86\u56de\u6765", "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/netassist-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/netassist-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u4e00\u4e2a\u591c\u73ed\u8054\u8c03\u7684\u6df1\u591c\uff0cNetAssist \u628a\u6211\u4ece\u5d29\u6e83\u8fb9\u7f18\u62c9\u4e86\u56de\u6765", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">一个夜班联调的深夜，NetAssist 把我从崩溃边缘拉了回来</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">一个夜班联调的深夜，NetAssist 把我从崩溃边缘拉了回来</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">公司新上一批物联网传感器，组播通信联调卡了三天没人能搞定。在准备敲老板房门汇报&#34;完不成&#34;的那个晚上，同事甩来一个小工具，事情开始悄悄起变化。</p>
+  </header>
+  <div class="prose serif">
+<p>周四那天晚上十点，整个开发组只剩我一个人还在公司。走廊里的感应灯已经灭了一半，显示器的冷光把我的脸照得像张纸——三天了，那批新来的环境传感器的组播通信，我调不通。</p>
+<p>方案写了三版，TCP 改 UDP，套接字换库，甚至把 Linux 虚拟机搬过来试过。传感器那边说硬件没问题，我这边说代码逻辑没错，双方用各自的日志对不上号。最后老板甩下一句话："这周必须出联调通过报告。"</p>
+<p>我正盯着 Wireshark 里飘过去的乱码报文发呆，工位电话响了。是隔壁工位的老张，他平时五点半就走，今天居然在线："你还没回？群里看你又在撸传感器？"</p>
+<p>老张以前是公司的网络运维，现在转做产品，手里总有些奇怪的小工具。电话里他只说了一句话："你别自己写脚本抓包了，下个 NetAssist，它的<a href="https://netassist.usea.quest" target="_blank" rel="noopener">官网</a>上就能找到，比你那 Python 脚本好使一百倍。"</p>
+<p>我以前只听过名字，以为跟市面上一堆"网络调试助手"没区别。抱着死马当活马医的心态，从<a href="https://netassist.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a>页拿了一个装上——后来证明这是我这周做对的唯一一件事。</p>
+<h2>十分钟，我终于看到了传感器发了什么</h2>
+<p>NetAssist 的界面第一眼让我有点懵——比想象中朴素得多，左边一个协议下拉，右边一大片收发区，没有花里胡哨的东西。但当我选了 UDP 模式，本地端口填上之前传感器文档里写的 5000，点了那个"打开"按钮之后，画面开始变了。</p>
+<p>之前我自己写的 Python 套接字脚本，只能收到裸的十六进制字节流，对着 <code>0x48 0x45 0x4C 0x4C 0x4F</code> 这种东西猜半天。NetAssist 不一样——它直接把 UDP 报文的<strong>来源 IP 和端口</strong>标在每条数据前面，而且默认同时显示 ASCII 和 HEX 两种视图。</p>
+<p>第一分钟，我看到了传感器发来的广播包，来源 <code>192.168.1.231:5000</code>，而不是我之前在代码里硬写的那个 <code>192.168.1.100</code>。就这一个发现，让我意识到之前代码里的目标 IP 完全填错了——文档是半年前的旧版本，传感器出厂时网段改过了。</p>
+<p>第二分钟，我把远程地址改成正确的传感器 IP，发送一条简单的查询指令 <code>AT+VER?\r\n</code>，传感器立刻回了一条 <code>OK V1.2.0</code>。那一刻我盯着屏幕，差点把椅子撞倒。</p>
+<h2>自动应答：让它自己跟传感器说话</h2>
+<p>联调通过了是一回事，但测试压力场景又是另一回事。老板要的不是"我能手动发一条指令得到回复"，而是"在持续高负载下系统不会丢包"。如果我手动逐条发指令去测连续通信，测到天亮都测不完。</p>
+<p>NetAssist 有个自动应答功能，在发送区旁边的"自动回复"开关里。去<a href="https://netassist-docs.pages.dev/" target="_blank" rel="noopener">NetAssist文档</a>翻了一下它的规则编辑界面，一开始是简单的"包含匹配"，但还有个选项叫"正则匹配"。</p>
+<p>正则匹配这个开关一打开，整个事情就不一样了。</p>
+<p>我给传感器写了一条这样的规则：匹配内容填 <code>^AT\+VER\?\r\n$</code>，应答内容写 <code>OK V1.2.0\r\n</code>。这只是最基础的一条，但规则可以叠加，还可以用捕获组。比如有一条配置指令 <code>AT+NAME=(.+)</code>，捕获组里的参数可以在应答里通过 <code>\1</code> 直接引用——我能让 NetAssist 在传感器发来 <code>AT+NAME=Node01</code> 时，自动回 <code>OK NAME=Node01</code>。</p>
+<p>这个功能解决了我最头疼的模拟大量传感器对话的问题。我开着自动应答跑了两个小时，传感器那边传来的数据源源不断，NetAssist 的接收区一直在刷新，没有一次触发超时。</p>
+<p>中途还出了个小插曲：传感器开始发一些混合了控制字符的原始二进制包，把应答规则的判断搞乱了。翻了翻帮助，NetAssist 从 V5.0.9 起加了一个"字符集过滤"——可以用正则把接收数据里不关心的字符先替换掉。我写了一条 <code>[^a-zA-Z0-9\r\n]</code> 替换为空，瞬间那些乱七八糟的控制字符就被扒干净了，规则恢复正常触发。</p>
+<h2>差点踩的两个坑</h2>
+<p>顺利归顺利，但中间还是踩了两个让我出一身冷汗的小坑。</p>
+<p>第一个是乱码。我装在公司那台新戴尔工作站上，打开 NetAssist 之后菜单栏里的中文全是乱码，看起来像日文假名。第一反应是软件下载错了，换了三个来源都是一样。后来查了半天，不是软件的问题——是那台机器被 IT 装系统时勾上了"Beta 版：使用 Unicode UTF-8 提供全球语言支持"这个 Windows 选项。关掉重启就好了。</p>
+<p>第二个是文件写入。测了大概六个小时之后，我想把 NetAssist 的接收日志导出成文件给老板做分析。文件写到一半就停了，磁盘空间还剩好几十 G，但数据不再往里写了。原来 NetAssist 的单文件存储有 4GB 的上限——内部用的是 32 位文件长度，到达那个量级计数器就溢出了。解决方法也简单，开"滚动日志"模式，到 100MB 自动切新文件。这个我后来做长期压力测试时养成了习惯，只要预计采集超过 24 小时，就默认开滚动日志。</p>
+<h2>收尾</h2>
+<p>凌晨两点，我把联调报告写完，附了 NetAssist 截的屏：传感器广播包的来源地址、自动应答的规则列表、两小时不间断通信的连续记录。发给老板之后，关电脑的时候我回头看了一眼那个一直亮着的 NetAssist 窗口——它还在稳定地收着数据，右下角的时间戳一秒一秒地跳。</p>
+<p>这件事让我重新想了想"调试工具"这个东西。我之前总觉得自己写个脚本就能搞定一切，但 NetAssist 这种现成的小工具，把该踩的坑都替你踩了、该做的优化都替你做了——它不是能让你显得更厉害的东西，而是能让你在半夜不用一个人对着 Wireshark 发呆的东西。</p>
+<p>那天我在公司楼下的便利商店买了最后一包泡面，吃完就回了家。第二天早上看到老板的回复："报告可以，给老张也发一份表扬。"对了，后来我也顺手把 NetAssist 的资料整理到了<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/NetAssist" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/NetAssist" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/NetAssist" target="_blank" rel="noopener">GitCode</a> 三个仓库，方便以后自己或者同事再遇到类似问题能直接查。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/flowin-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用 FlowIn 串起我的季度复盘工作流——从散点到一条链</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/edrawings.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">edrawings 用了一年多，那些当初没在意的细节慢慢露出来了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>手机电脑零流量互传实战：Filetransfer 全流程走一遍 · 老郭软件铺</title>
+  
+<meta name="description" content="家里有 WiFi 或能开热点，用 Filetransfer 就能把手机上的照片、视频、安装包直接拖到电脑，全程不走云、零移动流量。这篇手把手带你从装到用，连大文件怎么稳传、传完怎么验都讲。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/filetransfer-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手机电脑零流量互传实战：Filetransfer 全流程走一遍">
+<meta property="og:description" content="家里有 WiFi 或能开热点，用 Filetransfer 就能把手机上的照片、视频、安装包直接拖到电脑，全程不走云、零移动流量。这篇手把手带你从装到用，连大文件怎么稳传、传完怎么验都讲。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/filetransfer-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/filetransfer-docs/shot-main.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/filetransfer-docs/shot-main.jpg">
+
+<meta name="twitter:title" content="手机电脑零流量互传实战：Filetransfer 全流程走一遍">
+<meta name="twitter:description" content="家里有 WiFi 或能开热点，用 Filetransfer 就能把手机上的照片、视频、安装包直接拖到电脑，全程不走云、零移动流量。这篇手把手带你从装到用，连大文件怎么稳传、传完怎么验都讲。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5bb6\u91cc\u6709 WiFi \u6216\u80fd\u5f00\u70ed\u70b9\uff0c\u7528 Filetransfer \u5c31\u80fd\u628a\u624b\u673a\u4e0a\u7684\u7167\u7247\u3001\u89c6\u9891\u3001\u5b89\u88c5\u5305\u76f4\u63a5\u62d6\u5230\u7535\u8111\uff0c\u5168\u7a0b\u4e0d\u8d70\u4e91\u3001\u96f6\u79fb\u52a8\u6d41\u91cf\u3002\u8fd9\u7bc7\u624b\u628a\u624b\u5e26\u4f60\u4ece\u88c5\u5230\u7528\uff0c\u8fde\u5927\u6587\u4ef6\u600e\u4e48\u7a33\u4f20\u3001\u4f20\u5b8c\u600e\u4e48\u9a8c\u90fd\u8bb2\u3002", "headline": "\u624b\u673a\u7535\u8111\u96f6\u6d41\u91cf\u4e92\u4f20\u5b9e\u6218\uff1aFiletransfer \u5168\u6d41\u7a0b\u8d70\u4e00\u904d", "image": ["https://laoguosofts.github.io/images/filetransfer-docs/shot-main.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/filetransfer-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/filetransfer-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u624b\u673a\u7535\u8111\u96f6\u6d41\u91cf\u4e92\u4f20\u5b9e\u6218\uff1aFiletransfer \u5168\u6d41\u7a0b\u8d70\u4e00\u904d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">手机电脑零流量互传实战：Filetransfer 全流程走一遍</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">手机电脑零流量互传实战：Filetransfer 全流程走一遍</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">家里有 WiFi 或能开热点，用 Filetransfer 就能把手机上的照片、视频、安装包直接拖到电脑，全程不走云、零移动流量。这篇手把手带你从装到用，连大文件怎么稳传、传完怎么验都讲。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇，你应该能在三分钟内用 Filetransfer——一款专注局域网场景的轻量互传工具（<a href="https://filetransfer.yoan.quest" target="_blank" rel="noopener">官网</a>）——把手机上任意大小的文件直接拖到电脑硬盘，而且整个过程手机流量一滴都不耗。</p>
+<h2>准备工作：三个东西先搞定</h2>
+<p>动手之前，先把三件事做了——少一件都会卡壳。</p>
+<p><strong>第一，手机装 Filetransfer。</strong> 去手机的应用商店搜一下就能找到，或者直接从<a href="https://filetransfer.yoan.quest/download.html" target="_blank" rel="noopener">Filetransfer下载</a>拿安装包，装就行。装好以后先打开一次，让它申请存储权限——<strong>这个权限必须给全</strong>，不然等下你会发现某些目录看得到但拖不动。安卓用户注意：如果系统弹出"允许访问所有文件"的选项，别嫌麻烦，点允许。</p>
+<p><strong>第二，手机和电脑连上同一个网络。</strong> 要么两台都接你家或公司的 WiFi，要么更稳——手机开热点，电脑连上那个热点。热点方案比公共 WiFi 靠谱十倍，因为很多咖啡馆、酒店的路由器开了 AP 隔离，同网段设备互相看不见，热点是物理直连，绕开这个坑。</p>
+<p><strong>第三，电脑什么都不用装。</strong> 对，你没看错。Filetransfer 走的是 FTP 协议，Windows 资源管理器原生支持。后面你就知道，打开"此电脑"直接输个地址就能看到手机上的文件，跟开本地文件夹没区别。</p>
+<h2>分步实操：从启动到拖完文件</h2>
+<h3>第一步：手机端启动 FTP 服务</h3>
+<p>打开 Filetransfer，首页就是一个大大的启动按钮，点下去。等两秒，屏幕上会出现一串地址——长得像 <code>ftp://192.168.x.x:2121</code> 这样。这个地址先别关，等下电脑上要用。</p>
+<p><img src="../images/filetransfer-docs/shot-main.jpg" alt="手机端启动后的主界面" loading="lazy"></p>
+<p>注意看这个界面上还有两个东西：一个是用户名，一个是密码。默认情况下它会给你一组随机的，记一下或者保持界面亮着就行。<strong>别急着锁屏</strong>，锁屏后部分手机会杀后台进程把 FTP 服务干掉。</p>
+<h3>第二步：电脑端连接</h3>
+<p>打开 Windows 资源管理器（就是"此电脑"），在顶部地址栏里把刚才那串 FTP 地址完整粘进去，回车。</p>
+<p>第一次连可能会弹一个安全警告，问你要不要继续，点"继续"。然后它会弹出一个登录框，把刚才手机上显示的用户名和密码填进去，勾上"记住凭据"，确定。</p>
+<p>连接成功的话，你就能在资源管理器里看到手机的内部存储目录结构了——DCIM、Pictures、Download 这些文件夹跟你手机上一模一样。这时候资源管理器的左侧导航栏里会多一个 FTP 站点，下次直接点进去就行，不用再输地址。</p>
+<h3>第三步：选文件，拖过去</h3>
+<p>这步没什么技巧——在资源管理器里打开你手机里想传的目录，比如 DCIM\Camera，把里面的照片或者视频直接拖到电脑上你想放的文件夹里。</p>
+<p>单个文件拖、整个文件夹拖、多个文件夹一起拖，都行。如果文件很多，建议按时间或者类别分几批拖，别一口气塞几百个进去——资源管理器的复制进度条虽然好看，但同时处理太多文件容易卡顿。</p>
+<p>传大文件的时候别催它。速度取决于你的 WiFi 带宽，5 GHz 频段正常在 30 到 100 MB/s 之间，10 GB 的视频大概两三分钟能搞定。进度条在稳步往前爬就说明一切正常，别去频繁点窗口或者开别的占带宽的应用。</p>
+<h2>常见卡点：三个最容易翻车的地方</h2>
+<h3>卡点一：电脑输完地址连不上</h3>
+<p>最常见的原因是<strong>两台设备不在同一个网段</strong>。检查手机上显示的 IP 地址（就是那个 192.168 开头的），然后电脑上打开命令提示符，输 <code>ipconfig</code>，看你电脑的 IPv4 地址前三位是不是跟手机的一样。192.168.1.xxx 和 192.168.31.xxx 不是同一个网段，必然连不上。</p>
+<p>解决办法就是换回同个 WiFi，或者手机开热点让电脑连。热点方案几乎不会出这个问题，因为电脑连了热点之后，路由器就是那个手机，IP 肯定在同一网段。</p>
+<p>第二个可能的原因是<strong>路由器开了 AP 隔离</strong>。公司网络或者公共 WiFi 特别爱开这个功能，目的是让同网段设备互相看不见，防止蹭网或者内部攻击。这种情况无解，换热点是最快的绕过方式。</p>
+<h3>卡点二：传到大文件中途断了又得从头来</h3>
+<p>FTP 协议本身<strong>不支持断点续传</strong>，这个坑在<a href="https://filetransfer-docs.pages.dev/" target="_blank" rel="noopener">Filetransfer文档</a>里讲得很细但很多人没注意。所以传大文件的核心原则就是——<strong>创造一个不中断的环境</strong>。</p>
+<p>手机端的三件事必须做：接电源充电、把屏幕超时调成永不、把 Filetransfer 锁定在最近任务里（防止锁屏后被清理）。电脑端也插电，把电源设置里的休眠改成从不，Windows Update 暂关掉。网络尽量连 5 GHz 频段，手机和电脑离路由器近一点，隔墙会掉速也会增加断连概率。</p>
+<p>如果还是反复断，检查一下是不是手机存储格式的问题——老旧安卓系统可能是 FAT32 分区，FAT32 对单个文件有 4 GB 的硬限制，超过就直接失败。现代安卓都是 F2FS 格式，没这个限制，所以这条只给用老机子的朋友排一下。</p>
+<h3>卡点三：文件传完了但怕不完整</h3>
+<p>进度条走完不代表文件一定对。尤其是大视频，万一中间有几个字节写坏了，播放器拖到那一段就花屏或者卡死。</p>
+<p>最快的验法：视频文件在电脑播放器里拖到 10%、50%、90% 三个位置快速播放几秒，都能正常出画面基本就稳了。更严谨的做法是比文件大小——右键源文件和目标文件看属性，大小一字不差才算通过。要极致严谨就用 PowerShell 的 <code>Get-FileHash</code> 算 MD5，两边哈希值完全一致才叫真的对。</p>
+<h2>进阶：这些用法你可能没注意到</h2>
+<p>学会了基本拖文件之后，还有几个小技巧值得挖一下。</p>
+<p><strong>双向传输。</strong> Filetransfer 不只是"手机到电脑"单向的。电脑上的文件也能往手机里拖——你从网上下了个 APK 安装包，直接拖到手机的 Download 文件夹里，点开就能装，比用数据线还快。反过来想，手机上临时改好的文档也能直接推回电脑。</p>
+<p><strong>批量归档私人照片。</strong> 手机用了两三年积累几万张照片的，别一张张云盘上传——FTP 直连到电脑，整包拖过去，几分钟搞定，而且全程不走任何第三方服务器，不会被扫描识别也不会在云里留副本。归档完确认电脑上的没问题，再决定要不要从手机删原件。</p>
+<p><strong>SFTP 加密通道。</strong> 默认的 FTP 是明文传输的，同一个 WiFi 里有人用抓包工具理论上能看到你传的内容。如果传的是敏感文件，可以在 Filetransfer 的设置里开启 SFTP 模式——这时候传输走 SSH 加密通道，即使被嗅探也是加密的，看不到内容。代价是速度会稍微降一点，日常用默认就够，传重要文档的时候开一下。</p>
+<p><img src="../images/filetransfer-docs/shot-settings.jpg" alt="Filetransfer 设置界面" loading="lazy"></p>
+<h2>收尾：适合 Filetransfer 的场景边界</h2>
+<p>说清楚几个边界，免得你拿着它硬上公网场景。</p>
+<p>它就是为局域网应急互传做的——手机和电脑在几米到几十米范围内，有 WiFi 或能开热点，就是它的主场。家里倒腾照片视频、电脑下好的 APK 快速装机、私人文件不想过云，这几个场景它完胜任何云盘工具。</p>
+<p>跨网络就别折腾它了——手机在外地电脑在家里，开热点也没用，老老实实云盘上传或者找个 P2P 工具。它也不做长期存储，传完就完事，不替你在任何地方留副本。想既享受本地传输的速度又有云端备份，组合拳是 Filetransfer 负责"手机到电脑"，再用同步工具定期把电脑上的资料推到云里。</p>
+<p>这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/Filetransfer" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/Filetransfer" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/Filetransfer" target="_blank" rel="noopener">GitCode</a>三个仓库都能拿到，不管你习惯哪个平台都方便查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/melia-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Melia 用了半个月，踩过这三个坑你就省心了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/renderforest-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Renderforest 藏了五招冷门绝活：积分通账、画幅三连、续订保命……全是官方不说的操作</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

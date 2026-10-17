@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学 · 老郭软件铺</title>
+  
+<meta name="description" content="一款主打游戏联机的虚拟局域网工具，版本号从 2.6 爬到 2.9 用了整整三年。这篇聊聊它在迭代节奏里暴露出来的坚持与妥协。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/astral-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学">
+<meta property="og:description" content="一款主打游戏联机的虚拟局域网工具，版本号从 2.6 爬到 2.9 用了整整三年。这篇聊聊它在迭代节奏里暴露出来的坚持与妥协。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/astral-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/astral-zh-docs/home-connected.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/astral-zh-docs/home-connected.png">
+
+<meta name="twitter:title" content="从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学">
+<meta name="twitter:description" content="一款主打游戏联机的虚拟局域网工具，版本号从 2.6 爬到 2.9 用了整整三年。这篇聊聊它在迭代节奏里暴露出来的坚持与妥协。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u6b3e\u4e3b\u6253\u6e38\u620f\u8054\u673a\u7684\u865a\u62df\u5c40\u57df\u7f51\u5de5\u5177\uff0c\u7248\u672c\u53f7\u4ece 2.6 \u722c\u5230 2.9 \u7528\u4e86\u6574\u6574\u4e09\u5e74\u3002\u8fd9\u7bc7\u804a\u804a\u5b83\u5728\u8fed\u4ee3\u8282\u594f\u91cc\u66b4\u9732\u51fa\u6765\u7684\u575a\u6301\u4e0e\u59a5\u534f\u3002", "headline": "\u4ece v2.6 \u5230\u4eca\u5929\u2014\u2014Astral \u8054\u673a\u5de5\u5177\u4e09\u5e74\u8fed\u4ee3\u91cc\u85cf\u7740\u7684\u4ea7\u54c1\u54f2\u5b66", "image": ["https://laoguosofts.github.io/images/astral-zh-docs/home-connected.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/astral-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/astral-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece v2.6 \u5230\u4eca\u5929\u2014\u2014Astral \u8054\u673a\u5de5\u5177\u4e09\u5e74\u8fed\u4ee3\u91cc\u85cf\u7740\u7684\u4ea7\u54c1\u54f2\u5b66", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一款主打游戏联机的虚拟局域网工具，版本号从 2.6 爬到 2.9 用了整整三年。这篇聊聊它在迭代节奏里暴露出来的坚持与妥协。</p>
+  </header>
+  <div class="prose serif">
+<h2>现在这版 Astral 是什么样</h2>
+<p>我打开 Astral 的频率大概是每月两三次——这款主打游戏联机的虚拟局域网工具，它的<a href="https://astral.gkhf.beer" target="_blank" rel="noopener">官网</a>上主打"零配置"。和朋友凑一局泰拉瑞亚或者幻兽帕鲁。最新这版的界面很干净：左侧是服务器列表，中间是房间，右上角一个连接状态指示灯。连上之后，它在系统里偷偷挂一张虚拟网卡，给所有设备分配同一个网段的 IP，然后游戏就会以为大家在同一个局域网里。</p>
+<p>用下来最直观的感受是：<strong>它变轻了</strong>。刚从 2.6 跳过来的时候启动要等好几秒，现在基本一点就开。房间列表原来偶尔刷不出来，现在下拉一下秒更。这些不是什么惊天动地的大功能，但对一个每周可能只开一两次的工具来说，响应速度就是体验本身。</p>
+<p><img src="../images/astral-zh-docs/home-connected.png" alt="连接后的主页状态" loading="lazy"></p>
+<p>不过也有让人挠头的地方。保护房（加密房间）的逻辑至今没改——房主勾上保护之后，非受邀成员怎么搜都搜不到，只能靠分享码加。这个设计从安全角度讲没错，但朋友换设备重装之后就得重新发邀请，不够友好。去<a href="https://astral-zh-docs.pages.dev/" target="_blank" rel="noopener">astral文档</a>查过，官方把这个归到"特性"而非"问题"，说明团队在安全和便利之间站得挺明确。</p>
+<h2>从 2.6 到 2.9：一条慢热的演进路径</h2>
+<p>版本号跨度不大，但时间拖得够长。我第一次接触 Astral 大概是在 2022 年，那时候用的还是 2.6.x。回看来路，几个关键转折点值得拎出来说。</p>
+<p><strong>第一个转折点：2.7 开始内置游戏识别</strong>。之前 Astral 是个纯粹的网络层工具，连的只是设备之间的通道。2.7 之后，它开始在界面里直接列出"支持的游戏"，自动识别哪些端口需要放行。这个变化看起来像是产品定位的转折——从"给你一条网络通道"变成"帮你把这个游戏联起来"。</p>
+<p><strong>2.8 是一个扎实的维护版本</strong>。版本号没跳太大，但社区反馈里提到的几个顽固 bug 都修了：防火墙冲突检测、TCP/UDP 双协议支持的默认开启、房间列表手动刷新按钮。也是在这个版本里，Flutter 界面做了整版重构，界面质感提升明显。</p>
+<p><img src="../images/astral-zh-docs/create-room-dialog.png" alt="新建房间对话框" loading="lazy"></p>
+<p><strong>2.9 把 P2P 穿透从"尽力而为"改成了"优先直连"</strong>。这是最近的大动作。之前的逻辑是：先尝试 P2P，穿透失败就强制走中转服务器。现在反过来，优先 P2P 直连，只有在双方都藏在严格 NAT 后面时才回退到中转。对游戏延迟影响很大——直连的延迟比中转少几十毫秒，射击类游戏里这几十毫秒能决定先手后手。</p>
+<p>样本文档里提到的版本差异提示（"如果双方 Astral 版本差很大，比如一个是 v2.9.x，另一个还是 v2.6.x，可能存在兼容性问题"），其实也侧面说明一个事实：<strong>大版本之间协议层确实变过</strong>。从 2.6 到 2.9 不是平滑升级，中间有过协议调整。团队能在文档里主动提醒版本差异风险，也算坦诚。</p>
+<h2>迭代节奏里的产品优先级</h2>
+<p>三年三个大版本，对一款工具来说，这个节奏算慢的。但慢有慢的规律。</p>
+<p><strong>一直在死磕的事：连接稳定性</strong>。防火墙拦截、服务器选择、P2P 穿透——文档的故障排查章节里，这三类问题占了八成。团队显然把"连上"排在所有事情前面。用户的心智模型很简单：我打开 Astral，连上，然后玩游戏。中间任何一步出问题都是致命的。所以 2.7 修防火墙检测、2.8 修 TCP/UDP 双协议、2.9 改 P2P 优先级，这些都是同一个方向的持续投入。</p>
+<p><strong>一直没动的事：跨平台覆盖</strong>。Astral 有 Windows 客户端，从<a href="https://astral.gkhf.beer/download.html" target="_blank" rel="noopener">官方下载</a>页面能拿到 exe 和 zip 便携版，但我一直没等到 macOS 原生版本。文档里提到的支持平台主要还是 Windows 和安卓。对一款主打游戏联机的工具来说，这合理——macOS 上 Steam 游戏生态本身就小，但也意味着团队在做取舍：先把 Windows 体验做透，再谈其他。</p>
+<p><strong>界面重构是每个大版本的标配</strong>。Flutter 的好处是多端一套代码，但代价是每次改 UI 都要整版重画。2.7、2.8、2.9 的界面变化肉眼可见，从早期的粗糙暗色主题到现在的清爽卡片式布局，每两年换一次皮。这说明团队对界面的审美在变，但底层数据模型稳得很——重构不碰协议层，风险可控。</p>
+<pre><code>迭代时间轴（基于社区反馈整理）：
+2022 Q2  v2.6.x   最初版本，仅提供网络层通道
+2022 Q4  v2.7.x   新增游戏识别，定位转向游戏联机工具
+2023 Q3  v2.8.x   Flutter 界面重构，修防火墙/TCP-UDP 等顽固 bug
+2024 Q4  v2.9.x   P2P 优先直连策略，延迟显著降低</code></pre>
+<h2>我对下一版的猜测</h2>
+<p>按这个迭代规律推，下一个大版本（不管是 2.10 还是 3.0）大概率会碰两件事里的至少一件：</p>
+<p><strong>要么是跨平台补齐</strong>——macOS 客户端呼声一直有，既然 Flutter 是跨端框架，技术上没障碍。团队在 Windows 端打磨了三四年，现在应该有余力扩平台了。</p>
+<p><strong>要么是房间体验升级</strong>——保护房的邀请机制、房间过期自动清理、房主离开后的权限交接，这些都是社区反复提但一直没动的痛点。如果团队把 2.9 的 P2P 策略稳住了，下一步很可能回头收拾产品体验层。</p>
+<p>当然这只是从迭代规律推的，不当官方口径传。万一团队决定直接重构协议层搞 3.0 也说不定——毕竟 2.6 到 2.9 已经跨了好几个协议小版本了。</p>
+<h2>写在最后</h2>
+<p>Astral 的迭代逻辑给我一个挺深的印象：<strong>它不急着加新功能，而是把有限的开发资源砸在"连上"这件事上反复打磨</strong>。P2P 穿透调了三版、防火墙冲突检测修了三版、房间列表刷新加了手动刷新按钮又做了自动刷新。对用户来说，这些变化不会变成发布会 PPT 上的大标题，但每次打开软件，你都能感觉到它比上一版更稳了一点。</p>
+<p>这种产品哲学在今天的工具市场里不算多见——多数产品忙着做社交、做云同步、做会员体系，而 Astral 三年就盯着一条链路：让两个藏在 NAT 后面的设备，能用最低延迟互通。</p>
+<p>也许这正是工具软件该有的样子：先把核心功能做到没有用户抱怨，再想别的。顺带提一下，Astral 的中文文档和软件备份我在三个仓库都同步了——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/astral" target="_blank" rel="noopener">GitHub</a>放了主要版本，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/astral" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/astral" target="_blank" rel="noopener">GitCode</a>上也各有一份方便国内用户访问。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/safebooru-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Safebooru 入门：五分钟从安装到搜到第一张心动的插画</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/tampermonkey-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">油猴用了两年，我想说说那些当初没注意到的事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>第一次用 SafeW？这篇带你五分钟上手加密聊天 · 老郭软件铺</title>
+  
+<meta name="description" content="SafeW 是一款把端到端加密做成默认选项的通讯工具，本文从零开始带你认识它的核心功能，从下载安装到跑通第一条加密消息，三分钟上手，从此再也不用担心聊天内容被偷看。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/safew-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一次用 SafeW？这篇带你五分钟上手加密聊天">
+<meta property="og:description" content="SafeW 是一款把端到端加密做成默认选项的通讯工具，本文从零开始带你认识它的核心功能，从下载安装到跑通第一条加密消息，三分钟上手，从此再也不用担心聊天内容被偷看。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/safew-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/safew-docs/platforms-all.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/safew-docs/platforms-all.png">
+
+<meta name="twitter:title" content="第一次用 SafeW？这篇带你五分钟上手加密聊天">
+<meta name="twitter:description" content="SafeW 是一款把端到端加密做成默认选项的通讯工具，本文从零开始带你认识它的核心功能，从下载安装到跑通第一条加密消息，三分钟上手，从此再也不用担心聊天内容被偷看。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "SafeW \u662f\u4e00\u6b3e\u628a\u7aef\u5230\u7aef\u52a0\u5bc6\u505a\u6210\u9ed8\u8ba4\u9009\u9879\u7684\u901a\u8baf\u5de5\u5177\uff0c\u672c\u6587\u4ece\u96f6\u5f00\u59cb\u5e26\u4f60\u8ba4\u8bc6\u5b83\u7684\u6838\u5fc3\u529f\u80fd\uff0c\u4ece\u4e0b\u8f7d\u5b89\u88c5\u5230\u8dd1\u901a\u7b2c\u4e00\u6761\u52a0\u5bc6\u6d88\u606f\uff0c\u4e09\u5206\u949f\u4e0a\u624b\uff0c\u4ece\u6b64\u518d\u4e5f\u4e0d\u7528\u62c5\u5fc3\u804a\u5929\u5185\u5bb9\u88ab\u5077\u770b\u3002", "headline": "\u7b2c\u4e00\u6b21\u7528 SafeW\uff1f\u8fd9\u7bc7\u5e26\u4f60\u4e94\u5206\u949f\u4e0a\u624b\u52a0\u5bc6\u804a\u5929", "image": ["https://laoguosofts.github.io/images/safew-docs/platforms-all.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/safew-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/safew-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7b2c\u4e00\u6b21\u7528 SafeW\uff1f\u8fd9\u7bc7\u5e26\u4f60\u4e94\u5206\u949f\u4e0a\u624b\u52a0\u5bc6\u804a\u5929", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">第一次用 SafeW？这篇带你五分钟上手加密聊天</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">第一次用 SafeW？这篇带你五分钟上手加密聊天</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">SafeW 是一款把端到端加密做成默认选项的通讯工具，本文从零开始带你认识它的核心功能，从下载安装到跑通第一条加密消息，三分钟上手，从此再也不用担心聊天内容被偷看。</p>
+  </header>
+  <div class="prose serif">
+<h2>这篇能帮你从完全不懂到用起来——不需要任何加密知识基础</h2>
+<p>你可能听说过"端到端加密"这个词，但觉得太技术、离自己太远。又或者你手机里装着微信、Telegram、WhatsApp，但从没想过自己发的消息到底有没有被中间某个服务器偷偷看过。</p>
+<p>SafeW 就是这样一个简单的答案——它把加密这件事从"需要你懂技术才能打开"变成了"默认就开着"。你不需要搞懂什么是 Signal 协议、什么是双棘轮算法，只需要像用任何聊天工具一样打字、发送，剩下的它替你做。</p>
+<h2>它到底是干嘛的？一个生活化类比</h2>
+<p>想象你去邮局寄一封信。普通的信件就像你平时在各种聊天软件里发的消息——信是敞开的，邮递员、分拣员、甚至路上捡到信的人都能看见内容。</p>
+<p>SafeW 不一样。它给你一个<strong>带锁的信封</strong>。你在自己家里把信放进信封、锁上，然后才能交给邮递员。邮递员拿到的是一个锁着的信封，他这辈子也打不开——只有收信人那边有一把配对的钥匙，能把锁打开、取出信来看。</p>
+<p>更妙的是：这把锁不是固定的。你每写一句新话，就换一把新锁。就算有人不知怎么地撬开了其中一把，他也只能看到那一小句的内容，之前和之后的全部安全。</p>
+<p>这就是 SafeW 做的事——<strong>把你发出去的每一条消息、每一张图片、每一个文件，都先在你手机上"锁好"再送出去</strong>。服务器只负责搬运，连看都看不懂里面是什么。感兴趣可以去它的<a href="https://safew.usea.quest" target="_blank" rel="noopener">官网</a>进一步了解。</p>
+<h2>五分钟上手：从下载到发出第一条加密消息</h2>
+<p>好，不说概念了。拿出手机，跟着做——从头到尾五分钟搞定。</p>
+<h3>第一步：下载安装</h3>
+<p>去 SafeW 的<a href="https://safew.usea.quest/download.html" target="_blank" rel="noopener">下载</a>页面，选择你的系统（iOS、Android、Windows、Mac 都支持），下载安装包。安装过程和任何 App 没区别，一路"下一步"就行。</p>
+<p><img src="../images/safew-docs/platforms-all.png" alt="SafeW 支持全平台" loading="lazy"></p>
+<h3>第二步：注册账号</h3>
+<p>打开 App，它会问你要一个 SafeW ID——这是你在 SafeW 世界里的唯一标识，可以自己随便起，比如 <code>my_secret_chat</code>。注意，SafeW <strong>不强制绑定手机号</strong>，你也可以选择用邮箱注册，或者干脆匿名。这一点和 Telegram、WhatsApp 都不一样，它真的不收集你的手机号。</p>
+<h3>第三步：加一个好友</h3>
+<p>注册完进入主界面，点击右上角的"+"号，可以通过 SafeW ID 搜索添加联系人。让对方把他的 SafeW ID 告诉你，搜一下、点"添加"，就搞定了。</p>
+<h3>第四步：发出第一条加密消息</h3>
+<p>进入和对方的聊天窗口，在输入框里打一句话，比如"这是我用 SafeW 发的第一条消息"，点发送。</p>
+<p>就这么简单。你可能什么特别的界面变化都没看到——但这条消息已经在你手机上被加密、服务器收到的是一串看不懂的字符、对方那边用只有你们俩知道的密钥解密后才能看到。全程没有任何明文暴露给中间环节。</p>
+<p><img src="../images/safew-docs/safew-mobile-chat.jpg" alt="SafeW 移动端聊天界面" loading="lazy"></p>
+<p>恭喜！你刚刚发出了人生第一条真正意义上的端到端加密消息。</p>
+<h2>上手后先玩这三个功能</h2>
+<p>跑完第一次之后，别急着走人。下面这三个功能是 SafeW 区别于其他聊天工具的核心价值，建议你先体验一下。</p>
+<h3>功能一：加密文件传输——没有大小上限</h3>
+<p>试试给对方发一个文件。PDF、压缩包、视频都行——SafeW 对文件大小<strong>没有硬性上限</strong>。你在别的工具里可能遇到过"文件太大无法发送"，这里不会有这种困扰。大文件会自动切片分块传输，每块都独立加密。</p>
+<p>你会看到什么：选择文件后，它的传输过程和普通聊天消息一样流畅，甚至不会弹出"正在加密"的提示。这意味着什么：你发出去的文件，服务器不知道它是什么类型、多大、里面有什么。哪怕服务器被攻破了，攻击者拿到的也只是一堆加密碎片，拼不出来原文件。</p>
+<h3>功能二：万人群加密——企业级的规模</h3>
+<p>拉一个群试试。SafeW 支持<strong>万人规模的加密群组</strong>——而且群聊也是默认端到端加密，没有像 Telegram 那样"普通群不加密"的尴尬设计。</p>
+<p>你会看到什么：建群界面和任何聊天工具一样简单，可以邀请 SafeW ID 搜索成员。群聊消息和私聊消息用的是同一套加密机制。这意味着什么：如果你是团队负责人，你可以放心地在 SafeW 群里讨论项目细节，不用担心消息被云服务商读取。普通群聊和加密群聊没有任何区分——因为所有群聊本来就是加密的。</p>
+<h3>功能三：防截屏 + 阅后即焚</h3>
+<p>这两个功能放在一起说，因为它们解决的是同一个问题——<strong>你发出去的内容，不想被对方留存</strong>。</p>
+<p>阅后即焚很好理解：发消息时设置一个时间（5秒、10秒、1分钟、1小时、24小时），对方阅读后到点自动销毁，双方设备都删干净。</p>
+<p>防截屏是更狠的一招：如果对方在和你的加密聊天里截屏，系统会<strong>自动弹出警告提示</strong>，告诉你"对方正在截屏"。这不是软件层面的提醒，而是<strong>系统级的防截屏机制</strong>——在支持的设备上，甚至可以做到让截屏画面直接黑屏。</p>
+<p>你会看到什么：设置阅后即焚后，消息旁边会出现一个小沙漏图标；对方截屏时，你的聊天窗口会弹出红色警告。这意味着什么：不是所有内容都适合永久留存。比如临时的密码、一次性的地址、敏感的讨论内容——用这两个功能，你发出去的东西就有了"保质期"。关于防截屏的系统级实现原理，在 <a href="https://safew-docs.pages.dev/" target="_blank" rel="noopener">SafeW文档</a> 里有详细说明。</p>
+<h2>小白的三个常见疑问</h2>
+<h3>疑问一：和 Telegram / WhatsApp 有什么区别？</h3>
+<p>简单说，Telegram 的端到端加密<strong>只在"秘密聊天"里才启用</strong>——普通聊天、普通群、频道全部不走加密。绝大多数 Telegram 用户一辈子都没进过秘密聊天，也就是说他们发的消息其实和明文没区别。</p>
+<p>WhatsApp 做得好一些，一对一和小群默认加密，但它<strong>不支持私有化部署</strong>、必须绑手机号、群规模上限也较低（大约1000人）。</p>
+<p>SafeW 的加密是<strong>全场景默认开启</strong>——私聊、群聊、频道、文件、音视频通话，全部加密，没有例外。而且它支持企业把服务器架在自己内网里，数据完全不出企业控制。</p>
+<h3>疑问二：密钥滚动和指纹核对是什么？我需要管吗？</h3>
+<p>密钥滚动你<strong>完全不需要管</strong>——它是后台自动运行的安全机制，每发一条消息就换一把新锁，哪怕某一把锁被撬开了，攻击者也只能看到那一句话。</p>
+<p>指纹核对是<strong>你可以主动做的安全确认</strong>。当你和对方第一次进行音视频通话时，SafeW 会显示一串六位数字组成的"安全指纹"。你让对方也打开他那边的指纹，然后通过另一个渠道（比如见面口头核对、或者一条已验证的 Signal 消息）比对数字——完全一致就说明通话没有被中间人劫持。</p>
+<p>不是每次都要核对。第一次加好友、换设备、或者 SafeW 弹出"指纹已变更"警告时再核对就行。</p>
+<h3>疑问三：听说 SafeW 支持企业私有化部署？个人用户能用吗？</h3>
+<p>能用，而且个人用户也能从中受益——因为私有化部署意味着你可以把 SafeW 服务器架在自己的机器上，数据完全由你自己控制，连 SafeW 官方都看不到。</p>
+<p>不过这需要一些技术基础。作为新手，先用公共服务器版本就行，体验到 SafeW 的核心价值（默认加密、零日志、不采集手机号）之后，如果有更高的安全需求再考虑私有化。</p>
+<h2>写在最后</h2>
+<p>SafeW 不是要替代微信、Telegram、WhatsApp 这些工具。它的定位很清楚——<strong>当你有不想被任何人偷看的消息要发时，用 SafeW</strong>。</p>
+<p>上手之后，如果你想继续深入，建议去 SafeW 的文档里看看——里面有关于密钥滚动、指纹核对、企业私有化部署的详细说明。了解这些底层机制能帮你更踏实：你用的不只是一个"看起来安全"的聊天工具，而是真正把加密做成了默认选项的通讯软件。</p>
+<p>这套 SafeW 的资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/safew" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/safew" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/safew" target="_blank" rel="noopener">GitCode</a> 三个平台都做了备份，国内网络访问后两个会比 GitHub 顺畅不少。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/easyclaw.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">EasyClaw到底值不值得掏钱？一份给三类用户算清楚的付费账本</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/gloryfit-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">GloryFit 用了两年才发现，这五个隐藏功能官方从没提过</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

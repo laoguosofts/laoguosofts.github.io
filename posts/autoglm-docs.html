@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AutoGLM 深度盘点：让大模型直接操控手机的 GUI Agent 技术栈能做什么 · 老郭软件铺</title>
+  
+<meta name="description" content="从框架设计到设备适配、从模型部署到强化学习进化，系统性扫描 AutoGLM 的能力面、落地门槛和适用场景。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/autoglm-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoGLM 深度盘点：让大模型直接操控手机的 GUI Agent 技术栈能做什么">
+<meta property="og:description" content="从框架设计到设备适配、从模型部署到强化学习进化，系统性扫描 AutoGLM 的能力面、落地门槛和适用场景。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/autoglm-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/autoglm-docs/adbkeyboard-enable.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/autoglm-docs/adbkeyboard-enable.png">
+
+<meta name="twitter:title" content="AutoGLM 深度盘点：让大模型直接操控手机的 GUI Agent 技术栈能做什么">
+<meta name="twitter:description" content="从框架设计到设备适配、从模型部署到强化学习进化，系统性扫描 AutoGLM 的能力面、落地门槛和适用场景。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u6846\u67b6\u8bbe\u8ba1\u5230\u8bbe\u5907\u9002\u914d\u3001\u4ece\u6a21\u578b\u90e8\u7f72\u5230\u5f3a\u5316\u5b66\u4e60\u8fdb\u5316\uff0c\u7cfb\u7edf\u6027\u626b\u63cf AutoGLM \u7684\u80fd\u529b\u9762\u3001\u843d\u5730\u95e8\u69db\u548c\u9002\u7528\u573a\u666f\u3002", "headline": "AutoGLM \u6df1\u5ea6\u76d8\u70b9\uff1a\u8ba9\u5927\u6a21\u578b\u76f4\u63a5\u64cd\u63a7\u624b\u673a\u7684 GUI Agent \u6280\u672f\u6808\u80fd\u505a\u4ec0\u4e48", "image": ["https://laoguosofts.github.io/images/autoglm-docs/adbkeyboard-enable.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/autoglm-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/autoglm-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "AutoGLM \u6df1\u5ea6\u76d8\u70b9\uff1a\u8ba9\u5927\u6a21\u578b\u76f4\u63a5\u64cd\u63a7\u624b\u673a\u7684 GUI Agent \u6280\u672f\u6808\u80fd\u505a\u4ec0\u4e48", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">AutoGLM 深度盘点：让大模型直接操控手机的 GUI Agent 技术栈能做什么</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">AutoGLM 深度盘点：让大模型直接操控手机的 GUI Agent 技术栈能做什么</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从框架设计到设备适配、从模型部署到强化学习进化，系统性扫描 AutoGLM 的能力面、落地门槛和适用场景。</p>
+  </header>
+  <div class="prose serif">
+<p>把手机截图丢给大模型，让它看明白屏幕上有什么、想清楚下一步该点哪里、然后通过 ADB 直接执行——这套听起来像科幻的工作流，在智谱 AI 和清华团队 2024 年底发布的 AutoGLM 框架里已经变成了开源可用的工程形态，它的<a href="https://autoglm.boop.uno" target="_blank" rel="noopener">官网</a>上有项目主页、论文汇总和 Demo 视频。本文从框架设计、模型能力、设备适配、生态覆盖四个维度做一次完整盘点，顺带聊聊它的落地门槛和谁值得真正用起来。</p>
+<h2>一、框架设计：为什么它敢叫 Autonomous Foundation Agent</h2>
+<p>AutoGLM 的开山论文里有两个被反复引用的洞察，也是这套框架区别于早期 GUI Agent 尝试的核心差异。第一个是<strong>中间接口解耦</strong>：规划层（决定"要做什么"，允许试错恢复）和执行层（精确执行动作 JSON）是分开的，分别优化。这样模型可以先产出一个结构化的 Tap/Swipe/Type 动作，再由 Phone Agent 框架翻译成 ADB 或 HDC 命令执行，而不是让模型直接吐一段伪代码去解析。第二个是<strong>在线课程强化学习</strong>：论文作者指出，离线训练的模型只见过数据集里的有限样本，碰到真实 App 的无限变化就会卡住——必须让 Agent 在线试错、从执行结果里反哺模型更新。</p>
+<p>这个设计哲学在后来的 MobileRL、ComputerRL、AgentRL 三篇论文里被依次扩展：MobileRL 针对手机端在线训练，ComputerRL 覆盖电脑端到端 RL，AgentRL 则试图把多轮多任务的通用训练也纳入。目前公开评测的数据是：在 AndroidLab VAB-Mobile 上成功率 36.2%，中文主流 App 场景能到 89.7%，OpenTable 餐厅预订这种任务甚至有 96.2%。这些数字直观反映了框架设计的有效性——特别是中文场景的高成功率，和中文版模型的针对性训练直接相关。</p>
+<h2>二、模型层：AutoGLM-Phone-9B 的部署选择</h2>
+<p>整套框架的"大脑"是一个 9B 参数的视觉语言模型，基于 GLM-4.1V-9B-Thinking 改造。它不是通用对话模型，输入固定是截图加自然语言任务，输出固定是结构化动作 JSON。框架本身的安装包从<a href="https://autoglm.boop.uno/download.html" target="_blank" rel="noopener">下载</a>拿，Python 项目，pip install 或者 git clone 都行。两个版本并行：中文版覆盖美团、淘宝、小红书这类主流 App，多语言版面向 Gmail、X、Google Maps 等英文场景。</p>
+<p>部署门槛是个绕不开的话题。FP16 精度下模型要吃 18GB 显存，加上 vLLM 框架本身的开销，<strong>实际建议 24GB 显存起步</strong>（RTX 4090、A5000、A6000 这个档位）。量化能降不少：Q8_0 约 10GB（RTX 3060 12GB 刚好能跑），Q5_K_M 压到 6.5GB（RTX 3050 8GB），Q4_K_M 甚至 5.5GB（RTX 2060 6GB）。显存实在不够也不用硬扛——智谱 BigModel 和 ModelScope 都托管了这个模型，API 调用模式下零 GPU 即可体验。</p>
+<p>部署引擎支持 vLLM 和 SGLang 两条路线，官方给出的 API 参数有一套严格推荐值：上下文长度 25480、每 prompt 最多 10 张图片、图片处理分辨率 max_pixels 5000000、视觉编码器开数据并行。这些数值不是随便拍的，模型部署脚本 <code>check_deployment_cn.py</code> 专门就是用来验这个的——部署不当会导致思维链变短或乱码，直接影响 Agent 的行动质量。<a href="https://autoglm-docs.pages.dev/" target="_blank" rel="noopener">AutoGLM文档</a>里还有更详细的部署校验脚本和参数调优指南。</p>
+<h2>三、设备适配：ADB 与 HDC 双轨并行</h2>
+<p>AutoGLM 的设备连接层是框架里最容易被忽略但对落地影响最大的部分。它同时支持 Android 的 ADB 和 HarmonyOS NEXT 的 HDC 两种调试协议，代码层面自动判断当前连接的设备类型。</p>
+<p>Android 侧的 ADB 无线调试值得单独提一句。绝大多数人以为无线配置需要 Android 11+ 的"无线调试"系统设置，其实 <code>adb tcpip 5555</code> + <code>adb connect 手机IP:5555</code> 这条命令链在 Android 7.0+ 上就能跑通，第一次插 USB 线做完 TCP/IP 模式切换后，后面就可以彻底摆脱数据线——同一个 WiFi 下任意电脑都能连。多设备场景下通过 <code>--device-id</code> 指定 IP:端口，Agent 框架会自动路由截图和执行命令。</p>
+<p>鸿蒙侧的 HDC 适配是 AutoGLM 相对完整的一块。HDC 工具包在 HarmonyOS SDK 的 toolchains 目录里，配置 PATH 之后基本和 ADB 的使用套路一致（<code>hdc list targets</code> 代替 <code>adb devices</code>）。鸿蒙原生支持中文输入，不需要额外装 ADB Keyboard 这类 App，这一点比 Android 侧省心。目前已验证覆盖的鸿蒙应用有 60+，包括微信、QQ、飞书、淘宝、京东、美团、12306、高德、bilibili、抖音、小红书、知乎、WPS、豆包等主流应用。</p>
+<p><img src="../images/autoglm-docs/adbkeyboard-enable.png" alt="ADB Keyboard 启用界面" loading="lazy"></p>
+<h2>四、生态覆盖：50+ Android App 与 60+ 鸿蒙应用的实际支持</h2>
+<p>框架已经跑通的应用清单比论文数字更能说明问题。Android 侧覆盖了美团、淘宝、京东、支付宝、微信、QQ、小红书、抖音、B 站、高德、知乎、12306、去哪儿、闲鱼、拼多多、微博、飞书、钉钉、QQ 音乐、网易云音乐、WPS、豆包、百度网盘等 50+ 款；鸿蒙侧在此基础上增加了一批华为服务和原生应用，总量到 60+。框架还提供了 <code>--list-apps</code> 参数直接列出设备上可操作的应用清单，方便事前验证。</p>
+<p>值得注意的是，应用支持不是静态列表——新 App 的适配主要取决于模型的视觉理解能力和动作输出精度，大部分情况下不需要改框架代码，只需要在 Agent 运行时通过自然语言任务描述告诉模型要做什么。这也是"Foundation Agent"定位的实际含义：框架本身不锁死场景，扩展成本相对低。</p>
+<p><img src="../images/autoglm-docs/task-loop.png" alt="任务循环流程图" loading="lazy"></p>
+<h2>短板也要说</h2>
+<p>盘点了一圈能力面，也得客观聊聊它的局限。</p>
+<p><strong>硬件门槛</strong>：FP16 部署真要 24GB 显存，即使量化到 Q8_0 也要 12GB。云端 API 能绕过这个问题，但长期高频调用的成本会慢慢累加。对于只是想"玩玩看"的用户来说，租按量 GPU 实例可能比自己攒机器更划算。</p>
+<p><strong>前置依赖</strong>：无论是 ADB 还是 HDC，都需要先在手机上开 USB 调试、装调试工具、配 PATH，第一次上手需要花半天到一天走完整个环境配置。无线调试虽然能省数据线，但 WiFi 信号不稳定时连接经常断，部分 Android 设备重启后 TCP/IP 模式会关闭，需要重新插 USB 线。</p>
+<p><strong>适用场景边界</strong>：框架在"中文主流 App"场景表现好，换成 Gmail、X、Google Maps 这类英文 App 就得切多语言版模型，效果数据也没有中文版那么漂亮。而且应用本身的 UI 变动会直接影响 Agent 的成功率——电商 App 改版了，模型可能就要重新适配。</p>
+<h2>谁该用 AutoGLM</h2>
+<p>三类人值得认真投入：</p>
+<p><strong>第一类是 AI 研究者和学生</strong>。四篇核心论文有明确的 arXiv 编号和 BibTeX 格式，开源框架（Open-AutoGLM）代码可跑，本地可以做基础框架复现，有算力的可以尝试 MobileRL 那种在线强化学习实验。这一条是入门 GUI Agent 领域最实在的路径之一。</p>
+<p><strong>第二类是有批量手机操作需求的开发者</strong>。比如运营同学需要定期在多个 App 上做重复性的点击填写操作、测试同学想把 UI 自动化从"固定路径录脚本"升级到"自然语言描述任务"、或者个人研究者想做 App 数据采集——AutoGLM 的自然语言驱动 + 截图理解 + 结构化动作输出这套组合，比传统的 UIAutomator2/ATX 更灵活，不需要针对每个 App 写定位器脚本。</p>
+<p><strong>第三类是对多模态 Agent 方向有产品思考的人</strong>。AutoGLM 提供了一个相对完整的"模型 + 框架 + 设备连接 + 强化学习迭代"的技术样本，可以直接作为原型验证的底座，不需要自己从 0 到 1 搭 GUI Agent 流水线。</p>
+<p>模型权重是 MIT License、代码是 Apache-2.0 License，开源友好。国内开发者如果担心 GitHub 访问速度，可以分别在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoGLM" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoGLM" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoGLM" target="_blank" rel="noopener">GitCode</a> 三个镜像仓库里找到同样的资料。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/9xbuddy-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把 9xbuddy 串进每周素材采集流水线：从社媒刷到剪辑台，一条链少四次手动复制</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/deepthink-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">DeepThink 付费订阅到底值不值？我算了三档用户的账</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

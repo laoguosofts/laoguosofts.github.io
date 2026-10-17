@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>选两个颜色就能刷出一面壁纸？这个 1MB 的安卓小工具我用了一上午 · 老郭软件铺</title>
+  
+<meta name="description" content="一款活了十多年的安卓渐变壁纸工具，选两种颜色就出渐变，直接上墙不存图也不压缩。实测体验 + 几个容易踩的坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/mixt.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="选两个颜色就能刷出一面壁纸？这个 1MB 的安卓小工具我用了一上午">
+<meta property="og:description" content="一款活了十多年的安卓渐变壁纸工具，选两种颜色就出渐变，直接上墙不存图也不压缩。实测体验 + 几个容易踩的坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/mixt.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/mixt/app-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/mixt/app-home.jpg">
+
+<meta name="twitter:title" content="选两个颜色就能刷出一面壁纸？这个 1MB 的安卓小工具我用了一上午">
+<meta name="twitter:description" content="一款活了十多年的安卓渐变壁纸工具，选两种颜色就出渐变，直接上墙不存图也不压缩。实测体验 + 几个容易踩的坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u6b3e\u6d3b\u4e86\u5341\u591a\u5e74\u7684\u5b89\u5353\u6e10\u53d8\u58c1\u7eb8\u5de5\u5177\uff0c\u9009\u4e24\u79cd\u989c\u8272\u5c31\u51fa\u6e10\u53d8\uff0c\u76f4\u63a5\u4e0a\u5899\u4e0d\u5b58\u56fe\u4e5f\u4e0d\u538b\u7f29\u3002\u5b9e\u6d4b\u4f53\u9a8c + \u51e0\u4e2a\u5bb9\u6613\u8e29\u7684\u5751\u3002", "headline": "\u9009\u4e24\u4e2a\u989c\u8272\u5c31\u80fd\u5237\u51fa\u4e00\u9762\u58c1\u7eb8\uff1f\u8fd9\u4e2a 1MB \u7684\u5b89\u5353\u5c0f\u5de5\u5177\u6211\u7528\u4e86\u4e00\u4e0a\u5348", "image": ["https://laoguosofts.github.io/images/mixt/app-home.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/mixt.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/mixt.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u9009\u4e24\u4e2a\u989c\u8272\u5c31\u80fd\u5237\u51fa\u4e00\u9762\u58c1\u7eb8\uff1f\u8fd9\u4e2a 1MB \u7684\u5b89\u5353\u5c0f\u5de5\u5177\u6211\u7528\u4e86\u4e00\u4e0a\u5348", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">选两个颜色就能刷出一面壁纸？这个 1MB 的安卓小工具我用了一上午</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">选两个颜色就能刷出一面壁纸？这个 1MB 的安卓小工具我用了一上午</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一款活了十多年的安卓渐变壁纸工具，选两种颜色就出渐变，直接上墙不存图也不压缩。实测体验 + 几个容易踩的坑。</p>
+  </header>
+  <div class="prose serif">
+<p>说实话我装 mixt 完全是随手点进去的。前阵子旧手机换屏后屏幕泛黄，原本那些风景壁纸、动漫图一铺上去就显得发脏，朋友随口说了句"不如换一面纯色的"，我就想找个能自己调色生成壁纸的小工具——不是那种给素材图库让你挑一张的，而是真的让我动手配颜色的。</p>
+<p>搜了一圈下来要么是广告堆到离谱，要么功能多到离谱（要我登录账号、要会员才能用渐变色、要申请一堆权限）。最后看到有人提了一句<a href="https://mixt.fewf.ren" target="_blank" rel="noopener">mixt官网</a>——1MB 大小，选两色出渐变，安装包从<a href="https://mixt.fewf.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿的——半信半疑地去装了。</p>
+<h2>第一眼：比我想的还"小"</h2>
+<p>打开应用的瞬间我才明白为什么有人说它"从 2014 年活到今天"——界面上真的只有一面默认的橙红渐变背景，正中间一个白色圆按钮写着 PICK COLORS。没有侧边栏、没有底部菜单、没有广告横幅、没有新手引导弹窗，连"设置"两个字我都找了好一阵（藏在右上角一个几乎看不见的小齿轮里）。</p>
+<p>点那个白色圆按钮，屏幕会分成上下两半——上面选"渐变顶色"，下面选"渐变底色"，中间一道非常朴素的色轮。用手指在色轮上划，上半部分的颜色就跟着变；再划下半部分，整个屏幕立刻变成新的两色渐变。整个过程连加载动画都没有，选完颜色的瞬间渐变就重绘完了，流畅得让我怀疑是不是根本没做什么运算。</p>
+<p><img src="../images/mixt/app-home.jpg" alt="主界面和 PICK COLORS 按钮" loading="lazy"></p>
+<p>说实话这种极简让我有点不习惯——现在的应用恨不得一打开就给你推通知、弹评分请求、塞会员试用。mixt 倒好，我点完 PICK COLORS，选了个上面青下面蓝，它就安安静静待在那里等我决定要不要存。</p>
+<h2>实际用下来：三个让我印象最深的点</h2>
+<h3>直接上墙，这步真的省了很多事</h3>
+<p>我之前用其他工具生成过渐变壁纸，流程一般是：生成 → 存相册 → 退桌面 → 长按空白 → 选"壁纸" → 从相册挑 → 裁切 → 应用。七步，中途系统壁纸选择器还可能帮你再压缩一次，渐变就会出现一道道发灰的色带。</p>
+<p>mixt 不一样——配色满意了直接在应用内点对勾，它就调系统接口把当前渐变设成壁纸，中间零次额外压缩。我特意对比了一下：应用内直设的壁纸跟我截应用主界面的截图比，色彩过渡确实更干净，那条被系统壁纸选择器"压坏"的接缝完全看不到了。</p>
+<p>后来翻<a href="https://mixt.pages.dev/" target="_blank" rel="noopener">mixt文档</a>才注意到官方有个很实在的提醒：如果你非要存图然后用系统选择器设壁纸，那系统会再压一次，色带就是这么来的。它推荐要么应用内直设，要么存图后用第三方看图应用（比如 QuickPic）来调"设为壁纸"的接口——绕开系统那个多事的中间层就行。</p>
+<h3>色轮体验：好的直觉设计 vs 两个小遗憾</h3>
+<p>色轮本身好用——我用手指随便划就能快速找到想要的色调，手滑了还有一个<strong>双向箭头</strong>在界面中间一键交换上下两色，这个设计太对我这种经常选反色的人胃口了。选完总觉得"差一点"，还能直接输入 Hex 色值精确指定，品牌色、主题色直接抄数字就行，不用在色轮上慢慢磨。</p>
+<p>但有两个地方我觉得还能更顺手。第一是<strong>没有吸管</strong>——我想从一张参考图里吸个颜色过来，不行，得先用别的工具查出色值再手动输入。这个问题在用户讨论区被吐槽了好几年，开发者始终没加，大概是想保持"只做两色渐变"这个核心定位吧。</p>
+<p>第二是<strong>没有历史配方</strong>。我上午配了一套"上面深紫下面浅粉"的渐变觉得特别好看，下午想再配一遍来当微信聊天背景，找不到了——应用不保存，相册里又没存图（因为直接上墙了），只能凭印象重新配色，调了五分钟才接近那感觉。现在我的习惯是：凡是满意的配色都顺手存一张进相册，相册本身就是个配方存档了。</p>
+<p><img src="../images/mixt/color-wheel.jpg" alt="色轮选色界面" loading="lazy"></p>
+<h3>包体小不代表没花样</h3>
+<p>1MB 左右的包体让我先入为主觉得它只能做一种事——上半色下半色的直线渐变。实际用下来发现 2.0 之后它加了不少小玩法：<strong>波点图案</strong>能给纯色壁纸加一层疏密可调的圆点阵列，比光秃秃一面纯色有层次多了；<strong>单色壁纸</strong>模式适合配图标包——我把 Nova Launcher 的图标包主色填进去，生成一面同色系纯色墙，整套桌面瞬间协调了。</p>
+<p>还有人拿它做"屏幕分区"：上浅下深的渐变把视觉重心压到底部 dock 区，适合图标多的布局；上深下浅则把黑色状态栏"藏"进深色壁纸里，白色状态栏图标在上面特别清晰。我试了后者，搭配 MIUI 的深色状态栏图标确实比之前舒服。</p>
+<h2>踩过的两个坑</h2>
+<p>第一个是<strong>远距色渐变会发灰发脏</strong>。我一开始瞎选了一个上面正红下面正蓝的渐变，中间那段过渡区脏得像蒙了一层灰，以为是应用的 bug。后来才知道这是开发者官方文档里写的第一条警告——色环上离得太远的两色，在渐变中段会路过浑浊的间色。解法很简单：换邻近色或者同色不同明度，比如上面深蓝下面浅蓝，怎么配都不会脏。</p>
+<p>第二个是<strong>存图再设壁纸等于白做一半</strong>。应用保存到相册的图本身没问题，但走系统壁纸选择器再压一遍就会出色带。记住：要么应用内直设、要么存图后用第三方看图应用设壁纸。这条我踩了一次坑之后就牢牢记着了。</p>
+<h2>适合谁，不适合谁</h2>
+<p>适合想要一张干净、没有杂物的渐变或纯色壁纸的人——不想要别人挑好给你、就想自己动手配颜色的那种。旧手机屏幕泛黄想"盖住"瑕疵、配图标包想找协调底色、聊天背景想要干净纯色、做设计参考想快速生成双色示意卡片，这些场景用它五分钟内能交货。</p>
+<p>不适合找壁纸图库的人——它完全不提供素材、不接图库、不做社区分享；也不适合想修图、加滤镜、抠图的人——个人化类目里它是"造色"而非"修图"。</p>
+<h2>最后</h2>
+<p>我用了大概一上午，配了七八套颜色，换了三副壁纸。它给我的最大感受不是"功能强大"，而是<strong>它清楚自己要做什么</strong>——选两色、出渐变、直接上墙，多一个功能都不加，连广告都没一条。在这个应用恨不得塞进所有功能按钮才能上架的时代，能把一件小事做得这么纯粹，反而成了最大的卖点。</p>
+<p>我现在把它放在桌面文件夹的角落，不显眼但每次想换壁纸都会想起它。这大概就是好工具该有的样子——平时存在感为零，需要的时候打开就能用，用完就走。</p>
+<p>这套"你自己调色它来刷墙"的工具和相关资料，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/mixt" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/mixt" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/mixt" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，文档维护也同步更新着版本变化和配色技巧。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/amarok-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Amarok 深度盘点：二十年磨一剑的收藏管理型播放器</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/toptop-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">TopTop 避坑指南：房间里那些看着简单但容易翻车的细节</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

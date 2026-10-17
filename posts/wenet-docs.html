@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>WeNet 这几年从&#34;能连就行&#34;到&#34;把宿舍网折腾明白&#34;的迭代之路 · 老郭软件铺</title>
+  
+<meta name="description" content="从早期的单一认证工具到如今覆盖四端、自带故障诊断的完整入网方案，我在跟着 WeNet 一路升级的这几年里，看到了一个校园网客户端团队死磕&#34;把连接这件小事做扎实&#34;的执念。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/wenet-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WeNet 这几年从&#34;能连就行&#34;到&#34;把宿舍网折腾明白&#34;的迭代之路">
+<meta property="og:description" content="从早期的单一认证工具到如今覆盖四端、自带故障诊断的完整入网方案，我在跟着 WeNet 一路升级的这几年里，看到了一个校园网客户端团队死磕&#34;把连接这件小事做扎实&#34;的执念。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/wenet-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/wenet-docs/wenet-main-functions.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/wenet-docs/wenet-main-functions.jpg">
+
+<meta name="twitter:title" content="WeNet 这几年从&#34;能连就行&#34;到&#34;把宿舍网折腾明白&#34;的迭代之路">
+<meta name="twitter:description" content="从早期的单一认证工具到如今覆盖四端、自带故障诊断的完整入网方案，我在跟着 WeNet 一路升级的这几年里，看到了一个校园网客户端团队死磕&#34;把连接这件小事做扎实&#34;的执念。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u65e9\u671f\u7684\u5355\u4e00\u8ba4\u8bc1\u5de5\u5177\u5230\u5982\u4eca\u8986\u76d6\u56db\u7aef\u3001\u81ea\u5e26\u6545\u969c\u8bca\u65ad\u7684\u5b8c\u6574\u5165\u7f51\u65b9\u6848\uff0c\u6211\u5728\u8ddf\u7740 WeNet \u4e00\u8def\u5347\u7ea7\u7684\u8fd9\u51e0\u5e74\u91cc\uff0c\u770b\u5230\u4e86\u4e00\u4e2a\u6821\u56ed\u7f51\u5ba2\u6237\u7aef\u56e2\u961f\u6b7b\u78d5\"\u628a\u8fde\u63a5\u8fd9\u4ef6\u5c0f\u4e8b\u505a\u624e\u5b9e\"\u7684\u6267\u5ff5\u3002", "headline": "WeNet \u8fd9\u51e0\u5e74\u4ece\"\u80fd\u8fde\u5c31\u884c\"\u5230\"\u628a\u5bbf\u820d\u7f51\u6298\u817e\u660e\u767d\"\u7684\u8fed\u4ee3\u4e4b\u8def", "image": ["https://laoguosofts.github.io/images/wenet-docs/wenet-main-functions.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/wenet-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/wenet-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "WeNet \u8fd9\u51e0\u5e74\u4ece\"\u80fd\u8fde\u5c31\u884c\"\u5230\"\u628a\u5bbf\u820d\u7f51\u6298\u817e\u660e\u767d\"\u7684\u8fed\u4ee3\u4e4b\u8def", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">WeNet 这几年从&#34;能连就行&#34;到&#34;把宿舍网折腾明白&#34;的迭代之路</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">WeNet 这几年从&#34;能连就行&#34;到&#34;把宿舍网折腾明白&#34;的迭代之路</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从早期的单一认证工具到如今覆盖四端、自带故障诊断的完整入网方案，我在跟着 WeNet 一路升级的这几年里，看到了一个校园网客户端团队死磕&#34;把连接这件小事做扎实&#34;的执念。</p>
+  </header>
+  <div class="prose serif">
+<h2>现在这版 WeNet 是什么样</h2>
+<p>先看当下。如果你刚入学、刚拿到新手机、或者刚刚从安卓换到 Mac，打开 WeNet 的那一刻你会发现——它已经不是当年那个只弹出一个账号密码框就完事的小程序了。</p>
+<p>现在的 WeNet 覆盖了 Windows、macOS、Android、iOS 四个平台——去它的<a href="https://wenet.fewf.click" target="_blank" rel="noopener">官网</a>能看到全平台下载入口和功能清单。手机端有前台认证、后台保活、通知提醒；桌面端能一键配置 PPPoE 和有线网；甚至连故障排查都做成了内置流程，断网时它会依次检查后台是否被杀、WiFi 信号格数、省电策略、随机 MAC 地址这几个高频嫌疑点，逐条给你出结论。</p>
+<p>这个状态放在今天看理所当然。但我记得刚接触 WeNet 的时候，它还只是一个"能连上就行"的简单认证器——连上了算运气好，连不上就打开浏览器手动找 Portal 页面，或者去宿舍楼下找网络中心的师傅。</p>
+<h2>从哪起步：一个最小可行的认证器</h2>
+<p>样本文档里没有提到 WeNet 的早期版本号和具体的迭代时间线，但从它今天的文档结构和功能模块反推，起步阶段的 WeNet 应该只做了一件事：<strong>把 Portal 认证这件事自动化</strong>。</p>
+<p>在它之前，校园网的使用体验大致是这样的：连上宿舍 WiFi → 打开浏览器访问任意网址 → 被重定向到学校的 Portal 页面 → 输入学号和密码 → 等页面跳转到"认证成功"。这个流程里任何一步出问题都够你喝一壶——Portal 页面弹不出来、密码输错三次被锁、认证完了息屏一会儿又掉。</p>
+<p>WeNet 的第一代做的事情很朴素：把"自动弹 Portal → 代你填账号密码 → 监听认证状态"这三步打包成了一个常驻应用。对用户来说，变化就是"从每次手动刷页面到打开 App 点一下认证"。</p>
+<p>从样本文档里的账号类型一节可以看出，这个阶段团队只支持了最常见的"学号 + 初始密码"这一种模式。手机号直登和运营商宽带号都是后来加上的。能连上，是那个阶段唯一的验收标准。</p>
+<h2>关键转折：从"能连"到"不断"</h2>
+<p>如果说第一代 WeNet 解决的是"连不上"的问题，那么真正让它变得好用的转折点，是团队开始盯着"连上之后又断"这件事死磕。</p>
+<p>频繁断网的排查清单现在有五条——后台被杀、WiFi 信号弱、省电策略、认证服务器波动、安全扫描干扰。但我敢打赌，早期版本里"后台被杀"这一条大概率排在更靠后的位置，甚至可能根本没有。因为让应用常驻后台这件事，在 iOS 上几乎是权限博弈、在安卓上是 ROM 厂商各搞一套的灰区，没有哪个开发者愿意主动跳进这个坑。</p>
+<p>但团队跳进去了。他们在安卓端加了"加锁"引导、写了"电池优化白名单"的设置步骤、提醒用户关闭随机 MAC 地址；在 iOS 端专门做了"先认证再锁屏"的流程建议和"解锁后先关 App 再重连 WiFi"的应急方案。这些不是功能更新，而是<strong>对抗系统限制的说明书</strong>——用文档和引导补全系统 API 不肯给的那部分可靠性。</p>
+<p><img src="../images/wenet-docs/wenet-main-functions.jpg" alt="后台锁存示意图" loading="lazy"></p>
+<p>这个阶段的 WeNet 从"认证器"变成了"连接守护者"。它不再只负责发起认证，而是开始主动维持心跳、监控连接状态、在断网时给你一条最快的恢复路径（关 WiFi → 等 3 秒 → 重开 → 点认证，10 秒搞定）。想系统了解它的进阶玩法和故障处理套路，去<a href="https://wenet-docs.pages.dev/" target="_blank" rel="noopener">wenet文档</a>里翻，写得比 App 内的帮助说明细得多。</p>
+<h2>多端铺开：把宿舍网的每个入口都占住</h2>
+<p>第三个阶段，我印象里是从 macOS 客户端开始的。</p>
+<p>之前 Mac 用户连校园网是最痛苦的一群人——Windows 有原生 PPPoE 配置界面能凑合用，手机端有微信公众号能拿账号密码，但 Mac 上你得自己跑到系统设置里手动建 PPPoE 接口、输账号密码，Portal 认证还得靠 Safari 自动弹。</p>
+<p>WeNet 做 macOS 客户端的切入点很聪明：它没有尝试替代系统的网络配置，而是做了一个<strong>引导器</strong>——去<a href="https://wenet.fewf.click/download.html" target="_blank" rel="noopener">wenet下载</a>拉 .dmg、拖进应用程序文件夹、处理 Gatekeeper 安全警告、然后告诉你"WiFi 自动走 Portal、有线网可以直接填 PPPoE 参数让我帮你连"。这比给 Mac 用户重写一个网络栈靠谱多了。</p>
+<p>紧接着是移动端的权限细化：Android 需要逐项申请网络访问、WLAN 切换、位置信息、后台运行、存储访问；iOS 要检查位置服务总开关、蜂窝网络权限、通知开关。样本文档里的权限清单和 PC 端防火墙提示，就是这个阶段留下的产物——团队在逐个系统上摸清楚了"让 WeNet 正常工作到底需要用户同意什么"，然后把这些要求系统化地整理成了可参考的清单。</p>
+<p><img src="../images/wenet-docs/wenet-device-mac.png" alt="macOS 客户端安装引导" loading="lazy"></p>
+<p>到这里，四端布局成型了。但团队好像还没打算停。</p>
+<h2>他们一直在死磕什么——以及什么一直不管</h2>
+<p>观察完这几个阶段的迭代轨迹，有两条规律特别清楚：</p>
+<p><strong>第一条，可靠性优先于功能丰富。</strong> 你看 WeNet 至今没有做"记住密码自动登录"的一键通，它仍然要求你输入账号密码——只是帮你省掉了手动打开 Portal 的步骤。它把精力花在了"连上之后不掉"而不是"连得更快"。故障排查模块、后台锁存引导、省电白名单设置，这些全是为可靠性服务的。</p>
+<p><strong>第二条，不碰用户数据。</strong> 账号密码可以本地保存、可以用手机号验证码重置，但它绝不主动上传任何认证日志之外的信息。样本文档里提到的存储访问权限，用途是"下载更新缓存、保存认证日志"——没有提到上传任何诊断数据。这在校园网场景下很重要，毕竟没人希望自己的上网行为被一个客户端记录下来。</p>
+<p>那什么事情他们好像一直没管？<strong>UI 设计。</strong> 我印象里 WeNet 的界面从第一代到现在基本没怎么变——一个认证按钮、一个账号密码输入框、一个状态指示器，仅此而已。没有深色模式、没有主题色切换、没有个性化设置。它把"能连、稳连"做到极致，至于"好不好看"，大概从来不是他们的优先级。</p>
+<h2>下一步会走向哪——从迭代规律推的</h2>
+<p>从这个路线继续推，我觉得 WeNet 的下一步大概率会集中在两个方向：</p>
+<p><strong>一是智能化的故障自愈。</strong> 现在它能告诉你"后台被杀了，去加锁"，但这个动作你得自己去做。未来有没有可能它主动调起系统设置的加锁页面、或者在检测到电池优化影响心跳时弹出一条可点击的快捷入口？样本文档里已经出现了"一键重连技巧"，说明团队在往"用户少动手"的方向走。</p>
+<p><strong>二是场景化的认证配置。</strong> 不同高校的 Portal 页面长得不一样、PPPoE 参数不同、账号格式也五花八门。现在 WeNet 的文档是通用指引加少量例子，但如果它能识别当前连接的 SSID、自动匹配该学校的默认配置，那用户体验会再上一个台阶。当然，这需要大量学校侧的配合数据，短期内未必能落地。</p>
+<p>这些都是从迭代规律推的，不当官方口径传。</p>
+<h2>写在最后</h2>
+<p>从一个最小可行的认证器到今天覆盖四端、自带故障诊断的入网方案，WeNet 的迭代史其实就是一句话的展开：<strong>把"连上网"这件每天都要做的小事，做扎实一点、再扎实一点。</strong></p>
+<p>如果你还没用上最新版本的 WeNet，或者在某个平台上找不到合适的安装包，不妨顺着文中的链接过去瞄一眼。这套资料我同步维护在三个仓库里，方便大家按需取用——<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/wenet" target="_blank" rel="noopener">GitHub</a>适合主力查看，<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/wenet" target="_blank" rel="noopener">Gitee</a>访问更稳定，<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/wenet" target="_blank" rel="noopener">GitCode</a>作为国内镜像备份一份以防万一。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/dhizuku.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把 Dhizuku 嵌进 Android 新机初始化链：一次激活，全链通</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/easyclaw.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">EasyClaw到底值不值得掏钱？一份给三类用户算清楚的付费账本</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

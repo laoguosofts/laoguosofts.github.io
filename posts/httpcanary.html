@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>装了 httpCanary 三天，我终于看懂了手机上那些 App 到底在偷偷发什么 · 老郭软件铺</title>
+  
+<meta name="description" content="一个程序员拿到 httpCanary 之后用了三天的真实体验：从安装证书到绕过 SSL Pinning，聊聊这个 Android 抓包工具到底好用在哪、坑在哪。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/httpcanary.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装了 httpCanary 三天，我终于看懂了手机上那些 App 到底在偷偷发什么">
+<meta property="og:description" content="一个程序员拿到 httpCanary 之后用了三天的真实体验：从安装证书到绕过 SSL Pinning，聊聊这个 Android 抓包工具到底好用在哪、坑在哪。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/httpcanary.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/httpcanary/cert-install-step1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/httpcanary/cert-install-step1.png">
+
+<meta name="twitter:title" content="装了 httpCanary 三天，我终于看懂了手机上那些 App 到底在偷偷发什么">
+<meta name="twitter:description" content="一个程序员拿到 httpCanary 之后用了三天的真实体验：从安装证书到绕过 SSL Pinning，聊聊这个 Android 抓包工具到底好用在哪、坑在哪。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u4e2a\u7a0b\u5e8f\u5458\u62ff\u5230 httpCanary \u4e4b\u540e\u7528\u4e86\u4e09\u5929\u7684\u771f\u5b9e\u4f53\u9a8c\uff1a\u4ece\u5b89\u88c5\u8bc1\u4e66\u5230\u7ed5\u8fc7 SSL Pinning\uff0c\u804a\u804a\u8fd9\u4e2a Android \u6293\u5305\u5de5\u5177\u5230\u5e95\u597d\u7528\u5728\u54ea\u3001\u5751\u5728\u54ea\u3002", "headline": "\u88c5\u4e86 httpCanary \u4e09\u5929\uff0c\u6211\u7ec8\u4e8e\u770b\u61c2\u4e86\u624b\u673a\u4e0a\u90a3\u4e9b App \u5230\u5e95\u5728\u5077\u5077\u53d1\u4ec0\u4e48", "image": ["https://laoguosofts.github.io/images/httpcanary/cert-install-step1.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/httpcanary.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/httpcanary.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "\u88c5\u4e86 httpCanary \u4e09\u5929\uff0c\u6211\u7ec8\u4e8e\u770b\u61c2\u4e86\u624b\u673a\u4e0a\u90a3\u4e9b App \u5230\u5e95\u5728\u5077\u5077\u53d1\u4ec0\u4e48", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">装了 httpCanary 三天，我终于看懂了手机上那些 App 到底在偷偷发什么</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">装了 httpCanary 三天，我终于看懂了手机上那些 App 到底在偷偷发什么</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一个程序员拿到 httpCanary 之后用了三天的真实体验：从安装证书到绕过 SSL Pinning，聊聊这个 Android 抓包工具到底好用在哪、坑在哪。</p>
+  </header>
+  <div class="prose serif">
+<h2>一个程序员为什么要装抓包工具</h2>
+<p>上周在调试公司一个 Android App 的登录接口——用户反馈说有时候登录卡住不动，但日志里什么都没报。我手头没有现成的抓包工具，只能对着代码猜：是请求没发出去？发出去了但响应超时？还是被人中间劫持了？</p>
+<p>同事甩给我一个名字：httpCanary。说这玩意儿在 Android 上抓 HTTPS 包方便，不用搞 PC 端代理那一套。</p>
+<p>说实话，我之前对 Android 抓包的印象还停留在 Charles + 代理证书那套流程——在 PC 上跑代理，手机配 HTTP 代理，装 CA 证书，折腾半天才发现 Android 7+ 默认不信任用户证书，白忙活。<a href="https://httpcanary.wxhp.skin" target="_blank" rel="noopener">httpCanary官网</a> 号称自己搞 VPN 服务来劫持流量，不用配代理，我就从<a href="https://httpcanary.wxhp.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿了安装包，抱着试试看的心态装了。</p>
+<h2>第一眼：比想象中轻，但证书那关还是踩坑了</h2>
+<p>打开应用，界面挺干净——顶部一个大大的抓包开关，下面是请求列表。点一下开关，它会弹一个系统 VPN 授权弹窗，确认之后就开始跑了。这就开始抓了？比我预想的快。</p>
+<p>但紧接着问题就来了：HTTP 的包能看到，HTTPS 的全是乱码。哦对，还差证书那步。</p>
+<p>它的证书安装流程做得还算友好——设置里导出根证书，然后引导你走系统的证书安装界面。但 Android 7+ 那道坎还是绕不过去：很多 App 不信任用户装的证书，就算你装好了 CA，它该加密还是加密。我调试的那个 App 刚好就属于这一类。</p>
+<p>查了一圈才搞明白：这个 App 的开发者在 Manifest 里配了 <code>network_security_config</code>，只信任系统预置的证书。我的选择有三个：要么把 httpCanary 的证书刷进系统分区（需要 Root），要么用模拟器（可以改系统镜像），要么试试太极——它能在免 Root 的情况下给 App 打个 Hook 绕过校验。</p>
+<p>我手头那台测试机没 Root，最后选了模拟器方案。Android Studio 里开一个带 Writable System Image 的模拟器，<code>adb push</code> 一下证书文件就搞定了，比刷真机省事多了。</p>
+<p><img src="../images/httpcanary/cert-install-step1.png" alt="模拟器里顺利装上证书" loading="lazy"></p>
+<h2>过滤功能：太多请求的时候的救命稻草</h2>
+<p>证书搞定之后重新开抓，瞬间炸了——请求列表刷得飞快，几十上百条，系统服务、广告 SDK、后台推送、App 启动时的网络探测……我要找的那个登录接口淹没在里面，根本翻不过来。</p>
+<p>这时候才发现 httpCanary 的过滤功能有多重要。它有三层过滤：目标应用、目标 Host、关键词搜索。按顺序叠起来用：先设目标应用，把那个 App 单独拎出来；如果还嫌多，再加目标 Host，只保留关键的接口域名；再嫌多就加关键词。三层下来，列表瞬间干净了。更多过滤组合的技巧和每个规则的详细说明，去<a href="https://httpcanary.pages.dev/" target="_blank" rel="noopener">httpCanary文档</a>里翻翻。</p>
+<p>我一般是先开抓几秒，看一眼请求列表的来源分布，再决定要不要加过滤。有时候 App 自己的请求里混着第三方 SDK 的流量（比如广告、统计上报），目标应用过滤能把这些一起踢掉，省得一条条翻。</p>
+<h2>悬浮窗抓包：我最常用的功能</h2>
+<p>这几天用下来，出现频率最高的功能不是什么注入、重放，是它的<strong>悬浮窗抓包</strong>。</p>
+<p>就是把抓包控制做成一个小气泡，常驻在屏幕上。需要抓的时候点一下开始，抓完点一下暂停，然后直接跳回应用看刚才发了什么。切应用的时候不用再切回 httpCanary，整个流程不打断。</p>
+<p>我调试登录接口那事儿就是这么搞定的：模拟器里 App 点登录，悬浮窗里看着请求一条一条过来，找到登录接口那一条，点开看 JSON 请求体和响应——哦，原来是我传的参数格式写错了，服务端返回了一个 400，但客户端没处理这个状态码，直接当超时显示了。</p>
+<p><img src="../images/httpcanary/floating-capture.jpg" alt="悬浮窗抓包不打断主流程" loading="lazy"></p>
+<p>如果要认真分析某个请求，它的详情页做得挺细：Headers、Query、Body、响应状态码、耗时，JSON 还能自动格式化折叠。对比 Charles 的界面，httpCanary 的移动端体验确实好——手指戳屏幕总比在 PC 上配代理方便。</p>
+<h2>SSL Pinning 是另一个坑</h2>
+<p>搞完那个 App 之后我还试了试抓微信——结果还是不行。包能抓到，但解密不了，返回的全是乱码。这次不是 Android 系统不信任证书的问题了，是 <strong>SSL Pinning</strong>。</p>
+<p>简单说就是 App 在代码里硬编码了服务器真实证书的指纹，每次建 HTTPS 连接都会验一遍：证书对不对得上。httpCanary 在中间换了证书，指纹肯定不一样，App 直接断连接——不管你系统证书信不信任。</p>
+<p>绕过的话，我问了下同事，主流方案是 LSPosed + JustTrustMe 模块，但那台测试机没 Root 用不了。模拟器可以跑 Frida 脚本，但我没折腾过 Frida。最后用太极把微信重打包了一下，在太极里启用 Hook 模块，算是绕过去了——不过微信更新之后得重新走一遍重打包流程，挺麻烦的。</p>
+<p>说句实在话，SSL Pinning 是开发者为了保护用户数据加的一层安全机制，但它也确实给调试和安全研究制造了障碍。合法合规地用还行，要是用来搞啥歪门邪道那就另当别论了。</p>
+<h2>DNS 设置：一个被低估的小功能</h2>
+<p>还有一个我一开始没注意到、后来发现挺实用的——DNS 服务器配置。httpCanary 默认用系统 DNS，但它内置了 Google、Cloudflare、阿里、114 等公共 DNS，点一下就切过去了。</p>
+<p>有次调试一个调用境外接口的功能，运营商 DNS 解析境外域名老超时，把 DNS 改成 1.1.1.1（Cloudflare 的那个）之后瞬间就好了。而且它的 DNS 设置只影响自己的抓包请求，不改全局系统 DNS，其他 App 不受影响，这点做得挺稳。</p>
+<h2>谁适合用它</h2>
+<p>如果你是做 Android 开发的，不管是调试自家 App 的网络问题、分析第三方 SDK 的行为、还是做些安全测试，httpCanary 都值得装——尤其是模拟器环境下，证书不用刷系统，过滤、悬浮窗这些细节做得比 PC 端代理工具顺手。</p>
+<p>如果你只是好奇手机上的 App 都在偷偷发什么请求，那也可以装来看看——但别指望全 HTTPS 都能解开，大部分大厂 App 要么配了网络安全配置，要么开了 SSL Pinning，能看到明文的主要是 HTTP 和少数没做安全加固的老应用。</p>
+<p>至于那些想着用来破解什么东西的……算了吧，现在主流 App 的加密和校验逻辑都挺扎实的，真有那功夫不如学学合法的逆向分析和渗透测试。</p>
+<p>这几天用下来最大的感受是：httpCanary 把 Android 上抓包这件事的门槛降了一大截——不用配代理、不用刷 Root、大部分场景模拟器就能搞定。但证书那道坎还是绕不开，尤其是 Android 7+ 的系统级限制和 App 层面的 SSL Pinning，该踩的坑还是得踩一遍才明白怎么绕。</p>
+<p>这篇文章里用到的过滤、DNS 配置、SSL Pinning 绕过等功能的详细说明，我整理的资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/httpCanary" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/httpCanary" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/httpCanary" target="_blank" rel="noopener">GitCode</a> 三个仓库里都能拿到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/screen-recorder-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Screen Recorder 用了半年，我踩过的那些&#34;以为要重装&#34;的坑</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/flai-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">FLAI 到底值不值得掏钱？一笔 AI 角色聊天的付费决策账</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

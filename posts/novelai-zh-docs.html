@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>NovelAI 上手测评：图像生成和 AI 写作双料玩家的一周 · 老郭软件铺</title>
+  
+<meta name="description" content="抱着试试看的心态注册了 NovelAI，一周下来从图像生成到 Lorebook 设定集都踩了坑也挖到了宝。这篇是我的第一手体验：V5 Curated 模型稳在哪、保存按钮多重要、激活键怎么避免误触，以及它最适合谁。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/novelai-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NovelAI 上手测评：图像生成和 AI 写作双料玩家的一周">
+<meta property="og:description" content="抱着试试看的心态注册了 NovelAI，一周下来从图像生成到 Lorebook 设定集都踩了坑也挖到了宝。这篇是我的第一手体验：V5 Curated 模型稳在哪、保存按钮多重要、激活键怎么避免误触，以及它最适合谁。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/novelai-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/novelai-zh-docs/where-imagegen.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/novelai-zh-docs/where-imagegen.webp">
+
+<meta name="twitter:title" content="NovelAI 上手测评：图像生成和 AI 写作双料玩家的一周">
+<meta name="twitter:description" content="抱着试试看的心态注册了 NovelAI，一周下来从图像生成到 Lorebook 设定集都踩了坑也挖到了宝。这篇是我的第一手体验：V5 Curated 模型稳在哪、保存按钮多重要、激活键怎么避免误触，以及它最适合谁。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u62b1\u7740\u8bd5\u8bd5\u770b\u7684\u5fc3\u6001\u6ce8\u518c\u4e86 NovelAI\uff0c\u4e00\u5468\u4e0b\u6765\u4ece\u56fe\u50cf\u751f\u6210\u5230 Lorebook \u8bbe\u5b9a\u96c6\u90fd\u8e29\u4e86\u5751\u4e5f\u6316\u5230\u4e86\u5b9d\u3002\u8fd9\u7bc7\u662f\u6211\u7684\u7b2c\u4e00\u624b\u4f53\u9a8c\uff1aV5 Curated \u6a21\u578b\u7a33\u5728\u54ea\u3001\u4fdd\u5b58\u6309\u94ae\u591a\u91cd\u8981\u3001\u6fc0\u6d3b\u952e\u600e\u4e48\u907f\u514d\u8bef\u89e6\uff0c\u4ee5\u53ca\u5b83\u6700\u9002\u5408\u8c01\u3002", "headline": "NovelAI \u4e0a\u624b\u6d4b\u8bc4\uff1a\u56fe\u50cf\u751f\u6210\u548c AI \u5199\u4f5c\u53cc\u6599\u73a9\u5bb6\u7684\u4e00\u5468", "image": ["https://laoguosofts.github.io/images/novelai-zh-docs/where-imagegen.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/novelai-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/novelai-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "NovelAI \u4e0a\u624b\u6d4b\u8bc4\uff1a\u56fe\u50cf\u751f\u6210\u548c AI \u5199\u4f5c\u53cc\u6599\u73a9\u5bb6\u7684\u4e00\u5468", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">NovelAI 上手测评：图像生成和 AI 写作双料玩家的一周</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">NovelAI 上手测评：图像生成和 AI 写作双料玩家的一周</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">抱着试试看的心态注册了 NovelAI，一周下来从图像生成到 Lorebook 设定集都踩了坑也挖到了宝。这篇是我的第一手体验：V5 Curated 模型稳在哪、保存按钮多重要、激活键怎么避免误触，以及它最适合谁。</p>
+  </header>
+  <div class="prose serif">
+<p>朋友圈里最近半年总有人晒 AI 生成的动漫图——构图干净、风格统一，不像其他平台那样满屏锯齿和崩脸。一问，十有八九是 NovelAI 出的。我本来对"AI 绘图"这个概念有点审美疲劳了，毕竟市面上同类工具太多，能让人用着上瘾的却没几个。但 <a href="https://novelai.fewa.skin" target="_blank" rel="noopener">NovelAI官网</a> 有个点勾住了我：它不只是画图，还带完整的 AI 写作模块。</p>
+<p>一个下午从<a href="https://novelai.fewa.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿到安装包、注册完账号、充了 Opus 档位，正式上手。说实话第一天的体验有点忙——两个功能面板来回跳，一会儿在图像生成页调分辨率，一会儿又钻进写作编辑器里研究 Lorebook 设定集。一周过去，总算摸出点门道来。</p>
+<h2>第一眼印象：界面干净但信息量爆炸</h2>
+<p>NovelAI 的界面设计属于"第一眼清爽、细看才发现门道多"的类型。登录后是仪表盘，核心功能分成两大块——图像生成和故事写作，点左侧栏顶部那只鹅图标就能在用户菜单里快速切换。我一开始把它当成纯绘图工具来用，直到第三天才认真点开写作模块，才发现这东西的定位其实是"创作者的全能助手"。</p>
+<p>要说初印象里最别扭的一点，就是<strong>所有操作说明都是英文</strong>。不是界面语言切换那种能解决的——提示词要写英文标签、激活键的正则语法是英文、甚至模型版本号都是 V4/V5 这种代号。好在中文社区已经整理出了相当完整的<a href="https://novelai-zh-docs.pages.dev/" target="_blank" rel="noopener">novelai文档</a>，后面翻文档才把不少术语对上号。</p>
+<h2>核心体验一：图像生成，稳是最大的优势</h2>
+<p>第一次出图的流程我至今记得：从仪表盘点进图像生成卡片，模型选了推荐的 V5 Curated（数据集干净、风格稳，不容易翻车），提示词填了一行英文标签 <code>1girl, silver hair, school uniform, cherry blossoms</code>，分辨率 Normal、张数 1、Steps 默认 23——Generate 按钮一按，等了十几秒进度条走完，一张带着樱花背景的银发少女就出来了。</p>
+<p><strong>说实话我没想到它能这么"听话"</strong>。之前用别家 AI 绘图，提示词里写了"silver hair"它给我出金色，写了"school uniform"能给我脑补出洛丽塔。NovelAI 在"按标签精确还原"这件事上确实做得好，尤其是 V5 模型，对标签的理解粒度明显更细。打字时还有标签联想，每个标签旁边的圆点越实表示模型越"认识"这个词，新用户跟着提示打就行。</p>
+<p><img src="../images/novelai-zh-docs/where-imagegen.webp" alt="图像生成入口定位（鹅图标或仪表盘卡片）" loading="lazy"></p>
+<p>但第一个坑第二天就踩了：生成了七八张满意的图，正挑着最好的一张，手滑点了刷新——<strong>全部图像直接蒸发</strong>。NovelAI 的图像历史是存在会话级缓存里的，刷新或离开页面就清，必须主动点保存图标。这是新用户丢图的第一大原因，我后来每次生成完第一件事就是保存，连预览都不敢先放大看。</p>
+<h3>标签不是堆得越夸张越好</h3>
+<p>一开始我犯了个通病——把能找到的所有质量标签都往提示词里塞：<code>masterpiece, best quality, amazing quality, ultra detailed, ultra complexity</code>，感觉这样出图肯定不会差。结果出的图要么细节糊成一团，要么构图挤得喘不过气。</p>
+<p>后来翻了文档才明白，质量标签和审美标签是两套独立体系。<code>masterpiece</code> 是审美标签的顶级档（V4.5 及以上模型才认），跟它并列的还有 <code>top aesthetic</code>、<code>very aesthetic</code>、<code>aesthetic</code> 四档正向，以及 <code>displeasing</code>、<code>very displeasing</code> 两档反向。<strong>不要同时堆多个正向标签</strong>——选你想要的最高档一个就行。复杂度标签也是同理，V5 专属的 <code>low complexity</code> / <code>medium complexity</code> / <code>high complexity</code> / <code>ultra complexity</code> 四档，日常出图用 <code>high complexity</code> 就够了，<code>ultra complexity</code> 和 <code>low complexity</code> 都是风格化专用，乱用反而翻车。</p>
+<h3>权重语法，花括号和方括号到底什么时候用</h3>
+<p>提示词是平等的，但你可以人为分出三六九等——两种语法，一个方向。花括号 <code>{tag}</code> 是加强，每叠一层大约 1.05 倍；方括号 <code>[tag]</code> 是减弱，同比例往反方向走。数值语法 <code>1.5::red hair::</code> 更精准，直接给标签设权重倍数，比层层套括号可读得多。</p>
+<p><strong>什么时候真的需要加减权？</strong> 我总结了两个场景：一是角色特征被场景吞掉的时候——比如你写了个红发角色站在樱花里，模型老是把头发染成粉色，给 <code>red hair</code> 加权重就能抢回主导权；二是某个顽固元素总出现又不想进负面框，减权到 0.7 试试。但有个排查习惯很重要——改权重后固定种子对比，一次只动一个值，否则你永远不知道是哪个改动起效。</p>
+<h2>核心体验二：Lorebook 设定集，写作模块才是隐形王牌</h2>
+<p>前三天我几乎没碰写作模块，总觉得"AI 写作不就是续写嘛"。直到第四天陪朋友做了个设定集，才颠覆了这个印象。NovelAI 的写作模块跟别家最大的区别，就是 <strong>Lorebook 设定集系统</strong>——你可以把所有世界观设定、人物性格、背景故事做成条目，AI 在写作时会自动根据上下文激活对应的条目，把设定注入到生成内容里。</p>
+<p>激活键决定了设定集的"反射弧"——键写得糙，条目该来不来、不该来乱来。我做设定集的第一条就踩了坑：给"主角"条目填了多个键（全名、绰号、昵称），以为加个 <code>&amp;</code> 就能同时命中，结果 NovelAI 里多键并列是"任意一个就激活"，要同时命中才触发必须用 <code>NovelAI &amp; Anlatan</code> 这种 AND 组合键写法。改完之后误触少了一大半。</p>
+<p><img src="../images/novelai-zh-docs/lorebook-entry.webp" alt="Lorebook 条目编辑界面与激活键设置区" loading="lazy"></p>
+<p>更有意思的是 Always On 功能——打开它的条目无视激活键，永远注入上下文，本质上就是"可折叠的 Memory"。但这里有个坑：别给太多条目开 Always On，上下文窗口预算有限，挤爆了反而会把真正需要的设定顶出去。我试过给六个核心条目全开，结果写出来的对话里全是设定描述，故事节奏直接断了。</p>
+<p>如果用的是 GLM 系模型（比如 GLM-4.6），每个条目还能叠加条件式触发——按关键词、按其他条目是否激活、按当前模型或模式、甚至按百分比随机。随机触发那个功能我特别喜欢，做"随机事件池"特别好用，写到某个进度时系统会按概率注入一段剧情设定，AI 的故事走向一下子活了。</p>
+<h2>适合谁，不适合谁</h2>
+<p>一周用下来，我对 NovelAI 的定位有了很清晰的判断——<strong>它不是"一键出片"的傻瓜工具，是给愿意花时间调参数、做设定的创作者准备的</strong>。</p>
+<ul><li>适合：二次元同人作者、跑团 TRPG 玩家（Lorebook 做世界观简直神器）、喜欢折腾提示词的调参党、想同时解决"出图"和"写文"两个需求的创作者。Opus 档位的免费额度覆盖单张图像生成，故事写作按字数算也够用，日常使用不用额外烧钱。</li><li>不适合：只想"一句话一键出大片"的小白用户（提示词体系有学习曲线）、只需要中文写作的纯文字创作者（AI 写作模块的中文支持不如英文）、对图像精度有专业级要求的商业项目（NovelAI 擅长动漫风格，写实向不是它的强项）。</li></ul>
+<p>如果你刚好同时有画图和写文的需求，真的可以试试看。如果只是想快速出几张图当头像、或者只想找个 AI 续写工具，那市面上有更轻量的选择，没必要在 NovelAI 上花时间调参数。</p>
+<p>我这一周的结论就是：NovelAI 最独特的地方，是它把"图像"和"故事"放在了同一个工作流里。画图的时候你可以把出好的角色图直接当参考喂回去，写故事的时候 Lorebook 里的图像设定又能反过来约束 AI 的生成方向。这种绑定关系是我在其他平台上没见过的——单看某一个功能它可能不是最强的，但<strong>画图+写作打通之后产生的协同效应，才是它真正的护城河</strong>。</p>
+<p>这套中文说明文档和我自己整理的 Lorebook 模板，我同步到了三个代码仓库里——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/novelai" target="_blank" rel="noopener">GitHub</a> 方便海外用户、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/novelai" target="_blank" rel="noopener">Gitee</a> 在国内访问更稳定、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/novelai" target="_blank" rel="noopener">GitCode</a> 也留了一份做备份。不管你习惯用哪个平台，直接克隆下来就能看，后续更新也会同步推送。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/quickstep.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Quickstep 要不要换成付费 Launcher？我替你算完了这笔账</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/stopwatch-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">安卓悬浮秒表横评：为什么我把系统秒表和大厂方案都卸了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

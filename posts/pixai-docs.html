@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从零到第一张动漫插画：PixAI 网页端出图全流程 · 老郭软件铺</title>
+  
+<meta name="description" content="注册账号、选对模型、写提示词、调整参数——这篇教程带你用 PixAI 从零跑出第一张像样的日系动漫插画，避开新手最容易踩的三个坑。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pixai-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零到第一张动漫插画：PixAI 网页端出图全流程">
+<meta property="og:description" content="注册账号、选对模型、写提示词、调整参数——这篇教程带你用 PixAI 从零跑出第一张像样的日系动漫插画，避开新手最容易踩的三个坑。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pixai-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pixai-docs/generate-model-select.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pixai-docs/generate-model-select.webp">
+
+<meta name="twitter:title" content="从零到第一张动漫插画：PixAI 网页端出图全流程">
+<meta name="twitter:description" content="注册账号、选对模型、写提示词、调整参数——这篇教程带你用 PixAI 从零跑出第一张像样的日系动漫插画，避开新手最容易踩的三个坑。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6ce8\u518c\u8d26\u53f7\u3001\u9009\u5bf9\u6a21\u578b\u3001\u5199\u63d0\u793a\u8bcd\u3001\u8c03\u6574\u53c2\u6570\u2014\u2014\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u7528 PixAI \u4ece\u96f6\u8dd1\u51fa\u7b2c\u4e00\u5f20\u50cf\u6837\u7684\u65e5\u7cfb\u52a8\u6f2b\u63d2\u753b\uff0c\u907f\u5f00\u65b0\u624b\u6700\u5bb9\u6613\u8e29\u7684\u4e09\u4e2a\u5751\u3002", "headline": "\u4ece\u96f6\u5230\u7b2c\u4e00\u5f20\u52a8\u6f2b\u63d2\u753b\uff1aPixAI \u7f51\u9875\u7aef\u51fa\u56fe\u5168\u6d41\u7a0b", "image": ["https://laoguosofts.github.io/images/pixai-docs/generate-model-select.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pixai-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pixai-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece\u96f6\u5230\u7b2c\u4e00\u5f20\u52a8\u6f2b\u63d2\u753b\uff1aPixAI \u7f51\u9875\u7aef\u51fa\u56fe\u5168\u6d41\u7a0b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">从零到第一张动漫插画：PixAI 网页端出图全流程</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">从零到第一张动漫插画：PixAI 网页端出图全流程</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">注册账号、选对模型、写提示词、调整参数——这篇教程带你用 PixAI 从零跑出第一张像样的日系动漫插画，避开新手最容易踩的三个坑。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇，你能在 <a href="https://pixai.fedq.ren" target="_blank" rel="noopener">PixAI官网</a> 网页端独立完成一次完整的动漫风格插画生成：从登录、选模型、写提示词，到调整参数批量出图，并且知道怎么把点数用在刀刃上。前置条件只有一个——有一台能打开浏览器的电脑；想在手机上也玩的话，先从 <a href="https://pixai.fedq.ren/download.html" target="_blank" rel="noopener">官方下载</a> 拿 Android 安装包。手机端功能有裁剪，这篇先聚焦网页端。</p>
+<h2>准备阶段：账号、点数和登录方式</h2>
+<p>打开浏览器，进入平台主页，先把账号注册好。这里有个非常重要的细节，我见过不止一次有人在这一步栽跟头：<strong>同一个邮箱用不同方式登录，会建立两个互相独立的账号</strong>。Google 邮箱用「Google 一键登录」和「邮箱密码登录」是两套数据，点数、作品、会员权益互不通用。</p>
+<p>建议从第一天就固定一种登录方式。如果你习惯用第三方账号，选 Google 或 Discord 就行，一路点授权就完了；如果偏向邮箱注册，就老老实实用邮箱+密码，别换来换去。</p>
+<p>注册完成后，先去个人主页确认一件事——每天登录送的 10,000 点到账了没。点数不设过期时间，可以一直攒，发布作品、收点赞、看 App 内广告、邀请好友都能额外回血。免费档用默认模型标准模式批量出图，一次大约消耗 3,200 点，光靠每日登录，一个月理论上能支撑数千张图的产出。这对想长期玩的人来说基本够用，付费会员只是加速和额外点数，不是刚需。</p>
+<h2>第一步：选对主力模型，别在这一步纠结半小时</h2>
+<p>进入生成页面，右侧面板顶部就是模型选择区。你会看到一排缩略图，这叫 Quick Select——平台把最常用的几个模型直接摆在那里，不用翻完整列表。</p>
+<p><img src="../images/pixai-docs/generate-model-select.webp" alt="模型选择面板：Quick Select 区域" loading="lazy"></p>
+<p>新手面对一堆模型名最容易犯的错误是挨个点进去看示例图，然后陷入「这张好看那张也不错」的选择焦虑。其实直接从这三个里挑一个就能开跑：</p>
+<ul><li><strong>Tsubaki.3</strong>：全画风通用，中文提示词转英文的理解最稳，不知道选什么就选它。</li><li><strong>Haruka v2</strong>：SDXL 架构的经典动漫风，手部和眼睛描写特别精致，适合想玩 LoRA 叠加的用户。</li><li><strong>Tsubaki.2</strong>：多角色场景友好，带 35 种画风预设开关，对自然语言提示词容忍度最高。</li></ul>
+<p>别急着点「See All Models」去翻完整列表，新手阶段把主力模型吃透比广撒网重要得多。一个常见误区提醒：<strong>换模型不会保留原来的画风</strong>，同一段提示词在不同模型下产出可能完全不同。正确的试法是固定提示词，只换模型各跑一次批量，直观对比谁更合口味。</p>
+<h2>第二步：写提示词，用你习惯的方式就行</h2>
+<p>PixAI 对提示词的友好度在同类平台里算是高的。Tsubaki 系列模型基于 DiT 架构，直接写自然语言长句没问题，比如「一个银发少女站在樱花树下，花瓣飘落，傍晚的暖光，动漫风格，细节丰富」——这种完整描述它能理解得不错。</p>
+<p>如果选的是 Haruka v2 这类 SDXL 模型，建议切换到<strong>标签式写法</strong>：一串逗号分隔的关键词，比如 <code>silver hair, 1girl, cherry blossom, evening glow, anime style, masterpiece</code>。SDXL 架构对长句理解弱，但标签控制精度高，画师风格 LoRA 也只能挂在 SDXL 模型上生效。</p>
+<p>我给新手的建议很简单：<strong>先写，然后加「masterpiece, best quality, detailed」这三个通用质量词</strong>。负面提示词（Negative Prompt）区填 <code>low quality, blurry, bad anatomy, extra limbs</code>，基本的翻车情况先堵上。</p>
+<p>平台还有个「配方」功能，在模型面板下方。配方就是预设画风包，点一下就让画面靠向某种风格，不用逐字敲提示词。热门配方推荐区会自动刷新当前社区在用的画风，点了之后还可以继续追加自己的提示词微调——新手可以先套一个配方当起步，跑一张看看效果再决定要不要微调。</p>
+<h2>第三步：参数面板只调这几个，其他先别动</h2>
+<p>新手面对密密麻麻的参数面板最容易慌。实际上你只需要关注四个设置，其他全部保持默认：</p>
+<ol><li><strong>宽高比（Aspect Ratio）</strong>：默认 1:1 正方形，想做竖版立绘选 2:3 或 3:4，想做横版壁纸选 16:9。</li><li><strong>分辨率（Resolution）</strong>：标准档就行，高清档消耗点数翻倍，新手阶段看不出明显差别。</li><li><strong>批量数量（Batch Count）</strong>：一次生成 4 张或 8 张，同一段提示词多跑几张挑一张最好的，点数消耗按张数算。</li><li><strong>速度档（Speed）</strong>：标准模式，免费档高峰期可能需要排队，不想等可以花点数插队，或者等非高峰时段再跑。</li></ol>
+<p>采样步数、采样方式、CFG Scale、VAE 这些进阶参数先全部锁定默认值。等你跑了十几张图，对出图效果有了自己的感觉，再回来逐个调参做对比实验——具体每个参数怎么调、不同模型的推荐范围可以去 <a href="https://pixai-docs.pages.dev/" target="_blank" rel="noopener">PixAI文档</a> 翻。</p>
+<h2>第四步：跑起来，然后学会挑图</h2>
+<p>全部设置好之后点生成按钮，等几十秒到一两分钟，四张或八张图就刷出来了。</p>
+<p>别急着一张一张放大看细节，先扫一遍整体构图和人物比例。新手写提示词容易贪多，一句话塞五六个场景元素，结果每个元素都画不清楚。如果整体构图乱了，先精简提示词，砍掉不必要的场景元素，把核心人物描述写细一点再跑一次。</p>
+<p>挑图的时候盯住三个地方：<strong>手部</strong>、<strong>眼睛</strong>、<strong>头发</strong>。这三处是 AI 绘画的传统重灾区，也是模型之间差异最明显的地方。如果 Tsubaki.3 跑出来的手部总是糊成一团，试试切 Haruka v2——它在肢体描写上确实比 DiT 系模型更稳一些。</p>
+<h2>新手最容易翻车的三个卡点</h2>
+<h3>卡点一：点数突然「没了」</h3>
+<p>八成不是点数过期，而是你登错了账号。退出当前会话，逐个试一遍你注册过的登录方式（Google / Discord / X / Apple / 邮箱），找回散落的那个账号。点数不会过期，可以一直累积，但<strong>账号之间不能合并</strong>，找回后固定用一种方式登录，别再换来换去。</p>
+<h3>卡点二：换了 LoRA 之后完全不生效</h3>
+<p>LoRA 有架构隔离规则：SDXL 训练的 LoRA 只能配 SDXL 模型（Haruka/Hoshino 系列），DiT 架构的 LoRA 只能挂 Tsubaki 系列模型。挂着 SDXL LoRA 却切到 Tsubaki.3，那条 LoRA 就是空气。先确认模型和 LoRA 架构匹配再跑。</p>
+<h3>卡点三：免费档排队太久想插队，花了点数结果还是没拿到好图</h3>
+<p>插队点数是一次性消耗，不退款。正确的做法是：先用标准模式批量跑几张，从里面挑一张最接近预期的，然后用<strong>局部重绘</strong>功能（框选需要修改的区域，补写新提示词）定点修，比整图重开省钱得多。平台编辑面板里的「局部重绘」入口就在生成页右侧，支持框选任意区域，修手部、修表情、换服装都靠它。</p>
+<h2>进阶一句话</h2>
+<p>跑通完整流程之后，下一步可以试试把自己画的参考图丢进「Reference Pro」模型里，或者传一张角色图用衍生创作生成器做手办和收藏卡的预览效果——这些功能在网页端工具箱里，入口是一个工具箱图标，点进去就能看到。</p>
+<hr>
+<p>这套资料在三个仓库都能拿到，维护更新的频率也一致：<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/PixAI" target="_blank" rel="noopener">GitHub</a> 上的完整目录、国内用户访问更快的 <a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/PixAI" target="_blank" rel="noopener">Gitee</a> 镜像，以及 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/PixAI" target="_blank" rel="noopener">GitCode</a> 上的备份副本，各有各的渠道覆盖不同的访问场景。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/exagear.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">高铁上的红警指挥官：我是怎么在手机上找回十年前的周末的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/zedge-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用 Zedge 串起每周产品分享的一条龙工作流</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

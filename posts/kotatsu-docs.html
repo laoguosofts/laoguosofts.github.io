@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Kotatsu 版本进化史：从 MangaDex 到 Material You 的迭代之旅 · 老郭软件铺</title>
+  
+<meta name="description" content="回望 Kotatsu 从早期单一漫画源支持到 Material You 动态主题、离线下载、章节通知的成长路径，分析这款安卓漫画阅读器的迭代节奏与产品哲学。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kotatsu-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotatsu 版本进化史：从 MangaDex 到 Material You 的迭代之旅">
+<meta property="og:description" content="回望 Kotatsu 从早期单一漫画源支持到 Material You 动态主题、离线下载、章节通知的成长路径，分析这款安卓漫画阅读器的迭代节奏与产品哲学。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kotatsu-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/kotatsu-docs/mobile-4.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/kotatsu-docs/mobile-4.png">
+
+<meta name="twitter:title" content="Kotatsu 版本进化史：从 MangaDex 到 Material You 的迭代之旅">
+<meta name="twitter:description" content="回望 Kotatsu 从早期单一漫画源支持到 Material You 动态主题、离线下载、章节通知的成长路径，分析这款安卓漫画阅读器的迭代节奏与产品哲学。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u56de\u671b Kotatsu \u4ece\u65e9\u671f\u5355\u4e00\u6f2b\u753b\u6e90\u652f\u6301\u5230 Material You \u52a8\u6001\u4e3b\u9898\u3001\u79bb\u7ebf\u4e0b\u8f7d\u3001\u7ae0\u8282\u901a\u77e5\u7684\u6210\u957f\u8def\u5f84\uff0c\u5206\u6790\u8fd9\u6b3e\u5b89\u5353\u6f2b\u753b\u9605\u8bfb\u5668\u7684\u8fed\u4ee3\u8282\u594f\u4e0e\u4ea7\u54c1\u54f2\u5b66\u3002", "headline": "Kotatsu \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece MangaDex \u5230 Material You \u7684\u8fed\u4ee3\u4e4b\u65c5", "image": ["https://laoguosofts.github.io/images/kotatsu-docs/mobile-4.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kotatsu-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kotatsu-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Kotatsu \u7248\u672c\u8fdb\u5316\u53f2\uff1a\u4ece MangaDex \u5230 Material You \u7684\u8fed\u4ee3\u4e4b\u65c5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Kotatsu 版本进化史：从 MangaDex 到 Material You 的迭代之旅</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Kotatsu 版本进化史：从 MangaDex 到 Material You 的迭代之旅</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">回望 Kotatsu 从早期单一漫画源支持到 Material You 动态主题、离线下载、章节通知的成长路径，分析这款安卓漫画阅读器的迭代节奏与产品哲学。</p>
+  </header>
+  <div class="prose serif">
+<p>现在的 Kotatsu，是一款支持 Material You 动态取色、离线缓存、多漫画源筛选、章节更新通知的完整阅读器。你把它装到 Android 12+ 的手机上，换一张壁纸，它的界面色板会自动跟着变；收藏的漫画有更新会后台检查并推送通知；想看 MangaDex 的内容可以一键把其他源过滤掉——这些功能现在看起来理所当然，但回溯它的迭代历程，每一步都不是随手加上的。</p>
+<p>它的定位很明确：<strong>开源的安卓漫画阅读器</strong>。项目的仓库公开可查，代码风格偏务实，不搞花架子。去它的<a href="https://kotatsu.hfdk.space" target="_blank" rel="noopener">官网</a>看看，页面也是极简路线——没有花哨的营销语，直接告诉你这是什么、支持哪些源、下载安装包在哪。</p>
+<h2>来路：从哪里起步</h2>
+<p>样本文档没有直接提到 Kotatsu 的初代版本——这本身就是一个有意思的信号：那些最早的功能，已经被后续版本的持续打磨完全覆盖，以至于文档层面不需要再保留任何"历史包袱"的描述。我能确认的最早版本，它的核心定位很清晰：<strong>一个轻量的安卓漫画阅读器</strong>。</p>
+<p>早期的 Kotatsu 聚焦在一件事上：把 MangaDex（后来逐步扩展到其他源站）上的漫画内容，以流畅的阅读体验搬到手机屏幕上。没有 Material You，没有复杂的通知系统，缓存策略也很简单——读完的图片留一段，空间紧张了就手动清。那个版本能做的事情不多，但有一件事做得很扎实：翻页速度快，内存占用低。</p>
+<p>安装包从<a href="https://kotatsu.hfdk.space/download.html" target="_blank" rel="noopener">官方下载</a>拿，渠道当时也比较单一，早期主要靠手动获取。安装过程和普通 Android 应用没什么区别，从设置里开一下未知来源权限就行——这点从早期的说明文档里就能看到，安装部分写得非常简略，说明团队也觉得这没什么好说的。</p>
+<h2>关键转折：什么时候开始"变重"</h2>
+<p>版本迭代的第一个明显转折点，是多漫画源筛选功能的引入。样本文档里专门有一篇讲「按漫画源单独筛选」——这不是一个小功能。在这之前，读者要么接受所有启用源站的混合结果，要么手动禁用不想看的源。有了筛选器，你可以随时切换视角：今天只想看 MangaDex 的更新，明天想对比同一部漫画在不同源站上的翻译质量。</p>
+<p>这个功能的重要性在于，它暗示了产品定位的微妙变化：Kotatsu 不再只是"把某个源站的内容搬到手机上"，而是开始思考<strong>如何帮读者管理多个内容来源</strong>。这是从"工具"到"平台"的第一步尝试。</p>
+<p>紧接着，离线下载和缓存管理被认真对待了。样本里有一整篇讲「清理缓存释放空间」——能写出这么细致的缓存说明，说明缓存机制本身已经足够复杂，需要单独的设置入口来管理：区分"临时缓存"和"显式下载"，前者可以放心清掉，后者受保护不动。这个区分看似简单，但实现起来要在下载管理和缓存清理两个模块之间做精细化的状态标记。后来去<a href="https://kotatsu-docs.pages.dev/" target="_blank" rel="noopener">Kotatsu文档</a>翻了一下才弄明白，从缓存是什么、清理入口在哪、什么时候需要清理、清理后有什么影响——四个角度全覆盖，这在开源项目里算是做得认真的。</p>
+<p><img src="../images/kotatsu-docs/mobile-4.png" alt="Material You 动态取色效果" loading="lazy"></p>
+<p>然后是 Material You 动态取色。这个功能的加入，标志着 Kotatsu 开始重视<strong>系统级的设计一致性</strong>。Android 12 引入 Material You 后，大量应用只是"支持一下就好"，Kotatsu 则做得比较彻底——主界面、漫画详情页，甚至卡片颜色都跟着壁纸派生，换壁纸应用界面立即变化。不喜欢自动取色的用户还能手动覆盖内置主题色——这种"给选择不给强制"的思路，在后续的通知设置里也能看到。</p>
+<p>通知系统的成熟是另一个里程碑。从单纯的"有更新就推"，到支持频率调节、锁屏显示开关、铃声振动偏好，再到独立的"更新 feed 页面"——一个不想被推送打扰但定期想看看有没有新内容的读者，可以完全绕过通知、直接在 feed 页逛。后台检查频率也能自己调，追更多的就高频，追少的就低频，本质上是在电量消耗和追更体验之间给读者一个选择权。</p>
+<h2>团队一直在死磕什么</h2>
+<p>从样本文档的组织方式来看，Kotatsu 的迭代有一个很清晰的优先级：<strong>内容源的管理 → 阅读体验的打磨 → 系统功能的集成</strong>。</p>
+<p>他们一直在死磕的是「阅读效率」。按源站筛选减少无效结果、缓存策略降低重复加载、通知设置让追更不费力——这些功能看起来各自独立，但背后的逻辑是一致的：<strong>让读者花更少的时间找内容，更多的时间读内容</strong>。</p>
+<p>反过来看，什么东西一直没做复杂？社区、社交、推荐算法——你不会在 Kotatsu 里看到"猜你喜欢"，也看不到读者评论区。这不是技术限制，是产品选择。迭代规律很明确：Kotatsu 始终是一个<strong>工具属性极强的阅读器</strong>，不打算变成内容社区。</p>
+<p>还有一个细节值得注意：缓存清理的文档里特意提到"清理不影响收藏、阅读历史、书签、追踪同步等核心数据"——把"哪些数据不能丢"明确写进文档，说明团队对数据安全有自己的判断边界。这种"核心数据不动、临时数据放心清"的策略，在离线下载和通知设置里反复出现，是贯穿整个产品的一条暗线。通知设置那部分，从频率调优到锁屏显示，再到后台检查的电量平衡，每一项都在照顾"不想被打扰但又不想错过更新"的读者——这其实就是效率逻辑的延伸：<strong>让通知成为帮手，而不是负担</strong>。</p>
+<h2>下一步会走向哪里</h2>
+<p>从这个迭代节奏推，我觉得有几个方向大概率会继续走：</p>
+<p>第一，漫画源的筛选和管理可能会继续细化。现在能按单个源筛选，未来也许会加"按更新速度排序源"、"批量禁用不稳定源"之类的功能——本质上还是在死磕"帮读者高效管理内容来源"这件事。</p>
+<p>第二，Material You 可能会做得更深入。现在是界面色板跟随壁纸，未来也许会把漫画封面的主色调也纳入考虑，让漫画详情页的配色自动适配正在看的那本书——这是"系统级设计一致性"思路的自然延伸。</p>
+<p>第三，通知系统还有空间。现在的通知设置已经能调频率、控制锁屏显示，但如果收藏了很多漫画，后台检查的效率就是一个问题。按漫画的更新频率智能调整检查间隔——热门漫画多查，冷门漫画少查——这应该是下一步的优化方向。</p>
+<p>但我不觉得他们会加社区功能。迭代规律很固执：Kotatsu 的优势始终在"阅读器"这三个字上。偏离这个定位的尝试，大概率会被砍掉。这也是我喜欢它的原因——知道自己是什么，知道自己要做什么，不为了流量去碰不属于自己的地盘。</p>
+<hr>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Kotatsu" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Kotatsu" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Kotatsu" target="_blank" rel="noopener">GitCode</a> 三个平台的仓库里都有同步维护，方便不同偏好的读者查阅和贡献。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/webook-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">沙特看演出买票，Webook 到底值不值得装</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/joplin-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了 Joplin 一周：终于敢把所有笔记托付给一个软件了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

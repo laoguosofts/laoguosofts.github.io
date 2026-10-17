@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Super AI 踩过的五个坑，别再犯了 · 老郭软件铺</title>
+  
+<meta name="description" content="Super AI 看着就是个拍 AI 短视频的 App，我从安装到导出踩了五个实打实的坑——解析包错误、装成同名山寨、水印抠不干净、首尾帧翻车、AI 文案直接发被查重。一条一条说清楚怎么救。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/super-ai-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Super AI 踩过的五个坑，别再犯了">
+<meta property="og:description" content="Super AI 看着就是个拍 AI 短视频的 App，我从安装到导出踩了五个实打实的坑——解析包错误、装成同名山寨、水印抠不干净、首尾帧翻车、AI 文案直接发被查重。一条一条说清楚怎么救。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/super-ai-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/super-ai-docs/home-screen.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/super-ai-docs/home-screen.jpg">
+
+<meta name="twitter:title" content="用 Super AI 踩过的五个坑，别再犯了">
+<meta name="twitter:description" content="Super AI 看着就是个拍 AI 短视频的 App，我从安装到导出踩了五个实打实的坑——解析包错误、装成同名山寨、水印抠不干净、首尾帧翻车、AI 文案直接发被查重。一条一条说清楚怎么救。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Super AI \u770b\u7740\u5c31\u662f\u4e2a\u62cd AI \u77ed\u89c6\u9891\u7684 App\uff0c\u6211\u4ece\u5b89\u88c5\u5230\u5bfc\u51fa\u8e29\u4e86\u4e94\u4e2a\u5b9e\u6253\u5b9e\u7684\u5751\u2014\u2014\u89e3\u6790\u5305\u9519\u8bef\u3001\u88c5\u6210\u540c\u540d\u5c71\u5be8\u3001\u6c34\u5370\u62a0\u4e0d\u5e72\u51c0\u3001\u9996\u5c3e\u5e27\u7ffb\u8f66\u3001AI \u6587\u6848\u76f4\u63a5\u53d1\u88ab\u67e5\u91cd\u3002\u4e00\u6761\u4e00\u6761\u8bf4\u6e05\u695a\u600e\u4e48\u6551\u3002", "headline": "\u7528 Super AI \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\uff0c\u522b\u518d\u72af\u4e86", "image": ["https://laoguosofts.github.io/images/super-ai-docs/home-screen.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/super-ai-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/super-ai-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u7528 Super AI \u8e29\u8fc7\u7684\u4e94\u4e2a\u5751\uff0c\u522b\u518d\u72af\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">用 Super AI 踩过的五个坑，别再犯了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">用 Super AI 踩过的五个坑，别再犯了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Super AI 看着就是个拍 AI 短视频的 App，我从安装到导出踩了五个实打实的坑——解析包错误、装成同名山寨、水印抠不干净、首尾帧翻车、AI 文案直接发被查重。一条一条说清楚怎么救。</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次用 Super AI 是被朋友拉着做短视频带货的。他说这东西太简单了，传两张图就能出一条剧情短视频，新手零门槛。结果我从安装到第一条视频发出去，前前后后踩了五个坑，有一个差点让我把手机恢复出厂设置。</p>
+<h2>坑一：装了个假的 Super AI</h2>
+<p>这是最冤的一个。我在应用商店搜 "Super AI"，出来至少三四个结果，图标长得还都差不多。随手点了一个下载，装完打开一看首页是个 AI 聊天机器人，跟朋友说的"剧情带货""数字人"完全不搭。</p>
+<p>以为是自己没找到正确的功能入口，瞎捣鼓了半小时才意识到——我装错了。Super AI 这个名字至少有三款不同的产品，我装的是一款做 AI 对话的，七麦科技那款做视频创作的根本没下到。其实拿不准的时候去 <a href="https://super-ai.wxhp.skin" target="_blank" rel="noopener">Super AI官网</a> 瞅一眼产品界面截图，一眼就能对上正主。</p>
+<p><strong>怎么分辨</strong>：安卓装完在设置里搜包名 <code>com.chatai.superai</code>，能对上才是正主；iOS 看 App Store 开发者署名是"雪 巩"。功能上更明显——首页有没有"剧情带货""AI 漫剧""数字人"这几个入口，一眼就能看出来。</p>
+<p><img src="../images/super-ai-docs/home-screen.jpg" alt="Super AI 首页，一眼能认出正主" loading="lazy"></p>
+<h2>坑二：解析包错误，怎么装都装不上</h2>
+<p>翻网盘下的 APK，点开就弹"解析软件包时出现问题"。以为是手机系统太旧，查了下安卓版本是 8.0，远高于 Super AI 要求的 5.2。那就是 APK 文件本身坏了——下载中途断流，文件不完整。</p>
+<p>重新从<a href="https://super-ai.wxhp.skin/download.html" target="_blank" rel="noopener">下载</a>渠道拿了一次还是不行，这次换了下载方式。之前用手机浏览器下的，这次改用网盘 App 直下，结果就装上了。原来浏览器下载大文件（Super AI 安装包 227MB）时容易静默截断，看起来下完了实际上缺了一截。</p>
+<p>如果换下载方式还装不上，再查空间。之前装旧版没卸干净、手机剩余空间不够（解压后要 2GB 以上），也会卡进度条停在 80% 不动。卸旧版之前记得把已导出的作品存到相册，不然会跟着删。</p>
+<h2>坑三：想抠掉水印，反而越抠越丑</h2>
+<p>免费版导出的视频右下角带 Super AI 的 Logo 水印，发自己的账号不好看。搜了一下发现有不少第三方工具号称能一键去水印，我下了两个，一个是录屏再裁剪画面（裁完视频画幅变了，画面比例怪），另一个是自动填色（抠出来的那一片像被打了马赛克，细看痕迹明显）。</p>
+<p>最后老老实实升了会员。会员版导出时直接勾选"无水印"选项，干净利落。虽然花了钱，但比抠半天水印出来个残次品强。顺带说一句，水印这事儿涉及版权边界——你自己的素材没问题，但纯 AI 生成、一点自己的东西都没加的内容，商用的时候要留意平台查重。</p>
+<h2>坑四：首尾帧视频翻车，中间帧像被诅咒了</h2>
+<p>看到 Super AI v6.0 新出的首尾帧功能，觉得特别酷——上传两张照片，AI 自动补中间帧生成完整视频。我找了一张"清晨咖啡馆"和一张"黄昏海边"的照片，想做个穿越感短片。</p>
+<p>结果跑了三次，三次都翻车。第一次中间帧出现了咖啡馆和海边的诡异拼接，一半是木纹桌面一半是沙滩；第二次画面比例乱了，横屏变竖屏再变横屏；第三次倒是比例对了，但人物突然多了个胳膊。</p>
+<p>后来才反应过来，我选的两张照片风格差太远、分辨率也不一样。AI 补中间帧不是魔法，它需要两张照片有一定的关联性才能自然过渡。同方向同分辨率是基本要求，风格接近、元素有联系（比如都是街景只是时间不同）的话效果就好很多。现在每次跑首尾帧我都先确认这两点，翻车率降了一大截。</p>
+<p><img src="../images/super-ai-docs/anime-video-create.jpg" alt="首尾帧视频需要风格相近的两张照片才能自然过渡" loading="lazy"></p>
+<h2>坑五：AI 写的文案直接发，被平台查重打了</h2>
+<p>视频做完需要配一段朋友圈带货文案，就让 Super AI 的 AI 写作帮忙写了三条，挑了一条直接发了小红书。第二天看数据，浏览量比平时发的低了一截。搜了一下发现有人用了几乎一样的文案，平台查重识别出重复了。</p>
+<p>AI 会说"这是原创"，但大模型训练时见过太多类似内容，生成的东西很容易和网上已有的撞上。平台查重系统虽然不是 100% 准确，但重复度高了一定会被卡。我现在的做法是：AI 给我打底框架和结构，我自己改 20% 以上——换几个词、加一两句个人化的感受（比如"我自己试了一下真的好用"），整篇立刻活起来。</p>
+<p>另外事实核查也不能省。AI 有时会编造看起来合理但实际错误的信息，涉及具体数据、时间、人名的时候一定要自己核对。比如我让它写一个产品卖点，它编了个"月销十万件"的数字，幸亏我多嘴去查了下真实数据是三万。遇到拿不准的参数或具体操作，去<a href="https://super-ai-docs.pages.dev/" target="_blank" rel="noopener">Super AI文档</a>里翻一下排查指南比瞎试强。</p>
+<h2>防坑清单</h2>
+<ul><li>装之前先核对包名 <code>com.chatai.superai</code> 或 iOS 开发者署名"雪 巩"，别碰同名山寨</li><li>大 APK 用网盘 App 直下，别用浏览器，防止下载截断</li><li>免费版水印别抠，升会员直接无水印导出</li><li>首尾帧视频必须同方向同分辨率、风格相近，别让 AI 做不可能的过渡</li><li>AI 写的文案改 20% 以上再发，加自己的真实感受才能过查重</li></ul>
+<p>知道这些坑之后，Super AI 其实相当省心——它的 AI 模型（DeepSeek R1、豆包 Pro 这些大模型打底）能力确实够用，灵感页里的爆款模板直接点"生成同款"换自己的素材，出来的东西不会差到哪去。关键是别想当然，每一步都有它该注意的地方。</p>
+<p>我把这套东西同步维护在三个仓库里方便随时查和复用，想细看的话可以去 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/Super%20AI" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/Super%20AI" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/Super%20AI" target="_blank" rel="noopener">GitCode</a>，路径都在下载分类下的 Super AI 子目录。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/appblock-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把 AppBlock 嵌进深度工作流——手机不再是生产力的黑洞</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/manwa3-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">期末周的漫画逃生舱：漫蛙3陪我熬过那三周</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

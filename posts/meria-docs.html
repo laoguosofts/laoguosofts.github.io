@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Meria 用了大半年，这个 QQ 机器人框架到底经不经造 · 老郭软件铺</title>
+  
+<meta name="description" content="从第一次给 QQ 群装机器人到现在，Meria 陪我走过了好几个版本迭代。这篇不谈评测参数，只说时间筛下来的那些事。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/meria-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meria 用了大半年，这个 QQ 机器人框架到底经不经造">
+<meta property="og:description" content="从第一次给 QQ 群装机器人到现在，Meria 陪我走过了好几个版本迭代。这篇不谈评测参数，只说时间筛下来的那些事。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/meria-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/meria-docs/main-screen.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/meria-docs/main-screen.png">
+
+<meta name="twitter:title" content="Meria 用了大半年，这个 QQ 机器人框架到底经不经造">
+<meta name="twitter:description" content="从第一次给 QQ 群装机器人到现在，Meria 陪我走过了好几个版本迭代。这篇不谈评测参数，只说时间筛下来的那些事。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u7b2c\u4e00\u6b21\u7ed9 QQ \u7fa4\u88c5\u673a\u5668\u4eba\u5230\u73b0\u5728\uff0cMeria \u966a\u6211\u8d70\u8fc7\u4e86\u597d\u51e0\u4e2a\u7248\u672c\u8fed\u4ee3\u3002\u8fd9\u7bc7\u4e0d\u8c08\u8bc4\u6d4b\u53c2\u6570\uff0c\u53ea\u8bf4\u65f6\u95f4\u7b5b\u4e0b\u6765\u7684\u90a3\u4e9b\u4e8b\u3002", "headline": "Meria \u7528\u4e86\u5927\u534a\u5e74\uff0c\u8fd9\u4e2a QQ \u673a\u5668\u4eba\u6846\u67b6\u5230\u5e95\u7ecf\u4e0d\u7ecf\u9020", "image": ["https://laoguosofts.github.io/images/meria-docs/main-screen.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/meria-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/meria-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "Meria \u7528\u4e86\u5927\u534a\u5e74\uff0c\u8fd9\u4e2a QQ \u673a\u5668\u4eba\u6846\u67b6\u5230\u5e95\u7ecf\u4e0d\u7ecf\u9020", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">Meria 用了大半年，这个 QQ 机器人框架到底经不经造</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">Meria 用了大半年，这个 QQ 机器人框架到底经不经造</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从第一次给 QQ 群装机器人到现在，Meria 陪我走过了好几个版本迭代。这篇不谈评测参数，只说时间筛下来的那些事。</p>
+  </header>
+  <div class="prose serif">
+<p>去年冬天装的 Meria，到现在快八个月了。当初动机很简单——加的几个老群越来越冷，想整个机器人偶尔活跃一下气氛。对比了两三个手机端的 QQ 机器人框架之后选了<a href="https://meria.fedq.quest" target="_blank" rel="noopener">Meria官网</a>，原因也朴素：界面看着清爽，词库商城现成的东西多，不用自己从零搭。</p>
+<p><img src="../images/meria-docs/main-screen.png" alt="Meria 主界面" loading="lazy"></p>
+<h2>越用越顺手的，是它的"装了就能跑"</h2>
+<p>刚装上的时候最担心的是配置门槛。安装包从<a href="https://meria.fedq.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿的，安卓那一套权限放开、自启动白名单，小米的 MIUI 入口又藏得深，第一次调权限来来回回折腾了一刻钟。但权限给齐之后，Meria 的核心体验其实挺稳的——打开框架、扫码登录 QQ、加个群、装个签到词库，五件套走完就能用。</p>
+<p>插件机制是后来慢慢摸透的。一开始觉得 MTManager 这种内置插件是花架子，直到有一次换群的时候发现 MTManager 能批量同步词库配置，才反应过来插件不是给框架加"手"那么简单，是帮你省重复劳动的工具。现在每次新装一个 Meria 实例，MTManager 是第一个装的插件。</p>
+<p>词库商城的生态也值得提。一开始只敢装一两个签到、天气这种刚需词库，后来胆子大了点娱乐类的。素材包从几十 KB 到几百 KB 不等，下载几秒钟的事。下载完绑定账号就能生效，流程没什么花哨的地方，但就是踏实——八个月下来没遇到过商城抽风或词库下载失败的情况。</p>
+<h2>越用越烦的，是那些当初没注意到的小毛病</h2>
+<p>安卓后台被杀这个事，装的时候以为给了自启动白名单就万事大吉了。实际上小米的"自启动管理"只是第一道关，还有"后台弹出界面权限""电池优化白名单""锁屏清理保护"——这些入口散在 MIUI 的不同角落，漏了任何一个，手机放一晚上 Meria 就悄悄退了。前三个月掉线是常态，后来把这几道关一道道补齐，才算稳住。</p>
+<p>词库触发词冲突是第二个坑。一开始不知道"宁少勿多"这个原则，后来去<a href="https://meria-docs.pages.dev/" target="_blank" rel="noopener">Meria文档</a>翻了一下才确认是真的——一次下了五六个词库往一个群里堆，结果两个娱乐词库都用"抽签"当触发词，机器人来回响应，群里刷屏刷得停不下来。后来把词库清单整理了一遍，每个群只留一两个互补的词库，冲突问题才算解决。</p>
+<p>还有一个偶发的 bug：下完词库之后切回本地词库列表，有时候新下的词库就是不显示。重启 Meria 才冒出来。概率不高，但每次遇到都要花一两分钟排查，挺烦的。问过同好，说是框架版本迭代过程中存储权限的兼容性问题，新版本已经修了大半。</p>
+<h2>每天离不开的，和碰都没再碰的</h2>
+<p>娱乐词库是现在群里最常用的模块。骰子、抽签、成语接龙——不是天天用，但关键时刻真能救场。上个月有个群聊到一半没人说话，有人随口发了个"骰子"，机器人摇了一颗出来，立刻有人接"六点我请奶茶"，气氛一下就回来了。还有投票功能，去年年底团建地点就是用 Meria 的投票功能快速定的，选项加截止时间，群成员点一下就行，比在群里一条条刷回复高效太多。</p>
+<p><img src="../images/meria-docs/meria-home.png" alt="Meria 首页" loading="lazy"></p>
+<p>反过来，MTManager 插件的高级配置功能，我装了大半年到现在也只用到了批量同步那一个场景。什么插件商城、扩展模块导入，看起来功能挺全，但日常真用不上。说个反直觉的：当初选 Meria 时最看重的"插件扩展性"，八个月下来反而是词库生态给的惊喜更多。</p>
+<h2>时间修正了我的几个判断</h2>
+<p>装之前我以为插件是框架的核心竞争力，毕竟"框架级扩展"听起来比"功能级模块"档次高得多。实际用下来发现，词库才是日常真正跟群友互动的东西——插件给 Meria 加"手"，词库给机器人加"脑子"，而群友感知得到的只有"脑子"。这不是说插件没用，而是它的价值更偏向运维层面，普通用户很难直接感受到。</p>
+<p>另一个修正：当初担心 Meria 作为手机端框架，稳定性会不会比 PC 端的方案差。八个月跑下来，除了安卓后台被杀那个老生常谈的问题，框架本身的掉线率其实不高——真正让机器人下线的，大多是 QQ 登录态过期，或者手机系统层面的清理，不是 Meria 自己崩的。</p>
+<h2>去留结论</h2>
+<p>不会卸载。Merria 现在在我两个活跃群里跑着，一个主打娱乐互动，一个主打日常签到加信息查询，够用。什么情况下会换？要么出现了一个新的手机端框架，在稳定性和词库生态上都明显超过 Meria；要么 Meria 连续几个大版本更新都是在加花里胡哨的插件而不解决基础体验问题。后者的概率目前看不大——最近两个版本的更新日志都在修存储权限和后台管理的 bug，方向是对的。</p>
+<p>说到底，Meria 是那种"过日子"的工具：不会让你惊艳，但时间长了你会发现它默默把该做的事都做了。八个月不算长，但足够筛掉那些当初看起来很美的功能，留下真正每天都在用的那几个。</p>
+<p>顺手说一句，这套关于 Meria 的整理资料在三个开源仓库都能拿到：<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Meria" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Meria" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/Meria" target="_blank" rel="noopener">GitCode</a>，国内访问慢的话后面两个可能更顺。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/arcore-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/spotube-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用 Spotube 搭一条「听歌→记谱→出周报」自动化链</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

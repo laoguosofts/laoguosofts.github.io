@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>SmartThings 上手一周，说说三星把智能家居这件事做对了什么 · 老郭软件铺</title>
+  
+<meta name="description" content="从 Home Assistant 切到 SmartThings 纯粹是偷懒的决定，但用了一周发现，省心背后是三星在协议、生态和产品设计上的默默做功。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/smartthings.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SmartThings 上手一周，说说三星把智能家居这件事做对了什么">
+<meta property="og:description" content="从 Home Assistant 切到 SmartThings 纯粹是偷懒的决定，但用了一周发现，省心背后是三星在协议、生态和产品设计上的默默做功。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/smartthings.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/smartthings/app-favorites-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/smartthings/app-favorites-home.png">
+
+<meta name="twitter:title" content="SmartThings 上手一周，说说三星把智能家居这件事做对了什么">
+<meta name="twitter:description" content="从 Home Assistant 切到 SmartThings 纯粹是偷懒的决定，但用了一周发现，省心背后是三星在协议、生态和产品设计上的默默做功。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece Home Assistant \u5207\u5230 SmartThings \u7eaf\u7cb9\u662f\u5077\u61d2\u7684\u51b3\u5b9a\uff0c\u4f46\u7528\u4e86\u4e00\u5468\u53d1\u73b0\uff0c\u7701\u5fc3\u80cc\u540e\u662f\u4e09\u661f\u5728\u534f\u8bae\u3001\u751f\u6001\u548c\u4ea7\u54c1\u8bbe\u8ba1\u4e0a\u7684\u9ed8\u9ed8\u505a\u529f\u3002", "headline": "SmartThings \u4e0a\u624b\u4e00\u5468\uff0c\u8bf4\u8bf4\u4e09\u661f\u628a\u667a\u80fd\u5bb6\u5c45\u8fd9\u4ef6\u4e8b\u505a\u5bf9\u4e86\u4ec0\u4e48", "image": ["https://laoguosofts.github.io/images/smartthings/app-favorites-home.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/smartthings.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/smartthings.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "SmartThings \u4e0a\u624b\u4e00\u5468\uff0c\u8bf4\u8bf4\u4e09\u661f\u628a\u667a\u80fd\u5bb6\u5c45\u8fd9\u4ef6\u4e8b\u505a\u5bf9\u4e86\u4ec0\u4e48", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">SmartThings 上手一周，说说三星把智能家居这件事做对了什么</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">SmartThings 上手一周，说说三星把智能家居这件事做对了什么</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从 Home Assistant 切到 SmartThings 纯粹是偷懒的决定，但用了一周发现，省心背后是三星在协议、生态和产品设计上的默默做功。</p>
+  </header>
+  <div class="prose serif">
+<h2>为什么我会装它</h2>
+<p>说来惭愧，我接触 SmartThings 纯粹是因为懒。</p>
+<p>之前一直在 Home Assistant 上折腾，Zigbee 网关、MQTT Broker、Node-RED 自动化流，家里的智能家居被我拼成了一个 Frankenstein——能用，但每次改个触发条件都要翻半小时论坛，升级还偶尔把自动化搞挂。直到朋友扔来一台三星 Hub V3，说"试试这个，开箱跑通 Matter"，我就抱着"反正闲置也是闲置"的心态装了。</p>
+<p>SmartThings 是三星的智能家居平台，主打<strong>开箱即用</strong>。<a href="https://smartthings.fedq.ren" target="_blank" rel="noopener">SmartThings官网</a>上对 Matter 协议的支持列表和各款 Hub 的规格写得挺细，我当初就是冲这个才决定试试的。定位上跟 Home Assistant 完全是两条路——后者是极客的乐高，前者是面向普通家庭的成品家具。但我原本以为成品家具意味着功能阉割，没想到一周用下来，好几个地方让我觉得三星其实藏了不少巧思。</p>
+<h2>初印象：五分钟跑通第一台设备</h2>
+<p>从<a href="https://smartthings.fedq.ren/download.html" target="_blank" rel="noopener">SmartThings下载</a>拿好 App 安装包，创建三星账号、把 Hub V3 插电——这三件事加起来不到五分钟。Hub 通过 Matter over WiFi 自动接入网络，手机 App 弹出"发现了 Zigbee 设备"，我点了一下"全部添加"，客厅里那五个 Yeelight 筒灯就自动进了设备列表。</p>
+<p>说实话，我之前对"自动发现"这个词是怀疑的——Home Assistant 的自动发现经常是个半成品，扫到了也不一定能正确配好。但 SmartThings 这里确实省心：设备进来之后，默认按 Room 分组好了，"客厅-筒灯 x5""主卧-吸顶灯 x2"，连我当初在 Yeelight App 里给灯起的中文名都同步过来了。</p>
+<p><img src="../images/smartthings/app-favorites-home.png" alt="SmartThings App 首页 Favorites 视图" loading="lazy"></p>
+<p>App 的首页就是 Favorites 卡片横向滚动，每个卡片点一下直接操作——灯一键开、空调一键切 26 度、门锁看一下状态。不像 Home Assistant 那种仪表盘，得自己配置卡片布局。对我这种"不想做前端"的人来说，这一点是真香。</p>
+<h2>实际用下来的几个核心体验</h2>
+<h3>第一点：Routines 自动化，"好用"比"灵活"重要</h3>
+<p>SmartThings 的自动化叫 Routines，用 IF-THEN 的自然语言来写。比如我配的第一个场景：</p>
+<blockquote><p>IF：所有人都离开了家 AND 灯光还亮着THEN：关所有灯 + 空调待机</p></blockquote>
+<p>写的时候完全不用写代码。点"创建 Routine"，选触发条件是 Geofencing 的"所有人离开"，再选动作组里加灯光、空调——整个过程是点菜单，不是写 YAML。</p>
+<p><img src="../images/smartthings/app-routines.png" alt="Routines 界面一览" loading="lazy"></p>
+<p>我原本担心"自然语言编辑"会限制高级玩法，比如能不能嵌套条件、能不能用变量。结果 SmartThings 把常用组合都内置了：Geofencing + 状态判断、时间触发 + 多设备联动、传感器触发 + 通知推送。日常家用这已经覆盖了 95% 的场景。剩下那 5%，说实话我在 Home Assistant 上也很少用到。</p>
+<p>最让我意外的是 Routines 的<strong>成员感知</strong>。家里四口人，每个人的手机都作为独立的 Geofencing 源。我可以写"孩子到家了 → 推通知给妈妈 + 开玄关灯"，也可以写"所有人都离开 → 关所有灯"。Home Assistant 里要实现这个得装 Node-RED 写一串 flow，SmartThings 里就是点两下。</p>
+<h3>第二点：Hub 的选择让人头大，但选对了很关键</h3>
+<p>用了三天我才搞明白，SmartThings 的 Hub 不是只有一个型号。</p>
+<p>我拿到手的是 V3，支持 Zigbee、Z-Wave、Thread、BLE 和 Matter 全协议。但朋友家里有一台三星 QN90 电视，2022 年后的型号<strong>内置 SmartThings Hub</strong>——不过内置 Hub 只支持 WiFi/Matter WiFi 设备，不含 Zigbee/Z-Wave 射频。这就意味着如果朋友只买了三星自家的 SmartThings 灯泡，电视就能搞定；但他买了 Aqara 的门窗传感器（Zigbee），就得额外接 V3 做主力。</p>
+<p>这个 Hub 选型的问题我当初没太在意，直到朋友说他电视待机之后 Hub 也停了，传感器失联半小时才被发现。后来去<a href="https://smartthings.pages.dev/" target="_blank" rel="noopener">SmartThings文档</a>翻了一下，官方确实有明确说明内置 Hub 不含 Zigbee/Z-Wave 射频、TV 关机 Hub 就停这两个限制，只是我当初没仔细看。所以如果你家里有 Zigbee 或 Z-Wave 设备，<strong>外接 Hub 必须是主力，电视内置 Hub 只能算辅助节点</strong>——电视一关机，Hub 就跟着停。</p>
+<p>V3 还有个我挺在意的点：固件自动静默推送。Home Assistant 的 Zigbee 网关固件升级我都得手动盯着，生怕中途断了电变成砖。SmartThings 这里是后台自动更，用户完全不用管。这对普通家庭用户来说是大优点，但对喜欢折腾固件的极客可能就觉得不够透明。</p>
+<h3>第三点：家庭成员管理，做得比我预期的细</h3>
+<p>SmartThings 一个家庭（Location）最多邀请 20 个成员，每个人用自己的三星账号登录。</p>
+<p>管理员能改设备配置、创建 Routines、管理成员，普通成员只能看状态、触发手动场景、收自己的通知。权限模型不复杂，但够日常用。我老婆不想让我改她卧室里灯的自动化——直接在成员管理里把她设成普通成员就行，她那边能看、能点，但改不了。</p>
+<p>另外 Routines 可以<strong>生成链接或 QR 码分享</strong>。我同事想试试我家的"晚上 8 点自动调暗儿童房灯"的场景，我直接生成链接发给他，他打开之后 SmartThings 自动识别——如果他有对应设备就能直接用，没有就提示"不支持该动作"但仍然能保存并替换自己的设备。这种"分享即用、不纠结设备型号"的设计，Home Assistant 社区里虽然也有人做，但 SmartThings 把它做成了平台级功能，这点确实方便。</p>
+<h2>适合谁，不适合谁</h2>
+<p>用了一周，我的结论很直接：</p>
+<p><strong>适合的人</strong>：家里有三星电视或三星家电的用户，想把智能家居从"拼起来能用"变成"省心"的普通家庭用户，以及不想折腾代码但想要自动化体验的上班族。Matter 协议支持让你以后换其他品牌设备也不用怕被锁死。</p>
+<p><strong>不太适合的人</strong>：喜欢用 Node-RED 做复杂自动化的极客，有大量自定义 Zigbee 设备的玩家，以及需要完全控制固件和底层协议的 DIY 党。SmartThings 把很多高级能力藏起来了，不是做不到，是默认不开放。</p>
+<p>最后说一句，我目前还在双轨并行——Home Assistant 留着做一些 SmartThings 做不到的事，SmartThings 管日常大部分场景。谁也没完全取代谁。但如果你问我现在推荐新手入坑智能家居选什么，我大概率会让他们先试试 SmartThings，而不是直接啃 Home Assistant 的文档。</p>
+<p>关于 SmartThings 的兼容性对照表、Hub 型号差异和常用 Routines 示例，我整理的资料在三个代码仓库里都有备份——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/SmartThings" target="_blank" rel="noopener">GitHub</a> 是主仓库，国内访问慢的话 <a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/SmartThings" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/SmartThings" target="_blank" rel="noopener">GitCode</a> 都同步了，搜 SmartThings 就能找到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/revo-uninstaller.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Revo Uninstaller 到底值不值得掏钱？三年付费用户算完这笔账</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/ocha-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Ocha到底值不值得掏钱？一个轻社交用户的付费账本</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

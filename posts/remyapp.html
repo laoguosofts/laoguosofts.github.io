@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Remy 拍立体空间的四个坑，我替你踩过了 · 老郭软件铺</title>
+  
+<meta name="description" content="Remy 上手门槛看着不高，但从拍摄到分享中间藏着几个容易踩的雷——预览不代表成品、分享给朋友要看设备、图库里找不到、轮廓发虚以为软件坏了。这篇把每一个坑的症状、原因和解法都列清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/remyapp.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Remy 拍立体空间的四个坑，我替你踩过了">
+<meta property="og:description" content="Remy 上手门槛看着不高，但从拍摄到分享中间藏着几个容易踩的雷——预览不代表成品、分享给朋友要看设备、图库里找不到、轮廓发虚以为软件坏了。这篇把每一个坑的症状、原因和解法都列清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/remyapp.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/remyapp/remy-kitchen-3d-view.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/remyapp/remy-kitchen-3d-view.png">
+
+<meta name="twitter:title" content="用 Remy 拍立体空间的四个坑，我替你踩过了">
+<meta name="twitter:description" content="Remy 上手门槛看着不高，但从拍摄到分享中间藏着几个容易踩的雷——预览不代表成品、分享给朋友要看设备、图库里找不到、轮廓发虚以为软件坏了。这篇把每一个坑的症状、原因和解法都列清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Remy \u4e0a\u624b\u95e8\u69db\u770b\u7740\u4e0d\u9ad8\uff0c\u4f46\u4ece\u62cd\u6444\u5230\u5206\u4eab\u4e2d\u95f4\u85cf\u7740\u51e0\u4e2a\u5bb9\u6613\u8e29\u7684\u96f7\u2014\u2014\u9884\u89c8\u4e0d\u4ee3\u8868\u6210\u54c1\u3001\u5206\u4eab\u7ed9\u670b\u53cb\u8981\u770b\u8bbe\u5907\u3001\u56fe\u5e93\u91cc\u627e\u4e0d\u5230\u3001\u8f6e\u5ed3\u53d1\u865a\u4ee5\u4e3a\u8f6f\u4ef6\u574f\u4e86\u3002\u8fd9\u7bc7\u628a\u6bcf\u4e00\u4e2a\u5751\u7684\u75c7\u72b6\u3001\u539f\u56e0\u548c\u89e3\u6cd5\u90fd\u5217\u6e05\u695a\u3002", "headline": "\u7528 Remy \u62cd\u7acb\u4f53\u7a7a\u95f4\u7684\u56db\u4e2a\u5751\uff0c\u6211\u66ff\u4f60\u8e29\u8fc7\u4e86", "image": ["https://laoguosofts.github.io/images/remyapp/remy-kitchen-3d-view.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/remyapp.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/remyapp.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Remy \u62cd\u7acb\u4f53\u7a7a\u95f4\u7684\u56db\u4e2a\u5751\uff0c\u6211\u66ff\u4f60\u8e29\u8fc7\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">用 Remy 拍立体空间的四个坑，我替你踩过了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">用 Remy 拍立体空间的四个坑，我替你踩过了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Remy 上手门槛看着不高，但从拍摄到分享中间藏着几个容易踩的雷——预览不代表成品、分享给朋友要看设备、图库里找不到、轮廓发虚以为软件坏了。这篇把每一个坑的症状、原因和解法都列清楚。</p>
+  </header>
+  <div class="prose serif">
+<p>第一次从<a href="https://remyapp.kook.yoga/download.html" target="_blank" rel="noopener">官方下载</a>拿到 Remy 装在鸿蒙手机上的时候，我以为这就是个"拍个 3D 照片"的玩意儿——它的<a href="https://remyapp.kook.yoga" target="_blank" rel="noopener">官网</a>上介绍得挺高大上，什么沉浸式空间、立体影像，但实际玩下来发现，从按下快门到朋友看到你的立体空间，中间藏着好几个容易踩的雷。有的坑踩了只是白等五分钟，有的坑踩了朋友那边直接看不到立体效果，还有的坑我差点以为手机坏了要送去修。</p>
+<p>把这几个坑写出来，按遇到顺序排，希望你别像我一样一个个试过来。</p>
+<h2>坑一：预览看着还行，成品惨不忍睹</h2>
+<p><strong>症状</strong>：刚拍完，屏幕上立刻出现一个可以转动的立体轮廓——墙是墙、桌子是桌子，看着挺像那么回事。结果五分钟后云端训练完，打开 3D 相册一看，墙面纹理一塌糊涂，桌面出现大片拼接痕迹，角落还有莫名其妙的空洞。</p>
+<p><strong>原因</strong>：那个拍完立刻出现的东西叫<strong>稠密点云预览</strong>，它和最终成品根本不是一回事。点云是系统端侧即时算出来的——把你拍到的每一帧画面转换成成千上万个空间中的点，拼出场景的大致轮廓。它的作用是"让你等待的时候有东西看"，不是"让你判断最终质量"。</p>
+<p>预览阶段能看清的只有大结构，光影、材质、精细纹理这些全是云端训练才补上的。我第一次就是看着预览轮廓没问题，放心去喝水了，回来一看成品，那张桌子的木纹拼得像被狗啃过。</p>
+<p><strong>解法</strong>：别太信预览的细节。预览能帮你快速发现构图有没有大问题——比如主体是不是偏了、背景是不是太空、有没有大面积遮挡——这些在点云里一眼就能看出来，趁早重拍比等五分钟返工划算。但纹理、光影、拼接精度这些质量指标，必须等云端重建完才作数。</p>
+<p><img src="../images/remyapp/remy-kitchen-3d-view.png" alt="Remy 重建完成后在 3D 相册里查看厨房沉浸空间" loading="lazy"></p>
+<h2>坑二：分享给朋友，对方看到的不是立体影像</h2>
+<p><strong>症状</strong>：辛辛苦苦拍了个厨房立体空间，保存到图库、碰一碰传给朋友，结果朋友打开手机图库看到的只是一段普通视频或者一张静态图。"说好的 3D 呢？"朋友一脸懵。</p>
+<p><strong>原因</strong>：Remy 的立体影像依赖鸿蒙系统的 3D 图形渲染能力——方舟引擎在本地实时渲染，让你可以在空间里自由转动视角。这套能力不是所有手机都有：旧版鸿蒙可能不支持，其他品牌手机肯定不支持。你传过去的是完整数据，但对方的设备没能力把它渲染成立体视图，就降级成普通媒体格式了。</p>
+<p><strong>解法</strong>：想让朋友"哇"一声，别传原图，<strong>生成特效视频发出去</strong>。特效视频是应用把立体空间里的运镜固化成一段流畅短片，导出后就是普通的 mp4，短视频平台、聊天工具都能直接播放。对方不需要装任何应用，也不需要鸿蒙手机，点开就能看到"视角在空间里游走"的效果。我后来发现特效视频才是 Remy 分享功能里最被低估的一环——本体分享路径复杂（要图库、要碰一碰），视频是真的通吃。</p>
+<h2>坑三：图库里找不到刚才拍的立体内容</h2>
+<p><strong>症状</strong>：拍完重建完，打开系统图库，翻来翻去找不到刚拍的立体影像。以为重建失败了，回到应用里一看，好好躺在 3D 相册页里呢。</p>
+<p><strong>原因</strong>：Remy 的成品默认只存在于应用的 3D 相册页，不会自动同步到系统图库。这和普通相机不一样——你用系统相机拍的照片自动进图库，但 Remy 得你手动"保存到图库"才行。我第一次以为拍完自动存，等了半小时图库刷新，还是没有，差点把应用卸载重装。</p>
+<p><strong>解法</strong>：重建完成后，在应用内找到那条沉浸空间，点保存到图库。保存完再打开系统图库，立体内容会和你的照片、视频并列出现在时间线里，缩略图和播放形态以系统实际呈现为准。之后分享就方便了——系统分享面板、碰一碰都能直接调用。记住：<strong>应用内的 3D 相册是临时存放，系统图库才是永久归档</strong>。</p>
+<h2>坑四：拍完轮廓发虚还以为软件坏了</h2>
+<p><strong>症状</strong>：拍完立刻出来的点云预览轮廓发虚，大面积空洞，好多地方根本没建出来。第一反应是"这软件坏了？我手机摄像头坏了？"差点就要联系客服。</p>
+<p><strong>原因</strong>：点云预览发虚或大面积空洞，几乎总是<strong>拍摄时的走位或光线问题</strong>。Remy 需要你围绕拍摄对象缓慢移动、采集足够多的视角才能拼出完整轮廓。如果你走太快、漏掉了某个方向，或者光线太暗/逆光导致部分区域画面糊了，点云就会出现空洞。这不是软件 bug，也不是摄像头坏了，是采集的数据不够用。</p>
+<p>后来去<a href="https://remyapp.pages.dev/" target="_blank" rel="noopener">Remy 文档</a>翻了一下才弄明白，里面专门有一页讲重建效果不好或失败怎么办，排查思路就是回溯拍摄过程：走位是否完整？光线是否均匀？有没有被遮挡？我第一次拍客厅就是走到一半被沙发绊了一下，快速闪了两步，结果沙发后面那面墙在点云里直接消失了。</p>
+<p><strong>解法</strong>：重新拍一遍，注意两点——<strong>慢走、走完</strong>。绕拍摄对象一圈，步伐匀速，别跳别停；光线尽量均匀，逆光的地方拉窗帘或者补个灯。点云预览是实时的，拍完立刻就能看到轮廓好不好，有空洞直接就在预览里重拍，别等五分钟看成品再返工。</p>
+<p><img src="../images/remyapp/remy-circle-align-guide.png" alt="Remy 拍摄时的走位对齐参考示意" loading="lazy"></p>
+<hr>
+<h2>防坑清单</h2>
+<ul><li>预览看轮廓不看细节，纹理质量等成品出来再说</li><li>跨设备分享优先用特效视频，原图只在鸿蒙手机间传</li><li>拍完记得手动保存到图库，应用内成品不会自动同步</li><li>轮廓发虚先检讨拍摄走位和光线，别忙着重装软件</li></ul>
+<p>知道这些坑之后，Remy 其实相当省心——按下快门、转一圈、等几分钟，就能得到一个可以自由环视的立体空间。踩过这四个坑，剩下的就是享受"把一个房间装进口袋"的感觉了。</p>
+<p>这篇里提到的资料和排查思路，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/remyapp" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/remyapp" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/remyapp" target="_blank" rel="noopener">GitCode</a> 上都有维护，搜 remyapp 就能找到对应的文档目录。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/freeok-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">freeok 是干嘛的？快问快答给你说清楚</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/9apps-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">9Apps 用了近两年，从&#34;凑合装应用&#34;到&#34;离不开的轻量版仓库&#34;</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

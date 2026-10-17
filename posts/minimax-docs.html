@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务 · 老郭软件铺</title>
+  
+<meta name="description" content="还没碰过AI工具的小白也不怕，这篇从零带你装软件、跑通第一个任务、解锁最值得先玩的三个功能，连术语都帮你翻译成大白话。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/minimax-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务">
+<meta property="og:description" content="还没碰过AI工具的小白也不怕，这篇从零带你装软件、跑通第一个任务、解锁最值得先玩的三个功能，连术语都帮你翻译成大白话。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/minimax-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/minimax-docs/app-shot-01.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/minimax-docs/app-shot-01.png">
+
+<meta name="twitter:title" content="完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务">
+<meta name="twitter:description" content="还没碰过AI工具的小白也不怕，这篇从零带你装软件、跑通第一个任务、解锁最值得先玩的三个功能，连术语都帮你翻译成大白话。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8fd8\u6ca1\u78b0\u8fc7AI\u5de5\u5177\u7684\u5c0f\u767d\u4e5f\u4e0d\u6015\uff0c\u8fd9\u7bc7\u4ece\u96f6\u5e26\u4f60\u88c5\u8f6f\u4ef6\u3001\u8dd1\u901a\u7b2c\u4e00\u4e2a\u4efb\u52a1\u3001\u89e3\u9501\u6700\u503c\u5f97\u5148\u73a9\u7684\u4e09\u4e2a\u529f\u80fd\uff0c\u8fde\u672f\u8bed\u90fd\u5e2e\u4f60\u7ffb\u8bd1\u6210\u5927\u767d\u8bdd\u3002", "headline": "\u5b8c\u5168\u4e0d\u61c2AI\u4e5f\u80fd\u4e0a\u624b\u7684MiniMax\u2014\u2014\u4e94\u5206\u949f\u8dd1\u901a\u7b2c\u4e00\u6b21\u4efb\u52a1", "image": ["https://laoguosofts.github.io/images/minimax-docs/app-shot-01.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/minimax-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/minimax-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u5b8c\u5168\u4e0d\u61c2AI\u4e5f\u80fd\u4e0a\u624b\u7684MiniMax\u2014\u2014\u4e94\u5206\u949f\u8dd1\u901a\u7b2c\u4e00\u6b21\u4efb\u52a1", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">还没碰过AI工具的小白也不怕，这篇从零带你装软件、跑通第一个任务、解锁最值得先玩的三个功能，连术语都帮你翻译成大白话。</p>
+  </header>
+  <div class="prose serif">
+<h2>这篇能带你从完全不懂到用起来——而且不需要任何基础</h2>
+<p>第一次听到 MiniMax 这名字，你可能跟我当初一样懵：这不就是又一个AI聊天工具吗？点开<a href="https://minimax.fedq.ren" target="_blank" rel="noopener">MiniMax官网</a>一看——嚯，它能帮你搭整个网站、生成视频、把录音转成简报、连PPT的配图都包了。说它是一个<strong>全能的AI干活搭子</strong>，比"聊天机器人"准确得多。</p>
+<p>打个生活化的比方：你不用自己写代码、不用装一堆软件、不用学什么API——就像给一个刚入职的实习生派活，把你想要的东西用大白话告诉他，他就自己去找资料、写报告、做PPT、甚至搭一个能访问的网页给你。唯一的区别是，这个实习生不会喊累、不会请假，而且每天都在变聪明。</p>
+<p>这篇就是为完全没碰过AI工具的朋友写的。你跟着走一遍，五分钟之内就能让它帮你干成第一件事。</p>
+<p><img src="../images/minimax-docs/app-shot-01.png" alt="MiniMax App 主界面" loading="lazy"></p>
+<h2>五分钟上手：从下载到第一次跑通</h2>
+<h3>第一步：装软件</h3>
+<p>MiniMax 有手机版也有桌面端。手机版直接去应用商店搜就行，iOS 和安卓都有上架。如果你手边没有应用商店，也可以去它的<a href="https://minimax.fedq.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包——两种途径都行，装完就能用。</p>
+<h3>第二步：注册拿积分</h3>
+<p>第一次注册会送你一笔免费积分，有效期三天。别舍不得用，这笔积分就是让你第一次跑流程练手的——第一天就把它花掉是最划算的。进 App 之后先点个人中心看一眼余额，心里有个数。</p>
+<h3>第三步：写指令，派第一单</h3>
+<p>这是最关键也最简单的一步。你不用学什么特殊语法，就把想让它干的事用大白话写出来。</p>
+<blockquote><p>不知道写什么？给你一个万能开头：<strong>"我有一份[你的文档名]，帮我把核心内容整理成一份带图表的分析报告。"</strong></p></blockquote>
+<p>要是手里正好有PDF、Word文档、甚至一段录音，直接从附件入口丢进去就行——PDF、幻灯片、音频、视频它都能读。</p>
+<h3>第四步：别慌，它可能会反问你</h3>
+<p>发出去之后，MiniMax 有时候会主动问你几个问题：比如你想要什么风格、报告要多长、有没有特别关注的部分。<strong>这不是故障，是它在确认方案</strong>。你回答得越具体，成品就越接近你想要的。</p>
+<p>要是它问你一些听不懂的技术问题（比如"数据库用什么"），你就直说"帮我选最合适的就行"——新手阶段不需要操心这些。</p>
+<h3>第五步：收成品</h3>
+<p>等它跑完，所有交付的东西会一次性推给你：报告文件、代码、网页链接……按需下载就行。要是任务里包含了网页，直接把那个链接发给任何人就能访问，连部署都帮你搞定了。</p>
+<p>第一次跑完的那种感觉——真的像有个团队在帮你干活。</p>
+<p><img src="../images/minimax-docs/app-shot-02.png" alt="第一次派任务的界面" loading="lazy"></p>
+<h2>上手后先玩这三个功能——新手最值得碰的</h2>
+<p>跑通第一次之后，你可能想知道"接下来玩什么"。别被那堆眼花缭乱的功能吓到，先把这三个摸熟，90%的日常场景就覆盖了。</p>
+<h3>一、给它丢一份文档，让它帮你做总结</h3>
+<p>这是使用频率最高的功能了。你有没有堆着好几百页的PDF报告没看？有没有老板发的长邮件懒得读？<strong>把文件一丢，说"帮我提炼核心要点，列成清单"</strong>，半分钟就能拿到结果。</p>
+<p>你会发现它不止能读文本——录音、视频上传进去，它能把内容整理成纪要。这背后靠的是它的长上下文能力（简单说就是它能一次性记住非常长的内容，不会读到后面忘了前面），整本书塞进去都不怕"断片"。</p>
+<h3>二、让它帮你画图</h3>
+<p>你肯定有过这种时候：写PPT需要一张配图，但找不到合适的；想给朋友做一张海报，但不会设计。MiniMax 的图像生成功能可以帮你搞定。</p>
+<p>有两种玩法：<strong>独立生图</strong>和<strong>任务内配图</strong>。独立生图就是直接跟它说"帮我画一张什么什么风格的图"；任务内配图更厉害——你让它"帮我做一份PPT，顺便配上合适的插画"，它会自己把图和内容配套生成，不用你分别忙活。</p>
+<p>语音生成同理——想给视频配一段口播，或者让它把你的报告读成音频简报，直接说就行，音色还能选。</p>
+<h3>三、让它帮你写代码/搭小工具</h3>
+<p>这听起来很硬核，但其实新手也能用。比如你想做一个简单的记账网页，或者搞一个图片批量压缩的小工具——不用自己敲一行代码，告诉它"我想要一个能XX的网页，帮我搭出来"，它不仅会写代码，还能帮你部署好，给你一个能打开的链接。</p>
+<p>它的编程能力背后靠的是自研的 M3 模型——这是目前 MiniMax 家族里最强的主力，在代码能力上确实下了功夫。当然新手不用管这些细节，你只要知道"你说什么，它就尽力帮你实现"。想深入了解 M3 的进阶玩法和其他模型的能力边界，去<a href="https://minimax-docs.pages.dev/" target="_blank" rel="noopener">MiniMax文档</a>里翻就行。</p>
+<h2>小白最常问的三个问题</h2>
+<h3>积分用完了怎么办？会不会偷偷扣钱？</h3>
+<p>积分是按任务实际消耗来算的——轻量问答花得少，搭网站这种复杂任务花得多。新用户的免费积分用完之后，有订阅制和积分包两种付费方式，都是明码标价的。App 里每笔消耗都能查到明细，不会偷偷扣。</p>
+<h3>为什么有时候它会问我要 API 密钥？</h3>
+<p>这是因为某些任务需要调用外部服务（比如代码托管平台、数据库）。MiniMax 用一种安全封装的方式收集这些信息，不会明文出现在对话里。新手阶段碰到这种问题，如果不明白就直接说"帮我选最简单的方案"，不用纠结。</p>
+<h3>生成的图像/语音额度为什么感觉用得特别快？</h3>
+<p>这里有个新手容易忽略的设计：<strong>文本、图像、语音共享同一个额度池</strong>。你生图多了，留给写文档的额度就少了。月底额度紧张的时候，优先把额度留给最重要的任务就行。订阅档位越高，池子越大，日常使用其实 Plus 档就够了，只有需要每天生成视频的才需要更高档位。</p>
+<h2>最后说一句</h2>
+<p>从完全不懂到跑通第一次任务，真的只需要几分钟。别被那些技术名词吓跑——MiniMax 的设计思路就是让"AI干活"这件事像跟人说话一样简单。第一次任务别给自己立太高的目标，就从"让它帮我整理一份熟悉的文档"开始，体验一遍流程，后面的所有玩法都是这个流程的变体。</p>
+<p>想深挖进阶用法的话，它的中文文档里有完整的功能说明和技巧——从怎么写更好的指令，到怎么搭配多模态输入输出，写得挺细的。用熟基础之后再慢慢翻，不会有信息过载的压力。</p>
+<p>这套资料我分别同步到了<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/MiniMax" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/MiniMax" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/MiniMax" target="_blank" rel="noopener">GitCode</a>三个仓库，无论你习惯用哪个平台都能访问。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/supermarket-docs.html">加班到凌晨三点，我在一间虚拟小超市里找回了秩序感</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/yazio.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/metv-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

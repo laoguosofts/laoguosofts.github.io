@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Spotube 搭一条「听歌→记谱→出周报」自动化链 · 老郭软件铺</title>
+  
+<meta name="description" content="每周整理自己的播放记录写成周报贴 Notion，以前要三步手动接力，现在 Spotube 一个应用把 Spotify 元数据、ListenBrainz 记谱、MusicBrainz 补全串成闭环。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/spotube-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Spotube 搭一条「听歌→记谱→出周报」自动化链">
+<meta property="og:description" content="每周整理自己的播放记录写成周报贴 Notion，以前要三步手动接力，现在 Spotube 一个应用把 Spotify 元数据、ListenBrainz 记谱、MusicBrainz 补全串成闭环。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/spotube-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/spotube-docs/spotube-desktop.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/spotube-docs/spotube-desktop.png">
+
+<meta name="twitter:title" content="用 Spotube 搭一条「听歌→记谱→出周报」自动化链">
+<meta name="twitter:description" content="每周整理自己的播放记录写成周报贴 Notion，以前要三步手动接力，现在 Spotube 一个应用把 Spotify 元数据、ListenBrainz 记谱、MusicBrainz 补全串成闭环。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u6574\u7406\u81ea\u5df1\u7684\u64ad\u653e\u8bb0\u5f55\u5199\u6210\u5468\u62a5\u8d34 Notion\uff0c\u4ee5\u524d\u8981\u4e09\u6b65\u624b\u52a8\u63a5\u529b\uff0c\u73b0\u5728 Spotube \u4e00\u4e2a\u5e94\u7528\u628a Spotify \u5143\u6570\u636e\u3001ListenBrainz \u8bb0\u8c31\u3001MusicBrainz \u8865\u5168\u4e32\u6210\u95ed\u73af\u3002", "headline": "\u7528 Spotube \u642d\u4e00\u6761\u300c\u542c\u6b4c\u2192\u8bb0\u8c31\u2192\u51fa\u5468\u62a5\u300d\u81ea\u52a8\u5316\u94fe", "image": ["https://laoguosofts.github.io/images/spotube-docs/spotube-desktop.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/spotube-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/spotube-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Spotube \u642d\u4e00\u6761\u300c\u542c\u6b4c\u2192\u8bb0\u8c31\u2192\u51fa\u5468\u62a5\u300d\u81ea\u52a8\u5316\u94fe", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">用 Spotube 搭一条「听歌→记谱→出周报」自动化链</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">用 Spotube 搭一条「听歌→记谱→出周报」自动化链</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 11 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周整理自己的播放记录写成周报贴 Notion，以前要三步手动接力，现在 Spotube 一个应用把 Spotify 元数据、ListenBrainz 记谱、MusicBrainz 补全串成闭环。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要给自己的 Notion 写一份「本周听歌记录」——不是流水账，是带播放次数 Top 10、风格分布饼图、发现的新艺人三个板块的小周报。以前这条链要三步手动接力，中间卡了不止一次。</p>
+<h2>旧流程：三个工具来回切，两次手动复制</h2>
+<p>最初我是这么干的：</p>
+<ol><li>用 Spotify 听歌，它自动把播放记录推给 Last.fm</li><li>周末打开 Last.fm 网页端，手动点「导出 CSV」（Last.fm 没有官方 API 导出，只能下载那个 2013 年没变过的 CSV 按钮）</li><li>把 CSV 拖进 Excel，写 VLOOKUP 按艺人聚合次数，截一张饼图，复制 Markdown 表格贴 Notion</li></ol>
+<p>这条链的问题从第一环就开始了。Spotify 在我的地区只能用 Premium，古典曲目和一些独立发行的专辑在 Spotify 曲库里直接搜不到——我听了两首现场版，Last.fm 记的却是 Spotify 上根本不存在的条目，最后周报里的 Top 10 混着「未知艺人」，统计废掉。</p>
+<p>中间的 CSV 导出环节更脆。Last.fm 的导出按钮偶尔会返回空文件，而且字段是 2013 年的 schema，缺 genre、缺 album art，我每次要手动补三列。再加上 Last.fm 不支持 MusicBrainz ID，同一个艺人的不同版本（比如「John Coltrane」和「John Coltrane Quartet」）会被当成两条，统计聚合时我得手动合并 Excel 里的 30 多行重复。</p>
+<h2>新流程：Spotube 插在中间，三段变一段</h2>
+<p>换 <a href="https://spotube.hhdc.tech" target="_blank" rel="noopener">Spotube官网</a> 之后，整个流程的结构变成了这样：</p>
+<pre><code>Spotube 听歌（Spotify 元数据 + YouTube/Piped 音频流）
+        ↓ 自动
+ListenBrainz 记谱（Spotube 内置 MusicBrainz 插件）
+        ↓ 每周一次
+脚本拉 ListenBrainz API → 生成周报 Markdown → 贴 Notion</code></pre>
+<p>Spotube 在这里扮演的角色不是「又一个播放器」，而是<strong>三个外部服务的统一入口</strong>。它的插件架构里，Spotify Metadata 插件负责搜歌、拿歌单、拉艺人信息；MusicBrainz 插件在 Spotify 搜不到时自动补全冷门曲目的元数据（古典、爵士、世界音乐这块比 Spotify 全得多）；同时 MusicBrainz 插件还实现了 ListenBrainz 的 ScrobbleAPI——每次播放的曲目会被自动推到 ListenBrainz，不需要我额外装 Last.fm 客户端。</p>
+<p><a href="https://spotube.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a>安装包后，我只需要在 Spotube 设置里做三件事：Spotify 账号登录（它只在设备本地存 OAuth token，用 flutter_secure_storage 加密，不会走任何中间服务转发）、ListenBrainz 账号的 User Token 粘贴进去、音频源选 Piped（因为我这边 YouTube API 不稳定，Piped 实例挂了换一个就行）。之后播放行为就完全自动记录了。</p>
+<p><img src="../images/spotube-docs/spotube-desktop.png" alt="Spotube 桌面端主界面，左侧是歌单和艺人列表，右侧是正在播放的曲目和封面" loading="lazy"></p>
+<h3>衔接点一：ListenBrainz vs Last.fm 的选择</h3>
+<p>这条链能不能跑，记谱服务的选择是关键。我之前用 Last.fm 五年，换 ListenBrainz 的原因有三个：</p>
+<ul><li><strong>MBID 打通</strong>：Spotube 的 MusicBrainz 插件给每首曲目打上 MBID，ListenBrainz 用 MBID 做播放记录的唯一标识，同一个艺人的不同版本不会被拆成两条。我之前在 Last.fm 手动合并的那 30 多行，换 ListenBrainz 之后自动就合并了。</li><li><strong>API 开放</strong>：ListenBrainz 有完整的 REST API，可以用脚本直接拉播放记录 JSON，不用走 CSV 导出那条 2013 年的老路子。</li><li><strong>数据可全量导出</strong>：ListenBrainz 允许你一键下载自己所有的播放记录 JSON，Last.fm 没有这个功能——万一哪天账号被封，数据带不走。</li></ul>
+<p>ListenBrainz 账号是免费的，注册完去个人设置页拿 User Token，粘贴到 Spotube 设置 → Scrobble 里就生效了。Spotube 可以同时连 Spotify Metadata 和 ListenBrainz Scrobble，两者互不干扰：Spotify 负责「我搜什么歌、我有哪些歌单」，ListenBrainz 负责「我实际听了什么」。</p>
+<h3>衔接点二：冷门曲目元数据补全</h3>
+<p>旧流程里我最头疼的是 Spotify 搜不到的曲目。比如我最近在听的 John Zorn 的《Naked City》现场版，Spotify 只有 studio album，没有 bootleg。以前在 YouTube 上听完 Last.fm 记的是「未知艺人」，现在 Spotube 的 MusicBrainz 插件会自动用 MBID 匹配——MusicBrainz 的众包数据里有人补了 Zorn 的 bootleg 信息，Spotube 拿到正确的艺人名、专辑名、MBID，ListenBrainz 那边就不会出现「未知」。</p>
+<p>MusicBrainz 的插件能力不止补元数据这么简单。它的条目带全球唯一的 MBID，ListenBrainz 用这个 ID 做关联，我之后写周报时拉 API，每个艺人、每首曲目都是唯一的，不用再手动合并——MusicBrainz 插件的配置细节可以翻 <a href="https://spotube-docs.pages.dev/" target="_blank" rel="noopener">Spotube文档</a>。</p>
+<p><img src="../images/spotube-docs/plugins-page.webp" alt="Spotube 插件管理页，可以启用和停用 Metadata provider、Audio source、Scrobble 等各类插件" loading="lazy"></p>
+<h2>实操细节：两个最容易断链的环节</h2>
+<p>这条链跑了六周，断过两次。都是同一个地方——Spotube 数据目录里的数据库文件没关进程就拷贝，导致 spotube.db 损坏。Spotube 的播放列表、收藏、歌单全存在这个 SQLite 文件里，而 ListenBrainz 的 scrobble 是实时推送的，数据库坏了不影响记谱，但会丢本地歌单。</p>
+<h3>细节一：备份的正确姿势</h3>
+<p>Spotube 没有内置备份功能，手动备份的步骤是：</p>
+<ol><li>先完全退出 Spotube（Windows 下任务管理器确认 spotube.exe 进程没了，它写 spotube.db 时进程退出才 flush 到磁盘）</li><li>复制 <code>%APPDATA%\Spotube\spotube.db</code> 到备份位置</li><li>如果想保留主题和 EQ 设置，同时复制 <code>preferences</code> 文件</li></ol>
+<p>我之前图省事直接复制进程还在的数据库文件，结果两次损坏。现在把「退出 Spotube → 等 5 秒 → 拷贝」做成了 Notion 周报模板里的 checklist，每周五固定触发。</p>
+<h3>细节二：音频源切换的自动化</h3>
+<p>Spotube 的音频源不是只有一个默认。设置里可以选 YouTube、Piped、Invidious 三种，而且支持按曲目单独切换——播放页右下角有一个源切换按钮。我写周报脚本时加了一个小逻辑：拉 ListenBrainz 记录时，标记出哪些曲目是 Piped 拿到的、哪些是 YouTube 拿到的，周报里专门有一行「本周 Piped 兜底 X 首」。这让我能快速知道 Piped 实例挂没挂（某个实例挂了，那周 Piped 兜底数量会骤增），提前换实例。</p>
+<p>Spotube v5.1 起音频源也插件化了，社区已经有 Qobuz Audio、Dab Radio 这些插件。我没试过，但如果你是 CD 音质的发烧友，FLAC 无损支持已经在 v5.1 里原生加好了——Spotube 直接原样播放 Qobuz 插件拿的 FLAC 流，不做重采样。</p>
+<h2>效果与边界</h2>
+<p>这条链跑起来之后，我每周整理周报的时间从 45 分钟降到了 10 分钟——少了两次手动 Excel 合并、一次 CSV 手动导出、一次 Notion 手动贴 Markdown 表格。</p>
+<p>但这套流程也有明确的边界：</p>
+<ul><li><strong>ListenBrainz 需要你主动注册</strong>。Spotube 默认不做任何遥测上传，Play 记录不会自动上传任何地方——这是它的设计哲学。你不登 ListenBrainz 就纯本地，那这条链的记谱环节就没了。</li><li><strong>Spotube 下载的曲目在本地</strong>，默认路径是 <code>%USERPROFILE%\Music\Spotube Downloads\</code>。如果你同时在多台设备听歌，各设备的下载目录是隔离的，记谱是统一的（ListenBrainz 按账号聚合），但离线曲目不会跨设备同步。</li><li><strong>插件系统目前不支持热更新</strong>。改了插件代码要重新构建 .smplug、重启 Spotube 才生效。对普通用户来说这不是问题，但如果你自己写插件调试，得接受改一行重启一次。</li></ul>
+<p>我这套「听歌 → ListenBrainz → 周报」的链，核心收益不是「少点了几下按钮」这么简单——是把 Last.fm 那条 2013 年没变的 CSV 导出链彻底干掉了。ListenBrainz 的 API 是结构化的，MBID 是唯一的，脚本直接拉 JSON 就出周报，这两件事 Last.fm 做不到。而这全是 Spotube 把三个插件（Spotify Metadata、MusicBrainz、ListenBrainz Scrobble）串在同一个进程里带来的副作用——我之前分别装 Spotify 客户端、Last.fm 客户端、MusicBrainz 浏览器扩展，三个工具各管一段，现在一个应用就够了。</p>
+<p>这套Spotube插件生态的完整资料和构建流程，我同步维护在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Spotube" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Spotube" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Spotube" target="_blank" rel="noopener">GitCode</a> 三个仓库里，方便不同网络环境的同学参考。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/meria-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Meria 用了大半年，这个 QQ 机器人框架到底经不经造</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/zarchiver.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">ZArchiver 用了三年，我发现当初装它的理由已经过时了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

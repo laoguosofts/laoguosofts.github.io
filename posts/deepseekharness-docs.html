@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>DeepseekHarness 值不值得掏钱？把这笔账算得明明白白 · 老郭软件铺</title>
+  
+<meta name="description" content="核心框架免费开源，但模型 API、远程通道、时间成本都要钱。我把三档使用强度分别算了一遍，看完三秒就能对号入座。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/deepseekharness-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepseekHarness 值不值得掏钱？把这笔账算得明明白白">
+<meta property="og:description" content="核心框架免费开源，但模型 API、远程通道、时间成本都要钱。我把三档使用强度分别算了一遍，看完三秒就能对号入座。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/deepseekharness-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/deepseekharness-docs/mobile-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/deepseekharness-docs/mobile-hero.png">
+
+<meta name="twitter:title" content="DeepseekHarness 值不值得掏钱？把这笔账算得明明白白">
+<meta name="twitter:description" content="核心框架免费开源，但模型 API、远程通道、时间成本都要钱。我把三档使用强度分别算了一遍，看完三秒就能对号入座。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6838\u5fc3\u6846\u67b6\u514d\u8d39\u5f00\u6e90\uff0c\u4f46\u6a21\u578b API\u3001\u8fdc\u7a0b\u901a\u9053\u3001\u65f6\u95f4\u6210\u672c\u90fd\u8981\u94b1\u3002\u6211\u628a\u4e09\u6863\u4f7f\u7528\u5f3a\u5ea6\u5206\u522b\u7b97\u4e86\u4e00\u904d\uff0c\u770b\u5b8c\u4e09\u79d2\u5c31\u80fd\u5bf9\u53f7\u5165\u5ea7\u3002", "headline": "DeepseekHarness \u503c\u4e0d\u503c\u5f97\u638f\u94b1\uff1f\u628a\u8fd9\u7b14\u8d26\u7b97\u5f97\u660e\u660e\u767d\u767d", "image": ["https://laoguosofts.github.io/images/deepseekharness-docs/mobile-hero.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/deepseekharness-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/deepseekharness-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "DeepseekHarness \u503c\u4e0d\u503c\u5f97\u638f\u94b1\uff1f\u628a\u8fd9\u7b14\u8d26\u7b97\u5f97\u660e\u660e\u767d\u767d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">DeepseekHarness 值不值得掏钱？把这笔账算得明明白白</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">DeepseekHarness 值不值得掏钱？把这笔账算得明明白白</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">核心框架免费开源，但模型 API、远程通道、时间成本都要钱。我把三档使用强度分别算了一遍，看完三秒就能对号入座。</p>
+  </header>
+  <div class="prose serif">
+<p>它到底值不值得掏钱？</p>
+<p>先给个前提：DeepseekHarness 的<a href="https://deepseekharness.qjxz.skin" target="_blank" rel="noopener">官网</a>上写明了它是 MIT 协议全开源的，你去拉源码、跑 npx 启动 Web UI、换任意模型——这些动作一分钱不花。那账从哪来？钱花在 dsh <strong>之外</strong>的那些环节：你选哪个模型、要不要远程访问、愿不愿意花时间把插件生态搭起来。</p>
+<p>这篇我把每个成本拆开算，你对照自己的使用强度，看看该在哪些地方掏钱、哪些地方根本不用花。</p>
+<h2>定价拆解：免费版给什么，"付费"版多什么</h2>
+<p>dsh 没有官方定价表，也没有订阅制。所谓"免费版"和"付费版"的界限，其实是你往这套开源框架里<strong>塞了多少有成本的组件</strong>。</p>
+<p><strong>纯免费能拿到的东西：</strong></p>
+<ul><li>核心运行时（Cordis 插件内核）、四种运行模式（标准、极简、PTC、创造）、Web UI 和 CLI 全功能</li><li>本地模型调用——如果你有本地部署的 Ollama、LM Studio，直接配进去就行，零额外费用</li><li>局域网移动访问插件（dsh-mobile）的基础配对和会话同步功能</li></ul>
+<p><strong>"付费"环节（按需选装，没有强制）：</strong></p>
+<table><thead><tr><th>环节</th><th>成本</th><th>说明</th></tr></thead><tbody><tr><td>远程模型 API</td><td>按量付费</td><td>DeepSeek、Claude、OpenAI 等各家接口，每百万 token 从几块到几十块不等</td></tr><tr><td>远程通道</td><td>云服务器 / cloudflared 高级版</td><td>局域网访问免费，但跨网远程要么买 VPS 自建反向代理，要么用 cloudflared 免费版（有带宽限制）</td></tr><tr><td>插件生态</td><td>时间成本</td><td>插件市场里很多现成的，但找、装、调还是要花时间</td></tr><tr><td>移动端高级功能</td><td>目前免费</td><td>dsh-mobile 0.4.0+ 的多设备列表、任务通知还没收费，但后续可能跟进</td></tr></tbody></table>
+<p>说穿了，dsh 的定价逻辑跟闭源编码智能体<strong>完全反着来</strong>——Claude Code 是订阅费包模型包体验，dsh 是框架白送、你自己拼积木、哪块要钱你自己决定在哪块掏钱。这个设计挺鸡贼的：看起来"免费"，但重度用户迟早要在模型 API 上花真金白银。</p>
+<h2>算账：三档用户各花多少钱</h2>
+<p>我按实际使用场景把人分成三档，每档算一遍月成本和决策依据。</p>
+<h3>轻度用：每月不超过 20 小时</h3>
+<p><strong>画像</strong>：偶尔跑 dsh 做些零散任务——改个配置文件、写个小脚本、帮着读一下陌生项目。大部分时间还是手动写代码或用 IDE 自带的 AI 补全。</p>
+<p><strong>成本账</strong>：</p>
+<p>模型 API 按每月 20 小时 × 平均每小时 5 万 token 估算，约 100 万 token。选 DeepSeek Chat 这种便宜档位，每百万 token 约 5 块钱——<strong>月成本 5~15 元</strong>。</p>
+<p>远程通道？不需要。大部分任务在本地跑，偶尔在外网用手机连一下，cloudflared 免费版的带宽够撑。</p>
+<p><img src="../images/deepseekharness-docs/mobile-hero.png" alt="手机端 dsh 界面实景" loading="lazy"></p>
+<p><strong>结论</strong>：几乎零成本。唯一要做的就是花 30 分钟从<a href="https://deepseekharness.qjxz.skin/download.html" target="_blank" rel="noopener">DeepseekHarness下载</a>拿一份、装起来、配好模型 API key。这个门槛太低了，轻度用户闭眼装，不用纠结。</p>
+<h3>主力用：日常编码的主力助手</h3>
+<p><strong>画像</strong>：每天打开 dsh，让它读仓库、改文件、跑命令、写测试。一周用 20~40 小时，等于把它当成了日常开发流程的一部分。</p>
+<p><strong>成本账</strong>：</p>
+<p>模型 token 消耗会陡增——每天 10~20 万 token 是常态，月累计 500~1000 万。这时候选便宜模型还是高质量模型就成了决策点：</p>
+<ul><li>全用 DeepSeek：月 25~50 元</li><li>混合 DeepSeek + Claude（复杂任务用 Claude）：月 80~150 元</li><li>全用 Claude：月 200~400 元</li></ul>
+<p>远程通道开始有需求了——上下班路上想在手机上接着跑 dsh 的任务、或者让家里的 dsh 在云端跑。自建 VPS（轻量云 2 核 2G）约 50 元/月，cloudflared 免费版此时可能已经不够用了。</p>
+<p><strong>总月成本：100~450 元</strong></p>
+<p>这里有个关键对比：Claude Code 订阅是每月 20 美元（约 145 元），包 Claude 全模型使用。如果你主力用只选 DeepSeek，那 dsh 的成本是订阅的零头；但如果你主力用就是为了用 Claude 的更强推理能力，dsh 直接按量付 API 费反而比订阅贵——因为 Claude Code 订阅有专属配额和更高的速率上限。</p>
+<p><strong>结论</strong>：主力用户先做一个选择题——你选 dsh 是为了<strong>省钱</strong>还是为了<strong>控制权</strong>？</p>
+<ul><li>为省钱：锁死 DeepSeek 或其他便宜模型，月百元以内拿下，比任何闭源订阅都划算</li><li>为控制权：换模型、加插件、自己搭远程，那就准备好比闭源订阅花更多 API 费</li><li>只为开箱即用：直接订阅 Claude Code 或 Codex CLI，省心</li></ul>
+<h3>重度用：团队级 / 多设备 / 全流程嵌入</h3>
+<p><strong>画像</strong>：不仅自己天天用，还在团队里推广；或者用 dsh 搭了一套自动化流水线、让它持续监控仓库、自动生成 PR。这时候你要的已经不是一个"助手"，而是一套"基础设施"。</p>
+<p><strong>成本账</strong>：</p>
+<p>token 消耗可能到每月 2000 万以上——全 Claude 的话月 API 费轻松过千。远程通道不能再用 cloudflared 免费版了，得自建稳定的反向代理或买商业版，VPS 配置也要升级。还有可能需要在云端持续跑 dsh 实例（不让它断），云服务器成本又是一块。</p>
+<p><img src="../images/deepseekharness-docs/lan-access.png" alt="局域网访问配置界面" loading="lazy"></p>
+<p><strong>总月成本：2000~5000 元</strong></p>
+<p>但这个量级下，dsh 的<strong>可替换性</strong>就值回票价了——闭源工具你没法改它的执行循环、没法替换沙箱、没法接自建模型服务。而 dsh 一切皆插件，这个设计在<a href="https://deepseekharness-docs.pages.dev/" target="_blank" rel="noopener">DeepseekHarness文档</a>里讲得更透彻；你可以把模型调用换成公司内部部署的私有化大模型、把执行环境换成自有沙箱、把 UI 换掉——这些事在闭源产品上根本不可能做。</p>
+<p><strong>结论</strong>：重度用户的决策不在"花多少钱"，而在"你需不需要掌控运行时"。需要的话，花这个钱；不需要的话，用闭源订阅反而更省心且便宜。</p>
+<h2>替代方案：不付钱有什么别的路</h2>
+<p>如果你觉得上面算出来的数字还是偏高，有几条替代路线：</p>
+<p><strong>路线一：换开源同类，但不开源到插件化</strong></p>
+<p>OpenCode 也是开源的，也支持多模型，但它的核心不可替换——换模型可以、换沙箱不行、换 UI 不行。如果 dsh 的插件化对你来说"过度设计"，OpenCode 可能是更轻的选择。成本结构跟 dsh 类似（框架免费、模型按量），但少了折腾插件的时间成本。</p>
+<p><strong>路线二：降低使用频率，用闭源订阅</strong></p>
+<p>Claude Code 订阅 20 美元/月，如果你的使用量其实不到主力用的一半（比如每周 10 小时），那订阅费可能反而比 dsh 的 API 按量付费便宜——因为订阅给了更高的速率和更稳定的配额。这时候直接订阅闭源产品，省了折腾 dsh 的时间，也省了模型 API 的精打细算。</p>
+<p><strong>路线三：纯本地模型，零 token 费</strong></p>
+<p>如果你的任务不涉及复杂推理，本地跑 Ollama 或 LM Studio（装个 Qwen2、DeepSeek-R1 之类的量化模型），dsh 配进去就是纯本地、零 API 费。代价是模型能力弱很多，复杂任务可能跑不动。这条路适合"用 dsh 框架但不依赖云端模型"的用户。</p>
+<h2>最终结论：三秒对号入座</h2>
+<table><thead><tr><th>你是哪种人</th><th>该怎么做</th></tr></thead><tbody><tr><td>轻度用（月 &lt; 20 小时）</td><td>装！配个便宜模型 API 就完事，月成本个位数</td></tr><tr><td>主力用 + 想省钱</td><td>装！锁死便宜模型，比闭源订阅划算</td></tr><tr><td>主力用 + 想要控制权</td><td>装！准备好比订阅花更多 API 费</td></tr><tr><td>主力用 + 只求省心</td><td>直接订 Claude Code / Codex CLI，别折腾</td></tr><tr><td>重度用 + 需要掌控运行时</td><td>装！框架费为零，花的钱买的是"能改它"的权利</td></tr><tr><td>重度用 + 不需要控制权</td><td>订闭源，省心省钱</td></tr><tr><td>不想花一分钱</td><td>装 + 配本地 Ollama，能力有限但能用</td></tr></tbody></table>
+<p>最后说句实话：dsh 这套定价最聪明的地方就是它让每个人都能找到自己的成本点。轻度用户真的可以零成本试水，重度用户也不会被订阅费卡死——你愿意为哪个环节掏钱，就掏哪个环节。这个弹性是闭源产品给不了的。它的开源代码在三个平台都有镜像，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/DeepseekHarness" target="_blank" rel="noopener">GitHub</a>是主仓库，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/DeepseekHarness" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/DeepseekHarness" target="_blank" rel="noopener">GitCode</a>方便国内用户更快访问。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/uki-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">我装了 Uki 试用三天，说说这款陌生人社交 App 到底值不值得</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/chatgpt5-6.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我把 ChatGPT5.6 嵌进了每周工作链——从周报生成到代码重构全打通</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Maple 把作业检查到考前刷题串成一条链——我每周是这么干的 · 老郭软件铺</title>
+  
+<meta name="description" content="每周数学作业批改 + 考前刷题是两个让我头疼的环节，以前靠拍照解题查答案、靠错题本记错步、靠手算补同类题。这篇讲我怎么把 Maple 嵌进这条流程，让查错、重练、错题归档三步连起来。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/maple-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Maple 把作业检查到考前刷题串成一条链——我每周是这么干的">
+<meta property="og:description" content="每周数学作业批改 + 考前刷题是两个让我头疼的环节，以前靠拍照解题查答案、靠错题本记错步、靠手算补同类题。这篇讲我怎么把 Maple 嵌进这条流程，让查错、重练、错题归档三步连起来。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/maple-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/maple-docs/step-by-step-view.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/maple-docs/step-by-step-view.png">
+
+<meta name="twitter:title" content="用 Maple 把作业检查到考前刷题串成一条链——我每周是这么干的">
+<meta name="twitter:description" content="每周数学作业批改 + 考前刷题是两个让我头疼的环节，以前靠拍照解题查答案、靠错题本记错步、靠手算补同类题。这篇讲我怎么把 Maple 嵌进这条流程，让查错、重练、错题归档三步连起来。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u6570\u5b66\u4f5c\u4e1a\u6279\u6539 + \u8003\u524d\u5237\u9898\u662f\u4e24\u4e2a\u8ba9\u6211\u5934\u75bc\u7684\u73af\u8282\uff0c\u4ee5\u524d\u9760\u62cd\u7167\u89e3\u9898\u67e5\u7b54\u6848\u3001\u9760\u9519\u9898\u672c\u8bb0\u9519\u6b65\u3001\u9760\u624b\u7b97\u8865\u540c\u7c7b\u9898\u3002\u8fd9\u7bc7\u8bb2\u6211\u600e\u4e48\u628a Maple \u5d4c\u8fdb\u8fd9\u6761\u6d41\u7a0b\uff0c\u8ba9\u67e5\u9519\u3001\u91cd\u7ec3\u3001\u9519\u9898\u5f52\u6863\u4e09\u6b65\u8fde\u8d77\u6765\u3002", "headline": "\u7528 Maple \u628a\u4f5c\u4e1a\u68c0\u67e5\u5230\u8003\u524d\u5237\u9898\u4e32\u6210\u4e00\u6761\u94fe\u2014\u2014\u6211\u6bcf\u5468\u662f\u8fd9\u4e48\u5e72\u7684", "image": ["https://laoguosofts.github.io/images/maple-docs/step-by-step-view.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/maple-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/maple-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Maple \u628a\u4f5c\u4e1a\u68c0\u67e5\u5230\u8003\u524d\u5237\u9898\u4e32\u6210\u4e00\u6761\u94fe\u2014\u2014\u6211\u6bcf\u5468\u662f\u8fd9\u4e48\u5e72\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">用 Maple 把作业检查到考前刷题串成一条链——我每周是这么干的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">用 Maple 把作业检查到考前刷题串成一条链——我每周是这么干的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周数学作业批改 + 考前刷题是两个让我头疼的环节，以前靠拍照解题查答案、靠错题本记错步、靠手算补同类题。这篇讲我怎么把 Maple 嵌进这条流程，让查错、重练、错题归档三步连起来。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要做两件事：给儿子批数学作业、陪他考前刷题。以前这是三步：用拍照解题 App 查答案、拿红笔标错步、翻课本找同类题让他重做——三步之间全是手动衔接，经常红笔标完错步就忘了让他补练，或者补练的题和原题差太远、错因根本没覆盖。</p>
+<p>现在这条链变成了一条：写作业 → Maple 查过程 → 一键换同类型重练 → 错题自动归档。中间少了两次手动复制，也不用我自己出同类题。这篇讲具体怎么接。</p>
+<h2>旧流程卡在哪</h2>
+<p>先说旧流程的三个断点：</p>
+<p><strong>第一个断点：拍照解题只给标准答案，不管你自己写的过程对不对。</strong> 儿子算一道积分题，答案对了但中间某步符号抄错，拍照解题 App 返回"正确"，这步扣分的错就漏掉了。反过来，如果他答案错了，App 给一份"标准过程"，他从头抄一遍，还是不知道自己原来错在哪一行。</p>
+<p><strong>第二个断点：错步找到了，但同类题要自己找。</strong> 翻课本、翻笔记本，有时找十分钟还没找到一道同类型的。刚暴露的错因趁着热乎劲补练效果最好，十分钟过去那个劲就散了。</p>
+<p><strong>第三个断点：错题归档靠手抄。</strong> 把错步抄进错题本，标记错因类型——符号错误、公式记错、步骤跳太多——下周翻的时候，得从一堆手抄记录里重新定位是哪道题、错在哪。</p>
+<p>三个断点加起来，每周这两件事要花我一个多小时。</p>
+<h2>新流程怎么把 Maple 插进去</h2>
+<p><a href="https://maple.qjxz.skin" target="_blank" rel="noopener">Maple官网</a>上定义它是一款手写+拍照输入的数学计算器，4.2 版加了 Check My Work（检查我的作业），4.3 版又加了 Try Another（换题再练）。这两个功能正好把旧流程的第一个和第二个断点填上了。</p>
+<p>整条链长这样：</p>
+<pre><code>儿子纸笔写完整解题过程
+    ↓
+Maple 拍整页过程（不是只拍题目）
+    ↓
+Check My Work 逐行标注对/错，定位第一次错的那行
+    ↓
+展开分步解题，让他自己找到断点在哪
+    ↓
+点 Try Another 换一道同类型题，马上再来一道
+    ↓
+连对三道换下一个知识点</code></pre>
+<p><strong>衔接点 1：拍整页过程，不是只拍题目。</strong> 这是 Check My Work 和普通拍照解题的本质区别——普通拍照解题只给"这道题怎么做"，Check My Work 给"你做的这份过程，哪一步开始错的"。Maple 专门优化过对潦草手写的识别，儿子那种连笔式字迹也能认出来。</p>
+<p><strong>衔接点 2：错步定位后立刻换题。</strong> Try Another 在结果页和编辑器里都有入口，刚找到断点马上点，Maple 换一道同类型的题（4.3.1 起已经覆盖微分和积分）。这一步的关键是时机——错因刚暴露、注意力还在的时候，重练的记忆效果最好。</p>
+<p><strong>衔接点 3：错题归档。</strong> 这一步 Maple 没直接解决，我用了个笨办法但够用：把 Check My Work 标注过的那页过程拍下来存进一个专门的相册，文件名带错因类型（比如"积分-符号抄错"）。下周翻的时候按文件名搜就行，比手抄快。</p>
+<p><img src="../images/maple-docs/step-by-step-view.png" alt="拍整页过程后 Check My Work 逐行标注对错" loading="lazy"></p>
+<h2>流程里最容易断链的两个环节</h2>
+<p>这条链跑了四周，有两个地方经常出错，写出来省得你踩坑。</p>
+<p><strong>第一个断链点：相机权限被拒。</strong> 第一次打开 App 时系统弹窗如果点了"不允许"，拍照界面直接黑屏——这是"拍照功能坏了"投诉里的头号原因，功能没坏，是权限关了。iOS 走设置 → 隐私与安全性 → 相机 → 开 Maple；安卓走应用管理 → 权限管理 → 允许相机。手写面板和数学键盘两条输入路线不依赖相机，权限暂时给不了的场景可以先用这两条顶上，学习不中断。</p>
+<p><strong>第二个断链点：Try Another 的同类题类型覆盖。</strong> 上线时只覆盖常见代数题，4.3.1 才扩展到微分和积分，最新支持范围要翻 <a href="https://maple-docs.pages.dev/" target="_blank" rel="noopener">Maple文档</a> 里的版本演进。如果儿子练的是三角恒等变换，Try Another 换出来的题可能不太对路。这时候我会手动换题——但至少比自己翻课本找快，因为 Maple 至少能告诉我"这道题对/错、错在哪步"，我只需要换一道同类型的新题拍进去。</p>
+<p>另外提一下版本节奏。Maple 大约每季度一版，4.0 之前没有计算历史，4.2 才有 Check My Work，4.3 才有 Try Another。如果你的安装包版本在 4.0.1 左右，那 <a href="https://maple.qjxz.skin/download.html" target="_blank" rel="noopener">Maple下载</a> 这份适合作为离线安装来源，但完整功能要跟商店更新。</p>
+<h2>效果与边界</h2>
+<p>跑了四周之后，每周批作业加陪刷题的时间从一个多小时降到了四十分钟左右——少了两次手动复制（红笔标错步 → 找同类题 → 抄进错题本），也不用我自己出同类题。</p>
+<p>但这套流程也有边界：</p>
+<p><strong>第一，Check My Work 只认手写过程。</strong> 如果儿子是在草稿纸上乱涂几笔、跳了很多步骤，它也会报错——但这其实是好事，逼着他写完整过程。</p>
+<p><strong>第二，Try Another 的题型覆盖在增长中。</strong> 目前对大学微积分支持不错，但高中部分题型覆盖还不全。如果碰到这种情况，手动换题顶上，别等功能完善。</p>
+<p><strong>第三，免费版有次数限制。</strong> 换题本身免费，但展开新题的完整分步过程受免费版次数限制。如果练得勤，可能要 Premium——这部分自己决定。</p>
+<p>这套流程能不能直接抄走？如果你的场景是"给孩子批数学作业 + 陪刷题"，基本可以。如果是大学生自己练、或者练的是物理化学，输入方式和查错逻辑类似，但题型覆盖和联动能力要按具体科目调整。</p>
+<p>整体来说，这条链最值钱的地方是：它把"我会了吗"这个模糊的问题，变成了"逐行查错 → 立刻重练 → 连对三道"这个可量化的闭环。以前儿子说"我懂了"我还得半信半疑，现在有 Check My Work 标注过的错步和 Try Another 连对三道的记录，我心里有数。</p>
+<hr>
+<p>写这篇的时候参考了几个版本的功能演进和操作细节，整理下来方便以后查：<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Maple" target="_blank" rel="noopener">GitHub</a> 上有完整版本记录，国内访问不顺的话可以切到 <a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Maple" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/Maple" target="_blank" rel="noopener">GitCode</a> 拿同一份资料，三个仓库的内容保持同步。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/make-best-music.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">不会乐器的我，靠AI音乐在毕设答辩前交了差</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/womic.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">WO Mic 到底值不值得掏钱？一笔虚拟麦克风的时间账</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

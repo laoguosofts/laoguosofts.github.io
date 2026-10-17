@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么 · 老郭软件铺</title>
+  
+<meta name="description" content="运动跟踪、深度感知、光照估算——ARCore 五大核心能力的迭代脉络，以及从实验室 Demo 到生产级框架的产品演进逻辑">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/arcore-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么">
+<meta property="og:description" content="运动跟踪、深度感知、光照估算——ARCore 五大核心能力的迭代脉络，以及从实验室 Demo 到生产级框架的产品演进逻辑">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/arcore-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/arcore-docs/light-estimation.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/arcore-docs/light-estimation.jpg">
+
+<meta name="twitter:title" content="ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么">
+<meta name="twitter:description" content="运动跟踪、深度感知、光照估算——ARCore 五大核心能力的迭代脉络，以及从实验室 Demo 到生产级框架的产品演进逻辑">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8fd0\u52a8\u8ddf\u8e2a\u3001\u6df1\u5ea6\u611f\u77e5\u3001\u5149\u7167\u4f30\u7b97\u2014\u2014ARCore \u4e94\u5927\u6838\u5fc3\u80fd\u529b\u7684\u8fed\u4ee3\u8109\u7edc\uff0c\u4ee5\u53ca\u4ece\u5b9e\u9a8c\u5ba4 Demo \u5230\u751f\u4ea7\u7ea7\u6846\u67b6\u7684\u4ea7\u54c1\u6f14\u8fdb\u903b\u8f91", "headline": "ARCore \u8fdb\u5316\u53f2\uff1a\u4ece\"\u80fd\u8dd1\"\u5230\"\u597d\u7528\"\uff0cGoogle \u8fd9\u516b\u5e74\u5728\u6b7b\u78d5\u4ec0\u4e48", "image": ["https://laoguosofts.github.io/images/arcore-docs/light-estimation.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/arcore-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/arcore-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "ARCore \u8fdb\u5316\u53f2\uff1a\u4ece\"\u80fd\u8dd1\"\u5230\"\u597d\u7528\"\uff0cGoogle \u8fd9\u516b\u5e74\u5728\u6b7b\u78d5\u4ec0\u4e48", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">ARCore 进化史：从&#34;能跑&#34;到&#34;好用&#34;，Google 这八年在死磕什么</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">运动跟踪、深度感知、光照估算——ARCore 五大核心能力的迭代脉络，以及从实验室 Demo 到生产级框架的产品演进逻辑</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次接触 ARCore 是在 Google I/O 的一个 Demo 里，手机对着茶几晃了晃，桌面上就稳稳地站了一个 3D 小人。那时候觉得"这东西酷归酷，就是不知道什么时候才能真的好用"，后来跑去它的<a href="https://arcore.gltd.quest" target="_blank" rel="noopener">官网</a>蹲了好几个版本更新。</p>
+<p>回头看，这其实就是 ARCore 整个进化史的一个缩影：<strong>底层能力先搭起来，然后一层一层往上补体验，最后才轮到性能和功耗这种"工程债"</strong>。样本文档没给具体的版本号时间轴，我只能从功能模块的成熟度反推它的迭代顺序——但这个顺序本身就挺有意思的，能看出 Google 做 AR 的优先级。想动手跑一遍的话，SDK 和测试用的示例应用都能从<a href="https://arcore.gltd.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿到。</p>
+<h2>起步：先让手机"知道自己在哪"</h2>
+<p>ARCore 的地基是运动跟踪。它要解决的第一个问题不是"怎么放虚拟物体"，而是更根本的"手机动了之后，虚拟物体怎么不跟着飘"。</p>
+<p>这个阶段的核心是视觉 + IMU 融合的 SLAM：摄像头画面提取特征点，IMU 高频采样加速度和陀螺仪数据，两路数据用滤波算法合成一条平滑的姿态轨迹。样本文档把这一层叫"五大核心能力"之首——不是巧合，没有姿态跟踪，后面所有功能都是空中楼阁。</p>
+<p>这时候的 ARCore 其实还挺原始的：平面检测只找水平大平面（桌子、地面），光照估算只有一个平均光强值，Hit Test 也只是简单的射线平面求交。Demo 好看，但一进真实场景就露怯——纯纹理的白墙面检测不到平面，光照一变虚拟物体的颜色就不对。</p>
+<h2>第一个转折点：让虚拟物体"融入"真实世界</h2>
+<p>如果说运动跟踪是"站稳脚"，那光照估算和深度感知就是"长像"。</p>
+<p>光照估算的进化路线很清晰：先输出一个 <code>Average Light Intensity</code> 对付基础明暗，然后加了 <code>Color Correction</code> 处理色温偏暖偏冷的问题，最后上了 HDR 光照估算，直接输出一张环境贴图让 3D 物体反射周围真实环境的光。这个功能的打磨持续了好几个版本——样本文档里还在提醒开发者"不需要 HDR 就关掉省功耗"，说明 HDR 虽然好，但性能开销一直是个 trade-off。</p>
+<p>深度感知（Depth API）的出现更晚。它在每一帧生成一张和摄像头同分辨率的灰度深度图，每个像素值就是该点到相机的距离。有了这张图，才能做到遮挡渲染——虚拟球滚到桌边真的会停下来而不是穿模掉下去，虚拟人物站在墙前就不会被墙"吃掉"。Depth API 最有意思的地方是它对硬件的依赖：有 ToF 传感器的手机直接拿硬件深度图，没有的就靠运动立体匹配（被动深度），Google 把两条路都做通了，这点挺厚道。</p>
+<p><img src="../images/arcore-docs/light-estimation.jpg" alt="光照估算示意：虚拟物体的色调与环境光匹配" loading="lazy"></p>
+<h2>交互层：从"放上去"到"随时放"</h2>
+<p>Hit Test 是 AR 应用最常用的交互机制——用户点一下屏幕，从相机位置投一条射线，射线穿过的第一个平面就是放置位置。这个功能本身不复杂，但 ARCore 在它上面叠了一个挺重要的体验改进：<strong>即时放置（Instant Placement）</strong>。</p>
+<p>传统 Hit Test 的流程是"等平面检测完成 → 用户点击 → 放置"，用户经常需要举着手机扫一遍房间才能开始玩。Instant Placement 把这个顺序反过来：用户一点击就先放一个虚拟物体，然后后台持续跟踪精度提升，自动修正物体的位置和姿态。这个改动不大，但体验上的差别是质的——从"等系统准备好才能玩"变成"想玩就玩"。</p>
+<p>Augmented Images 图像识别的加入，则让 ARCore 从"只能在空白桌面上放东西"进化到"可以扫描特定物体触发内容"。扫描电影海报弹出角色动画、扫描产品包装叠加 3D 模型，这些场景都靠它。有意思的是它和 Vuforia 的对比：精度不如专业级 Vuforia，但免费、和 ARCore 无缝集成，对于大多数不需要 3D 物体识别的项目来说已经够用了。</p>
+<h2>后期补课：性能和功耗</h2>
+<p>我注意到样本文档里有整整两章在讲 FPS 优化和电池消耗——这在早期 ARCore 的<a href="https://arcore-docs.pages.dev/" target="_blank" rel="noopener">文档</a>里是看不到的。这说明 Google 终于开始认真对待"量产"这件事了。</p>
+<p>AR 应用是唯一一个让手机摄像头 + CPU + GPU + IMU + 屏幕全负荷运转的应用类型，功耗轻松超过 15W，10 分钟就消耗 2.47Wh，可用时间不到 1.5 小时。样本文档给的优化清单里，"降低渲染分辨率到 75%"排第一，GPU 功耗直接降 44%；帧率自适应（温度 &lt;40°C 跑 60fps，&gt;45°C 降到 24fps）是第二；关闭不需要的 API（Depth API 不做遮挡就关掉，能省 15~25%）是第三。</p>
+<p>更让我意外的是，样本文档里甚至写了后台挂起必须完全暂停 ARCore、屏幕亮度强制降低 20~30%、计时 + 降温提示这些细节。这些都不是"核心功能"，但决定了 AR 应用能不能真正被用户留在手机里。</p>
+<h2>迭代规律：死磕底层，不急着堆功能</h2>
+<p>把这些模块放在一起看，ARCore 的迭代节奏有一个很明显的倾向：<strong>底层能力先吃透，上层功能再展开</strong>。</p>
+<p>运动跟踪和平面检测这一层花了最长的时间打磨——从最早只有水平平面，到后来支持垂直、倾斜平面，再到边界检测（尽量检测平面的实际物理边界而不是假设无限大），每一步都在"让基础能力更可靠"。深度感知也是等运动跟踪稳了之后才上的，Instant Placement 本质上是运动跟踪精度够了才能做的体验改进。</p>
+<p>另外一个持续在做的事是<strong>性能优化体系的建设</strong>——从早期靠开发者自己摸 GPU Profiler，到后来 ARCore 自带 Debug Overlay 可视化 SLAM 状态和平面，再到现在的功耗分级策略（旗舰完整遮挡、中端简化遮挡、低端关闭遮挡），Google 在一点一点把"做一个好 AR 应用"这件事从玄学变成工程化。</p>
+<p>有一件事一直没怎么变：<strong>对硬件差异的包容</strong>。ToF 深度和被动深度两条路都走、平面检测在无纹理场景自动降级、遮挡渲染按设备分级——这些都是同一个思路：让 ARCore 在尽可能多的设备上跑起来，而不是只服务顶配机型。</p>
+<h2>下一步会怎么走</h2>
+<p>从这个迭代节奏往下推，我觉得有几个方向大概率会继续投入。一个是<strong>SLAM 在复杂场景的鲁棒性</strong>——现在纯白墙面还是检测不到平面、透明玻璃几乎无解，这些 corner case 会一点一点被填上。另一个是<strong>和地理定位的更深融合</strong>，样本文档里已经提到了 Geospatial API，把 AR 锚点绑到 GPS 坐标上，未来应该会看到更多"出门就能用"的场景。</p>
+<p>至于什么时候 AR 应用的体验能追上原生 App，我不敢说具体时间点。但从 ARCore 这八年的进化逻辑看——先站稳脚、再长像、然后优化交互、最后补课性能——它走的是一条踏实的路，每一步都没跳过。这个节奏本身就是一个信号：Google 不是在做一个炫技的实验，是在搭一个能用的基础设施。</p>
+<hr>
+<p>如果你想跟着这套框架动手，整套 ARCore 的资料我都做了整理，文档里每个 API 都配了 Kotlin 和 Unity 的代码示例。需要查阅的话，这些资料在三个地方都能拿到——<a href="https://github.com/alipymanbu/APK/tree/main/APP/ARCore" target="_blank" rel="noopener">GitHub</a> 是主仓，<a href="https://gitee.com/manbu1103/APK/tree/main/APP/ARCore" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/APP/ARCore" target="_blank" rel="noopener">GitCode</a> 是备份镜像，哪个通就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/infuse-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Infuse 装了两年多，我想说些当初不会说的话</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/meria-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Meria 用了大半年，这个 QQ 机器人框架到底经不经造</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

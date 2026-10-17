@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>每周刷机不丢数据：我用 DataBackup 串起一套自动恢复链 · 老郭软件铺</title>
+  
+<meta name="description" content="刷机换 ROM 是折腾党常态，但每次手动装应用、导入数据要耗半小时。本文讲怎么把 DataBackup 嵌进一条备份-上云-恢复的完整工作流，让换机迁移从手工操作变成点两下就完。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/databackup.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每周刷机不丢数据：我用 DataBackup 串起一套自动恢复链">
+<meta property="og:description" content="刷机换 ROM 是折腾党常态，但每次手动装应用、导入数据要耗半小时。本文讲怎么把 DataBackup 嵌进一条备份-上云-恢复的完整工作流，让换机迁移从手工操作变成点两下就完。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/databackup.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/databackup/cloud-setup.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/databackup/cloud-setup.jpg">
+
+<meta name="twitter:title" content="每周刷机不丢数据：我用 DataBackup 串起一套自动恢复链">
+<meta name="twitter:description" content="刷机换 ROM 是折腾党常态，但每次手动装应用、导入数据要耗半小时。本文讲怎么把 DataBackup 嵌进一条备份-上云-恢复的完整工作流，让换机迁移从手工操作变成点两下就完。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5237\u673a\u6362 ROM \u662f\u6298\u817e\u515a\u5e38\u6001\uff0c\u4f46\u6bcf\u6b21\u624b\u52a8\u88c5\u5e94\u7528\u3001\u5bfc\u5165\u6570\u636e\u8981\u8017\u534a\u5c0f\u65f6\u3002\u672c\u6587\u8bb2\u600e\u4e48\u628a DataBackup \u5d4c\u8fdb\u4e00\u6761\u5907\u4efd-\u4e0a\u4e91-\u6062\u590d\u7684\u5b8c\u6574\u5de5\u4f5c\u6d41\uff0c\u8ba9\u6362\u673a\u8fc1\u79fb\u4ece\u624b\u5de5\u64cd\u4f5c\u53d8\u6210\u70b9\u4e24\u4e0b\u5c31\u5b8c\u3002", "headline": "\u6bcf\u5468\u5237\u673a\u4e0d\u4e22\u6570\u636e\uff1a\u6211\u7528 DataBackup \u4e32\u8d77\u4e00\u5957\u81ea\u52a8\u6062\u590d\u94fe", "image": ["https://laoguosofts.github.io/images/databackup/cloud-setup.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/databackup.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/databackup.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6bcf\u5468\u5237\u673a\u4e0d\u4e22\u6570\u636e\uff1a\u6211\u7528 DataBackup \u4e32\u8d77\u4e00\u5957\u81ea\u52a8\u6062\u590d\u94fe", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">每周刷机不丢数据：我用 DataBackup 串起一套自动恢复链</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">每周刷机不丢数据：我用 DataBackup 串起一套自动恢复链</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刷机换 ROM 是折腾党常态，但每次手动装应用、导入数据要耗半小时。本文讲怎么把 DataBackup 嵌进一条备份-上云-恢复的完整工作流，让换机迁移从手工操作变成点两下就完。</p>
+  </header>
+  <div class="prose serif">
+<h2>以前每周刷一次 ROM，每次先删微信聊天记录</h2>
+<p>我是个喜欢折腾 Android 的人——每周刷一次 ROM，从 LineageOS 到 Pixel Experience 到各种国内定制版。一年下来至少换了二十套系统。</p>
+<p>但有一件事让我头疼：每次刷完，DataBackup 之前要做这几步：</p>
+<ol><li>手动把微信、QQ、支付宝、游戏存档逐个导出到本地</li><li>用 U 盘或者数据线把这些文件从旧手机拷到电脑上</li><li>刷完新 ROM，先去应用商店把二十多个应用全部装一遍</li><li>再把备份文件一个个导回去，等每个应用都走完首次启动向导</li><li>检查聊天记录在不在、游戏进度对不对、设置有没有丢</li></ol>
+<p>整个流程下来，快的话二十分钟，慢的话四十多分钟。中间任何一步卡壳——比如某个应用的备份文件损坏了，或者新版应用的数据格式变了不兼容——就得手动重新登录、手动重新配置。</p>
+<p>后来我发现 DataBackup 可以把这些步骤串成一条链。它是一个需要 Root 权限的 Android 备份工具，能把应用本体（APK）和数据一起打包，支持 WebDAV、FTP、SMB 三种协议把备份落到云端。最关键的是，恢复时可以对每个应用独立选择「完整恢复」还是「仅恢复数据」——这两个模式的配合，恰好对应刷机场景的两种不同需求。</p>
+<p>它的<a href="https://databackup.xnyx.quest" target="_blank" rel="noopener">官网</a>上有一份能力列表，涵盖了从基础备份到云端同步到加密压缩的完整功能。想试试的话可以去<a href="https://databackup.xnyx.quest/download.html" target="_blank" rel="noopener">下载</a>拿个安装包，APK 文件体积不大，装起来很快。</p>
+<h2>新流程：一条链从备份到恢复</h2>
+<p>现在我每周刷机前的流程是这样的：</p>
+<p><strong>备份触发</strong>：刷 ROM 前一天晚上，打开 DataBackup，一键全选所有应用，点备份。备份文件默认存在内置存储的 <code>DataBackup/</code> 目录下。</p>
+<p><strong>同时上云</strong>：DataBackup 的云端功能不是增量同步，它就是把备份产物写入你指定的路径。我家里有台群晖 NAS，开了 WebDAV，DataBackup 填个 URL 加账号密码就能把备份同时写到 NAS。这样手机内置存储一份、NAS 一份，双重保险——如果刷机过程中内置存储被 Wipe 清空了，NAS 那份还在。</p>
+<p><img src="../images/databackup/cloud-setup.jpg" alt="云端 WebDAV 配置界面" loading="lazy"></p>
+<p><strong>刷 ROM</strong>：正常刷，刷完启动进入新系统。</p>
+<p><strong>恢复分两步</strong>：第一步，先从应用商店把二十多个核心应用装一遍——微信、QQ、支付宝、银行 App、游戏。第二步，打开 DataBackup，选择上一次的备份，对每个应用选「仅恢复数据」而不是「完整恢复」。DataBackup 会把数据解压到应用的数据目录里，不动 APK。这样做的好处是：应用商店装的版本和备份里的版本签名可能不一样（比如微信，应用商店版是官方签名，备份里的 APK 可能是之前从其他渠道装的），跳过 APK 就避开了签名冲突这个最常见的坑。</p>
+<p>整个恢复过程自动跑完，中间不用盯。我通常是点完恢复就让它后台跑，自己去喝杯咖啡。回来的时候应用列表上的恢复状态卡片会一个个变成绿色的对勾。</p>
+<h2>流程里最容易断链的两个环节</h2>
+<p>这条链跑了十几次，我遇到过两个最容易卡壳的地方，现在都有了固定的处理方式。</p>
+<h3>环节一：KernelSU 和 APatch 的 Root 授权</h3>
+<p>DataBackup 需要 Root 权限才能访问 <code>/data/data/</code> 下的应用数据目录。大部分人用 Magisk，Magisk 会在应用请求 Root 时自动弹窗让你选允许还是拒绝。但我用的是 KernelSU，它不会自动弹窗——所有超级用户授权都必须在 KernelSU Manager 里手动设置。</p>
+<p>步骤是：打开 KernelSU Manager → 进入超级用户设置 → 点右上角加号 → 找 DataBackup（包名是 <code>com.xayah.databackup.foss</code>，别选错了）→ 权限设为允许 → 完全重启 DataBackup（从最近任务划掉再点开，不用重启手机）。APatch 的流程类似，也是在管理器里手动添加。如果重启后还是显示未授权，可以在终端模拟器里跑 <code>su -c &quot;id&quot;</code> 确认一下 Root 本身有没有问题。更详细的 Root 授权排查步骤可以去<a href="https://databackup.pages.dev/" target="_blank" rel="noopener">文档</a>翻，里面按 KernelSU / APatch / Magisk 三种 Root 方案分别写了放行步骤。</p>
+<p><img src="../images/databackup/root-auth.jpg" alt="欢迎向导里的 Root 授权检查" loading="lazy"></p>
+<h3>环节二：从云端拉取备份时的网络抖动</h3>
+<p>DataBackup 不做断点续传，如果备份文件大（我的全应用备份通常在 8GB 左右），从 NAS 拉到手机中途断网了就得从头开始。我的应对方式是：备份落 NAS 之后，在电脑上开个 SMB 共享，把备份目录映射成一个网络盘，然后在 DataBackup 里用 SMB 协议连电脑。局域网的稳定性比 WebDAV 高得多，速度也快——局域网内拉 8GB 备份大概三分钟就完了。</p>
+<p>如果局域网也不靠谱，还有个兜底：直接用 U 盘，手机插 OTG，备份文件先从 NAS 拷到 U 盘，再从 U 盘拷回手机内置存储。虽然多了一步，但至少不依赖网络。</p>
+<h2>效果：少了多少次手动复制</h2>
+<p>量化一下这条流程省了多少事：</p>
+<ul><li>以前每次要手动导出 20 多个应用的数据，每个应用至少点开 3 次设置菜单找导出入口——现在 DataBackup 一键全选，30 秒完成</li><li>以前备份文件要手动从手机拷到电脑，再从电脑拷回手机——现在 DataBackup 自动同时写云端，恢复时直接从云端拉</li><li>以前恢复完要逐个打开应用验证数据在不在——现在 DataBackup 跑完后会在通知栏给一个总览，我只需要抽查三五个核心应用</li><li>签名冲突的问题以前遇到过至少三次，每次都要重新安装重装应用——现在统一用「仅恢复数据」模式，签名冲突从流程里彻底消失</li></ul>
+<p>时间上，以前整个流程 30 到 40 分钟，现在 10 分钟以内——其中大部分时间是 DataBackup 自动跑的，我实际操作的时间不超过 5 分钟。</p>
+<h2>这套流程什么时候不划算</h2>
+<p>说了这么多好处，也有不适用的场景：</p>
+<ul><li>如果手机没 Root，DataBackup 基本废了——它的核心能力依赖 Root 访问 <code>/data/data/</code>，没 Root 的话只能备份应用本体，备份不了数据</li><li>如果只偶尔刷机（半年一次），可能不值得花时间配置 NAS 和 WebDAV，手动备份反而更省事</li><li>如果备份文件太大（超过 10GB），DataBackup 的云端写入会比较慢——它不做压缩也不做增量，全量复制到底</li></ul>
+<p>但对我这种每周折腾的人来说，DataBackup 已经成了刷机流程里的固定一环。它本身不做定时调度——要自动备份得用 Tasker 配合——但我觉得手动触发反而好：每次备份前我知道自己在干什么，不会出现备份了一半手机没电这种意外。</p>
+<p>如果你也是个折腾 Android 的人，不妨试试 DataBackup 这套工作流。安装时如果系统拦住了，点一下允许未知来源就行。</p>
+<p>这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/DataBackup" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/DataBackup" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/DataBackup" target="_blank" rel="noopener">GitCode</a>三个仓库都能拿到——GitHub 适合境外访问，Gitee 在国内速度更快，GitCode 作为双保险兜底，选哪个都行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/fanding.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Fanding 快问快答：追星、专辑联动、NFC 解锁一张卡讲透</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/google-play-games.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">要踩多少坑才能把 Google Play Games 用顺？</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AutoJs6 快问快答：Android 自动化到底能玩出什么 · 老郭软件铺</title>
+  
+<meta name="description" content="AutoJs6 是原版 Auto.js 的社区续作，用 JavaScript 驱动无障碍服务实现 Android 自动化。整理九个高频问题，从安装到进阶场景一次说清。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/autojs6.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoJs6 快问快答：Android 自动化到底能玩出什么">
+<meta property="og:description" content="AutoJs6 是原版 Auto.js 的社区续作，用 JavaScript 驱动无障碍服务实现 Android 自动化。整理九个高频问题，从安装到进阶场景一次说清。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/autojs6.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/autojs6/autojs6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/autojs6/autojs6-banner.png">
+
+<meta name="twitter:title" content="AutoJs6 快问快答：Android 自动化到底能玩出什么">
+<meta name="twitter:description" content="AutoJs6 是原版 Auto.js 的社区续作，用 JavaScript 驱动无障碍服务实现 Android 自动化。整理九个高频问题，从安装到进阶场景一次说清。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "AutoJs6 \u662f\u539f\u7248 Auto.js \u7684\u793e\u533a\u7eed\u4f5c\uff0c\u7528 JavaScript \u9a71\u52a8\u65e0\u969c\u788d\u670d\u52a1\u5b9e\u73b0 Android \u81ea\u52a8\u5316\u3002\u6574\u7406\u4e5d\u4e2a\u9ad8\u9891\u95ee\u9898\uff0c\u4ece\u5b89\u88c5\u5230\u8fdb\u9636\u573a\u666f\u4e00\u6b21\u8bf4\u6e05\u3002", "headline": "AutoJs6 \u5feb\u95ee\u5feb\u7b54\uff1aAndroid \u81ea\u52a8\u5316\u5230\u5e95\u80fd\u73a9\u51fa\u4ec0\u4e48", "image": ["https://laoguosofts.github.io/images/autojs6/autojs6-banner.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/autojs6.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/autojs6.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "AutoJs6 \u5feb\u95ee\u5feb\u7b54\uff1aAndroid \u81ea\u52a8\u5316\u5230\u5e95\u80fd\u73a9\u51fa\u4ec0\u4e48", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">AutoJs6 快问快答：Android 自动化到底能玩出什么</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">AutoJs6 快问快答：Android 自动化到底能玩出什么</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">AutoJs6 是原版 Auto.js 的社区续作，用 JavaScript 驱动无障碍服务实现 Android 自动化。整理九个高频问题，从安装到进阶场景一次说清。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一篇关于 AutoJs6 的快问快答——Android 自动化工具里绕不开的那个名字，到底值不值得装。</p>
+<p><img src="../images/autojs6/autojs6-banner.png" alt="AutoJs6 界面预览" loading="lazy"></p>
+<h2>AutoJs6 到底是什么，跟原版 Auto.js 什么关系？</h2>
+<p>去<a href="https://autojs6.kook.yoga" target="_blank" rel="noopener">AutoJs6官网</a>看看项目主页就明白，一句话说：<strong>AutoJs6 是原版 Auto.js 的社区维护续作</strong>，在原项目停更后接手开发，底层升级了脚本引擎但 API 保持兼容。原版用的 Rhino v1.7.7.2，AutoJs6 升到 Rhino 2.0.0-SNAPSHOT，ES6+ 特性补了一大截，正则和 Unicode 也有增强。可以理解成"原版用户几乎无感的平滑升级，外加一堆新能力"。</p>
+<h2>谁需要装这个？普通用户有用吗？</h2>
+<p>普通用户觉得"手机自动点来点去好酷"就可以装，但实际价值集中在三类人：<strong>日常有重复手机操作的人</strong>（比如每天刷 APP 签到、领金币）、<strong>开发者做自动化测试</strong>、<strong>爱折腾的玩家</strong>（游戏脚本、抢单、批量操作）。如果你每天要重复打开三四个 APP 做同样的事，AutoJs6 写个脚本就能省掉。</p>
+<h2>安装和激活流程麻烦吗？</h2>
+<p>不算麻烦但有门槛。安装包从<a href="https://autojs6.kook.yoga/download.html" target="_blank" rel="noopener">官方下载</a>拿就行，装完打开会引导你去系统设置开启<strong>无障碍服务</strong>——这是核心权限，不开脚本跑不了。额外建议立刻做三件事：加电池优化白名单、加厂商自启动白名单、锁定后台。这三件事没做的话，用半小时无障碍服务就被系统关了。</p>
+<h2>脚本用什么写？需要会编程吗？</h2>
+<p><strong>纯 JavaScript</strong>，不需要额外环境。AutoJs6 内置了 v8+ 全局函数层（<code>click</code>、<code>text</code>、<code>sleep</code> 这些），上面跑 Rhino 引擎，底层可以直接调 Java 类和 Android API。ES5 全支持，ES6 的 <code>let/const</code>、箭头函数、模板字符串、<code>for...of</code> 都 OK，但 <code>async/await</code> 和 <code>Proxy</code> 还不支持，要注意。对有 JS 基础的人门槛很低，没基础的照着<a href="https://autojs6.pages.dev/" target="_blank" rel="noopener">AutoJs6文档</a>里的例子改也能出活。</p>
+<h2>无障碍服务总自动断开是怎么回事？</h2>
+<p>这是 AutoJs6 用户<strong>最常遇到的问题</strong>，根因很简单：Android 系统（尤其是小米、华为这些定制 ROM）会主动杀后台进程，无障碍服务作为后台服务首当其冲。<strong>最有效的三件事</strong>已经说过了：电池优化白名单、厂商自启动白名单、锁定后台。还不行的话，v6.7 新增了前台服务和重启策略，开了之后能显著缓解。极端情况可以在脚本里加监控逻辑，服务断开时弹窗提醒你去设置页重新开启。</p>
+<p><img src="../images/autojs6/autojs6-intro.png" alt="脚本编写界面" loading="lazy"></p>
+<h2>能跟其他工具配合吗？</h2>
+<p>可以，尤其是跟 <strong>Tasker</strong> 联动。AutoJs6 能作为 Tasker 插件被调用——Tasker 负责条件判断（时间、位置、应用、事件），AutoJs6 负责执行 JS 脚本。比如"到家自动静音+开 Wi-Fi+签到微博知乎"就是典型的联动场景。单独用 AutoJs6 的定时能力也有，但 Tasker 的规则引擎灵活得多，条件判断能做到分钟级精细。</p>
+<h2>图像处理能力够用吗？</h2>
+<p>够用，而且是 AutoJs6 的<strong>强项</strong>之一。内置 <code>images</code> 模块支持剪裁、旋转、灰度化、二值化、双边滤波、色彩调整、异步加载网络图片。模板匹配前转灰度可以消除深色/浅色主题差异，OCR 前剪裁+对比度提升能大幅提速。处理完记得 <code>recycle()</code> 释放内存——每张处理过的图都会生成新对象，积少成多会爆内存。</p>
+<h2>有什么坑需要提前知道？</h2>
+<p>三个。<strong>第一，async/await 不支持</strong>——Rhino 引擎还没实现，别写 Promise 链之外的异步代码，用 callback 或者同步写法。<strong>第二，不是浏览器环境</strong>——没有 <code>window</code>/<code>document</code>，别写 <code>fetch</code>/<code>XMLHttpRequest</code>，网络请求用内置 <code>http</code> 模块，本地存储用 <code>storage</code> 模块。<strong>第三，不同 ROM 后台策略天差地别</strong>——MIUI 和 ColorOS 管得最严，原生 Android 最松，老设备/低端机可能怎么设都保不住后台。</p>
+<h2>长期用靠谱吗？</h2>
+<p><strong>靠谱，但别指望零维护</strong>。AutoJs6 社区还在活跃更新，v6.7 陆续补了前台服务、重启策略、网络图片加载等能力。但 Android 系统本身一直在收紧后台限制，ROM 厂商的策略也随时在变，所以脚本要跟着环境适配。好消息是只要核心逻辑不丢，换设备时大部分脚本改改选择器就能复用。</p>
+<hr>
+<p>最后一句：<strong>每天有重复手机操作、愿意花半小时学基础 JS 的人，装一个绝对不亏；只是好奇的可以先不装，等有具体需求了再说。</strong></p>
+<p>这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoJs6" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoJs6" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/AutoJs6" target="_blank" rel="noopener">GitCode</a>三个仓库都能拿到，方便不同环境的人查阅和下载。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/flycc-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Flycc 到底值不值得掏钱？一笔算得明白的时间账</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/gamekiller.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">宿舍熄灯前，我用八门神器帮室友把神庙逃亡改成了无限金币版</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

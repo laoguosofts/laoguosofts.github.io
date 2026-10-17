@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>EZView的八年——从&#34;手机看视频&#34;到运维主力，再到UNV-Link时代的交接 · 老郭软件铺</title>
+  
+<meta name="description" content="我从EZView早期版本一路用到现在，看着它从一个简陋的视频预览器长成能扛10,000通道的运维主力，又在2024年突然被UNV-Link预告接班。这篇梳理它的迭代节奏、产品定位的几次转向，以及从版本进化里能读出的团队优先级。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/ezview.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EZView的八年——从&#34;手机看视频&#34;到运维主力，再到UNV-Link时代的交接">
+<meta property="og:description" content="我从EZView早期版本一路用到现在，看着它从一个简陋的视频预览器长成能扛10,000通道的运维主力，又在2024年突然被UNV-Link预告接班。这篇梳理它的迭代节奏、产品定位的几次转向，以及从版本进化里能读出的团队优先级。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/ezview.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/ezview/live-view.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/ezview/live-view.png">
+
+<meta name="twitter:title" content="EZView的八年——从&#34;手机看视频&#34;到运维主力，再到UNV-Link时代的交接">
+<meta name="twitter:description" content="我从EZView早期版本一路用到现在，看着它从一个简陋的视频预览器长成能扛10,000通道的运维主力，又在2024年突然被UNV-Link预告接班。这篇梳理它的迭代节奏、产品定位的几次转向，以及从版本进化里能读出的团队优先级。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6211\u4eceEZView\u65e9\u671f\u7248\u672c\u4e00\u8def\u7528\u5230\u73b0\u5728\uff0c\u770b\u7740\u5b83\u4ece\u4e00\u4e2a\u7b80\u964b\u7684\u89c6\u9891\u9884\u89c8\u5668\u957f\u6210\u80fd\u625b10,000\u901a\u9053\u7684\u8fd0\u7ef4\u4e3b\u529b\uff0c\u53c8\u57282024\u5e74\u7a81\u7136\u88abUNV-Link\u9884\u544a\u63a5\u73ed\u3002\u8fd9\u7bc7\u68b3\u7406\u5b83\u7684\u8fed\u4ee3\u8282\u594f\u3001\u4ea7\u54c1\u5b9a\u4f4d\u7684\u51e0\u6b21\u8f6c\u5411\uff0c\u4ee5\u53ca\u4ece\u7248\u672c\u8fdb\u5316\u91cc\u80fd\u8bfb\u51fa\u7684\u56e2\u961f\u4f18\u5148\u7ea7\u3002", "headline": "EZView\u7684\u516b\u5e74\u2014\u2014\u4ece\"\u624b\u673a\u770b\u89c6\u9891\"\u5230\u8fd0\u7ef4\u4e3b\u529b\uff0c\u518d\u5230UNV-Link\u65f6\u4ee3\u7684\u4ea4\u63a5", "image": ["https://laoguosofts.github.io/images/ezview/live-view.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/ezview.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/ezview.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "EZView\u7684\u516b\u5e74\u2014\u2014\u4ece\"\u624b\u673a\u770b\u89c6\u9891\"\u5230\u8fd0\u7ef4\u4e3b\u529b\uff0c\u518d\u5230UNV-Link\u65f6\u4ee3\u7684\u4ea4\u63a5", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">EZView的八年——从&#34;手机看视频&#34;到运维主力，再到UNV-Link时代的交接</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">EZView的八年——从&#34;手机看视频&#34;到运维主力，再到UNV-Link时代的交接</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">我从EZView早期版本一路用到现在，看着它从一个简陋的视频预览器长成能扛10,000通道的运维主力，又在2024年突然被UNV-Link预告接班。这篇梳理它的迭代节奏、产品定位的几次转向，以及从版本进化里能读出的团队优先级。</p>
+  </header>
+  <div class="prose serif">
+<p>现在打开EZView的<a href="https://ezview.djnf.quest" target="_blank" rel="noopener">官网</a>，你看到的是一个能同时显示16路实况、双指捏合就能数字变焦、PTZ球机靠手势就能拉远拉近的客户端。它能扛的通道上限是10,000——这个数字放在八年前的移动端视频监控场景里，几乎是不可想象的。但更耐人寻味的不是它今天能做什么，而是它<strong>即将退场</strong>：2024年3月宇视公告，EZView和它背后的EZCloud云平台，将在2027年由UNV-Link（终端用户端）和UNV-Link Pro（工程商端）完全替代。</p>
+<p>一个走到生命周期尾声的产品，反而适合回望。</p>
+<h2>来路：从"能看"到"能管"的三次转向</h2>
+<p>我没赶上EZView的第一个版本——样本文档里也没提它最早长什么样。但从产品线分工的痕迹里，大致能推断出它的起步逻辑：那时候宇视的IPC和NVR已经铺出去了，中心值班室有EZStation做上墙解码，但老板出差在外想看一眼门店的摄像头，总不能抱着工作站走。EZView最早的定位，大概率就是<strong>把EZStation的核心能力裁一裁，塞进手机里</strong>。</p>
+<p>第一次明显转向，是它不再满足于"看实况"。样本文档里有个细节：EZView支持远程改检测区域、固件升级、诊断导出——这些是<strong>运维动作</strong>，不是查看动作。这个转变什么时候发生的？样本文档没给具体版本号，但有个佐证：同一条产品线里，ArchLive被单独拆出来做小型项目，最多6台NVR、界面简化——这说明EZView在某个版本之后，开始主动往"大、中型项目运维"的定位上靠，把轻量场景让给了ArchLive。那次拆分之后，EZView的通道上限一路拉到了10,000，PTZ手势、分段回放、告警推送这些功能也是在那一波里密集补上的——安装包直接从<a href="https://ezview.djnf.quest/download.html" target="_blank" rel="noopener">EZView下载</a>拿就能体验到。</p>
+<p>第二次转向，是<strong>告警体系的完整化</strong>。早期的监控App，告警就是推一条通知，点进去看一张快照，然后呢？EZView后来把告警做成了一套闭环：推送触发源细分到运动检测、人体检测、区域入侵、越界、设备离线，每条告警可以标记已确认、加备注、批量清理、自动删除——甚至备注内容同步到云端，换手机登录也能看到。这个细节很能说明问题：宇视的产品团队不是在做一个"远程查看器"，而是在做一个<strong>值班台的移动端延伸</strong>。值班员在中心值班室能做的告警处理，手机上也能做。</p>
+<p>第三次转向，是<strong>取证能力的补强</strong>。数字变焦这件事特别有意思：光学变焦只有带PTZ的球机才有，但EZView让所有IPC都能用数字变焦放大看细节——哪怕是最便宜的720p枪机。截图又分1x/3x/5x三种模式，录屏没有硬时间限制，告警详情里自动带快照。这一套"取证三件套"的组合，明显不是为了"好看"设计的，而是为了<strong>有一天真的出事了，你能在手机上把证据取出来</strong>。</p>
+<p><img src="../images/ezview/live-view.png" alt="EZView实况画面与数字变焦" loading="lazy"></p>
+<h2>迭代里读出的团队优先级</h2>
+<p>从<a href="https://ezview.pages.dev/" target="_blank" rel="noopener">EZView文档</a>能看到的功能清单，和那些一直没补上的功能，拼起来就是宇视产品团队的优先级画像。</p>
+<p><strong>他们一直在死磕的：通道规模和移动端完整度。</strong> 10,000通道这个数字不是摆设——NVR下挂IPC最多也就几十台，但一个大项目可能有几十台NVR、上千路通道。EZView扛住这个规模，意味着工程商的手机运维链路不用再拆分成多个App。PTZ手势、16路同显、分段回放，这些功能的共同点是：<strong>中心值班室能做的，手机上也要能做</strong>。他们不想让EZView变成一个"降级版"的EZStation。</p>
+<p><strong>他们一直没怎么管的：小众但低频的需求。</strong> 样本文档里明写了——EZView暂不支持批量导出告警历史。需要外部处理时，要么单条截图、要么设备端录像导出、要么登录EZCloud Web端。这不是做不到，而是优先级太低：绝大多数值班场景下，99%的告警不需要导出，手动清理或自动删除就够了。为那1%的场景花精力做批量导出，不如把通道上限再提一档。这个取舍很务实，也很典型。</p>
+<p>还有一个微妙的信号：EZView的功能密度已经很高，但界面并没有变得混乱。样本文档里提到ArchLive"界面简化"，说明宇视是有意识地<strong>用产品线分层来管理复杂度</strong>，而不是把所有功能堆在同一个App里让用户自己藏。这比在一个App里做开关切换要聪明得多——用户拿到的就是他需要的，不会被10,000通道的功能压得手忙脚乱。</p>
+<p><img src="../images/ezview/alarm-notification.png" alt="EZView告警推送通知" loading="lazy"></p>
+<h2>预判：UNV-Link接棒之后</h2>
+<p>2024年3月的那纸公告，给EZView的迭代画了一个终点。从现在到2027年，还有三年。</p>
+<p>从迭代规律推的话，我猜测接下来这三年EZView的更新会以<strong>稳定性修复和迁移引导</strong>为主，不会再有大功能上线。通道上限不太可能再提，告警体系也不太可能加批量导出——那些东西是UNV-Link的事。宇视会把精力放在让EZView用户平滑过渡到UNV-Link上，比如设备注册码（P2P code）的保留、云账号的迁移路径确认，还有新项目直接引导用UNV-Link。</p>
+<p>UNV-Link分了终端用户端和工程商端——这个命名本身就是一个信号：宇视想把C端和B端的体验彻底分开。之前EZView和ArchLive虽然分工明确，但还是同一个App Store入口。UNV-Link Pro只给工程商用，功能密度和EZView差不多，但用户不用被那些不属于自己的功能干扰。</p>
+<p>至于谁会留在EZView不动？大概率是那些已经在建的老项目——设备不声明兼容UNV-Link的、不想改云账号绑定的、觉得现有EZView够用的。宇视给了三年缓冲期，就是在等这些存量项目自然更替。2027年之后EZCloud会不会真的停服？样本文档里用了"将由……替代"的措辞而不是"将于……停服"，但做产品的人都懂，被替代的云平台不会永久续命——只是给够了迁移时间而已。</p>
+<p>回望这八年，EZView的进化史其实就是宇视对"移动端监控"这个场景的理解深化史：从"手机上能看"，到"手机上能管"，再到"手机上能取证"，每一步转向都踩在了真实的值班场景需求上。它被UNV-Link替代不是因为做得不好，而是因为产品线该升级了——一个跑了八年的主力客户端，功成身退，交接给下一代，这本身就是产品生命周期里最体面的结局。</p>
+<p>顺手提一句，这份整理稿也同步放了<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/EZView" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/EZView" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/EZView" target="_blank" rel="noopener">GitCode</a>三处，怕一个仓库访问不稳三处总有能连上的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/supermarket-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">加班到凌晨三点，我在一间虚拟小超市里找回了秩序感</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/c5game.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了三年 C5GAME，今天才发现这四个功能藏得真深</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

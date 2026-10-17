@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>换了桌面启动器之后，我花了三天才把手机&#34;救活&#34; · 老郭软件铺</title>
+  
+<meta name="description" content="从原生启动器切换到第三方桌面，本以为是换个皮的事，结果遭遇了手势失效、小部件罢工、桌面随机重载的连环故障。记录一下踩坑和排查的完整经历。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/lawnchair.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="换了桌面启动器之后，我花了三天才把手机&#34;救活&#34;">
+<meta property="og:description" content="从原生启动器切换到第三方桌面，本以为是换个皮的事，结果遭遇了手势失效、小部件罢工、桌面随机重载的连环故障。记录一下踩坑和排查的完整经历。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/lawnchair.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/lawnchair/home-screen.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/lawnchair/home-screen.jpg">
+
+<meta name="twitter:title" content="换了桌面启动器之后，我花了三天才把手机&#34;救活&#34;">
+<meta name="twitter:description" content="从原生启动器切换到第三方桌面，本以为是换个皮的事，结果遭遇了手势失效、小部件罢工、桌面随机重载的连环故障。记录一下踩坑和排查的完整经历。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u539f\u751f\u542f\u52a8\u5668\u5207\u6362\u5230\u7b2c\u4e09\u65b9\u684c\u9762\uff0c\u672c\u4ee5\u4e3a\u662f\u6362\u4e2a\u76ae\u7684\u4e8b\uff0c\u7ed3\u679c\u906d\u9047\u4e86\u624b\u52bf\u5931\u6548\u3001\u5c0f\u90e8\u4ef6\u7f62\u5de5\u3001\u684c\u9762\u968f\u673a\u91cd\u8f7d\u7684\u8fde\u73af\u6545\u969c\u3002\u8bb0\u5f55\u4e00\u4e0b\u8e29\u5751\u548c\u6392\u67e5\u7684\u5b8c\u6574\u7ecf\u5386\u3002", "headline": "\u6362\u4e86\u684c\u9762\u542f\u52a8\u5668\u4e4b\u540e\uff0c\u6211\u82b1\u4e86\u4e09\u5929\u624d\u628a\u624b\u673a\"\u6551\u6d3b\"", "image": ["https://laoguosofts.github.io/images/lawnchair/home-screen.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/lawnchair.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/lawnchair.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6362\u4e86\u684c\u9762\u542f\u52a8\u5668\u4e4b\u540e\uff0c\u6211\u82b1\u4e86\u4e09\u5929\u624d\u628a\u624b\u673a\"\u6551\u6d3b\"", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">换了桌面启动器之后，我花了三天才把手机&#34;救活&#34;</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">换了桌面启动器之后，我花了三天才把手机&#34;救活&#34;</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从原生启动器切换到第三方桌面，本以为是换个皮的事，结果遭遇了手势失效、小部件罢工、桌面随机重载的连环故障。记录一下踩坑和排查的完整经历。</p>
+  </header>
+  <div class="prose serif">
+<h2>周末的决定</h2>
+<p>那个周六下午我坐在沙发上刷手机，忽然觉得三星原生的 One UI 桌面又臃肿又没个性——图标间距大得浪费空间，抽屉翻起来滑溜溜的，想把常用的十几个 App 整齐摆一排都难。</p>
+<p>之前在数码群里听过好几个朋友安利 Lawnchair，说是轻量、可定制、支持双击息屏和手势导航，开源还免费。上<a href="https://lawnchair.gltd.quest" target="_blank" rel="noopener">Lawnchair官网</a>看了一眼，发现它是现在 Android 社区口碑最好的第三方启动器之一。二话不说，<a href="https://lawnchair.gltd.quest/download.html" target="_blank" rel="noopener">下载</a>、安装、设为默认桌面，一气呵成。</p>
+<p><img src="../images/lawnchair/home-screen.jpg" alt="主屏幕网格布局" loading="lazy"></p>
+<h2>当晚的崩溃</h2>
+<p>一切看起来都挺好。我把网格从默认的 5×5 调到 6×6，主屏幕一排能多放一个图标，抽屉也调得更密了些。双击息屏的手势设置好之后试了两下，啪一下就灭屏了，爽。</p>
+<p>然后我去洗澡。</p>
+<p>洗完出来拿起手机，按 Home 键回到桌面——整个桌面在重新加载。图标一个一个往外蹦，天气小部件从昨天的数据慢慢刷过来。我愣了一下，以为是刚装完的临时性卡顿，没当回事。</p>
+<p>结果关灯睡觉前又发生了一次。然后第二天早上起来，双击息屏完全没反应了——点桌面两下，屏幕亮着就是不灭。天气小部件还卡在了昨天下午的温度上。我点开日历想看看今天的日程，日历小部件还停留在三天前。</p>
+<h2>排查的第一天</h2>
+<p>我开始在网上搜"Lawnchair 手势失效""桌面重载"，翻了好几个帖子才在一篇文档里找到线索——<strong>是电池优化把它杀掉了</strong>。</p>
+<p>原来 Android 的后台管理对启动器特别不友好。普通 App（比如微信、抖音）被后台限制了无所谓，但启动器需要持续运行无障碍服务来检测手势、保持小部件刷新、维护桌面状态。系统为了省电，过几个小时就会把 Lawnchair 的后台进程和无障碍服务一起干掉。</p>
+<p>干掉之后的症状跟我遇到的一模一样：双击息屏失效、桌面偶尔重载、小部件停止刷新、无障碍服务被自动关闭。</p>
+<p>我按文档里的步骤去三星 One UI 里找电池设置：设置 → 电池与设备维护 → 电池 → 后台使用限制。关掉了"让未使用的应用进入休眠"，又进到休眠应用列表里把 Lawnchair 移除，最后在应用详情里把电池使用情况改成"允许后台活动"。</p>
+<p>做完这些重启了一次手机，双击息屏回来了。</p>
+<p><img src="../images/lawnchair/settings-menu.jpg" alt="设置菜单" loading="lazy"></p>
+<h2>排查的第二天</h2>
+<p>问题解决了？还没完。</p>
+<p>天气小部件过了半天又不刷新了。这次我注意到一个细节：不是 Lawnchair 被杀，是天气 App 本身被杀了。文档里提到每个小部件都有一个"宿主应用"——天气小部件对应天气 App，日历小部件对应日历 App，这些宿主应用也得一起排除电池优化。</p>
+<p>我把天气和日历两个 App 的电池限制也关了。然后发现我之前还漏了通知访问权限——系统设置里通知访问那一栏，Lawnchair 的开关被重置成了关闭状态，难怪音乐小部件也不更新。</p>
+<p>这一天学到的：<strong>小部件的问题永远要先查两层</strong>——启动器本身有没有被优化，宿主应用有没有被优化。两层都没问题再去看权限。</p>
+<h2>排查的第三天</h2>
+<p>本来以为到此为止了，结果在折腾网格的时候又出了新状况。</p>
+<p>我主屏幕调 5×5，抽屉调 6×6，文件夹调 4×4——翻了下<a href="https://lawnchair.pages.dev/" target="_blank" rel="noopener">Lawnchair文档</a>，这是比较平衡的搭配。改完之后发现图标位置自动重新对齐了，几个文件夹被挤到了第二页。我花了半个小时把它们重新归位，然后决定也给抽屉和文件夹的宿主应用做一次电池优化排除。</p>
+<p>顺便还翻了一下安装相关的文档，确认了一个容易踩的坑：GitHub 版、Play Store 版、Nightly 版的签名都不一样，不能互相覆盖安装。我之前差点用 Play Store 版覆盖掉 GitHub 版，还好先看了一眼。</p>
+<h2>现在的状态</h2>
+<p>三天折腾下来，手机终于稳定了。双击息屏每天都能用，小部件天气正常刷、日历实时更新、音乐切歌也跟着变。桌面再也不随机重载了。</p>
+<p>回想一下，其实这些步骤文档里都写得清清楚楚。但真遇到问题的时候，人总想着"先搜一下看看有没有现成答案"，反而忽略了最直接的排查路径——<strong>看官方文档的问题排查章节</strong>。</p>
+<p>Lawnchair 这类第三方启动器，能给 Android 桌面带来的可定制化程度远超原生启动器。但自由度是有代价的：系统层的电池管理、后台策略、签名机制，每一个都可能成为拦路虎。好消息是这些问题都有明确的解法，只是需要多花一点点时间。</p>
+<hr>
+<p>这套排查方法我整理好了，在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Lawnchair" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Lawnchair" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Lawnchair" target="_blank" rel="noopener">GitCode</a> 三个仓库里都能找到完整的文档——毕竟开源项目嘛，社区维护的资料多一份就多一份保障，国内网络环境下也总能找到一个能顺畅打开的源。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/nyahentai-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">NyaHentai 里藏着的四个冷门玩法——从评论探测器到专题淘货</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/noactive.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">NoActive 从零到实战：Android 后台冻结保姆级教程</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Animeko 藏得最深的 5 个冷门功能，用了半年才发现 · 老郭软件铺</title>
+  
+<meta name="description" content="你以为 Animeko 只是个聚合追番播放器？其实它还藏着自建库接入、云端兜底、弹幕正则过滤等 5 个官方几乎不宣传的实用技巧，翻到底朝天才挖出来。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/animeko.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Animeko 藏得最深的 5 个冷门功能，用了半年才发现">
+<meta property="og:description" content="你以为 Animeko 只是个聚合追番播放器？其实它还藏着自建库接入、云端兜底、弹幕正则过滤等 5 个官方几乎不宣传的实用技巧，翻到底朝天才挖出来。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/animeko.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/animeko/bt-jellyfin-emby.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/animeko/bt-jellyfin-emby.png">
+
+<meta name="twitter:title" content="Animeko 藏得最深的 5 个冷门功能，用了半年才发现">
+<meta name="twitter:description" content="你以为 Animeko 只是个聚合追番播放器？其实它还藏着自建库接入、云端兜底、弹幕正则过滤等 5 个官方几乎不宣传的实用技巧，翻到底朝天才挖出来。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4f60\u4ee5\u4e3a Animeko \u53ea\u662f\u4e2a\u805a\u5408\u8ffd\u756a\u64ad\u653e\u5668\uff1f\u5176\u5b9e\u5b83\u8fd8\u85cf\u7740\u81ea\u5efa\u5e93\u63a5\u5165\u3001\u4e91\u7aef\u515c\u5e95\u3001\u5f39\u5e55\u6b63\u5219\u8fc7\u6ee4\u7b49 5 \u4e2a\u5b98\u65b9\u51e0\u4e4e\u4e0d\u5ba3\u4f20\u7684\u5b9e\u7528\u6280\u5de7\uff0c\u7ffb\u5230\u5e95\u671d\u5929\u624d\u6316\u51fa\u6765\u3002", "headline": "Animeko \u85cf\u5f97\u6700\u6df1\u7684 5 \u4e2a\u51b7\u95e8\u529f\u80fd\uff0c\u7528\u4e86\u534a\u5e74\u624d\u53d1\u73b0", "image": ["https://laoguosofts.github.io/images/animeko/bt-jellyfin-emby.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/animeko.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/animeko.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Animeko \u85cf\u5f97\u6700\u6df1\u7684 5 \u4e2a\u51b7\u95e8\u529f\u80fd\uff0c\u7528\u4e86\u534a\u5e74\u624d\u53d1\u73b0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Animeko 藏得最深的 5 个冷门功能，用了半年才发现</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Animeko 藏得最深的 5 个冷门功能，用了半年才发现</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">你以为 Animeko 只是个聚合追番播放器？其实它还藏着自建库接入、云端兜底、弹幕正则过滤等 5 个官方几乎不宣传的实用技巧，翻到底朝天才挖出来。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 Animeko 就是个 BT 源加在线源聚合的追番播放器？它的<a href="https://animeko.gltd.quest" target="_blank" rel="noopener">官网</a>把核心功能列得清清楚楚，但藏在设置里的远不止于此。装好、选源、点播放——没错，这是 90% 的人对它的全部使用方式。</p>
+<p>但我把设置翻了个底朝天、把版本更新日志从 v5.0 一路追到 v5.5，还去源码仓库和<a href="https://animeko.pages.dev/" target="_blank" rel="noopener">文档</a>里扒了几个没写进更新日志的冷门功能，发现它还藏着好几个"官方几乎不宣传"的功能——有些是专门给折腾党留的后门，有些是版本迭代时悄悄加进去的彩蛋。这篇就把我挖出来的 5 个冷门功能逐个拆解，看完你就知道自己到底只用了 Animeko 的几成功力。</p>
+<h2>1. 自己的 Jellyfin/Emby 媒体库直接接进来</h2>
+<p>这个功能藏得真深——在播放源设置里，往下拉到底部才看得到「自定义数据源」入口。进去之后你会发现 Animeko 支持直接对接 <strong>Jellyfin 和 Emby</strong> 自建库。</p>
+<p>怎么操作？填一下你的媒体服务器地址、用户名密码，Animeko 就会把你服务器里的番剧直接拉进它的搜索和播放列表里。也就是说，你自己搭建的媒体库，现在可以用 Animeko 的播放器来播——带弹幕、带进度同步、带自动选字幕。</p>
+<p>这个功能谁用得上？自己搭了 Jellyfin/Emby、又觉得原生播放器弹幕和体验不够好的人。如果你没有自建媒体服务器，可以直接跳过，这个对你来说完全没用。</p>
+<p><img src="../images/animeko/bt-jellyfin-emby.png" alt="自建库接入界面" loading="lazy"></p>
+<h2>2. BT 源不稳定？PikPak 云端兜底</h2>
+<p>v5.5.1 版本悄悄加了一个备选方案：<strong>PikPak 云端离线下载</strong>。</p>
+<p>场景很明确：你点播放一集 BT 源的番，发现做种数太少、速度上不去、甚至连不上——这时候 Animeko 会提示你要不要把这集先扔到 PikPak 云端下好，再从云端播。相当于给 BT 路不通的时候备了一条兜底通道，不用你自己手动开浏览器去找 PikPak 链接。</p>
+<p>开关在播放设置里，默认是关闭的，需要你手动打开。打开之后也不是所有 BT 源都会触发，只有当本地 BT 播放确实失败时才会自动提示。适合那些追的番比较冷、BT 做种常年不足的人，追热门番的话这个功能大概率派不上用场。</p>
+<h2>3. 弹幕可以用正则表达式精准过滤</h2>
+<p>大多数人只知道弹幕能关、能调透明度——但 Animeko 的弹幕过滤系统远不止于此。</p>
+<p>在弹幕设置里找到「高级过滤」，有一个<strong>正则表达式过滤</strong>的开关。打开后你可以写正则来批量屏蔽弹幕，比如：</p>
+<ul><li><code>/哈哈哈哈哈+/</code> 屏蔽刷哈的弹幕</li><li><code>/^.{1,2}$/</code> 屏蔽一两个字的短句弹幕</li><li><code>/[Aa][Nn][Ii][Mm][Ee][Kk][Oo]/</code> 屏蔽带特定关键词的</li></ul>
+<p>更狠的是，Animeko 还有一个<strong>云过滤</strong>选项——打开后会自动同步一份社区维护的弹幕黑名单，不用自己写正则就能屏蔽掉常见的刷屏和垃圾弹幕。</p>
+<p>这个功能对弹幕敏感党来说是救星，但正则写不好容易误杀正常弹幕。建议先开云过滤用着，真有特殊需求了再自己写正则。</p>
+<h2>4. 同一集可以缓存多条不同的源，互不覆盖</h2>
+<p>你有没有过这种情况：缓存了一集 720p 的 B 源，后来又看到了 1080p 的 A 源——换源重缓存的话，之前那个会被覆盖掉吗？</p>
+<p><strong>不会。</strong> Animeko 的缓存是「集 + 源」两级键存的，不同源的缓存互相独立、互不覆盖。也就是说，你可以同时缓存同一集的 BT 源版和在线源版，离线播放时可以切换。</p>
+<p>但这里有个容易踩的坑：缓存完成后要去缓存详情里看一眼「弹幕已缓存」的状态——默认开启的自动缓存弹幕功能有时候会因为源的不同导致弹幕拉取失败，这时候离线播就没弹幕了。手动检查一下、必要时重新缓存一次弹幕，比事后断网才发现强。</p>
+<p><img src="../images/animeko/cache-detail.png" alt="缓存详情页" loading="lazy"></p>
+<h2>5. 设置可以导入导出，换机搬家一键搞定</h2>
+<p>功能矩阵里提了一嘴但没展开：<strong>设置导入导出</strong>。</p>
+<p>入口在设置页面最底部的「关于」区域，点一下就能导出一个 JSON 配置文件——里面包含你的数据源配置、弹幕偏好、缓存策略、播放设置、甚至连你选的主题颜色都在。换机、重装（记得先去<a href="https://animeko.gltd.quest/download.html" target="_blank" rel="noopener">Animeko下载</a>拿最新版）、给朋友推荐 Animeko 的时候，把这个 JSON 发过去导入一遍，所有个性化设置瞬间复制到位，不用一项项重新调。</p>
+<p>这个功能看起来不大，但换过三次以上设备的人就知道它有多省事。我从手机换到平板、再从平板换到 Windows 桌面端，就是靠导出 JSON 避免了每次半小时的设置时间。</p>
+<h2>最后提一个别踩的坑</h2>
+<p>缓存引擎在 v5.3.1 做过一次<strong>完整重构</strong>——升级到这个版本或更高之前，你之前缓存的所有内容会全部失效、需要重新缓存。官方更新日志里提了一句但没加粗，我就是升级后发现离线播放列表全空了才看到的。</p>
+<p>如果你现在还停留在 v5.2.x，升级之前先把重要的缓存内容导出或者手动标记一下，免得升级完一阵茫然。</p>
+<h2>写在最后</h2>
+<p>Animeko 的开发团队走的是典型的"功能先堆上去、文档慢慢补"的路子——版本更新日志写得比官方文档详细多了。那些冷门功能不会弹窗提醒你去用，只会安静地躺在设置里等你自己翻。</p>
+<p>把它用透，从翻设置开始。想跟着源码一起挖的话，<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Animeko" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Animeko" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Animeko" target="_blank" rel="noopener">GitCode</a> 上都能找到完整的仓库，跟着一起看更过瘾。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/zedge-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用 Zedge 串起每周产品分享的一条龙工作流</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/moku-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">moku 里藏得最深的 5 个技巧——玩了三个月才摸透的门道</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

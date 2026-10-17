@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Qwen3 到底值不值得掏钱？一份冷静的付费决策账本 · 老郭软件铺</title>
+  
+<meta name="description" content="Qwen3 模型本身开源免费，但云端 API 计费、本地显卡投入、企业版服务——每一分钱花在哪、值不值？分轻度、主力、重度三类用户算清楚。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/qwen3-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qwen3 到底值不值得掏钱？一份冷静的付费决策账本">
+<meta property="og:description" content="Qwen3 模型本身开源免费，但云端 API 计费、本地显卡投入、企业版服务——每一分钱花在哪、值不值？分轻度、主力、重度三类用户算清楚。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/qwen3-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/qwen3-docs/model-parameters.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/qwen3-docs/model-parameters.jpg">
+
+<meta name="twitter:title" content="Qwen3 到底值不值得掏钱？一份冷静的付费决策账本">
+<meta name="twitter:description" content="Qwen3 模型本身开源免费，但云端 API 计费、本地显卡投入、企业版服务——每一分钱花在哪、值不值？分轻度、主力、重度三类用户算清楚。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Qwen3 \u6a21\u578b\u672c\u8eab\u5f00\u6e90\u514d\u8d39\uff0c\u4f46\u4e91\u7aef API \u8ba1\u8d39\u3001\u672c\u5730\u663e\u5361\u6295\u5165\u3001\u4f01\u4e1a\u7248\u670d\u52a1\u2014\u2014\u6bcf\u4e00\u5206\u94b1\u82b1\u5728\u54ea\u3001\u503c\u4e0d\u503c\uff1f\u5206\u8f7b\u5ea6\u3001\u4e3b\u529b\u3001\u91cd\u5ea6\u4e09\u7c7b\u7528\u6237\u7b97\u6e05\u695a\u3002", "headline": "Qwen3 \u5230\u5e95\u503c\u4e0d\u503c\u5f97\u638f\u94b1\uff1f\u4e00\u4efd\u51b7\u9759\u7684\u4ed8\u8d39\u51b3\u7b56\u8d26\u672c", "image": ["https://laoguosofts.github.io/images/qwen3-docs/model-parameters.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/qwen3-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/qwen3-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "Qwen3 \u5230\u5e95\u503c\u4e0d\u503c\u5f97\u638f\u94b1\uff1f\u4e00\u4efd\u51b7\u9759\u7684\u4ed8\u8d39\u51b3\u7b56\u8d26\u672c", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">Qwen3 到底值不值得掏钱？一份冷静的付费决策账本</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">Qwen3 到底值不值得掏钱？一份冷静的付费决策账本</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Qwen3 模型本身开源免费，但云端 API 计费、本地显卡投入、企业版服务——每一分钱花在哪、值不值？分轻度、主力、重度三类用户算清楚。</p>
+  </header>
+  <div class="prose serif">
+<h2>开头抛问题</h2>
+<p>我去年把 API 账单拉出来看了一眼，单月花了八百多。那天晚上我盯着账单琢磨了半小时：Qwen3 到底值不值得我掏钱？</p>
+<p>这个问题听上去简单，但答案没那么直接。因为 <a href="https://qwen3.hhdc.tech" target="_blank" rel="noopener">Qwen3官网</a> 介绍得很清楚，这货是个"夹心糖"——模型本身开源免费，你可以下载权重本地跑；但云端 API 按量计费，你省心就得花钱；如果要企业级服务，又有另一档报价。免费版给什么、付费版多什么，每个档位的钱花得值不值？这篇文章就把这笔账掰扯清楚。</p>
+<h2>定价拆解：免费版给什么，付费版多什么</h2>
+<p>先把底牌亮出来。</p>
+<p><strong>本地模型权重——完全免费。</strong> Qwen3 全系列（从 0.6B 到 235B）都在 Hugging Face 上开源，Apache 2.0 协议，个人用、商用都行。你从 <a href="https://qwen3.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a> 拿权重，用 Ollama 一键启动，或者用 vLLM、SGLang 部署，一分钱不用花。唯一的门槛是显卡——8B 模型至少要 16GB 显存，32B 要 40GB，235B MoE 要多卡并行。</p>
+<p><strong>云端 API（阿里云百炼）——按量计费。</strong> 这部分的定价挺鸡贼，分模型档位：</p>
+<ul><li>qwen3-flash：最便宜，适合低延迟场景，约 0.4 元/百万输入 token、1.6 元/百万输出 token</li><li>qwen3-plus：中间档，能力更强，约 2.0 元/百万输入、8.0 元/百万输出</li><li>qwen3-max：旗舰版，默认自动思考，约 4.0 元/百万输入、16.0 元/百万输出</li><li>多模态模型（qwen3-vl-plus/flash）：按图像张数额外计费</li></ul>
+<p>注意这只是公开价。百炼经常有新用户赠送额度、活动折扣，实际成本可能更低，但长期稳定使用还是按原价算。</p>
+<p><strong>免费额度——新用户有。</strong> 注册百炼新账号，一般送几百万 token 的免费额度，够你玩一两周。用完了就得付费。</p>
+<p>有没有隐藏消费？有一个——思考模式的 token 消耗。qwen3-max 默认自动思考，思考过程本身也算 token，而且输出 token 往往是思考链的 2~3 倍。你调一个复杂问题，可能花掉的 token 是关闭思考时的 4~5 倍。这是计费里最容易被忽略的坑。</p>
+<p><img src="../images/qwen3-docs/model-parameters.jpg" alt="模型参数与成本对照" loading="lazy"></p>
+<h2>算账：三类用户的账本</h2>
+<p>我把用户分成三类，你对照自己对号入座。</p>
+<h3>轻度用户：每月调用不超过 10 万 token</h3>
+<p><strong>画像</strong>：偶尔写个脚本、调调 API 玩玩，或者给个人博客搭个简单的问答机器人。一天也就调用几十次，每次几十到几百 token。</p>
+<p><strong>免费版够不够？</strong> 完全够。新用户赠送的额度就能用好几个月，用完了换个新注册的小号继续薅——虽然不太地道，但技术上可行。如果不想薅羊毛，每月 10 万 token 按 qwen3-flash 算也就几分钱，一杯奶茶钱用半年。</p>
+<p><strong>付费值不值？</strong> 不值。这个强度下，百炼的付费和免费额度差异对你来说没意义。真要长期用，哪怕每月自己掏腰包，也就几块钱的事，犯不上纠结。</p>
+<h3>主力用户：每月 100 万 ~ 1000 万 token</h3>
+<p><strong>画像</strong>：有正经业务在跑——可能是给客户做的 AI 客服、公司内部的文档助手、或者你自己的产品已经在小范围商用。每天稳定有几千次调用，开始关心成本了。</p>
+<p><strong>免费版够不够？</strong> 不够。新用户额度撑不了一周，必须付费。</p>
+<p><strong>每单位时间成本多少？</strong> 按 qwen3-plus 算，500 万 token 每月大约 50~100 块（输入输出各一半的话）。如果用 qwen3-max 开思考模式，可能翻到 200~400 块。本地部署的话，一张 4090（24GB）跑 qwen3-8B，电费每月大概 30~50 块，但需要你有技术能力部署和维护。</p>
+<p><strong>这里有个关键抉择</strong>：云端省心但持续花钱，本地省电费但前期投入（显卡 + 运维时间）大。我自己的经验是，如果你已经有空闲显卡，本地部署 qwen3-8B 或 32B-AWQ 量化版，体验和云端 qwen3-plus 差不多，但长期成本低得多。如果没显卡，云端按量付费是更灵活的选择——毕竟你不需要为高峰时段的流量峰值买一堆显卡。</p>
+<h3>重度用户：每月 1000 万 token 以上</h3>
+<p><strong>画像</strong>：AI 产品成了——日活几千上万，调用量稳定在每月几千万甚至上亿 token。成本开始变成一个需要专门人盯的数字。</p>
+<p><strong>免费版？别想了。</strong> 这个量级下，免费额度连零头都不够。</p>
+<p><strong>每单位时间成本多少？</strong> 按每月 5000 万 token 算，qwen3-plus 大约 500~1000 块，qwen3-max 可能 2000~4000 块。但如果你有 GPU 集群，本地部署的边际成本几乎为零——电费加运维，5000 万 token 的成本可能只有云端的 1/10 甚至更低。</p>
+<p><strong>重度用户的核心问题不是"值不值"，而是"怎么省钱"。</strong> 优化空间很大，具体参数和技术细节去 <a href="https://qwen3-docs.pages.dev/" target="_blank" rel="noopener">qwen3文档</a> 翻：关闭不必要的思考模式、把简单请求路由到 qwen3-flash、批量推理、vLLM PagedAttention 提升吞吐、AWQ/GPTQ 量化降低显存占用……这些每一项都能砍掉 20%~50% 的成本。我见过一个朋友把每月 8000 万 token 的账单从 6000 块砍到了 800 块，靠的就是把 qwen3-max 的思考模式从"默认全开"改成"按问题类型自动判断"。</p>
+<h2>替代方案：不付这笔钱还有什么路</h2>
+<p>坦白说，Qwen3 不是唯一选择，甚至不一定是最便宜的选择。</p>
+<p><strong>同价位替代</strong>：DeepSeek-V3 开源，性能和 qwen3-plus 接近，云端 API 价格大约是 qwen3-plus 的一半。如果你只关心性价比，DeepSeek 可能更划算。Llama 3.1 也开源了 70B 版本，本地部署选项更多。</p>
+<p><strong>免费路线</strong>：完全不用付费，几个思路——</p>
+<ul><li>自己有显卡：下载 Ollama，跑 qwen3-8B 或 32B-AWQ，零成本</li><li>没显卡但量小：新账号薅百炼赠送额度，用完一个换一个</li><li>没显卡但量不小：考虑申请阿里云的 AI 应用加速器，有些项目能拿到免费额度</li></ul>
+<p><strong>降低使用频率的代价</strong>：如果把调用量砍掉一半能省一半钱，但业务还能不能跑得通？这个得自己算——我试过把客服机器人的回复从"每次都调 qwen3-max"改成"先查 FAQ，FAQ 没有才调 qwen3-plus"，调用量砍了 60%，用户体验几乎没差别。</p>
+<p><img src="../images/qwen3-docs/benchmark-compare.jpg" alt="云端与本地部署成本对比" loading="lazy"></p>
+<h2>结论：谁该付，谁该等，谁永远不用付</h2>
+<p>最后给一个可执行的结论。</p>
+<p><strong>闭眼付的</strong>：你有正经业务在跑、每月至少 100 万 token、自己又没显卡的——百炼按量付费是最省心的选择，别纠结了。如果你是重度用户且有 GPU 集群，优先本地部署，云端作为兜底。</p>
+<p><strong>再等等的</strong>：你正在犹豫要不要做 AI 产品、还在 MVP 阶段——先用免费额度和本地部署验证想法，等真有了稳定流量再考虑付费。云厂商的价格战还在打，下个月可能又降了。</p>
+<p><strong>永远不用付的</strong>：轻度用户、个人开发者、只是想玩玩的——下载 Ollama，本地跑 qwen3-8B，够用了。把省下来的钱买张好显卡，比给云厂商交月费强。</p>
+<p>我自己现在的状态是主力用户偏上：qwen3-plus 云端 API 每月 300 多万 token，再加一张 4090 本地跑 qwen3-32B-AWQ 处理批量任务。云端负责实时交互，本地负责批量推理，两边各取所长。这样算下来每月总成本大概 150 块，比纯云端省了一半多。</p>
+<p>这就是付费决策账本的意义——不是"付不付"，而是"怎么付最划算"。</p>
+<p>阿里云百炼的文档维护得挺勤快，模型更新和 API 变动都能及时查到；Hugging Face 上的开源权重随时可下，商用协议也没什么限制。我自己在整理这套资料的时候顺手做了三镜像，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/qwen3" target="_blank" rel="noopener">GitHub</a> 主站稳定，<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/qwen3" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/qwen3" target="_blank" rel="noopener">GitCode</a> 对国内访问更友好，各取所需。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/thanox.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Thanox 上手三天：终于有人把 Android 的自启动乱象治住了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/picacomic.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">PicaComic 问答速查：多源漫画阅读器的 8 个实用问题</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

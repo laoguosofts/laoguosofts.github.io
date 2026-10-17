@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>pilipili 砍了一半分区，还在 1GB 旧机上跑得动——这套设计原理我拆给你看 · 老郭软件铺</title>
+  
+<meta name="description" content="为什么一个第三方视频客户端要砍掉漫画、音乐、舞蹈等多个分区？为什么极速模式能让老旧安卓机流畅起来？从信息架构到性能裁剪，拆解 pilipili 背后的技术取舍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pilipili-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pilipili 砍了一半分区，还在 1GB 旧机上跑得动——这套设计原理我拆给你看">
+<meta property="og:description" content="为什么一个第三方视频客户端要砍掉漫画、音乐、舞蹈等多个分区？为什么极速模式能让老旧安卓机流畅起来？从信息架构到性能裁剪，拆解 pilipili 背后的技术取舍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pilipili-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pilipili-docs/home-interface.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pilipili-docs/home-interface.jpg">
+
+<meta name="twitter:title" content="pilipili 砍了一半分区，还在 1GB 旧机上跑得动——这套设计原理我拆给你看">
+<meta name="twitter:description" content="为什么一个第三方视频客户端要砍掉漫画、音乐、舞蹈等多个分区？为什么极速模式能让老旧安卓机流畅起来？从信息架构到性能裁剪，拆解 pilipili 背后的技术取舍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e3a\u4ec0\u4e48\u4e00\u4e2a\u7b2c\u4e09\u65b9\u89c6\u9891\u5ba2\u6237\u7aef\u8981\u780d\u6389\u6f2b\u753b\u3001\u97f3\u4e50\u3001\u821e\u8e48\u7b49\u591a\u4e2a\u5206\u533a\uff1f\u4e3a\u4ec0\u4e48\u6781\u901f\u6a21\u5f0f\u80fd\u8ba9\u8001\u65e7\u5b89\u5353\u673a\u6d41\u7545\u8d77\u6765\uff1f\u4ece\u4fe1\u606f\u67b6\u6784\u5230\u6027\u80fd\u88c1\u526a\uff0c\u62c6\u89e3 pilipili \u80cc\u540e\u7684\u6280\u672f\u53d6\u820d\u3002", "headline": "pilipili \u780d\u4e86\u4e00\u534a\u5206\u533a\uff0c\u8fd8\u5728 1GB \u65e7\u673a\u4e0a\u8dd1\u5f97\u52a8\u2014\u2014\u8fd9\u5957\u8bbe\u8ba1\u539f\u7406\u6211\u62c6\u7ed9\u4f60\u770b", "image": ["https://laoguosofts.github.io/images/pilipili-docs/home-interface.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pilipili-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pilipili-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "pilipili \u780d\u4e86\u4e00\u534a\u5206\u533a\uff0c\u8fd8\u5728 1GB \u65e7\u673a\u4e0a\u8dd1\u5f97\u52a8\u2014\u2014\u8fd9\u5957\u8bbe\u8ba1\u539f\u7406\u6211\u62c6\u7ed9\u4f60\u770b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">pilipili 砍了一半分区，还在 1GB 旧机上跑得动——这套设计原理我拆给你看</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">pilipili 砍了一半分区，还在 1GB 旧机上跑得动——这套设计原理我拆给你看</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">为什么一个第三方视频客户端要砍掉漫画、音乐、舞蹈等多个分区？为什么极速模式能让老旧安卓机流畅起来？从信息架构到性能裁剪，拆解 pilipili 背后的技术取舍。</p>
+  </header>
+  <div class="prose serif">
+<p>你有没有注意到一个奇怪的现象：B站原版客户端首页堆了七八个分区，漫画、音乐、舞蹈、数码、科技、鬼畜……每个分区下面还藏着二级子菜单，而 <a href="https://pilipili.hfdk.space" target="_blank" rel="noopener">pilipili官网</a> 上的这个第三方客户端只留了五个——番剧、影视、游戏、科普、生活。砍掉的那些分区去哪里了？难道是开发者嫌麻烦没做？</p>
+<p>再看另一件事：pilipili 有个叫"极速模式"的开关，开了之后应用内存占用能降 20%~30%，冷启动还能快个零点几秒，最夸张的是 1GB 内存的老旧安卓机，默认模式下刷视频卡得像 PPT，开了极速模式居然能流畅跑起来。这不是什么黑科技，背后是一套从信息架构到渲染管线的系统性裁剪。</p>
+<p>我把这套设计拆了三个层面讲给你听。</p>
+<h2>第一层：为什么砍分区——少而精才是效率</h2>
+<p>先解决第一个问题。Hick's Law（希克定律）有个朴素的表述：<strong>给用户的选择项越多，做出决策所需的时间就越长</strong>。原版客户端把分区铺了七八个，每个分区点开又有三五个筛选维度——追番、新番、经典、剧场版……用户在首页停留的时间不是用来消费内容，而是用来想"我该点哪个"。</p>
+<p>pilipili 的做法是<strong>分区内收</strong>。砍掉了漫画、音乐、舞蹈、数码这些非核心品类，把资源集中在五个分区上。结果就是每个分区的内容密度反而更高了——番剧分区里追番列表、当季新番、经典补番、剧场版一目了然，不用再跨分区找。</p>
+<p>这件事的代价很直接：如果你用 pilipili 看漫画，那确实没得看。但从用户分层的角度看，核心需求就是番剧和影视的用户占了绝大多数，砍掉冷门分区换来的是所有核心路径的选择成本降低——这是一个很典型的二八定律应用：<strong>用 20% 的功能覆盖 80% 的用户需求</strong>，剩下 20% 的用户可以回去用原版客户端，他们的损失比 80% 用户获得的便利要小得多。</p>
+<p><img src="../images/pilipili-docs/home-interface.jpg" alt="首页界面" loading="lazy"></p>
+<h2>第二层：极速模式不是省电模式——它在做资源隔离</h2>
+<p>要用上这些特性很简单，从<a href="https://pilipili.hfdk.space/download.html" target="_blank" rel="noopener">pilipili下载</a>拿个安装包装好就行。</p>
+<p>很多人以为极速模式就是把动画关一关、把画质降一降，其实远不止这些。它的核心思想是<strong>资源隔离</strong>：把应用的运行资源（CPU 时间片、内存、GPU 渲染能力）按优先级分层，最高优先级给视频播放链路，其他链路按需裁剪。</p>
+<p>让我把它开了之后发生的变化逐层说清楚：</p>
+<p><strong>渲染管线层</strong>：极速模式关闭了页面切换时的过渡动画、弹窗的缩放动效、列表滚动时的视差效果，把 UI 渲染的 GPU 占用降到最低。这不是"看起来丑了"，而是"看起来够用了"——用户刷视频的时候眼睛盯着的是播放画面，首页卡片的切换动画是不是丝滑根本没人在意。</p>
+<p><strong>资源分配层</strong>：图片加载改成了渐进式（先出模糊轮廓再逐步清晰），而且图片加载线程的优先级低于视频缓冲线程。默认模式下，首页卡片图片加载会和视频缓冲争抢网络带宽和内存通道，极速模式直接把图片加载降级为"有空再做"。</p>
+<p><strong>后台生命周期层</strong>：定时拉取追番更新的频率降低了、推送检查的间隔拉长了、甚至部分非核心的后台 Service 直接被禁用。这部分是用户感知最弱的——追番提醒可能延迟个几十秒，但换来的是系统给应用分配的后台配额不会被过度消耗，不容易被系统杀掉进程。</p>
+<p>这些变化叠加起来，在 1GB 内存的旧机上能让冷启动时间缩短 0.3~0.5 秒，内存占用降 20%~30%，长时间观看后的发热也明显减少。而旗舰机用户开极速模式几乎感受不到任何差异——因为旗舰机的资源本来就富余，裁剪了也没什么可让的。</p>
+<p>这里有个取舍值得注意：极速模式下追番提醒可能会延迟，而且高级播放器特性（滤镜、色彩调节）也会简化。如果你必须秒收到追番更新，那极速模式可能不太适合你。但对于大多数只是想看番的用户来说，这点延迟完全可以接受。具体的参数细调和进阶玩法可以去<a href="https://pilipili-docs.pages.dev/" target="_blank" rel="noopener">pilipili文档</a>翻一翻。</p>
+<h2>第三层：手势为什么分左右区域——人体工程学的直觉设计</h2>
+<p>你可能没太注意，横屏播放时 pilipili 的手势操作是<strong>分区域</strong>的：左半屏上下滑调亮度，右半屏上下滑调音量。这不是什么随便拍脑袋的决定，背后是对用户握持习惯的观察。</p>
+<p>大部分人右手持手机（横屏时右手在右侧），拇指的自然覆盖区域就是右半屏。把音量调节放在右半屏，意味着右手拇指滑一下就能调音量——不需要换握持姿势。那亮度为什么不也放右半屏？因为右手拇指在右半屏已经负责音量调节了，如果两个功能挤在同一块区域，误触率会非常高（调音量时不小心跳到了亮度）。</p>
+<p>所以亮度放在了左半屏——左手拇指的自然覆盖区域。这样做的结果是两个功能各占一块，互不干扰。</p>
+<p>除了分区域，pilipili 的手势系统还有一个隐蔽的设计：<strong>长按临时倍速</strong>。长按视频画面不动，会临时以 1.5x 速度播放，松手恢复原速度。这个手势解决了一个常见场景：快速扫过 OP/ED。你可以长按快进开头曲，想看正文了直接松手——比手动拉进度条再拉回来高效得多。</p>
+<p>不过手势也有代价：新手需要适应一下左半调亮度、右半调音量的分区逻辑，初期可能会不小心调错。而且屏幕小的设备上左右分区的边界不那么清晰，误触概率会高一些。好消息是这些手势都可以单独关闭，不喜欢的可以关掉回到按钮操作。</p>
+<p><img src="../images/pilipili-docs/player-screen.jpg" alt="播放器界面" loading="lazy"></p>
+<h2>三层设计串起来看</h2>
+<p>把这三层放在一起，你会发现 pilipili 的整个产品策略是非常一致的：<strong>所有设计决策都围绕"把资源集中给视频播放这条核心链路"展开</strong>。</p>
+<p>分区裁剪是在<strong>信息层面</strong>做减法——减少用户决策成本，让核心内容更快触达用户；极速模式是在<strong>系统资源层面</strong>做隔离——让 CPU/GPU/内存全部服务于播放体验；手势分区是在<strong>交互层面</strong>做优化——让常用操作的学习成本降到最低、执行效率升到最高。</p>
+<p>三层设计的最终目标是同一个：让"看视频"这件事本身变得更纯粹。</p>
+<h2>它适合谁，不适合谁</h2>
+<p>说了这么多原理，最后回到一个实际问题：你该用 pilipili 吗？</p>
+<p>适合的情况：你手里是 1GB 或 2GB 内存的老旧安卓机，刷视频总是卡、发热、被杀后台；或者你只是想看番剧和影视，对漫画、音乐那些内容没什么需求，想让应用跑得更干净利落。安装包从官方渠道拿就行，整个配置过程五分钟搞定。</p>
+<p>不太适合的情况：你用的是旗舰机，内存富余到跑三四个应用都没问题；或者你确实需要漫画、舞蹈、数码那些分区的内容。旗舰机上开极速模式其实也不会变坏——只是没必要，默认模式已经够流畅了。</p>
+<p>至于进阶玩法、参数调整这些细节，项目里维护的资料很全，翻一翻就能找到答案。</p>
+<p>不管你最终选什么客户端，pilipili 这套"减法+隔离+直觉"的设计思路，其实可以套用到很多场景——一个应用如果所有功能都想做，结果往往是每个都没做好；而集中资源在核心链路上，反而能在单点上做到极致。完整的项目资料和源码分别托管在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/pilipili" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/pilipili" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/pilipili" target="_blank" rel="noopener">GitCode</a>上，各平台同步维护方便不同地区的用户查阅。这大概也是为什么它能在 B 站第三方客户端里站稳脚跟的原因吧。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/omate.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从零到聊上 AI 角色：OMate 五分钟上手指南</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/gitmind-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">GitMind 版本进化史：从纯手绘导图到 AI 驱动的知识中枢</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

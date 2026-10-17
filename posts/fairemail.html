@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>为什么一个个人开发者写的邮箱客户端，能把安全做得比 Gmail 还狠？ · 老郭软件铺</title>
+  
+<meta name="description" content="FairEmail 的设计哲学拆解：从消息重格式化到统一收件箱，从买断模式到 6 套主题——每一个反直觉的选择背后，都藏着一套明确的原理和取舍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/fairemail.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么一个个人开发者写的邮箱客户端，能把安全做得比 Gmail 还狠？">
+<meta property="og:description" content="FairEmail 的设计哲学拆解：从消息重格式化到统一收件箱，从买断模式到 6 套主题——每一个反直觉的选择背后，都藏着一套明确的原理和取舍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/fairemail.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/fairemail/messages-light.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/fairemail/messages-light.png">
+
+<meta name="twitter:title" content="为什么一个个人开发者写的邮箱客户端，能把安全做得比 Gmail 还狠？">
+<meta name="twitter:description" content="FairEmail 的设计哲学拆解：从消息重格式化到统一收件箱，从买断模式到 6 套主题——每一个反直觉的选择背后，都藏着一套明确的原理和取舍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "FairEmail \u7684\u8bbe\u8ba1\u54f2\u5b66\u62c6\u89e3\uff1a\u4ece\u6d88\u606f\u91cd\u683c\u5f0f\u5316\u5230\u7edf\u4e00\u6536\u4ef6\u7bb1\uff0c\u4ece\u4e70\u65ad\u6a21\u5f0f\u5230 6 \u5957\u4e3b\u9898\u2014\u2014\u6bcf\u4e00\u4e2a\u53cd\u76f4\u89c9\u7684\u9009\u62e9\u80cc\u540e\uff0c\u90fd\u85cf\u7740\u4e00\u5957\u660e\u786e\u7684\u539f\u7406\u548c\u53d6\u820d\u3002", "headline": "\u4e3a\u4ec0\u4e48\u4e00\u4e2a\u4e2a\u4eba\u5f00\u53d1\u8005\u5199\u7684\u90ae\u7bb1\u5ba2\u6237\u7aef\uff0c\u80fd\u628a\u5b89\u5168\u505a\u5f97\u6bd4 Gmail \u8fd8\u72e0\uff1f", "image": ["https://laoguosofts.github.io/images/fairemail/messages-light.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/fairemail.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/fairemail.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e3a\u4ec0\u4e48\u4e00\u4e2a\u4e2a\u4eba\u5f00\u53d1\u8005\u5199\u7684\u90ae\u7bb1\u5ba2\u6237\u7aef\uff0c\u80fd\u628a\u5b89\u5168\u505a\u5f97\u6bd4 Gmail \u8fd8\u72e0\uff1f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">为什么一个个人开发者写的邮箱客户端，能把安全做得比 Gmail 还狠？</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">为什么一个个人开发者写的邮箱客户端，能把安全做得比 Gmail 还狠？</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">FairEmail 的设计哲学拆解：从消息重格式化到统一收件箱，从买断模式到 6 套主题——每一个反直觉的选择背后，都藏着一套明确的原理和取舍。</p>
+  </header>
+  <div class="prose serif">
+<h2>问题：为什么 FairEmail 敢跟 Gmail 对着干？</h2>
+<p>我用 Gmail 很多年了，直到有一天我发现一件事——Gmail 会在你点钓鱼链接之前，先帮你把可疑邮件标进垃圾箱，但<strong>如果它漏标了一封</strong>，你点开后看到的就是邮件原始 HTML，里面藏着什么脚本、什么追踪像素、什么 iframe，你完全不知道。更讽刺的是，Gmail 自己也在扫描你邮件里的内容来投放广告。</p>
+<p>FairEmail 不一样，去它的<a href="https://fairemail.fedq.ren" target="_blank" rel="noopener">FairEmail官网</a>就能感受到这种对安全的执着。它的反钓鱼逻辑是<strong>层层剥离、主动确认</strong>，从打开邮件的那一刻起就不把"原始 HTML"直接交给系统渲染。而它的统一收件箱、买断定价、6 套主题不开放自定义——这些选择看起来都跟主流产品反着来，我花了好一阵才想明白背后的原理。</p>
+<h2>拆解一：消息重格式化——为什么不直接渲染？</h2>
+<p>大多数邮箱客户端的流程是这样的：收到一封邮件 → 提取 HTML 正文 → 丢给 WebView 渲染 → 完事。这个流程快，但有个致命问题：<strong>WebView 会执行邮件里的任何 JavaScript</strong>，会加载外链 CSS，会渲染 iframe，会处理 onclick 事件处理器。如果有人给你发了一封带恶意脚本的邮件，你点开的瞬间，脚本就在你手机上跑了。</p>
+<p>FairEmail 的做法完全相反。它不把原始 HTML 塞给 WebView，而是先过一层<strong>重格式化</strong>处理器——像安检一样把邮件正文拆开来，一件一件检查：</p>
+<ul><li><code>&lt;script&gt;</code> 标签？直接扔掉，不解释</li><li><code>&lt;link rel=&quot;stylesheet&quot;&gt;</code> 外链样式？扔掉，防止邮件通过加载外部 CSS 文件来追踪你到底有没有打开这封邮件</li><li><code>&lt;iframe&gt;</code>、<code>&lt;object&gt;</code>、<code>&lt;embed&gt;</code>？扔掉，这些标签能嵌入任意外部网页或插件</li><li><code>onclick</code>、<code>onmouseover</code> 这类事件处理器？全部剥掉，防止鼠标悬停时触发恶意行为</li></ul>
+<p>剥离完之后，剩下的是一份<strong>净化过的 HTML</strong>：加粗、斜体、列表、段落这些排版信息保留，内嵌图片保留（因为附件里已经包含了，不会额外请求外部资源），但所有代码执行路径都被切断了。</p>
+<p><img src="../images/fairemail/messages-light.png" alt="统一收件箱的安全视图" loading="lazy"></p>
+<p>这一层处理的成本其实不低——每封邮件打开前都要跑一次解析器，在低端手机上可能比直接渲染慢个几百毫秒。但换来的好处是：<strong>即使某封邮件真的藏了恶意脚本，在 FairEmail 里也根本跑不起来</strong>。</p>
+<h2>拆解二：链接确认弹窗——为什么点个链接还要问我？</h2>
+<p>我第一次用 FairEmail 点链接时有点不习惯——每点一个 URL，它都弹出对话框问我："你确定要打开 xxx 域名的这个链接吗？"而且它会把链接的<strong>完整实际 URL</strong> 给你看，不是邮件里显示的那行文字。</p>
+<p>为什么要多这一步？钓鱼邮件最常用的手法就是<strong>链接欺骗</strong>：邮件里显示「paypal.com/verify」，实际 URL 是「paypal-login-verification.fake.com/scam.php」。Gmail 和 Outlook 其实也做链接安全检查，但它们更多是后台判定、静默拦截；FairEmail 的逻辑是：<strong>不替你做决定，只把信息摆出来</strong>。</p>
+<p>除了链接弹窗，FairEmail 还会在邮件内容顶部显示<strong>认证状态警告</strong>——SPF、DKIM、DMARC 三项邮件行业标准认证，任何一项失败都会有明确的中文提示："发件服务器未被授权代表此发件人域名发信"或者"邮件签名无效，可能被篡改"。Gmail 也会检查这些，但通常只在非常明显的异常时才标红，FairEmail 则把警告放在更显眼的位置，而且不会自动把可疑邮件合并进主收件箱。</p>
+<p>这一套组合拳下来，FairEmail 的安全防护其实已经覆盖了从打开邮件到点击链接到打开附件的全链路——但有个重要前提：<strong>最终判断还在你自己</strong>。它不扫描附件里的恶意软件代码（那是安全软件的活），它的职责是让你不容易被欺骗点击。</p>
+<h2>拆解三：统一收件箱——合并显示 ≠ 物理复制</h2>
+<p>FairEmail 的统一收件箱是它最受欢迎的功能。如果你同时管着三四个邮箱账户，从左侧抽屉点一下就能把所有账户的邮件合并成一个连续的时间线——听起来像是把邮件复制到了一个新文件夹里？</p>
+<p>其实不是。它是<strong>在界面层做的虚拟合并</strong>。每封邮件仍然归属于原来的账户和文件夹，在统一收件箱里删除一封邮件，实际是删除它所在账户的那一封。星标、已读、移动文件夹这些操作都会正确同步回原始账户。它没有复制任何数据，只是把多个数据源的视图拼在一起。</p>
+<p>这个设计的好处是零冗余、零同步冲突——如果某个账户的同步断了，不影响其他账户的邮件显示。坏处是它需要在后台同时维持所有账户的 IMAP IDLE 推送连接，账户太多时会稍微费电。但对于大多数人来说，这是一个非常划算的取舍。</p>
+<h2>拆解四：为什么只有 6 套主题，还不让自定义颜色？</h2>
+<p>FairEmail 开发者在<a href="https://fairemail.pages.dev/" target="_blank" rel="noopener">FairEmail文档</a>里专门解释过这个设计决策：<strong>限制主题选项是为了保证整个 App 的视觉一致性和维护成本可控</strong>。它不像 Gmail 那样提供几十种主题或允许上传自定义背景图，而是精心设计了 6 套预设配色方案，每套都有 Light / Dark / Black 三种背景变体，总共 18 种。</p>
+<p>黑色背景变体专门为 OLED 屏幕设计——纯黑像素点不发光，省电效果最好。还有一个"颜色反转"开关，对于色盲用户或对某些配色特别敏感的人很实用。</p>
+<p><img src="../images/fairemail/folders-compact.png" alt="多账户不同颜色标识" loading="lazy"></p>
+<p>这个设计让我想起了一个著名的原则：<strong>好的软件应该帮用户做决定，而不是给用户无限选择</strong>。FairEmail 的定位是"高效收发邮件"，过多的主题选项反而会让用户在选择上花太多时间——这和它的核心目标是冲突的。</p>
+<h2>拆解五：买断模式——为什么跟订阅制反着来？</h2>
+<p>FairEmail 免费版已经非常完整了，安装包从<a href="https://fairemail.fedq.ren/download.html" target="_blank" rel="noopener">下载</a>渠道就能拿到——无限 IMAP/POP3 账户、无限邮件地址、统一收件箱、双向同步、OpenPGP 加密、反钓鱼、全文搜索、无广告无分析无追踪。然后它的 Pro 版是一次买断（约 55 元人民币），终身使用，没有任何隐藏续费。</p>
+<p>开发者明确表示过，买断模式更符合他对软件价值的理解。很多用户抱怨"这个功能应该免费"的时候，他的回应是：Pro 功能不是骗钱，是为了覆盖开发成本。没有广告收入，没有订阅收入，Pro 内购是唯一的资金来源。</p>
+<p>这个定价策略的原理很简单：<strong>当一个产品没有广告也没有追踪时，用户就是唯一的收入来源</strong>。订阅制要求用户持续付费，对个人开发者来说维护成本更高，因为用户流失率会直接影响收入稳定性。买断制虽然单笔金额低，但一旦付费，用户就没有理由再离开了——这让开发者可以安心做长期维护。</p>
+<h2>取舍：这套设计的代价</h2>
+<p>公平地说，FairEmail 不是完美的。它不做附件恶意代码扫描，不支持 IMAP 文件夹自动分类（Pro 才有），没有云同步——换手机时要导出配置文件手动迁移。Material You 动态颜色支持非常低调，不会像 Gmail 那样大面积彩色。内部锚点链接在 Android WebView 中无法跳转，这是平台限制没法修。</p>
+<p>多账户管理是它的强项，但账户太多时后台维持 IMAP IDLE 连接会比较费电。搜索索引需要手动触发建立，不是开箱即用。</p>
+<h2>判断：谁应该用 FairEmail？</h2>
+<p>如果你同时管着两三个以上邮箱账户、在意隐私（不想让 Google 扫描你的邮件内容）、讨厌广告和追踪、愿意为一次买断付费，FairEmail 可能是 Android 上最好的邮箱客户端选择。</p>
+<p>如果你需要云同步、喜欢花里胡哨的自定义主题、或者只需要一个 Gmail 客户端——FairEmail 可能不是最优解。Gmail 在 Google 生态内的无缝体验是 FairEmail 比不了的。但 FairEmail 的安全防护和隐私承诺，也是 Gmail 给不了的。</p>
+<p>写这篇文章的时候我一直在想，为什么一个个人开发者能做出这样的产品。可能正是因为没有资本压力、不需要给投资人交差，才能做出这些反直觉但原理清晰的设计选择。FairEmail 没有云同步，但整理它资料的仓库倒是做了三重备份——在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/FairEmail" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/FairEmail" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/FairEmail" target="_blank" rel="noopener">GitCode</a> 上都能找到，不用担心哪家访问不了。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/remax-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Remax 背后的技术取舍：一个 TWS 耳机应用为什么要单独装</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/hoyolab.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">HoYoLAB 六年迭代：从游戏公告板到玩家社区的缓慢转身</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>miyu 从零上手：三步建好角色、开好群聊、管好隐私 · 老郭软件铺</title>
+  
+<meta name="description" content="想玩 AI 角色聊天但不知道从哪下手？这篇教程带你从零搭出第一个带世界书的角色卡，开启群聊让角色互相接话，再把存储和隐私设置调到位——全程不跳过一个按钮。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/miyu-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="miyu 从零上手：三步建好角色、开好群聊、管好隐私">
+<meta property="og:description" content="想玩 AI 角色聊天但不知道从哪下手？这篇教程带你从零搭出第一个带世界书的角色卡，开启群聊让角色互相接话，再把存储和隐私设置调到位——全程不跳过一个按钮。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/miyu-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/miyu-docs/character-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/miyu-docs/character-card.png">
+
+<meta name="twitter:title" content="miyu 从零上手：三步建好角色、开好群聊、管好隐私">
+<meta name="twitter:description" content="想玩 AI 角色聊天但不知道从哪下手？这篇教程带你从零搭出第一个带世界书的角色卡，开启群聊让角色互相接话，再把存储和隐私设置调到位——全程不跳过一个按钮。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u60f3\u73a9 AI \u89d2\u8272\u804a\u5929\u4f46\u4e0d\u77e5\u9053\u4ece\u54ea\u4e0b\u624b\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u642d\u51fa\u7b2c\u4e00\u4e2a\u5e26\u4e16\u754c\u4e66\u7684\u89d2\u8272\u5361\uff0c\u5f00\u542f\u7fa4\u804a\u8ba9\u89d2\u8272\u4e92\u76f8\u63a5\u8bdd\uff0c\u518d\u628a\u5b58\u50a8\u548c\u9690\u79c1\u8bbe\u7f6e\u8c03\u5230\u4f4d\u2014\u2014\u5168\u7a0b\u4e0d\u8df3\u8fc7\u4e00\u4e2a\u6309\u94ae\u3002", "headline": "miyu \u4ece\u96f6\u4e0a\u624b\uff1a\u4e09\u6b65\u5efa\u597d\u89d2\u8272\u3001\u5f00\u597d\u7fa4\u804a\u3001\u7ba1\u597d\u9690\u79c1", "image": ["https://laoguosofts.github.io/images/miyu-docs/character-card.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/miyu-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/miyu-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "miyu \u4ece\u96f6\u4e0a\u624b\uff1a\u4e09\u6b65\u5efa\u597d\u89d2\u8272\u3001\u5f00\u597d\u7fa4\u804a\u3001\u7ba1\u597d\u9690\u79c1", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">miyu 从零上手：三步建好角色、开好群聊、管好隐私</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">miyu 从零上手：三步建好角色、开好群聊、管好隐私</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">想玩 AI 角色聊天但不知道从哪下手？这篇教程带你从零搭出第一个带世界书的角色卡，开启群聊让角色互相接话，再把存储和隐私设置调到位——全程不跳过一个按钮。</p>
+  </header>
+  <div class="prose serif">
+<p>看完这篇教程，你应该能独立完成三件事：在<a href="https://miyu.hfdk.space" target="_blank" rel="noopener">miyu官网</a>里创建一张带完整设定的角色卡、让两三个角色在同一个群聊里自动互相回应、把对话存储时长和加密模式调得符合自己的隐私偏好。</p>
+<h2>准备工作</h2>
+<p>先确认几件事，别做到一半卡住：</p>
+<ul><li><strong>平台</strong>：miyu 目前主要在移动端使用，iOS 和 Android 都有对应的<a href="https://miyu.hfdk.space/download.html" target="_blank" rel="noopener">官方下载</a>。安装完成后需要注册或登录账号才能使用云端备份功能——如果只是临时体验，跳过登录直接玩也行，但数据只存在本机。</li><li><strong>账号状态</strong>：登录后会获得初始金豆，够你兑换几次记录延长保存。如果用完了也不影响基础聊天功能，只是聊天记录默认保留 7 天。</li><li><strong>角色卡素材</strong>：建议提前想一到两个你想创建的角色——名字、性格标签、说话习惯各准备几条，后面写角色卡和世界书会省很多事。</li></ul>
+<p>好，开始。</p>
+<h2>第一步：创建你的第一张角色卡</h2>
+<p>打开 miyu，进入角色广场或者自建角色入口。点「新建角色」，你会看到角色卡编辑页。别着急往上填东西，先理解一下角色卡到底要写什么。</p>
+<p>角色卡的核心分三块：基础信息、人设标签、开场白。基础信息就是名字、头像这种直观的东西，随便填填就行，头像可以后面换。重点是人设标签——这是 AI 理解"这个角色是谁"的主要依据。</p>
+<p>人设标签不要写长段落，要用<strong>短语或短句</strong>，每条一行。比如你要做一个"图书馆管理员"，别写"她是一个在大学图书馆工作的中年女性，性格温和，喜欢给学生推荐好书"，拆成标签：</p>
+<ul><li>陈老师</li><li>大学图书馆管理员</li><li>温和、耐心</li><li>喜欢推荐冷门好书</li><li>说话慢条斯理，偶尔开玩笑</li></ul>
+<p>这样 AI 解析起来更清晰，生成的对话也更稳定。</p>
+<p>写好标签之后，在开场场景里给这个角色一段开场白。开场白是角色被拉进对话后说的第一句话，帮你快速进入状态。比如陈老师的开场白可以是："你好，新来的同学？需要找什么书吗？"</p>
+<p><img src="../images/miyu-docs/character-card.png" alt="角色卡编辑界面" loading="lazy"></p>
+<p>点保存，你的第一张角色卡就建好了。但这只是角色本身——如果你想让 AI 知道"这个角色所处的世界是什么样"，还需要补一份世界书。</p>
+<h3>世界书：给角色加一层背景框架</h3>
+<p>角色卡只定义"角色是谁"，世界书定义"角色在哪"。比如陈老师是图书馆管理员，但图书馆是什么样的？有没有什么特殊规则？主要场景有哪些？这些写进世界书，AI 在对话时就会自动参考这些设定。</p>
+<p>在角色编辑页找「补充设定」或「世界设定」的入口（不同版本名字可能略有差异），按下面的结构写：</p>
+<pre><code>【世界观】
+- 现代都市，无魔法无超能力
+- 时间是 2026 年秋天
+
+【主要场景】
+- 大学图书馆三楼
+- 靠窗固定位置留给陈老师
+
+【关联 NPC】
+- 同学小王，陈老师常帮 TA 找书</code></pre>
+<p>写世界书的几个要点：<strong>简洁、结构化、重要的放前面</strong>。不要写小说式的段落，AI 对要点式的结构化信息理解最好。世界书不是必填项，但加上之后角色对话的真实感会明显提升。不同版本的 miyu 在入口命名上可能略有差异，找不到的时候去<a href="https://miyu-docs.pages.dev/" target="_blank" rel="noopener">miyu文档</a>搜一下关键词就好。</p>
+<h2>第二步：建一个群聊，让角色自动互相接话</h2>
+<p>建好单个角色只是热身，群聊才是 miyu 最有意思的地方——把两三个角色拉进同一个会话，它们会基于各自人设和群聊上下文互相回应，产生很有趣的化学反应。</p>
+<h3>怎么开群聊</h3>
+<p>回到首页，找到「多角色聊天」或类似的入口。点进去后，先选第一个角色加入会话，再点「添加角色」继续选第二个、第三个。选好之后给群聊起个标题，点开始。</p>
+<p>进入群聊界面后，你就是"群主"兼观察者。你发的每一句话，所有角色都能看到；角色之间说的话，其他角色在下一轮生成时也会参考。所以当角色 A 说了什么，角色 B 不仅能回应你，还能回应角色 A 刚刚说的话——这就是"互相接话"的来源。</p>
+<p><img src="../images/miyu-docs/chat-interaction.jpg" alt="群聊里角色自动互动" loading="lazy"></p>
+<h3>怎么引导角色互动</h3>
+<p>群聊开起来后，如果角色们只是轮流回复你一个人，而不是互相接话，试试这几种方法引导：</p>
+<p><strong>方法一：明确互动意图。</strong> 在群里说"你们俩先聊聊这个问题，我听听"或者"橙小喵你跟月影寒霜说说你的想法"——AI 理解你的意图后，角色之间会更主动地互相回应。</p>
+<p><strong>方法二：抛出有争议的观点。</strong> 比如"你们觉得周末应该在家休息还是出门玩？"不同性格的角色大概率会给出不同答案，然后开始互相"辩论"。</p>
+<p><strong>方法三：分组互动。</strong> 如果群里有三个以上角色，可以让角色两两互动——"陈老师先跟小王聊，其他同学等会儿再说"，这样群聊更有条理。</p>
+<h3>一个典型例子</h3>
+<p>假设你群里有三个角色：活泼的橙小喵、高冷的月影寒霜、温柔的樱井美月。你发一句"今天想出去玩"，可能会得到这样的对话流：</p>
+<blockquote><p><strong>橙小喵</strong>：好耶好耶！一起去公园吧！可以野餐！<strong>月影寒霜</strong>：……为什么要去公园，人那么多<strong>橙小喵</strong>：人多热闹嘛～你不会是宅久了吧哈哈<strong>月影寒霜</strong>：……你再笑我就不去了<strong>樱井美月</strong>：好啦好啦，公园确实人多，但换个安静的地方也可以呀</p></blockquote>
+<p>这就是角色人设碰撞出来的化学反应——活泼的主动逗高冷的，高冷的嘴上嫌弃但没真生气，温柔的在中间打圆场。你只需要开个头，剩下的让它们自己玩就行。</p>
+<h3>人设会不会崩</h3>
+<p>不会。角色之间的互动始终以各自人设为基础——高冷角色不会突然变热情，活泼角色不会突然沉默。你看到的"拉扯"是人设互动的结果，不是人设崩塌。同一个群聊里，角色之间会逐渐形成某种"关系"——A 喜欢逗 B，B 嘴上嫌弃但不生气，C 打圆场。这种关系会在当前会话内延续，但开新的群聊会话就会重新开始。</p>
+<h2>第三步：把存储和隐私调对</h2>
+<p>聊了几天下来，你可能发现一个问题：有些精彩对话想留着，但默认只保留 7 天。或者你担心手机丢了聊天内容被人看到。这一步把存储和隐私设置调到位。</p>
+<h3>两种存储模式</h3>
+<p>miyu 提供两种数据存储方式，在设置里切换：</p>
+<p><strong>仅设备保存（本地模式）</strong>：聊天记录和自建角色只存在当前手机上，不联网、不同步、不上传服务器。适合非常在意隐私、换手机不频繁的用户。但注意——换手机或卸载 APP 数据就没了。</p>
+<p><strong>云端备份</strong>：登录同一个账号的多台设备可以同步数据，云端数据同样经过加密处理。适合想跨设备同步、不想因为换手机丢数据的用户。</p>
+<p>不管选哪种，miyu 对所有对话数据都采用 AES-256 加密存储——聊天内容在存储时被转化为不可读的密文，只有用你的账号密钥或应用锁密码才能解密查看。</p>
+<h3>延长记录保存时长</h3>
+<p>新用户默认保留约 7 天的聊天记录。想留更久？用金豆兑换：30 天、90 天、甚至永久保存都有对应的档位。兑换入口通常在「我的」→「金豆商城」或「权益中心」里。</p>
+<p>几个值得兑换的场景：你和某个角色聊了很久、人设打磨得很好；正在玩悬疑推理或恋爱养成这种跨好几周的长周期剧情；想记录自己和同一个角色的"关系发展"。只是日常随便唠嗑的话，默认 7 天足够，不用特意花金豆。</p>
+<p><strong>注意：过期被清理的记录是彻底删除，没有恢复入口。</strong> 觉得某些对话值得长期保留，在过期前兑换延长保存。</p>
+<h2>新手最容易翻车的三个坑</h2>
+<h3>坑一：角色卡写成了小论文</h3>
+<p>很多新手第一次写角色卡，会忍不住写一大段人物小传——结果 AI 抓不住重点，生成的对话要么偏离人设要么特别啰嗦。记住：<strong>标签比段落好用</strong>，要点式比文学式好用。</p>
+<h3>坑二：群聊里角色只回复你不互相接话</h3>
+<p>这多半是你在群里太"抢戏"了——每次只回复一个角色的话，或者话题太偏向某个特定角色。试试退到观察者角色，故意说一个让多个角色都有话说的话题，或者直接说"你们俩先聊"。</p>
+<h3>坑三：忘了开云端备份就换手机</h3>
+<p>本地模式下数据只存在当前设备，换手机或者卸载 APP 就全没了。如果有重要的自建角色或想长期保留的对话，记得开云端备份或者在换手机前手动导出角色卡。</p>
+<h2>下一步能玩什么</h2>
+<p>基础三步跑通之后，可以试试导入 PUB 格式的角色卡（圈内常用格式，网上有现成的角色库可以找）、开启剧情模式让 AI 按剧情线推进对话、或者在群聊里加入世界书让所有角色共享同一套世界观设定。PUB 角色卡和世界书的模板素材，在<a href="https://github.com/alipymanbu/APK/tree/main/APP/miyu" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/miyu" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/miyu" target="_blank" rel="noopener">GitCode</a> 上都整理了一份，选哪个顺手就下哪个。这些都是进阶玩法，等你把基础功能用熟了再逐一尝试就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/fluxdown.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">FluxDown 从零到自动下载：一个下载器能帮你省多少手动活</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/dreamina-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Dreamina 速查：从出第一张图到做完整条视频</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

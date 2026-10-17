@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>WiFiman 快问快答：测速、信号、远程一把抓的网络诊断工具 · 老郭软件铺</title>
+  
+<meta name="description" content="整理了关于 WiFiman 最常被问到的九个问题——它是什么、谁该装、Teleport 远程怎么开、信号数字怎么看、桌面版值不值得装，一口气答完。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/wifiman.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WiFiman 快问快答：测速、信号、远程一把抓的网络诊断工具">
+<meta property="og:description" content="整理了关于 WiFiman 最常被问到的九个问题——它是什么、谁该装、Teleport 远程怎么开、信号数字怎么看、桌面版值不值得装，一口气答完。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/wifiman.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/wifiman/signal-ios.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/wifiman/signal-ios.jpg">
+
+<meta name="twitter:title" content="WiFiman 快问快答：测速、信号、远程一把抓的网络诊断工具">
+<meta name="twitter:description" content="整理了关于 WiFiman 最常被问到的九个问题——它是什么、谁该装、Teleport 远程怎么开、信号数字怎么看、桌面版值不值得装，一口气答完。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6574\u7406\u4e86\u5173\u4e8e WiFiman \u6700\u5e38\u88ab\u95ee\u5230\u7684\u4e5d\u4e2a\u95ee\u9898\u2014\u2014\u5b83\u662f\u4ec0\u4e48\u3001\u8c01\u8be5\u88c5\u3001Teleport \u8fdc\u7a0b\u600e\u4e48\u5f00\u3001\u4fe1\u53f7\u6570\u5b57\u600e\u4e48\u770b\u3001\u684c\u9762\u7248\u503c\u4e0d\u503c\u5f97\u88c5\uff0c\u4e00\u53e3\u6c14\u7b54\u5b8c\u3002", "headline": "WiFiman \u5feb\u95ee\u5feb\u7b54\uff1a\u6d4b\u901f\u3001\u4fe1\u53f7\u3001\u8fdc\u7a0b\u4e00\u628a\u6293\u7684\u7f51\u7edc\u8bca\u65ad\u5de5\u5177", "image": ["https://laoguosofts.github.io/images/wifiman/signal-ios.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/wifiman.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/wifiman.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "WiFiman \u5feb\u95ee\u5feb\u7b54\uff1a\u6d4b\u901f\u3001\u4fe1\u53f7\u3001\u8fdc\u7a0b\u4e00\u628a\u6293\u7684\u7f51\u7edc\u8bca\u65ad\u5de5\u5177", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">WiFiman 快问快答：测速、信号、远程一把抓的网络诊断工具</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">WiFiman 快问快答：测速、信号、远程一把抓的网络诊断工具</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">整理了关于 WiFiman 最常被问到的九个问题——它是什么、谁该装、Teleport 远程怎么开、信号数字怎么看、桌面版值不值得装，一口气答完。</p>
+  </header>
+  <div class="prose serif">
+<p>整理一篇关于 WiFiman 的快问快答，九个问题把这款 Ubiquiti 出品的网络诊断工具讲透。</p>
+<h3>WiFiman 到底是什么？</h3>
+<p>一句话：<strong>网络诊断工具箱 + 远程回家的钥匙</strong>。它的<a href="https://wifiman.bmww.store" target="_blank" rel="noopener">官网</a>上写得清楚，这是 Ubiquiti 做的免费 App，手机端功能最全，桌面端是轻量版。核心就三块——测网速、看信号、连 Teleport 远程回家。没有广告，不用注册，打开就能用。</p>
+<p>谁适合装？家里有 UniFi 设备的肯定第一优先级，但就算你用的是其他品牌路由器，测速和信号扫描照样能用，这两块不挑硬件。</p>
+<h3>装在哪？手机版和桌面版差多少？</h3>
+<p>手机版有 iOS 和 Android，直接从<a href="https://wifiman.bmww.store/download.html" target="_blank" rel="noopener">下载</a>页拿就行，桌面版覆盖 Windows、macOS、Linux——三端都免费。桌面版不是手机版的复刻，是<strong>轻量版</strong>：它只保证设备发现和 Teleport 两大核心，测速和信号页是 1.2.x 系列后来补上的，但整体功能仍比移动端少一半以上。</p>
+<p>桌面版适合主力机在电脑上、需要长会话 Teleport 的人——iOS 有后台限制，手机连 Teleport 只能短会话，长连接需求放电脑上更稳。如果你只是偶尔测个速，手机版完全够用。</p>
+<h3>Teleport 远程回家怎么开？</h3>
+<p>Teleport 是「家里网关 + 外出设备」两端配合的功能，家里那端要有 UniFi 网关（Cloud Gateway / UDM 一类运行 UniFi OS 的主机）。</p>
+<p>开启步骤：进 UniFi 网络应用的管理界面（手机 App 或网页控制器都行），打开 <strong>Settings → VPN → Teleport</strong> 开关，然后生成一条邀请链接或二维码。</p>
+<p>邀请有两条硬规则要记住——<strong>有效期 24 小时、一条只能被一台设备使用</strong>。给谁用就现发现用，别把链接留在聊天记录里过夜，它就是一张临时门票。</p>
+<h3>外出设备怎么连？</h3>
+<p>在外出设备上装好 WiFiman，直接点开邀请链接就行——App 会自动识别邀请、把 Teleport 配置写入，不需要手动填服务器地址或密钥。iOS 首次连接会弹系统级 VPN 授权，允许即可。</p>
+<p>日常使用就是一个按钮：切到 Teleport 标签页，点连接开关，状态灯变绿就到家了。此时手机的所有流量按隧道策略走家里网络，浏览器直接输入家里 NAS、摄像头、路由器后台的内网地址就能访问，体验和在家一模一样。</p>
+<h3>连不上怎么办？先别重装</h3>
+<p>一键连接失败的常见原因有明确清单：蜂窝网络下的 IPv6 兼容问题、iOS 后台保活限制、网关侧没开启 Teleport 等等。绝大多数情况翻一下<a href="https://wifiman.pages.dev/" target="_blank" rel="noopener">WiFiman 文档</a>对照排查就能解决，不用急着重装应用。桌面端 1.2.x 系列迭代过几轮 Teleport 稳定性修复，连接表现以最新版为准。</p>
+<h3>信号页上那个负数是什么意思？</h3>
+<p>那个带负号的数字叫 RSSI，单位 dBm。记住一条规则：<strong>RSSI 是负数，越接近 0 越好</strong>。-40 比 -60 强，-90 基本不可用。它是对数刻度，相差 10 dBm 实际功率差约十倍——从 -50 掉到 -70 看似只掉了 20，链路质量已经是天壤之别。</p>
+<p><img src="../images/wifiman/signal-ios.jpg" alt="RSSI 信号页直观展示各个位置的信号强弱" loading="lazy"></p>
+<p>分区间对照：-30 到 -50 是极好（贴近 AP，能跑满上限速率）；-50 到 -60 很好（4K 流媒体、视频会议都稳）；-60 到 -70 尚可（日常浏览和高清视频没问题）；-70 到 -80 开始弱，可用性下限；低于 -90 基本不可用。</p>
+<p>实用达标线：全屋覆盖至少做到 -65 dBm 以上；对延迟敏感的用途（游戏、会议）争取 -60 dBm 以内。读数受设备天线影响，同一位置不同手机差几 dB 属正常，对比时尽量用同一台设备。</p>
+<h3>信号不理想怎么改善？</h3>
+<p>改善顺序是这样的：<strong>先挪位置</strong>——AP 架高、居中、别塞进弱电箱，这比任何设置都立竿见影；<strong>躲开干扰源</strong>——微波炉、无线键盘底座、蓝牙设备堆都压 2.4 GHz，金属柜、镜子、水族箱是信号黑洞；<strong>再调信道</strong>——信号够但速率上不去时多半是信道挤；最后才是补点，大面积或多层户型靠加 AP 或 Mesh 节点解决。</p>
+<h3>测速结果怎么解读？</h3>
+<p>测速页跑一次就能拿到当前网络的上下行速率和延迟。连着 Teleport 时跑测速，结果反映的是「当前位置 → 家里宽带」的全程质量，可以用来评估两地线路。测速完顺手用 Discover 页看家里设备谁在线，配合 Network Latency 确认外出体验。</p>
+<p><img src="../images/wifiman/discover-android.webp" alt="设备发现页一屏扫出所有在线设备" loading="lazy"></p>
+<h3>WiFiman 和同类工具比怎么样？</h3>
+<p>市面上的 WiFi 分析工具不少，但 WiFiman 有两个独特点：一是它和 UniFi 生态的深度整合——Discovery 页能直接识别网关并一键进入 Teleport，不用手动填任何参数；二是全功能免费，没有内购、没有广告，移动端该有的都给了。</p>
+<p>当然也有局限：信号分析和测速不挑路由器，但 Teleport 远程回家这一套只能配合 UniFi 网关使用，非 UniFi 用户用不了这个功能。桌面版功能比手机版少，这也得提前有预期。</p>
+<h3>值不值得装？</h3>
+<p>如果你家里有 UniFi 设备，WiFiman 几乎是必装——Teleport 远程回家是真正能替代 VPN 的零配置方案，测速和信号诊断也比系统自带的详细得多。即便你没有 UniFi，当成一个纯粹的 WiFi 诊断工具用也完全够格，免费、干净、不折腾。唯一要注意的是 Teleport 的邀请规则和桌面版的轻量定位，别抱着手机版全功能复刻的期待去装桌面版就行。</p>
+<p>最后一句：有 UniFi 就闭眼装，没有也装一个当备用诊断工具，反正免费不占空间。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/wifiman" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/wifiman" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/wifiman" target="_blank" rel="noopener">GitCode</a> 都有留底，国内访问选 Gitee 或 GitCode 更快。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/codeformer-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">CodeFormer 全链路盘点：从模型原理到生产部署，人脸修复能覆盖多少场景</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/keep-alive-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">装了八个月 Keep Alive，这个什么都不做的安全应用让我想通了一件事</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

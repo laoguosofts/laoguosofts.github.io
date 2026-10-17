@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我装了 Gloom，终于在通勤路上能好好刷 GitHub 了 · 老郭软件铺</title>
+  
+<meta name="description" content="Gloom 是 MateriiApps 做的一款 Android GitHub 客户端，不走 Play Store、不靠中间服务器，直接从 GitHub API 拉数据。用了一周下来，聊聊它好在哪里、哪些地方还有点糙。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/gloom-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我装了 Gloom，终于在通勤路上能好好刷 GitHub 了">
+<meta property="og:description" content="Gloom 是 MateriiApps 做的一款 Android GitHub 客户端，不走 Play Store、不靠中间服务器，直接从 GitHub API 拉数据。用了一周下来，聊聊它好在哪里、哪些地方还有点糙。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/gloom-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/gloom-docs/home-feed.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/gloom-docs/home-feed.png">
+
+<meta name="twitter:title" content="我装了 Gloom，终于在通勤路上能好好刷 GitHub 了">
+<meta name="twitter:description" content="Gloom 是 MateriiApps 做的一款 Android GitHub 客户端，不走 Play Store、不靠中间服务器，直接从 GitHub API 拉数据。用了一周下来，聊聊它好在哪里、哪些地方还有点糙。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Gloom \u662f MateriiApps \u505a\u7684\u4e00\u6b3e Android GitHub \u5ba2\u6237\u7aef\uff0c\u4e0d\u8d70 Play Store\u3001\u4e0d\u9760\u4e2d\u95f4\u670d\u52a1\u5668\uff0c\u76f4\u63a5\u4ece GitHub API \u62c9\u6570\u636e\u3002\u7528\u4e86\u4e00\u5468\u4e0b\u6765\uff0c\u804a\u804a\u5b83\u597d\u5728\u54ea\u91cc\u3001\u54ea\u4e9b\u5730\u65b9\u8fd8\u6709\u70b9\u7cd9\u3002", "headline": "\u6211\u88c5\u4e86 Gloom\uff0c\u7ec8\u4e8e\u5728\u901a\u52e4\u8def\u4e0a\u80fd\u597d\u597d\u5237 GitHub \u4e86", "image": ["https://laoguosofts.github.io/images/gloom-docs/home-feed.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/gloom-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/gloom-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6211\u88c5\u4e86 Gloom\uff0c\u7ec8\u4e8e\u5728\u901a\u52e4\u8def\u4e0a\u80fd\u597d\u597d\u5237 GitHub \u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">我装了 Gloom，终于在通勤路上能好好刷 GitHub 了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">我装了 Gloom，终于在通勤路上能好好刷 GitHub 了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Gloom 是 MateriiApps 做的一款 Android GitHub 客户端，不走 Play Store、不靠中间服务器，直接从 GitHub API 拉数据。用了一周下来，聊聊它好在哪里、哪些地方还有点糙。</p>
+  </header>
+  <div class="prose serif">
+<h2>为什么我会装它</h2>
+<p>实话讲，手机上看 GitHub 这件事，我之前是放弃的。浏览器打开 github.com 体验烂得离谱，网页版在小屏幕上就是个缩放灾难；试过几个第三方客户端，要么界面像十年前的安卓，要么卡得要命。直到有人在 Indie Hacker 群里甩了一句——"Gloom 是我用过最干净的 GitHub 客户端"，顺带给了个它<a href="https://gloom.boop.uno" target="_blank" rel="noopener">官网</a>的链接让我自己去看。</p>
+<p>我对"干净"这个词没什么概念，去<a href="https://gloom.boop.uno/download.html" target="_blank" rel="noopener">官方下载</a>拿了 APK 装完打开就懂了：它没有欢迎页、没有引导教程、没有要求你注册账号，第一屏就是 GitHub 登录。登完之后直接进首页信息流——Follow 的人在 Star 什么仓库、谁推了什么代码、哪家组织发了 Release，按时间线往下排。就这么素。</p>
+<p><img src="../images/gloom-docs/home-feed.png" alt="首页信息流，Follow 和 Star 的混合动态流" loading="lazy"></p>
+<h2>第一眼：界面和主题</h2>
+<p>Gloom 遵循 Android 13+ 的动态主题规则，深浅色完全跟随系统，不提供独立切换开关。我个人喜欢这个设计哲学——你手机设成深色，它就深色；系统自动按时间切，它也跟着切。没有"强制深色"或"强制浅色"的选项，想单独让它用另一种主题只能去系统设置里给应用级覆盖。</p>
+<p>切换过渡大概 200-300ms 的颜色渐变，不跳色。代码高亮也跟着深浅色自动换配色，深色模式下是 GitHub Dark 那套，浅色模式下是 GitHub Light，色对比度过了无障碍标准。细节到位。</p>
+<p>不过有一点我注意到：它不缓存。Gloom 直接通过 GitHub REST API 和 User Events API 拉数据，不走中间服务器、不做缓存中转。这意味着没网的时候打开 Gloom，就是一张白纸，什么都看不了。好消息是每次打开都是最新数据，坏消息是地铁过隧道那段时间彻底断片。</p>
+<h2>核心体验一：仓库浏览真的流畅</h2>
+<p>我在电脑上逛 GitHub 的节奏是"发现项目 → 点进去 → 翻 README → 看 Release → 扫一眼最近的 Commit"。Gloom 把这条链路在手机上做通了。</p>
+<p>点进一个仓库页，README 渲染得干净，Markdown 表格、代码块、引用块都正常显示。代码高亮跟随深浅色切换，长代码可以横向滚动。Release Tab 和 Commit Log Tab 也都有，点进单个 Commit 能看到 diff，这些进阶功能的具体玩法可以去 <a href="https://gloom-docs.pages.dev/" target="_blank" rel="noopener">Gloom文档</a> 翻。Star 和 Fork 数、语言分布这些元数据也在顶部展示。</p>
+<p><img src="../images/gloom-docs/repo-view.png" alt="仓库详情页，README + Release + Commit 一应俱全" loading="lazy"></p>
+<p>说实话，我没想到在手机上看代码能有这个体验。之前用浏览器进仓库，代码块横向滚动经常卡死，而且页面要加载半分钟。Gloom 加载 README 基本秒开，代码 diff 也不慢——前提是网络通畅。</p>
+<h2>核心体验二：Starred 列表救了我的记性</h2>
+<p>GitHub 上每天能刷到好项目太多了，全靠脑子记不住。我之前的做法是看到好项目就 Star，但 Star 完之后这辈子基本不会再去翻了——直到 Gloom 把 Starred 列表做了出来。</p>
+<p>个人主页的 Starred Tab 里，所有 Star 过的仓库按时间倒序排列，每个条目显示仓库名、描述、主要语言（用彩色小点标识）、Star 数和 Fork 数，还有你 Star 它的相对时间——"2 天前 Star""上周 Star"。点进去就是仓库页。</p>
+<p>现在通勤路上我最常做的事就是翻 Starred 列表，把那些"想详细看但当时没时间"的项目一个个点开。有个上周 Star 的 Rust 写的终端文件管理器，我就是在地铁上翻完 README 才决定在电脑上试的。</p>
+<p>不过有个遗憾：Starred 列表没有内置搜索框。我 Star 了大概一百多个仓库，想找某个特定项目时，只能手动往下翻。Gloom 说 GitHub API 支持按 Star 数、语言、更新时间排序但暂未实现。希望后续版本能加上。</p>
+<h2>最头疼的问题：GitHub 访问受限</h2>
+<p>用了大概三天的时候，Gloom 开始卡住了——登录失败、仓库页面一直转圈、首页信息流加载不出来。重启应用没用，重登账号没用。最后排查了一圈，发现是我公司 Wi-Fi 屏蔽了 GitHub 的访问。</p>
+<p>Gloom 的所有数据都直接从 GitHub API 拉，不经过任何中间层。这意味着它的网络架构是"裸奔"的——代理/VPN 需要同时代理 api.github.com（这是 Gloom 实际访问的 API 端点），只给浏览器开代理没用。GitHub API 还有速率限制，认证态每小时 5000 次，用多了同样会被限流。</p>
+<p>解决方案就那么几个：换网络（手机开飞行切卡）、确认代理配置正确、手动设 DNS。长期来看，如果所在网络环境长期无法直接访问 GitHub，Gloom 的使用体验会打折扣——毕竟它定位就是"碎片时间阅读器"，主力还是在电脑端 GitHub 网页版。</p>
+<h2>适合谁、不适合谁</h2>
+<p>适合在 GitHub 上有活跃账户的开发者或技术爱好者：Follow 了不少人、Star 了不少仓库，想在通勤等碎片时间快速刷动态和翻项目。Gloom 干净、流畅、不花哨，正好对应这个场景。</p>
+<p>如果你 Star 列表是空的、GitHub 账户只是偶尔登录下载个 Release，Gloom 可能显得有点重。还有如果你所在的网络环境长期无法直接访问 GitHub，就得额外折腾代理/VPN，这个成本需要自己掂量。</p>
+<h2>小结</h2>
+<p>Gloom 不是一个"GitHub 的替代品"，它更像一个"GitHub 的移动端快速入口"——帮你在碎片时间里不费力地保持和社区的连接。它的优势是干净、快、原生 Material Design，缺点是不缓存、对网络环境敏感、部分排序和搜索功能还没补齐。对于通勤路上想刷几眼 GitHub 的我来说，够用了。哦对了，关于 Gloom 这套资料我同时放了三个版本，分别在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/Gloom" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/Gloom" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/Gloom" target="_blank" rel="noopener">GitCode</a>，国内网络不好的时候直接转 Gitee 那份就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/scene-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从&#34;手机性能读数器&#34;到&#34;安卓玩机控制台&#34;——Scene 这几年到底进化了什么</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/windows-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">装完 Windows 11 第一次开机？跟着这三步把系统摸顺</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

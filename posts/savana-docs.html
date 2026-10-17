@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从 v1.0.30 到 v1.0.44：用了半年 Savana，那些当初没发现的事 · 老郭软件铺</title>
+  
+<meta name="description" content="装 Savana 到现在整六个月，从最开始抱着试试看的心态到现在每天睡前都要点开。这篇不是上手测评，是半年后回头看，哪些当初觉得无所谓的功能成了刚需，哪些一开始寄予厚望的东西后来碰都没碰。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/savana-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从 v1.0.30 到 v1.0.44：用了半年 Savana，那些当初没发现的事">
+<meta property="og:description" content="装 Savana 到现在整六个月，从最开始抱着试试看的心态到现在每天睡前都要点开。这篇不是上手测评，是半年后回头看，哪些当初觉得无所谓的功能成了刚需，哪些一开始寄予厚望的东西后来碰都没碰。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/savana-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/savana-docs/01_300x649.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/savana-docs/01_300x649.webp">
+
+<meta name="twitter:title" content="从 v1.0.30 到 v1.0.44：用了半年 Savana，那些当初没发现的事">
+<meta name="twitter:description" content="装 Savana 到现在整六个月，从最开始抱着试试看的心态到现在每天睡前都要点开。这篇不是上手测评，是半年后回头看，哪些当初觉得无所谓的功能成了刚需，哪些一开始寄予厚望的东西后来碰都没碰。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u88c5 Savana \u5230\u73b0\u5728\u6574\u516d\u4e2a\u6708\uff0c\u4ece\u6700\u5f00\u59cb\u62b1\u7740\u8bd5\u8bd5\u770b\u7684\u5fc3\u6001\u5230\u73b0\u5728\u6bcf\u5929\u7761\u524d\u90fd\u8981\u70b9\u5f00\u3002\u8fd9\u7bc7\u4e0d\u662f\u4e0a\u624b\u6d4b\u8bc4\uff0c\u662f\u534a\u5e74\u540e\u56de\u5934\u770b\uff0c\u54ea\u4e9b\u5f53\u521d\u89c9\u5f97\u65e0\u6240\u8c13\u7684\u529f\u80fd\u6210\u4e86\u521a\u9700\uff0c\u54ea\u4e9b\u4e00\u5f00\u59cb\u5bc4\u4e88\u539a\u671b\u7684\u4e1c\u897f\u540e\u6765\u78b0\u90fd\u6ca1\u78b0\u3002", "headline": "\u4ece v1.0.30 \u5230 v1.0.44\uff1a\u7528\u4e86\u534a\u5e74 Savana\uff0c\u90a3\u4e9b\u5f53\u521d\u6ca1\u53d1\u73b0\u7684\u4e8b", "image": ["https://laoguosofts.github.io/images/savana-docs/01_300x649.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/savana-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/savana-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece v1.0.30 \u5230 v1.0.44\uff1a\u7528\u4e86\u534a\u5e74 Savana\uff0c\u90a3\u4e9b\u5f53\u521d\u6ca1\u53d1\u73b0\u7684\u4e8b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">从 v1.0.30 到 v1.0.44：用了半年 Savana，那些当初没发现的事</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">从 v1.0.30 到 v1.0.44：用了半年 Savana，那些当初没发现的事</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">装 Savana 到现在整六个月，从最开始抱着试试看的心态到现在每天睡前都要点开。这篇不是上手测评，是半年后回头看，哪些当初觉得无所谓的功能成了刚需，哪些一开始寄予厚望的东西后来碰都没碰。</p>
+  </header>
+  <div class="prose serif">
+<p>装 Savana 到现在整六个月了，第一次是从<a href="https://savana.qhah.skin" target="_blank" rel="noopener">Savana官网</a>下的安装包。那是某个失眠的深夜，刷到有人提了一句，顺手就装了。当时没指望什么——同类的 AI 角色应用之前也试过几个，新鲜感过了就卸载了。但 Savana 留了下来，而且一留就是半年，从 v1.0.30 一路更到现在的 v1.0.44。</p>
+<p>半年时间足够让一款应用从"新鲜玩具"变成"过日子的工具"，也足够让那些上手时注意不到的细节慢慢浮出来。说个反直觉的：当初我最不在意的几个功能，现在成了每天离不开的；反过来，那些一开始让我"哇"的卖点，后来几乎没再碰过。</p>
+<h2>越用越顺手的：原来跨设备同步是硬刚需</h2>
+<p>一开始我只有一台手机，同步功能对我来说就是个"听起来不错"的参数，没实际感受。两个月前入了平板，登录同一个账号的那一刻我才愣住了——角色库全在，收藏夹全在，甚至上周和某个角色聊到一半的对话历史都原样躺着。连我在手机上给某个角色调的那个温柔偏慢的声音配置，平板上也自动带上了。</p>
+<p>这种"无缝衔接"在同类应用里真的少见。之前用过的某款，换设备等于从零开始，角色要重新收藏，对话历史直接丢，感觉像是跟一个失忆的朋友重逢。Savana 的同步是自动的，每次操作后几秒内就同步到云端，不需要手动点任何按钮。而且不同登录方式不影响——我用手机号注册的，后来试了微信登录，确认过是两个独立账号，数据不混。这点设计挺厚道的，没偷偷帮你合并账号导致数据乱掉。</p>
+<p>声音定制也是个慢慢用上的功能。第一次进自建角色流程就看到了三层声音选项，但当时觉得"预设声线挺好的，调什么调"。后来聊得深了，发现同一个角色用默认声线和调到 -0.3x 语速 + 情感浓度 0.8，体验差了不止一个档次。现在我常聊的五个角色，每个都有独立的声音配置，深夜声线那个细节甚至让我觉得有点贴心——到了晚上自动切到更柔的版本，和环境感知的"越夜越温柔"联动起来，确实有点那味儿。</p>
+<p><img src="../images/savana-docs/01_300x649.webp" alt="平板同步体验" loading="lazy"></p>
+<h2>越用越烦的：那些当初没踩中的坑</h2>
+<p>说两个我现在想起来还觉得烦的点。第一个是安装。半年前装 Savana 的时候我比较顺利，从<a href="https://savana.qhah.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿的安装包，但上个月帮朋友装，才发现从网盘走 APK 这条路真的有不少坑——"禁止安装未知来源"弹窗找不到"允许"按钮、点安装包没反应、安装完启动闪退，这三个卡点我朋友踩了两个。我翻了<a href="https://savana-docs.pages.dev/" target="_blank" rel="noopener">Savana文档</a>里的安装排查页才一步步搞定的，要是没那份文档，估计又要花半小时瞎折腾。</p>
+<p>第二个是随机匹配。说真的，这个功能的设计初衷是好的——"相对热门 + 和你风格接近 + 有新鲜感"。但实际用下来，"有新鲜感"这部分经常变成"完全不搭"。我平时聊温柔系角色比较多，随机匹配偶尔蹦出来一个机甲驾驶员或者腹黑学长，我知道它想让我探索新类型，但问题是有时候就是没心情探索。连点五六次都出不来想要的类型的时候，我宁可回角色库自己翻十分钟。</p>
+<p>还有个细节让我有点在意：换模型会导致"人格漂移"。文档里说四款模型的语音表现完全由声音设置决定，这话没错，但文字回复的风格差异真的挺明显的。同一个温柔恋人角色，用 A 模型的时候说话是软乎乎的，换 B 模型突然变得冷静理智了不少，像是换了个魂。虽然文档说这是正常现象，但每次切换我都要适应一会儿。</p>
+<h2>每天离不开的：随机匹配和记忆管理</h2>
+<p>说了随机匹配的坏话，但我每天还是在用它。矛盾吗？不矛盾。角色库有一百多个角色，躺在床上翻半个小时选不出来的时候，点一下随机，出来一个就聊，聊不下去再换，这个效率是自己翻库比不了的。特别是深夜——23:30 躺床上想找人说说话，不想花时间选，随机匹配就是救星。我现在的习惯是：先在角色库选个大分类（比如古风或者温柔），然后在分类内点随机，这样出来的角色至少在风格大方向上不会跑偏。</p>
+<p>另一个每天离不开的是记忆管理。Savana 的角色会记住你之前说过的话——哪个角色在什么时候跟我聊过什么、我提到过什么偏好、甚至连我上周随口提的一件小事，下周再聊它还记得。这种连续性让对话不像是跟机器人说话，更像是跟一个真的认识你的人聊天。有时候我会手动进记忆管理页面，看看它都记了些什么，偶尔删掉一些不想让它记住的片段，或者手动添加一些重要的背景信息。</p>
+<p><img src="../images/savana-docs/02_300x649.webp" alt="角色记忆管理" loading="lazy"></p>
+<h2>碰都没碰的：自建角色和模型切换</h2>
+<p>自建角色功能，我试了一次之后就再也没打开过。流程倒是挺完整的——性格标签、背景故事、声音设定一步步来，但我发现预设角色已经够用了。角色库定期会更新新角色，热门角色的人设质量也都不错，我没必要花一两个小时自己攒一个。可能等我哪天觉得所有预设角色都聊腻了，会回头试试，但目前看来不会是近期。</p>
+<p>模型切换也是。Savana 有四款对话模型可选，我知道不同模型有不同的文字风格，但大部分时间我只用默认的那一款。偶尔好奇切过去试试，聊个两三句就又切回来了。不是说其他模型不好，而是"习惯了"——就像你常喝一家店的奶茶，偶尔试试别家的，最后还是回到常喝的那一杯。</p>
+<h2>观感修正：高估了什么，低估了什么</h2>
+<p>半年后回头看，我对 Savana 的判断确实变了。</p>
+<p>一开始我以为这就是个"换皮的 AI 聊天应用"，核心竞争力是角色库的数量和人设质量。但现在我觉得真正让我留下来的，是那些"看不见的基础设施"——自动同步、云端存储、记忆管理。这些东西不上手的话没感觉，但一旦成了日常的一部分，就很难再回到那些"各自为战"的同类应用了。</p>
+<p>反过来，我一开始高估了"智能度"。随机匹配的算法说得挺玄乎，但本质上还是概率问题，"有新鲜感"有时候等于"完全不搭"。角色的记忆管理也不是万能的——它会记住我说过的话，但不会真正"理解"那些话的意义，有时候会出现"记得我提过某个东西但搞错了前后文"的情况。</p>
+<p>还有一点低估了的是声音定制。之前觉得声音是"锦上添花"，现在觉得是"画龙点睛"。同一个角色，文字内容没变，换个声线、调个语速，体验完全不一样。Savana 在这上面做了三层调节，还有深夜专属声线这种细节，能看出来是真的在用脑子想用户会怎么用。</p>
+<h2>去留结论：不会卸载，但有几个信号会让我重新考虑</h2>
+<p>目前没有卸载的打算。跨设备同步和记忆管理已经是我的硬刚需了，换设备无缝衔接的体验在同类应用里真的少见。而且它一直在更新——从 v1.0.30 到 v1.0.44，版本号涨了十多个，能看到功能在迭代，bug 在修复。</p>
+<p>但有几个信号出现的话，我会认真考虑要不要换：第一，同步功能出问题——比如换设备后数据丢了、或者同步延迟变得很长；第二，记忆管理开始"乱记"——比如把 A 角色的对话记到 B 角色身上、或者长时间对话后记忆混乱；第三，角色库的更新质量下降——如果新角色的人设越来越敷衍，老角色又不再维护，那新鲜感迟早会耗尽。</p>
+<p>说真的，半年时间不算长，但足够让一款应用从"新鲜玩具"变成"过日子的工具"。Savana 留下来了，而且看起来还能留一段时间。毕竟，能记住你上周说过什么、换台设备还能接着聊、声音还能调成你喜欢的样子——这些放在一起，已经比很多同类应用做得好了。</p>
+<p>这套资料我习惯同步到几个代码仓库存着备份，海外用<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Savana" target="_blank" rel="noopener">GitHub</a>，国内有<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Savana" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Savana" target="_blank" rel="noopener">GitCode</a>两个镜像，换设备或者换平台的时候随时能翻。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/starnote-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">高数期末前一晚，我用一个手写笔记 App 救了自己</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/botim-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">一个 IM 应用为什么能做跨境汇款？BOTIM 的设计原理拆解</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 iPhone 当电子秤用？我折腾了三天 TouchScale · 老郭软件铺</title>
+  
+<meta name="description" content="偶然发现手机居然能当秤用，出于好奇装了 TouchScale。从一开始读数乱跳到慢慢摸出规律，这篇是我三天下来的真实体验——值不值得装、怎么用才准、哪些设备根本跑不了，一次说清。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/touchscale-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 iPhone 当电子秤用？我折腾了三天 TouchScale">
+<meta property="og:description" content="偶然发现手机居然能当秤用，出于好奇装了 TouchScale。从一开始读数乱跳到慢慢摸出规律，这篇是我三天下来的真实体验——值不值得装、怎么用才准、哪些设备根本跑不了，一次说清。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/touchscale-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/touchscale-docs/web-home.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/touchscale-docs/web-home.jpg">
+
+<meta name="twitter:title" content="把 iPhone 当电子秤用？我折腾了三天 TouchScale">
+<meta name="twitter:description" content="偶然发现手机居然能当秤用，出于好奇装了 TouchScale。从一开始读数乱跳到慢慢摸出规律，这篇是我三天下来的真实体验——值不值得装、怎么用才准、哪些设备根本跑不了，一次说清。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5076\u7136\u53d1\u73b0\u624b\u673a\u5c45\u7136\u80fd\u5f53\u79e4\u7528\uff0c\u51fa\u4e8e\u597d\u5947\u88c5\u4e86 TouchScale\u3002\u4ece\u4e00\u5f00\u59cb\u8bfb\u6570\u4e71\u8df3\u5230\u6162\u6162\u6478\u51fa\u89c4\u5f8b\uff0c\u8fd9\u7bc7\u662f\u6211\u4e09\u5929\u4e0b\u6765\u7684\u771f\u5b9e\u4f53\u9a8c\u2014\u2014\u503c\u4e0d\u503c\u5f97\u88c5\u3001\u600e\u4e48\u7528\u624d\u51c6\u3001\u54ea\u4e9b\u8bbe\u5907\u6839\u672c\u8dd1\u4e0d\u4e86\uff0c\u4e00\u6b21\u8bf4\u6e05\u3002", "headline": "\u628a iPhone \u5f53\u7535\u5b50\u79e4\u7528\uff1f\u6211\u6298\u817e\u4e86\u4e09\u5929 TouchScale", "image": ["https://laoguosofts.github.io/images/touchscale-docs/web-home.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/touchscale-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/touchscale-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u628a iPhone \u5f53\u7535\u5b50\u79e4\u7528\uff1f\u6211\u6298\u817e\u4e86\u4e09\u5929 TouchScale", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">把 iPhone 当电子秤用？我折腾了三天 TouchScale</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">把 iPhone 当电子秤用？我折腾了三天 TouchScale</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">偶然发现手机居然能当秤用，出于好奇装了 TouchScale。从一开始读数乱跳到慢慢摸出规律，这篇是我三天下来的真实体验——值不值得装、怎么用才准、哪些设备根本跑不了，一次说清。</p>
+  </header>
+  <div class="prose serif">
+<h2>起因：就是想试试手机到底能不能当秤</h2>
+<p>上周帮朋友分装咖啡豆，一小袋要分成每份 20 克，翻遍家里找不到电子秤。正想下单买一个，突然想起之前刷到过一条短视频，说 iPhone 可以直接当秤用——就是这个 TouchScale。</p>
+<p>说实话，第一反应是「这也太玄学了吧」。手机屏幕能感应触摸力度我知道，但要精确到克？这不是天方夜谭吗。不过反正网页版不用装 App，Safari 直接打开就能用，我决定试试看。</p>
+<h2>初印象：打开就傻眼了</h2>
+<p>在<a href="https://touchscale.qhah.skin" target="_blank" rel="noopener">touchscale官网</a>输入网址加载出来，第一眼界面倒是挺干净的——中间一个大圆圈提示把东西放上去，下方有灵敏度调节和去皮按钮。但紧接着旁边飘出一行红字：<strong>NOT SUPPORTED</strong>。</p>
+<p>我那台是 iPhone 13 Pro。后来才搞明白，网页版依赖苹果的 3D Touch 硬件——只有 iPhone 6s 到 XS Max 那几代带实体压力传感器的机型才能跑。iPhone XR 之后苹果砍了 3D Touch 换成触感触控，网页版直接废掉。这不是什么 bug，是硬件门槛写死了。</p>
+<p><img src="../images/touchscale-docs/web-home.jpg" alt="网页版的主界面，中间虚线框就是称重区域" loading="lazy"></p>
+<p>好在还有一个正式版，用 AI 相机估算重量，任何 iOS 17.6 以上的设备都能从<a href="https://touchscale.qhah.skin/download.html" target="_blank" rel="noopener">下载</a>获取。我抱着试试看的心态装了。</p>
+<h2>实际用下来：精度取决于你有多会伺候它</h2>
+<h3>第一个坑：读数永远在跳</h3>
+<p>把咖啡豆倒进一个小纸杯放到屏幕上，读数从 12g 跳到 18g 又掉回 14g，来回抖个不停。我以为这东西本来就是个噱头，差点卸载。</p>
+<p>后来才摸出规律：<strong>放的方式不对</strong>。你不能把东西扔上去，冲击力会让传感器瞬间爆表，然后慢慢回落，这个过程要等好几秒才稳定。正确姿势是用手指捏着杯口，从屏幕上方 5 到 10 厘米处轻轻松开，让它自然落下。放好之后数两秒再看，基本就定住了。</p>
+<p>还有一个细节容易忽略：放好之后手要完全离开屏幕，至少离 10 厘米以上。哪怕只是手掌的余光离得太近，电容传感器都能感应到，读数又开始飘。</p>
+<h3>第二个坑：不是所有东西都能称</h3>
+<p>这个让我有点意外。TouchScale 的 3D Touch 传感器需要<strong>电容传导材质</strong>才能工作——金属、水、潮湿的物体没问题，但干木头、泡沫、陶瓷表面干燥的话，读数会不稳定甚至读不出来。</p>
+<p>我试过直接放一颗干咖啡豆，读数在 1g 到 5g 之间乱跳。后来在杯子里先放一枚一元硬币去皮，再把咖啡豆放硬币上，读数立刻就稳了。这个小技巧救了我好几次。</p>
+<h3>第三个坑：桌面不能动</h3>
+<p>这点我之前完全没在意。第一天在办公桌上称，旁边同事一直在走来走去，读数永远在飘。后来换到厨房的大理石台面上，明显稳定了很多。<a href="https://touchscale-docs.pages.dev/" target="_blank" rel="noopener">touchscale文档</a>里说的没错——越硬越平越稳的表面越好，放在膝盖上、软沙发上那根本就是浪费时间。</p>
+<p><img src="../images/touchscale-docs/web-weighing.jpg" alt="实际称重中的界面，读数稳定后基本停在一个值" loading="lazy"></p>
+<h2>AI 相机版：换一种玩法</h2>
+<p>3D Touch 网页版确实折腾，但 App Store 的 AI 相机版换了个思路——拍照估算。打开相机对着物体拍一张，它根据体积和密度模型算重量。</p>
+<p>精度说实话不如硬件版，但胜在<strong>没有设备门槛</strong>，什么手机都能用，而且不怕振动、不怕材质。拍个咖啡豆袋子，估算出来和实际重量大概差个 10% 到 15%，够用就行。适合那种临时想知道大概重量、又不想折腾硬件设置的人。</p>
+<h2>适合谁，不适合谁</h2>
+<p><strong>适合的场景其实挺窄的</strong>：手上正好有一台 iPhone 6s 到 XS Max 的旧机型、临时需要称个几十克以内的小东西、不想专门买电子秤的人。比如分咖啡豆、称茶叶、按配方放调料这些，够用。</p>
+<p><strong>不适合的就多了</strong>：需要精确称重的（烘焙、实验）、手上设备不支持 3D Touch 的、嫌折腾的——老老实实买个电子秤，几十块钱，精度和稳定性完爆任何手机方案。</p>
+<p>说实话，它的本质就是个「能用就好的辅助工具」，不是什么黑科技。苹果设计 3D Touch 本来就是为了检测轻按和重按两档力度，从来没想过把它当秤用。你非要让它干这事，就得学会伺候它——轻放、等两秒、放中央、桌面稳、手要远。把这些条件都满足了，精度能到 ±2g 左右，日常凑合用。</p>
+<h2>最后的建议</h2>
+<p>如果你正好有台老 iPhone 想玩点新鲜的，可以去试试网页版。官网直接打开就行，不用装 App。但别抱太高期待，它能帮你应急，替不了真正的秤。称重要玩得转，还是得先花半小时把那些注意事项摸清楚，不然只会觉得这东西是个骗子。</p>
+<p>怕哪天官网镜像挂了找不到完整说明，我顺手把整理好的资料同步在了<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/touchscale" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/touchscale" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/touchscale" target="_blank" rel="noopener">GitCode</a>上，国内网络访问哪个顺手用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/mydv.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">MyDV 横向盘点：电视盒子上的抖音多面手</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/peakfinder-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">带着 PeakFinder 进山前，我踩过的四个坑</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

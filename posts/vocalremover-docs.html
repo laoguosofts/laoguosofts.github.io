@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑 · 老郭软件铺</title>
+  
+<meta name="description" content="VocalRemover 刚上线时就是一个浏览器里的&#34;去人声&#34;按钮，七年过去，它长成了覆盖拆轨、变调、找调、剪辑的完整音频处理平台。我跟踪了它的几个关键版本，想聊聊这款工具到底在死磕什么。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/vocalremover-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑">
+<meta property="og:description" content="VocalRemover 刚上线时就是一个浏览器里的&#34;去人声&#34;按钮，七年过去，它长成了覆盖拆轨、变调、找调、剪辑的完整音频处理平台。我跟踪了它的几个关键版本，想聊聊这款工具到底在死磕什么。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/vocalremover-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/vocalremover-docs/splitter-ai.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/vocalremover-docs/splitter-ai.png">
+
+<meta name="twitter:title" content="从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑">
+<meta name="twitter:description" content="VocalRemover 刚上线时就是一个浏览器里的&#34;去人声&#34;按钮，七年过去，它长成了覆盖拆轨、变调、找调、剪辑的完整音频处理平台。我跟踪了它的几个关键版本，想聊聊这款工具到底在死磕什么。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "VocalRemover \u521a\u4e0a\u7ebf\u65f6\u5c31\u662f\u4e00\u4e2a\u6d4f\u89c8\u5668\u91cc\u7684\"\u53bb\u4eba\u58f0\"\u6309\u94ae\uff0c\u4e03\u5e74\u8fc7\u53bb\uff0c\u5b83\u957f\u6210\u4e86\u8986\u76d6\u62c6\u8f68\u3001\u53d8\u8c03\u3001\u627e\u8c03\u3001\u526a\u8f91\u7684\u5b8c\u6574\u97f3\u9891\u5904\u7406\u5e73\u53f0\u3002\u6211\u8ddf\u8e2a\u4e86\u5b83\u7684\u51e0\u4e2a\u5173\u952e\u7248\u672c\uff0c\u60f3\u804a\u804a\u8fd9\u6b3e\u5de5\u5177\u5230\u5e95\u5728\u6b7b\u78d5\u4ec0\u4e48\u3002", "headline": "\u4ece\u4e00\u4e2a\u53bb\u4eba\u58f0\u6309\u94ae\u5230\u6574\u6761\u5de5\u5177\u94fe\u2014\u2014VocalRemover \u7684\u4e03\u5e74\u8fed\u4ee3\u903b\u8f91", "image": ["https://laoguosofts.github.io/images/vocalremover-docs/splitter-ai.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/vocalremover-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/vocalremover-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4ece\u4e00\u4e2a\u53bb\u4eba\u58f0\u6309\u94ae\u5230\u6574\u6761\u5de5\u5177\u94fe\u2014\u2014VocalRemover \u7684\u4e03\u5e74\u8fed\u4ee3\u903b\u8f91", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">从一个去人声按钮到整条工具链——VocalRemover 的七年迭代逻辑</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">VocalRemover 刚上线时就是一个浏览器里的&#34;去人声&#34;按钮，七年过去，它长成了覆盖拆轨、变调、找调、剪辑的完整音频处理平台。我跟踪了它的几个关键版本，想聊聊这款工具到底在死磕什么。</p>
+  </header>
+  <div class="prose serif">
+<h2>现状：它现在是什么样</h2>
+<p>如果你今天去<a href="https://vocalremover.djnf.quest" target="_blank" rel="noopener">VocalRemover官网</a>看看，首页会让你有点恍惚——这哪里是个"去人声工具"，分明是一整个浏览器端的音频工作站。顶部一排工具按钮：Remover（去人声）、Splitter AI（拆四轨）、Pitch（变调）、Key BPM Finder（找调找 BPM）、Cutter（剪辑）、Joiner（合并）、Voice Recorder（录音）、卡拉OK、Tap Tempo——数一下，九件工具，覆盖了从分析、处理到二次创作的完整链路。</p>
+<p>最有意思的是它的核心数据模型。Splitter AI 不是简单地把人声和伴奏分开，它直接给你四条独立的轨：<strong>vocal、drums、bass、other</strong>。四条轨各自独立下载，想怎么拼怎么拼。我前阵子帮朋友做一个翻唱的伴奏替换，就是用它把原歌的人声轨抽出来，跟另一首歌的鼓轨拼在一起——全程没装任何桌面软件，浏览器标签页里就搞定了。</p>
+<p><img src="../images/vocalremover-docs/splitter-ai.png" alt="Splitter AI 的四轨拆分界面" loading="lazy"></p>
+<p>但真正让我觉得它变了的，不是工具数量，而是<strong>处理方式</strong>。它一直坚持浏览器本地处理——文件不上传服务器，WebAssembly 直接在你机器里跑。这个决定从第一天就没变过，但直到 Splitter AI 出来，大家才意识到这意味着什么：隐私安全是顺便的，真正的好处是<strong>没有队列、没有等待、处理完直接<a href="https://vocalremover.djnf.quest/download.html" target="_blank" rel="noopener">下载</a>就行</strong>。</p>
+<h2>来路：从 MVP 到转折点</h2>
+<p>VocalRemover 的起点很低。公开资料里能找到的最早版本，界面上只有一个大按钮：<strong>Upload → Remove Vocals → Download</strong>。没有工具菜单，没有参数调节，没有账号体系——就是一个极简的去人声服务。我猜早期开发者的想法很简单：先把"能不能用"跑通，其他再说。</p>
+<p>第一个关键转折点是 <strong>Remover 到 Splitter AI 的升级</strong>。原来的 Remover 只输出两轨（人声 + 伴奏），Splitter 直接拆成四轨（vocal + drums + bass + other）。这不是简单的"拆得更细"——两轨模型的"伴奏"是个黑箱，四轨模型让用户第一次能<strong>看清一首歌的编曲层次</strong>。Other 轨里装着吉他、合成器、弦乐、pad 所有剩下的东西，单独拎出来听，你会发现原来混音师在织体上做了多少工作。</p>
+<p><img src="../images/vocalremover-docs/pitch.png" alt="变调器的音高和速度滑块" loading="lazy"></p>
+<p>第二个转折点是<strong>工具链补全</strong>。变调器（Pitch）加进来的时候，我印象里它已经是 VocalRemover 之外的存在了——一个独立的 pitch-shift 服务。然后 Key BPM Finder 来了，接着是 Cutter、Joiner。这一串不是堆功能，是顺着用户行为倒推的：拆完四轨之后你想静音某轨听效果 → 发现需要能剪片段 → 发现需要能拼回去 → 发现需要知道原歌是什么调好移调……每一步都是上一步的自然延伸。</p>
+<p>批量处理是个有意思的例外。Key BPM Finder 原生支持批量上传，一次拖五十首进去几秒出结果；但 Remover 和 Splitter AI 到今天还是单个处理。官方的解释是服务器端 GPU 算力限制——批量处理会把队列堵死。但我觉得背后还有一层考量：<strong>核心 AI 工具的"慢"反而强化了本地处理的定位</strong>。如果 Remover 也做批量，那干脆全迁到服务器端好了，浏览器本地处理的定位就动摇了。</p>
+<h2>规律：团队一直在死磕什么</h2>
+<p>梳理完这几年的迭代节奏，我发现 VocalRemover 的团队其实只在一件事上持续投入——<strong>AI 拆轨质量</strong>。从最早的两轨分离到后来的四轨，算法模型换了不止一版。早期 Remover 在重混歌曲上经常把人声和电吉他粘在一起，Splitter AI 出来后"粘轨"问题明显减少了。Other 轨的纯度也是年年在提——用户抱怨"吉他和合成器混在一起分不开"，翻了一下<a href="https://vocalremover-docs.pages.dev/" target="_blank" rel="noopener">VocalRemover文档</a>里对四轨模型的说明才明白，团队不是急着加五轨，是先把四轨里的 Other 轨提纯。</p>
+<p>与此同时，有几件事他们几乎从不碰：<strong>不做账号体系、不做云存储、不做桌面端、不做批量 AI 处理</strong>。这四件事里，前两个是刻意保持轻量——VocalRemover 到今天还是匿名可用，不用登录就能跑完全流程；后两个是技术路线的选择——他们赌浏览器端的 AI 推理能力能追得上桌面端，而不是反过来迁就服务器端的局限。</p>
+<p>还有一个有意思的细节：<strong>定价模型的节奏</strong>。会员版从月费到年费，快速队列、额度从 10 分钟涨到 500 分钟，但核心处理能力（四轨拆分、浏览器本地跑）不锁在付费墙后面——免费用户和付费用户用的是同一套算法，区别只是队列优先级和额度上限。这个定价策略非常克制，完全不像那种把核心功能藏起来逼你付费的 SaaS。</p>
+<h2>预判：下一步大概率的走向</h2>
+<p>从过去七年的迭代规律推，VocalRemover 接下来的路线应该还是<strong>把浏览器端这条路走到底</strong>。</p>
+<p>首先，四轨到五轨或更多轨是迟早的事——Other 轨里混着吉他和合成器的问题，用户反馈了不下三年。但团队大概率不会一步跳到十轨八轨的"行业级"拆分，而是<strong>先把 Other 轨里最常用的两类乐器分出来</strong>——比如先做个"四轨加吉他轨"的版本，听听反馈再加。</p>
+<p>其次，浏览器端 AI 的能力边界还在推。现在 Splitter AI 的 GPU 加速是靠浏览器 WebGPU API，Chrome 支持得好，Safari 还在跟。等 Safari 的 WebGPU 跟上了，VocalRemover 大概率会把更多计算密集型的处理（比如实时变调、实时拆轨）从"处理完再下载"改成"边播边处理"——那时候真就成了一个浏览器里的 DAW。</p>
+<p>最后，我比较好奇他们会不会碰<strong>协作</strong>。现在 VocalRemover 全程是单人流程，文件不上传服务器。但如果 Splitter AI 能加一个"把四轨临时存在浏览器里生成一个临时链接"的功能，就能实现轻量的协作——朋友在另一个浏览器打开链接，能直接看到同样的四轨，各自调各自的参数。这不触及隐私底线（临时链接，不长期存储），但能开一个新的使用场景。</p>
+<p>当然这些都是从迭代规律推的——不是官方路线图。VocalRemover 最让我印象深刻的地方，不是它功能多强，而是它<strong>一直知道自己是什么</strong>：一个浏览器里的 AI 音频工具，不是一个完整的 DAW，也不是一个云存储服务。七年没走偏，这比加多少功能都难。它的功能说明文档我也在三个代码托管平台同步了一份，<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/VocalRemover" target="_blank" rel="noopener">GitHub</a> 是主仓，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/VocalRemover" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/VocalRemover" target="_blank" rel="noopener">GitCode</a> 主要方便国内网络环境下查阅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/termius.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">为什么Termius不做文件夹？Vaults架构背后的设计取舍</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/higher-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Higher 是怎么一步步长成 Solana 圈最不像钱包的钱包的</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

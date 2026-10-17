@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>StandBy 充电钟用了半年，踩过这几个坑才敢说省心 · 老郭软件铺</title>
+  
+<meta name="description" content="把旧手机改成常亮屏看似零门槛，实际触发条件、后台权限、防烧屏处处是雷。这篇把我踩过的四个典型坑和各自的解法整理出来，装完就能少走弯路。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/standby-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="StandBy 充电钟用了半年，踩过这几个坑才敢说省心">
+<meta property="og:description" content="把旧手机改成常亮屏看似零门槛，实际触发条件、后台权限、防烧屏处处是雷。这篇把我踩过的四个典型坑和各自的解法整理出来，装完就能少走弯路。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/standby-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/standby-docs/blog-setup-wide.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/standby-docs/blog-setup-wide.jpg">
+
+<meta name="twitter:title" content="StandBy 充电钟用了半年，踩过这几个坑才敢说省心">
+<meta name="twitter:description" content="把旧手机改成常亮屏看似零门槛，实际触发条件、后台权限、防烧屏处处是雷。这篇把我踩过的四个典型坑和各自的解法整理出来，装完就能少走弯路。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u628a\u65e7\u624b\u673a\u6539\u6210\u5e38\u4eae\u5c4f\u770b\u4f3c\u96f6\u95e8\u69db\uff0c\u5b9e\u9645\u89e6\u53d1\u6761\u4ef6\u3001\u540e\u53f0\u6743\u9650\u3001\u9632\u70e7\u5c4f\u5904\u5904\u662f\u96f7\u3002\u8fd9\u7bc7\u628a\u6211\u8e29\u8fc7\u7684\u56db\u4e2a\u5178\u578b\u5751\u548c\u5404\u81ea\u7684\u89e3\u6cd5\u6574\u7406\u51fa\u6765\uff0c\u88c5\u5b8c\u5c31\u80fd\u5c11\u8d70\u5f2f\u8def\u3002", "headline": "StandBy \u5145\u7535\u949f\u7528\u4e86\u534a\u5e74\uff0c\u8e29\u8fc7\u8fd9\u51e0\u4e2a\u5751\u624d\u6562\u8bf4\u7701\u5fc3", "image": ["https://laoguosofts.github.io/images/standby-docs/blog-setup-wide.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/standby-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/standby-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "StandBy \u5145\u7535\u949f\u7528\u4e86\u534a\u5e74\uff0c\u8e29\u8fc7\u8fd9\u51e0\u4e2a\u5751\u624d\u6562\u8bf4\u7701\u5fc3", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">StandBy 充电钟用了半年，踩过这几个坑才敢说省心</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">StandBy 充电钟用了半年，踩过这几个坑才敢说省心</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">把旧手机改成常亮屏看似零门槛，实际触发条件、后台权限、防烧屏处处是雷。这篇把我踩过的四个典型坑和各自的解法整理出来，装完就能少走弯路。</p>
+  </header>
+  <div class="prose serif">
+<p>我家抽屉里躺了三年的旧华为，去年翻出来装了 <a href="https://standby.wxhp.skin" target="_blank" rel="noopener">StandBy官网</a> 的安装包往床头一架，本以为改个桌面小工具能有多复杂——结果前前后后折腾了快一周才稳定下来。这软件看着界面清爽、设置简单，实际藏了好几个容易踩的坑，全是那种"以为自己懂了，等翻车才发现根本没摸到门"的类型。</p>
+<p>这就把我踩过的四个最典型的坑和对应的解法写出来，装完先对着过一遍，大概率能省你几个小时瞎试。</p>
+<h2>坑一：横屏插上充电器，屏幕死活不亮</h2>
+<p><strong>症状</strong>：APP 装好了，引导也走完了，按说明把手机横过来插充电器——屏幕黑着，连个反应都没有。反复拔插换角度都没用，一度怀疑手机充电口坏了。</p>
+<p><strong>原因</strong>：触发条件默认给了三四个叠加项，我当初照着教程没改，结果横放识别有 30 秒延迟，电池电量又在 99% 以上被系统判定为"不需要充电显示"，两个条件同时不满足就卡壳了。另外旧机型如果没把它移出电池优化名单，系统还会趁你锁屏间隙把后台直接杀掉，下次充电触发时进程根本不在。</p>
+<p><strong>解法</strong>：触发条件只留两个——「正在充电」+「设备横放」，越多越容易互相打架。然后去系统设置里找到 StandBy，把"后台限制"改成"无限制"，"电池优化"里选中它标记为"不优化"。实在嫌麻烦就直接改走系统屏保通道，一劳永逸。</p>
+<p><img src="../images/standby-docs/blog-setup-wide.jpg" alt="横屏充电不亮的排查路径" loading="lazy"></p>
+<h2>坑二：点 APK 直接弹"解析包出错"</h2>
+<p><strong>症状</strong>：下载完安装包，文件管理器里点一下，系统提示"解析包时出现问题"，连安装界面都进不去。换了另一个渠道重新下载还是一样。</p>
+<p><strong>原因</strong>：我当时只记得 APK 体积才 20 多 MB，觉得存储空间肯定够，没往这想。实际系统要求安装前至少留出 <strong>1GB 富余空间</strong>——不是说 APP 会占那么多，是安卓安装时需要解压临时文件、分配运行时缓存，空间卡在几百 MB 时就会静默失败报解析错误。另一个可能是下载中途断过网，安装包文件不完整。</p>
+<p><strong>解法</strong>：先去存储设置里看可用空间，清掉点照片或旧 APP 腾出 1GB 以上再装。空间够还报错的话，删掉当前安装包，换个网络重新下一遍——安装包直接从<a href="https://standby.wxhp.skin/download.html" target="_blank" rel="noopener">下载</a>拿最省心，网盘偶尔会在断点续传时留下残缺文件。</p>
+<h2>坑三：常亮一周后屏幕留了残影</h2>
+<p><strong>症状</strong>：旧手机改床头钟用了一周，某天晚上关灯后发现屏幕角落有个淡色的日历数字轮廓，熄屏状态下依然看得见——烧屏了。</p>
+<p><strong>原因</strong>：OLED 屏幕长期显示固定画面会加速像素老化，我当时没开防烧屏，钟面又是那种固定布局的大数字。旧机屏幕素质再好，连续几百小时常亮也顶不住。</p>
+<p><strong>解法</strong>：进设置把「高级防烧屏」打开，这个功能会在你不看屏幕时自动微调像素位置，肉眼看不出来但能大幅延缓老化。另外再设一个屏幕睡眠定时，比如没人操作 2 小时后自动熄屏，床头钟其实不需要 24 小时亮着。</p>
+<h2>坑四：找不到编辑模式，误触把待机关了</h2>
+<p><strong>症状</strong>：APP 里看到别人的书桌布局四格仪表盘挺好看，自己想加一个日历，结果在屏上划来划去要么进不了编辑，要么不小心双击把待机直接退出了，只能重新横插充电器。</p>
+<p><strong>原因</strong>：我跳过了首次启动的引导页——觉得"一个充电钟哪有那么复杂"。结果手势体系完全没建立，该长按的时候在左右滑，该捏合总览的时候在上下翻。StandBy 日常操作全靠几根滑动手势，菜单层级基本没有，没建立起那套肌肉记忆之前到处碰壁。</p>
+<p><strong>解法</strong>：如果还在首次启动阶段，引导页别跳过，老老实实看完一遍。总结一下核心口诀：<strong>左右是换内容组（钟表→天气→照片），上下是换同组里的不同变体，长按拆开改（进入编辑），捏合摊开挑（快速导航总览）</strong>。双击是退出待机的快捷键，这个要记牢别误触，更多手势细节和进阶配置可以翻<a href="https://standby-docs.pages.dev/" target="_blank" rel="noopener">StandBy文档</a>慢慢研究。</p>
+<p><img src="../images/standby-docs/gesture-swipe-groups.png" alt="手势引导页示例" loading="lazy"></p>
+<h2>防坑清单速查</h2>
+<ul><li>装完先给 StandBy 加权限：后台无限制 + 电池不优化 + 未知来源放行一次</li><li>触发条件只留"充电 + 横放"两项，越简单越不会莫名其妙不亮</li><li>常亮场景必开高级防烧屏，再设屏幕睡眠定时</li><li>安装前检查存储空间富余 ≥1GB，解析包报错先清空间再重装</li><li>首次启动引导别跳过，手势体系记熟再调布局</li></ul>
+<p>说到底，这个软件本身没有什么复杂配置，坑基本都出在安卓系统层面的权限和后台管理上——系统拦一次后台杀一次，你再怎么调 APP 设置都白搭。把系统层的权限先理顺，剩下的就是选个好看的钟面、拉几个感兴趣的小组件，该省心的时候真的省心。StandBy 的安装包和配置资料我同步维护在三个开源仓库里，方便国内不同网络环境下的朋友随时取用：<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/StandBy" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/StandBy" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/StandBy" target="_blank" rel="noopener">GitCode</a>。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/voicechanger-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Voicechanger 快问快答：录音变声一把梭，群聊整蛊从此有新玩法</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/hammerai.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">HammerAI 实战指南：从零把本地 AI 角色聊天跑起来</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

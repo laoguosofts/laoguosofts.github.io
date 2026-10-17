@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成 · 老郭软件铺</title>
+  
+<meta name="description" content="第一次碰 WinKawaks？这篇教程带你从零走到能打开《拳皇 97》开打——下载解压、ROM 目录结构、Rescan all 重新扫描、画面滤镜和宽高比，一步不落地过一遍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kawaks-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成">
+<meta property="og:description" content="第一次碰 WinKawaks？这篇教程带你从零走到能打开《拳皇 97》开打——下载解压、ROM 目录结构、Rescan all 重新扫描、画面滤镜和宽高比，一步不落地过一遍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kawaks-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/kawaks-docs/main-window.gif">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/kawaks-docs/main-window.gif">
+
+<meta name="twitter:title" content="WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成">
+<meta name="twitter:description" content="第一次碰 WinKawaks？这篇教程带你从零走到能打开《拳皇 97》开打——下载解压、ROM 目录结构、Rescan all 重新扫描、画面滤镜和宽高比，一步不落地过一遍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u78b0 WinKawaks\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u8d70\u5230\u80fd\u6253\u5f00\u300a\u62f3\u7687 97\u300b\u5f00\u6253\u2014\u2014\u4e0b\u8f7d\u89e3\u538b\u3001ROM \u76ee\u5f55\u7ed3\u6784\u3001Rescan all \u91cd\u65b0\u626b\u63cf\u3001\u753b\u9762\u6ee4\u955c\u548c\u5bbd\u9ad8\u6bd4\uff0c\u4e00\u6b65\u4e0d\u843d\u5730\u8fc7\u4e00\u904d\u3002", "headline": "WinKawaks \u4ece\u96f6\u4e0a\u624b\uff1a\u88c5\u6a21\u62df\u5668\u3001\u653e ROM\u3001\u8c03\u753b\u9762\uff0c\u4e00\u6c14\u5475\u6210", "image": ["https://laoguosofts.github.io/images/kawaks-docs/main-window.gif"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kawaks-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kawaks-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/app/", "name": "APP", "position": 2}, {"@type": "ListItem", "name": "WinKawaks \u4ece\u96f6\u4e0a\u624b\uff1a\u88c5\u6a21\u62df\u5668\u3001\u653e ROM\u3001\u8c03\u753b\u9762\uff0c\u4e00\u6c14\u5475\u6210", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/app/index.html">APP</a><span>›</span>
+    <span class="crumb-cur">WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/app/index.html">APP</a></p>
+    <h1 class="post-title serif">WinKawaks 从零上手：装模拟器、放 ROM、调画面，一气呵成</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次碰 WinKawaks？这篇教程带你从零走到能打开《拳皇 97》开打——下载解压、ROM 目录结构、Rescan all 重新扫描、画面滤镜和宽高比，一步不落地过一遍。</p>
+  </header>
+  <div class="prose serif">
+<p>读完这篇，你能从零装好 WinKawaks、放进 ROM、配好画面滤镜和按键，然后打开《拳皇 97》痛快玩一局。</p>
+<p>WinKawaks 是 PC 上专门啃三大经典街机基板的模拟器——Capcom CPS1、CPS2 和 SNK Neo Geo，《拳皇》《合金弹头》《街头霸王 Alpha》《吸血鬼猎人》全在它的覆盖范围内。和 MAME 那种"广撒网"路线不同，Kawaks 就盯着这三块板子往深了做，兼容性和画面还原度在格斗玩家圈子里有口皆碑。它的<a href="https://kawaks.uerg.quest" target="_blank" rel="noopener">kawaks官网</a>也长期维护着游戏兼容性清单和版本更新日志，查哪款 ROM 能不能跑非常方便。而且它本身就是个轻量货，P166 + 32MB 内存就能跑，Win11 也没问题。</p>
+<p><img src="../images/kawaks-docs/main-window.gif" alt="WinKawaks 主界面" loading="lazy"></p>
+<h2>准备：就两个前提</h2>
+<ol><li><strong>Windows</strong> 就行，98 到 11 通吃，不用装任何运行库。</li><li><strong>ROM 文件</strong>——你自己合法拥有的街机 ROM，放到模拟器的 <code>roms/</code> 目录里。另外 Neo Geo 基板的游戏（《拳皇》《合金弹头》都是这一类）必须额外有一份 <code>neogeo.zip</code> BIOS，这个东西也要放在 <code>roms/</code> 根目录，不能塞进子文件夹。</li></ol>
+<h2>第一步：下载解压，双击就能跑</h2>
+<p>先从<a href="https://kawaks.uerg.quest/download.html" target="_blank" rel="noopener">kawaks下载</a>拿到压缩包，解压到你想放的位置——桌面、D 盘、任何地方都行，它不写注册表、不依赖系统路径，纯绿色。解压完你会看到根目录下有个 <code>Winkawaks.exe</code>，双击启动。</p>
+<p>弹出来的就是主界面，左边一排菜单，中间是载入游戏的对话框，这就是它的全部了——简洁得像 2001 年的软件。</p>
+<p><img src="../images/kawaks-docs/double-click-exe.gif" alt="双击 exe 启动" loading="lazy"></p>
+<h2>第二步：ROM 放对位置才扫得出来</h2>
+<p>解压后的 WinKawaks 根目录里已经有一个空的 <code>roms/</code> 文件夹。ROM ZIP 文件就直接丢进这个目录里。如果你想分类放，也可以在 <code>roms/</code> 下面建 <code>cps1/</code>、<code>cps2/</code>、<code>neogeo/</code> 子目录，模拟器会递归扫描。</p>
+<p>一个容易踩的坑：<code>neogeo.zip</code> BIOS 必须放在 <code>roms/</code> <strong>根目录</strong>，不能扔进 <code>roms/neogeo/</code> 子文件夹。放错了的话，所有 Neo Geo 游戏（拳皇、合金弹头、侍魂……）都会显示成灰色残缺条目。</p>
+<h2>第三步：Rescan all，让游戏列表刷新</h2>
+<p>ROM 放完别以为列表会自己冒出来——WinKawaks 不会启动时自动扫描，你得手动点一下重新扫描按钮。</p>
+<p>在 File → Load Game 打开的载入对话框<strong>底部右侧</strong>，有一个按钮就叫 <strong>Rescan all</strong>。点之前把 Only Available 勾上，这样扫完列表只显示 CRC 完整校验通过的游戏，灰色残缺的不会出现。</p>
+<p>扫描是纯只读操作，不会修改任何文件，放心点。几百款 ROM 扫几十秒，几千款也就几分钟。扫完对话框自动刷新，你刚才放进去的游戏名应该都列出来了。</p>
+<p><img src="../images/kawaks-docs/load-game-dialog.gif" alt="重新扫描对话框" loading="lazy"></p>
+<p>扫完还是找不到？按这个顺序排查：</p>
+<ul><li><code>neogeo.zip</code> 是不是放对目录了？</li><li>ROM ZIP 的 CRC32 和模拟器内部的 ROM 对照表匹配吗？用 RomCenter 或 CLRMamePro 校验一下。</li><li>ZIP 外层有没有被套娃？比如里面又套了一层 <code>rom.zip</code>。</li><li>Bootleg 盗版本的 ROM 模拟器可能不认。</li></ul>
+<p>碰到疑难杂症时<a href="https://kawaks-docs.pages.dev/" target="_blank" rel="noopener">kawaks文档</a>里还有更详细的 CRC 校验方法和 BIOS 位置排查指南，可以翻一翻对照看。</p>
+<h2>第四步：画面调清晰，别浪费你的显示器</h2>
+<p>默认的 WinKawaks 画面是线性拉伸，窗口拉大后像素糊成一团，锯齿也重。三步把画面救回来：</p>
+<p><strong>换像素锐化滤镜。</strong> 载入任意游戏后打开 Video 菜单，把当前滤镜从 Linear / Bilinear / None 改成 <strong>Super 2×SaI</strong> 或 <strong>Super Eagle</strong>。改完立即能看到效果——像素硬朗了，锯齿也少了大半。Super Eagle 比 Super 2×SaI 更温和一点，个人偏好。</p>
+<p><strong>锁定宽高比。</strong> 街机原始分辨率都是 4:3，拖拽窗口时不锁比例会把画面拉成 16:9，角色身材变形。Video 菜单里勾选 <strong>Keep Aspect Ratio</strong>（有的版本叫 Lock Aspect Ratio），之后窗口怎么拉画面都是正的，两侧出现黑边是正常的 letterbox，那才是正确的显示方式。</p>
+<p><strong>关闭操作系统高 DPI 缩放。</strong> 如果你是 2K/4K 显示器，Windows 默认的 200% 缩放会让 WinKawaks 被二次缩放，糊上加糊。右键 <code>Winkawaks.exe</code> → 属性 → 兼容性 → 勾选"高 DPI 缩放替代" → 下拉框选"应用程序"。改完重启模拟器生效。</p>
+<h2>第五步：按键配置，手柄键盘都行</h2>
+<p>模拟器默认键位能玩，但别扭——F1 投币、1 开始、方向键移动、J/K/L 拳脚，先按自己习惯改一遍。</p>
+<p>载入游戏后打开 Game → Redefine Keys → Redefine Keys Player 1，进入按键重定义界面。光标移到要改的那一行，直接按你想映射的键位就行，手柄也能识别。改完记得点 OK 保存，下次进游戏沿用这套配置。</p>
+<h2>新手最容易翻车的三个卡点</h2>
+<p><strong>卡点一：Rescan all 后游戏列表全灰。</strong> 99% 是 <code>neogeo.zip</code> 没放对位置。拿出来扔 <code>roms/</code> 根目录，再点一次 Rescan all。</p>
+<p><strong>卡点二：画面模糊像蒙了一层雾。</strong> 先去 Video 菜单确认滤镜是不是还停在 Linear——老版本有些场景会自动切回去。如果滤镜已经是 Super 2×SaI 还是糊，查一下是不是高 DPI 缩放没关。</p>
+<p><strong>卡点三：按键按了没反应。</strong> 可能是游戏要求投币（F1）才能开始。也可能是键位被你改乱了，直接去 Redefine Keys 恢复默认再改一遍。</p>
+<h2>往下还能玩什么</h2>
+<p>搞定单机只是起点——Kaillera 联机对战、F5 即时存档和 F7 读档（打不过就存档）、saves 目录整个复制到另一台电脑迁移进度、甚至可以开 Scanlines 扫描线滤镜还原街机 CRT 那种复古质感。这套资料在<a href="https://github.com/alipymanbu/APK/tree/main/APP/kawaks" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/APP/kawaks" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/APP/kawaks" target="_blank" rel="noopener">GitCode</a>三处都有同步更新，选你顺手的就行。这些都是进阶玩法，但先把基础的五步走通再说。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/alist-zh-docs.html">我为什么在网盘聚合这条路上最终还是用回了 Alist</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/musicfree-docs.html">MusicFree 为什么把音源拆成了插件——从架构设计看一款开源播放器的取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/app/index.html">APP</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/loveydovey-app.html">LoveyDovey 从下载到自建角色 手把手跑通全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/ybox.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">果园老板的监控自救：从蓝灯一直闪到手机看实况</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/pakeplus-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">把 PakePlus 翻了个底朝天——六个你可能没注意到的冷门玩法</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

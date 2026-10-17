@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>从零到一：用 AstrBot 在 QQ 群里挂一个自己的 AI 助手 · 老郭软件铺</title>
+  
+<meta name="description" content="这篇文章带你从什么都不懂，到把一个会聊天、能管理群的 AI 助手挂进 QQ 群。不需要编程基础，跟着走五分钟就能跑通。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/astrbot-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零到一：用 AstrBot 在 QQ 群里挂一个自己的 AI 助手">
+<meta property="og:description" content="这篇文章带你从什么都不懂，到把一个会聊天、能管理群的 AI 助手挂进 QQ 群。不需要编程基础，跟着走五分钟就能跑通。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/astrbot-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/astrbot-zh-docs/hero-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/astrbot-zh-docs/hero-banner.png">
+
+<meta name="twitter:title" content="从零到一：用 AstrBot 在 QQ 群里挂一个自己的 AI 助手">
+<meta name="twitter:description" content="这篇文章带你从什么都不懂，到把一个会聊天、能管理群的 AI 助手挂进 QQ 群。不需要编程基础，跟着走五分钟就能跑通。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8fd9\u7bc7\u6587\u7ae0\u5e26\u4f60\u4ece\u4ec0\u4e48\u90fd\u4e0d\u61c2\uff0c\u5230\u628a\u4e00\u4e2a\u4f1a\u804a\u5929\u3001\u80fd\u7ba1\u7406\u7fa4\u7684 AI \u52a9\u624b\u6302\u8fdb QQ \u7fa4\u3002\u4e0d\u9700\u8981\u7f16\u7a0b\u57fa\u7840\uff0c\u8ddf\u7740\u8d70\u4e94\u5206\u949f\u5c31\u80fd\u8dd1\u901a\u3002", "headline": "\u4ece\u96f6\u5230\u4e00\uff1a\u7528 AstrBot \u5728 QQ \u7fa4\u91cc\u6302\u4e00\u4e2a\u81ea\u5df1\u7684 AI \u52a9\u624b", "image": ["https://laoguosofts.github.io/images/astrbot-zh-docs/hero-banner.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/astrbot-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/astrbot-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download-official/", "name": "\u4e0b\u8f7d\u5b98\u7f51", "position": 2}, {"@type": "ListItem", "name": "\u4ece\u96f6\u5230\u4e00\uff1a\u7528 AstrBot \u5728 QQ \u7fa4\u91cc\u6302\u4e00\u4e2a\u81ea\u5df1\u7684 AI \u52a9\u624b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download-official/index.html">下载官网</a><span>›</span>
+    <span class="crumb-cur">从零到一：用 AstrBot 在 QQ 群里挂一个自己的 AI 助手</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/download-official/index.html">下载官网</a></p>
+    <h1 class="post-title serif">从零到一：用 AstrBot 在 QQ 群里挂一个自己的 AI 助手</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">这篇文章带你从什么都不懂，到把一个会聊天、能管理群的 AI 助手挂进 QQ 群。不需要编程基础，跟着走五分钟就能跑通。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇文章能带你从完全不懂到把 AI 助手挂进 QQ 群里用起来，不需要任何编程基础，跟着走就行。</p>
+<h2>它到底是干嘛的——用一个生活化类比讲明白</h2>
+<p>你可以把 AstrBot 想象成一个"AI 总机"。</p>
+<p>你的 AI 模型（比如 GPT、豆包、文心一言）是大脑，但大脑不会自己跑到 QQ 群、微信群、Telegram 里去跟人说话。AstrBot 就是中间那个"翻译官兼接线员"——它一头连着你的 AI 模型，另一头连着各种聊天平台，把群里人说的话转成 AI 能懂的格式送过去，再把 AI 的回复转回平台消息发回来。</p>
+<p><img src="../images/astrbot-zh-docs/hero-banner.png" alt="AstrBot 架构示意：AI 模型在中间，聊天平台在四周" loading="lazy"></p>
+<p>就这么一层薄薄的中间件，让你不用分别给 QQ、微信、Telegram 各写一套对接代码——装一次，各平台通用。而且它自带管理面板，在它的<a href="https://astrbot.yoan.quest" target="_blank" rel="noopener">官方网站</a>上能看到完整的特性列表，所有配置点鼠标就能改，不用翻配置文件。</p>
+<h2>五分钟上手：从下载到第一次跑通</h2>
+<p>别急着装，先理解一个关键概念：<strong>AstrBot 自己不连 QQ，它需要一个协议端</strong>。这个协议端负责真的去跟 QQ 服务器说话，AstrBot 跟协议端之间用一种叫"反向 WebSocket"的方式通信。你现在不用记这个名词，知道要装两个东西就行：AstrBot 本体 + 协议端（国内 QQ 圈最常用的是 NapCat）。</p>
+<h3>第一步：下载并启动 AstrBot 本体</h3>
+<p>安装方法很简单，去<a href="https://astrbot.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿对应你系统的版本，解压后运行启动脚本。Windows 用户找 <code>.bat</code>，Linux 用户找 <code>.sh</code>。启动后浏览器会自动弹出一个地址（默认是 <code>http://localhost:8080</code>），这就是你的管理面板。</p>
+<p>打开面板后先别急着配置别的，点左侧最下面那个"配置文件"，找到"对话模型"这一栏——你得先告诉 AstrBot 用哪个 AI 模型说话。这里填你的模型服务商地址、API Key 和模型名，保存就行。</p>
+<h3>第二步：部署 NapCat</h3>
+<p>NapCat 是 QQ 协议端，它跑起来后会拿着一个真正的 QQ 号去跟 QQ 服务器通信。这个 QQ 号就是你的机器人号——<strong>一定要是你自己能扫码登录的号</strong>，别用常用号，最好专门注册一个小号来当机器人。</p>
+<p>NapCat 的安装也很简单，Windows 下载解压后双击启动，Linux 有一键脚本。启动后它会弹出一个二维码窗口，用你选定的 QQ 号扫码登录。</p>
+<h3>第三步：把两头接起来</h3>
+<p>这是最关键的一步。先回到 AstrBot 管理面板，左侧点"消息平台"，点"+ 创建机器人"，类型选 OneBot v11，端口保持默认的 6199，保存。</p>
+<p>然后打开 NapCat 的管理页面（地址在 NapCat 启动日志里能看到），进"网络配置"→"新建"→"WebSockets 客户端"，URL 填 <code>ws://127.0.0.1:6199/ws</code>，勾选启用，保存。</p>
+<h3>第四步：验证</h3>
+<p>回到 AstrBot 面板，点左侧"日志"，盯着看。几秒后如果出现一行蓝色的 <strong>aiocqhttp(OneBot v11) 适配器已连接</strong>，就成了。</p>
+<p><img src="../images/astrbot-zh-docs/webui-overview.png" alt="管理面板左侧菜单一览" loading="lazy"></p>
+<p>现在拿另一个 QQ 号给你的机器人号发条消息，它应该会回复。跑通了。</p>
+<h2>上手后先玩这三个功能</h2>
+<p>跑通只是个开始。下面三个功能是新手最值得先碰的，每个都能让你"哇一声"。</p>
+<h3>功能一：给机器人立个人格</h3>
+<p>默认人格说出来的话比较"中性"，像个没有感情的问答机器。你可以给它一个人设——比如"专业又亲切的 AI 客服，回答简洁礼貌"或者"活跃的群友，爱开玩笑但别乱说话"。</p>
+<p>操作路径：左侧菜单点"人格设定"，新建一个人格，在"人设提示词"里写你想要的身份、语气、边界。写完保存，然后去"配置文件"里把默认人格换成你刚建的那个。</p>
+<p>你会发现：<strong>同一个 AI 模型，换了人格，说话风格完全不一样</strong>。这不是玄学——人格本质就是一段系统提示词，加上一组可用工具的勾选，决定模型"是谁、能干什么"。关于人格提示词的写法技巧和多人格分配的高级配置，可以去<a href="https://astrbot-zh-docs.pages.dev/" target="_blank" rel="noopener">astrbot文档</a>查，上面每个平台的接入都有详细步骤。</p>
+<h3>功能二：看看它今天干了多少活</h3>
+<p>左侧菜单点"统计"，你会看到一整个汇总看板：今天接了多少消息、调用了多少次模型、Token 花了多少、哪个平台消息最多。可以按 1 天、3 天、1 周切换范围。</p>
+<p>这意味着什么？你终于不用靠感觉猜"机器人有没有在工作"，数字摆在那里，一目了然。Token 消耗这一栏尤其有用——帮你省钱的关键就是盯着这个数。</p>
+<h3>功能三：接个第二个平台试试</h3>
+<p>跑通 QQ 后，试试再挂一个企业微信或者 Telegram。操作流程跟接 QQ 类似：先在 AstrBot 里创建对应类型的机器人实例，再去平台那边配置回调地址。</p>
+<p>多平台并存的好处是你可以给不同来源配不同人格——QQ 群用"活跃群友"人格，企业微信群用"严谨客服"人格，互不干扰。这个在面板的"会话管理 / 自定义规则"里配置，不用建两套 AstrBot。</p>
+<h2>小白的三个常见疑问</h2>
+<h3>Q：我改了人格，机器人说话完全没变，怎么回事？</h3>
+<p>八成是两件事之一：要么你改的不是当前会话在用的那个人格，要么改完没去"配置文件"里把默认人格切换过去。人格不直接全局生效，链路是"人格设定页改 → 配置文件选使用哪个人格 → 对话按所选人格运行"，三步缺一不可。</p>
+<h3>Q：NapCat 启动后要不要把端口暴露到公网？</h3>
+<p><strong>千万别</strong>。NapCat 持有你的 QQ 登录态，暴露端口等于把账号直接交出去。只有一种情况需要暴露：AstrBot 跑在公网服务器上而 NapCat 跑在你本地，这时候才需要内网穿透或者公网地址。但对新手来说，AstrBot 和 NapCat 都跑在同一台机器上就行，本地通信不走公网，安全得很。</p>
+<h3>Q：微信为什么没有个人微信接入？</h3>
+<p>个人微信没有开放的机器人接口，任何直接操作个人微信的方案都在灰色地带，AstrBot 的官方文档也不提供此类接入。想挂在微信体系里，正规路径就是企业微信应用或者微信公众号——好在这两个入口的开放接口都相当完善，企微自建应用能收发文本、图片、文件，公众号门槛更低，个人订阅号就能玩。</p>
+<h2>接下来怎么走</h2>
+<p>跑通 QQ、立了人格、看了统计——这时候你已经是 AstrBot 的合格使用者了。下一步建议试试<strong>知识库功能</strong>：把你们团队的文档或者产品手册传进去，机器人就能基于这些资料回答问题，比单纯的通用问答靠谱得多。</p>
+<p>这条路走通了，你会发现自己其实已经搭了一个能用的 AI 客服系统。这套搭建记录我同步放在了<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/astrbot" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/astrbot" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD%E5%AE%98%E7%BD%91/astrbot" target="_blank" rel="noopener">GitCode</a>三个仓库，国内直连 Gitee 或 GitCode 速度更快。而这一切，就是从下载解压、扫码登录、填几个端口号开始的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lovesong.html">一场演唱会的贴身工具：LoveSong 能力面深度盘点</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/keymapper.html">不想再在手机上划来划去？Key Mapper 让你的音量键变成万能快捷键</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/download-official/index.html">下载官网</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tivimate-docs.html">TiviMate 用了半年踩过的那些坑——从 EPG 空白到录制文件损坏</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/vlive-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">VLIVE 停服三年还值得知道吗？七问七答帮你把这段直播回忆理清楚</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/nekoanime.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我换过七款动漫播放 App，NekoAnime 这套思路确实不一样</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

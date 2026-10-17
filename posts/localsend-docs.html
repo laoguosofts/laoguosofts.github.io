@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了 LocalSend 大半年才挖到的 5 个隐藏功能——原来局域网传文件还能这么玩 · 老郭软件铺</title>
+  
+<meta name="description" content="收藏夹绕过 VPN 干扰、手动 IP 直连、命令行批量发送、网络接口白名单过滤……这些藏得很深的小开关，才是把 LocalSend 用透的关键。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/localsend-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了 LocalSend 大半年才挖到的 5 个隐藏功能——原来局域网传文件还能这么玩">
+<meta property="og:description" content="收藏夹绕过 VPN 干扰、手动 IP 直连、命令行批量发送、网络接口白名单过滤……这些藏得很深的小开关，才是把 LocalSend 用透的关键。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/localsend-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/localsend-docs/hero-desktop.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/localsend-docs/hero-desktop.png">
+
+<meta name="twitter:title" content="用了 LocalSend 大半年才挖到的 5 个隐藏功能——原来局域网传文件还能这么玩">
+<meta name="twitter:description" content="收藏夹绕过 VPN 干扰、手动 IP 直连、命令行批量发送、网络接口白名单过滤……这些藏得很深的小开关，才是把 LocalSend 用透的关键。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6536\u85cf\u5939\u7ed5\u8fc7 VPN \u5e72\u6270\u3001\u624b\u52a8 IP \u76f4\u8fde\u3001\u547d\u4ee4\u884c\u6279\u91cf\u53d1\u9001\u3001\u7f51\u7edc\u63a5\u53e3\u767d\u540d\u5355\u8fc7\u6ee4\u2026\u2026\u8fd9\u4e9b\u85cf\u5f97\u5f88\u6df1\u7684\u5c0f\u5f00\u5173\uff0c\u624d\u662f\u628a LocalSend \u7528\u900f\u7684\u5173\u952e\u3002", "headline": "\u7528\u4e86 LocalSend \u5927\u534a\u5e74\u624d\u6316\u5230\u7684 5 \u4e2a\u9690\u85cf\u529f\u80fd\u2014\u2014\u539f\u6765\u5c40\u57df\u7f51\u4f20\u6587\u4ef6\u8fd8\u80fd\u8fd9\u4e48\u73a9", "image": ["https://laoguosofts.github.io/images/localsend-docs/hero-desktop.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/localsend-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/localsend-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/mobile/", "name": "\u624b\u673a\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86 LocalSend \u5927\u534a\u5e74\u624d\u6316\u5230\u7684 5 \u4e2a\u9690\u85cf\u529f\u80fd\u2014\u2014\u539f\u6765\u5c40\u57df\u7f51\u4f20\u6587\u4ef6\u8fd8\u80fd\u8fd9\u4e48\u73a9", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/mobile/index.html">手机版</a><span>›</span>
+    <span class="crumb-cur">用了 LocalSend 大半年才挖到的 5 个隐藏功能——原来局域网传文件还能这么玩</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/mobile/index.html">手机版</a></p>
+    <h1 class="post-title serif">用了 LocalSend 大半年才挖到的 5 个隐藏功能——原来局域网传文件还能这么玩</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">收藏夹绕过 VPN 干扰、手动 IP 直连、命令行批量发送、网络接口白名单过滤……这些藏得很深的小开关，才是把 LocalSend 用透的关键。</p>
+  </header>
+  <div class="prose serif">
+<p>你以为 <a href="https://localsend.wxhp.skin" target="_blank" rel="noopener">LocalSend官网</a> 上主打宣传的就是个 AirDrop 替代品，打开、选人、点发送、收工？我之前也是这么想的——直到某天开着 VPN 给同事传 PPT 死活搜不到设备，关了 VPN 立刻恢复，这才逼得我翻遍设置把它摸了个底朝天。</p>
+<p>结果发现这款工具藏得真深。很多人用了几个月都没碰过的选项，恰恰是那些真正能在关键时刻救场的功能。今天挑五个我觉得最实用的讲一讲。</p>
+<p><img src="../images/localsend-docs/hero-desktop.png" alt="LocalSend 主界面" loading="lazy"></p>
+<h2>一、收藏夹直达：绕过 VPN 和多播失效的发现机制</h2>
+<p>这是我挖出来最惊喜的一个。</p>
+<p>LocalSend 的设备发现靠的是多播广播——每个设备在局域网里"喊一声我在这"，其他设备听到就把你列出来。问题来了：VPN 一开，系统默认把所有流量塞进加密隧道，多播包直接被吞掉，同网段设备根本收不到你的公告。关 VPN ？传完再连回去？可以，但天天这么折腾人。</p>
+<p>你可能不知道，LocalSend 有一个"收藏夹"机制，对收藏的设备会<strong>跳过多播发现，直接向已知地址探测</strong>。这意味着什么？只要你把常用设备加进收藏夹，哪怕 VPN 开着，只要手动 IP 能 ping 通，它就能连上。</p>
+<p>入口藏在设备列表里：右键或长按某个设备，选"添加到收藏夹"就行。加完之后，这台设备的图标旁边会多一个小星星。我现在把家里和公司常传的几台设备全加了星，VPN 开着也丝毫不影响，同事还以为我开了什么黑科技。</p>
+<h2>二、手动输入 IP 直连：发现失效时的救命绝招</h2>
+<p>如果收藏夹也救不了——比如对方换了网段、或者公司网络策略把多播掐得死死的——还有一招绝的：直接输入对方的局域网 IP。</p>
+<p>在 LocalSend 的发送页，大多数平台版本都有一个很不起眼的"手动连接"按钮，藏在设备列表底部或右上角菜单里。点开之后就是一个 IP 地址输入框，敲完对方的 192.168.x.x 地址，直接发起发送请求。</p>
+<p>我有次在酒店里跟朋友传照片，酒店 WiFi 把多播功能屏蔽了，设备列表刷新半天啥也没有。就是靠这招，互相查了下对方的局域网 IP，直接连得上。这个功能的好处是不依赖任何发现机制——只要两台设备在同一个二层网络，IP 对了就能通。</p>
+<h2>三、网络接口白名单/黑名单：多网卡设备的精细控制</h2>
+<p>这个功能的存在本身就让我觉得 LocalSend 的开发者想得特别细。</p>
+<p>你是不是也遇到过这种情况：电脑同时连着有线网卡、无线网卡，还开着个安卓模拟器或者 Docker，设备列表里只冒出一部分设备，或者干脆啥也搜不到？原因就是那些虚拟网卡和网桥抢了路由，发往真正局域网的数据包走错了出口。</p>
+<p>解决办法藏在：设置 → 高级设置 → 网络接口。这里可以按白名单或黑名单模式，指定让 LocalSend 只在哪几块网卡上监听和广播。比如我自己的电脑就把有线网卡设为白名单，其他所有接口全排除，设备发现立刻干净利落，不再有那些不该出现的虚拟设备干扰。</p>
+<p>这个选项 <a href="https://localsend-docs.pages.dev/" target="_blank" rel="noopener">LocalSend文档</a> 里提过，但应用内埋得确实深——没在网络环境里踩过坑的人大概率不会注意到它。</p>
+<p><img src="../images/localsend-docs/screenshot-phone-1.jpg" alt="LocalSend 手机端" loading="lazy"></p>
+<h2>四、命令行批量发送：CLI 模式很多人根本不知道</h2>
+<p>LocalSend 有个 <code>localsend-cli</code> 命令行版本，适合脚本调用和自动化场景，但就算你不写脚本，它也有很实在的用法。</p>
+<p>比如你有一个大文件夹要发给组里所有人，图形界面得一个个拖文件，命令行一行搞定：</p>
+<pre><code>localsend-cli send ./项目备份</code></pre>
+<p>甚至可以指定接收方设备名、等待确认超时时间等参数。对于搞技术的人来说，把这个命令塞进 Git hook 或者构建脚本里，代码写完自动发给测试机，简直不要太爽。</p>
+<p>CLI 版本的分发渠道跟图形版一样，Windows 上有独立的 exe，macOS 和 Linux 也有各自的包管理器——想省心直接从<a href="https://localsend.wxhp.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿对应平台的安装包就行。它和图形版用的是同一个底层协议，互通无差别。</p>
+<h2>五、接收弹窗的逐项跳过：不想收的文件不用全拒</h2>
+<p>最后一个，藏在接收端弹窗里，非常容易被忽略。</p>
+<p>对方给你发了一个 50 个文件的文件夹，你只想收其中 5 个——怎么办？之前我傻傻地全收了再手动删。后来发现接收弹窗里，<strong>每一个文件前面都有一个独立的勾选框</strong>，默认全选，你把不想收的取消勾选就行，不用拒绝整个请求。</p>
+<p>对于几百个文件的大目录，这个功能能省你好多时间。而且 LocalSend 重名文件不会覆盖已有文件，而是按"文件名（1）"的规则另起名，所以就算全收了也不会弄坏你的原始文件——只是占点空间而已。</p>
+<h2>一个要提醒你的坑</h2>
+<p>说到收藏夹功能，有个副作用得提一下：收藏的设备如果换了 IP 地址（比如对方手机切换了网络），LocalSend 不会自动更新收藏记录里的地址，收藏连接就会失效。这时候得把那个设备从收藏里删掉重新加一次。不是什么大问题，但第一次遇到的时候我以为收藏夹失效了，查了半天。</p>
+<p>另外，CLI 模式目前还不支持断点续传——局域网稳定性一般的话，传几个 GB 的大目录之前最好先确认网络不会断，中断重来的成本挺高。</p>
+<hr>
+<p>LocalSend 之所以能这么火，开源免费、无广告无跟踪是主要原因，但这些藏得很深的细节功能，才是让它从"能传文件"变成"传得舒服"的关键。很多人说好用说的是界面和流程，真正把它用透的人，是那些把设置翻到底、把角落的小开关都试了一遍的折腾党。</p>
+<p>如果你也在用 LocalSend，下次遇到搜不到设备、传大文件卡顿这种问题，别急着换工具——说不定答案就藏在某个你没点开过的子菜单里。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/LocalSend" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/LocalSend" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%89%8B%E6%9C%BA%E7%89%88/LocalSend" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，想深挖功能或查阅最新版本说明的话不妨翻翻。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 11 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/audiorelay.html">AudioRelay 这三年：从一根 USB 线到系统音频抓取</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/songsterr.html">Songsterr 手机练琴踩过的五个坑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/mobile/index.html">手机版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/photofunia.html">PhotoFunia 藏得最深的五个冷门功能，90% 的人只用了它 10% 的能力</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/ngl-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">我算了一笔时间账：NGL 这个匿名提问箱，你到底配不配用</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/kardz.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我用过三款游戏充值平台，最后留在手机里的是 Kardz</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

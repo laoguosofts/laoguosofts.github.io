@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>每周12条产品短视频，我把PixVerse嵌进了这条自动化流水线 · 老郭软件铺</title>
+  
+<meta name="description" content="PixVerse的API能力远不止手动点网页，把它接到Python脚本+飞书通知+夸克网盘的流水线里，每周批量出产品短视频的事就自动化了。旧流程三步手动复制，现在一条链跑完，Credits消耗还降了三成。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pixverse-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每周12条产品短视频，我把PixVerse嵌进了这条自动化流水线">
+<meta property="og:description" content="PixVerse的API能力远不止手动点网页，把它接到Python脚本+飞书通知+夸克网盘的流水线里，每周批量出产品短视频的事就自动化了。旧流程三步手动复制，现在一条链跑完，Credits消耗还降了三成。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pixverse-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pixverse-docs/model-v6.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pixverse-docs/model-v6.webp">
+
+<meta name="twitter:title" content="每周12条产品短视频，我把PixVerse嵌进了这条自动化流水线">
+<meta name="twitter:description" content="PixVerse的API能力远不止手动点网页，把它接到Python脚本+飞书通知+夸克网盘的流水线里，每周批量出产品短视频的事就自动化了。旧流程三步手动复制，现在一条链跑完，Credits消耗还降了三成。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "PixVerse\u7684API\u80fd\u529b\u8fdc\u4e0d\u6b62\u624b\u52a8\u70b9\u7f51\u9875\uff0c\u628a\u5b83\u63a5\u5230Python\u811a\u672c+\u98de\u4e66\u901a\u77e5+\u5938\u514b\u7f51\u76d8\u7684\u6d41\u6c34\u7ebf\u91cc\uff0c\u6bcf\u5468\u6279\u91cf\u51fa\u4ea7\u54c1\u77ed\u89c6\u9891\u7684\u4e8b\u5c31\u81ea\u52a8\u5316\u4e86\u3002\u65e7\u6d41\u7a0b\u4e09\u6b65\u624b\u52a8\u590d\u5236\uff0c\u73b0\u5728\u4e00\u6761\u94fe\u8dd1\u5b8c\uff0cCredits\u6d88\u8017\u8fd8\u964d\u4e86\u4e09\u6210\u3002", "headline": "\u6bcf\u546812\u6761\u4ea7\u54c1\u77ed\u89c6\u9891\uff0c\u6211\u628aPixVerse\u5d4c\u8fdb\u4e86\u8fd9\u6761\u81ea\u52a8\u5316\u6d41\u6c34\u7ebf", "image": ["https://laoguosofts.github.io/images/pixverse-docs/model-v6.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pixverse-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pixverse-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u6bcf\u546812\u6761\u4ea7\u54c1\u77ed\u89c6\u9891\uff0c\u6211\u628aPixVerse\u5d4c\u8fdb\u4e86\u8fd9\u6761\u81ea\u52a8\u5316\u6d41\u6c34\u7ebf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">每周12条产品短视频，我把PixVerse嵌进了这条自动化流水线</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">每周12条产品短视频，我把PixVerse嵌进了这条自动化流水线</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">PixVerse的API能力远不止手动点网页，把它接到Python脚本+飞书通知+夸克网盘的流水线里，每周批量出产品短视频的事就自动化了。旧流程三步手动复制，现在一条链跑完，Credits消耗还降了三成。</p>
+  </header>
+  <div class="prose serif">
+<h2>我的每周任务：12条竖屏产品展示</h2>
+<p>我帮朋友的一家小型家电店铺做内容运营，每周固定要出 12 条竖屏产品展示短视频——9:16 画幅，每条 5~8 秒，用来铺抖音和小红书的产品橱窗。内容不复杂：一台音箱放在桌面上，镜头缓慢推进，暖光或冷光打个氛围，配个音效就完。但周周都要干，重复劳动的量就上来了。</p>
+<p>三个月前的流程是这样的：开 PixVerse 网页端 → 找到 AI 模板库选一个科技产品展示模板 → 把模板里的占位符（比如 <code>[产品名]</code>、<code>[场景]</code>）手动替换成这周要做的音箱型号 → 点生成 → 等 60 秒左右 → 手动下载 → 丢进一个共享文件夹 → 在群里 @ 运营同事。12 条跑下来，加上对不满意的结果反复换 prompt 重试，少说也要两个半小时。</p>
+<p>两个半小时听起来不长，但问题是你没法把这两小时省出来做别的事——生成是异步的，你得盯着进度条，不满意了立刻改 prompt 重跑，不然等你回来可能已经排到队列后面了。而且最烦的是 Credits 浪费：一条视频试了三个版本才满意，消耗就是三倍。</p>
+<h2>把 PixVerse 插进流程的哪一环</h2>
+<p>去<a href="https://pixverse.xnyx.quest" target="_blank" rel="noopener">官网</a>看，PixVerse 从一开始就不是只会点网页的工具——它有完整的 RESTful API、CLI 命令行（可以从<a href="https://pixverse.xnyx.quest/download.html" target="_blank" rel="noopener">下载</a>拿到）、甚至可以集成到 Cursor 和 Codex 里。我把整个流程拆成了四段，PixVerse 占第二段，上下游都用现成工具串起来：</p>
+<p><strong>第一段：输入准备。</strong> 运营同事每周一把本周要做的产品清单（型号、产品图、目标风格关键词）填到一份飞书多维表格里。脚本每周一早上定时拉这份表，转成一个本地的 CSV。这一步不用 PixVerse，飞书 API 就能搞定。</p>
+<p><strong>第二段：PixVerse 批量生成。</strong> 这是整条链的核心。脚本读取 CSV，为每个产品生成提示词模板（基于 PixVerse AI 模板库的产品展示类模板，把占位符换成具体内容），然后通过 PixVerse 的文生视频 API 批量提交。生成任务是异步的——提交后拿到一个 video_id，轮询状态直到成功，再调下载端点拿到 MP4 链接。下载完的视频按日期 + 产品型号命名存到本地 <code>output/</code> 目录。</p>
+<p><strong>第三段：质量筛选。</strong> 这步还是要我手动来，但量小多了——12 条生成完脚本自动推一个飞书消息，带本地文件夹的截图，我花 5 分钟过一遍，打勾标记要改的。脚本根据打勾记录自动对标记的产品跑第二轮生成，这轮会用更高的分辨率和更长的时长。</p>
+<p><strong>第四段：交付。</strong> 全部过审后，脚本自动把 <code>output/</code> 目录里的文件打包成 zip，调用夸克网盘的上传接口转存，拿到分享链接后回到飞书多维表格里更新对应行。运营同事只要打开表格点链接就能下载。</p>
+<p>整个链路跑完我实际动手的时间只有两个 5 分钟：第一次挑方向，第二次过成品。中间生成等待的时间我可以去做别的事。</p>
+<p><img src="../images/pixverse-docs/model-v6.webp" alt="PixVerse V6 模型能力概览" loading="lazy"></p>
+<h2>两个最容易断链的环节</h2>
+<p>这套流程不是一次就跑顺的，中间有两个地方特别容易卡住——这两个坑也是很多人把 API 接进工作流时会踩到的。</p>
+<h3>环节一：API 限流和批量并发</h3>
+<p>PixVerse 的 API 有并发限制，具体数字没在<a href="https://pixverse-docs.pages.dev/" target="_blank" rel="noopener">PixVerse文档</a>里写死，但实测同时提交超过 5 个任务就会开始触发限流错误（报错里带 <code>RATE_LIMITED</code>）。我最开始没管这个，直接开了 12 个并发，结果一半的任务提交失败，重试又撞上同样的限流，反复三次还是没过去。</p>
+<p>解决办法很简单：用 <code>asyncio.Semaphore</code> 把并发数锁在 3。不多开也不浪费——3 个并发意味着 12 条分四批跑，每批之间留 10 秒间隔，既不会触发限流，总时长也没比 5 并发慢多少（因为 PixVerse 本身生成一条就要 60 秒以上，真正提交任务的时间差可以忽略）。重试也加了指数退避：第一次限流等 60 秒，第二次等 120 秒，第三次等 180 秒，三次都失败才放弃那条。</p>
+<h3>环节二：中途断点续跑</h3>
+<p>有一次服务器那边 PixVerse 服务端状态异常（文档里说 status=3 是 TIMEOUT），12 条里有 7 条正常生成、2 条失败、3 条还在处理中时我把脚本关了。第二天重跑的时候，我想当然地从 CSV 第一条重新开始提交——结果发现 PixVerse 对同一个 video_id 不会重复计费，但你重新提交就会拿到新的 video_id，重新排队、重新消耗 Credits。</p>
+<p>从那次之后我加了一个 <code>results.json</code> 做进度记录：每条 prompt 对应一个 id，提交成功就把 id → video_id 写进去，下载成功就标 done。重跑时脚本先读这份 JSON，已经标 done 的直接跳过，还没完成的就查 video_id 当前状态——成功了就继续下载，失败了才重新提交。这样哪怕跑到一半断掉，下次重跑只会续上没完成的，不会多耗 Credits。</p>
+<p>提示词本身也不是每次从零写——我把 AI 模板库的产品展示模板改了改，做成了脚本里的一个函数：</p>
+<pre><code class="language-python">def product_prompt(name, surface, light, extra=&quot;&quot;):
+    return f&quot;{name} 放在 {surface} 上，镜头缓慢推进，{light} 光线，9:16 竖屏构图。{extra}&quot;</code></pre>
+<p>运营同事在多维表格里填的「表面」「光线」「补充描述」直接传进来就行，不用我手动改模板。</p>
+<p><img src="../images/pixverse-docs/prompt-guide.webp" alt="提示词技巧指南" loading="lazy"></p>
+<h2>Credits 怎么省：两阶段验证</h2>
+<p>原来手动用网页端的时候，一条视频我常常要试三四个 prompt 方向才能定——每个方向都是 V6 + 1080P + 8 秒的最高配，Credits 消耗直接乘以四。现在脚本里加了一个两阶段的省钱逻辑：</p>
+<p><strong>第一阶段，低配置试方向。</strong> 全部 12 条先用 V5 模型 + 720P + 5 秒跑一遍。V5 比 V6 便宜很多，720P 比 1080P 也省，5 秒时长够看风格对不对——反正后面会加长。</p>
+<p><strong>第二阶段，高配置出成片。</strong> 我手动过一遍第一阶段的结果，在飞书多维表格里打勾标记哪些方向 OK。脚本根据标记只对 OK 的那些跑 V6 + 1080P + 8 秒的高配版本。方向不对的直接换 prompt 重跑第一阶段，不浪费高配 Credits。</p>
+<p>这一招让我每周的 Credits 消耗从原来大约 300 降到了 210 左右——省了三成，而且因为先试方向再出高配，最终成片的质量反而比原来全高配瞎试更好。</p>
+<h2>这套流程什么时候不划算</h2>
+<p>说两个边界。第一，如果你的场景是每条视频都要完全不同的创意方向——比如一条做赛博朋克、一条做治愈日系、一条做复古胶片——那模板化的 prompt 函数就帮不上忙，还是手动在网页端调更灵活。我的 12 条产品展示本来就是同一种风格的微小变体，模板化刚好适合。</p>
+<p>第二，PixVerse 的 API Credits 和网页端订阅的 Credits 是分开的两个账户——这个别搞错。API Credits 是按量买的，用完再充值；网页端订阅的 Credits 是按月重置的。我最开始不知道这个，买了网页端订阅，结果脚本调 API 时直接报余额不足，差点以为代码有 bug。如果你的用量不固定、有时多有时少，API Credits 的按量付费反而更划算——用多少买多少，不会像订阅那样每月剩一堆 Credits 浪费掉。</p>
+<p>三个月跑下来，这条流水线每周稳定帮我省出两个多小时的时间，Credits 也比原来手动操作省了三成。PixVerse 本身就是个很强的创作工具，但它的价值真的要把它嵌进工作流里才能完整发挥出来——单独用它和把它当流水线里的一环，效率差的不是一个量级。</p>
+<p>手头这份 API 接入指南和 CLI 文档我整理好了，分别维护在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/PixVerse" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/PixVerse" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/PixVerse" target="_blank" rel="noopener">GitCode</a> 三个仓库里，国内访问优先 Gitee，海外用户直连 GitHub 就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/processon.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">ProcessOn 从零上手：注册、作图、美化、协作一条龙</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/supersu-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">我的 SuperSU 突然不弹窗了，折腾半小时才找到那个开关</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

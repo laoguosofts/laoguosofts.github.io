@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Musify 换机实战：从导出到恢复，五分钟把歌单和收藏全部搬过去 · 老郭软件铺</title>
+  
+<meta name="description" content="换新手机或重装系统时，Musify 的数据迁移其实不复杂——先导出、再装、最后导入，歌单和收藏就能原样回来。本文带着你一步步走完这个流程，并处理装不上、导不进的常见问题。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/musify-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Musify 换机实战：从导出到恢复，五分钟把歌单和收藏全部搬过去">
+<meta property="og:description" content="换新手机或重装系统时，Musify 的数据迁移其实不复杂——先导出、再装、最后导入，歌单和收藏就能原样回来。本文带着你一步步走完这个流程，并处理装不上、导不进的常见问题。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/musify-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/musify-docs/04-settings.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/musify-docs/04-settings.png">
+
+<meta name="twitter:title" content="Musify 换机实战：从导出到恢复，五分钟把歌单和收藏全部搬过去">
+<meta name="twitter:description" content="换新手机或重装系统时，Musify 的数据迁移其实不复杂——先导出、再装、最后导入，歌单和收藏就能原样回来。本文带着你一步步走完这个流程，并处理装不上、导不进的常见问题。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6362\u65b0\u624b\u673a\u6216\u91cd\u88c5\u7cfb\u7edf\u65f6\uff0cMusify \u7684\u6570\u636e\u8fc1\u79fb\u5176\u5b9e\u4e0d\u590d\u6742\u2014\u2014\u5148\u5bfc\u51fa\u3001\u518d\u88c5\u3001\u6700\u540e\u5bfc\u5165\uff0c\u6b4c\u5355\u548c\u6536\u85cf\u5c31\u80fd\u539f\u6837\u56de\u6765\u3002\u672c\u6587\u5e26\u7740\u4f60\u4e00\u6b65\u6b65\u8d70\u5b8c\u8fd9\u4e2a\u6d41\u7a0b\uff0c\u5e76\u5904\u7406\u88c5\u4e0d\u4e0a\u3001\u5bfc\u4e0d\u8fdb\u7684\u5e38\u89c1\u95ee\u9898\u3002", "headline": "Musify \u6362\u673a\u5b9e\u6218\uff1a\u4ece\u5bfc\u51fa\u5230\u6062\u590d\uff0c\u4e94\u5206\u949f\u628a\u6b4c\u5355\u548c\u6536\u85cf\u5168\u90e8\u642c\u8fc7\u53bb", "image": ["https://laoguosofts.github.io/images/musify-docs/04-settings.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/musify-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/musify-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "Musify \u6362\u673a\u5b9e\u6218\uff1a\u4ece\u5bfc\u51fa\u5230\u6062\u590d\uff0c\u4e94\u5206\u949f\u628a\u6b4c\u5355\u548c\u6536\u85cf\u5168\u90e8\u642c\u8fc7\u53bb", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">Musify 换机实战：从导出到恢复，五分钟把歌单和收藏全部搬过去</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">Musify 换机实战：从导出到恢复，五分钟把歌单和收藏全部搬过去</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">换新手机或重装系统时，Musify 的数据迁移其实不复杂——先导出、再装、最后导入，歌单和收藏就能原样回来。本文带着你一步步走完这个流程，并处理装不上、导不进的常见问题。</p>
+  </header>
+  <div class="prose serif">
+<p>换了新手机，第一件事就是把常用的应用装回去。Musify 作为一个开源的随身播放器，它的<a href="https://musify.uerg.quest" target="_blank" rel="noopener">官网</a>上就能看到完整介绍，歌单、收藏列表、偏好设置全在里面——如果重开一个号从零攒起，那感觉跟丢了半条命差不多。好消息是 Musify 自带完整的数据导出和导入功能，整个过程五分钟能搞定，不用手动复制文件，也不需要任何云服务。</p>
+<p>这篇教程结束时你能做到：旧手机导出一份完整的数据包，新手机装上后导入恢复所有歌单和收藏，连之前下载的离线歌曲也能重新拉下来。</p>
+<h2>准备工作</h2>
+<p>在动手之前确认三件事：</p>
+<ul><li>旧手机上的 Musify 是你一直用的那个渠道版本（GitHub 发布版或 F-Droid 版，两个渠道互相不能覆盖安装，后面会讲怎么区分）</li><li>新手机系统版本至少是 Android 7.0 及以上</li><li>两个手机之间有传输方式——网盘、蓝牙、数据线都行，选一个你最顺手的</li></ul>
+<h2>第一步：旧手机导出数据</h2>
+<p>先别急着卸载旧手机上的 Musify，数据导出这个动作必须在应用还正常运行的时候做。</p>
+<p>打开 Musify，进设置，找到"数据"或"备份"分组，点"导出数据"。应用会弹出一个文件保存对话框，让你选导出文件的存放位置。建议直接存到手机内部存储的根目录，或者你能轻松找到的位置——等下要把这个文件传到新手机上，存太深的子目录容易找不到。</p>
+<p>导出的文件不大，通常几 MB 到几十 MB 不等（取决于你歌单和收藏的条目数量），它不包含离线下载的歌曲文件，只包含歌单元数据、收藏列表、播放历史和偏好设置这些"索引"信息。所以导出很快，几秒钟就能完成。</p>
+<p><img src="../images/musify-docs/04-settings.png" alt="设置里找导出入口" loading="lazy"></p>
+<p>导出完成后，去文件管理器里确认一下那个文件确实在、大小正常、不是空文件。这个文件就是你整个 Musify 身份的化身，丢了就真要从零开始了。</p>
+<h2>第二步：把导出文件传到新手机</h2>
+<p>选一种方便的方式：</p>
+<ul><li>用网盘客户端上传到云端，新手机再下载</li><li>蓝牙直接传</li><li>USB 数据线连电脑中转</li><li>旧手机开个临时文件共享服务，新手机通过局域网拉取</li></ul>
+<p>传输前确认文件没有被聊天应用自动压缩或重命名——有些 IM 工具传文件时会改扩展名或加后缀，Musify 导入时会校验文件格式，不对就拒绝。传输完在新手机的文件管理器里找到它，记好路径。</p>
+<h2>第三步：新手机安装 Musify</h2>
+<p>这里有个新手最容易踩的坑：Musify 同时在 GitHub 和 F-Droid 两个渠道发布，两个渠道的包名和签名完全不同。如果你从一个渠道装过，后来又想装另一个渠道的版本，安卓系统会直接拒绝——包名或签名对不上就不让覆盖安装。</p>
+<p>所以装之前先想清楚你要装哪个渠道的版本，选定了就一直用，别换来换去。如果你之前没装过，随便选哪个都行——安装包从<a href="https://musify.uerg.quest/download.html" target="_blank" rel="noopener">musify下载</a>拿就行；如果之前装过别的渠道，就得先卸载干净再装新版本。</p>
+<p>安装时如果弹出"应用未安装"提示，十有八九是这个原因。解决办法很简单：进系统设置的应用管理，把已有的 Musify 彻底卸掉，确认应用列表里已经没有了，再装你想要的那个版本。</p>
+<p><img src="../images/musify-docs/01-home.png" alt="安装完成后的首页" loading="lazy"></p>
+<h2>第四步：新手机导入数据</h2>
+<p>新手机上装好 Musify 后先别点开，先去把刚才传过来的导出文件确认一下在手机上能找到。然后打开 Musify，进设置，找到"数据"或"备份"分组，点"导入数据"。</p>
+<p>文件管理器会弹出来让你选文件，找到刚才那份导出文件，点它。Musify 会先校验文件格式和版本兼容性——校验通过就开始导入，几秒钟后歌单、收藏、播放历史、偏好设置全部恢复到新手机上，跟旧手机上一模一样。</p>
+<p>这里注意一个容易忽略的细节：导入完成只恢复了"索引"数据，离线下载的歌曲文件并不会自动过来。因为导出时没包含这些音频文件。所以导入完歌单和收藏都回来了，点开播放可能会提示需要网络。别急，这是正常的。</p>
+<h2>第五步：重新下载离线歌曲</h2>
+<p>导入完数据，打开恢复好的歌单或收藏列表，找到你之前离线过的歌曲。可以逐首长按点下载，也可以长按整张歌单选"下载全部"。下载队列会按顺序把每首歌拉下来，跟旧手机上最初下载的流程一样。</p>
+<p>这个过程需要等一会儿——取决于你有多少首离线歌曲和网络速度。下载期间可以正常使用播放器，不用盯着进度条。</p>
+<h2>常见卡点</h2>
+<h3>卡点一：导入时提示文件选错了或版本不兼容</h3>
+<p>先确认你选的文件确实是 Musify 导出的那个，不是被改了扩展名或压缩过的。如果文件没问题，那大概率是导出和导入用的 Musify 版本跨了大版本——比如旧手机用 v3 导出，新手机装了 v4。这种情况下用旧手机导出时的同一大版本导入最稳，或者去<a href="https://musify-docs.pages.dev/" target="_blank" rel="noopener">musify文档</a>查一下版本兼容表再操作。</p>
+<h3>卡点二：新手机装不上，一直提示"应用未安装"</h3>
+<p>90% 的情况是旧手机上还有另一个渠道的 Musify 没卸干净。进系统设置的应用管理搜一下"musify"，确认所有相关条目都卸载了。如果卸载后桌面还有残留图标，长按手动删一次。卸干净再装就行。</p>
+<h3>卡点三：导出文件在传输过程中损坏</h3>
+<p>用某些聊天应用传文件时，应用可能会自动压缩或转码，导致文件损坏。换个传输方式——数据线直连、网盘客户端上传下载、局域网文件共享，这些都不会动文件本身。</p>
+<h2>进阶一句话</h2>
+<p>数据迁移搞定后，可以试试开一下 SponsorBlock 功能——如果你的歌单里有播客或带插播的音频节目，它能自动跳过赞助推广、片头片尾和互动请求段落，省不少时间。</p>
+<p>现在你的 Musify 已经在新手机上完整恢复了，歌单、收藏、收听历史全都在，离线歌曲也在重新下载。整个流程其实没有特别高深的操作，关键是第一步导出要在旧应用还能正常用的时候做——等应用崩了或卸载了再想起来，可就没处找了。</p>
+<p>作为一个开源项目，Musify 的完整资料分别托管在三个仓库里，方便不同网络环境下查阅：<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/musify" target="_blank" rel="noopener">GitHub</a> 是主仓库，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/musify" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/musify" target="_blank" rel="noopener">GitCode</a> 是面向国内用户的备份镜像。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/monica-zh-docs.html">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/moku-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">moku 里藏得最深的 5 个技巧——玩了三个月才摸透的门道</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/vtn-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">VTN 会员制电商到底值不值——跟拼多多、天猫国际比完我有话要说</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

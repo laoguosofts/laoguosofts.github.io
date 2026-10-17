@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>追15本漫画却零管理成本——我用 Tachiyomi 搭了条自动更新的追更流水线 · 老郭软件铺</title>
+  
+<meta name="description" content="每周固定追近二十本漫画，以前要开五个浏览器标签手动刷更新、记错进度丢章节。现在一台手机装个Tachiyomi，扩展自动更、备份自动存云盘，半年没碰过浏览器里的漫画书签夹。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/tachiyomi-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="追15本漫画却零管理成本——我用 Tachiyomi 搭了条自动更新的追更流水线">
+<meta property="og:description" content="每周固定追近二十本漫画，以前要开五个浏览器标签手动刷更新、记错进度丢章节。现在一台手机装个Tachiyomi，扩展自动更、备份自动存云盘，半年没碰过浏览器里的漫画书签夹。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/tachiyomi-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/tachiyomi-docs/extensions-manager.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/tachiyomi-docs/extensions-manager.png">
+
+<meta name="twitter:title" content="追15本漫画却零管理成本——我用 Tachiyomi 搭了条自动更新的追更流水线">
+<meta name="twitter:description" content="每周固定追近二十本漫画，以前要开五个浏览器标签手动刷更新、记错进度丢章节。现在一台手机装个Tachiyomi，扩展自动更、备份自动存云盘，半年没碰过浏览器里的漫画书签夹。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u56fa\u5b9a\u8ffd\u8fd1\u4e8c\u5341\u672c\u6f2b\u753b\uff0c\u4ee5\u524d\u8981\u5f00\u4e94\u4e2a\u6d4f\u89c8\u5668\u6807\u7b7e\u624b\u52a8\u5237\u66f4\u65b0\u3001\u8bb0\u9519\u8fdb\u5ea6\u4e22\u7ae0\u8282\u3002\u73b0\u5728\u4e00\u53f0\u624b\u673a\u88c5\u4e2aTachiyomi\uff0c\u6269\u5c55\u81ea\u52a8\u66f4\u3001\u5907\u4efd\u81ea\u52a8\u5b58\u4e91\u76d8\uff0c\u534a\u5e74\u6ca1\u78b0\u8fc7\u6d4f\u89c8\u5668\u91cc\u7684\u6f2b\u753b\u4e66\u7b7e\u5939\u3002", "headline": "\u8ffd15\u672c\u6f2b\u753b\u5374\u96f6\u7ba1\u7406\u6210\u672c\u2014\u2014\u6211\u7528 Tachiyomi \u642d\u4e86\u6761\u81ea\u52a8\u66f4\u65b0\u7684\u8ffd\u66f4\u6d41\u6c34\u7ebf", "image": ["https://laoguosofts.github.io/images/tachiyomi-docs/extensions-manager.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/tachiyomi-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/tachiyomi-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u8ffd15\u672c\u6f2b\u753b\u5374\u96f6\u7ba1\u7406\u6210\u672c\u2014\u2014\u6211\u7528 Tachiyomi \u642d\u4e86\u6761\u81ea\u52a8\u66f4\u65b0\u7684\u8ffd\u66f4\u6d41\u6c34\u7ebf", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">追15本漫画却零管理成本——我用 Tachiyomi 搭了条自动更新的追更流水线</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">追15本漫画却零管理成本——我用 Tachiyomi 搭了条自动更新的追更流水线</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周固定追近二十本漫画，以前要开五个浏览器标签手动刷更新、记错进度丢章节。现在一台手机装个Tachiyomi，扩展自动更、备份自动存云盘，半年没碰过浏览器里的漫画书签夹。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要追十五到二十本连载漫画，分布在三四个不同的源站。以前这条流程是这样的：</p>
+<p>浏览器里存一个叫「漫画追更」的书签夹，分门别类塞着 MangaDex、某国内源、某汉化组的网址。每天早上坐地铁点开，先扫 MangaDex 的更新列表，再切国内源看一眼，记一下哪几页更了，关掉标签。周末再抽半小时翻之前记的那个便签本，把没看完的章节补上。</p>
+<p>这条链路卡死我三个地方。第一，源站改版或者挂了，书签夹里的链接直接失效，又要去搜索引擎翻新地址。第二，换手机或者清缓存，阅读进度和分类习惯全部归零。第三，最烦的——忘记哪本更了，隔三天想起来翻，章节已经攒了十几页，得从头找上次看到哪。</p>
+<p>后来我把 <a href="https://tachiyomi.usea.quest" target="_blank" rel="noopener">Tachiyomi官网</a> 提供的这套生态嵌了进来。它不是另一个漫画阅读器，而是把整条追更流程里所有需要手动操心的环节接管了。下面说具体怎么接，每一环都讲清楚上下游怎么配合。</p>
+<h2>核心：Tachiyomi 是整条流水线的枢纽</h2>
+<p>我选的是 Mihon 分支——原版停更后最正统的继任者，Material 3 界面干净，Android 13 的分区存储跑起来没任何兼容问题。老手机上装的是 TachiyomiSY，安装包从<a href="https://tachiyomi.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a>就能拿到，兼容性好到 Android 6.0 还能跑，专门拿来当备用阅读器。</p>
+<p>它干的事很单纯：安装扩展仓库、挑几个好用的漫画源、把要追的书加进书架。就这三步。但扩展生态是整条流水线能不能转起来的关键——没有扩展，Tachiyomi 就是个空壳阅读器。</p>
+<p><img src="../images/tachiyomi-docs/extensions-manager.png" alt="Tachiyomi 的扩展管理界面" loading="lazy"></p>
+<p>扩展仓库默认自带几个主流的，我再加一个第三方仓库（Keiyoushi），基本覆盖了能找到的所有漫画源。打开自动更新之后，源站改版导致的解析失败问题，扩展作者更新后后台自动推送新版本，我基本感知不到断链。</p>
+<h3>扩展这一环怎么处理不断链</h3>
+<p>扩展更新了还是打不开章节，是这条流水线里最容易卡住的环节。我总结下来四步排查：</p>
+<ol><li>先看是不是源站真挂了——同一个源其他漫画也加载不出来，那就是源站被屏蔽或者服务器宕机，换个源继续追。</li><li>如果只有这本打不开，大概率是源站加了反爬（Cloudflare 盾或验证码），扩展作者可能还在处理，等一两天再试。</li><li>有些源需要登录才能看，在扩展里点登录按钮输一下账号——Tachiyomi 里登录态是跟着扩展走的，不用每个源重复登。</li><li>实在不行就版本锁定——具体回滚步骤<a href="https://tachiyomi-docs.pages.dev/" target="_blank" rel="noopener">Tachiyomi文档</a>里有完整说明：去 Keiyoushi 仓库的 Releases 页面找旧版本 APK 手动装，关掉自动更新，等作者修复再开。</li></ol>
+<p>我每个月抽十分钟做一次扩展清理——把加载不出来的、半年没用过的扩展卸载掉。书架里塞满标记「源不可用」的条目，是 Tachiyomi 用户最常见的混乱来源，清理一次清爽一次。</p>
+<h2>上下游衔接：备份是第二道保险</h2>
+<p>Tachiyomi 自带的备份导出是 <code>.proto.gz</code> 格式，所有分支互通。我把它嵌进了一条更完整的备份链：</p>
+<p><strong>Tachiyomi 内部备份 → 定期导出到手机本地 → 自动同步到夸克网盘</strong>。</p>
+<p>具体操作：在 Mihon 里打开「更多 → 备份和还原」，每两周手动点一次「创建备份」。Android 10+ 用分区存储，备份文件落在系统指定的目录里。我用夸克网盘的自动备份功能，把这个目录标记为「自动上传」，换手机或者重装应用的时候，从网盘拉下来还原就行——书架、分类、阅读进度全部回来，零成本迁移。</p>
+<p>这条链帮我躲过过两次灾难。一次是去年换手机，旧手机的 Android 版本太低装不了 Mihon（需要 8.0+），我把备份直接导入 TachiyomiSY，所有数据原样回来，只是界面变圆了。另一次是手机清缓存不小心清到了应用数据，从网盘拉备份不到三分钟恢复如初。</p>
+<h3>旧流程里完全没有的一件事：自动提醒</h3>
+<p>Tachiyomi 的书架会显示每本漫画最后更新的时间。我在设置里打开了「每 X 小时检查更新」（设成 12 小时），有新章节就推送一条通知。现在我再也不用主动刷浏览器书签夹了——通知弹出来点开看就行，没弹就说明没更。</p>
+<p>这一步替代了我以前早上地铁里手动刷五个标签页的习惯，每天省五分钟。</p>
+<h2>整套流程长什么样</h2>
+<p>把上面说的串起来，我现在的追更工作流是这样的：</p>
+<ul><li><strong>枢纽</strong>：Mihon 做主阅读器，TachiyomiSY 做老手机备胎</li><li><strong>扩展</strong>：Keiyoushi 仓库 + 自动更新 + 每月清理</li><li><strong>备份</strong>：每两周手动导出 → 夸克网盘自动同步</li><li><strong>提醒</strong>：应用内每 12 小时检查更新 + 系统通知</li><li><strong>边界</strong>：iOS 用户无解（Apple 签名机制和 Tachiyomi 架构根本冲突），源站集体挂的时候只能等</li></ul>
+<p>换个角度量化一下：以前这条流程每天花五到十分钟，现在基本零投入——除了每月十分钟的扩展清理和每两分钟的备份导出，剩下的全是被动接收通知。当然这套流程不是所有人都划算——如果你只追两三本漫画，直接用浏览器标签页加个 RSS 阅读器可能更轻。但追十本以上的，Tachiyomi 做核心枢纽这条链，值得搭。</p>
+<p>最后说一句迁移成本。原版停更之后我从 v0.15.3 迁到 Mihon，实际只做了三步：导出旧备份 → 装 Mihon → 还原备份。所有数据原样回来了，书架顺序、分类、进度、甚至扩展的登录态，一个没丢。<code>.proto.gz</code> 这个备份格式是原版留下的最有价值的遗产，社区所有分支都完整兼容。</p>
+<p>关于扩展仓库的选择、各分支的差异对比，完整的版本选型指南和安装教程在文档里写得更细，有需要可以去翻。所有活跃分支的 APK 都在各自的 GitHub Releases 页面发布。</p>
+<p>社区现在汇总了原版停更后的各分支生态，选哪个版本、扩展仓库地址、常见问题都能在那里找到答案。</p>
+<p>上面提到的所有工具版本对比、扩展更新策略、备份方法这套资料，我同步在 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Tachiyomi" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Tachiyomi" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Tachiyomi" target="_blank" rel="noopener">GitCode</a> 三个仓库里了——GitHub 主仓库维护着最完整的文档，国内网络访问不方便的时候 Gitee 和 GitCode 各有一份镜像可以直接拉。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/3dmark-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">3DMark 为什么能当显卡跑分的&#34;宪法&#34;——从固定场景到合成负载的设计哲学</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/testflight-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">TestFlight 我踩过的五个坑——从开发者注册到测试者邀请，这些弯路别走了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

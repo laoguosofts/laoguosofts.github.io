@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>油猴用了两年，我想说说那些当初没注意到的事 · 老郭软件铺</title>
+  
+<meta name="description" content="从第一次装上到现在两年多，Tampermonkey 从一个&#34;听说很火&#34;的浏览器扩展变成了每天不离的工具。时间给了我一些新的感受，有些是惊喜，有些是当初没想到的小麻烦。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/tampermonkey-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="油猴用了两年，我想说说那些当初没注意到的事">
+<meta property="og:description" content="从第一次装上到现在两年多，Tampermonkey 从一个&#34;听说很火&#34;的浏览器扩展变成了每天不离的工具。时间给了我一些新的感受，有些是惊喜，有些是当初没想到的小麻烦。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/tampermonkey-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/tampermonkey-docs/script_overview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/tampermonkey-docs/script_overview.png">
+
+<meta name="twitter:title" content="油猴用了两年，我想说说那些当初没注意到的事">
+<meta name="twitter:description" content="从第一次装上到现在两年多，Tampermonkey 从一个&#34;听说很火&#34;的浏览器扩展变成了每天不离的工具。时间给了我一些新的感受，有些是惊喜，有些是当初没想到的小麻烦。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u7b2c\u4e00\u6b21\u88c5\u4e0a\u5230\u73b0\u5728\u4e24\u5e74\u591a\uff0cTampermonkey \u4ece\u4e00\u4e2a\"\u542c\u8bf4\u5f88\u706b\"\u7684\u6d4f\u89c8\u5668\u6269\u5c55\u53d8\u6210\u4e86\u6bcf\u5929\u4e0d\u79bb\u7684\u5de5\u5177\u3002\u65f6\u95f4\u7ed9\u4e86\u6211\u4e00\u4e9b\u65b0\u7684\u611f\u53d7\uff0c\u6709\u4e9b\u662f\u60ca\u559c\uff0c\u6709\u4e9b\u662f\u5f53\u521d\u6ca1\u60f3\u5230\u7684\u5c0f\u9ebb\u70e6\u3002", "headline": "\u6cb9\u7334\u7528\u4e86\u4e24\u5e74\uff0c\u6211\u60f3\u8bf4\u8bf4\u90a3\u4e9b\u5f53\u521d\u6ca1\u6ce8\u610f\u5230\u7684\u4e8b", "image": ["https://laoguosofts.github.io/images/tampermonkey-docs/script_overview.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/tampermonkey-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/tampermonkey-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u6cb9\u7334\u7528\u4e86\u4e24\u5e74\uff0c\u6211\u60f3\u8bf4\u8bf4\u90a3\u4e9b\u5f53\u521d\u6ca1\u6ce8\u610f\u5230\u7684\u4e8b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">油猴用了两年，我想说说那些当初没注意到的事</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">油猴用了两年，我想说说那些当初没注意到的事</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从第一次装上到现在两年多，Tampermonkey 从一个&#34;听说很火&#34;的浏览器扩展变成了每天不离的工具。时间给了我一些新的感受，有些是惊喜，有些是当初没想到的小麻烦。</p>
+  </header>
+  <div class="prose serif">
+<p>装 Tampermonkey 的缘由很简单——那阵子在某个论坛上看到有人晒"网页一键去除广告"的截图，我问了一句"这怎么做到的"，对方只回了两个字：油猴。我去<a href="https://tampermonkey.qhah.skin" target="_blank" rel="noopener">tampermonkey官网</a>看了下介绍，花了三分钟装上，又花了十分钟在脚本库里找了二十个看起来很厉害的脚本，一股脑全装了。</p>
+<p>那是两年前的事了。现在回头看，当初的自己完全不知道自己在干什么，但那份冲动恰好是对的——这个扩展真的改变了我每天打开浏览器时的体验。</p>
+<h2>越用越顺手的几个细节</h2>
+<p>刚装的时候最困惑的是角标数字。地址栏那个小图标右下角偶尔冒个"3"是什么意思？后来才明白，那表示当前页面有三个脚本正在跑。这个设计简单到几乎不存在，但真正用起来时，它成了我判断"这个页面为什么变成这样"的第一线索。角标消失了、弹出菜单里脚本灰了、<code>@match</code> 规则没覆盖——排查问题的顺序就是从角标开始一层层往下剥。</p>
+<p>弹出菜单的启停功能也是慢慢才习惯的。之前我以为要改脚本的 <code>@match</code> 才能控制它在哪运行，其实点一下图标就能临时禁用某个脚本。写一个只在自己测试页跑的小脚本，写完忘了改回来，跑到真实站点上乱加按钮怎么办？现在第一反应不是去翻脚本头部，而是弹菜单、点开关、刷新——三秒钟搞定。</p>
+<p>还有同步。Tampermonkey 内置了跨浏览器同步，我把家里的 Chrome 和公司的 Edge 连了同一个同步账户，脚本自动跟着走。去年换笔记本的时候，装好扩展、登同步、喝了杯水的功夫，二十多个脚本全回来了。这个功能的存在感很低，但没有它的话，我大概会在某个周一早上对着空白的管理面板发十分钟的呆。</p>
+<p><img src="../images/tampermonkey-docs/script_overview.png" alt="管理面板里一眼看到所有脚本的运行状态" loading="lazy"></p>
+<h2>那些当初没发现的小麻烦</h2>
+<p>Site Access 权限警告是我踩过的最大的坑。有阵子我发现脚本更新不了，跨域请求也莫名其妙失败，弹出菜单里多了一行红色的 Limited runtime host permissions 警告。我以为是脚本作者改了什么兼容性设置，跑去论坛问，有人回我"你去扩展详情页看看 Site Access 设的什么"。果然，浏览器某次自动更新把权限从"在所有网站上"收窄到了"在特定站点上"，而我的常用站点没全列进去。改回来就好了，但排查那两个小时的心情，真的不如直接去<a href="https://tampermonkey.qhah.skin/download.html" target="_blank" rel="noopener">官方下载</a>重装一遍。</p>
+<p>脚本自动更新带坏兼容性也遇到过。一个用来自动展开分页内容的脚本，某天更新后不跑了，角标数字没了、管理面板里条目还在、启用状态也没问题——最后是脚本更新日志里作者写了"适配新版浏览器 API，移除了旧版兼容代码"。我回退了一个版本，恢复了。从那以后我养成了一个习惯：重要脚本关掉自动更新，每周手动检查一次，更新前先看 changelog。</p>
+<p>还有 <code>@grant</code> 的问题。刚开始自己写脚本的时候，模板里默认是 <code>none</code>，以为所有 GM 函数都能用。直到某次加了个 <code>GM_setValue</code> 想存点偏好设置，脚本静默失败了——控制台里什么都没报，就是不存。后来去<a href="https://tampermonkey-docs.pages.dev/" target="_blank" rel="noopener">tampermonkey文档</a>翻了一下才知道，用哪个 GM 函数就要在 <code>@grant</code> 里声明哪个，<code>none</code> 意味着什么权限都不给。这个设计在安全上是对的，但对新手来说真的不够友好，编辑器不会提醒你缺权限，跑起来才发现。</p>
+<h2>哪些功能成了每天离不开的，哪些碰都没碰</h2>
+<p>每天离不开的是 <code>GM_setValue</code> / <code>GM_getValue</code>。我自己写了个小脚本，在某个论坛上自动记住"上次看到第几页"和"哪些帖子已经读过"。这些数据存在脚本自己的存储区里，换设备还能跟着同步。听起来是个很小的功能，但每天打开那个论坛，直接跳到上次离开的位置——这个体验没有它我受不了。</p>
+<p>弹菜单里的脚本计数器也很实用。有时候一个页面加载完，我会瞟一眼角标，看看有没有哪个不该跑的脚本跑了。有一次装了个新的翻译脚本，它的 <code>@match</code> 规则写得太宽，跑到了内网系统上，把一堆专有名词都翻译了。角标显示"5"，我点进去一看，那个翻译脚本赫然在列——禁用、刷新，三十秒解决。</p>
+<p>碰都没碰的是剪贴板操作相关的 GM 函数，还有那些需要复杂权限的跨站点联动脚本。装过两三个号称"在 A 网站收藏、同步到 B 网站"的脚本，每次都要弹出授权确认框，让我放行这个域名、那个域名。我嫌烦，全删了。后来想想，这些功能的价值确实不大，而且安全边界太模糊。</p>
+<p><img src="../images/tampermonkey-docs/editor.png" alt="内置编辑器带着语法检查，写错了直接标出来" loading="lazy"></p>
+<h2>长期用下来，有些判断被修正了</h2>
+<p>刚装的时候我以为油猴是万能的——网页上任何不舒服的地方都能改。事实是它的边界很清晰：浏览器内部的界面改不了，网站服务端的验证逻辑绕不过，脚本跑不跑完全取决于作者写得怎么样。有一阵子我想找个脚本能让某个下载站自动破解验证码，找了一圈，没有，也不可能有。油猴能改的是页面，改不了服务器那边的事。</p>
+<p>还有安全判断。刚装的时候我基本上见脚本就装，觉得社区推荐的应该没问题。直到有一天看到一个热门脚本的评论区有人说它偷偷上传浏览历史——虽然作者后来出来澄清是误报，但从那以后我装脚本前会多做一件事：打开脚本源代码扫一眼头部的 <code>@grant</code> 声明和几处关键逻辑。看不懂的地方不管，先看它要了哪些权限、会不会发跨域请求。这个习惯花不了一分钟，但让我省了好几次麻烦。</p>
+<h2>会不会卸载</h2>
+<p>暂时不会。如果哪天出现这几种情况可能会考虑：浏览器内核大改导致 Tampermonkey 适配出问题、主要脚本长期不更新且兼容性恶化、或者我自己的脚本列表精简到只剩三四个而且都没什么必要。但目前看来都没有迹象。</p>
+<p>油猴本质上是个"网页补丁管理器"——它不改浏览器、不改系统、不改网站代码，只在你打开页面的时候注入一点自己的逻辑。两年用下来，它给我带来的实际便利，比当初那十分钟装二十个脚本的冲动，要扎实得多。这类工具的用法散落在各处，我整理的一份中文资料分别同步在了<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/tampermonkey" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/tampermonkey" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/tampermonkey" target="_blank" rel="noopener">GitCode</a>，免得其中一个平台访问不畅时无处可查。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/astral-zh-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">从 v2.6 到今天——Astral 联机工具三年迭代里藏着的产品哲学</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/pippit-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">你以为 Pippit 只是个万物成片？我翻出了 4 个官方没宣传的隐藏玩法</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>WebTools 深度盘点：把手机变成随身网络运维台 · 老郭软件铺</title>
+  
+<meta name="description" content="一款 Android 端的网络工具集，把 SFTP、SSH、HTTP 测试、网速诊断全部塞进一个应用——本文系统性梳理它的能力面、实战价值和适用场景。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/webtools-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebTools 深度盘点：把手机变成随身网络运维台">
+<meta property="og:description" content="一款 Android 端的网络工具集，把 SFTP、SSH、HTTP 测试、网速诊断全部塞进一个应用——本文系统性梳理它的能力面、实战价值和适用场景。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/webtools-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/webtools-docs/connection-config.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/webtools-docs/connection-config.jpg">
+
+<meta name="twitter:title" content="WebTools 深度盘点：把手机变成随身网络运维台">
+<meta name="twitter:description" content="一款 Android 端的网络工具集，把 SFTP、SSH、HTTP 测试、网速诊断全部塞进一个应用——本文系统性梳理它的能力面、实战价值和适用场景。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4e00\u6b3e Android \u7aef\u7684\u7f51\u7edc\u5de5\u5177\u96c6\uff0c\u628a SFTP\u3001SSH\u3001HTTP \u6d4b\u8bd5\u3001\u7f51\u901f\u8bca\u65ad\u5168\u90e8\u585e\u8fdb\u4e00\u4e2a\u5e94\u7528\u2014\u2014\u672c\u6587\u7cfb\u7edf\u6027\u68b3\u7406\u5b83\u7684\u80fd\u529b\u9762\u3001\u5b9e\u6218\u4ef7\u503c\u548c\u9002\u7528\u573a\u666f\u3002", "headline": "WebTools \u6df1\u5ea6\u76d8\u70b9\uff1a\u628a\u624b\u673a\u53d8\u6210\u968f\u8eab\u7f51\u7edc\u8fd0\u7ef4\u53f0", "image": ["https://laoguosofts.github.io/images/webtools-docs/connection-config.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/webtools-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/webtools-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "WebTools \u6df1\u5ea6\u76d8\u70b9\uff1a\u628a\u624b\u673a\u53d8\u6210\u968f\u8eab\u7f51\u7edc\u8fd0\u7ef4\u53f0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">WebTools 深度盘点：把手机变成随身网络运维台</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">WebTools 深度盘点：把手机变成随身网络运维台</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">一款 Android 端的网络工具集，把 SFTP、SSH、HTTP 测试、网速诊断全部塞进一个应用——本文系统性梳理它的能力面、实战价值和适用场景。</p>
+  </header>
+  <div class="prose serif">
+<p>你有没有过这样的经历：在外面临时需要改一下服务器上的配置文件、调一个 API 接口看看通不通、或者连不上 VPS 时想先测测当前网络延迟？手机浏览器做不了这些事，云厂商的控制台网页版又卡得要命。WebTools 就是冲着这个场景来的——一款可以在<a href="https://webtools.wxhp.skin" target="_blank" rel="noopener">WebTools官网</a>上了解到完整功能列表的、把远程文件传输、网络诊断、接口调试和终端操作全部打包到一起的 Android 应用，由 BlindZone 团队维护，目前迭代到 3.4 版本，安装包从<a href="https://webtools.wxhp.skin/download.html" target="_blank" rel="noopener">官方下载</a>获取。</p>
+<p>它不是那种单点功能极深的工具，而是走「瑞士军刀」路线：一个应用覆盖运维和开发在外可能遇到的大部分突发需求。这种定位决定了它的价值不在于某一项能力比专业桌面工具强，而在于<strong>当你只有手机时，它能让你不至于慌神</strong>。下面按能力域系统盘一遍。</p>
+<h2>远程文件传输：SFTP/FTP 管理器</h2>
+<p>WebTools 的文件管理器是我用得最多的模块。支持 SFTP 和 FTP 两种协议，而且连接配置做得比较扎实——主机地址、端口、用户名、密码这一套常规参数不说，SSH 密钥认证也完整支持。</p>
+<p><img src="../images/webtools-docs/connection-config.jpg" alt="SFTP 连接配置" loading="lazy"></p>
+<p>SFTP 连接配置有个细节值得说：端口号默认填 22，但如果你的 VPS 改了 SSH 端口（出于安全考虑很多人都会改），直接填实际端口就行，不用在别的地方再折腾。密钥认证这块，手机上导入 <code>id_rsa</code> 或 <code>id_ed25519</code> 私钥文件后，有 passphrase 的还能填进去，整个流程没有坑。相比之下，FTP 连接需要额外指定主动/被动模式和编码方式，SFTP 就清爽多了——一个加密通道搞定所有操作，配置简单不少。</p>
+<p>保存多条连接后，下次打开文件管理器直接从列表里挑就行，不用每次重填。连接凭证的存储也是加密的，这一点对存了多台服务器密码的人来说比较重要。</p>
+<h2>接口调试：HTTP 测试 + 自定义请求头</h2>
+<p>在外调 API 是第二个高频场景。WebTools 的 HTTP 测试模块支持完整的 REST 方法，URL、Header、Body 三个标签页把请求拆得很清楚。自定义请求头这块做得尤其细——User-Agent 模拟移动端、Authorization 带 JWT Token、Cookie 模拟浏览器会话，这些开发调试时常见的需求都能直接填。</p>
+<p>切换请求体格式时，应用还会自动帮你补 <code>Content-Type</code>：选 JSON Body 就加 <code>application/json</code>，表单 Body 加 <code>application/x-www-form-urlencoded</code>，文件上传则用 <code>multipart/form-data</code>。这些小事如果手动配容易忘，自动处理省了不少心。</p>
+<p>历史请求管理也有——每次发过的请求（完整 URL、方法、Header、Body）都会存，要重发直接从历史里挑，不用重复填写。请求超时时间可以在设置里调大，默认超时对响应慢的海外服务器或大数据量接口不太友好，这点记得改。需要查具体参数范围和各字段含义的话翻一下<a href="https://webtools-docs.pages.dev/" target="_blank" rel="noopener">WebTools文档</a>，进阶用法里列得很全。</p>
+<h2>网络诊断：测速 + 可达性 + 端口检测</h2>
+<p>连不上服务器怎么办？先别急着发工单，用 WebTools 自带的诊断工具链排查一遍。</p>
+<p>网速测试给出下载速率、上传速率和延迟三个核心指标——这对远程运维前的「战前侦察」特别有用。延迟超过 200ms 的话，SSH 终端的输入肯定有明显卡顿，不适合执行长命令。测速过程约 30 秒，实时速率曲线能看到网络波动。如果需要持续监控某条链路的稳定性，多次测速后对比延迟和速率的波动幅度就能判断链路稳不稳。</p>
+<p>测速只是第一步。可达性检查看目标服务器是否在线，Telnet 端口检测确认特定端口有没有开放——比如 SSH 连不上但 HTTP 还能通，测速也正常，那大概率是 SSH 端口被防火墙封了，Telnet 一测就能确认。这一套组合拳下来，大部分网络层面的问题能在手机上先定位个八九不离十。</p>
+<p><img src="../images/webtools-docs/speed-test.webp" alt="网速测试" loading="lazy"></p>
+<h2>SSH 终端与代码编辑器</h2>
+<p>文件管理器能传文件，但改配置文件还是得进 Shell。WebTools 内置了 SSH 终端，配合文件管理器形成「传-改-传」的闭环——手机上就能完成平时在桌面端用 VS Code + 终端做的事。如果只是改一两行配置，内置的代码编辑器也够用，语法高亮虽然不如专业编辑器，但在手机屏幕上能看清结构就够了。</p>
+<h2>服务器监控（Premium 解锁）</h2>
+<p>免费版的监控能力有限，Premium 订阅解锁了定时监控任务数量（从有限到无限）、批量连接操作、高级告警方式，还能去广告。对需要同时盯着多台服务器的运维来说，这部分才是 Premium 的核心价值。单次临时用用免费版就够，但如果每天都要远程维护几台机器，订阅的投入是划算的。</p>
+<h2>短板也要说</h2>
+<p>盘点了这么多，也得说说它做不到或者做得不够好的地方。</p>
+<p>首先，<strong>专业场景下深度不够</strong>。比如 HTTP 测试虽然能自定义 Header，但没有变量传递、环境切换这些 Postman 级别的能力；SSH 终端的快捷键和滚动体验也远不如桌面端的 iTerm 或 Windows Terminal——毕竟手机屏幕和输入法都是硬伤。</p>
+<p>其次，<strong>文件管理器不支持批量操作</strong>（免费版）。在服务器上同时改十几个文件还是得一个一个来，Premium 的批量连接操作能缓解一部分，但还远谈不上高效。</p>
+<p>再者，<strong>没有同步机制</strong>。连接配置、历史请求这些数据都存在本地，换手机就得手动导出再导入，而且没有云端备份的选项——如果手机丢了或者数据清了，之前存的东西全没了。</p>
+<h2>什么样的人该用它</h2>
+<p>综合上面的盘点，WebTools 最适合三类人：</p>
+<p><strong>第一类：需要远程维护服务器的开发者和运维</strong>。不管是在外临时改个配置、调试一个 API，还是连不上 VPS 时先测测网络，WebTools 能让你不至于被「只有手机」这个现实卡死。免费版覆盖日常场景，Premium 的批量监控和告警能力适合重度用户。</p>
+<p><strong>第二类：经常出差或需要远程办公的自由职业者</strong>。公共 Wi-Fi 质量不稳定、移动数据网络波动大，出发前或遇到问题时先测一下网速和延迟，心里有底再决定要不要远程连服务器干活。</p>
+<p><strong>第三类：学习网络和服务器技术的学生或新手</strong>。在手机上就能练 SFTP 上传文件、调 HTTP 接口、跑 SSH 命令，比在电脑上搭虚拟机方便得多——成本低、门槛低、试错快。</p>
+<p>总结下来，WebTools 的定位很清晰：它不是要替代桌面端的专业工具链，而是把那些「突然需要、又不值得专门开电脑」的场景吃透。如果你偶尔会在手机上碰到运维或调试的需求，装一个准没错；如果你每天都在手机上写代码改服务器，那它可能只是个应急工具。</p>
+<p>这套工具集的资料在三个仓库都能拿到，有需要查阅历史版本更新说明或文档维护记录的，可以去<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/WebTools" target="_blank" rel="noopener">GitHub</a>看完整提交历史、去<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/WebTools" target="_blank" rel="noopener">Gitee</a>走国内镜像加速、去<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/WebTools" target="_blank" rel="noopener">GitCode</a>备个份防止哪天主仓库挂了。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/epsxe.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">把PS1游戏塞进现代屏幕，ePSXe上手这三天我踩过的坑</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/cpp-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">第一次逛同人展？CPP 是你口袋里的逛展向导</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Cryptomator 用了半年我踩过的那些坑——从备份翻车到 RAM 丢数据 · 老郭软件铺</title>
+  
+<meta name="description" content="Cryptomator 看着简单，选中保险库点一下 Unlock 就完事了。但我用了半年才发现，几个默认设置和操作习惯里藏着真坑，轻则备份报废，重则解锁后文件找不回来。这篇把我踩过的六个坑和怎么躲一次讲清。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/cryptomator-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cryptomator 用了半年我踩过的那些坑——从备份翻车到 RAM 丢数据">
+<meta property="og:description" content="Cryptomator 看着简单，选中保险库点一下 Unlock 就完事了。但我用了半年才发现，几个默认设置和操作习惯里藏着真坑，轻则备份报废，重则解锁后文件找不回来。这篇把我踩过的六个坑和怎么躲一次讲清。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/cryptomator-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/cryptomator-docs/encrypted-files-panel.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/cryptomator-docs/encrypted-files-panel.png">
+
+<meta name="twitter:title" content="Cryptomator 用了半年我踩过的那些坑——从备份翻车到 RAM 丢数据">
+<meta name="twitter:description" content="Cryptomator 看着简单，选中保险库点一下 Unlock 就完事了。但我用了半年才发现，几个默认设置和操作习惯里藏着真坑，轻则备份报废，重则解锁后文件找不回来。这篇把我踩过的六个坑和怎么躲一次讲清。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Cryptomator \u770b\u7740\u7b80\u5355\uff0c\u9009\u4e2d\u4fdd\u9669\u5e93\u70b9\u4e00\u4e0b Unlock \u5c31\u5b8c\u4e8b\u4e86\u3002\u4f46\u6211\u7528\u4e86\u534a\u5e74\u624d\u53d1\u73b0\uff0c\u51e0\u4e2a\u9ed8\u8ba4\u8bbe\u7f6e\u548c\u64cd\u4f5c\u4e60\u60ef\u91cc\u85cf\u7740\u771f\u5751\uff0c\u8f7b\u5219\u5907\u4efd\u62a5\u5e9f\uff0c\u91cd\u5219\u89e3\u9501\u540e\u6587\u4ef6\u627e\u4e0d\u56de\u6765\u3002\u8fd9\u7bc7\u628a\u6211\u8e29\u8fc7\u7684\u516d\u4e2a\u5751\u548c\u600e\u4e48\u8eb2\u4e00\u6b21\u8bb2\u6e05\u3002", "headline": "Cryptomator \u7528\u4e86\u534a\u5e74\u6211\u8e29\u8fc7\u7684\u90a3\u4e9b\u5751\u2014\u2014\u4ece\u5907\u4efd\u7ffb\u8f66\u5230 RAM \u4e22\u6570\u636e", "image": ["https://laoguosofts.github.io/images/cryptomator-docs/encrypted-files-panel.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/cryptomator-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/cryptomator-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "Cryptomator \u7528\u4e86\u534a\u5e74\u6211\u8e29\u8fc7\u7684\u90a3\u4e9b\u5751\u2014\u2014\u4ece\u5907\u4efd\u7ffb\u8f66\u5230 RAM \u4e22\u6570\u636e", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">Cryptomator 用了半年我踩过的那些坑——从备份翻车到 RAM 丢数据</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">Cryptomator 用了半年我踩过的那些坑——从备份翻车到 RAM 丢数据</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 12 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Cryptomator 看着简单，选中保险库点一下 Unlock 就完事了。但我用了半年才发现，几个默认设置和操作习惯里藏着真坑，轻则备份报废，重则解锁后文件找不回来。这篇把我踩过的六个坑和怎么躲一次讲清。</p>
+  </header>
+  <div class="prose serif">
+<h2>开头：它真的简单，但真有坑</h2>
+<p>我第一次装 Cryptomator 的时候觉得这玩意儿"不就是个给云盘套壳的加密工具吗"——它的<a href="https://cryptomator.fedq.ren" target="_blank" rel="noopener">官网</a>上介绍得很简单，安装包直接从<a href="https://cryptomator.fedq.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿就行，选中保险库，点 Unlock，输个密码，就出来一个虚拟盘，该怎么用怎么用。确实，从创建第一个保险库到日常文件读写，没超过五分钟就能上手。</p>
+<p>但简单背后藏着不少细节。我先后踩了六个坑，有的让我花了一下午抢救备份，有的差点让我以为要重装系统。如果你也在用 Cryptomator，或者正打算上，看完这篇能省不少时间。</p>
+<h2>坑一：备份保险库没先 Lock——整份备份直接变成废的</h2>
+<h3>症状</h3>
+<p>我那时候刚学用 Cryptomator，想着"云盘本身就在自动同步密文目录，等于已经在备份了"。有天电脑磁盘快满，我把整个密文目录手动复制到外置硬盘，当时保险库还开着没锁。过了一周云盘出故障，我去外置硬盘找备份解锁，结果报了好几个 <code>.c9r</code> 文件损坏，解锁到一半卡住了——那次损失了至少十几份文档的历史版本。</p>
+<h3>原因</h3>
+<p>Cryptomator 的写入是实时加密的，但加密一个文件不是"一锤子砸下去"——它先生成临时文件，加密完再替换原来的 <code>.c9r</code>。如果复制过程正好截到一半：临时文件还没替换旧文件 → 备份里要么是旧的，要么是半加密状态的。更糟的是 <code>masterkey.cryptomator</code> 这种小文件也在被加密写入，虽然体积小但损坏了保险库直接打不开。</p>
+<h3>解法</h3>
+<p><strong>备份前必须手动 Lock 保险库</strong>。我后来养成了习惯——不管是手动复制到外置硬盘，还是开了云盘同步，备份操作之前先去主界面点一下那个大 Lock 按钮。确认状态徽章从绿色 Unlocked 变成灰色 Locked，再动。如果是云盘自动同步的场景，那就要确保同步发生时保险库大概率是锁的——比如把自动锁定设成空闲 10 分钟就锁。</p>
+<h2>坑二：只备份了部分密文文件——解密之后目录结构全乱了</h2>
+<h3>症状</h3>
+<p>朋友让我帮他恢复一份 Cryptomator 备份，他说"备份的时候时间紧，就挑了几个重要的 <code>.c9r</code> 文件复制了"。解锁后他告诉我目录结构跟原来的不一样——原来在 <code>Images for Project/</code> 文件夹里的图片现在都跑到了根目录下，有的文件直接找不到。</p>
+<h3>原因</h3>
+<p>Cryptomator 对文件名和目录层级做了<strong>双重加密</strong>。解锁状态下你看到的 <code>Images for Project/</code> 文件夹，在密文目录里其实是一堆 <code>dir.c9r</code> 和 <code>dirId.c9r</code> 文件在维持父子映射关系。你只复制了里面的图片 <code>.c9r</code>，没复制指向那个子目录的 <code>dir.c9r</code>，Cryptomator 就不知道这些图片该归到哪个文件夹里。结果要么丢失，要么被堆到根目录。</p>
+<h3>解法</h3>
+<p><strong>备份的最小单元是整个密文目录</strong>——就是你在创建保险库向导第二步选的那个文件夹。不用挑文件，不用管里面哪些是"真正有用的"，整个文件夹原封不动复制过去就好。那个目录里三样东西缺一不可：<code>vault.cryptomator</code>（格式配置）、<code>masterkey.cryptomator</code>（加密的主密钥）、<code>d/</code>（所有加密文件和目录结构）。漏一个都可能出事。</p>
+<p><img src="../images/cryptomator-docs/encrypted-files-panel.png" alt="加密文件面板" loading="lazy"></p>
+<h2>坑三：勾了 Remember password——意味着任何能进电脑的人都能解锁</h2>
+<h3>症状</h3>
+<p>我在自己的笔记本上勾了记住密码，挺方便的，每次解锁保险库自动填密码甚至完全自动打开。后来笔记本借给一个同事临时用几天，他问我"要不要锁保险库"，我才突然意识到——他只要用我的 Windows 账号登录，点一下 Unlock 我的保险库就直接开了，连密码都不用输。这时候我之前觉得很方便的那个勾选框，等于把我的加密形同虚设。</p>
+<h3>原因</h3>
+<p>Remember password 的原理很简单——Cryptomator 把你的密码存到了系统钥匙串里。Windows 上用的是 Windows Hello 或 Data Protection API，macOS 上是 Keychain。钥匙串本身是加密的，但它的解密密钥和"你能登录这台电脑"这件事绑定了。只要攻击者能进你的系统（知道 Windows 密码、或者直接硬盘挂载），钥匙串里存的保险库密码就等于直接拿到了。</p>
+<h3>解法</h3>
+<p>个人设备（你自己一个人用的手机/笔记本/台式机）勾着没问题。但如果是<strong>公司发的工作电脑</strong>、<strong>经常借给别人的设备</strong>、<strong>有被偷风险的笔记本</strong>——<strong>一定别勾</strong>。我那台借给同事的笔记本，后来在还给他的时候专门去 Vault Options → Password 页面点了 Remove saved password，确认清干净了才交出去。</p>
+<h2>坑四：解锁状态下编辑的文件——电脑断电源直接丢</h2>
+<h3>症状</h3>
+<p>有次我在解锁状态下写一个文档大概写了半小时，没存盘（习惯不好，这锅我认）。然后猫踩了电源，电脑强制断电。重启之后开保险库，那个文档的修改全没了——退回到了上次保存的版本。这不是什么版本历史功能生效，就是编辑过程中没写入磁盘的东西全在 RAM 里，断电就没了。</p>
+<h3>原因</h3>
+<p>这是 Cryptomator 的安全设计。解锁后你打开的文件，Cryptomator 是<strong>解密到 RAM 里</strong>交给你的应用的。你编辑的时候，应用（比如 Word、VS Code）也在 RAM 里改。只有当你显式点保存时，应用才把 RAM 里的内容写回 Cryptomator 的虚拟盘，Cryptomator 再实时加密写回密文目录。中间那个链路任何一环断掉——电脑断电、应用崩溃、强制杀进程——RAM 里的未保存修改就没了。</p>
+<h3>解法</h3>
+<p><strong>两个习惯</strong>：第一，解锁状态下编辑文件，多按 Ctrl+S，比平时勤一点。第二，把空闲自动锁定设成一个合理的时间——10 分钟左右。这样即使你忘了 Lock、电脑也没断电，至少不会一直挂着等 RAM 里的东西被偷着看。设的位置在 Vault Options → General 里。</p>
+<p><img src="../images/cryptomator-docs/vault-options-general.png" alt="保险库常规设置" loading="lazy"></p>
+<h2>坑五：Emergency Access 没弄——同事离职不交密码，数据就凉了</h2>
+<h3>症状</h3>
+<p>这个坑我是从一个朋友的公司那里听来的——他们用 Cryptomator Hub 做团队文件共享，有个同事离职了，没交保险库密码（他说忘了，谁知道真的假的）。公司那边没启用 Emergency Access，也没留 Recovery Key，最后那个保险库里的文件只能封存，等于损失了一堆历史合同和审计记录。</p>
+<h3>原因</h3>
+<p>Hub 版本和个人版最大的区别在于信任边界——个人版你只需要相信 AES-256 和你自己的密码，Hub 版还需要相信 Hub 服务端的完整性。但 Hub 2.0 加了 Emergency Access 机制，分 Online Recovery 和 Offline Recovery 两种：前者是 Hub 正常运行时用 Owner 的 Recovery Key 恢复主密钥、给新成员生成访问权；后者更绝——Hub 服务端挂了也不怕，用 Owner 的 Recovery Key 加一个新密码就能把保险库变回个人版来解锁。问题是这套机制<strong>需要你提前留好 Recovery Key</strong>，而且 Hub Admin 需要知道怎么触发 Emergency Access。如果没做这些准备，人走了数据就真没了。</p>
+<h3>解法</h3>
+<p><strong>每个 Hub 保险库的 Owner 都必须保存 Recovery Key</strong>，而且不能只存一份——云盘一份、纸质打印一份存安全柜。Hub Admin 要提前测试过 Emergency Access 流程，知道在什么情况下触发 Online Recovery、什么情况下用 Offline Recovery——具体怎么操作可以去<a href="https://cryptomator-docs.pages.dev/" target="_blank" rel="noopener">cryptomator文档</a>翻。这东西平时看起来没用，真出事的时候是唯一救稻草。</p>
+<h2>坑六：文件名加密的短名阈值调太高——云盘同步直接报错</h2>
+<h3>症状</h3>
+<p>我在创建第二个保险库的时候手贱去点了专家设置，把加密文件名长度阈值从默认 220 改成了 240。当时想的是"尽量让短名机制少触发，保持原始文件名映射"。结果保险库放在 OneDrive 上，没过一周 OneDrive 同步报错了——好几个文件提示"路径太长无法同步"。</p>
+<h3>原因</h3>
+<p>Cryptomator 的短名机制（Name Shortening）默认阈值是 220 个字符，这个数字是经过实测的——Windows NTFS 路径总长度 260、macOS APFS 文件名 255、Dropbox 255、OneDrive 255。阈值设在 220 能覆盖几乎所有主流系统和云盘，留了 35 字符的缓冲。我调到 240 之后，某些加密后的文件名直接触碰到了 OneDrive 的 255 上限，同步直接失败。更麻烦的是，短名阈值是写在 <code>vault.cryptomator</code> 里的，改了之后整个保险库的加密命名规则都变了，之前已经加密过的文件也要重新处理。</p>
+<h3>解法</h3>
+<p><strong>除非你 100% 确定你的目标云盘/系统能扛多长的文件名，否则永远保持默认 220 不要动</strong>。我那次改回去花了一个小时——导出密文目录、重新建保险库、用正确的短名阈值重新映射，幸好当时数据量不大。这东西叫"专家设置"不是白叫的，普通人别碰。</p>
+<h2>防坑清单</h2>
+<p>用了半年 Cryptomator 之后，我给自己列了一份每次操作前快速扫一眼的防坑清单，也给你：</p>
+<ul><li><strong>备份前一定 Lock 保险库</strong>——无论手动复制还是云盘同步，确认状态徽章是灰色 Locked 再动手</li><li><strong>备份整个密文目录，不挑不拣</strong>——单独备份 <code>.c9r</code> 文件或 <code>masterkey.cryptomator</code> 都可能翻车</li><li><strong>勾 Remember password 之前想清楚设备是不是只给自己用</strong>——公司电脑/借出去的设备一定别勾</li><li><strong>解锁状态下编辑文件多按 Ctrl+S</strong>——RAM 解密意味着断电/崩溃就丢未保存的修改</li><li><strong>用 Hub 的话，每个保险库 Owner 必须保存 Recovery Key</strong>，而且最好三份不同介质</li><li><strong>专家设置里的短名阈值别碰</strong>——默认 220 是给所有主流系统留了缓冲的</li></ul>
+<p>Cryptomator 的安全模型其实很扎实——AES-256-GCM 加密文件内容、文件名也做了确定性加密、RAM 解密机制防止明文落盘。但正是因为这些机制，日常操作里的几个小习惯踩了它的边界就会出事。知道这些坑之后，这软件其实相当省心，我现在已经离不开它了。</p>
+<hr>
+<p>Cryptomator 的开发和资料维护在三个仓库都能拿到，方便不同网络环境的同学查阅：主仓库在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/cryptomator" target="_blank" rel="noopener">GitHub</a>，国内访问慢的话可以看同步到<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/cryptomator" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/cryptomator" target="_blank" rel="noopener">GitCode</a>的副本，三个仓库里都有完整的保险库格式说明、加密原理文档和 Hub 部署脚本。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/sora2-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Sora 2 存档值不值得花半小时折腾？一笔给好奇者的时间账</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/xeva.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">外婆的声音在屏幕那头 我把老家搬进了手机</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

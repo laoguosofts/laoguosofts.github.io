@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用了 exping 三年才发现，它藏着好几个官方不说的功能 · 老郭软件铺</title>
+  
+<meta name="description" content="exping 停服了，但我翻了几个月挖出四个大多数人不知道的隐藏玩法——从误删倒计时到离线缓存，每个都挺有东西。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/exping.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用了 exping 三年才发现，它藏着好几个官方不说的功能">
+<meta property="og:description" content="exping 停服了，但我翻了几个月挖出四个大多数人不知道的隐藏玩法——从误删倒计时到离线缓存，每个都挺有东西。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/exping.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/exping/map-templates.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/exping/map-templates.webp">
+
+<meta name="twitter:title" content="用了 exping 三年才发现，它藏着好几个官方不说的功能">
+<meta name="twitter:description" content="exping 停服了，但我翻了几个月挖出四个大多数人不知道的隐藏玩法——从误删倒计时到离线缓存，每个都挺有东西。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "exping \u505c\u670d\u4e86\uff0c\u4f46\u6211\u7ffb\u4e86\u51e0\u4e2a\u6708\u6316\u51fa\u56db\u4e2a\u5927\u591a\u6570\u4eba\u4e0d\u77e5\u9053\u7684\u9690\u85cf\u73a9\u6cd5\u2014\u2014\u4ece\u8bef\u5220\u5012\u8ba1\u65f6\u5230\u79bb\u7ebf\u7f13\u5b58\uff0c\u6bcf\u4e2a\u90fd\u633a\u6709\u4e1c\u897f\u3002", "headline": "\u7528\u4e86 exping \u4e09\u5e74\u624d\u53d1\u73b0\uff0c\u5b83\u85cf\u7740\u597d\u51e0\u4e2a\u5b98\u65b9\u4e0d\u8bf4\u7684\u529f\u80fd", "image": ["https://laoguosofts.github.io/images/exping/map-templates.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/exping.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/exping.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/android/", "name": "\u5b89\u5353\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528\u4e86 exping \u4e09\u5e74\u624d\u53d1\u73b0\uff0c\u5b83\u85cf\u7740\u597d\u51e0\u4e2a\u5b98\u65b9\u4e0d\u8bf4\u7684\u529f\u80fd", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/android/index.html">安卓版</a><span>›</span>
+    <span class="crumb-cur">用了 exping 三年才发现，它藏着好几个官方不说的功能</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/android/index.html">安卓版</a></p>
+    <h1 class="post-title serif">用了 exping 三年才发现，它藏着好几个官方不说的功能</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">exping 停服了，但我翻了几个月挖出四个大多数人不知道的隐藏玩法——从误删倒计时到离线缓存，每个都挺有东西。</p>
+  </header>
+  <div class="prose serif">
+<h2>你以为它只是个地图收藏夹？</h2>
+<p>三年前第一次从<a href="https://exping.wxhp.skin" target="_blank" rel="noopener">Exping官网</a>装 exping，就是冲它那套把喜欢的店摆上地图的界面——标记地点、做旅行攻略、收藏朋友分享的地图，一个漂亮的个人地图夹，对吧？</p>
+<p><img src="../images/exping/map-templates.webp" alt="exping 精美的地图模板界面" loading="lazy"></p>
+<p>但我这个人有个怪癖：拿到新软件就喜欢翻遍每一层菜单、点开每个不起眼的小图标、甚至在设置里瞎改开关看会发生什么。翻了好几个月，真翻出东西来了——exping 藏着好几个官方商店页基本不宣传的功能，每个都挺有场景，甚至有几个在它停服之后才显出珍贵。</p>
+<p>今天把我挖到的四个最有价值的隐藏玩法摊开说，不管你当年用没用过 exping，这些细节对你挑下一个工具也有参考。</p>
+<h2>藏得真深的 72 小时反悔窗口</h2>
+<p>第一个挖到的就是这个——<strong>exping 删地图不是立即生效的</strong>，而是先走一个 72 小时的倒计时。</p>
+<p>发现它是因为我有天手滑删了一张做了两周的成都探店合集，正准备拍大腿，回头一看：地图没了，但回收站里多了一条记录，旁边还挂着个"还剩 71 小时可恢复"的倒计时。</p>
+<p>这功能藏得有多深？<strong>你不删一次根本不知道它存在</strong>。设置里没有开关、菜单里没有入口、官方介绍里只含糊提了一句"删除采用倒计时机制"，谁能想到是 72 小时这么具体的数字？</p>
+<p>具体怎么玩的：删掉一张地图之后，它不是直接消失，而是进了一个半透明的"待删除"状态，倒计时结束前随时能在那个隐藏的回收站入口里点"恢复"，地图完整回来——标记、备注、分类，一个字段都不丢。72 小时一过，才是真删。</p>
+<p>什么人用得上？<strong>做地图花了时间的人都用得上</strong>——不管是旅行攻略还是探店合集，手滑点了删除总不至于当场崩溃。我当年甚至故意删过一张测试地图验证，恢复后跟原来一模一样。</p>
+<p>什么人可以无视？从来没在 exping 里存过超过两张地图的，确实没必要关心这个。</p>
+<p>但得说句实话：停服之后这个功能就废了。回收站是服务器端的状态，服务一关，倒计时窗口直接关闭——当年没导出的，今天想恢复也没地方找去。这也是我后来逢人就说的教训：<strong>平台给的保护机制，本质上都建立在平台还活着的前提上</strong>。</p>
+<h2>设成"公开"之后才出现的数据洞察</h2>
+<p>第二个挖到的藏得更深——<strong>exping 的数据洞察面板</strong>，只有把地图设为公开状态之后才会出现，私有地图连入口都看不到。</p>
+<p>我第一次发现它是因为把一张北京咖啡馆地图设成了公开分享，然后在地图详情页往下翻，突然冒出来一个"数据洞察"的 tab。之前私有状态下这个位置是不存在的，完全是凭空多出来的。</p>
+<p>打开之后是四块内容：</p>
+<ul><li><strong>数据总览</strong>：总浏览量等大数，一眼判断这张图火不火</li><li><strong>浏览趋势</strong>：按时间展开的曲线，发布后的爆点在哪天、长尾流量有多少</li><li><strong>流量来源</strong>：访客从哪进来——群聊直点、社区推荐还是外部转发</li><li><strong>用户分布</strong>：读者在哪些地区</li></ul>
+<p>这对把 exping 当创作平台的人来说简直是免费的读者报表。我当年做了两张上海探店地图，一张侧重网红店、一张侧重社区小馆，对比了一周的趋势曲线，发现社区小馆那张的长尾流量是网红店的两倍——第二周起就调整了选题方向，效果立竿见影。</p>
+<p>什么人用得上？<strong>把 exping 当创作工具的人</strong>——不管是接探店合作要给客户看数据，还是单纯想知道自己的地图有没有人在看，这个面板是真有用。</p>
+<p>什么人可以无视？纯粹自己用、从不公开分享地图的，这个功能对你来说从来就没存在过。</p>
+<p>但有个坑得说：<strong>所有洞察数据都在服务器上</strong>。exping 一停服，当年的曲线、分布、流量来源全跟着服务器一起消失了，连截图都没来得及存。平台数据真的不是自己的数据——这话听着像老生常谈，轮到自己丢数据的时候才疼。</p>
+<h2>菜单深层藏着的多格式导出</h2>
+<p>第三个挖的是导出功能。我相信绝大多数人用 exping 的导出都是点一下，拿个 Excel 清单就完事了——但从<a href="https://exping.wxhp.skin/download.html" target="_blank" rel="noopener">Exping下载</a>的包里翻出来的其实有四种格式，每种的用途还真不一样，而且<strong>入口藏在每张地图菜单的最深处</strong>，得点好几层才能找到。</p>
+<p>给你说清楚：</p>
+<ul><li><strong>GeoJSON</strong>：保所有坐标和属性字段，丢任何地图工具都能打开——想仔细看字段规范的去<a href="https://exping.pages.dev/" target="_blank" rel="noopener">Exping文档</a>翻翻，这是我当年导出最多的格式，因为通用</li><li><strong>KML</strong>：Google Earth 和部分地图工具认这个格式，适合往 Google 系工具迁移</li><li><strong>HTML</strong>：生成一个单页网页，带地图和标记点，适合留作纪念或者分享给不会用地图工具的朋友</li><li><strong>Excel</strong>：纯清单，适合整理和筛选</li></ul>
+<p>为什么说藏得深？导出入口不在应用首页，不在设置里，也不在地图列表页——得<strong>点开单张地图的详情页，再进右上菜单，再翻到"导出"那一项</strong>，才会弹出格式选择。没有任何引导提示你这里有四种格式可选，第一次点的人大概率直接选默认的 Excel 就走了。</p>
+<p>这功能的另一个隐藏点：<strong>导出是本地生成的</strong>，理论上离线状态下也能走通。我当年试过关了 Wi-Fi 导出 GeoJSON，居然成功了——格式生成本身不需要联网，只有云端地图数据的拉取才需要。停服之后这个细节反而成了数据抢救的关键线索。</p>
+<p><img src="../images/exping/route-smart.webp" alt="exping 的智能路线规划" loading="lazy"></p>
+<p>什么人用得上？<strong>想迁移数据的人</strong>——不管是换工具还是存档，GeoJSON 是最通用的格式，丢任何地方都能开。</p>
+<p>什么人可以无视？从来没想过离开 exping 的，可能真的不知道还有导出这回事。</p>
+<h2>不登录的时候默默工作的本地缓存</h2>
+<p>最后一个挖到的，严格来说算不上"功能"，更像 exping 的一个<strong>没写进文档的行为</strong>——它会默默在本地存一份你浏览过的地图数据。</p>
+<p>发现它是个意外：某天在地铁上手机没信号，随手打开 exping 想翻一张之前看过的杭州美食地图，居然能正常看。一开始以为是登录态残留，退出去再开一张一周前浏览过的陌生地图，还是能看。但完全没见过的新地图（当年联网时也没打开过）就不行。</p>
+<p>这说明 exping 在你浏览地图的时候，<strong>默默把数据存了一份到本地</strong>，而且这个缓存不依赖登录态、不依赖网络。官方从始至终没提过这件事——既没在设置里给开关，也没在文档里说明缓存策略，就这么默默工作着。</p>
+<p>停服之后这个"没文档的缓存"反而成了数据抢救的最后通道。有 root 权限或者用文件管理器能看应用数据目录的人，还能把这份缓存扒出来——虽然没有官方说明、成功率也没法承诺，但总比两手空空强。</p>
+<p>什么人用得上？<strong>手机里还留着停服前旧版本的人</strong>——无论你当年登没登录，只要浏览过的地图，本地可能还有副本。</p>
+<p>什么人可以无视？已经换过手机、清过数据、或者当年根本没怎么用 exping 打开过地图的，这个缓存大概率是空的。</p>
+<h2>最后说句实在的</h2>
+<p>exping 停服这事，给我最大的感受不是惋惜，是<strong>平台给你的东西终究是平台的</strong>——72 小时倒计时、数据洞察面板、甚至你存了三年的地图数据，只要平台一关、服务器一灭，说没就没。</p>
+<p>这四个隐藏功能里，前两个（误删倒计时、数据洞察）本质上都依赖 exping 还活着；后两个（多格式导出、本地缓存）才是真正值得自己握在手里的东西——前者教你怎么把数据导成通用格式带走，后者是在你忘了导出的时候还能捞一把。</p>
+<p>挑任何个人工具都适用这个道理：<strong>能自己握在手里的，才是真的</strong>。下次找地图工具也好、笔记工具也好，先翻它有没有导出、有没有本地存储、有没有回收站——别等平台关了才发现自己什么都没抓住。</p>
+<p>对了，当年整理 exping 资料的人还在继续维护——<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Exping" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Exping" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%89%E5%8D%93%E7%89%88/Exping" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到完整的归档，想系统翻阅的直接过去找就行。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/lolipop-docs.html">AI伴侣应用怎么选？Lolipop在同类里的位置与取舍</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/datatool-docs.html">DataTool 安卓端上手实战：从粘链接到产出可用素材的完整流程</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/android/index.html">安卓版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/unifans.html">引力圈创作者从零到发第一帖——UniFans 上手全流程</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/fusionapp-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">一个独立博客的安卓 App，我用 FusionApp 在两个夜晚搞定了</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/wplace.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Wplace 付费账本：30 秒一颗像素的世界里，哪些人该为电荷掏钱</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

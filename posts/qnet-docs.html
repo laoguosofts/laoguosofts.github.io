@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>QNET 的全量更新语义：为什么你的弱网参数悄悄被清零了 · 老郭软件铺</title>
+  
+<meta name="description" content="跑自动化脚本时，为什么先设了 300ms 延迟再补 20% 丢包，最后只剩丢包？这不是 bug，是 QNET 在参数注入架构上的一个刻意取舍。把这条原理讲透，自动化脚本就能从&#34;偶尔出问题&#34;变成&#34;稳定可回放&#34;。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/qnet-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QNET 的全量更新语义：为什么你的弱网参数悄悄被清零了">
+<meta property="og:description" content="跑自动化脚本时，为什么先设了 300ms 延迟再补 20% 丢包，最后只剩丢包？这不是 bug，是 QNET 在参数注入架构上的一个刻意取舍。把这条原理讲透，自动化脚本就能从&#34;偶尔出问题&#34;变成&#34;稳定可回放&#34;。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/qnet-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/qnet-docs/qnet-workbench-start.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/qnet-docs/qnet-workbench-start.png">
+
+<meta name="twitter:title" content="QNET 的全量更新语义：为什么你的弱网参数悄悄被清零了">
+<meta name="twitter:description" content="跑自动化脚本时，为什么先设了 300ms 延迟再补 20% 丢包，最后只剩丢包？这不是 bug，是 QNET 在参数注入架构上的一个刻意取舍。把这条原理讲透，自动化脚本就能从&#34;偶尔出问题&#34;变成&#34;稳定可回放&#34;。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u8dd1\u81ea\u52a8\u5316\u811a\u672c\u65f6\uff0c\u4e3a\u4ec0\u4e48\u5148\u8bbe\u4e86 300ms \u5ef6\u8fdf\u518d\u8865 20% \u4e22\u5305\uff0c\u6700\u540e\u53ea\u5269\u4e22\u5305\uff1f\u8fd9\u4e0d\u662f bug\uff0c\u662f QNET \u5728\u53c2\u6570\u6ce8\u5165\u67b6\u6784\u4e0a\u7684\u4e00\u4e2a\u523b\u610f\u53d6\u820d\u3002\u628a\u8fd9\u6761\u539f\u7406\u8bb2\u900f\uff0c\u81ea\u52a8\u5316\u811a\u672c\u5c31\u80fd\u4ece\"\u5076\u5c14\u51fa\u95ee\u9898\"\u53d8\u6210\"\u7a33\u5b9a\u53ef\u56de\u653e\"\u3002", "headline": "QNET \u7684\u5168\u91cf\u66f4\u65b0\u8bed\u4e49\uff1a\u4e3a\u4ec0\u4e48\u4f60\u7684\u5f31\u7f51\u53c2\u6570\u6084\u6084\u88ab\u6e05\u96f6\u4e86", "image": ["https://laoguosofts.github.io/images/qnet-docs/qnet-workbench-start.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/qnet-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/qnet-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "QNET \u7684\u5168\u91cf\u66f4\u65b0\u8bed\u4e49\uff1a\u4e3a\u4ec0\u4e48\u4f60\u7684\u5f31\u7f51\u53c2\u6570\u6084\u6084\u88ab\u6e05\u96f6\u4e86", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">QNET 的全量更新语义：为什么你的弱网参数悄悄被清零了</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">QNET 的全量更新语义：为什么你的弱网参数悄悄被清零了</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">跑自动化脚本时，为什么先设了 300ms 延迟再补 20% 丢包，最后只剩丢包？这不是 bug，是 QNET 在参数注入架构上的一个刻意取舍。把这条原理讲透，自动化脚本就能从&#34;偶尔出问题&#34;变成&#34;稳定可回放&#34;。</p>
+  </header>
+  <div class="prose serif">
+<p>跑移动端弱网专项的同学大概都踩过这个坑：终端里先发了一条"上行延时 300ms"的 adb 广播，等了几秒曲线抬升了，又发一条"下行丢包 20%"——预期是延迟加丢包同时生效，结果延迟被清零了，只剩丢包在工作。反复试了几次都是这个结果，以为是自己写错了指令，或者 QNET 有 bug。</p>
+<p>其实这是 QNET 最容易被忽略的设计决策：<strong>参数更新是全量语义，不是增量合并</strong>。更新命令里没写的参数一律回到默认值。理解了这一点，上面那条事故链就完全说得通——第二条广播只写了丢包参数，延迟参数不在里面，就被置零了。</p>
+<p>但问题不止于此。全量更新语义只是冰山一角。要真正搞清楚 QNET 为什么选择这套设计，得往下挖到它的流量接管方式和参数注入架构——这决定了它能做什么、不能做什么，以及自动化脚本该怎么写才稳。</p>
+<h2>从流量接管方式说起：为什么是 VPN 通道</h2>
+<p>在 QNET 这类手机端工具普及之前，移动端弱网测试主要走两条路。</p>
+<p>第一条路是把手机代理到 PC，用 Fiddler、Charles 这类工具在电脑端加延迟。这条路线的问题很明显：需要一台额外的电脑，换手机就要重配一遍代理；HTTP 代理工具原生不支持丢包、抖动这些链路层损伤，UDP 流量基本无能为力——而大量实时应用（游戏语音、视频通话）恰恰依赖 UDP。</p>
+<p>第二条路是搭专用弱网 Wi-Fi，比如 Facebook 开源的 ATC 或者腾讯内部的 WeTest-WiFi。手机连上去就是弱网，参数在 Web 控制台配。但这是团队级基建，个人和小团队根本搞不定；多人共用时还会互相干扰，你调 300ms 延迟可能被旁边同事的 100% 丢包覆盖掉。</p>
+<p><a href="https://qnet.rggd.pw" target="_blank" rel="noopener">qnet官网</a> 选了第三条路：从<a href="https://qnet.rggd.pw/download.html" target="_blank" rel="noopener">下载</a>拿到 App 装在手机上，通过系统级 VPN 通道把目标 App 的流量劫持过来，在 App 进程内对每个包做参数注入，再放行出去。这个选择直接带来了三件事：零外设（装进手机就能测）、参数完整（延迟、抖动、带宽、随机丢包、周期丢包、Burst、协议与 IP 过滤全都能配，因为它在链路层干活）、免 ROOT 抓包（VPN 通道本身就可以导出 pcap，不需要越狱或 root 手机）。</p>
+<p>但代价也很实在。VPN 代理方式会给每个包增加一次应用层转发，实时音视频这类大流量场景下，仿真准确性会下降——额外的转发开销会让你测到的延迟比真实网络条件略高，带宽测试也会受到影响。所以 QNET 适合游戏弱网专项、接口超时测试、弱网下的 UI 交互验证，但不适合做音视频卡顿的精确仿真。</p>
+<h2>全量更新语义的底层原因：参数是一个快照，不是一组可累加的开关</h2>
+<p>回到开头那个坑。为什么参数更新是全量语义？</p>
+<p>假设 QNET 用增量合并的方式工作——每次广播只更新指定的参数，其他参数保持不变。看起来这很合理，但仔细想就会发现问题：弱网参数之间不是独立的。延迟、抖动、带宽、丢包率、Burst 模式这些参数组合起来构成一个完整的弱网场景，它们之间有依赖关系。比如 Burst 模式要求"放行时长"和"丢包时长"成对设置，只设其中一个，参数组合本身就是不合法的。</p>
+<p>如果用增量合并，三条广播按不同顺序执行，可能得到三种不同的参数组合——这在自动化测试里是灾难，因为同一套脚本跑两次可能出现不同结果。全量更新语义的设计思路是：<strong>每一次参数下发都是一个完整的弱网场景快照</strong>，包含所有参数的有效值。不管之前是什么状态，收到新快照就全量替换。这样做的好处是确定性——同一套参数序列跑多次，结果完全一致，不会因为执行顺序不同而出现意外组合。</p>
+<p>代价就是自动化脚本必须每次把当前应生效的全部参数显式写全，不能偷懒只写变化的那一个。或者干脆每档用完整参数重启会话——脚本写法稍微啰嗦一点，但换来了可回放性，这在回归测试里是硬需求。</p>
+<p>验证参数真的生效其实有三种手段。最直观的是信息悬浮窗——启动弱网后，手机屏幕上会叠加一个小窗，显示当前弱网类型、实时 ping 值、生效状态和参数内容。ping 值从 20ms 抬升到 120ms，说明延迟模板真的在工作；读数没变化多半是生效范围选错了。最硬的证据是逐包核对——测试报告的 csv 文件里有 delay_time 和 is_lose 两列，直接记录每个包被注入的延迟和是否被丢。临时切到 100% 丢包也能快速试探——能断就说明损伤通道通畅，问题出在参数档位而非通道本身。</p>
+<p><img src="../images/qnet-docs/qnet-workbench-start.png" alt="信息悬浮窗叠加在被测应用界面上，显示实时延迟读数与当前参数" loading="lazy"></p>
+<h2>参数组合的隐性规则：成对参数和单位错位</h2>
+<p>从<a href="https://qnet-docs.pages.dev/" target="_blank" rel="noopener">qnet文档</a>的参数表里可以看到，全量更新语义还暴露了 QNET 参数系统里两个容易踩的隐性规则。</p>
+<p>第一个是<strong>成对参数必须同时设置才生效</strong>。连续丢包模式要求"放行时长"和"丢包时长"两个值一起填，Burst 模式同样需要两个参数。只设其中一个，另一个留空或者填 0，这组参数就会被系统判定为不合法而跳过——你以为自己开了丢包，实际根本没生效。</p>
+<p>第二个是<strong>单位错位</strong>。带宽参数的默认单位是 KB/s，但很多人习惯性填 MB/s 的量级，结果差了 8 倍，症状就是"效果远小于预期"。延迟参数如果填成秒而不是毫秒，效果会夸张到离谱——300 秒延迟不是弱网，是断网。</p>
+<p>这两个坑有个共同的特点：QNET 不会报错。参数下发成功了，广播回执也收到了，但效果不对。排查的时候先确认"通道通"（临时切 100% 丢包试探），再确认"参数在"（逐包核对 csv），最后才怀疑工具本身有问题。</p>
+<h2>让自动化脚本从"偶尔出问题"到"稳定可回放"</h2>
+<p>把上面两条原理串起来，写自动化脚本其实就很清晰了。官方演示过的形态也很直接：终端里跑一个 Python 脚本逐条下发 adb 指令，旁边被测 App 的界面实时画出延迟曲线。</p>
+<p>指令序列的基本骨架是四步：启动弱网进程、广播第一条参数快照、中间按需切换档位（每次都发全量参数）、最后发 stop_service 收尾。扩成完整用例框架还需要四个要素：参数矩阵把档位定义成数据循环驱动，每档切换后做状态校验（悬浮窗截图或网络探测），弱网生效期间执行业务断言（超时文案、重试、降级行为），最后无论用例成败必发 stop_service 做 teardown 兜底。</p>
+<p>!<a href="images/qnet-docs/qnet-adb-run.png">终端逐条下发 adb 指令，右侧被测应用同步显示延迟波形</a></p>
+<p>排障也有据可查了：广播无回执说明弱网进程不在了，先 am start 拉起；参数没生效检查全量更新语义是不是冲掉了之前的配置；曲线纹丝不动回查生效范围和授权——是不是选错了被测应用，或者协议过滤把流量排除了。</p>
+<h2>适合谁，不适合谁</h2>
+<p>这套架构的取舍意味着 QNET 有明确的适用边界。</p>
+<p>它特别适合自动化回归测试——全量快照的确定性让同一套脚本跑 N 次都得到相同结果，不会因为参数合并顺序而波动。也适合场景化弱网专项：游戏弱网适配、接口超时边界验证、弱网下的 UI 交互（比如加载态、重试按钮）。这些场景需要频繁切换参数组合，全量语义反而让切换更可控。</p>
+<p>不太适合的场景有两个。一个是只想临时改一个参数快速试探的手动测试——此时直接在 App 界面里改模板比写 adb 广播方便得多。另一个是音视频卡顿的精确仿真——VPN 通道的额外转发开销会干扰测量结果，这类项目需要考虑专用弱网 Wi-Fi 或者网络节点层的损伤方案。</p>
+<p>如果你在做移动端弱网专项，装好 App 就能开测，文档里有完整的参数表和自动化指南。跑通一轮完整的参数矩阵和业务断言，弱网测试就正式成为回归资产了。参数表的维护也在同步进行，<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/qnet" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/qnet" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/qnet" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到最新版本。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/mangadex-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">为什么 MangadeX 能让一个书架跨遍所有漫画源？拆解它的多源聚合设计</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/twire.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Twire 快问快答：为什么 Twitch 观众都在找这个客户端</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

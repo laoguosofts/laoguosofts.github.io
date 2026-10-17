@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>b.stage 用了半年才踩明白的四个坑——偶像舞台 App 的防翻车清单 · 老郭软件铺</title>
+  
+<meta name="description" content="b.stage 看着就是一个追偶像的舞台 App，装上去就能用。但真正深度用下来，桌面快捷方式突然失效、商店预订退不了款、通知石沉大海这些坑，我一个都没躲过。这篇把踩过的四个坑和解法一次性说清。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/b-stage.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="b.stage 用了半年才踩明白的四个坑——偶像舞台 App 的防翻车清单">
+<meta property="og:description" content="b.stage 看着就是一个追偶像的舞台 App，装上去就能用。但真正深度用下来，桌面快捷方式突然失效、商店预订退不了款、通知石沉大海这些坑，我一个都没躲过。这篇把踩过的四个坑和解法一次性说清。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/b-stage.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/b-stage/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/b-stage/icon-512.png">
+
+<meta name="twitter:title" content="b.stage 用了半年才踩明白的四个坑——偶像舞台 App 的防翻车清单">
+<meta name="twitter:description" content="b.stage 看着就是一个追偶像的舞台 App，装上去就能用。但真正深度用下来，桌面快捷方式突然失效、商店预订退不了款、通知石沉大海这些坑，我一个都没躲过。这篇把踩过的四个坑和解法一次性说清。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "b.stage \u770b\u7740\u5c31\u662f\u4e00\u4e2a\u8ffd\u5076\u50cf\u7684\u821e\u53f0 App\uff0c\u88c5\u4e0a\u53bb\u5c31\u80fd\u7528\u3002\u4f46\u771f\u6b63\u6df1\u5ea6\u7528\u4e0b\u6765\uff0c\u684c\u9762\u5feb\u6377\u65b9\u5f0f\u7a81\u7136\u5931\u6548\u3001\u5546\u5e97\u9884\u8ba2\u9000\u4e0d\u4e86\u6b3e\u3001\u901a\u77e5\u77f3\u6c89\u5927\u6d77\u8fd9\u4e9b\u5751\uff0c\u6211\u4e00\u4e2a\u90fd\u6ca1\u8eb2\u8fc7\u3002\u8fd9\u7bc7\u628a\u8e29\u8fc7\u7684\u56db\u4e2a\u5751\u548c\u89e3\u6cd5\u4e00\u6b21\u6027\u8bf4\u6e05\u3002", "headline": "b.stage \u7528\u4e86\u534a\u5e74\u624d\u8e29\u660e\u767d\u7684\u56db\u4e2a\u5751\u2014\u2014\u5076\u50cf\u821e\u53f0 App \u7684\u9632\u7ffb\u8f66\u6e05\u5355", "image": ["https://laoguosofts.github.io/images/b-stage/icon-512.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/b-stage.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/b-stage.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "b.stage \u7528\u4e86\u534a\u5e74\u624d\u8e29\u660e\u767d\u7684\u56db\u4e2a\u5751\u2014\u2014\u5076\u50cf\u821e\u53f0 App \u7684\u9632\u7ffb\u8f66\u6e05\u5355", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">b.stage 用了半年才踩明白的四个坑——偶像舞台 App 的防翻车清单</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">b.stage 用了半年才踩明白的四个坑——偶像舞台 App 的防翻车清单</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">b.stage 看着就是一个追偶像的舞台 App，装上去就能用。但真正深度用下来，桌面快捷方式突然失效、商店预订退不了款、通知石沉大海这些坑，我一个都没躲过。这篇把踩过的四个坑和解法一次性说清。</p>
+  </header>
+  <div class="prose serif">
+<p>刚用 <a href="https://b-stage.rggd.pw" target="_blank" rel="noopener">b.stage官网</a> 的时候觉得特别简单——装 App、加书签、追偶像的 stage，三步完事。结果用了不到一个月，先后栽了好几个跟头：桌面小组件突然没内容了、预订的会员礼盒想取消取消不了、Live 开播提醒一条都没收到。最惨的一次是以为 App 彻底坏了差点卸载重装，最后才发现是电池优化把后台推送给掐了。</p>
+<p>把这几个坑挨个捋一遍，都是实打实踩过的，不是编的。</p>
+<h2>坑一：安卓装完没通知，以为 App 坏了</h2>
+<p><strong>症状</strong>：装完 b.stage，权限全点了允许，结果偶像的 Live 开播一条通知都没收到。等了三天才在 App 里看到回放，直播早就结束了。</p>
+<p><strong>原因</strong>：国内安卓手机大多没有 Google 服务框架，系统的电池优化会把 b.stage 的后台推送当成耗电大户直接杀掉。我当时用的是小米，默认对非系统应用的后台活动卡得特别严。</p>
+<p><strong>解法</strong>：两步搞定。第一步，装完之后立刻去系统设置里找到「电池优化」，把 b.stage 设为「不限制」或「无限制」。第二步，如果你是用 APK 装的，确认安装包来源可靠——Google Play 版和 APK 版功能一样，但有些第三方渠道的 APK 可能被精简过推送模块。我自己用的手机没 Google Play，是从 <a href="https://b-stage.rggd.pw/download.html" target="_blank" rel="noopener">b.stage下载</a> 拿的安装包，放开电池优化之后通知就正常了。</p>
+<p><img src="../images/b-stage/icon-512.png" alt="b.stage 应用图标：黑底白色「bD」图形，认准 bemyfriends 开发者别装错" loading="lazy"></p>
+<h2>坑二：桌面快捷方式/小组件突然空了</h2>
+<p><strong>症状</strong>：之前好好的桌面快捷方式，点进去提示找不到 stage；iPhone 上的 2x2 小组件也变成了空白图标，连名字都不显示。</p>
+<p><strong>原因</strong>：桌面快捷方式和小组件都依赖 App 内部的书签数据。我那次的问题是 b.stage 更新了 3.0 大版本，更新过程中书签数据被重置了一部分，快捷方式指向的书签 id 失效了。还有一种常见情况是手动清理了 App 数据缓存，书签一起被清掉了。</p>
+<p><strong>解法</strong>：先打开 App 看书签列表还在不在。如果书签还在，删除桌面图标重新添加一次就行——安卓点 stage 左上角菜单选「添加到主屏幕」，iPhone 长按桌面空白处搜 b.stage 重新加小组件。如果书签也没了，那就是缓存被清了，得重新搜偶像的 stage 加书签，没别的办法。</p>
+<p><img src="../images/b-stage/app300-widget.jpg" alt="b.stage 官方 App 3.0 版宣传图：iPhone 小组件与安卓桌面快捷方式效果" loading="lazy"></p>
+<h2>坑三：商店预订了想取消，取消不了</h2>
+<p><strong>症状</strong>：在 b.stage 商店订了一个会员礼盒，后来发现预算超了想取消订单。点订单详情里的取消按钮要么没反应，要么提示「已进入生产周期」。</p>
+<p><strong>原因</strong>：b.stage 的商店规则里，预订（Pre-order）商品一般不支持取消——下单之后运营方就按订单量启动生产了，你取消等于人家白忙活。我当时没仔细看商品页的标签，那个礼盒明明标了「预订」，我以为是现货下单。还有签售会名额、视频通话场次这类活动类商品，本质是活动门票，更是付了钱就退不了。</p>
+<p><strong>解法</strong>：下单前养成三个检查习惯。一看商品标签有没有「预订」「限时」「会员专属」这些标识；二看商品详情页的发货周期说明；三有疑问直接翻 <a href="https://b-stage.pages.dev/" target="_blank" rel="noopener">b.stage文档</a> 里的退款规则章节——那里对哪些能退、哪些不能退写得清清楚楚。已经踩了坑想抢救的，可以联系运营方的客服碰碰运气，但别抱太大希望，规则就是规则。</p>
+<h2>坑四：以为自己被平台拉黑了，其实是 App 版本太旧</h2>
+<p><strong>症状</strong>：某天打开 b.stage，页面一直转圈加载不出来，换了 Wi-Fi 和移动数据都不行。同时间朋友的手机上正常打开，我以为自己账号被封了。</p>
+<p><strong>原因</strong>：b.stage 的服务器端接口更新了，旧版本 App 还在用老接口协议，直接被服务器拒了。我那个版本停在 2.9，最新已经到 3.1 了，中间跳了好几个版本。国内没有 Google Play 的设备不会自动推送更新，很容易积年累月跟不上版本。</p>
+<p><strong>解法</strong>：去拿最新的 APK 覆盖安装就行——数据和登录状态不会丢，APK 方式是原地升级。装完之后清理一下应用缓存，重启 App，立刻恢复正常。后来养成了习惯，每隔一个月去看一眼有没有新版本，省得突然断更。</p>
+<h2>防坑清单</h2>
+<ul><li>安卓装完第一时间去电池优化里放行 b.stage，通知收不到十有八九是这个问题</li><li>预订商品下单前必须看清标签，标了「预订」的默认不能取消，别冲动</li><li>桌面快捷方式失效先查书签有没有丢，App 更新后指向会变，重新添加一次就好</li><li>没 Google Play 的设备每隔一段时间手动查一下新版本，服务器接口一变旧版直接打不开</li><li>拿 APK 只从可靠渠道，别装来路不明的，不仅可能被精简推送，还担心安全问题</li></ul>
+<p>其实 b.stage 本身做的不算差，坑大多藏在「国内安卓环境」和「商店规则」这两块。注意了上面这几条，日常用下来还是挺省心的，偶像的 Live 和周边都不会错过。这份踩坑笔记整理的时候顺带同步到了三个备份仓库：<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/b.stage" target="_blank" rel="noopener">GitHub</a> 放原始文档，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/b.stage" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/b.stage" target="_blank" rel="noopener">GitCode</a> 主要方便国内访问，内容都是同步的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/roboneo-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">RoboNeo 实测：把抠图、换景、视频迁移全塞进一个订阅，值不值？</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/soundbrenner.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">练琴总跟不上节奏？戴在手腕上的振动节拍器救星来了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

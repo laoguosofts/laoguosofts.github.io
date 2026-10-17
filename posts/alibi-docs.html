@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Alibi 到底算不算手机端的行车记录仪 · 老郭软件铺</title>
+  
+<meta name="description" content="把这款开源后台录屏录音应用放进同类对比，说说它的滚动缓冲、边录边存和权限透明到底解决了哪些真问题，又在哪些地方做了取舍。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/alibi-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alibi 到底算不算手机端的行车记录仪">
+<meta property="og:description" content="把这款开源后台录屏录音应用放进同类对比，说说它的滚动缓冲、边录边存和权限透明到底解决了哪些真问题，又在哪些地方做了取舍。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/alibi-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/alibi-docs/gh-06.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/alibi-docs/gh-06.webp">
+
+<meta name="twitter:title" content="Alibi 到底算不算手机端的行车记录仪">
+<meta name="twitter:description" content="把这款开源后台录屏录音应用放进同类对比，说说它的滚动缓冲、边录边存和权限透明到底解决了哪些真问题，又在哪些地方做了取舍。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u628a\u8fd9\u6b3e\u5f00\u6e90\u540e\u53f0\u5f55\u5c4f\u5f55\u97f3\u5e94\u7528\u653e\u8fdb\u540c\u7c7b\u5bf9\u6bd4\uff0c\u8bf4\u8bf4\u5b83\u7684\u6eda\u52a8\u7f13\u51b2\u3001\u8fb9\u5f55\u8fb9\u5b58\u548c\u6743\u9650\u900f\u660e\u5230\u5e95\u89e3\u51b3\u4e86\u54ea\u4e9b\u771f\u95ee\u9898\uff0c\u53c8\u5728\u54ea\u4e9b\u5730\u65b9\u505a\u4e86\u53d6\u820d\u3002", "headline": "Alibi \u5230\u5e95\u7b97\u4e0d\u7b97\u624b\u673a\u7aef\u7684\u884c\u8f66\u8bb0\u5f55\u4eea", "image": ["https://laoguosofts.github.io/images/alibi-docs/gh-06.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/alibi-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/alibi-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "Alibi \u5230\u5e95\u7b97\u4e0d\u7b97\u624b\u673a\u7aef\u7684\u884c\u8f66\u8bb0\u5f55\u4eea", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">Alibi 到底算不算手机端的行车记录仪</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">Alibi 到底算不算手机端的行车记录仪</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">把这款开源后台录屏录音应用放进同类对比，说说它的滚动缓冲、边录边存和权限透明到底解决了哪些真问题，又在哪些地方做了取舍。</p>
+  </header>
+  <div class="prose serif">
+<p>手机端的"随身记录仪"这个类目，市面上翻来覆去就那几种玩法：要么开机即录占空间，要么手动触发漏掉关键瞬间。我自己折腾过几款之后，Alibi 是少数让我觉得"这个思路确实不一样"的——去<a href="https://alibi.fewz.tech" target="_blank" rel="noopener">Alibi官网</a>看一眼就明白，它的定位从一开始就不是"又一个录音笔"，而是<strong>随时在线但不瞎存</strong>的证据留存工具。</p>
+<p>这篇就把它放进坐标系里说说：它凭什么在同类里占一个位置，又在哪些地方故意做了减法。</p>
+<p><img src="../images/alibi-docs/gh-06.webp" alt="主界面：麦克风与相机两个入口，底部一行机制说明" loading="lazy"></p>
+<h2>同类软件的格局，它站在哪</h2>
+<p>先说这个类目的基本分野。大多数录屏录音应用走两条路：<strong>持续录制型</strong>（典型的就是自带行车记录仪功能的厂商 ROM，或者某些长录 App）和<strong>手动触发型</strong>（各类会议录音、屏幕录制工具）。前者的问题是存储空间消耗惊人——一小时 1080p 视频就是几个 G，出门一天回来手机已经红温；后者的问题更致命：你得先预判"接下来要有事发生"才能按下按钮，真正需要留证的时刻恰恰是你来不及掏手机的时刻。</p>
+<p>Alibi 选了第三条路：<strong>滚动缓冲</strong>。它在后台一直录，但只保留最近一段时长（默认 15 分钟，可调），新内容进来旧内容自动滚出去。真正需要留的时候按一下保存，把"从某个时刻到现在"的那段从缓冲里导出来变成永久文件。没保存的内容永远不会落盘——既不漏，也不浪费。</p>
+<p>这个思路不是它独有的，但把它做成日常能用的产品，Alibi 是我见过完成度最高的。</p>
+<h2>它做得比别人好的三个点</h2>
+<h3>第一，边录边存的长按手势，真的解决了一个没人好好解决的场景</h3>
+<p>我在其他同类应用里遇到过的最大尴尬：想保存一段内容，但保存动作本身会中断录制。比如开车遇到剐蹭，你想把刚才的过程保存下来，但一按保存，录制就停了——可理论上你还想继续录对方下车、跟你理论的全过程。</p>
+<p>Alibi 的解法是一个长按手势：<strong>单击保存 = 保存并停止，长按保存 = 保存并继续录制</strong>。长按之后，应用在后台合并处理刚才的缓冲片段，前台服务继续录新的内容，时间轴不会断。这个设计看似只是一个交互细节，但背后是它对"证据链连续性"的理解——真正的留证场景里，中断本身就是信息损失。</p>
+<p>素材文档里提到这个功能在 v0.5.0 加入，从那之后就没被拿掉过。我用了几个月，这个长按手势已经变成肌肉记忆了。</p>
+<p><img src="../images/alibi-docs/gh-01.webp" alt="音频录制中：波形、计时与三个动作按钮" loading="lazy"></p>
+<h3>第二，权限清单干净到近乎洁癖</h3>
+<p>一款"一直在后台听你说了什么"的应用，它的权限清单应该长什么样？我见过太多同类应用把通讯录、定位、网络权限一股脑要上——理由是"方便分享""云端备份"，但本质上你根本不知道它拿去干了什么。</p>
+<p>Alibi 的权限清单里没有定位、没有通讯录、没有电话状态、没有网络相关权限堆砌。核心只有四项：相机、录音、通知（Android 前台服务要求）、存储（用于另存文件）。听起来吓人的那几条——比如"捕获音频输出"——逐条解释下来也都是录音链路的系统级权限，不是"偷听别人"的后门。</p>
+<p>这份干净的清单不是巧合，是开源项目的底气：每一条权限都能在源码里对应到具体功能，没有黑箱。对一款你可能在敏感场合打开的应用来说，这点比任何功能都重要。</p>
+<h3>第三，设置的整包导入导出</h3>
+<p>这个功能看起来不显眼，但用过就回不去了。我换机比较勤，以前每次换手机都要花十分钟把录屏录音的参数一项项重调：码率、画质、保存时长、批次文件夹、通知样式……Alibi 允许你把全部设置序列化成一份 JSON 文件，旧手机导出、新手机导入，几秒钟搞定。</p>
+<p>它还明确告诉你两个边界：备份的是设置不是录像（已保存的音视频文件要按普通文件搬运），跨版本兼容不承诺（导入后扫一眼关键参数）。这种"说清楚做什么不做什么"的产品态度，比那些假装全能的应用靠谱得多。</p>
+<h2>它的取舍：为这些优势付出了什么</h2>
+<p>说了三个好的，也得说它故意没做的事。</p>
+<p><strong>平台限制是硬伤</strong>。它只有 Android，没有 iOS。原因很简单：iOS 的后台机制根本不允许应用持续录音录像——这不是 Alibi 不想做，是苹果的沙盒架构从根上就堵死了这条路。Android 用户直接从<a href="https://alibi.fewz.tech/download.html" target="_blank" rel="noopener">下载</a>拿 APK 就行。iPhone 用户如果想找同类，目前没有真正对等的选项，只能退而求其次用手动触发型的工具。</p>
+<p><strong>界面极简到功能藏得深</strong>。主界面只有两个大按钮加一个齿轮，看着清爽，但一些进阶操作的入口比较隐蔽——比如长按保存的手势，如果没人告诉你，大概率自己摸索不出来。设置里还有一个默认关闭的"高级设置"开关，打开才露出格式、编码器这些参数。对新手友好度来说，它选择了"界面少就是美"的路线，代价是首次使用翻一下<a href="https://alibi-docs.pages.dev/" target="_blank" rel="noopener">Alibi文档</a>就好。</p>
+<p><strong>没有云端功能</strong>。它不做自动上传、不做云备份、不做远程访问。这和它的权限哲学是一致的——你所有的录像录音都留在本地，不会经过任何服务器。但反过来，如果你希望"录完自动同步到网盘"，就得自己搭链路，它不帮你。</p>
+<h2>选购结论</h2>
+<p>说了这么多，到底谁该用它？</p>
+<p><strong>如果你经常遇到"需要留证但不确定什么时候发生"的场景</strong>——开车通勤、街头采访、线下维权、甚至只是想在会议里随时能保住刚说的一段话——Alibi 的滚动缓冲 + 边录边存是目前手机端最顺手的方案，没有之一。它帮你省掉了"预判什么时候按按钮"这件不可能完成的任务。</p>
+<p><strong>如果你只是偶尔需要录一段会议或课程</strong>，那它可能偏重了。系统自带的屏幕录制或录音应用加上手动触发，对低频场景完全够用，没必要专门装一个后台常驻的应用。</p>
+<p><strong>如果你是 iPhone 用户</strong>，不用等了，生态限制决定了它不会来 iOS。退一步找手动触发型的工具吧，这是目前的最优解。</p>
+<p>最后给一句明确的推荐：Android 用户、有随身留证需求、在意隐私干净——Alibi 值得装一次，设置好之后就放在后台，它会在你需要的那一刻帮上忙。</p>
+<p>这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Alibi" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Alibi" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/Alibi" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，方便不同网络环境的人查阅和镜像。开源项目的好处就是这样——你不信某一个源，总还有别的地方能验证。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/notic.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Notic 为什么能做到实时转录几乎无延迟？拆解它背后的流式识别架构</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/motionpro.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">装了快一年MotionPro，聊聊这款企业VPN客户端的真实体验</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

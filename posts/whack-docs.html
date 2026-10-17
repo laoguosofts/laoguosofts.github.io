@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Whack 入门攻略：从零开始搭建你的第一个 AI 社群 · 老郭软件铺</title>
+  
+<meta name="description" content="Whack 是一款自带 AI 机器人的社群聊天工具，内置点歌、福袋、智能问答等互动玩法。本文带你从下载安装到第一次跑通 AI 管群，零基础也能上手。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/whack-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Whack 入门攻略：从零开始搭建你的第一个 AI 社群">
+<meta property="og:description" content="Whack 是一款自带 AI 机器人的社群聊天工具，内置点歌、福袋、智能问答等互动玩法。本文带你从下载安装到第一次跑通 AI 管群，零基础也能上手。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/whack-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/whack-docs/home-community-list.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/whack-docs/home-community-list.jpg">
+
+<meta name="twitter:title" content="Whack 入门攻略：从零开始搭建你的第一个 AI 社群">
+<meta name="twitter:description" content="Whack 是一款自带 AI 机器人的社群聊天工具，内置点歌、福袋、智能问答等互动玩法。本文带你从下载安装到第一次跑通 AI 管群，零基础也能上手。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Whack \u662f\u4e00\u6b3e\u81ea\u5e26 AI \u673a\u5668\u4eba\u7684\u793e\u7fa4\u804a\u5929\u5de5\u5177\uff0c\u5185\u7f6e\u70b9\u6b4c\u3001\u798f\u888b\u3001\u667a\u80fd\u95ee\u7b54\u7b49\u4e92\u52a8\u73a9\u6cd5\u3002\u672c\u6587\u5e26\u4f60\u4ece\u4e0b\u8f7d\u5b89\u88c5\u5230\u7b2c\u4e00\u6b21\u8dd1\u901a AI \u7ba1\u7fa4\uff0c\u96f6\u57fa\u7840\u4e5f\u80fd\u4e0a\u624b\u3002", "headline": "Whack \u5165\u95e8\u653b\u7565\uff1a\u4ece\u96f6\u5f00\u59cb\u642d\u5efa\u4f60\u7684\u7b2c\u4e00\u4e2a AI \u793e\u7fa4", "image": ["https://laoguosofts.github.io/images/whack-docs/home-community-list.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/whack-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/whack-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "Whack \u5165\u95e8\u653b\u7565\uff1a\u4ece\u96f6\u5f00\u59cb\u642d\u5efa\u4f60\u7684\u7b2c\u4e00\u4e2a AI \u793e\u7fa4", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">Whack 入门攻略：从零开始搭建你的第一个 AI 社群</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">Whack 入门攻略：从零开始搭建你的第一个 AI 社群</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Whack 是一款自带 AI 机器人的社群聊天工具，内置点歌、福袋、智能问答等互动玩法。本文带你从下载安装到第一次跑通 AI 管群，零基础也能上手。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从完全不懂到用起来——不需要任何社群管理经验，跟着走一遍就能把 Whack 装起来、建一个群、让 AI 机器人帮你管。</p>
+<h2>它到底是干嘛的？（一个生活化类比讲明白）</h2>
+<p>想象一下你开了一家线下奶茶店，来了一波朋友在店里聊天。普通微信群就像一张桌子——大家围坐、自由聊、但没人管秩序、也没人主动给新人倒水。Whack 不一样，它相当于给你配了一个兼职店长：<strong>有人（AI 机器人）帮你回答常见问题、帮你维护群里的秩序、甚至还能组织点歌、开奖这种小游戏让气氛热起来</strong>。</p>
+<p>来<a href="https://whack.hfdk.space" target="_blank" rel="noopener">Whack官网</a>看一眼介绍就明白，Whack 不是单纯的聊天工具——它从一开始就是瞄准「社群运营」这个场景做的，自带 AI 管群能力。群主可以用 AI 机器人当智能客服、知识沉淀库和气氛调节员。会员体系里有嗨币可以发虚拟礼物，福袋功能让群里随时能开奖。说人话：<strong>它是给想认真玩社群的人准备的工具，不是随便加个好友聊两句就行的那种</strong>。</p>
+<h2>五分钟上手：从下载到第一次跑通</h2>
+<p>别急着到处点，跟着下面走，五分钟以内你就能把 App 装好、建一个群、让 AI 机器人上岗。</p>
+<p><strong>第一步：装 App、注册账号</strong>。从<a href="https://whack.hfdk.space/download.html" target="_blank" rel="noopener">官方下载</a>拿安装包，或者去应用商店搜 Whack 下载。打开后按提示注册手机号就行——目前公开资料里没看到需要邀请码，普通用户直接能注册。</p>
+<p><strong>第二步：进首页、找「创建社群」按钮</strong>。首页通常会给你推荐一些现成的社群（比如游戏公会、兴趣社群），但我们先不管——点底部或右上角的创建入口，给自己的社群起个名字、选个头像、挑一个分类（比如游戏、音乐、学习随你）。建好之后你就是群主了。</p>
+<p><strong>第三步：进群设置、打开 AI 机器人</strong>。进入你刚建的群，找群设置里的「AI 机器人」入口。第一次进来它会让你确认要不要启用——启用之后 AI 就正式上岗了。它默认会管一些基础行为，比如新人进群自动欢迎、关键词自动回复之类的。</p>
+<p><strong>第四步：拉几个朋友进来测试</strong>。把群链接或者群号发给朋友，让他们进来说两句话。你会发现 AI 已经在干活了——新人进群自动发欢迎语、有人问重复问题时 AI 会主动搭话。到这里就算跑通了。</p>
+<p><img src="../images/whack-docs/home-community-list.jpg" alt="Whack 首页社群列表" loading="lazy"></p>
+<h2>上手后先玩这三个功能（新手最值得碰的）</h2>
+<p>跑通只是开始。下面三个功能是新手阶段最值得先去碰的——你会明显感受到「这东西和普通聊天工具不一样」。</p>
+<h3>AI 点歌：游戏等时间的时候拉气氛</h3>
+<p>打开群设置 → AI 机器人 → 互动插件，把「点歌」开关打开。然后让群友在聊天里发「点歌 + 歌名」，AI 会在群里推送歌曲播放链接或者内置播放器卡片。多人同时点歌还能排成队列 AI 依次推。</p>
+<p><strong>你会看到什么</strong>：群里会出现一排点歌卡片，AI 依次播放、每张卡片带歌曲封面和播放按钮。<strong>这意味着什么</strong>：副本排队、匹配等待这种碎片时间不用再尴尬沉默了——点一首歌放着，群里瞬间就有声音和画面，气氛完全不一样。</p>
+<h3>福袋开奖：随时能搞的小活动</h3>
+<p>同样在互动插件里，把「福袋」打开。创建福袋时可以设置倒计时时间、奖品（积分或者嗨币都行，群主自己定）、参与门槛（全群可参与或者签到成员才能参与）。设好之后 AI 会在群里挂一个倒计时，到点自动开奖、把中奖者艾特出来。</p>
+<p><strong>你会看到什么</strong>：群聊里出现一张带倒计时的福袋卡片，时间一到卡片自动变成开奖结果、中奖者被标红。<strong>这意味着什么</strong>：社群里最容易冷场的时候（比如周末下午、没人说话的时候），发一个福袋就能把人拉回来抢——这不是多大的奖励，但就是能让人愿意留在群里、愿意互动。</p>
+<h3>自定义表情贴纸：让群聊有自己的风格</h3>
+<p>在聊天输入框附近找表情/贴纸入口（位置因版本略有差异，通常在键盘上方），点开就能按分类浏览。Whack 从基础 emoji 到动态表情、mini 贴纸、节日限定主题，层级分得很清楚——普通成员用基础层和动态层，贵族身份（绑 VIP/SVIP 会员）还有专属特效表情。完整的表情层级和会员关联关系可以在<a href="https://whack-docs.pages.dev/" target="_blank" rel="noopener">Whack文档</a>里查到。</p>
+<p><strong>你会看到什么</strong>：打开表情面板后可以切换「常用」「动态」「mini 贴纸」「贵族专属」几个标签页，选了之后直接发到群聊里。<strong>这意味着什么</strong>：统一一套气泡主题再配风格接近的贴纸包，你的群和别人的群在视觉上立刻就能区分开来——别小看这个，长期运营下来这就是社群的「品牌感」。</p>
+<h2>小白的三个常见疑问</h2>
+<h3>问：免费版够不够用？</h3>
+<p>够。Whack 下载本身是免费的，AI 机器人管群、点歌、福袋这些核心互动功能也都是免费的。会员（VIP/SVIP）主要是增值权益——贵族身份特效、特权表情、部分插件高级功能。不买会员一样可以正常建群、管群、组队、用 AI 问答。对于普通玩家和小群群主来说，免费版已经能把群管得很好。</p>
+<h3>问：忘了青少年模式密码怎么办？</h3>
+<p>青少年模式开启后会隐藏会员和嗨币购买入口、AI 互动插件也会做限制，这是给家长的保护开关。如果忘了关闭密码，从 v1.2.11 版本起 Whack 上线了官方客服对话入口——直接在 App 里找客服，走身份验证流程就能重置密码。别慌，不是卡死了就打不开。</p>
+<h3>问：互动插件全开会不会太吵？</h3>
+<p>会。插件开得多容易刷屏，新人进来看到一堆卡片会混乱，管理员也得多一份精力维护。建议根据群的核心定位决定数量：攻略群以 AI 问答为主、只开签到和福袋两个辅助；娱乐群可以全开；混合型群先开点歌 + 福袋，跑两周看看效果再加。别上来就把所有插件打开，反而把最核心的聊天淹没了。</p>
+<h2>写在最后</h2>
+<p>Whack 最有意思的地方在于，它不是让你去学一堆复杂配置、也不是让你买一堆会员才能用好——核心的 AI 管群和互动功能，免费版就能跑起来，五分钟上手就能看到效果。先建一个群、把 AI 打开、拉几个朋友进来试试点歌和福袋，感受一下「群里有个 AI 助手帮你」是什么感觉。</p>
+<p>玩熟了之后，可以去深入了解一下它的知识库功能——让 AI 记住群里的常见问题、新人进来问的时候 AI 能直接答，这个才是 Whack 真正拉开和普通聊天工具差距的地方。</p>
+<p>顺手说一句，这套 Whack 的资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Whack" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Whack" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/Whack" target="_blank" rel="noopener">GitCode</a> 三个仓库都有同步，国内访问的话直接走 Gitee 或 GitCode 更方便。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/jjt-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">为什么 AI 做 PPT 还需要&#34;工作台&#34;？—— JJT 的设计逻辑拆解</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/nanobanana-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">nanobanana 出图踩过的那些坑——从网盘到分辨率，我替你试错了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

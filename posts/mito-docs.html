@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃 · 老郭软件铺</title>
+  
+<meta name="description" content="MITO 的前身是热剧猫，从一个简单的影视聚合入口走到今天 2.2.0，多线路切换、离线缓存、分类组织这些功能是怎么一步步磨出来的，团队又在哪些地方选择了长期不做。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/mito-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃">
+<meta property="og:description" content="MITO 的前身是热剧猫，从一个简单的影视聚合入口走到今天 2.2.0，多线路切换、离线缓存、分类组织这些功能是怎么一步步磨出来的，团队又在哪些地方选择了长期不做。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/mito-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/mito-docs/home-page.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/mito-docs/home-page.jpg">
+
+<meta name="twitter:title" content="MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃">
+<meta name="twitter:description" content="MITO 的前身是热剧猫，从一个简单的影视聚合入口走到今天 2.2.0，多线路切换、离线缓存、分类组织这些功能是怎么一步步磨出来的，团队又在哪些地方选择了长期不做。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "MITO \u7684\u524d\u8eab\u662f\u70ed\u5267\u732b\uff0c\u4ece\u4e00\u4e2a\u7b80\u5355\u7684\u5f71\u89c6\u805a\u5408\u5165\u53e3\u8d70\u5230\u4eca\u5929 2.2.0\uff0c\u591a\u7ebf\u8def\u5207\u6362\u3001\u79bb\u7ebf\u7f13\u5b58\u3001\u5206\u7c7b\u7ec4\u7ec7\u8fd9\u4e9b\u529f\u80fd\u662f\u600e\u4e48\u4e00\u6b65\u6b65\u78e8\u51fa\u6765\u7684\uff0c\u56e2\u961f\u53c8\u5728\u54ea\u4e9b\u5730\u65b9\u9009\u62e9\u4e86\u957f\u671f\u4e0d\u505a\u3002", "headline": "MITO \u4ece\u70ed\u5267\u732b\u5230 2.2.0\uff1a\u4e00\u6b3e\u8ffd\u5267\u5de5\u5177\u4e94\u5e74\u8fed\u4ee3\u91cc\u7684\u6b7b\u78d5\u4e0e\u653e\u5f03", "image": ["https://laoguosofts.github.io/images/mito-docs/home-page.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/mito-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/mito-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "MITO \u4ece\u70ed\u5267\u732b\u5230 2.2.0\uff1a\u4e00\u6b3e\u8ffd\u5267\u5de5\u5177\u4e94\u5e74\u8fed\u4ee3\u91cc\u7684\u6b7b\u78d5\u4e0e\u653e\u5f03", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">MITO 从热剧猫到 2.2.0：一款追剧工具五年迭代里的死磕与放弃</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">MITO 的前身是热剧猫，从一个简单的影视聚合入口走到今天 2.2.0，多线路切换、离线缓存、分类组织这些功能是怎么一步步磨出来的，团队又在哪些地方选择了长期不做。</p>
+  </header>
+  <div class="prose serif">
+<h2>现在这版：2.2.0 像什么</h2>
+<p>打开 MITO 2.2.0，首页的结构干净得有点过分——一排分类 Tab（电影、连续剧、动漫、综艺、短剧、纪录片）横向排开，中间是推荐流，底部四个导航。没有会员入口，没有开屏广告，没有积分体系，甚至连"签到送金币"这种常见的引流手段都看不到。就这么一个 25 MB 左右的安装包，<a href="https://mito.djnf.quest" target="_blank" rel="noopener">MITO官网</a>能找到，安卓 5.2 及以上就能装，装完直接用。</p>
+<p>它的核心体验被压缩在三件事里：找到片、看得顺、存得下。找到片靠分类 Tab 和搜索，看得顺靠多线路切换和清晰度调整，存得下靠离线缓存和投屏。这三件事之外的东西，团队几乎全砍掉了。</p>
+<p><img src="../images/mito-docs/home-page.jpg" alt="首页结构一览" loading="lazy"></p>
+<h2>来路：从热剧猫起步，文档没说的部分</h2>
+<p>样本文档里最早的版本号停在 2.2.0，往前的历史只提了一句"前身为热剧猫"。但从产品形态反推，能看出几个关键的转变点。</p>
+<p>热剧猫时代的核心诉求应该很直接——把分散在各大视频平台的片子拢到一个入口。那时候"聚合追剧"本身就是卖点，用户的需求是"不想在三个 App 之间跳来跳去找同一部剧"。这个定位到 MITO 时代没有根本变化，但产品细节被大幅打磨了。</p>
+<p>我能确认的第一个关键升级是多线路切换。后来去<a href="https://mito-docs.pages.dev/" target="_blank" rel="noopener">MITO文档</a>翻了一下，里面专门花了一整篇讲"卡了、黑屏、加载不动时第一招是换线路"——每部片子挂两到四条线路，播放页内直接下拉切换，进度保持不变。这个功能不是凭空加的，它是聚合工具绕不开的痛点：聚合的视频源总有失效、总有卡顿，一条线路挂了整个片子就废了。多线路从根上解决了这个问题。</p>
+<p>第二个关键节点是分类组织的完善。六个分类 Tab 不是一次定下来的——"短剧"和"纪录片"这两个品类，在更早的聚合工具里经常被塞进"电影"或"连续剧"。单独拉出来作为一级分类，说明团队观察到了用户行为数据：短剧的消费场景（碎片时间、下饭）和电影完全不同，纪录片的受众又是另一群人。</p>
+<p>第三个值得单独说的是"不做什么"。样本文档里有一段专门讲它不做的事：不做内容生产、不做会员付费墙、不做注册门槛、不做应用内购——安装包从<a href="https://mito.djnf.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿就行，全程不花钱。从热剧猫到 MITO，这条底线好像从来没破过。很多同类工具在积累了用户之后会忍不住加会员、加广告、加积分，MITO 至今没有。</p>
+<h2>迭代节奏里的优先级：他们一直在死磕什么</h2>
+<p>从 2.2.0 这个版本倒推，有几个细节能看出团队的资源分配逻辑。</p>
+<p><strong>死磕播放体验，死磕了很久。</strong> 多线路切换从"详情页选"进化到"播放页内无缝切换"，进度保持不变——这个体验改动不大，但用户感知极强。清晰度档位切换、离线缓存、投屏，都是围绕"看得顺"这一件事在堆。文档里甚至有一整篇专门讲"一直卡转圈的完整排查"，说明卡顿问题是团队长期观察的重点。</p>
+<p><strong>分类体系比想象中重要。</strong> 六个一级分类、每个分类下的年份/地区/类型筛选，以及不登录时的热门推荐流排序——这套组织方式在同类工具里算不上花哨，但覆盖了从"有明确目标"到"漫无目的逛"的几乎所有找片场景。团队没有去做个性化推荐算法的深度打磨（登录后的推荐比不登录准，但也没到"千人千面"的程度），而是把精力放在了分类浏览的效率上。</p>
+<p><strong>轻装上阵，不背壳。</strong> 安装包 25 MB，不做社交、不做评论、不做积分、不做会员。甚至账号体系都很克制——登录只影响推荐流的个性化程度，不登录也能用全部核心功能。这种"极简"不是做不到，而是主动选择。</p>
+<p><img src="../images/mito-docs/player-view.png" alt="播放页线路切换" loading="lazy"></p>
+<h2>有什么他们一直没碰</h2>
+<p>反过来看，有些功能在同类工具里几乎是标配，但 MITO 至今没有。</p>
+<p><strong>评论和社区。</strong> 你在任何一个片子详情页都找不到评论区、弹幕、或者"看过的人也在追"这类社交化推荐。对一个聚合工具来说，做社区不难，难的是做了之后内容审核和服务器成本会迅速膨胀。团队选择不碰这块，等于主动放弃了用户停留时长的数据增长，但换来了轻量和稳定。</p>
+<p><strong>会员和付费。</strong> 没有会员、没有付费解锁高清、没有去广告——它连广告都没有。这意味着它没有直接的变现渠道，可持续性完全依赖于"做一个好用的工具，靠口碑传播"。这条路走得通吗？从热剧猫到 MITO 的延续性来看，至少还活着。</p>
+<p><strong>深度个性化推荐。</strong> 登录后的推荐流会参考观看历史，但也只是"你看过古装剧，推荐流里古装剧多一点"的程度。没有标签体系、没有用户画像、没有协同过滤。如果你想要的是"刷着刷着就停不下来"那种算法投喂感，MITO 给不了你。但如果你想要的是"我知道我想看什么，帮我快速找到"，它反而更顺手。</p>
+<h2>下一步会往哪走</h2>
+<p>从迭代规律推，不是官方口径，就是我自己的观察。</p>
+<p>我觉得 MITO 大概率会继续死磕"播放体验"这一条线。多线路切换已经做得不错了，但线路的自动选择、根据网络环境智能切换清晰度、离线缓存的后台下载管理——这些地方还有打磨空间。样本文档里提到"部分版本会重新选择最优线路"，说明自动选线可能已经在某些版本里测试过了。</p>
+<p>分类体系可能还会微调。"短剧"是近两年才被提到一级分类的，接下来会不会有新的品类冒出来？比如"动漫电影"从电影里独立？或者"纪录片"里再拆出"自然类"和"人文类"？不好说，但分类的颗粒度会跟着用户行为数据走。</p>
+<p>社区和付费大概率还是不会碰。除非团队的生存压力到了必须变现的程度——否则他们没理由破坏已经建立起来的"极简、干净、无套路"的品牌认知。</p>
+<h2>总结一下</h2>
+<p>MITO 五年的迭代史，其实是一部"不做什么比做什么更重要"的产品史。从热剧猫到 2.2.0，它没有走"加会员、加广告、加社区"的常规路径，而是把所有资源堆在"找到片、看得顺、存得下"这三件事上。多线路切换解决了聚合工具的核心痛点，分类体系覆盖了找片的主要场景，极简的产品形态让它在同类应用里显得特别干净。</p>
+<p>如果你想要的是一个不花会员、没有广告、打开就能用的追剧工具，MITO 现在这版已经够用了。如果你期待它变成一个有社区、有算法、有会员体系的大平台——大概率会失望。团队好像从一开始就没打算走那条路。顺手提一句，这套资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/MITO" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/MITO" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/MITO" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，国内访问哪个顺手用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/captivemgr.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">CaptiveMgr 快问快答：Android 网络感叹号救星</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/dzmm-ai.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">DZMM.ai 避坑：这些地方你大概率会踩</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

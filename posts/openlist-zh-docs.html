@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 OpenList 搭一条网盘自动化链：从搜索到分发不再手动搬运 · 老郭软件铺</title>
+  
+<meta name="description" content="每周要整理几十个网盘的几万个文件，以前先下载再分类再上传得三步，现在一条链搞定。这篇讲具体怎么把 OpenList 嵌进我的资源整理工作流。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/openlist-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 OpenList 搭一条网盘自动化链：从搜索到分发不再手动搬运">
+<meta property="og:description" content="每周要整理几十个网盘的几万个文件，以前先下载再分类再上传得三步，现在一条链搞定。这篇讲具体怎么把 OpenList 嵌进我的资源整理工作流。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/openlist-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/openlist-zh-docs/driver-mount-path.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/openlist-zh-docs/driver-mount-path.png">
+
+<meta name="twitter:title" content="用 OpenList 搭一条网盘自动化链：从搜索到分发不再手动搬运">
+<meta name="twitter:description" content="每周要整理几十个网盘的几万个文件，以前先下载再分类再上传得三步，现在一条链搞定。这篇讲具体怎么把 OpenList 嵌进我的资源整理工作流。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u6bcf\u5468\u8981\u6574\u7406\u51e0\u5341\u4e2a\u7f51\u76d8\u7684\u51e0\u4e07\u4e2a\u6587\u4ef6\uff0c\u4ee5\u524d\u5148\u4e0b\u8f7d\u518d\u5206\u7c7b\u518d\u4e0a\u4f20\u5f97\u4e09\u6b65\uff0c\u73b0\u5728\u4e00\u6761\u94fe\u641e\u5b9a\u3002\u8fd9\u7bc7\u8bb2\u5177\u4f53\u600e\u4e48\u628a OpenList \u5d4c\u8fdb\u6211\u7684\u8d44\u6e90\u6574\u7406\u5de5\u4f5c\u6d41\u3002", "headline": "\u7528 OpenList \u642d\u4e00\u6761\u7f51\u76d8\u81ea\u52a8\u5316\u94fe\uff1a\u4ece\u641c\u7d22\u5230\u5206\u53d1\u4e0d\u518d\u624b\u52a8\u642c\u8fd0", "image": ["https://laoguosofts.github.io/images/openlist-zh-docs/driver-mount-path.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/openlist-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/openlist-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 OpenList \u642d\u4e00\u6761\u7f51\u76d8\u81ea\u52a8\u5316\u94fe\uff1a\u4ece\u641c\u7d22\u5230\u5206\u53d1\u4e0d\u518d\u624b\u52a8\u642c\u8fd0", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">用 OpenList 搭一条网盘自动化链：从搜索到分发不再手动搬运</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">用 OpenList 搭一条网盘自动化链：从搜索到分发不再手动搬运</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">每周要整理几十个网盘的几万个文件，以前先下载再分类再上传得三步，现在一条链搞定。这篇讲具体怎么把 OpenList 嵌进我的资源整理工作流。</p>
+  </header>
+  <div class="prose serif">
+<p>每周一我要做一件事：把过去一周收集的软件资源从七八个网盘汇总、去重、备份、然后生成对外分发链接。以前这条链分三步，每步都要手动下载再上传——云盘到本地再到另一个云盘，来回占带宽、花时间。朋友推荐的 <a href="https://openlist.gerw.hair" target="_blank" rel="noopener">OpenList官网</a> 把它插进流程中间当枢纽，现在这条链基本跑通了，分享一下具体怎么接的。</p>
+<h2>旧流程卡在哪</h2>
+<p>我挂的盘比较杂：国内有夸克、阿里云盘、115，海外有 OneDrive 全球版和 Google Drive。以前的操作路径是：</p>
+<ol><li>挨个登每个网盘，用各自的搜索功能找要整理的文件</li><li>把筛选出来的文件下载到本地临时目录</li><li>用本地脚本校验文件、去重、生成清单</li><li>再上传到备份盘和分发盘</li></ol>
+<p>痛点很具体：网盘搜出来的结果各自排序，跨盘重名文件要肉眼比对；国内盘下完再传海外盘，中间还得转个代理；每个盘都要记 Cookie 或令牌，过期了分别续。整个流程光手动搬运就要两小时。</p>
+<h2>新流程：把 OpenList 当网盘操作系统</h2>
+<p>从<a href="https://openlist.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a>下来装好的 OpenList 本质上就是一个网盘聚合层——它把各种网盘的接口封装成统一的文件树，你在一个界面里操作，背后帮你路由到对应盘。我把它插在流程的中间，整个链变成了这样：</p>
+<p><strong>源头网盘 → OpenList 统一挂载 → 全盘搜索定位 → 跨盘复制备份 → 生成直链分发</strong></p>
+<p>每一步讲一下具体怎么接。</p>
+<h3>挂载：国内外盘一锅端</h3>
+<p>OpenList 支持的驱动非常全，常见网盘基本都覆盖。我在后台「添加存储」里挨个挂了九个盘，其中两个海外盘的 OAuth 授权值得单独说——OneDrive 和 Google Drive 都是走 OAuth，比 Cookie 稳定，但区域和网络是两个必须先搞对的前提。</p>
+<p>OneDrive 驱动里按账号类型选区域，全球版、世纪互联（CN）、德国、美国四个选项各走各的接口，选错区域授权必然失败。我有一个世纪互联的商业版账号，一开始随手选了全球版，授权页能打开但回跳就报错，切到 CN 一次过。Google Drive 那边要在谷歌云控制台建 OAuth 应用，团队共享盘还得额外填根目录 ID，官方驱动文档有十几张截图照着点就行。</p>
+<p>网络层面反过来：海外盘的接口国内机器直连大概率超时，搭建机要么放海外 VPS，要么配好代理中转；但 Terabox 这种反而限制海外 IP 之外的访问，国内机器才能挂。方向别搞反。</p>
+<p>挂完之后所有盘出现在同一个文件树里，顶层目录按驱动名分，点进去就是各盘的原始结构。OpenList 有个别名聚合功能，可以把几个盘的目录挂进同一个虚拟路径，我没开——保持原始结构反而方便排查来源。</p>
+<p><img src="../images/openlist-zh-docs/driver-mount-path.png" alt="后台存储管理界面" loading="lazy"></p>
+<h3>搜索：先建索引再 Ctrl+K</h3>
+<p>没开索引之前按 <code>Ctrl + K</code> 会直接弹出「Search not available」，这是我踩的第一个坑。OpenList 的搜索默认关闭，要手动建索引才会生效。后台进「索引」页，选一种类型、点「构建索引」，等它跑完。</p>
+<p>索引类型有四种，中文文件名多的库我选的是 database 非全文搜索——不分词、逐字匹配，中文准确，速度虽然比全文搜索稍慢但对我的场景够用。英文文件名多的盘切全文搜索更快。如果以后追求极致中文模糊匹配可以换 meilisearch，但得额外跑一个服务，具体选型和配置细节可以翻 <a href="https://openlist-zh-docs.pages.dev/" target="_blank" rel="noopener">OpenList文档</a>，目前没必要。</p>
+<p><img src="../images/openlist-zh-docs/search-index-panel.png" alt="后台索引设置面板" loading="lazy"></p>
+<p>索引维护也省心：开了「自动更新索引」之后，文件增删会增量同步，不用手动重建。唯一的故障是 SQLite 用户高频写时可能碰到 <code>database is locked</code>，关掉自动更新或者换 MySQL 就能根治。</p>
+<h3>跨盘复制：不再绕本地</h3>
+<p>这步是整个流程省时间最多的地方。OpenList 的跨盘复制直接走网盘接口，不会绕本地中转——也就是说从阿里云盘复制到 OneDrive，数据在云端完成同步，你的电脑只发起请求。</p>
+<p>我在源头盘的目录里选中本周要整理的文件，右键复制，切到备份盘对应目录粘贴，OpenList 在后台排队处理。复制完成后文件自动出现在备份盘，元数据和原始目录结构都保留。以前手动下载再上传的那一步完全跳过了。</p>
+<p>分发盘那边我用的是直链模式：OpenList 给每个文件生成固定直链，我把链接丢给下游脚本生成清单就行，不用单独上传。</p>
+<h3>SSO：家人免密码</h3>
+<p>一个额外的效率提升是 SSO 单点登录。我把站点接入了 GitHub OAuth，家人访问的时候点「使用 GitHub 登录」就进来了，不用记站内密码。配置步骤很标准：在 GitHub 开发者设置里建一个 OAuth App，回调地址填 OpenList 的 SSO 回调路径，把 Client ID 和 Secret 粘回后台就行。</p>
+<p>管理员账号我还是用密码加 2FA，双轨并存——安全和方便都不丢。</p>
+<h2>效果与边界</h2>
+<p>这条流程跑了一个月，实际变化：</p>
+<ul><li>搜索定位从挨个登盘找变成全盘 <code>Ctrl + K</code>，少了七八次手动打开网页</li><li>跨盘备份不再绕本地，省了两次全量下载上传（我的带宽是上行 30M，几个 TB 的文件以前要跑一晚上）</li><li>令牌续期从每个盘单独处理变成只维护 OpenList 一处</li></ul>
+<p>但有两个边界要提前说清楚。第一，搭建机的网络环境是硬前提——海外盘挂不上不是配置错了，是网络不通。第二，高频写场景下 SQLite 会锁库，文件量上来之后得换 MySQL。还有一点，索引数据跟站点数据分开备份，内置备份不含索引，重建就行，不用为它做复杂备份。</p>
+<p>这套流程不是为所有场景设计的——如果你只挂一两个盘、文件量不大，直接用网盘客户端就够了。但网盘数量上了五六个、文件上了万级之后，OpenList 当枢纽的价值就出来了：统一入口、不绕本地、自动化链条。我现在每周整理的时间从两小时降到二十分钟左右，主要就是跑一遍脚本生成分发清单那点事。</p>
+<p>如果你也在攒多个网盘，别再手动搬运了——把 OpenList 插进中间当枢纽，这条链值得搭。我的部署和配置参考资料在三个仓库都有备份，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/OpenList" target="_blank" rel="noopener">GitHub</a> 是主仓库，国内网络可以直接去 <a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/OpenList" target="_blank" rel="noopener">Gitee</a> 或 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/OpenList" target="_blank" rel="noopener">GitCode</a> 拿。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/riliai.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">RiliAI 翻了个底朝天——那些藏得真深的 5 个玩法</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/yeelight.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Yeelight 用了三年才挖到的五个冷门技巧——你以为它只是调个颜色？</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

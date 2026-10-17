@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Monica 踩坑实录：四个装完就想卸的问题，以及怎么救 · 老郭软件铺</title>
+  
+<meta name="description" content="Monica 看着像个省心的 AI 助手，实际装完第一天就能撞上安装拦、额度秒没、记忆乱记、推理卡死这几个坑。每一个我都踩过，整理成症状、原因和解法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/monica-zh-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monica 踩坑实录：四个装完就想卸的问题，以及怎么救">
+<meta property="og:description" content="Monica 看着像个省心的 AI 助手，实际装完第一天就能撞上安装拦、额度秒没、记忆乱记、推理卡死这几个坑。每一个我都踩过，整理成症状、原因和解法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/monica-zh-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/monica-zh-docs/app-reasoning.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/monica-zh-docs/app-reasoning.png">
+
+<meta name="twitter:title" content="Monica 踩坑实录：四个装完就想卸的问题，以及怎么救">
+<meta name="twitter:description" content="Monica 看着像个省心的 AI 助手，实际装完第一天就能撞上安装拦、额度秒没、记忆乱记、推理卡死这几个坑。每一个我都踩过，整理成症状、原因和解法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "Monica \u770b\u7740\u50cf\u4e2a\u7701\u5fc3\u7684 AI \u52a9\u624b\uff0c\u5b9e\u9645\u88c5\u5b8c\u7b2c\u4e00\u5929\u5c31\u80fd\u649e\u4e0a\u5b89\u88c5\u62e6\u3001\u989d\u5ea6\u79d2\u6ca1\u3001\u8bb0\u5fc6\u4e71\u8bb0\u3001\u63a8\u7406\u5361\u6b7b\u8fd9\u51e0\u4e2a\u5751\u3002\u6bcf\u4e00\u4e2a\u6211\u90fd\u8e29\u8fc7\uff0c\u6574\u7406\u6210\u75c7\u72b6\u3001\u539f\u56e0\u548c\u89e3\u6cd5\u3002", "headline": "Monica \u8e29\u5751\u5b9e\u5f55\uff1a\u56db\u4e2a\u88c5\u5b8c\u5c31\u60f3\u5378\u7684\u95ee\u9898\uff0c\u4ee5\u53ca\u600e\u4e48\u6551", "image": ["https://laoguosofts.github.io/images/monica-zh-docs/app-reasoning.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/monica-zh-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/monica-zh-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-version/", "name": "\u5b98\u65b9\u7248", "position": 2}, {"@type": "ListItem", "name": "Monica \u8e29\u5751\u5b9e\u5f55\uff1a\u56db\u4e2a\u88c5\u5b8c\u5c31\u60f3\u5378\u7684\u95ee\u9898\uff0c\u4ee5\u53ca\u600e\u4e48\u6551", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-version/index.html">官方版</a><span>›</span>
+    <span class="crumb-cur">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/official-version/index.html">官方版</a></p>
+    <h1 class="post-title serif">Monica 踩坑实录：四个装完就想卸的问题，以及怎么救</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">Monica 看着像个省心的 AI 助手，实际装完第一天就能撞上安装拦、额度秒没、记忆乱记、推理卡死这几个坑。每一个我都踩过，整理成症状、原因和解法。</p>
+  </header>
+  <div class="prose serif">
+<p>Monica 这个东西，我最早是从它的<a href="https://monica.usea.quest" target="_blank" rel="noopener">monica官网</a>上看到的，说实话刚装上的时候我以为就是个换皮的聊天框——界面干净，DeepSeek 免费对话，推理模式还能看 AI 思考过程，感觉就是个比普通助手多几个花哨按钮的玩意儿。结果第一天我就踩了四个坑，每一个都差点让我直接卸载重装。现在回头看，这些坑本质上都是「产品默认假设」和「用户预期」之间的落差，不是 bug，但你不提前知道就会浪费半小时到几小时。</p>
+<h2>第一个坑：安装包下好了，安卓说「解析包时出现问题」</h2>
+<p><strong>症状</strong>：从<a href="https://monica.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿到安装包之后，点安装，系统弹窗直接红字——「解析包时出现问题」，连安装界面都进不去。我第一次遇到的时候以为是下载中断了，删了重下，还是同一个错误。换浏览器下，还是不行。</p>
+<p><strong>原因</strong>：后来去 <a href="https://monica-zh-docs.pages.dev/" target="_blank" rel="noopener">monica文档</a> 翻了一下才弄明白，这个 APK 对安卓版本有最低要求。Monica 国内渠道的安卓版是给 Android 8.0 及以上做的——注意，是 8.0，不是 7.0。我手上那台备用机是 Android 7.1.2，系统版本差了一点点，但 Android 的包解析器就是不认，直接报解析失败。另外还有一种情况是下载的时候文件被 CDN 缓存了不完整的片段，校验哈希也能查出来。</p>
+<p><strong>解法</strong>：先查系统版本——设置里拉到底找「关于手机」，看 Android 版本号。低于 8.0 的设备，这条路走不通，要么换手机要么用网页版。另外装之前对比一下文件大小和文档站标注的是否一致，差太多就是下载残了，删掉重下就行。我那台 7.1.2 的备用机至今没装上，认了。</p>
+<h2>第二个坑：免费额度看着够，开了推理模式十分钟就见底</h2>
+<p><strong>症状</strong>：注册的时候文案写的是「每日免费对话」，我粗略看了一下额度数字，感觉日常用肯定够。结果第一天晚上我开着推理模式问了几个稍微复杂点的问题——比如让它算一道带步骤的数学题，再让它深度分析一篇文章——十分钟不到，额度就亮红灯了。</p>
+<p><strong>原因</strong>：免费额度的计算不是按「对话轮次」，是按「token 消耗」。DeepSeek V3 日常对话 token 效率还行，但一开推理模式（R1），AI 会先生成一大段思考过程再给最终答案，token 消耗直接翻 3 到 5 倍。文档站里有个免费版每日额度的说明，我之前没仔细看——那个数字是按普通对话估的，推理模式下实际可用轮次可能只有普通模式的三分之一甚至更少。另外 AI 搜索（带来源的那种）因为要联网检索，消耗也比纯对话高。</p>
+<p><strong>解法</strong>：推理模式别当默认开。默认用普通对话，只有碰到确实需要分步思考的问题再切推理——切之前心里要有数，这一问可能顶三问的额度。AI 搜索同理，能纯对话解决的就别搜。另外每天零点额度会重置，实在不够用就等第二天，别为了一天的额度冲动开会员。</p>
+<p><img src="../images/monica-zh-docs/app-reasoning.png" alt="推理模式下 AI 会先生成思考过程再给出答案" loading="lazy"></p>
+<h2>第三个坑：记忆功能在跨对话存东西，但你不知道它存了啥</h2>
+<p><strong>症状</strong>：有次我在一个对话里提了一嘴我叫老杨，过了三天换了个全新的对话开始，Monica 上来就说「老杨你好」——我当时就愣了，这不是新对话吗？它怎么知道？</p>
+<p><strong>原因</strong>：Monica 有个默认开启的「记忆功能」，跨对话把你在任何会话里提过的信息存进个人档案，下次新对话会自动调取。产品逻辑上这是个加分项——不用每次重新自我介绍。但文档站里有个记忆与隐私的 FAQ，我第一次看完才发现：记忆是默认开的，而且存了之后你不一定意识得到它在调取。如果你在某个对话里提过敏感信息，这些信息可能会在后续对话里被自动引用，而你自己忘了当时说过。</p>
+<p><strong>解法</strong>：两个选择。要么去设置里关掉记忆功能，彻底干净；要么养成习惯，定期到「记忆管理」里看一眼它存了什么，不需要的手动清除。我选了后者——毕竟跨对话记住名字和偏好还是挺实用的，但得知道它记了啥才能放心。</p>
+<h2>第四个坑：推理模式开了之后，答得太慢以为卡死了</h2>
+<p><strong>症状</strong>：开了推理模式问问题，AI 开始输出思考过程，一行一行往外蹦，蹦了三分钟还没到最终答案。我以为应用崩了或者网络断了，点了重试，结果把刚才的思考过程全丢了，重新开始。</p>
+<p><strong>原因</strong>：R1 的推理机制就是先思考再回答。思考过程的输出是逐字流式的，而且 R1 本身的推理链可能很长——复杂问题的思考过程能有几百甚至上千字。文档站里有个深度思考实战的案例，分步计算一道数学题的思考过程就有好几百 token，加上最终答案，整个输出时间比普通对话慢 2 到 3 倍。这不是卡，是它确实在想。</p>
+<p><strong>解法</strong>：开推理模式之前，心里先给自己打个预防针——这一问可能要等三分钟以上，别中途打断。应用不会因为思考时间长就卡死，网络正常的话它会持续输出。实在不想等，就等思考过程输出完、最终答案开始生成的时候再切回普通模式（不过切了之后思考过程也丢了）。我的做法是复杂问题扔给它之后就去喝口水，回来正好看到答案。</p>
+<p><img src="../images/monica-zh-docs/app-deepseek.png" alt="DeepSeek 免费对话是 Monica 国内版的主力模型" loading="lazy"></p>
+<h2>防坑清单</h2>
+<p>用 Monica 这大半个月，总结下来其实就这几条值得一开始就记住：</p>
+<ul><li>装之前先查安卓版本——低于 8.0 的别浪费流量</li><li>推理模式别默认开，token 消耗翻三到五倍</li><li>记忆功能默认开了，定期去看它存了什么</li><li>推理输出慢不是卡死，等三分钟再说</li><li>免费额度按 token 算，不是按轮次，推理和 AI 搜索消耗更高</li></ul>
+<p>知道这些坑之后，这软件其实相当省心。现在我默认用普通对话，偶尔切推理，记忆管理每周扫一次，额度也不再见底，该用的功能一个没少，该避的坑一个没踩。</p>
+<p>这套中文文档的维护资料在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Monica" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Monica" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E6%96%B9%E7%89%88/Monica" target="_blank" rel="noopener">GitCode</a> 三个仓库都能拿到，找得到哪条算哪条，内容是同步的。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/bereal-docs.html">BeReal 到底是怎么把「反社交网络」这件事做成的</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/comico-docs.html">在东京交换的那个冬天，我靠 comico 追完了七部连载</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/official-version/index.html">官方版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/zerotermux.html">ZeroTermux 为什么能在一个 APK 里跑完整 Linux 桌面？</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/italki.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用italki约外教踩过的四个坑——钱花了才后知后觉</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/piascore.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">PIASCORE 避坑指南——用了半年才踩明白的六个雷</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

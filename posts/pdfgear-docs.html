@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>PDFgear 用了大半年，说几个当初没注意到的事 · 老郭软件铺</title>
+  
+<meta name="description" content="从初次装到现在，中间经历了 Copilot 从噱头到习惯的转变、批量转换从试跑到依赖的过程，也踩了几个文档里没明说的坑。长期用下来的真实感受不是一句好评就能概括的。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pdfgear-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PDFgear 用了大半年，说几个当初没注意到的事">
+<meta property="og:description" content="从初次装到现在，中间经历了 Copilot 从噱头到习惯的转变、批量转换从试跑到依赖的过程，也踩了几个文档里没明说的坑。长期用下来的真实感受不是一句好评就能概括的。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pdfgear-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pdfgear-docs/cp-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pdfgear-docs/cp-hero.png">
+
+<meta name="twitter:title" content="PDFgear 用了大半年，说几个当初没注意到的事">
+<meta name="twitter:description" content="从初次装到现在，中间经历了 Copilot 从噱头到习惯的转变、批量转换从试跑到依赖的过程，也踩了几个文档里没明说的坑。长期用下来的真实感受不是一句好评就能概括的。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u521d\u6b21\u88c5\u5230\u73b0\u5728\uff0c\u4e2d\u95f4\u7ecf\u5386\u4e86 Copilot \u4ece\u5671\u5934\u5230\u4e60\u60ef\u7684\u8f6c\u53d8\u3001\u6279\u91cf\u8f6c\u6362\u4ece\u8bd5\u8dd1\u5230\u4f9d\u8d56\u7684\u8fc7\u7a0b\uff0c\u4e5f\u8e29\u4e86\u51e0\u4e2a\u6587\u6863\u91cc\u6ca1\u660e\u8bf4\u7684\u5751\u3002\u957f\u671f\u7528\u4e0b\u6765\u7684\u771f\u5b9e\u611f\u53d7\u4e0d\u662f\u4e00\u53e5\u597d\u8bc4\u5c31\u80fd\u6982\u62ec\u7684\u3002", "headline": "PDFgear \u7528\u4e86\u5927\u534a\u5e74\uff0c\u8bf4\u51e0\u4e2a\u5f53\u521d\u6ca1\u6ce8\u610f\u5230\u7684\u4e8b", "image": ["https://laoguosofts.github.io/images/pdfgear-docs/cp-hero.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pdfgear-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pdfgear-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/web/", "name": "\u7f51\u9875\u7248", "position": 2}, {"@type": "ListItem", "name": "PDFgear \u7528\u4e86\u5927\u534a\u5e74\uff0c\u8bf4\u51e0\u4e2a\u5f53\u521d\u6ca1\u6ce8\u610f\u5230\u7684\u4e8b", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/web/index.html">网页版</a><span>›</span>
+    <span class="crumb-cur">PDFgear 用了大半年，说几个当初没注意到的事</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/web/index.html">网页版</a></p>
+    <h1 class="post-title serif">PDFgear 用了大半年，说几个当初没注意到的事</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从初次装到现在，中间经历了 Copilot 从噱头到习惯的转变、批量转换从试跑到依赖的过程，也踩了几个文档里没明说的坑。长期用下来的真实感受不是一句好评就能概括的。</p>
+  </header>
+  <div class="prose serif">
+<h2>装它的时候其实没抱太高期待</h2>
+<p>去年年初换电脑，之前一直用某大牌 PDF 软件，续费通知又到了，顺手搜了一圈免费替代，PDFgear 的<a href="https://pdfgear.fwen.ren" target="_blank" rel="noopener">官网</a>是那堆候选里界面最干净的一个，从<a href="https://pdfgear.fwen.ren/download.html" target="_blank" rel="noopener">下载</a>页面拿了安装包试了一下。坦白说，装的时候没觉得它能在我电脑里留多久——免费 PDF 工具我试过不下十个，大多功能有了但细节总差口气，要么转完格式乱掉，要么扫描件识别像瞎了眼。</p>
+<p>谁知道一留就是大半年，中间版本跳了好几回，功能加了不少，也减了几个我刚摸熟的角落。下面说的不是测评报告，是这段时间用下来，感觉慢慢变了的几个地方。</p>
+<h2>越用越顺手的：Copilot 从噱头变成了拐杖</h2>
+<p>刚装好那天 Copilot 面板就弹出来了，我第一反应是"又一个蹭 AI 热点的花架子"。发了句"压缩这个文件"，面板转了两秒，压缩工具的对话框就弹到眼前——哦，它不是自己干活，是帮你省了找菜单那几步。</p>
+<p>一开始觉得这点事值不了几个点击，后来文件多起来、功能记不住的时候，才发现好处在别处。比如要删第 37 到 42 页，以前得先回忆"删除页面"在哪个菜单下，进去之后还要选范围；现在直接说"删除第 37 到 42 页"，它自己调出来。更省脑的是批量场景——百来个 PDF 要统一转 Word，我不确定该用批量转换还是 AI 指令，问它"帮我批量转成 Word"，它打开批量转换面板，设置好方向让我确认。</p>
+<p><img src="../images/pdfgear-docs/cp-hero.png" alt="Copilot 帮你省菜单" loading="lazy"></p>
+<p>说个反直觉的：Copilot 最实用的地方不是"跟 PDF 聊天"那种高大上的摘要提问，而是帮你打开正确的工具面板。官方说背后用 GPT-3.5，实际感受更像一个会理解自然语言的快捷入口——它不替你决定细节，但它帮你跳过"我该点哪里"这一步。</p>
+<h2>越用越烦的：批量转换的几个隐性坑</h2>
+<p>批量转换是第二阶段我最依赖的功能，十份合同转 Word、几十张图合成 PDF、一学期讲义归档，全靠它。流程本身简单：拖文件进列表、设目标格式、启动、等进度条。但跑了几十次之后，几个文档里没明说的问题慢慢暴露出来。</p>
+<p>第一个是<strong>扫描件混进批量的后果</strong>。我第一次跑批量时，把几份扫描版的旧合同和普通 PDF 一起拖进去了，转完打开一看，扫描件全成了图片嵌在 Word 里，根本编辑不了。后来才知道，批量转换对扫描件不会自动先 OCR——你得先单独跑识别，再转格式。这一步<a href="https://pdfgear-docs.pages.dev/" target="_blank" rel="noopener">PDFgear文档</a>在"批量前的三个准备"里提了，但我当初没细看，白白浪费了半小时。</p>
+<p>第二个是<strong>几百个大文件一起塞</strong>。官方说没数量限制，我信了，一次拖了 237 个文件进去，其中有十几个是 50MB 以上的扫描件。进度条走到第 180 个的时候软件卡死了，任务管理器显示 PDFgear 占了 800MB 内存。分批跑之后就没再出过问题，大约每批 50 个文件比较稳。</p>
+<p>第三个是<strong>输出目录不自动创建子文件夹</strong>。批量转完的文件全堆在你选的输出目录根下，文件名还是原文件名，几十个文件混在一起找起来头疼。我现在每次批量前都先在输出目录建一个带日期的子文件夹，再把它选为输出目标——这是踩过坑之后才养成的习惯。</p>
+<p><img src="../images/pdfgear-docs/win-batch-convert.png" alt="批量转换界面" loading="lazy"></p>
+<h2>每天离不开的：表单填写</h2>
+<p>这是我当初完全没预料到的高频场景。之前公司行政发 PDF 表单，我都是打印出来填完再扫描回去——走一遍大概十五分钟。现在 Form 菜单打开，文本框直接打字，复选框鼠标一点，没有表单域的空白格就用添加文本框补上，填完另存为新文件名，全程两分钟。</p>
+<p>最让我省心的是<strong>复选框的对勾图章</strong>。有些旧表单的复选框没有交互层，以前我要么用截图工具画个对勾插进去，要么用特殊符号敲一个——前者麻烦，后者打印出来看不清楚。PDFgear 自带的对勾图章颜色深、位置准，点一下就贴上，打印出来跟手画的一样清楚。</p>
+<p>我还发现一个小技巧：表单最后一栏的签名，直接从签名列表拖上就行，不用每次重新创建。但记得填完另存为，原空白表留着——我有次直接点保存，把空白表覆盖了，第二天又得找人重新发。</p>
+<h2>碰都没碰的几个功能</h2>
+<p>拆分和合并我只用过一两次——百页手册拆成章节发、几份扫描件合成一本，都是偶尔的事。 Copilot 的"跟 PDF 聊天"我试过一次，让它总结了一份 30 页的项目报告，总结出来的内容中规中矩，和我自己快速翻一遍差不多，但花的时间更少。不过后来没再用过，可能我处理的文档还没长到需要 AI 帮我读的程度。</p>
+<p>移动版装在手机上，签合同填表单确实方便，但屏幕太小打字慢，基本只用来补签名——文档里说手机端能处理大部分场景，我实际用下来还是偏向在电脑上做完，手机只收尾。</p>
+<h2>观感修正：当初高估了什么，低估了什么</h2>
+<p>刚装的时候我对它的预期是"一个能用的免费 PDF 工具，功能够用就行"。用了半年下来，两个判断被推翻了。</p>
+<p><strong>高估了 AI 摘要提问的价值</strong>。官方宣传里 Copilot 能让你跟 PDF 聊天、问它问题、帮你总结长文档——听起来很厉害，但我实际用下来，真正帮我省时间的是它帮你打开工具面板，不是那些高级 AI 功能。可能是我处理的文档类型不对，也可能是 AI 摘要的质量还没到能让我完全放手的程度。</p>
+<p><strong>严重低估了批量转换和表单填写的组合威力</strong>。这两个功能加在一起，基本覆盖了我日常 PDF 工作里 70% 的场景——批量转格式是基础需求，表单填写是高频刚需。当初我装它只是为了替代那个收费软件，现在反过来想，如果某大牌软件哪天涨价，我可以非常干脆地切过来，不会有任何功能上的顾虑。</p>
+<h2>去留结论：不会卸载，但有两个信号会让我换</h2>
+<p>短期内肯定不会卸。PDFgear 现在已经是我电脑上唯一的 PDF 工具了——批量转换、表单填写、基础的页面整理和格式转换，全都能搞定，免费也没见弹窗广告，挺克制的。</p>
+<p>但两个信号出现时我会认真考虑换方案：一是<strong>OCR 识别准确率上不去</strong>。现在扫描件转可编辑 PDF 的识别率大概能到 90% 左右，手写体和表格的识别还是会出错，每次都要手动修。如果哪个竞品在扫描件处理上比它好一截，我会试试。二是<strong>开始强制加弹窗或限流</strong>。免费工具的商业模式我能理解，但如果哪天用批量转换要等十几秒广告、或者每月有次数上限，那就是再见的时候了。</p>
+<p>总的来说，PDFgear 不是那种让人眼前一亮的产品——它没什么颠覆性的设计，也没什么特别惊艳的功能。但就是这样一个"够用"的工具，用了大半年下来，成了我每天都会点开的那一个。它的完整资料同时维护在 <a href="https://github.com/alipymanbu/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/PDFgear" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/PDFgear" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E7%BD%91%E9%A1%B5%E7%89%88/PDFgear" target="_blank" rel="noopener">GitCode</a>，国内用户访问也方便。这可能也是工具软件的一种成功吧：不需要让你兴奋，只需要让你忘了它的存在。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/jhentai.html">JHenTai 新手入门：从完全不懂到用起来只需五分钟</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sonolus.html">把 Sonolus 嵌进周末音游局：一条链搞定找谱、校准、联机、复盘</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/web/index.html">网页版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/artworkout.html">零基础也能画好一幅画？ArtWorkout 带你从手抖到动手</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/oplayer-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">一条线搞定多媒体消费：我是怎么用OPlayer串起PC、手机和电视的</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/pendo-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Pendo 到底是什么？一篇快问快答讲清楚</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

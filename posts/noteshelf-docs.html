@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命 · 老郭软件铺</title>
+  
+<meta name="description" content="备考时用 Noteshelf 记了整整九个月的错题本和课堂笔记，考前一晚 iPad 崩溃笔记本打不开，从慌到镇定再到完整恢复，这篇讲我踩过的坑和真正有用的备份方法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/noteshelf-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命">
+<meta property="og:description" content="备考时用 Noteshelf 记了整整九个月的错题本和课堂笔记，考前一晚 iPad 崩溃笔记本打不开，从慌到镇定再到完整恢复，这篇讲我踩过的坑和真正有用的备份方法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/noteshelf-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/noteshelf-docs/toolbar-full.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/noteshelf-docs/toolbar-full.png">
+
+<meta name="twitter:title" content="考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命">
+<meta name="twitter:description" content="备考时用 Noteshelf 记了整整九个月的错题本和课堂笔记，考前一晚 iPad 崩溃笔记本打不开，从慌到镇定再到完整恢复，这篇讲我踩过的坑和真正有用的备份方法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5907\u8003\u65f6\u7528 Noteshelf \u8bb0\u4e86\u6574\u6574\u4e5d\u4e2a\u6708\u7684\u9519\u9898\u672c\u548c\u8bfe\u5802\u7b14\u8bb0\uff0c\u8003\u524d\u4e00\u665a iPad \u5d29\u6e83\u7b14\u8bb0\u672c\u6253\u4e0d\u5f00\uff0c\u4ece\u614c\u5230\u9547\u5b9a\u518d\u5230\u5b8c\u6574\u6062\u590d\uff0c\u8fd9\u7bc7\u8bb2\u6211\u8e29\u8fc7\u7684\u5751\u548c\u771f\u6b63\u6709\u7528\u7684\u5907\u4efd\u65b9\u6cd5\u3002", "headline": "\u8003\u7814\u524d\u4e00\u5929 iPad \u5dee\u70b9\u53d8\u7816\u5934\uff0c\u6211\u9760\u4e09\u5e74\u524d\u7684 WebDAV \u5907\u4efd\u6551\u4e86\u547d", "image": ["https://laoguosofts.github.io/images/noteshelf-docs/toolbar-full.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/noteshelf-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/noteshelf-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u8003\u7814\u524d\u4e00\u5929 iPad \u5dee\u70b9\u53d8\u7816\u5934\uff0c\u6211\u9760\u4e09\u5e74\u524d\u7684 WebDAV \u5907\u4efd\u6551\u4e86\u547d", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">考研前一天 iPad 差点变砖头，我靠三年前的 WebDAV 备份救了命</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">备考时用 Noteshelf 记了整整九个月的错题本和课堂笔记，考前一晚 iPad 崩溃笔记本打不开，从慌到镇定再到完整恢复，这篇讲我踩过的坑和真正有用的备份方法。</p>
+  </header>
+  <div class="prose serif">
+<p>我考研那年用的是一台 2018 款 iPad，屏幕上贴了三层膜，笔帽咬得坑坑洼洼。九个月的备考期里，所有数学错题、英语阅读的长难句拆解、政治大题的背诵框架，全都落在了 Noteshelf 的笔记本里。室友笑我把 iPad 当电子错题本用得比平板还狠，我当时只觉得这是最顺手的工具，直到考前一天的深夜——</p>
+<h2>崩溃是怎么发生的</h2>
+<p>那晚我在复盘最后一套模拟卷的数学错题，点开那个叫「数学冲刺」的笔记本时，屏幕转了足足一分钟的菊花，然后弹了一行提示：「这个笔记本由旧版本 Noteshelf 创建，需要更新应用。」</p>
+<p>我点进 App Store，Noteshelf 确实有更新，点了升级。升级完再点开，还是同样的提示。我把应用删了后又从<a href="https://noteshelf.hhdc.tech/download.html" target="_blank" rel="noopener">官方下载</a>拿了安装包装回去，还是不行。那一刻后背直接出汗——九个月，整整六十多页的错题、每页密密麻麻的手写标记和裁剪下来的真题图片，全在这一个文件里。</p>
+<p>我翻箱倒柜找了个旧充电器插上 iPad，脑子里闪过的第一个念头不是去找售后，是我三个月前好像跟着某个教程配过 WebDAV 备份到家里的群晖 NAS。那次折腾了半小时才通，后来就没管过，心里甚至还吐槽过「搞这么麻烦，云同步不就行了」。</p>
+<h2>转折：从「同步」到「备份」的认知差</h2>
+<p>Noteshelf 自带的云同步我一直开着，Dropbox 和 Google Drive 都登了。但那天在 Dropbox 网页端翻到 Apps/Noteshelf 文件夹，我发现同步过来的那个「数学冲刺」文件只有 2.3MB，而我本地记得是 80MB 以上——里面塞满了裁剪的真题照片和手写标记。</p>
+<p>原来云同步只同步了文字层面的变更，大量的图片附件和手写墨迹数据，根本没完整传上去。这就是「同步」和「备份」最要命的区别：同步解决多设备访问，备份解决数据丢了还能找回来。我之前把同步当成了备份，这是第一个坑。</p>
+<p>幸好那次折腾 WebDAV 时测试连接成功后，Noteshelf 就默认把本地变更也推一份到 NAS 了。我赶紧登上群晖的 DSM，找到当初创建的那个备份文件夹，果然看到了完整的笔记本文件，大小 83MB。下载下来，从 Noteshelf 的「导入」功能塞回去——别直接点文件打开，那样可能还是旧格式，导入是作为新笔记本载入，数据完整。</p>
+<h2>用了三年才摸透的笔记本质感</h2>
+<p>恢复之后我坐在床边，盯着 iPad 上那个重新亮起来的笔记本，突然想聊聊<a href="https://noteshelf.hhdc.tech" target="_blank" rel="noopener">noteshelf官网</a>到底好在哪。不是功能堆砌的好，是那种「每天用、每天舒服」的小细节。</p>
+<p>笔具系统是我每天接触最多的东西。我自己攒了三档钢笔：1px 的细钢笔用来写解题过程，3px 的压力钢笔在不确定的步骤下面画波浪线，再用半透明的荧光笔把最终正确答案框起来。不同颜色的笔我都收在快速访问栏，取色器可以直接从教材截图上吸颜色，整套笔记的配色就不会乱。之前我试过 Notability，但它的压力钢笔只有两种粗细，对比下来 Noteshelf 的参数调节更细——粗细滑块拉到 50px 时已经接近毛笔效果，写中文大题标题特别有感觉。</p>
+<p><img src="../images/noteshelf-docs/toolbar-full.png" alt="Noteshelf 工具栏笔具齐全" loading="lazy"></p>
+<p>图片标注是我备考阶段用得最多的功能之一。做题时用相机拍了真题卷，导入 Noteshelf 后直接在图片上用套索圈出计算错的那一步，用形状工具画箭头指向正确解法，旁边再用便签写一句「这里符号忘变了」。双指捏合缩放、旋转图片、调透明度当底图参考，这些操作在 iPad 上的手势体验特别顺。教材截图的注释、产品图纸的批注、旅行照片的日记注解，Noteshelf 这套图片上手写标记的能力，比纯文字笔记丰富太多。套索选局部移动、图片裁剪、调透明度当底图参考，更详细的手势和参数可以去<a href="https://noteshelf-docs.pages.dev/" target="_blank" rel="noopener">noteshelf文档</a>翻一遍。</p>
+<p><img src="../images/noteshelf-docs/pdf-annotation.png" alt="PDF 上的手写标注效果" loading="lazy"></p>
+<h2>后来我做了什么</h2>
+<p>恢复笔记之后我没有继续刷题，而是花了一个小时把整个备份体系理了一遍。现在我每天的 Noteshelf 笔记本有三份保障：自动同步到 Google Drive 解决多设备访问，WebDAV 推到家里的群晖 NAS 做实时备份，每月 1 号手动导出一次全部笔记本到移动硬盘做冷备份。</p>
+<p>那个考前差点救了命的笔记本我一直留着，后来虽然没再打开，但它提醒我一件事：笔记软件选得再好，如果没有真正覆盖到图片和手写数据的备份，某天可能就是一场崩溃。很多人跟我之前一样，把云同步当成了备份，这个认知差比软件本身的功能更致命。</p>
+<p>如果你也在用 Noteshelf，或者正打算开始用，去翻翻设置里的「同步与备份」——别只勾自动同步，再建一份 WebDAV 备份到你能完全掌控的存储里。坚果云、OwnCloud、群晖、威联通，哪个都行，测试连接只要几十秒，但真出事时那几十秒的折腾会变成救命稻草。</p>
+<p>现在我毕业好多年了，那台 iPad 还在，Noteshelf 也换了好几个版本。考研笔记本的封面是我当时选的一个「冲刺红」模板，页边还有我用铅笔改错题留下的擦痕痕迹。偶尔翻开来看看，那些手写的公式和标记不只是知识，更像一段认真生活过的证据。</p>
+<p>这套资料我也放到了三个代码仓库里——主仓库在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/noteshelf" target="_blank" rel="noopener">GitHub</a>方便开源社区协作，国内访问快的<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/noteshelf" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/noteshelf" target="_blank" rel="noopener">GitCode</a>也各存了一份——感兴趣的朋友可以去看看。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/impulse-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Impulse 评测：一款把手机做成信号发生器的&#34;反消费主义&#34;App</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/shapr3d.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">用了 Shapr3D 三年，这些藏得真深的功能我最近才摸到</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

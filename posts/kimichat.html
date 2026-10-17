@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间 · 老郭软件铺</title>
+  
+<meta name="description" content="从模型切换到额度消耗，从文件上传到 Agent 产出物保存——这篇避坑指南整理了我用 Kimi Chat 以来真实踩过的六个坑，每个都有症状、原因和现成解法。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/kimichat.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间">
+<meta property="og:description" content="从模型切换到额度消耗，从文件上传到 Agent 产出物保存——这篇避坑指南整理了我用 Kimi Chat 以来真实踩过的六个坑，每个都有症状、原因和现成解法。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/kimichat.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/kimichat/web-ui.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/kimichat/web-ui.png">
+
+<meta name="twitter:title" content="用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间">
+<meta name="twitter:description" content="从模型切换到额度消耗，从文件上传到 Agent 产出物保存——这篇避坑指南整理了我用 Kimi Chat 以来真实踩过的六个坑，每个都有症状、原因和现成解法。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u6a21\u578b\u5207\u6362\u5230\u989d\u5ea6\u6d88\u8017\uff0c\u4ece\u6587\u4ef6\u4e0a\u4f20\u5230 Agent \u4ea7\u51fa\u7269\u4fdd\u5b58\u2014\u2014\u8fd9\u7bc7\u907f\u5751\u6307\u5357\u6574\u7406\u4e86\u6211\u7528 Kimi Chat \u4ee5\u6765\u771f\u5b9e\u8e29\u8fc7\u7684\u516d\u4e2a\u5751\uff0c\u6bcf\u4e2a\u90fd\u6709\u75c7\u72b6\u3001\u539f\u56e0\u548c\u73b0\u6210\u89e3\u6cd5\u3002", "headline": "\u7528 Kimi \u5927\u534a\u5e74\uff0c\u8e29\u8fc7\u7684\u90a3\u4e9b\"\u770b\u7740\u7b80\u5355\u5176\u5b9e\u6709\u5751\"\u7684\u77ac\u95f4", "image": ["https://laoguosofts.github.io/images/kimichat/web-ui.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/kimichat.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/kimichat.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/latest/", "name": "\u6700\u65b0\u7248", "position": 2}, {"@type": "ListItem", "name": "\u7528 Kimi \u5927\u534a\u5e74\uff0c\u8e29\u8fc7\u7684\u90a3\u4e9b\"\u770b\u7740\u7b80\u5355\u5176\u5b9e\u6709\u5751\"\u7684\u77ac\u95f4", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/latest/index.html">最新版</a><span>›</span>
+    <span class="crumb-cur">用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-1" href="../category/latest/index.html">最新版</a></p>
+    <h1 class="post-title serif">用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从模型切换到额度消耗，从文件上传到 Agent 产出物保存——这篇避坑指南整理了我用 Kimi Chat 以来真实踩过的六个坑，每个都有症状、原因和现成解法。</p>
+  </header>
+  <div class="prose serif">
+<p>说实话，Kimi 看着就是个 AI 聊天界面，但用了大半年才发现，它藏着好几个容易翻船的地方。它的<a href="https://kimichat.uerg.quest" target="_blank" rel="noopener">官网</a>直接打开浏览器就能用。最夸张的一次是我以为额度突然被人盗刷了，查了半小时才发现是 Kimi Work 里一个忘了关掉的定时任务在偷偷跑。今天把这些坑整理下来，希望你别像我一样花冤枉时间。</p>
+<p><img src="../images/kimichat/web-ui.png" alt="Kimi 网页端界面" loading="lazy"></p>
+<h2>坑一：切了模型但回答质量没变——Session 吃老模型</h2>
+<p><strong>症状</strong>：输入框上方明明显示「K3」，但 Agent 任务跑出来的结果还是像 K2.6 那样敷衍，复杂推理根本没展开。或者干脆点模型切换按钮半天没反应，界面上模型名就是不肯变。</p>
+<p><strong>原因</strong>：Kimi 的模型切换不是全局立即生效的。你在顶部切了 K3，当前这个 Session 可能还在沿用之前的模型上下文。另外还有几个常见的卡点：会员权益不够用 K3、credits 余额耗尽后系统自动降级到 K2.6、后台有其他 Agent 任务占了并发槽。</p>
+<p><strong>解法</strong>：先确认自己账号权益和 credits 余额没问题，然后<strong>关掉当前对话、新建一个 Session</strong> 再切模型。如果还是不行，直接刷新整个页面。这个问题我踩了好几次，每次都在想「怎么回事」，其实就是 Session 继承了旧模型，新开一个就好。</p>
+<h2>坑二：文件上传失败——文件名里有特殊字符你注意过吗</h2>
+<p><strong>症状</strong>：PDF 或 Excel 上传进度条走到 100% 之后卡住，或者直接提示「解析失败」。你明明知道文件没坏、格式也在支持列表里，但就是传不上。</p>
+<p><strong>原因</strong>：Kimi 对文件名比较严格，中文标点、空格、括号、# 这类特殊字符都可能导致上传后解析失败。<a href="https://kimichat.pages.dev/" target="_blank" rel="noopener">kimichat文档</a>里列了支持的格式是 PDF、Word、Excel、图片、TXT、Markdown，但文件名本身的合法性是另外一回事。另外单文件上限 100MB、单个 Session 最多 50 个文件，这俩硬限制也经常被忽略。</p>
+<p><strong>解法</strong>：上传前把文件名改成纯英文或数字，用下划线或连字符分隔就行——比如 <code>report_2026_q3.pdf</code>。超过 100MB 的文件拆成两份传，文件多的话分批开不同 Session。我现在养成的习惯是下载完任何文件先批量重命名再上传，省了很多事。</p>
+<h2>坑三：credits 突然狂扣——你忘了关掉什么</h2>
+<p><strong>症状</strong>：早上起来一看账户，credits 扣了好几百，但你昨晚根本没跑什么 Agent 任务。最夸张那次我三天没碰 Kimi，扣了将近两千 credits，查了半天才定位到原因。</p>
+<p><strong>原因</strong>：大概率是以下几种情况之一：从<a href="https://kimichat.uerg.quest/download.html" target="_blank" rel="noopener">kimichat下载</a>拿到的 Kimi Work 里挂着一个持续运行的定时任务（Cron）、Kimi Claw 在后台偷偷帮你执行自动化操作、OK Computer 那个虚拟电脑没关还在长时运行、或者网络波动导致 Agent 任务意外重试了好几次但你没察觉。</p>
+<p><strong>解法</strong>：打开账户里的 credits 消耗明细，逐条核对——每条扣除项都会标注对应的任务名和 Session。找到元凶后，不用的 Claw 暂停掉、定时任务频率调到合理值、Agent 任务跑完立刻关掉。<strong>绝对不要频繁中断正在执行的 Agent 任务</strong>，已经执行的部分照样会计费，白烧 credits。</p>
+<h2>坑四：Agent 产出物找不到或损坏——Session 删了东西就没了</h2>
+<p><strong>症状</strong>：Agent 任务顺利完成，产出了一份 PPT 或代码项目，你当时没立刻下载。后来回去翻历史对话，发现那个 Session 被你删了，产出物也跟着没了。或者下载下来的 zip 包解压后文件损坏、打不开。</p>
+<p><strong>原因</strong>：Kimi 云端不会单独保存产出物——它依附于 Session 存在。Session 一删，产出物就没了，没有回收站。另外浏览器偶尔会拦截下载，或者网络波动导致下载不完整。</p>
+<p><strong>解法</strong>：<strong>重要产出物必须立刻下载到本地</strong>，不要相信云端能帮你留着。大文件（网站项目、多 PPT）下载完 zip 包后<strong>立刻解压检查</strong>，有问题直接跟 Kimi 说「把刚才的 PPT 重新生成一下」。我现在的习惯是 Agent 任务完成的第一反应就是点下载、解压、确认文件完整，才关掉对话。</p>
+<h2>坑五：Agent 任务跑到一半停了——不是它罢工了，是 Token 或网络</h2>
+<p><strong>症状</strong>：长文写作或深度研究跑到 80% 左右突然停住了，进度条不再推进，Kimi 也没有任何回复。等了几分钟还是没动静，以为是服务挂了。</p>
+<p><strong>原因</strong>：两种最常见的情况。一是 Token 上限到了——单次回答的 Token 用完，Kimi 自动截断输出。二是网络波动导致连接中断，它也不会主动告诉你，就那样挂着。偶尔也可能是 Kimi 服务本身的临时波动，等几分钟自己就好了。</p>
+<p><strong>解法</strong>：先刷新一下对话界面，然后跟 Kimi 说「继续刚才的回答」。如果不行，<strong>开一个新 Session</strong>，把任务上下文（比如之前已经写到哪了、目标是什么）简述一下让它接着来。我之前有一篇万字研究报告跑到 90% 断了，用这招在新 Session 里接上续写，比重跑快多了。</p>
+<h2>坑六：Kimi 不理解你的问题——模型没配对 + 上下文不够</h2>
+<p><strong>症状</strong>：你问了一个复杂的编程问题或文档处理任务，Kimi 给的回答完全不是你想要的方向，或者只输出了纯文字根本没进入 Agent 模式。换个方式问还是答不对。</p>
+<p><strong>原因</strong>：两个常见的底层问题——<strong>你是不是用了 K2.6 但任务需要 K3 的 Agent 能力？</strong> K2.6 只能聊天，不能执行 Agent 任务，提交复杂任务时它要么告诉你需要切模型，要么勉强用聊天模式答但质量天差地别。另外就是你给的上下文不够——只说「帮我写个 API」但没说用什么框架、要什么功能，Kimi 自然抓不住你的真实意图。</p>
+<p><strong>解法</strong>：提交任何 Agent 级任务之前，<strong>先确认模型已经切到 K3</strong>（顶部按钮看一眼就行）。然后把背景信息给足——上传参考文件、粘贴需求约束、说清楚目标和格式。我之前经常懒得多说，结果来回反复调整问题方向，反而更费时间。</p>
+<p><img src="../images/kimichat/agent-progress.png" alt="Agent 任务执行进度" loading="lazy"></p>
+<h2>防坑清单（速查版）</h2>
+<p>最后整理一份 5 条速查表，每次用之前瞄一眼：</p>
+<ul><li><strong>切模型必开新 Session</strong>，别在旧对话里硬切，继承的上下文会把你坑了</li><li><strong>上传前先重命名文件</strong>，纯英文数字加下划线/连字符，特殊字符一律去掉</li><li><strong>credits 消耗明细定期看</strong>，定时任务和 Claw 不用就暂停，别让后台偷偷烧钱</li><li><strong>Agent 产出物立刻下载解压</strong>，Session 一删就没，云端不是备份地</li><li><strong>复杂任务先确认模型是 K3</strong>，K2.6 只能聊天不能执行，白浪费时间白烧钱</li></ul>
+<p>知道这些坑之后，Kimi 其实相当省心。它的 Agent 模式真的能帮你省很多事，但前提是别踩这些显而易见但又容易忽略的小陷阱。这套防坑的详细说明我也同步整理了一份，在<a href="https://github.com/alipymanbu/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/kimichat" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/kimichat" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%9C%80%E6%96%B0%E7%89%88/kimichat" target="_blank" rel="noopener">GitCode</a>三个仓库都能拿到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/tutuapp-docs.html">装了兔兔助手三天，终于搞明白它到底值不值得花那笔钱</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/clipboard-docs.html">我把剪贴板嵌进客服工作流，每天少点了两百次复制</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-1" href="../category/latest/index.html">最新版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/enpass-docs.html">Enpass 为什么敢不搭自己的服务器</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/bind-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Bind 三年迭代复盘：从&#34;情侣定位&#34;到一个把两个人活成共同体的 App</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/chromecast-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

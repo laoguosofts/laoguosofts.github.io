@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>一周录屏一条链：把手机操作视频从录制到发布缩到三分之一的时间 · 老郭软件铺</title>
+  
+<meta name="description" content="以前录一个 Android 教程视频要折腾三条线来回切，现在 XRecorder 嵌进去后从手机端直接闭环八成工序——这篇讲具体怎么搭这条链，包括最容易断的音频权限和无线传输两个环节。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/xrecorder.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一周录屏一条链：把手机操作视频从录制到发布缩到三分之一的时间">
+<meta property="og:description" content="以前录一个 Android 教程视频要折腾三条线来回切，现在 XRecorder 嵌进去后从手机端直接闭环八成工序——这篇讲具体怎么搭这条链，包括最容易断的音频权限和无线传输两个环节。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/xrecorder.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/xrecorder/floating-controls.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/xrecorder/floating-controls.jpg">
+
+<meta name="twitter:title" content="一周录屏一条链：把手机操作视频从录制到发布缩到三分之一的时间">
+<meta name="twitter:description" content="以前录一个 Android 教程视频要折腾三条线来回切，现在 XRecorder 嵌进去后从手机端直接闭环八成工序——这篇讲具体怎么搭这条链，包括最容易断的音频权限和无线传输两个环节。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u5f55\u4e00\u4e2a Android \u6559\u7a0b\u89c6\u9891\u8981\u6298\u817e\u4e09\u6761\u7ebf\u6765\u56de\u5207\uff0c\u73b0\u5728 XRecorder \u5d4c\u8fdb\u53bb\u540e\u4ece\u624b\u673a\u7aef\u76f4\u63a5\u95ed\u73af\u516b\u6210\u5de5\u5e8f\u2014\u2014\u8fd9\u7bc7\u8bb2\u5177\u4f53\u600e\u4e48\u642d\u8fd9\u6761\u94fe\uff0c\u5305\u62ec\u6700\u5bb9\u6613\u65ad\u7684\u97f3\u9891\u6743\u9650\u548c\u65e0\u7ebf\u4f20\u8f93\u4e24\u4e2a\u73af\u8282\u3002", "headline": "\u4e00\u5468\u5f55\u5c4f\u4e00\u6761\u94fe\uff1a\u628a\u624b\u673a\u64cd\u4f5c\u89c6\u9891\u4ece\u5f55\u5236\u5230\u53d1\u5e03\u7f29\u5230\u4e09\u5206\u4e4b\u4e00\u7684\u65f6\u95f4", "image": ["https://laoguosofts.github.io/images/xrecorder/floating-controls.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/xrecorder.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/xrecorder.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e00\u5468\u5f55\u5c4f\u4e00\u6761\u94fe\uff1a\u628a\u624b\u673a\u64cd\u4f5c\u89c6\u9891\u4ece\u5f55\u5236\u5230\u53d1\u5e03\u7f29\u5230\u4e09\u5206\u4e4b\u4e00\u7684\u65f6\u95f4", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">一周录屏一条链：把手机操作视频从录制到发布缩到三分之一的时间</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">一周录屏一条链：把手机操作视频从录制到发布缩到三分之一的时间</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 9 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前录一个 Android 教程视频要折腾三条线来回切，现在 XRecorder 嵌进去后从手机端直接闭环八成工序——这篇讲具体怎么搭这条链，包括最容易断的音频权限和无线传输两个环节。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要做一件事：把 Android 上某个功能的操作流程录成 3~5 分钟的教程视频，发到 YouTube 和 B 站，邮件通知订阅者。这个任务以前跑下来差不多要两个小时——手机录屏、电脑拷文件、剪映剪辑、加水印、双平台上传，中间还要在系统相册里从一堆 <code>screenrecord_时间戳.mp4</code> 里找对文件。</p>
+<p>这篇不是介绍 XRecorder 是什么，而是说我怎么把它嵌进这条完整的流水线里，以及哪些环节插进去后就再也没动过。</p>
+<h2>旧流程：三条线来回切</h2>
+<p>先说旧流程的卡在哪：</p>
+<ol><li><strong>录屏环节</strong>：用系统自带的录屏工具，每次开录有 3 秒倒计时，结束后去相册找文件——文件名全是时间戳，一次录三条的话要逐个打开确认哪段是哪段</li><li><strong>传输环节</strong>：USB 线插电脑，开手机存储，从一个叫 <code>Movies</code> 或 <code>ScreenRecord</code> 的目录里把文件拖到电脑剪辑文件夹——如果手机开了 USB 调试或者选了"仅充电"模式，还得手动改一下</li><li><strong>后期环节</strong>：剪映导入素材，剪掉开头结尾的空白，加文字说明，然后开 PS 做一个水印 PNG，再合到视频上——这一步最烦，因为每次要调水印位置和透明度</li></ol>
+<p>最后还要开两个浏览器标签页分别上传，写完文案发邮件列表。整条链下来，<strong>手动复制粘贴的环节有四次，在不同 app 之间切换至少七八次</strong>。</p>
+<h2>新流程：XRecorder 插到哪个位置</h2>
+<p>我把 <a href="https://xrecorder.yoan.quest" target="_blank" rel="noopener">xrecorder官网</a> 插在<strong>录屏和传输这两个环节之间</strong>——让手机端直接完成参数设置、画中画、裁剪、水印、重命名这些事，电脑只做最终的 BGM 和字幕。整条链变成了七步：</p>
+<pre><code>① 预设置（录一次，以后不用改）
+② 悬浮窗一键开录
+③ 录完直接在手机上裁掉空白 + 加标注
+④ Pro 版水印直接烧进视频
+⑤ 按规范重命名
+⑥ 无线局域网传输到电脑（不用插 USB）
+⑦ 剪映只做 BGM + 字幕 → 上传</code></pre>
+<h3>① 预设置：只做一次</h3>
+<p>第一次装完（安装包可以从<a href="https://xrecorder.yoan.quest/download.html" target="_blank" rel="noopener">xrecorder下载</a>页拿）后我花了五分钟把参数固定好，以后每次开录都不用再动：</p>
+<ul><li><strong>分辨率</strong>：1080p（我的手机是 2K 屏，日常录教程 1080p 足够；Pro 版能上 4K，但那个对芯片压力太大，录 10 分钟就掉帧）</li><li><strong>FPS</strong>：60（Pro 版 120FPS 文件体积翻倍，教程视频根本看不出区别）</li><li><strong>音频源</strong>：<strong>内部音频 + 麦克风混合</strong>——这个是关键，教程里既要录到 app 声音也要录到我的解说</li><li><strong>悬浮窗</strong>：设成常驻，保留「开始/暂停/画笔/截图」四个按钮，把不用的去掉</li></ul>
+<p><img src="../images/xrecorder/floating-controls.jpg" alt="悬浮窗常驻的一键录制按钮" loading="lazy"></p>
+<h2>实操细节：最容易断链的两个环节</h2>
+<p>整条链大部分环节是顺的，只有两个地方容易出问题，这是我跑了六周总结出来的。</p>
+<h3>环节一：音频源和权限——录完才发现没声音就废了</h3>
+<p>这是<strong>最高频的失败点</strong>，我自己踩过三次坑。XRecorder 本身没 bug，问题出在 Android 系统和各家 ROM 的权限上：</p>
+<p><strong>第一种坑：Android 10 禁止内部音频</strong>。Google 在 Android 10 硬卡了这个权限，第三方 app 录不到内部音频——如果你的手机还在 Android 10，只能选「仅麦克风」模式，或者把手机扬声器开大点让麦克风顺带录到系统声。这个不是 XRecorder 的问题，是系统限制。</p>
+<p><strong>第二种坑：OEM ROM 的特殊开关</strong>。小米 MIUI / HyperOS、OPPO ColorOS、华为 HarmonyOS 这些厂商在系统设置里藏了一个单独的「录制内部音频」开关，XRecorder 的权限列表里看不到，要去系统设置里手动开：</p>
+<ul><li>小米：设置 → 应用设置 → 更多应用设置 → 录屏大师 → 录制内部音频</li><li>OPPO：设置 → 应用管理 → 录屏大师 → 录制内部音频</li><li>华为：设置 → 隐私和安全 → 权限管理 → 录屏大师 → 内部音频录制</li></ul>
+<p>搜不到的话直接在系统设置里搜「内部音频录制」这个关键词，或者去<a href="https://xrecorder.pages.dev/" target="_blank" rel="noopener">xrecorder文档</a>翻完整的权限排查表——能直接跳到对应的开关页面。</p>
+<p><strong>第三种坑：选了「静音」模式忘了改回来</strong>。XRecorder 的音频源设置里有个「静音」选项——上次我录屏前调试了一下，忘了切回「混合音频」，录完发现只有画面没有声音。这种低级错误犯过一次之后，我现在每次开录前都<strong>先录 5 秒测试片段，听一下有没有声音再正式录</strong>。</p>
+<h3>环节二：无线局域网传输——省了 USB 插拔但有门槛</h3>
+<p>这是让整个流程质变的一步。以前每次录完要摸 USB 线、开文件传输模式、找录屏目录——现在我用 ES 文件浏览器开一个 FTP 共享，手机和电脑在同一个 Wi-Fi 下，电脑直接输入手机 IP 就能访问录屏目录，文件直接拖过去。</p>
+<p>但这步有三个前提：</p>
+<ol><li><strong>手机 IP 要固定</strong>：路由器里给手机设一个静态 IP，不然每次重连 Wi-Fi IP 变了，电脑输旧地址就进不去</li><li><strong>电脑防火墙要放行 FTP 端口</strong>：Windows Defender 默认会拦，第一次会弹提示，点允许就行</li><li><strong>传输过程中别关 FTP app</strong>：ES 文件浏览器如果被杀进程了，传输就断了——我的做法是把它加进手机的后台白名单</li></ol>
+<p>我试过的替代方案有：百度云（上传慢，还要电脑端下载）、微信文件传输助手（大视频会被压缩画质）、数据线（最稳但回到旧流程了）。FTP 是目前最平衡的——不用装额外软件，速度取决于本地 Wi-Fi，没有压缩。</p>
+<h2>录完后的收尾：手机端先处理，电脑端减负</h2>
+<p>录完一段之后，我<strong>在手机上直接做三件事</strong>，不让文件带着瑕疵传到电脑：</p>
+<p><strong>第一，裁剪空白</strong>。每次开录前我会等两秒，录完后停两秒——XRecorder 内置的剪辑功能可以精确剪掉前后各两秒，不用导入剪映再拖时间线。</p>
+<p><strong>第二，加标注</strong>。用悬浮窗的画笔按钮，在关键步骤的操作位置画个圈或者写几个字——教程视频里这个很重要，观众一眼能看到重点在哪。内置画笔有高亮、箭头、文字，够用了。</p>
+<p><strong>第三，重命名</strong>。这步是以前最容易被忽略但后期最痛苦的事——默认名是时间戳，一次录三条的话根本分不清哪段是哪段。我给每个文件起有意义的名字：<code>教程-录屏大师设置_20261017.mp4</code>，以后不管在手机上还是电脑上找素材，一眼就能定位。Pro 版支持批量重命名，可以在视频 Tab 里一次性加前缀或后缀。</p>
+<p><img src="../images/xrecorder/facecam-overlay.jpg" alt="Facecam 画中画让解说和画面同步" loading="lazy"></p>
+<h2>效果与边界：这套链什么时候划算</h2>
+<p>先说数据化的效果：</p>
+<ul><li><strong>少了两次手动复制</strong>（USB 插电脑 → 找目录 → 拖文件；开 PS 做水印 → 合到视频）</li><li><strong>不用在相册里逐个找文件</strong>（重命名 + 指定目录，一次录三条也不会混）</li><li><strong>电脑端剪辑时间减半</strong>——剪映只做 BGM 和字幕，其他事手机端搞定</li><li><strong>整个流程从两小时缩到 40 分钟左右</strong></li></ul>
+<p>再说说<strong>边界</strong>——什么情况下这套链不划算：</p>
+<ol><li><strong>4K / 120FPS 专业录屏</strong>：Pro 版能录但对手机性能消耗太大，文件体积是 1080p 的 3~4 倍，后期必须走完整的电脑端剪辑链（Premiere 或 DaVinci Resolve），手机端处理不动</li><li><strong>纯游戏直播录屏</strong>：如果是要带实时解说推流到 YouTube，Pro 版的直连功能确实省了每次手动复制推流密钥的麻烦——但直播本身就是另一条独立链路，和这条"教程录制"流水线不搭</li><li><strong>需要复杂后期的内容</strong>：比如多轨道合成、特效、调色——XRecorder 的内置剪辑只能做裁剪和简单标注，这些还是得靠电脑端的专业软件</li></ol>
+<p>还有一个<strong>隐性成本</strong>：Pro 订阅。我用的是年订阅（Google Play 约 $29.99/年），说实话免费版已经够用——1080p@60fps、内部+麦克风混合、无水印这些核心功能免费版都有。我买 Pro 主要是因为自定义水印和 120FPS，如果你不需要这两个，免费版完全能搭出这条链，只是少了水印那步而已。</p>
+<h2>一句话总结</h2>
+<p>这条链的核心思路是：<strong>能在手机端闭环的事不拖到电脑端</strong>。XRecorder 不是万能的，它解决的是"录完一段干净素材"这个最基础也最容易出问题的环节——参数一次设好，音频权限每次录前 5 秒测试，传输走 FTP，这三个点守好，整条流程跑起来就没什么断点了。如果你的工作流里也有类似"手机录屏 → 后期处理"的环节，可以试试把它插进去。</p>
+<p>我把这套流程里用到的软件版本和参数都同步整理好了——在 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/xrecorder" target="_blank" rel="noopener">GitHub</a> 上维护主版本，<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/xrecorder" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/xrecorder" target="_blank" rel="noopener">GitCode</a> 是备份镜像，国内用户访问 Gitee 通常更顺畅。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/rochat-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">AI 角色扮演赛道这两年我换了五款，最后留下了 Rochat</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/pscc.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">PSCC 从零开始：五分钟上手，修图不求人</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

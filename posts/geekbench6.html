@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Geekbench 6 新手上手指南：五分钟让你的跑分&#34;说人话&#34; · 老郭软件铺</title>
+  
+<meta name="description" content="第一次接触跑分工具？不用担心，这篇从&#34;它到底干嘛的&#34;讲起，带你从零到独立看懂分数、跑出可信结果。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/geekbench6.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geekbench 6 新手上手指南：五分钟让你的跑分&#34;说人话&#34;">
+<meta property="og:description" content="第一次接触跑分工具？不用担心，这篇从&#34;它到底干嘛的&#34;讲起，带你从零到独立看懂分数、跑出可信结果。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/geekbench6.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/geekbench6/macos-result.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/geekbench6/macos-result.png">
+
+<meta name="twitter:title" content="Geekbench 6 新手上手指南：五分钟让你的跑分&#34;说人话&#34;">
+<meta name="twitter:description" content="第一次接触跑分工具？不用担心，这篇从&#34;它到底干嘛的&#34;讲起，带你从零到独立看懂分数、跑出可信结果。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u7b2c\u4e00\u6b21\u63a5\u89e6\u8dd1\u5206\u5de5\u5177\uff1f\u4e0d\u7528\u62c5\u5fc3\uff0c\u8fd9\u7bc7\u4ece\"\u5b83\u5230\u5e95\u5e72\u561b\u7684\"\u8bb2\u8d77\uff0c\u5e26\u4f60\u4ece\u96f6\u5230\u72ec\u7acb\u770b\u61c2\u5206\u6570\u3001\u8dd1\u51fa\u53ef\u4fe1\u7ed3\u679c\u3002", "headline": "Geekbench 6 \u65b0\u624b\u4e0a\u624b\u6307\u5357\uff1a\u4e94\u5206\u949f\u8ba9\u4f60\u7684\u8dd1\u5206\"\u8bf4\u4eba\u8bdd\"", "image": ["https://laoguosofts.github.io/images/geekbench6/macos-result.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/geekbench6.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/geekbench6.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "Geekbench 6 \u65b0\u624b\u4e0a\u624b\u6307\u5357\uff1a\u4e94\u5206\u949f\u8ba9\u4f60\u7684\u8dd1\u5206\"\u8bf4\u4eba\u8bdd\"", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">Geekbench 6 新手上手指南：五分钟让你的跑分&#34;说人话&#34;</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">Geekbench 6 新手上手指南：五分钟让你的跑分&#34;说人话&#34;</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 6 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">第一次接触跑分工具？不用担心，这篇从&#34;它到底干嘛的&#34;讲起，带你从零到独立看懂分数、跑出可信结果。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇能带你从完全不懂到用起来，不需要任何基础。</p>
+<h2>它到底是干嘛的？用一个生活化类比讲明白</h2>
+<p>想象你新买了一辆电动车，店家说"能跑 50 公里"——但你怎么知道这个数字是真实的？Geekbench 就是你给电脑、手机、平板做的那套"续航实测表"，它的<a href="https://geekbench6.hhdc.tech" target="_blank" rel="noopener">官网</a>上每天都有大量真实设备的分数在更新。只不过它测的不是跑多远，而是芯片的算力天花板。</p>
+<p>软件会跑一组精心设计的题目——从图片压缩、密码计算到几何渲染，覆盖日常用得到的几乎所有计算场景。每做完一组，就给你一个分数。单核分对应"一个人干活的速度"，多核分对应"所有人一起上的速度"。分数越高，芯片越强，直接做除法就是性能倍数关系：10000 分就是 5000 分的两倍，没有任何模糊地带。</p>
+<h2>五分钟上手：从安装到第一次跑通的最短路径</h2>
+<p>第一步，找到安装包。你可以从官网直接<a href="https://geekbench6.hhdc.tech/download.html" target="_blank" rel="noopener">下载</a>，Windows 和 macOS 都有对应的安装程序。安卓版去应用商店搜就行，iOS 也能在 App Store 找到。整个安装过程跟装别的软件没什么区别，点几下"下一步"就完事了。</p>
+<p>第二步，准备你的设备。这一步新手最容易忽略，直接决定你第一次跑出来的分准不准。</p>
+<ul><li>笔记本<strong>一定要插电</strong>，电池模式下处理器会被主动限速；</li><li>关掉所有后台应用——云盘同步、浏览器标签页、正在下载的东西，一个都别留；</li><li>确保温度不高：如果是手机，刚打完游戏就等两分钟；如果是笔记本，出风口别被被子挡住；</li><li>电量保持在一半以上，低电量模式会强制压频率。</li></ul>
+<p>第三步，打开软件点"Run"（跑）。就这么简单。整个过程大概两分钟，你啥也不用做，软件自己跑完一组测试。</p>
+<p>跑完之后你会看到两个核心数字：<strong>单核分</strong>和<strong>多核分</strong>。这就是你的芯片当前的性能快照。</p>
+<p><img src="../images/geekbench6/macos-result.png" alt="第一次跑完，你会在主界面看到这两个数字" loading="lazy"></p>
+<h2>上手后先玩这三个功能</h2>
+<h3>先查自己的机器在哪个梯队</h3>
+<p>跑完分别急着关，在成绩页往下翻，你会看到同机型的其他人的成绩分布图。看看你的分在什么位置——高于中位数说明你的散热和环境做得不错，低于底部那条线说明有东西在拖后腿（大概率是后台或省电模式）。</p>
+<p>这就像查高考分数在全省的排名，光看一个 7500 分没感觉，但知道同机型普遍在 6800 到 8200 之间，你立刻就明白自己跑得行不行。</p>
+<h3>对比你之前用的旧机器</h3>
+<p>如果你手头还有一台旧设备（或者之前跑过的成绩截图），试试两台机器的分数直接相除。比如旧手机单核 1800，新手机单核 3600——新手机的单线程性能就是旧手机的整整两倍。</p>
+<p>这比厂商宣传的"提升 30%""提升 50%"靠谱多了，因为分数是线性对应的，没有任何套路。</p>
+<h3>查一查分数为什么偏低</h3>
+<p>如果你的分明显低于同机型均值，先别急着怀疑硬件。新手遇到这种情况九成是环境问题。软件里内置了排查提示，翻一翻它告诉你的常见原因，实在拿不准就去看<a href="https://geekbench6.pages.dev/" target="_blank" rel="noopener">geekbench6文档</a>里详细梳理的诊断流程——按顺序检查：后台关干净了吗？省电模式真的关了吗？温度是不是太高？版本是不是对的（6.0 和 6.1 之后的分数不能混比）？</p>
+<p>排完这一圈，分数通常就正常了。真要排除了所有环境因素还是偏低，那才值得考虑是不是硬件散热出了问题。</p>
+<p><img src="../images/geekbench6/macos-launcher.png" alt="启动界面很干净，点一下就开跑" loading="lazy"></p>
+<h2>小白的三个常见疑问</h2>
+<h3>手机跑分和电脑跑分能直接比吗？</h3>
+<p>能，也不能。能比是因为用的是同一套标尺——基线 2500 分对应一台固定的参考机型，所有平台都换算到这一条线上。不能无脑比是因为散热形态差异太大：手机跑两分钟就烫，频率一上来就降；电脑插着电、有风扇吹，可以持续满负载。所以同分数下，手机的"耐力"其实不如电脑。但<strong>瞬时算力</strong>的对比是完全有效的。</p>
+<h3>为什么有人的分数比我高好几百？我硬件跟他一样啊</h3>
+<p>最大的可能是版本号不同。6.1 版本开始，软件把跑分间隙从 2 秒改成了 5 秒（让芯片有时间散点热），新旗舰手机上的单核分最高可比 6.0 版本高出约 5%，多核最高约 10%。查成绩之前先确认版本号，6.0 的老数据和 6.1 之后的新数据要分开看。</p>
+<h3>跑分到底准不准？会不会作弊？</h3>
+<p>软件的计分逻辑是全透明的——所有测试题目、算法、分数校准方式在技术文档里都写得清清楚楚。而且成绩需要上传到云端才能保存，服务器端会校验测试过程的完整性，没法动手脚。你跑出来的分，就是当前环境下这台芯片能达到的真实水平。</p>
+<hr>
+<p>总结一下：Geekbench 6 不是一个只有发烧友才玩得转的工具，它更像一个给你的设备做体检的小助手。五分钟装完、两分钟跑完，两个数字就能帮你判断"这台机器到底行不行"。</p>
+<p>等你熟练之后，可以去翻一翻中文文档里的分数原理部分——那里解释了为什么分数能直接做除法、为什么不同架构能放在同一张表里比，看懂了这些，你就能在各种评测文章里秒懂作者说的"提升 40%"到底意味着什么。不过国内访问偶有不畅，这套参考资料在 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Geekbench6" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Geekbench6" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Geekbench6" target="_blank" rel="noopener">GitCode</a> 三个平台都有备份，哪个用着顺手就用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/bilipai.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">你以为 BiliPai 只是去广告？这些隐藏功能我翻了三个月才挖全</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/melonticket.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">为了一张韩流演唱会门票，我在 MelonTicket 上算了三笔账</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

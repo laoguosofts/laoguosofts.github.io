@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Wear OS 手表从零折腾全流程：配对、装应用、闪退自救一篇搞定 · 老郭软件铺</title>
+  
+<meta name="description" content="刚入手 Wear OS 手表却不知道怎么装第三方应用？工具箱配对连不上？装完闪退反复重启？这篇教程带你从零把手机端工具箱和手表连起来，装上应用并排查最常见的翻车点。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/wearos.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wear OS 手表从零折腾全流程：配对、装应用、闪退自救一篇搞定">
+<meta property="og:description" content="刚入手 Wear OS 手表却不知道怎么装第三方应用？工具箱配对连不上？装完闪退反复重启？这篇教程带你从零把手机端工具箱和手表连起来，装上应用并排查最常见的翻车点。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/wearos.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/wearos/pair-interface.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/wearos/pair-interface.webp">
+
+<meta name="twitter:title" content="Wear OS 手表从零折腾全流程：配对、装应用、闪退自救一篇搞定">
+<meta name="twitter:description" content="刚入手 Wear OS 手表却不知道怎么装第三方应用？工具箱配对连不上？装完闪退反复重启？这篇教程带你从零把手机端工具箱和手表连起来，装上应用并排查最常见的翻车点。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u521a\u5165\u624b Wear OS \u624b\u8868\u5374\u4e0d\u77e5\u9053\u600e\u4e48\u88c5\u7b2c\u4e09\u65b9\u5e94\u7528\uff1f\u5de5\u5177\u7bb1\u914d\u5bf9\u8fde\u4e0d\u4e0a\uff1f\u88c5\u5b8c\u95ea\u9000\u53cd\u590d\u91cd\u542f\uff1f\u8fd9\u7bc7\u6559\u7a0b\u5e26\u4f60\u4ece\u96f6\u628a\u624b\u673a\u7aef\u5de5\u5177\u7bb1\u548c\u624b\u8868\u8fde\u8d77\u6765\uff0c\u88c5\u4e0a\u5e94\u7528\u5e76\u6392\u67e5\u6700\u5e38\u89c1\u7684\u7ffb\u8f66\u70b9\u3002", "headline": "Wear OS \u624b\u8868\u4ece\u96f6\u6298\u817e\u5168\u6d41\u7a0b\uff1a\u914d\u5bf9\u3001\u88c5\u5e94\u7528\u3001\u95ea\u9000\u81ea\u6551\u4e00\u7bc7\u641e\u5b9a", "image": ["https://laoguosofts.github.io/images/wearos/pair-interface.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/wearos.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/wearos.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/licensed/", "name": "\u6b63\u7248", "position": 2}, {"@type": "ListItem", "name": "Wear OS \u624b\u8868\u4ece\u96f6\u6298\u817e\u5168\u6d41\u7a0b\uff1a\u914d\u5bf9\u3001\u88c5\u5e94\u7528\u3001\u95ea\u9000\u81ea\u6551\u4e00\u7bc7\u641e\u5b9a", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/licensed/index.html">正版</a><span>›</span>
+    <span class="crumb-cur">Wear OS 手表从零折腾全流程：配对、装应用、闪退自救一篇搞定</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-5" href="../category/licensed/index.html">正版</a></p>
+    <h1 class="post-title serif">Wear OS 手表从零折腾全流程：配对、装应用、闪退自救一篇搞定</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">刚入手 Wear OS 手表却不知道怎么装第三方应用？工具箱配对连不上？装完闪退反复重启？这篇教程带你从零把手机端工具箱和手表连起来，装上应用并排查最常见的翻车点。</p>
+  </header>
+  <div class="prose serif">
+<p>这篇教程结束时，你能做到三件事：把手机端的 Wear OS 工具箱和手表成功配对、给手表装上第三方 APK、遇到装完闪退时自己按流程图排查到根因。</p>
+<h2>准备工作</h2>
+<p>先确认三样东西就位：</p>
+<ul><li>一台跑 Android 8.0 以上的手机（<a href="https://wearos.wxhp.skin" target="_blank" rel="noopener">Wearos官网</a>发布的这款工具箱是 Android 应用，iOS 用户走不通这条线）</li><li>一块 Wear OS 手表（三星 Galaxy Watch、Pixel Watch、小米手表 Color 2 这类都行，只要系统是 Wear OS 2 或 3+）</li><li>工具箱安装包从<a href="https://wearos.wxhp.skin/download.html" target="_blank" rel="noopener">官方下载</a>拿到手，别从 APK 镜像站随手抓一份就装——某些被二次打包的版本会少掉无线调试所需的权限</li></ul>
+<p>手表那边提前打开「开发者选项」：连点「设置 → 关于手表 → 版本号」五次解锁，然后在开发者选项里把「无线调试」开关拨到打开。手表会弹出一个配对码，等下要用。</p>
+<p><img src="../images/wearos/pair-interface.webp" alt="手机与手表配对界面" loading="lazy"></p>
+<h2>第一步：手机和手表配对</h2>
+<p>打开工具箱，首屏就是连接向导。点「添加设备」，选择你的手表型号。</p>
+<p>工具箱会通过蓝牙先和手表建立基础连接，然后弹出手表上显示的无线调试配对码。把那个六位数字输进手机上的输入框，别写错——错了手表端会取消配对，得从头再来。</p>
+<p><img src="../images/wearos/wireless-debug-interface.webp" alt="无线调试连接界面" loading="lazy"></p>
+<p>配对成功后，工具箱主界面会显示手表的电池电量、系统版本、存储占用这些基本信息。走到这步说明底层连接打通了，后面的操作才能正常推送。</p>
+<h2>第二步：给手表装第一个第三方应用</h2>
+<p>工具箱主界面往下滑，找到「安装应用」入口。点进去后有两种方式：直接选手机本地的 APK 文件，或者从工具箱内置的应用库里挑。</p>
+<p>先试本地 APK——选好文件后，工具箱会自动校验 APK 的架构是否匹配。手表都是 ARM64 架构，如果 APK 是 x86 模拟器包或者只支持 armeabi 旧架构，工具箱会直接拒绝推送并提示你重新下对应 ARM64 的版本。</p>
+<p>推送完成后，手表应用列表里会出现新图标。点一下，如果能正常打开主界面，恭喜——第一个第三方应用装成了。进阶的安装选项比如 Split APK 合并，<a href="https://wearos.pages.dev/" target="_blank" rel="noopener">Wearos文档</a>里有完整的操作说明和常见问题汇总。</p>
+<h2>第三步：如果装完闪退，按这个流程查</h2>
+<p>这是新手最容易翻车的环节。装完图标有了，但点一下闪退回表盘，或者弹「应用已停止运行」对话框。别急着卸载重来，按这个优先级往下查：</p>
+<p><strong>先看界面形态。</strong> 打开应用后如果能看到界面但布局明显是手机版缩小——四角按钮点不到、文字溢出屏幕、字体超大或超小——那就是这个应用没做 Wear OS 圆形小屏幕的适配。换一个有专门 Wear OS 版本的同类应用就行，硬撑下去体验会很差。</p>
+<p><strong>界面看着正常但一启动就崩？清除数据再开一次。</strong> 工具箱的应用管理里找到刚装的那个应用，点「清除数据」把它重置到刚安装的干净状态。然后回到手表上重新打开，这时候应用会重新弹权限申请——逐个确认，确保每个权限都点了允许，尤其是通知、存储、身体传感器这几个高频项。之前如果误点了「拒绝且不再询问」，去手表「设置 → 应用管理 → 权限管理」手动把对应开关打开。</p>
+<p><strong>还是闪退？卸载干净重装。</strong> 工具箱里先卸载这个应用，然后打开手表的文件管理功能，手动删掉 <code>/sdcard/Android/data/&lt;包名&gt;/</code> 这个残留目录——很多人漏了这一步，同包名但不同签名的旧残留会干扰新应用启动。删完之后重新下载一份 APK 推送安装。</p>
+<p><strong>最后核对系统版本和架构。</strong> 查一下这个应用的最低 Android 版本要求——如果它要 Android 11+，但你的手表跑的是 Wear OS 2（基准是 Android 8），那找旧版本 APK 或者放弃。架构同理，确认 APK 是 ARM64 专用的。</p>
+<pre><code>装完闪退
+ ↓
+界面是不是明显手机版缩小？ → 是 → 没适配 Wear OS，换应用
+ ↓ 否
+工具箱应用管理里先清除数据 → 重新打开应用，逐个授权
+ ↓
+还是闪退？
+ ↓
+卸载应用 + 删除 /sdcard/Android/data/&lt;包名&gt;/ 残留 → 重下 APK 重装
+ ↓
+还是不行？确认系统版本和架构</code></pre>
+<h2>常见卡点三个</h2>
+<p><strong>卡点一：配对码总是输错导致连接失败。</strong> 手表屏幕上显示的配对码只停留十几秒，过了就得重新点无线调试刷新。建议先把手机输入法切到纯数字键盘，输的时候看一眼手表屏幕确认没输反。</p>
+<p><strong>卡点二：Split APK 只装了 base 包。</strong> 从 APKPure 或 APKMirror 下的应用经常是 split 格式——base.apk 是主包，还有 config.arm64_v8a.apk（架构适配）、config.zh.apk（中文语言）等小分包。普通安装器只推 base 包，装完应用会因为找不到资源文件而闪退。工具箱的 Split APK 安装功能可以一次性把所有分包装好，需要捐赠解锁。</p>
+<p><strong>卡点三：系统版本太低装不了新应用。</strong> Wear OS 2 到 Wear OS 3 是一次大版本跃迁，Android 基准从 8 升到了 11。很多新应用只支持 Wear OS 3+，旧手表要么刷第三方 ROM 升系统，要么找这个应用的旧版本 APK。别直接放弃，旧版本通常还能正常用。</p>
+<h2>进阶还能玩什么</h2>
+<p>配对和装应用只是起步。工具箱还有一堆藏在后面的功能：Prop 系统变量编辑可以伪装设备型号骗过某些应用的检测（比如把小米手表伪装成 Galaxy Watch 装独占应用）；手表端文件的文本编辑器能直接在手机上看崩溃日志、改配置文件；还有 Shell 命令行，玩 Linux 的人会很熟悉。这些功能大多需要捐赠解锁，免费版也够用，但玩到深处迟早会碰。</p>
+<p>最后补一句：这套资料我同步维护在三个仓库上，<a href="https://github.com/alipymanbu/APK/tree/main/%E6%AD%A3%E7%89%88/Wearos" target="_blank" rel="noopener">GitHub</a>是主同步源、<a href="https://gitee.com/manbu1103/APK/tree/main/%E6%AD%A3%E7%89%88/Wearos" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E6%AD%A3%E7%89%88/Wearos" target="_blank" rel="noopener">GitCode</a>作为国内镜像节点，网络不好的话选后者体验会好不少。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/italki.html">用italki约外教踩过的四个坑——钱花了才后知后觉</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/minimax-docs.html">完全不懂AI也能上手的MiniMax——五分钟跑通第一次任务</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-5" href="../category/licensed/index.html">正版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/nokoprint.html">换过三台打印机后，我为什么把 NokoPrint 留在手机里</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/human-benchmark-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Human Benchmark 藏得最深的三个进阶技巧，用了两周反应时间降了 30ms</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/retroarch-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">把RetroArch翻个底朝天后，我挖到了5个官方没说的隐藏玩法</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

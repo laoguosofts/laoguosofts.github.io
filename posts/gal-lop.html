@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>把 Gal Lop 嵌进我的 Gal 创作流水线——从素材入库到多线发布的一套链 · 老郭软件铺</title>
+  
+<meta name="description" content="以前做一个 Gal 短篇要跨三四个工具来回切，素材管理、分支逻辑、章节组织各管各的。现在 Gal Lop 把创作环节串成一条连续工作流，省掉了中间大量手动复制和版本同步。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/gal-lop.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把 Gal Lop 嵌进我的 Gal 创作流水线——从素材入库到多线发布的一套链">
+<meta property="og:description" content="以前做一个 Gal 短篇要跨三四个工具来回切，素材管理、分支逻辑、章节组织各管各的。现在 Gal Lop 把创作环节串成一条连续工作流，省掉了中间大量手动复制和版本同步。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/gal-lop.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/gal-lop/screenshot-4.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/gal-lop/screenshot-4.jpg">
+
+<meta name="twitter:title" content="把 Gal Lop 嵌进我的 Gal 创作流水线——从素材入库到多线发布的一套链">
+<meta name="twitter:description" content="以前做一个 Gal 短篇要跨三四个工具来回切，素材管理、分支逻辑、章节组织各管各的。现在 Gal Lop 把创作环节串成一条连续工作流，省掉了中间大量手动复制和版本同步。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u505a\u4e00\u4e2a Gal \u77ed\u7bc7\u8981\u8de8\u4e09\u56db\u4e2a\u5de5\u5177\u6765\u56de\u5207\uff0c\u7d20\u6750\u7ba1\u7406\u3001\u5206\u652f\u903b\u8f91\u3001\u7ae0\u8282\u7ec4\u7ec7\u5404\u7ba1\u5404\u7684\u3002\u73b0\u5728 Gal Lop \u628a\u521b\u4f5c\u73af\u8282\u4e32\u6210\u4e00\u6761\u8fde\u7eed\u5de5\u4f5c\u6d41\uff0c\u7701\u6389\u4e86\u4e2d\u95f4\u5927\u91cf\u624b\u52a8\u590d\u5236\u548c\u7248\u672c\u540c\u6b65\u3002", "headline": "\u628a Gal Lop \u5d4c\u8fdb\u6211\u7684 Gal \u521b\u4f5c\u6d41\u6c34\u7ebf\u2014\u2014\u4ece\u7d20\u6750\u5165\u5e93\u5230\u591a\u7ebf\u53d1\u5e03\u7684\u4e00\u5957\u94fe", "image": ["https://laoguosofts.github.io/images/gal-lop/screenshot-4.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/gal-lop.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/gal-lop.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u628a Gal Lop \u5d4c\u8fdb\u6211\u7684 Gal \u521b\u4f5c\u6d41\u6c34\u7ebf\u2014\u2014\u4ece\u7d20\u6750\u5165\u5e93\u5230\u591a\u7ebf\u53d1\u5e03\u7684\u4e00\u5957\u94fe", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">把 Gal Lop 嵌进我的 Gal 创作流水线——从素材入库到多线发布的一套链</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">把 Gal Lop 嵌进我的 Gal 创作流水线——从素材入库到多线发布的一套链</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前做一个 Gal 短篇要跨三四个工具来回切，素材管理、分支逻辑、章节组织各管各的。现在 Gal Lop 把创作环节串成一条连续工作流，省掉了中间大量手动复制和版本同步。</p>
+  </header>
+  <div class="prose serif">
+<p>我每周要做一到两个 Gal 小短篇，投给平台拿点流量分润。以前这套活是这样干的：素材用 Aseprite 画完放网盘，剧情分支在 Excel 里列变量表，章节大纲写在飞书文档，最后打开 Unity 搭节点——四个工具来回切，每改一次分支逻辑就要去 Excel 改变量、去 Unity 重连节点，来回两三次就嫌烦了。</p>
+<p>后来从 <a href="https://gal-lop.usea.quest" target="_blank" rel="noopener">Gal Lop官网</a> 注册了账号嵌进去当核心创作环节，整条链被砍掉了中间至少两倍的手动操作。不是 Gal Lop 里哪个单一功能特别强，而是它把素材、节点、变量、章节这几个本来分散的创作元素收在同一条时间线上，上下游衔接的成本一下就没了。这篇就讲我怎么把它插进现有流程，以及哪些环节最容易断链。</p>
+<h2>旧流程到底卡在哪</h2>
+<p>说具体的痛点比空话有用：</p>
+<ul><li>素材换分辨率时，Aseprite 改完存网盘，Unity 里拉进来立绘位置偏了三格，每个用到这张立绘的节点都得调一遍。我做中短篇动辄上百节点，改一次四十分钟没了。</li><li>分支逻辑改条件阈值时，Excel 里的变量表改完，Unity 里条件节点要手动重敲每个运算符和变量名。Gal 变量名全是中文（好感度小樱、事件_告白成功），手打错一个字条件就永远不触发——我至少踩过三次这个坑。</li><li>章节加新段落时，飞书文档里改完大纲，Unity 里时间线要在中间插节点、重新分组、确认分支没断。一个不小心分支连错位置，预览跑到一半卡住，从头排查又半小时。</li></ul>
+<p>总结下来：跨工具版本同步 + 中文变量名手打 + 节点重排不影响分支，这三件事耗掉了我创作 60% 的体力，而实际写剧情、调分支逻辑只用了 40%。</p>
+<h2>新流程怎么接：Gal Lop 当创作中枢</h2>
+<p>整条新链还是保留 Aseprite 画素材和发布到平台这两头，中间全交给 Gal Lop。说清衔接点最重要。</p>
+<h3>上游：素材入库</h3>
+<p>Aseprite 画完的立绘和背景不再存网盘等 Unity 拉，而是直接拖进 Gal Lop 项目的素材库。第一次拖进去后，打开位置校准界面——Gal Lop 有个半透明的内置素材剪影当参考层，立绘拖到脚底和剪影对齐、缩放让头部对上，背景用标准网格对齐地平线。校准完选"应用到所有使用这个素材的节点"，以后不管在哪个节点里拉这张立绘，位置都是对的。</p>
+<p><img src="../images/gal-lop/screenshot-4.jpg" alt="Gal Lop 立绘位置校准界面" loading="lazy"></p>
+<p>这个环节解决了旧流程里的第一个卡壳点：Aseprite 改完素材不用再手动去每个节点调位置。Gal Lop 的素材库和时间线是强绑定的，素材改了、校准过，所有引用它的节点自动跟着更新。</p>
+<h3>中枢：节点 + 变量 + 章节三合一</h3>
+<p>安装包从 <a href="https://gal-lop.usea.quest/download.html" target="_blank" rel="noopener">官方下载</a> 拿，移动端平板端都支持。进入 Gal Lop 编辑页面，上半部分是节点时间线，下半部分是属性面板。三个核心创作元素在这里合流：</p>
+<ul><li><strong>节点</strong>：对话、CG、纯文本、选项、结局——五种类型覆盖了 Gal 创作的全部画面。在时间线空白处点一下就能加节点，长按拖拽排序，点节点右侧的连线区域画分支。</li><li><strong>变量</strong>：条件式分支不再需要去 Excel 列表——Gal Lop 条件节点直接在界面里设判定条件，运算符是下拉选的（等于、大于等于、布尔真假），变量名从变量列表里复制粘贴不用手打。支持 AND / OR 复合条件，好感度分水岭、剧情收束点、可重玩内容这三种典型模式直接套。</li><li><strong>章节</strong>：时间线里点"插入章节标记"就能分段，Gal Lop 会自动把后续节点归进这个章节。三种类型（普通、分支、结局章节）对应不同剧情阶段，章节之间还能设钩子（悬念、反转、角色关系变化）。</li></ul>
+<p>我做中篇时习惯边写边分章节——每写完一个剧情转折点就插一个章节标记，Gal Lop 自动处理好边界，不用等全部写完再回头划。预览模式还支持"从第 N 章开始预览"，测中间章节的分支不用从头跑一遍。</p>
+<h3>下游：发布环节</h3>
+<p>Gal Lop 自带发布入口——创作工作区找到项目 → 点发布 → 确认名称简介分类 → 提交。发布后还能继续编辑更新，读者看到的是最新版本。如果要导出到别的平台，Gal Lop 支持把节点数据导成 JSON，后续脚本可以直接转格式喂给 Unity 或 Ren'Py。</p>
+<p>这步其实比以前手动打包 Unity 工程省了不少事——以前打包一次要半小时，现在导出 JSON 加脚本转换五分钟搞定。</p>
+<h2>最容易断链的两个环节，怎么处理</h2>
+<p>整条流程跑下来，有两个地方我一开始经常出问题，后来摸出了固定处理姿势。</p>
+<h3>断链点一：条件节点变量名拼写</h3>
+<p>Gal Lop 不自动补全变量名，<a href="https://gal-lop.pages.dev/" target="_blank" rel="noopener">Gal Lop文档</a> 里专门提过这点，手打中文变量名（好感度小樱、事件_告白成功）时多打一个下划线或少一个字，条件就永远不触发，症状是预期走的分支没走到。这个坑我踩了至少三次才改过来——现在条件节点里的变量名一律从变量列表里复制粘贴，绝不用手敲。</p>
+<p>极端值测试也必须做一遍：条件是 <code>好感度_A &gt;= 50</code>，那就分别用 0（最低）、49（刚好不触发）、50（边界）、99（最高）四个值跑预览，确认每个值走的路径都对。Gal Lop 预览模式支持从任意节点开始，测条件分支时先在之前的选项节点把变量调到目标值，然后直接从条件节点开始预览就行，不用从头跑完。</p>
+<h3>断链点二：章节重排影响分支</h3>
+<p>我以前飞书改完章节大纲，去 Unity 插节点重排时间线，经常不小心把某个分支的连线扯断——预览跑到条件节点就卡住。Gal Lop 里章节标记是独立于节点的，章节内节点重排不会影响分支连线。但如果在章节标记之间插了新节点，Gal Lop 会自动把它归进后一个章节，这点要留意，插完确认一下新节点的章节归属对不对。</p>
+<p>我现在每写完一个章节，都会用 Gal Lop 的"章节折叠"功能把已完成的章节折起来，时间线里只看当前正在写的章节，减少视线干扰，也不会误碰已完成章节里的分支连线。</p>
+<h2>效果和边界：省了多少、什么时候不划算</h2>
+<p>具体说量化效果：以前做一个 1~3 小时的中篇，素材调整 + 分支改条件 + 章节重排这三件事合计要花 4~6 小时。现在 Gal Lop 里这三件事串在一起做，总共 1~2 小时——少了 3~4 小时的跨工具手动同步。</p>
+<p>但这条链也有边界。Gal Lop 目前的导出能力还比较受限，如果最终要投的平台是 Ren'Py 或 Unity 专属格式，导出 JSON 之后还得自己写转换脚本——这步 Gal Lop 替不了。另外如果是超长篇（5 小时以上、数十个分支路线），Gal Lop 的时间线视图会开始变挤，章节折叠虽然能缓解，但还是不如专业 Gal 引擎的可视化分支图直观。这种情况我还是会把 Gal Lop 当原型验证工具，逻辑跑通了再迁到 Ren'Py。</p>
+<p>总的来说，对我这种每周一到两个中短篇的产出节奏，Gal Lop 嵌进创作链路后效率提升是实打实的——省掉的不只是时间，更重要的是创作节奏不被跨工具同步打断。写剧情、调分支、插章节，三个动作在同一条时间线上连续推进，这种心流状态才是生产力工具真正该给的东西。</p>
+<p>这套 Gal 创作工作流的完整资料在三个仓库都能拿到——<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Gal%20Lop" target="_blank" rel="noopener">GitHub</a> 上维护着开源文档和变量系统示例，<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Gal%20Lop" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Gal%20Lop" target="_blank" rel="noopener">GitCode</a> 做了镜像方便国内访问，章节模板也同步更新。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/qcy.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">买了 QCY 耳机别只连蓝牙——这个 APP 能让你的耳机好用十倍</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/glasswire-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">GlassWire 为什么能把你的网络画成心电图？</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

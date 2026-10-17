@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>AssetStudio 用了快一年，它帮我扒了几十款 Unity 游戏 · 老郭软件铺</title>
+  
+<meta name="description" content="从 2025 年初第一次装 AssetStudioMod 到现在，CLI 批量导资源、GUI 预览排查问题、Il2Cpp 解密链路踩了无数坑。这是一篇老用户的长期使用报告。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/assetstudio.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AssetStudio 用了快一年，它帮我扒了几十款 Unity 游戏">
+<meta property="og:description" content="从 2025 年初第一次装 AssetStudioMod 到现在，CLI 批量导资源、GUI 预览排查问题、Il2Cpp 解密链路踩了无数坑。这是一篇老用户的长期使用报告。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/assetstudio.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/assetstudio/gui-loading.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/assetstudio/gui-loading.png">
+
+<meta name="twitter:title" content="AssetStudio 用了快一年，它帮我扒了几十款 Unity 游戏">
+<meta name="twitter:description" content="从 2025 年初第一次装 AssetStudioMod 到现在，CLI 批量导资源、GUI 预览排查问题、Il2Cpp 解密链路踩了无数坑。这是一篇老用户的长期使用报告。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece 2025 \u5e74\u521d\u7b2c\u4e00\u6b21\u88c5 AssetStudioMod \u5230\u73b0\u5728\uff0cCLI \u6279\u91cf\u5bfc\u8d44\u6e90\u3001GUI \u9884\u89c8\u6392\u67e5\u95ee\u9898\u3001Il2Cpp \u89e3\u5bc6\u94fe\u8def\u8e29\u4e86\u65e0\u6570\u5751\u3002\u8fd9\u662f\u4e00\u7bc7\u8001\u7528\u6237\u7684\u957f\u671f\u4f7f\u7528\u62a5\u544a\u3002", "headline": "AssetStudio \u7528\u4e86\u5feb\u4e00\u5e74\uff0c\u5b83\u5e2e\u6211\u6252\u4e86\u51e0\u5341\u6b3e Unity \u6e38\u620f", "image": ["https://laoguosofts.github.io/images/assetstudio/gui-loading.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/assetstudio.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/assetstudio.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/chinese-version/", "name": "\u4e2d\u6587\u7248", "position": 2}, {"@type": "ListItem", "name": "AssetStudio \u7528\u4e86\u5feb\u4e00\u5e74\uff0c\u5b83\u5e2e\u6211\u6252\u4e86\u51e0\u5341\u6b3e Unity \u6e38\u620f", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/chinese-version/index.html">中文版</a><span>›</span>
+    <span class="crumb-cur">AssetStudio 用了快一年，它帮我扒了几十款 Unity 游戏</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a></p>
+    <h1 class="post-title serif">AssetStudio 用了快一年，它帮我扒了几十款 Unity 游戏</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从 2025 年初第一次装 AssetStudioMod 到现在，CLI 批量导资源、GUI 预览排查问题、Il2Cpp 解密链路踩了无数坑。这是一篇老用户的长期使用报告。</p>
+  </header>
+  <div class="prose serif">
+<p>装它到现在快一年了。第一次是为了扒某个手游的 Live2D 立绘，搜了一圈发现 AssetStudio 是圈内标配，去<a href="https://assetstudio.laze.skin" target="_blank" rel="noopener">assetstudio官网</a>看了一下功能列表，<a href="https://assetstudio.laze.skin/download.html" target="_blank" rel="noopener">官方下载</a>解压直接能跑，没多想就用上了。</p>
+<p>当初为什么装，真就一句话：Unity 游戏里藏着好东西，AssetStudio 是掏它的工具。没什么宏大理由，就是想把游戏里的贴图、音频、模型拿出来自己看看、改改。</p>
+<h2>哪点越用越顺手</h2>
+<p>刚上手时最头疼的是<strong>大包加载</strong>——几百 MB 的 AssetBundle 直接 Load 进去，内存峰值能顶到 16G，电脑跟开锅似的转风扇，最后直接被系统杀进程。那时候反复试反复挂，一度以为自己配置不够。</p>
+<p>后来才发现正确姿势是「先 Extract，再 Load」。AssetStudio 本身就有 Extract 功能，File 菜单里点一下，选个目录，等它把 AssetBundle 拆成普通文件再加载。解压后的文件读取不再整包占内存，大包也能稳住。这个发现真的是从别扭到习惯的转折点——现在不管包多大，第一反应就是 Extract，不用想。</p>
+<p>CLI 模式也是越用越顺手的代表。刚开始只会用 GUI 点来点去，每次导资源都要手动选类型、选目录，重复劳动烦死人。后来写批处理脚本发现 CLI 更爽：一条命令搞定 <code>info</code> 统计、<code>export</code> 筛选、<code>dump</code> JSON 序列化，还能跨平台用 <code>dotnet</code> 跑。现在导资源基本开 PowerShell 打命令，只有预览确认和排查问题才切回 GUI。</p>
+<p><img src="../images/assetstudio/gui-loading.png" alt="GUI 加载界面" loading="lazy"></p>
+<p>搜索功能也值得提。AssetStudioMod 的正则模式真的好用——<code>RegexName</code> 或 <code>RegexContainer</code> 下拉选一下，就能用正则过滤资源。比如想找所有名字里带 <code>bgm</code> 或 <code>music</code> 的音频，一条正则就筛出来了，比手动翻列表效率翻十倍。</p>
+<h2>哪点越用越烦</h2>
+<p>MonoBehaviour 绝对是常年让人头疼的那个。Asset List 里能看到 MonoBehaviour 条目，但选中后预览面板经常显示「Assembly not found」，或者弹窗让你选程序集目录。最糟的情况是选了之后反序列化结果空的、字段全乱码。</p>
+<p>Mono 后端还好办，找到游戏的 Managed 目录喂给 AssetStudio 就行，里面有 Assembly-CSharp.dll 和各种第三方 DLL。但 Il2Cpp 后端就麻烦了——没有 Managed 目录，C# 代码提前编译成原生机器码了。得先跑 Il2CppDumper，拿 dummy dll 再喂给 AssetStudio。这个链路长，而且每个游戏版本的 Il2CppDumper 产物都不一样，版本对不上就白折腾。</p>
+<p>更烦的是 Il2CppDumper 本身也会踩坑。Unity 版本太新可能不兼容，global-metadata.dat 被厂商加密就直接打不开。遇到加密的游戏，AssetStudio 解不了，只能放弃。这种情况碰到过好几次，每次都是折腾半小时最后白忙活。</p>
+<p>大包加载慢也是长期痛点。Extract 虽然能解决内存问题，但 Extract 本身对几百 MB 的 AssetBundle 也要跑个好几分钟。批量处理的时候，Extract 一个包再 Load 一个，串行下来光等解压就烦。试过同时开多个 AssetStudio 实例并行处理，但 CPU 占用直接拉满，系统又开始卡了。</p>
+<h2>哪个功能成了每天离不开的</h2>
+<p><strong>Scene Hierarchy 标签页</strong>。刚开始觉得 Asset List 找东西快，但做 Mod 的时候才发现 Scene Hierarchy 才是核心——树形结构按 GameObject 父子关系组织，展开一个节点能看到它挂了哪些 MonoBehaviour 组件、引用了哪些 Mesh 和 Sprite。找场景里的具体对象、看组件依赖关系，全靠它。</p>
+<p>尤其是导出 FBX 的时候，从 Scene Hierarchy 右键勾选 GameObject，走 Model → Export selected objects with AnimationClip，能把 Mesh + 材质 + 贴图 + 动画一起导出来。Asset List 直接导出 OBJ 只有裸网格，不带材质贴图，那是快但不完整。做 Mod 要的是完整对象，FBX 才是归宿。</p>
+<p>还有 OpenGL 预览的三种模式——Wireframe 线框、Flat 平面着色、面法线可视化。导出前一定要在预览面板里确认模型没问题，不然导出来才发现破面、法线方向错了，白费功夫。Ctrl+W 切线框看顶点结构，Ctrl+S 切着色模式，Ctrl+N 看面法线方向，这三个快捷键现在都是肌肉记忆了。</p>
+<h2>哪个碰都没再碰过</h2>
+<p><code>movietexture</code> 类型的导出。试过几次，不是格式不支持就是导出来没法用。查了<a href="https://assetstudio.pages.dev/" target="_blank" rel="noopener">assetstudio文档</a>才知道 Unity 的视频资源编码五花八门，AssetStudio 对 MovieTexture / VideoClip 的支持一直不完善。后来就再也没碰过视频资源，反正也不怎么需要。</p>
+<p>还有 <code>splitObjects</code> 模式。文档里说能把所有 GameObject + Animator + Clip 拆成独立 FBX，但跑了一次发现导出的 FBX 结构乱得离谱，Animator 控制器和 Clip 的关联全丢了。不知道是用法不对还是功能本身就那样，反正没再用过。</p>
+<h2>观感修正：当初的几个判断变了</h2>
+<p><strong>高估了 AssetStudio 的兼容性</strong>。刚上手时以为它能扒任何 Unity 游戏，实际遇到 UnityCN 加密、metadata 加密、最新 Unity 6 打包的游戏就会卡住。Il2Cpp 后端 + 加密 metadata 的组合，AssetStudio 基本无解，得换专门的工具链。它很强但不是万能的，这个认知是花了好几个被浪费的下午才建立的。</p>
+<p><strong>低估了 CLI 的价值</strong>。GUI 确实直观，但批量处理、自动化脚本才是效率天花板。现在写个 PowerShell 脚本，把一个目录下所有 AssetBundle 先 Extract 再 info，统计完每种资源类型再 export 贴图，一条命令跑完全流程。手动点 GUI 的时间够处理十个包了。</p>
+<p><strong>重新理解了 AssetStudioMod 的定位</strong>。原版 AssetStudio 停更后，AssetStudioMod 接了接力，加了正则搜索、CLI 批量模式、IL2CPP dummy dll 自动加载这些实用功能。刚开始以为是原版的小修小补，现在看它已经是独立的替代品了——原版有的它有，原版没有的它也有。</p>
+<h2>去留结论</h2>
+<p>不会卸载。它是我扒 Unity 资源的第一选择，GUI 预览、CLI 批量导出、FBX 完整对象导出，这三样功能的组合在免费工具里找不到更好的替代。</p>
+<p>什么信号出现就该换了？大概是遇到 Unity 版本不兼容 + Il2Cpp 加密的组合越来越频繁的时候。或者 AssetStudioMod 也停更了，没人维护适配新版本 Unity。但现在还没到那一步，它帮我扒了几十款游戏，值回下载它的那一分钟。</p>
+<p>AssetStudio 的中文版资料我在三个仓库都做了备份，<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/assetstudio" target="_blank" rel="noopener">GitHub</a> 上是主维护，<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/assetstudio" target="_blank" rel="noopener">Gitee</a> 和 <a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%AD%E6%96%87%E7%89%88/assetstudio" target="_blank" rel="noopener">GitCode</a> 有镜像，国内访问慢的时候直接镜像拉就行。</p>
+<p><img src="../images/assetstudio/home-main.png" alt="首页主界面" loading="lazy"></p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/hermit-docs.html">Hermit 用了半年才发现的 6 个隐藏开关——别只把它当轻应用创建器</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 10 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/grok-ai-docs.html">Grok AI 对比评测：马斯克家的 AI，到底比别家多了什么？</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-3" href="../category/chinese-version/index.html">中文版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/oopz-docs.html">Oopz 的版本轨迹：一个语音社区产品的取舍与重心</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/readest-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用了 Readest 一周：把网页、书库和耳机串成一条线的阅读工具</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/soundhound.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">SoundHound 到底值不值得掏钱？一次性买断的账我算清楚了</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解 · 老郭软件铺</title>
+  
+<meta name="description" content="屏幕镜像时手机发热耗电快不是 bug 而是架构使然。从实时编码、RTSP 握手到 Wi-Fi 持续传输，一条链路看清楚 Cast 协议到底在手机上做了什么，以及为什么推文件就轻松得多。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/chromecast-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解">
+<meta property="og:description" content="屏幕镜像时手机发热耗电快不是 bug 而是架构使然。从实时编码、RTSP 握手到 Wi-Fi 持续传输，一条链路看清楚 Cast 协议到底在手机上做了什么，以及为什么推文件就轻松得多。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/chromecast-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/chromecast-docs/screen-mirroring.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/chromecast-docs/screen-mirroring.jpg">
+
+<meta name="twitter:title" content="为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解">
+<meta name="twitter:description" content="屏幕镜像时手机发热耗电快不是 bug 而是架构使然。从实时编码、RTSP 握手到 Wi-Fi 持续传输，一条链路看清楚 Cast 协议到底在手机上做了什么，以及为什么推文件就轻松得多。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u5c4f\u5e55\u955c\u50cf\u65f6\u624b\u673a\u53d1\u70ed\u8017\u7535\u5feb\u4e0d\u662f bug \u800c\u662f\u67b6\u6784\u4f7f\u7136\u3002\u4ece\u5b9e\u65f6\u7f16\u7801\u3001RTSP \u63e1\u624b\u5230 Wi-Fi \u6301\u7eed\u4f20\u8f93\uff0c\u4e00\u6761\u94fe\u8def\u770b\u6e05\u695a Cast \u534f\u8bae\u5230\u5e95\u5728\u624b\u673a\u4e0a\u505a\u4e86\u4ec0\u4e48\uff0c\u4ee5\u53ca\u4e3a\u4ec0\u4e48\u63a8\u6587\u4ef6\u5c31\u8f7b\u677e\u5f97\u591a\u3002", "headline": "\u4e3a\u4ec0\u4e48\u6295\u5c4f\u65f6\u624b\u673a\u70eb\u5f97\u80fd\u714e\u86cb\uff1fChromeCast \u80cc\u540e\u7684\u534f\u8bae\u6808\u62c6\u89e3", "image": ["https://laoguosofts.github.io/images/chromecast-docs/screen-mirroring.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/chromecast-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/chromecast-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "\u4e3a\u4ec0\u4e48\u6295\u5c4f\u65f6\u624b\u673a\u70eb\u5f97\u80fd\u714e\u86cb\uff1fChromeCast \u80cc\u540e\u7684\u534f\u8bae\u6808\u62c6\u89e3", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">为什么投屏时手机烫得能煎蛋？ChromeCast 背后的协议栈拆解</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">屏幕镜像时手机发热耗电快不是 bug 而是架构使然。从实时编码、RTSP 握手到 Wi-Fi 持续传输，一条链路看清楚 Cast 协议到底在手机上做了什么，以及为什么推文件就轻松得多。</p>
+  </header>
+  <div class="prose serif">
+<p>你有没有过这样的经历：手机连着电视投了 20 分钟屏幕镜像，拿起来烫手，电量还掉得比平时快三倍。一开始我以为是自己手机性能不行，换了新机型还是一样——这才意识到问题根本不在硬件，而在 <strong>ChromeCast 这条投屏链路本身的设计取舍</strong>。</p>
+<h2>问题：镜像模式 vs 推送模式，差距从哪来？</h2>
+<p>同样是把画面搬到电视上，<a href="https://chromecast.bpfl.quest" target="_blank" rel="noopener">ChromeCast官网</a>这款投屏工具有两种核心工作方式：<strong>屏幕镜像</strong>和<strong>推送本地文件</strong>。前者开 15 分钟就能让手机电池从 80% 掉到 30%，后者推一部两小时的电影，手机甚至不会发热。这背后的区别，就是整个 Cast 协议栈的设计逻辑。</p>
+<h2>拆解：镜像模式到底在手机上做了什么？</h2>
+<p>我花了点时间把 ChromeCast 的连接流程翻了个遍——<a href="https://chromecast-docs.pages.dev/" target="_blank" rel="noopener">ChromeCast文档</a>里对这段链路的描述很详细——整个链路可以拆成四段同时跑的任务。理解这四段，发热耗电的问题就不是玄学了。</p>
+<h3>第一段：屏幕持续录帧</h3>
+<p>镜像模式下，ChromeCast 需要把手机屏幕的每一个像素实时抓下来。这不是系统截图——截图是静态的，而镜像是<strong>每秒 30~60 帧的连续录屏</strong>。手机的屏幕采集层一直开着，处理器以固定频率从显示缓冲区拷贝画面数据。</p>
+<p>这本身就是一项持续的 CPU 开销，但还不是最大的。</p>
+<h3>第二段：实时视频编码</h3>
+<p>录下来的原始画面如果直接发，数据量大得离谱。一个 1080P 的屏幕，原始 RGB 数据一秒就要 370 多 MB，即使是 Wi-Fi 6 也扛不住。所以 ChromeCast 必须<strong>在手机端实时做 H.264/H.265 压缩</strong>。</p>
+<p>这才是发热的真正元凶。视频编码是计算密集型任务——处理器的多核同时跑压缩算法，频率拉满，温度自然飙升。ChromeCast 或系统投屏设置里把画质从 1080P 降到 720P，编码压力立刻小一圈，原理就在这：分辨率减半，编码的数据量直接缩到四分之一。</p>
+<h3>第三段：Wi-Fi 高速持续发送</h3>
+<p>压缩完的视频流（通常 2~8 Mbps）需要通过 Wi-Fi 持续发给 Chromecast 设备。Wi-Fi 芯片在发射模式下功耗不低，而且投屏不能断——丢一帧画面就卡一下，所以 ChromeCast 的网络层几乎是<strong>零缓冲实时发送</strong>，不会攒包再发，这意味着 Wi-Fi 芯片一直在满负荷工作。</p>
+<p>更糟的是，如果路由器和手机之间信号不好，丢包率上升，ChromeCast 会不断重传，Wi-Fi 芯片的发射时间进一步拉长，耗电和发热雪上加霜。</p>
+<h3>第四段：协议握手与状态同步</h3>
+<p>ChromeCast 和 Chromecast 之间跑的是 Google Cast 协议（基于 RTSP + WebSocket 的混合架构）。连接建立时需要握手验证，协议要求<strong>手机和 Chromecast 的系统时间差控制在 10 分钟以内</strong>——差太远握手直接失败。</p>
+<p>这个细节我一开始没注意到，后来 ChromeCast 连不上设备，排查半天才发现是手机自动对时被关了，时间漂了快半小时。把"自动获取时间"打开，重启 ChromeCast 立刻就能连上。</p>
+<p>连接建立后，Cast 协议还会持续发送心跳包和状态回传信号——电视端的播放进度、音量变化，ChromeCast 这边需要实时同步更新。这部分开销不大，但也是四个部件同时工作的最后一块拼图。</p>
+<h2>对比：推送模式为什么轻松得多？</h2>
+<p>理解了镜像模式的四段链路，推送模式的原理就反过来好懂了。<strong>推送文件时，手机根本不做实时编码，也不持续采集屏幕</strong>。</p>
+<p>ChromeCast 只是把本地视频文件一段一段地"搬"给 Chromecast。Chromecast 拿到文件后自己解码、自己播放，手机在整个过程中只承担一个"文件中转站"的角色——发完就闲下来了。这就好比镜像模式是你现场做菜给客人吃，全程站在灶台前；推送模式是你把外卖盒子递过去，客人自己打开吃。</p>
+<p>这也是为什么推送模式下手机发热应该很轻——如果推文件时手机还烫，那问题多半出在后台有别的应用在同时下载或同步，不是 ChromeCast 本身的锅。</p>
+<p><img src="../images/chromecast-docs/screen-mirroring.jpg" alt="屏幕镜像的实时编码链路" loading="lazy"></p>
+<h2>取舍：这套设计的代价是什么？</h2>
+<p>Cast 协议的整套设计，本质上是<strong>把计算压力分摊到了手机端</strong>。Chromecast 设备本身算力很弱（初代 Chromecast 的 RAM 只有 256MB），做不了实时视频编码——只能让手机来扛。如果你还没装 ChromeCast，从<a href="https://chromecast.bpfl.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿一份就行。</p>
+<p>这个取舍带来了几个实际影响：</p>
+<p><strong>第一，镜像质量直接取决于手机性能。</strong> 老手机可能卡帧、画质糊，新手机上同样的设置就流畅。ChromeCast 的编码参数是自适应的，但上限永远是手机处理器的能力。</p>
+<p><strong>第二，Wi-Fi 信号成了硬门槛。</strong> Cast 协议要求手机和 Chromecast 在同一 Wi-Fi 名字下（双频合一的路由器如果配置不当，手机和设备可能被分到不同频段，ChromeCast 就搜不到）。信号隔墙太多、距离太远，丢包率飙升，镜像体验直接崩盘。Chromecast 躲在电视背后挡信号是常见问题——附送的 HDMI 延长线就是干这个用的。</p>
+<p><strong>第三，供电方式影响稳定性。</strong> 用电视 USB 口取电的 Chromecast，电视关机时会跟着断电重启。下次开机后 Chromecast 可能还在启动中，ChromeCast 搜不到设备是常事。最稳的做法始终是用原装电源适配器插墙插，让 Chromecast 保持常电状态。</p>
+<h2>判断：它适合什么场景？</h2>
+<p>ChromeCast 的协议栈设计，决定了它是一款<strong>为"投屏辅助"而生、而非"电视替代"而生的工具</strong>。</p>
+<p>适合的场景很明确：临时展示 PPT、快速把手机上的照片视频放到大屏上看、用大屏刷视频时不想抱着手机。这些场景下推送模式够用、镜像模式用得不多，手机发热的代价在可接受范围内。</p>
+<p>不适合的场景也很清晰：长时间连续镜像（比如把手机当电视盒子用）、网络信号差的环境、老款手机。这些情况下要么手机烫得没法拿，要么画面卡顿体验糟糕。</p>
+<p>我自己的做法是：镜像模式超过 15 分钟就插电源、摘掉厚手机壳；能推文件就绝不镜像——毕竟推完之后手机放一边歇着就行，何必让它扛编码的活。</p>
+<p><img src="../images/chromecast-docs/cast-control.jpg" alt="遥控界面与Cast控制" loading="lazy"></p>
+<p>ChromeCast 的安装包约 18MB，版本号目前到 v3.0，包名是 <code>com.castfor.chromecast.remotecontrol</code>。如果你也在玩投屏，不妨多留意一下自己手机在镜像时的发热情况——那不是你的手机不行，是 ChromeCast 和 Cast 协议在替你做着一份实时编码的苦差事。完整的资料备份我同步放到了 <a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/ChromeCast" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/ChromeCast" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/ChromeCast" target="_blank" rel="noopener">GitCode</a> 三个平台，方便不同网络环境下取到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/kimichat.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">用 Kimi 大半年，踩过的那些&#34;看着简单其实有坑&#34;的瞬间</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/voov-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">Zoom 太贵、腾讯会议太挤？VooV Meeting 在视频会议工具里的生态位</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

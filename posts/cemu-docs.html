@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Cemu 三年记：从 Vulkan 还没出的 1.22 用到 Pretendo 联机的 2.6 · 老郭软件铺</title>
+  
+<meta name="description" content="2022 年初装的 Cemu，一晃从闭源末期的 OpenGL 卡到幻灯片，用到现在 2.6 稳定版 Vulkan 异步编译丝滑顺畅。说说这三年里越用越顺手的、越用越烦的，以及当初没想到它能走到的地步。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/cemu-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cemu 三年记：从 Vulkan 还没出的 1.22 用到 Pretendo 联机的 2.6">
+<meta property="og:description" content="2022 年初装的 Cemu，一晃从闭源末期的 OpenGL 卡到幻灯片，用到现在 2.6 稳定版 Vulkan 异步编译丝滑顺畅。说说这三年里越用越顺手的、越用越烦的，以及当初没想到它能走到的地步。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/cemu-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/cemu-docs/cemu-running-mario-kart.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/cemu-docs/cemu-running-mario-kart.webp">
+
+<meta name="twitter:title" content="Cemu 三年记：从 Vulkan 还没出的 1.22 用到 Pretendo 联机的 2.6">
+<meta name="twitter:description" content="2022 年初装的 Cemu，一晃从闭源末期的 OpenGL 卡到幻灯片，用到现在 2.6 稳定版 Vulkan 异步编译丝滑顺畅。说说这三年里越用越顺手的、越用越烦的，以及当初没想到它能走到的地步。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "2022 \u5e74\u521d\u88c5\u7684 Cemu\uff0c\u4e00\u6643\u4ece\u95ed\u6e90\u672b\u671f\u7684 OpenGL \u5361\u5230\u5e7b\u706f\u7247\uff0c\u7528\u5230\u73b0\u5728 2.6 \u7a33\u5b9a\u7248 Vulkan \u5f02\u6b65\u7f16\u8bd1\u4e1d\u6ed1\u987a\u7545\u3002\u8bf4\u8bf4\u8fd9\u4e09\u5e74\u91cc\u8d8a\u7528\u8d8a\u987a\u624b\u7684\u3001\u8d8a\u7528\u8d8a\u70e6\u7684\uff0c\u4ee5\u53ca\u5f53\u521d\u6ca1\u60f3\u5230\u5b83\u80fd\u8d70\u5230\u7684\u5730\u6b65\u3002", "headline": "Cemu \u4e09\u5e74\u8bb0\uff1a\u4ece Vulkan \u8fd8\u6ca1\u51fa\u7684 1.22 \u7528\u5230 Pretendo \u8054\u673a\u7684 2.6", "image": ["https://laoguosofts.github.io/images/cemu-docs/cemu-running-mario-kart.webp"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/cemu-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/cemu-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/official-site/", "name": "\u5b98\u7f51\u7248", "position": 2}, {"@type": "ListItem", "name": "Cemu \u4e09\u5e74\u8bb0\uff1a\u4ece Vulkan \u8fd8\u6ca1\u51fa\u7684 1.22 \u7528\u5230 Pretendo \u8054\u673a\u7684 2.6", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/official-site/index.html">官网版</a><span>›</span>
+    <span class="crumb-cur">Cemu 三年记：从 Vulkan 还没出的 1.22 用到 Pretendo 联机的 2.6</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-4" href="../category/official-site/index.html">官网版</a></p>
+    <h1 class="post-title serif">Cemu 三年记：从 Vulkan 还没出的 1.22 用到 Pretendo 联机的 2.6</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">2022 年初装的 Cemu，一晃从闭源末期的 OpenGL 卡到幻灯片，用到现在 2.6 稳定版 Vulkan 异步编译丝滑顺畅。说说这三年里越用越顺手的、越用越烦的，以及当初没想到它能走到的地步。</p>
+  </header>
+  <div class="prose serif">
+<p>2022 年初装的 Cemu，那时候刚发布 2.0 开源版没多久——之前它闭源了六年，社区一直在猜什么时候才会放代码。我当时是为了旷野之息，Switch 续航撑不起几个小时的探索，听说 PC 上能跑到 60 帧，就去<a href="https://cemu.gerw.hair" target="_blank" rel="noopener">Cemu官网</a>看了下系统需求然后下载了一份。</p>
+<p>一晃用到现在 2.6，版本号跳了一大截，体验也完全不是一回事。写点长期用下来的真实感受，可能对刚入坑的朋友有点参考。</p>
+<h2>变化三连：哪些越用越顺手，哪些越用越烦</h2>
+<h3>越用越顺手的三件事</h3>
+<p><strong>第一是 Vulkan 异步编译。</strong> 这是从 1.22 时代遗留下来的深刻记忆——那时候只有 OpenGL，第一次进旷野之息的初始台地，卡得像幻灯片，每两帧停一下，足足等了十分钟才把基础场景的着色器编译完。后来换了 Vulkan 后端（现在<a href="https://cemu.gerw.hair/download.html" target="_blank" rel="noopener">官方下载</a>的稳定版默认就是 Vulkan），虽然还是会卡，但卡的感觉不一样了：它在后台线程偷偷编译，主线程继续跑，画面不会真的停住，而是偶尔掉几帧。再后来学会了导入社区 Shader Cache——直接把别人编译好的缓存文件扔进 resources/shadercache/ 目录，首次进场景直接跳过编译，这一下就不卡了。</p>
+<p><strong>第二是 FPS++ 和 Graphic Pack 系统。</strong> 装 Cemu 的人十有八九是冲着"把 Wii U 游戏跑到 60 帧"来的，但很多人装好之后发现还是稳定 30 帧，以为自己显卡不行。其实不是，是游戏原生锁了 30 帧，得去 Options 里装社区 Graphic Pack，找到对应的 FPS++ 勾上，Framelimit 设成 60，Speed hack correction 也要勾上——这几步没做，再好的显卡也是白搭。不同游戏的 FPS++ 参数略有差异，我也是后来去<a href="https://cemu-docs.pages.dev/" target="_blank" rel="noopener">Cemu文档</a>翻了一下才摸清细节。我当初也踩过这个坑，对着 GPU-Z 的 90% 占用率傻看了半小时。后来发现还有分辨率 Packs，1440p 对我的 GTX 1060 刚好，4K 就有点吃力了，得自己调。</p>
+<p><strong>第三是 SDL2 GamePad。</strong> 2.6 版本把输入 API 换成了 SDL2，DS4 插上直接识别，震动也正常，不用再套个 InputMapper 或者 DS4Windows。之前我一直在用 DS4Windows 模拟 Xbox 手柄，偶尔会有按键映射错乱的问题，现在直接连就好，省心很多。</p>
+<p><img src="../images/cemu-docs/cemu-running-mario-kart.webp" alt="马里奥赛车 8 运行截图" loading="lazy"></p>
+<h3>越用越烦的三件事</h3>
+<p><strong>第一是着色器缓存膨胀。</strong> 旷野之息玩了两三个月，Shader Cache 就涨到了 400 多 MB。换显卡或者大版本升级驱动之后，Vulkan Pipeline Cache 跟 GPU 和驱动版本绑定，必须全清重编——我上个月把 1060 换成了 4060，删了 shadercache 目录里所有文件，再进游戏又经历了一遍"首次进场景疯狂卡"的阶段，足足花了一个晚上才重新编译完主要场景。OpenGL 的缓存倒是不区分硬件，但 Vulkan 才是性能主力，没法不用。</p>
+<p><strong>第二是区域版本匹配。</strong> FPS++ 是按游戏区域做的——欧版游戏要用欧版的 FPS++ Pack，日版要用日版的。我有一个欧版的马里奥赛车 8，一开始装了 USA 版本的 FPS++，跑起来还是 30 帧，折腾了一个多小时才想到去 Pack 的 README 里核对版本。还有一次 Pretendo 联机连不上，查了半天才发现那个游戏还没被 Pretendo 支持，不是我配置的问题。</p>
+<p><strong>第三是 otp.bin 和 seeprom.bin 偶尔校验失败。</strong> 这两个文件是从真机 Wii U 转储的，联机必须要有，丢了就只能重转储。我有一次 Pretendo 登录时报 "otp.bin invalid"，检查文件大小正常，位置也对，最后莫名其妙重启 Cemu 又好了。到现在也没搞清楚那次是什么原因。</p>
+<h3>碰都没再碰的那个功能</h3>
+<p>Pretendo 联机。说出来有点尴尬——2.0 版本才加的 Pretendo 支持，我当时兴致冲冲注册了 PNID，配置好了账户，也成功匹配到过人。但真正跟陌生人联机玩了两次马里奥赛车 8 之后，就没再打开过在线模式了。</p>
+<p>原因很简单：Wii U 的在线社区已经很小了， Pretendo 虽然在努力做，但匹配经常等不到人。而且模拟器联机的体验总有点微妙——延迟比原生主机高一点，偶尔有人掉线就整局崩了。我还是更喜欢自己单机跑，或者跟朋友局域网连。</p>
+<h2>一个反直觉的发现：CPU 比 GPU 更重要</h2>
+<p>这个是用了大半年之后才意识到的。一开始我以为模拟器都是 GPU 瓶颈，所以优先升级显卡。结果换了 3060 之后，旷野之息在一些复杂场景（比如哈特诺村附近）还是会掉到 40 帧左右，GPU 占用只有 60% 多，反而 CPU 单线程拉满了——Cemu 的主循环基本是单线程 JIT 转译 Wii U 指令的，单核性能才是硬伤。</p>
+<p>后来查了资料，关了 Debug 里的 "Accurate barriers (Vulkan)"，CPU 占用率立刻降了一截，帧率也稳定了。再后来笔记本插电源运行而不是用电池，CPU 不会降频，帧率又上去了 5~10 帧。这些都是当初以为"换显卡就能解决"的事，实际上是 CPU 瓶颈。</p>
+<p>给个参考：GTX 1060 + i5-8400 能跑旷野之息 40~50 帧，RTX 3060 + i5-12400 能稳 60 帧，RTX 4060 + Ryzen 5 7600 甚至能跑 4K 60 帧。差距主要在 CPU。</p>
+<h2>当初看错的几件事</h2>
+<p><strong>高估了它作为"Wii U 模拟器"的定位。</strong> 一开始以为 Cemu 就是个"把 Wii U 游戏搬上 PC"的工具，没什么好深挖的。用了三年才发现，它的 Graphic Pack 系统本身就是个 mod 平台——FPS++ 解锁帧率、分辨率增强、画面滤镜、画质提升都靠它，社区维护者几百人，更新频率比游戏本身还快。有些人专门写分辨率 Pack，把 720p 原生画面拉到 1440p 甚至 4K；有些人做 FPS++ 的区域适配，几乎每款热门游戏都能找到对应的版本。这部分生态比模拟器本身更有意思。</p>
+<p><strong>低估了着色器编译的复杂度。</strong> 之前以为卡顿就是显卡不行，后来才搞明白：Wii U 的 GPU 用自己的着色器语言，Cemu 要把它翻译成 PC GPU 能理解的代码，翻译过程就是编译，第一次遇到新场景的着色器就会卡。缓存下来之后就不卡了，但换了显卡或驱动版本又得重编。这背后的逻辑比我想象的复杂得多。</p>
+<h2>去留：会不会卸载？</h2>
+<p>不会。Cemu 是目前 PC 上唯一能跑 Wii U 独占游戏的成熟模拟器，没有第二个选项。那些说 "Cemu APK" "Cemu for Android" 的全是钓鱼网站——官方明确说过 Android 不在路线图上。</p>
+<p>如果哪天 Switch 模拟器真的稳定了，可能会分点精力过去玩 Switch 的游戏。但 Wii U 那批独占——旷野之息、马里奥赛车 8、Splatoon、异度之刃 X——在 Cemu 上跑了这么久，缓存也编好了，分辨率 Pack 也调得刚好，真不想再从头折腾一遍。</p>
+<p>什么信号出现就该换？大概是 Pretendo 联机真的做起来了，有一天能像真的 Wii U 那样随手匹配到人。但看 Pretendo 现在的进度，还有一阵子。</p>
+<p>Cemu 三年，从闭源 OpenGL 的卡，到开源 Vulkan 的丝滑，这波不亏。之前攒的 Cemu 使用笔记和截图我分了三份扔在<a href="https://github.com/alipymanbu/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Cemu" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Cemu" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E5%AE%98%E7%BD%91%E7%89%88/Cemu" target="_blank" rel="noopener">GitCode</a>上，哪个顺手用哪个。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/local-ai-docs.html">把大模型装进安卓手机——Local AI 从零上手到跑通多模态</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/gogh-docs.html">专注类工具跨界玩家 gogh：当捏人、3D 房间和番茄钟塞进同一个 App</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-4" href="../category/official-site/index.html">官网版</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/sophclaw.html">Sophclaw 快问快答：这款能跨会话记住你的 AI 到底好不好用</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/evimed-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">为什么 EviMed 把 650 万条不良反应记录和一键报告同时塞给你</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/sparkle-zh-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">把一个手机工具箱嵌进我每周的外包测试工作流</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>PingID 用起来不难，但这几个坑我踩了整整一下午 · 老郭软件铺</title>
+  
+<meta name="description" content="公司部署 PingID 之后，我从配对到日常认证踩了好几个看起来莫名其妙、查文档才恍然大悟的坑。这篇把症状、原因和解药一次性列清楚，遇到了直接对号入座。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/pingid.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PingID 用起来不难，但这几个坑我踩了整整一下午">
+<meta property="og:description" content="公司部署 PingID 之后，我从配对到日常认证踩了好几个看起来莫名其妙、查文档才恍然大悟的坑。这篇把症状、原因和解药一次性列清楚，遇到了直接对号入座。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/pingid.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/pingid/mobile-app-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/pingid/mobile-app-home.png">
+
+<meta name="twitter:title" content="PingID 用起来不难，但这几个坑我踩了整整一下午">
+<meta name="twitter:description" content="公司部署 PingID 之后，我从配对到日常认证踩了好几个看起来莫名其妙、查文档才恍然大悟的坑。这篇把症状、原因和解药一次性列清楚，遇到了直接对号入座。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u516c\u53f8\u90e8\u7f72 PingID \u4e4b\u540e\uff0c\u6211\u4ece\u914d\u5bf9\u5230\u65e5\u5e38\u8ba4\u8bc1\u8e29\u4e86\u597d\u51e0\u4e2a\u770b\u8d77\u6765\u83ab\u540d\u5176\u5999\u3001\u67e5\u6587\u6863\u624d\u604d\u7136\u5927\u609f\u7684\u5751\u3002\u8fd9\u7bc7\u628a\u75c7\u72b6\u3001\u539f\u56e0\u548c\u89e3\u836f\u4e00\u6b21\u6027\u5217\u6e05\u695a\uff0c\u9047\u5230\u4e86\u76f4\u63a5\u5bf9\u53f7\u5165\u5ea7\u3002", "headline": "PingID \u7528\u8d77\u6765\u4e0d\u96be\uff0c\u4f46\u8fd9\u51e0\u4e2a\u5751\u6211\u8e29\u4e86\u6574\u6574\u4e00\u4e0b\u5348", "image": ["https://laoguosofts.github.io/images/pingid/mobile-app-home.png"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/pingid.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/pingid.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "PingID \u7528\u8d77\u6765\u4e0d\u96be\uff0c\u4f46\u8fd9\u51e0\u4e2a\u5751\u6211\u8e29\u4e86\u6574\u6574\u4e00\u4e0b\u5348", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">PingID 用起来不难，但这几个坑我踩了整整一下午</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">PingID 用起来不难，但这几个坑我踩了整整一下午</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">公司部署 PingID 之后，我从配对到日常认证踩了好几个看起来莫名其妙、查文档才恍然大悟的坑。这篇把症状、原因和解药一次性列清楚，遇到了直接对号入座。</p>
+  </header>
+  <div class="prose serif">
+<p>公司去年上了 PingID，说是身份安全升级，所有人都得装——这个<a href="https://pingid.yoan.quest" target="_blank" rel="noopener">PingID官网</a>上标注得明明白白，它就是企业级的多因素认证方案。我一开始没当回事——不就是个手机 App 收个推送吗？结果从第一次配对开始就一路翻车，光是"为什么电脑不跳下一步"这个问题就耗了快四十分钟。最后翻了 PingID 的文档，才发现很多坑其实不是我操作错了，是 App 的行为逻辑没说清楚。现在整理下来，你要是也遇到类似症状，直接对号入座就行。</p>
+<h2>坑一：扫码配对点了半天没反应，摄像头权限被静默拒绝</h2>
+<p>第一次配对时电脑屏幕上跳出了公司给的二维码提示页面，我掏出手机打开 PingID 点"扫描二维码"，结果画面死活不启动相机。App 界面还停在主界面，也没弹任何提示。我以为是 App 卡死了，强杀重开，还是一样。</p>
+<p><img src="../images/pingid/mobile-app-home.png" alt="PingID 主界面" loading="lazy"></p>
+<p>最后在手机设置里翻了半天才发现，PingID 的相机权限被设成了"仅在使用时允许"，但 MIUI 的后台限制策略把它拦了——App 刚启动时申请权限的弹窗被系统吞了，PingID 拿不到相机权限就直接放弃，连个报错都不吐。解法很简单：手机设置里找到 PingID，把相机权限改成"始终允许"或者直接删掉 App，从<a href="https://pingid.yoan.quest/download.html" target="_blank" rel="noopener">官方下载</a>重新装一遍，第一次启动时弹窗别手抖点"否"。如果是华为 EMUI 或者小米 MIUI，除了权限还要把 PingID 加入省电白名单，不然推送通知说不定也会被系统吃掉。</p>
+<h2>坑二：配对成功了，电脑那边还卡在"正在等待移动设备"</h2>
+<p>手机上明明显示配对成功的绿色勾，公司名字和个人信息也都对得上，但电脑屏幕上就那么杵着"正在等待移动设备配对..."，刷新也没用，等了五分钟还是那样。这个症状我反复出现了两次，第一次以为是网络问题重启了路由器，第二次才摸出门道。</p>
+<p>原因是二维码有有效期。公司 IT 给的那个配对码从生成出来开始计时，有效期大概是几分钟，过了就自动作废。我那次是因为中途接了个电话，回来手机上还来得及扫，但电脑那边的二维码已经过期了，Ping 服务器把这个配对会话标记为无效，手机端虽然扫了新生成的内容，但电脑那边根本没在等——它还卡在旧会话里。解法就是让 IT 重新生成一个新的二维码，别浪费时间等。</p>
+<h2>坑三：推送通知偶尔收不到，VPN 登录卡在验证那一步</h2>
+<p>这个坑不是每次都发生，所以很难定位。表现是：连上 VPN 之后系统说"已向你的设备发送验证请求"，但手机锁屏界面啥也没有，点开 PingID App 手动刷新也看不到待处理请求。我一开始以为是公司服务器挂了，跑去问 IT，结果同事们都没事，就我一个人卡住。</p>
+<p><img src="../images/pingid/mobile-auth-screen.png" alt="PingID 推送认证界面" loading="lazy"></p>
+<p>排查下来原因有两个。第一个是国产 ROM 的杀后台机制。我的小米手机把 PingID 后台进程杀了，推送通道断了。把 PingID 加入"允许后台活动"和"无限制"电量消耗白名单之后就稳了。第二个是系统推送服务本身的问题——有时候 Google FCM 或者苹果 APNs 网络抖动，推送延迟个几分钟也是常事。这种时候别死等，打开 PingID App 主动拉一下就能看到请求，手动点个确认就过了。实在不行就用 OTP 验证码，手动填进去也能过，就是麻烦点。</p>
+<h2>坑四：身份核验自拍不过，脸都贴到框里了还是失败</h2>
+<p>入职的时候 HR 让我做身份核验，就是拍个自拍再拍个证件照，系统做人脸比对。我拍了三次，每次都提示"核验失败"。光线没问题啊，脸也在框里，还把眼镜摘了口罩摘了，怎么就过不了？</p>
+<p>最后找 IT 走了人工审核才过，人工看了一眼照片和对比结果，说我证件照是五年前拍的，胖了一圈，算法比对相似度没达标。原来是这个坑——PingID 的人脸比对算法严格度是公司 IT 配的，如果阈值设得太严，几年前拍的证件照和现在本人确实可能对不上。还有一种情况是用照片翻拍照片，算法有活体检测会拒绝。解法就是多试几次不同光线角度，实在不行找 IT 走人工，别死磕自动重试浪费时间。</p>
+<h2>坑五：桌面端装完了但开机登录界面没出 PingID 验证</h2>
+<p>我是运维岗，SSH 连服务器需要 PingID 二次验证，所以也装了桌面端 App。装完之后发现开机 Windows 登录界面没有出现 PingID 的验证步骤，直接进系统了。以为是没装好，卸载重装三次还是一样。</p>
+<p>后来去<a href="https://pingid.pages.dev/" target="_blank" rel="noopener">PingID文档</a>翻了一下才知道，PingID 的桌面端分新旧两版——新的统一归到 PingOne 产品线下，旧版叫 legacy desktop app，安装逻辑和配置方式不一样。我装的是新版，但公司 IT 配的还是旧版的身份源，两边对不上所以没生效。这个不是我能解决的，得找 IT 确认公司用的是 PingOne 还是老的 PingFederate，然后装对应的客户端版本。</p>
+<h2>防坑清单</h2>
+<ul><li><strong>权限类</strong>：装完 PingID 第一时间检查通知、相机、生物识别、网络四个权限，国产 ROM 额外加省电白名单</li><li><strong>配对类</strong>：二维码过期就重新生成，别死等电脑那边自动刷新</li><li><strong>推送类</strong>：收不到推送先手动打开 App 刷新，再检查后台白名单</li><li><strong>核验类</strong>：人脸比对不过别死磕自动重试，直接找 IT 人工审核更快</li><li><strong>版本类</strong>：装桌面端前先问清楚公司 IT 用的是新版 PingOne 还是旧版 legacy，版本对不上白折腾</li></ul>
+<h2>最后说一句</h2>
+<p>PingID 本质上是个帮企业做身份安全的工具，设计逻辑都是围绕"安全优先"来的，所以它的行为有时候显得有点僵硬。但知道上面这些坑之后，日常用起来其实相当省心——大部分时候就是掏手机按一下指纹，两秒钟搞定。真正浪费时间的从来不是操作本身，是不知道为什么它不工作时那种无头苍蝇的焦虑。这篇里提到的排查思路和注意事项，对应的软件分发资源也都在<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PingID" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PingID" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/PingID" target="_blank" rel="noopener">GitCode</a>三个仓库同步了一份，国内访问走 Gitee 或 GitCode 更快。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/furrybar-docs.html">从零玩转 FurryBar：第一次接触 AI 角色互动怎么上手</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 8 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/piascore.html">PIASCORE 避坑指南——用了半年才踩明白的六个雷</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/yazio.html">加班到深夜三个月，我终于不再被体重秤上的数字吓出冷汗</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/vnc-viewer.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">VNC Viewer 快问快答——远程控制你想知道的都在这</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/fiil.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">FIIL 耳机全系深度盘点：调音、降噪、产品矩阵一次看透</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>

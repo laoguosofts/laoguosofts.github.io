@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>Neku 迭代观察：一款头像定制工具，为什么在&#34;灵活&#34;和&#34;稳妥&#34;之间反复横跳 · 老郭软件铺</title>
+  
+<meta name="description" content="从模板锁定肤色到表情三件套配合，从帽子 VIP 限定到背景暗示故事，观察 Neku 在灵活度与稳妥性之间的取舍逻辑，反推它的迭代规律和下一步走向。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/neku-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neku 迭代观察：一款头像定制工具，为什么在&#34;灵活&#34;和&#34;稳妥&#34;之间反复横跳">
+<meta property="og:description" content="从模板锁定肤色到表情三件套配合，从帽子 VIP 限定到背景暗示故事，观察 Neku 在灵活度与稳妥性之间的取舍逻辑，反推它的迭代规律和下一步走向。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/neku-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/neku-docs/neku-template-start.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/neku-docs/neku-template-start.jpg">
+
+<meta name="twitter:title" content="Neku 迭代观察：一款头像定制工具，为什么在&#34;灵活&#34;和&#34;稳妥&#34;之间反复横跳">
+<meta name="twitter:description" content="从模板锁定肤色到表情三件套配合，从帽子 VIP 限定到背景暗示故事，观察 Neku 在灵活度与稳妥性之间的取舍逻辑，反推它的迭代规律和下一步走向。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ece\u6a21\u677f\u9501\u5b9a\u80a4\u8272\u5230\u8868\u60c5\u4e09\u4ef6\u5957\u914d\u5408\uff0c\u4ece\u5e3d\u5b50 VIP \u9650\u5b9a\u5230\u80cc\u666f\u6697\u793a\u6545\u4e8b\uff0c\u89c2\u5bdf Neku \u5728\u7075\u6d3b\u5ea6\u4e0e\u7a33\u59a5\u6027\u4e4b\u95f4\u7684\u53d6\u820d\u903b\u8f91\uff0c\u53cd\u63a8\u5b83\u7684\u8fed\u4ee3\u89c4\u5f8b\u548c\u4e0b\u4e00\u6b65\u8d70\u5411\u3002", "headline": "Neku \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4e00\u6b3e\u5934\u50cf\u5b9a\u5236\u5de5\u5177\uff0c\u4e3a\u4ec0\u4e48\u5728\"\u7075\u6d3b\"\u548c\"\u7a33\u59a5\"\u4e4b\u95f4\u53cd\u590d\u6a2a\u8df3", "image": ["https://laoguosofts.github.io/images/neku-docs/neku-template-start.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/neku-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/neku-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/download/", "name": "\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "Neku \u8fed\u4ee3\u89c2\u5bdf\uff1a\u4e00\u6b3e\u5934\u50cf\u5b9a\u5236\u5de5\u5177\uff0c\u4e3a\u4ec0\u4e48\u5728\"\u7075\u6d3b\"\u548c\"\u7a33\u59a5\"\u4e4b\u95f4\u53cd\u590d\u6a2a\u8df3", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/download/index.html">下载</a><span>›</span>
+    <span class="crumb-cur">Neku 迭代观察：一款头像定制工具，为什么在&#34;灵活&#34;和&#34;稳妥&#34;之间反复横跳</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-0" href="../category/download/index.html">下载</a></p>
+    <h1 class="post-title serif">Neku 迭代观察：一款头像定制工具，为什么在&#34;灵活&#34;和&#34;稳妥&#34;之间反复横跳</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 8 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">从模板锁定肤色到表情三件套配合，从帽子 VIP 限定到背景暗示故事，观察 Neku 在灵活度与稳妥性之间的取舍逻辑，反推它的迭代规律和下一步走向。</p>
+  </header>
+  <div class="prose serif">
+<p>我第一次用<a href="https://neku.fwen.ren" target="_blank" rel="noopener">Neku官网</a>的时候，安装包从<a href="https://neku.fwen.ren/download.html" target="_blank" rel="noopener">官方下载</a>拿，第一反应是——它在一些地方异常灵活，在另一些地方又异常顽固。</p>
+<p>灵活到什么程度？模板选好之后，脸型的下颌宽度、额头高度、下巴尖度、脸部长度都能用滑杆拉到极端值，方圆长短之间几乎没有不可触及的脸型。眉毛有平直、弯曲、厚重三种基本风格十几款可选，颜色还能独立调，银发配深灰眉这种常见搭配完全没问题。表情系统更有意思——嘴型、眼睛、眉毛三件套一起配合，能精准调出开心、难过、生气、惊讶、傲娇五种情绪，每一种都有明确的部件组合逻辑。配饰层面，圆框眼镜配西装暗示知识分子、眼罩配伤痕贴纸暗示战士、驯鹿角发饰配毛衣暗示温暖治愈系，一两个小物件就能传递角色身份。背景也不是随便选的——书桌台灯笔记本对应学生学者设定，森林树影光斑对应自然精灵设定，赛博朋克街区霓虹对应未来科幻设定。</p>
+<p>但顽固到什么程度？肤色一经模板选定就锁死了，后续没有任何调整入口。开发者给出的理由是肤色涉及五官阴影和腮红的色号联动，开放调节容易导致穿帮——我实测过同类应用，确实很少有能把肤色调得不出错的，锁死反而是稳妥的选择。眉毛没有"无眉"选项，最低只能调到极细，想做外星人风格或光头角色的用户只能凑活。帽子里 VIP 限定款的比例比其他配饰高，尤其是节日主题包的限定帽，基本都是付费独占。少数帽子有可调参数（帽檐宽度、颜色、徽章），但大部分没有滑杆。</p>
+<p>这种反差感太有意思了。它让我好奇：Neku 是怎么走到今天这一步的？那些灵活的部分是怎么一步步加进来的？那些顽固的部分是一直就那样，还是曾经想过开放但放弃了？</p>
+<h2>来路：从模板起步到故事感暗示</h2>
+<p>后来去<a href="https://neku-docs.pages.dev/" target="_blank" rel="noopener">Neku文档</a>翻了一下才确认，文档里没有写版本号和更新日志，所以我只能从功能的层次结构反推迭代路径。但文档没提的部分恰恰说明一件事——Neku 的开发者不喜欢大张旗鼓地 changelog，更倾向于让功能自然地长在已有的骨架上，而不是每次更新都推翻重来。</p>
+<p>最早的核心应该是模板系统。选好模板后脸型能大范围调整，这说明模板的定位更像是"起点"而非"终点"——开发者从一开始就不想让用户被模板框死。但肤色锁死这个设计，我猜是在早期就定下来的，而且很可能是踩过坑之后的决策。开放肤色调配的复杂度远超一般用户的想象，阴影、腮红、眼部高光这些附属元素的色号必须跟肤色联动，任何一个环节没跟上就会穿帮。干脆锁死，省了用户的麻烦，也省了自己维护多个联动参数的成本。</p>
+<p><img src="../images/neku-docs/neku-template-start.jpg" alt="从模板起步，再用滑杆大范围调整脸型" loading="lazy"></p>
+<p>然后加的应该是五官部件的可替换系统。眉毛十几种样式、眼睛有不同形状、嘴型有多种选择，这一层是在模板骨架之上搭的第一个"可插拔"模块。眉毛颜色独立调、跟头发色板分开，这个细节很能说明问题——开发者在部件之间做了"有限解耦"，既不强制眉毛颜色跟着头发走，也不开放完全自由的调色板，而是给了一套预设色板，在灵活和可控之间找平衡。</p>
+<p>接下来是表情系统。单独换嘴就能变表情，但效果单一；三件套一起配合才能精准调出情绪——这说明表情功能不是一次性设计好的，而是从"换嘴"这个最简版本迭代到了"三件套联动"的完整方案。那个情绪-嘴型-眼睛-眉毛的对应表格，大概率是开发者内部调试时积累下来的经验值，后来直接写进了文档。</p>
+<p><img src="../images/neku-docs/neku-editor-layers.jpg" alt="编辑器的多层部件结构，每个部件都能独立调" loading="lazy"></p>
+<p>再往后是配饰和背景的"故事感暗示"。帽子、眼镜、纹身这些小配饰能快速传递身份，背景选择能暗示角色设定——这一层我觉得是 Neku 的差异化竞争力所在。同类应用大多停留在"部件替换"层面，Neku 走到了"组合暗示"这一步。而且它刻意不做"堆砌"，文档里明确说一两个暗示就够，多了反而乱——这个指导原则本身就是产品观的体现。</p>
+<p>VIP 限定帽子的出现，应该是商业化尝试的结果。节日主题包、限定款独占，这是很成熟的变现模式，但比例比其他配饰高这件事，说明帽子可能是 Neku 里设计成本最高的单品。兜帽/头套这种完全盖住发型的类型，甚至会让精心调好的发型白调——开发者没有在"帽子遮挡发型"这个问题上做技术优化，而是直接让用户自己选遮挡程度不同的帽子类型。这个决策很"产品经理"——不做技术层面的完美方案，而是给用户选择权。</p>
+<h2>规律：他们一直在死磕什么</h2>
+<p>从功能的取舍里能看清楚 Neku 团队的优先级。</p>
+<p>他们一直在死磕的，是"部件之间的联动是否自然"。表情三件套必须一起配合、眉形方向和眼睛方向要呼应、眉毛粗细和眼睛大小要成比例、肤色锁死是为了不让阴影穿帮、故事感暗示不要堆砌——这些决策背后的逻辑是一致的：宁可牺牲一点灵活度，也要保证组合出来的结果是"自然的"。</p>
+<p>他们没怎么管的，是"极端场景的覆盖"。没有无眉选项、部分帽子没有滑杆、肤色不能调、返回首页半成品不自动保存——这些都是极端用户才会遇到的问题，而且解决成本不低。Neku 团队在这些地方选择了"够用就行"的策略。</p>
+<p>还有一个有意思的点：VIP 限定集中在帽子而不是其他配饰。这说明帽子的设计难度最高——既要保证遮挡发型的逻辑正确，又要支持不同脸型的适配，还要考虑和头饰的叠放层级。节日主题包的限定帽大概率是团队花了额外精力做的，所以用付费来覆盖成本。</p>
+<h2>预判：照这个路线，下一步大概率是什么</h2>
+<p>我猜的，不是官方口径。</p>
+<p>第一条线：开放肤色调配，但不是完全自由调色板，而是给一套和阴影腮红联动好的预设肤色方案。这样既解决了"想换肤色但模板锁死"的问题，又不会牺牲自然度——符合他们"有限解耦"的一贯做法。</p>
+<p>第二条线：更多配饰的故事感组合指南。现在文档里只有少数几组暗示组合，比如圆框眼镜+西装、眼罩+伤痕贴纸。如果能把配饰和背景的搭配逻辑整理成更系统的"风格预设"，比如"赛博朋克少女"自动配齐霓虹背景+机械护臂+单侧挑眉，会大幅降低新手的组合成本。</p>
+<p>第三条线：解决返回首页不自动保存的问题。这个是用户体验层面的明显短板，而且改动成本不高——只要在离开编辑界面时弹个提醒或者自动存进草稿箱就行，应该会在某个小版本里补上。</p>
+<p>但我不确定他们会不会把眉毛的"无眉"选项加上。那个改动虽小，但破坏了"眉毛粗细和眼睛大小成比例"的整体原则——如果真的做无眉，那眼睛的显示逻辑也要跟着调整。对 Neku 团队来说，这种"牵一发而动全身"的改动优先级应该不会太高。</p>
+<p>说到底，Neku 是一款很克制的产品。它不追求每个参数都开放、每个极端场景都覆盖，但在它在意的那个维度上——部件组合的自然感——它花了大量心思。这种克制在同类应用里其实挺少见的。我把这套观察整理成笔记，在<a href="https://github.com/alipymanbu/APK/tree/main/%E4%B8%8B%E8%BD%BD/neku" target="_blank" rel="noopener">GitHub</a>、<a href="https://gitee.com/manbu1103/APK/tree/main/%E4%B8%8B%E8%BD%BD/neku" target="_blank" rel="noopener">Gitee</a>、<a href="https://gitcode.com/qq352325405/APK/tree/main/%E4%B8%8B%E8%BD%BD/neku" target="_blank" rel="noopener">GitCode</a>三个仓库都能找到。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 6 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/metv-docs.html">MeTV 版本进化史：从&#34;一个能看就行&#34;到&#34;换台不卡才敢用&#34;的五年迭代</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 9 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/blurrr-docs.html">Blurrr 本地 AI 与参数化特效管线——手机端凭什么跑出桌面级剪辑</a></h2>
+  
+</article>
+
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-0" href="../category/download/index.html">下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/picnic-docs.html">用了大半年 picnic：从攒棉花糖到看周榜，哪些习惯真的留了下来</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/otter-docs.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">边说边出字：Otter 实时转写背后的云端管道</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/devcheck-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">DevCheck 快问快答：二手机验机到底能不能靠它</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>
