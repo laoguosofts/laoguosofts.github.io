@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://laoguosofts.github.io/sitemap.xml
