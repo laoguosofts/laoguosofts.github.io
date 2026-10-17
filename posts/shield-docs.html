@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7f2">
+  <title>我是怎么用一套手机端工具从需求到 APK 全走完小工具开发的 · 老郭软件铺</title>
+  
+<meta name="description" content="以前给家人和同事做安卓小工具，找现成安装包要么功能不对要么来路可疑，自己上 Android Studio 又太折腾。这套工具链让我在手机上从写代码到打包安装一条龙完成，整条流程跑通后我把它固定成了自己的轻量交付流水线。">
+<link rel="canonical" href="https://laoguosofts.github.io/posts/shield-docs.html">
+<meta property="og:site_name" content="老郭软件铺">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我是怎么用一套手机端工具从需求到 APK 全走完小工具开发的">
+<meta property="og:description" content="以前给家人和同事做安卓小工具，找现成安装包要么功能不对要么来路可疑，自己上 Android Studio 又太折腾。这套工具链让我在手机上从写代码到打包安装一条龙完成，整条流程跑通后我把它固定成了自己的轻量交付流水线。">
+<meta property="og:url" content="https://laoguosofts.github.io/posts/shield-docs.html">
+<meta property="og:locale" content="zh_CN">
+
+<meta property="og:image" content="https://laoguosofts.github.io/images/shield-docs/editor-code.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://laoguosofts.github.io/images/shield-docs/editor-code.jpg">
+
+<meta name="twitter:title" content="我是怎么用一套手机端工具从需求到 APK 全走完小工具开发的">
+<meta name="twitter:description" content="以前给家人和同事做安卓小工具，找现成安装包要么功能不对要么来路可疑，自己上 Android Studio 又太折腾。这套工具链让我在手机上从写代码到打包安装一条龙完成，整条流程跑通后我把它固定成了自己的轻量交付流水线。">
+<meta property="article:published_time" content="2026-10-17">
+<meta property="article:author" content="老郭">
+
+  <meta name="author" content="老郭">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/atom+xml" title="老郭软件铺" href="../atom.xml">
+  <link rel="stylesheet" href="../style.css">
+  
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "author": {"@type": "Person", "name": "\u8001\u90ed"}, "dateModified": "2026-10-17", "datePublished": "2026-10-17", "description": "\u4ee5\u524d\u7ed9\u5bb6\u4eba\u548c\u540c\u4e8b\u505a\u5b89\u5353\u5c0f\u5de5\u5177\uff0c\u627e\u73b0\u6210\u5b89\u88c5\u5305\u8981\u4e48\u529f\u80fd\u4e0d\u5bf9\u8981\u4e48\u6765\u8def\u53ef\u7591\uff0c\u81ea\u5df1\u4e0a Android Studio \u53c8\u592a\u6298\u817e\u3002\u8fd9\u5957\u5de5\u5177\u94fe\u8ba9\u6211\u5728\u624b\u673a\u4e0a\u4ece\u5199\u4ee3\u7801\u5230\u6253\u5305\u5b89\u88c5\u4e00\u6761\u9f99\u5b8c\u6210\uff0c\u6574\u6761\u6d41\u7a0b\u8dd1\u901a\u540e\u6211\u628a\u5b83\u56fa\u5b9a\u6210\u4e86\u81ea\u5df1\u7684\u8f7b\u91cf\u4ea4\u4ed8\u6d41\u6c34\u7ebf\u3002", "headline": "\u6211\u662f\u600e\u4e48\u7528\u4e00\u5957\u624b\u673a\u7aef\u5de5\u5177\u4ece\u9700\u6c42\u5230 APK \u5168\u8d70\u5b8c\u5c0f\u5de5\u5177\u5f00\u53d1\u7684", "image": ["https://laoguosofts.github.io/images/shield-docs/editor-code.jpg"], "inLanguage": "zh-CN", "mainEntityOfPage": {"@id": "https://laoguosofts.github.io/posts/shield-docs.html", "@type": "WebPage"}, "publisher": {"@type": "Person", "name": "\u8001\u90ed"}, "url": "https://laoguosofts.github.io/posts/shield-docs.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://laoguosofts.github.io/", "name": "\u9996\u9875", "position": 1}, {"@type": "ListItem", "item": "https://laoguosofts.github.io/category/software-download/", "name": "\u8f6f\u4ef6\u4e0b\u8f7d", "position": 2}, {"@type": "ListItem", "name": "\u6211\u662f\u600e\u4e48\u7528\u4e00\u5957\u624b\u673a\u7aef\u5de5\u5177\u4ece\u9700\u6c42\u5230 APK \u5168\u8d70\u5b8c\u5c0f\u5de5\u5177\u5f00\u53d1\u7684", "position": 3}]}</script>
+
+
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="masthead">
+  <div class="wrap masthead-top">
+    <p class="masthead-date serif">老郭 的软件杂货铺 · 常年营业</p>
+    <p class="masthead-date serif">Vol. 2026</p>
+  </div>
+  <div class="wrap masthead-bar">
+    <a class="masthead-logo serif" href="../index.html">老郭软件铺</a>
+    <nav class="site-nav" aria-label="站内导航">
+      <a href="../index.html">首页</a>
+      <a href="../archive.html">过刊</a>
+      <a href="../about.html">关于</a>
+      <a href="../atom.xml" class="rss">RSS</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<article class="post">
+  <nav class="crumbs serif" aria-label="面包屑">
+    <a href="../index.html">首页</a><span>›</span>
+    <a href="../category/software-download/index.html">软件下载</a><span>›</span>
+    <span class="crumb-cur">我是怎么用一套手机端工具从需求到 APK 全走完小工具开发的</span>
+  </nav>
+  <header class="post-head">
+    <p class="post-kicker serif"><a class="tag tag-2" href="../category/software-download/index.html">软件下载</a></p>
+    <h1 class="post-title serif">我是怎么用一套手机端工具从需求到 APK 全走完小工具开发的</h1>
+    <div class="post-meta serif">
+      <time datetime="2026-10-17">2026-10-17</time>
+      <span class="dot">·</span><span>约 7 分钟</span>
+      <span class="dot">·</span><span>掌柜 老郭</span>
+    </div>
+    <p class="post-lede serif">以前给家人和同事做安卓小工具，找现成安装包要么功能不对要么来路可疑，自己上 Android Studio 又太折腾。这套工具链让我在手机上从写代码到打包安装一条龙完成，整条流程跑通后我把它固定成了自己的轻量交付流水线。</p>
+  </header>
+  <div class="prose serif">
+<h2>旧流程：给人做小工具每次都在绕路</h2>
+<p>我每月会被家人或同事找好几次，需求都不大但很具体：帮我妈做个买菜清单、仓库盘点想有个扫码登记、同事要个排班倒计时……以前这些活我有两种选择，但都不舒坦。</p>
+<p>第一种是去各大应用商店搜关键词。搜"清单"出来一堆，看评论筛选、装了卸、卸了再装，偶尔能碰到一个勉强能改的，但大部分时候功能总差点意思。而且第三方来源的安装包总让人心里打鼓，来源与完整性都没有保证——装上用两天没问题还好，真出点事找不到人。</p>
+<p>第二种是自己动手，拿电脑开 Android Studio 从零搭。Java/Kotlin 写界面要碰 XML 布局、Gradle 构建慢、连真机调试还要开 USB 调试……一个功能简单的小玩意，环境准备加上代码来回试，一整天就没了。我不是专业开发，为了一个几十行逻辑的小工具折腾 IDE 构建链，性价比实在不高。</p>
+<p>后来我才知道还有第三条路：在手机上直接完成整个开发流程——用 Lua 语言写、不用碰 XML、几秒钟打出能装的 APK 安装包。这套方案的来龙去脉社区里沿用多年了，叫 AndroLua+，这个应用是它的现代壳，界面更顺手。它的<a href="https://shield.djnf.quest" target="_blank" rel="noopener">官网</a>上能看到完整的项目介绍，核心能力有三条：调用绝大部分安卓 API、用布局表写界面不用碰 XML、把工程直接打包成 APK 装在手机上就是独立应用。想自己试试的话，Shield安装包从<a href="https://shield.djnf.quest/download.html" target="_blank" rel="noopener">官方下载</a>拿，装上之后整条流程就在手机上跑。</p>
+<h2>新流程：五步从 ALP 到交付 APK</h2>
+<p>整条链我现在基本固定了。拿到需求不写代码先，第一步是去市场找现成的工程当起点。</p>
+<p>市场里按类型归档了在线文件，数量最大的一类叫 ALP——AndroLua+ 工程文件，3215 个。它是把 <code>main.lua</code>、<code>layout.aly</code>、<code>init.lua</code> 一整套工程打包成单文件的形态，拿到手在编辑器里打开就是完整工程。不用白手起家，搜关键词比如"清单""计时""登记"，总能找到一个结构接近的，改改就有基础。</p>
+<p><img src="../images/shield-docs/editor-code.jpg" alt="在编辑器里打开 ALP 工程直接改" loading="lazy"></p>
+<p>第二步进编辑器改。界面用布局表写，不是 XML——一张表描述控件、位置、尺寸，想改按钮文字直接改那一行字符串就行。主逻辑在 <code>main.lua</code> 里写，Lua 语言调安卓 API 的桥社区已经搭好了，本地存储、通知、传感器这些直接调用现成模块，不用自己写桥接层。</p>
+<p>第三步是那个叫 init.lua 的三行文件。它管应用名、版本号、包名——打包规则就一句话：目录下放了 init.lua 且三行齐全，整个目录的 lua 文件一起打包，main.lua 当入口；没有就只打包当前文件。这个规则省了我至少半小时的构建配置时间，不用 Gradle，不用改配置文件，三个字符串写对就行。摸不准打包入口藏在哪个菜单的，去<a href="https://shield-docs.pages.dev/" target="_blank" rel="noopener">Shield文档</a>翻一眼就清楚。</p>
+<p>第四步打包。找到打包入口点一下，几秒后 APK 就落在工程目录附近。打包用的是 debug 签名——自己装机完全够用，调试签名对系统来说就是"这是个完整的应用包"。装自己手机跑一遍，桌面点开、走完整条流程逻辑、界面没变形，这一版就算过了。</p>
+<p>第五步备份和分发。这里有个好用的细节：工具箱里有"安装包提取"功能，能把手机上已装的应用反向导出成 APK。我用它把自己手机上跑通的版本再提一份出来，存网盘做异地备份——万一哪天手机恢复出厂设置了，不用重新从头搭。分发就直接微信传 APK 给用的人，对方装上就是完整应用。</p>
+<p><img src="../images/shield-docs/tools-page.png" alt="工具箱页面，安装包提取是常用的一环" loading="lazy"></p>
+<h2>流程里最容易断的两个环节</h2>
+<p>整条链跑下来最容易卡住的地方我遇到过两次，现在有经验了。</p>
+<p>第一个是 init.lua 写得不规范导致打包失败。三行的结构是固定的，少一行或多了个不可见字符，打包器会默默跳过。后来我每次打包前都手动打开 init.lua 扫一眼三行是不是齐全，或者直接把一个标准 init.lua 当模板存网盘，每次拉下来改字符串值就行。</p>
+<p>第二个是布局表改乱了导致界面打不开。布局表是缩进敏感的，某个子控件缩进错一级，界面渲染就直接崩。我现在改布局表只做两类操作：要么在现有控件里改文字属性，要么复制一整行改——绝不自己凭空写新的缩进层级。真要加新控件，就从市场里找一个结构相近的 ALP，把那段布局表原样搬过来再改。</p>
+<h2>效果算账：省了多少事</h2>
+<p>这条流程帮我省的不是"几小时"这种模糊的话，而是具体的环节数。</p>
+<p>旧流程里最耗时的是<strong>环境准备和白手起手写界面</strong>。Android Studio 装一次环境半小时起步，XML 布局从零搭一个带列表和按钮的界面要一两个小时。现在从 ALP 改起，界面改字改位置十五分钟搞定，不用碰任何 XML 标签。</p>
+<p>第二个省的是<strong>构建和测试</strong>。旧流程里改完代码跑一遍要等 Gradle 同步、编译、推送到手机调试，一轮下来五分钟。现在打包几秒出 APK，点安装直接进应用——改完马上看效果，反馈间隔从分钟级降到秒级。</p>
+<p>当然这套流程不是万能的。它适合需求明确、功能不复杂的轻量小工具。要是真要做一个几百屏、需要持续迭代、上应用商店分发的正式产品，这套 debug 签名的打包结果就不够用了——正式发布需要发布签名，而且手机端编辑的协作效率远不如电脑端 IDE。</p>
+<p>但对于我这种每月被找三四次、每次需求都是"帮个小忙"的场景来说，这套流程把我从"拒绝还是硬扛"的两难里解放出来了。接到需求打开应用，找个 ALP 当起点，改布局改逻辑，打包装自己手机跑一遍，十分钟后就能把 APK 发出去。我把这套工具的文档和示例工程同步到了三个仓库，<a href="https://github.com/alipymanbu/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Shield" target="_blank" rel="noopener">GitHub</a>是主入口，<a href="https://gitee.com/manbu1103/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Shield" target="_blank" rel="noopener">Gitee</a>和<a href="https://gitcode.com/qq352325405/APK/tree/main/%E8%BD%AF%E4%BB%B6%E4%B8%8B%E8%BD%BD/Shield" target="_blank" rel="noopener">GitCode</a>作为备份，国内网络不好的时候换个地址就能拉。</p>
+  </div>
+</article>
+
+<section class="front-section">
+  <h2 class="sec-head serif">隔壁货架</h2>
+  <div class="col-grid cols-3">
+    
+<article class="col">
+  <div class="col-meta">
+    <a class="tag tag-2" href="../category/software-download/index.html">软件下载</a>
+    <span class="col-date"><time datetime="2026-10-17">2026-10-17</time> · 约 7 分钟</span>
+  </div>
+  <h2 class="col-title serif"><a href="../posts/fga-docs.html">FGA 挂机半年才挖到的隐藏开关——助战兜底、换人编码、停止条件全中</a></h2>
+  
+</article>
+
+  </div>
+</section>
+
+<nav class="post-nav" aria-label="相邻文章">
+  
+  <a class="pn-box pn-prev" href="../posts/win7simu.html">
+    <span class="pn-label serif">‹ 早一篇上架</span>
+    <span class="pn-title serif">Win7 Simu 深度对比：Android 上还原 Win7 体验，它凭什么比同类多了一份&#34;情怀诚意&#34;</span>
+  </a>
+  
+  
+  <a class="pn-box pn-next" href="../posts/tin-docs.html">
+    <span class="pn-label serif">晚一篇上架 ›</span>
+    <span class="pn-title serif">深度盘点 Tin：把追星照片变成数字收藏册的全部玩法</span>
+  </a>
+  
+</nav>
+
+</main>
+<footer class="paperfoot">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <p class="foot-logo serif">老郭软件铺</p>
+      <p class="foot-text">老郭软件铺 · 件件都上手试过</p>
+    </div>
+    <div class="foot-col">
+      <h3 class="serif">铺内导航</h3>
+      <ul>
+        <li><a href="../index.html">首页</a></li>
+        <li><a href="../archive.html">过刊</a></li>
+        <li><a href="../about.html">关于</a></li>
+        <li><a href="../atom.xml">RSS 订阅</a></li>
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bar">
+    <p>© 2026 老郭 · 老郭软件铺</p>
+    <p class="serif">纸上得来终觉浅，绝知软件要躬行</p>
+  </div>
+</footer>
+<button class="to-top" id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+<script>
+(function () {
+  var b = document.getElementById('toTop');
+  if (!b) return;
+  function f() { b.classList.toggle('show', window.scrollY > 600); }
+  window.addEventListener('scroll', f, { passive: true });
+  f();
+  b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>
